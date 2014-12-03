@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- Video Wall -->
+	<include name="VideoWall">
+		<control type="group">
+			<visible>Control.IsVisible(500) + !Window.IsActive(addoninformation)</visible>
+			<include>ViewAnimation</include>
+			<control type="panel" id="500">
+				<left>120</left>
+				<top>188</top>
+				<width>1680</width>
+				<height>720</height>
+				<onleft>SetProperty(MediaMenu,True,home)</onleft>
+				<onleft>SetFocus(9050)</onleft>
+				<onright>60</onright>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(addons) | [Container.Content(files) + Container(500).HasFiles]</visible>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<itemlayout height="360" width="240" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>240</width>
+						<height>360</height>
+						<texture>background.png</texture>
+						<fadetime>400</fadetime>
+						<colordiffuse>background</colordiffuse>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>240</width>
+						<height>360</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[PosterThumb]</texture>
+						<fadetime>400</fadetime>
+						<colordiffuse>BAffffff</colordiffuse>
+					</control>
+					<control type="image">
+						<left>180</left>
+						<top>0</top>
+						<width>60</width>
+						<height>60</height>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
+					</control>
+				</itemlayout>
+				<focusedlayout height="360" width="240" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)">
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+						</animation>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>240</width>
+							<height>360</height>
+							<texture>background.png</texture>
+							<fadetime>400</fadetime>
+							<colordiffuse>background</colordiffuse>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>240</width>
+							<height>360</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$VAR[PosterThumb]</texture>
+							<fadetime>400</fadetime>
+							<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="image">
+							<left>172</left>
+							<top>8</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+				<itemlayout height="240" width="240" condition="Container.Content(addons)">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>240</width>
+						<height>240</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<fadetime>400</fadetime>
+						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
+						<bordersize>2</bordersize>
+						<colordiffuse>BAffffff</colordiffuse>
+					</control>
+				</itemlayout>
+				<focusedlayout height="240" width="240" condition="Container.Content(addons)">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>240</width>
+						<height>240</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<fadetime>400</fadetime>
+						<bordertexture border="8">thumbs/thumbnail_focused.png</bordertexture>
+						<bordersize>8</bordersize>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+						</animation>
+					</control>
+				</focusedlayout>
+				<itemlayout height="360" width="420" condition="Container.Content(files) | Container.Content(episodes)">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>420</width>
+						<height>360</height>
+						<texture>background.png</texture>
+						<fadetime>400</fadetime>
+						<colordiffuse>background</colordiffuse>
+					</control>
+					<control type="image">
+						<visible>!IsEmpty(ListItem.Thumb)</visible>
+						<left>0</left>
+						<top>0</top>
+						<width>420</width>
+						<height>360</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+						<fadetime>400</fadetime>
+						<colordiffuse>BAffffff</colordiffuse>
+					</control>
+					<control type="image">
+						<left>321</left>
+						<top>-1</top>
+						<width>100</width>
+						<height>100</height>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
+						<bordersize>1</bordersize>
+					</control>
+					<control type="image">
+						<top>310</top>
+						<width>420</width>
+						<height>50</height>
+						<texture>black.png</texture>
+						<colordiffuse>88ffffff</colordiffuse>
+					</control>
+					<control type="label">
+						<top>310</top>
+						<width>420</width>
+						<height>40</height>
+						<align>center</align>
+						<textoffsetx>10</textoffsetx>
+						<textcolor>grey</textcolor>
+						<info>ListItem.Label</info>
+					</control>
+				</itemlayout>
+				<focusedlayout height="360" width="420" condition="Container.Content(files) | Container.Content(episodes)">
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+						</animation>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>420</width>
+							<height>360</height>
+							<texture>background.png</texture>
+							<fadetime>400</fadetime>
+							<colordiffuse>background</colordiffuse>
+						</control>
+						<control type="image">
+							<visible>!IsEmpty(ListItem.Thumb)</visible>
+							<left>0</left>
+							<top>0</top>
+							<width>420</width>
+							<height>360</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<fadetime>400</fadetime>
+							<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="image">
+							<left>320</left>
+							<top>0</top>
+							<width>100</width>
+							<height>100</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="image">
+							<left>6</left>
+							<top>310</top>
+							<width>408</width>
+							<height>44</height>
+							<texture>black.png</texture>
+							<bordersize>2</bordersize>
+							<colordiffuse>88ffffff</colordiffuse>
+						</control>
+						<control type="label">
+							<top>310</top>
+							<width>420</width>
+							<height>40</height>
+							<align>center</align>
+							<textoffsetx>10</textoffsetx>
+							<info>ListItem.Label</info>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="60">
+				<left>1906</left>
+				<top>30</top>
+				<width>14</width>
+				<height>1035</height>
+				<onleft>50</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9050)</onright>
+				<ondown>60</ondown>
+				<onup>60</onup>
+			</control>
+			<control type="group">
+				<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
+				<control type="button">
+					<top>980</top>
+					<left>90</left>
+					<width>1740</width>
+					<height>90</height>
+					<font>font16_title</font>
+					<textcolor>white</textcolor>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<label2>[B]$INFO[ListItem.Label2][/B]</label2>
+					<textoffsetx>30</textoffsetx>
+					<texturenofocus>-</texturenofocus>
+					<enable>no</enable>
+					<disabledcolor>white</disabledcolor>
+				</control>
+			</control>
+		</control>
+	</include>
+	<!-- Music Wall -->
+	<include name="MusicWall">
+		<control type="group">
+			<visible>Control.IsVisible(500) + !Window.IsActive(addoninformation)</visible>
+			<include>ViewAnimation</include>
+			<control type="panel" id="500">
+				<left>120</left>
+				<top>188</top>
+				<width>1680</width>
+				<height>720</height>
+				<onleft>SetProperty(MediaMenu,True,home)</onleft>
+				<onleft>SetFocus(9050)</onleft>
+				<onright>60</onright>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<pagecontrol>60</pagecontrol>
+				<visible>Container.Content(artists) | Container.Content(albums)</visible>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<itemlayout height="240" width="240">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>240</width>
+						<height>240</height>
+						<texture>background.png</texture>
+						<fadetime>400</fadetime>
+						<colordiffuse>background</colordiffuse>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>240</width>
+						<height>240</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<fadetime>400</fadetime>
+						<colordiffuse>BAffffff</colordiffuse>
+					</control>
+					<control type="group">
+						<visible>Container.Content(artists)</visible>
+						<control type="image">
+							<top>190</top>
+							<width>240</width>
+							<height>50</height>
+							<texture>black.png</texture>
+							<colordiffuse>88ffffff</colordiffuse>
+						</control>
+						<control type="label">
+							<top>200</top>
+							<width>240</width>
+							<height>30</height>
+							<align>center</align>
+							<textoffsetx>4</textoffsetx>
+							<textcolor>grey</textcolor>
+							<info>ListItem.Label</info>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="240" width="240">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>240</width>
+						<height>240</height>
+						<texture>background.png</texture>
+						<fadetime>400</fadetime>
+						<colordiffuse>background</colordiffuse>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>240</width>
+						<height>240</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<fadetime>400</fadetime>
+						<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+						<bordersize>8</bordersize>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+						</animation>
+					</control>
+					<control type="group">
+						<visible>Container.Content(artists)</visible>
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="100" end="0" time="100" tween="sine" easing="in" />
+							<effect type="slide" start="0,0" end="0,30" time="200" tween="sine" easing="in" />
+						</animation>
+						<control type="image">
+							<top>190</top>
+							<width>240</width>
+							<height>50</height>
+							<texture>black.png</texture>
+							<bordersize>8</bordersize>
+							<colordiffuse>88ffffff</colordiffuse>
+						</control>
+						<control type="label">
+							<top>200</top>
+							<width>240</width>
+							<height>30</height>
+							<align>center</align>
+							<textoffsetx>10</textoffsetx>
+							<textcolor>grey</textcolor>
+							<info>ListItem.Label</info>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="60">
+				<left>1906</left>
+				<top>30</top>
+				<width>14</width>
+				<height>1035</height>
+				<onleft>50</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9050)</onright>
+				<ondown>60</ondown>
+				<onup>60</onup>
+			</control>
+		</control>
+	</include>
+	<!-- Picture Wall -->
+	<include name="PictureWall">
+		<control type="group">
+			<visible>Control.IsVisible(510) + !Window.IsActive(addoninformation)</visible>
+			<include>ViewAnimation</include>
+			<top>-80</top>
+			<control type="panel" id="510">
+				<left>120</left>
+				<top>179</top>
+				<width>1680</width>
+				<height>900</height>
+				<onleft>SetProperty(MediaMenu,True,home)</onleft>
+				<onleft>SetFocus(9050)</onleft>
+				<onright>60</onright>
+				<onup>510</onup>
+				<ondown>510</ondown>
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<visible>!Container.Content(addons)</visible>
+				<itemlayout height="300" width="560">
+					<control type="image">
+						<width>560</width>
+						<height>300</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<fadetime>400</fadetime>
+					</control>
+					<control type="image">
+						<top>250</top>
+						<width>560</width>
+						<height>50</height>
+						<texture>black.png</texture>
+						<colordiffuse>88ffffff</colordiffuse>
+					</control>
+					<control type="label">
+						<top>260</top>
+						<width>560</width>
+						<height>30</height>
+						<textoffsetx>15</textoffsetx>
+						<textcolor>grey</textcolor>
+						<info>ListItem.Label</info>
+					</control>
+					<control type="label">
+						<top>260</top>
+						<width>560</width>
+						<height>30</height>
+						<align>right</align>
+						<textoffsetx>15</textoffsetx>
+						<textcolor>grey</textcolor>
+						<info>ListItem.Label2</info>
+					</control>
+				</itemlayout>
+				<focusedlayout height="300" width="560">
+					<control type="image">
+						<width>560</width>
+						<height>300</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<fadetime>400</fadetime>
+						<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+						<bordersize>8</bordersize>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+						</animation>
+					</control>
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="96" end="98" time="200" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+						</animation>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="60">
+				<left>1906</left>
+				<top>110</top>
+				<width>14</width>
+				<height>1035</height>
+				<onleft>50</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9050)</onright>
+				<ondown>60</ondown>
+				<onup>60</onup>
+			</control>
+		</control>
+	</include>
+</includes>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=x1|x2|x3|x4|x5|x6|x7|x8|x9|x10|x11|x12|x13|x101|x202|x303|x404|x50​5|x606)</onload>
+	<controls>
+		<include>CommonBackground</include>
+		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
+		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
+		<include>HomeRecentlyAddedInfo</include>
+		<include>WeatherWidget</include>
+		<control type="group">
+			<top>796</top>
+			<animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
+				<effect type="zoom" start="0" end="100" center="960,540" delay="500" time="300" tween="cubic" />
+			</animation>
+			<animation type="WindowOpen" reversible="false" condition="!Window.Previous(Startup)">
+				<effect type="zoom" start="150" end="100" center="960,540" time="300" tween="cubic" />
+				<effect type="fade" start="50" end="100" time="300" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="300" />
+				<effect type="zoom" start="100" end="130" center="960,540" time="300" tween="cubic" easing="in" />
+			</animation>
+			<!-- Main Menu (Includes_Home.xml) -->
+			<include>MainMenu</include>
+			<control type="group" id="9001">
+				<control type="image">
+					<top>214</top>
+					<width>1920</width>
+					<height>70</height>
+					<texture>listselect_fo.png</texture>
+					<colordiffuse>shadow</colordiffuse>
+				</control>
+				<control type="fixedlist" id="9010">
+					<include>SubMenuAnimation</include>
+					<include>VisibleFadeEffect</include>
+					<left>0</left>
+					<top>214</top>
+					<width>1920</width>
+					<height>70</height>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<focusposition>2</focusposition>
+					<movement>2</movement>
+					<orientation>Horizontal</orientation>
+					<itemlayout height="70" width="384">
+						<control type="label">
+							<width>384</width>
+							<height>70</height>
+							<font>font_SubMenu</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>grey</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="70" width="384">
+						<control type="image">
+							<width>384</width>
+							<height>70</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>listselect</colordiffuse>
+							<visible>ControlGroup(9001).HasFocus()</visible>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9010)</visible>
+							<control type="label">
+								<width>384</width>
+								<height>70</height>
+								<font>font_SubMenu</font>
+								<textcolor>white</textcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(9010)</visible>
+							<control type="label">
+								<width>384</width>
+								<height>70</height>
+								<font>font_SubMenu</font>
+								<textcolor>grey</textcolor>
+								<align>center</align>
+								<aligny>center</aligny>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+							</control>
+						</control>
+					</focusedlayout>
+					<include condition="!System.HasAddon(script.skinshortcuts)">FallbackSubMenu</include>
+					<include condition="System.HasAddon(script.skinshortcuts)">CustomSubMenu</include>
+				</control>
+				<control type="button">
+					<left>5</left>
+					<top>235</top>
+					<width>30</width>
+					<height>30</height>
+					<texturefocus flipx="true" colordiffuse="white">arrowright.png</texturefocus>
+					<texturenofocus flipx="true">arrowright.png</texturenofocus>
+					<visible>Container(9010).HasPrevious</visible>
+					<onclick>Control.Move(9010,-1)</onclick>
+				</control>
+				<control type="button">
+					<left>1885</left>
+					<top>235</top>
+					<width>30</width>
+					<height>30</height>
+					<texturefocus colordiffuse="white">arrowright.png</texturefocus>
+					<texturenofocus>arrowright.png</texturenofocus>
+					<visible>Container(9010).HasNext</visible>
+					<onclick>Control.Move(9010,1)</onclick>
+				</control>
+			</control>
+			
+			<!--<control type="group">
+				<visible>IsEmpty(Container(9000).ListItem.Label)</visible>
+				<left>912</left>
+				<top>64</top>
+				<control type="image">
+					<description>Busy animation</description>
+					<width>96</width>
+					<height>96</height>
+					<texture>android/spinner_48_inner_holo.png</texture>
+					<aspectratio>keep</aspectratio>
+					<animation effect="rotate" start="0" end="360" center="auto" time="2000" loop="true" condition="true">conditional</animation>
+				</control>
+				<control type="image">
+					<description>Busy animation</description>
+					<width>96</width>
+					<height>96</height>
+					<texture>android/spinner_48_outer_holo.png</texture>
+					<aspectratio>keep</aspectratio>
+					<animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">conditional</animation>
+				</control>
+			</control>-->
+			<!--<control type="label">
+				<left>0</left>
+				<top>2</top>
+				<width>1920</width>
+				<height>41</height>
+				<font>font13_title</font>
+				<textcolor>grey</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[Container(9000).ListItem.Label][/UPPERCASE]</label>
+				<visible>Skin.HasSetting(mainmenuicons)</visible>
+			</control>-->
+		</control>
+		<include condition="system.getbool(lookandfeel.enablerssfeeds)">RSSFeedWidget</include>
+		<control type="group">
+			<control type="group">
+				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
+				<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
+				<control type="grouplist">
+					<left>0</left>
+					<top>0</top>
+					<width>1905</width>
+					<height>41</height>
+					<align>right</align>
+					<orientation>horizontal</orientation>
+					<control type="label" id="9026">
+						<width>5</width>
+						<height>41</height>
+						<label>-</label>
+						<font>font13_title</font>
+						<textcolor>themecolor</textcolor>
+					</control>
+					<control type="label" id="9023">
+						<width>auto</width>
+						<height>41</height>
+						<label>$INFO[Weather.Temperature,,[COLOR grey]  |  [/COLOR]]</label>
+						<font>font13_title</font>
+						<textcolor>themecolor</textcolor>
+						<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin)</visible>
+					</control>
+					<control type="label" id="9025">
+						<width>auto</width>
+						<height>41</height>
+						<label>$INFO[System.Date,[COLOR grey],  |  [/COLOR]]$INFO[System.Time]</label>
+						<font>font13_title</font>
+						<textcolor>themecolor</textcolor>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

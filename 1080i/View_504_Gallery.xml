@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <!--STRIP LAYOUT-->
+    <include name="View_504_Gallery">
+		<include>ViewAnimation</include>
+		<top>15</top>
+        <!--content detail-->
+        <control type="group">
+            <visible>Control.IsVisible(504)</visible>
+            <!--flags-->
+			<control type="label">
+				<left>398</left>
+                <top>700</top>
+				<label>[B]$INFO[ListItem.Label][/B]</label>
+				<width>1225</width>
+				<font>font16_title</font>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+				<left>398</left>
+				<top>910</top>
+				<width>1225</width>
+				<height>30</height>
+				<align>left</align>
+				<font>font13_title</font>
+				<textcolor>white</textcolor>
+				<label>$VAR[FloorSubLabelVar]</label>
+				<visible>![Container.Content(artists) | Window.IsActive(pictures)]</visible>
+			</control>
+			<control type="label">
+				<left>398</left>
+				<top>910</top>
+				<width>1225</width>
+				<height>30</height>
+				<align>left</align>
+				<font>font13_title</font>
+				<textcolor>white</textcolor>
+				<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+				<visible>Container.Content(artists)</visible>
+			</control>
+        </control>
+        <!--strip top-->
+        <control type="group">
+            <visible>Control.IsVisible(504)</visible>
+            <!--container-->
+            <control type="wraplist" id="504">
+                <viewtype label="Gallery">info</viewtype>
+                <left>-772</left>
+                <top>194</top>
+				<width>3464</width>
+                <height>1200</height>
+                <onleft>504</onleft>
+                <onright>504</onright>
+                <onup>SetProperty(MediaMenu,True,home)</onup>
+				<onup>SetFocus(9050)</onup>
+				<pagecontrol>61</pagecontrol>
+                <focusposition>1</focusposition>
+                <orientation>horizontal</orientation>
+                <visible>[Container.Content(movies) | Container.Content(tvshows) | Window.IsActive(pictures) | Container.Content(artists)] + !Container.Content(addons)</visible>
+                <itemlayout width="1125" height="663">
+                    <control type="group">
+                        <left>45</left>
+                        <top>15</top>
+						<control type="image">
+                            <width>1125</width>
+                            <height>633</height>
+                            <texture background="true">background.png</texture>
+                            <colordiffuse>background</colordiffuse>
+                        </control>
+                        <control type="image">
+							<visible>!Window.IsActive(pictures)</visible>
+                            <width>1125</width>
+                            <height>633</height>
+                            <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
+                            <aspectratio align="center" aligny="center">scale</aspectratio>
+							<colordiffuse>BAffffff</colordiffuse>
+                        </control>
+						<control type="image">
+							<visible>Window.IsActive(pictures)</visible>
+                            <width>1125</width>
+                            <height>633</height>
+                            <texture background="true">$INFO[ListItem.PicturePath]</texture>
+							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<colordiffuse>BAffffff</colordiffuse>
+                        </control>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="1125" height="633">
+					<animation type="Focus" reversible="false">
+						<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+						<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+					</animation>
+                    <control type="group">
+                        <left>45</left>
+                        <top>15</top>
+						<control type="image">
+                            <width>1125</width>
+                            <height>633</height>
+                            <texture background="true">background.png</texture>
+                            <colordiffuse>background</colordiffuse>
+                        </control>
+						<control type="image">
+							<visible>ListItem.IsFolder</visible>
+                            <width>1125</width>
+                            <height>633</height>
+                            <texture background="true">background.png</texture>
+                            <colordiffuse>background</colordiffuse>
+							<fadetime>400</fadetime>
+							<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+							<bordersize>8</bordersize>
+                        </control>
+						<control type="image">
+							<visible>ListItem.IsFolder + !Container.Content(artists)</visible>
+                            <width>1125</width>
+                            <height>633</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+                        </control>
+                        <control type="image">
+							<visible>!Window.IsActive(pictures)</visible>
+                            <width>1125</width>
+                            <height>633</height>
+                            <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
+                            <aspectratio align="center" aligny="center">scale</aspectratio>
+							<fadetime>400</fadetime>
+							<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+							<bordersize>8</bordersize>
+                        </control>
+						<control type="image">
+							<visible>![Window.IsActive(pictures) | Container.Content(artists)]</visible>
+							<left>1057</left>
+							<top>8</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+                        <control type="image">
+							<visible>![Window.IsActive(pictures) | Container.Content(artists)]</visible>
+                            <left>0</left>
+                            <top>420</top>
+                            <width>1125</width>
+                            <height>168</height>
+							<aspectratio align="center">keep</aspectratio>
+                            <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                            <animation effect="zoom" start="100" end="173" time="200" center="528,308" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
+                        </control>
+						<control type="image">
+							<visible>Window.IsActive(pictures)</visible>
+                            <width>1125</width>
+                            <height>633</height>
+                            <texture background="true">$INFO[ListItem.PicturePath]</texture>
+							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<colordiffuse>BAffffff</colordiffuse>
+							<fadetime>400</fadetime>
+							<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+							<bordersize>8</bordersize>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+			<control type="image">
+				<left>397</left>
+				<top>614</top>
+				<width>1125</width>
+				<height>168</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[Skin.String(MusicLibraryPath)]$INFO[Container(504).ListItem.Artist,,/logo.png]</texture>
+				<visible>Container.Content(artists)</visible>
+				<animation effect="zoom" start="100" end="173" time="200" center="528,308" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
+			</control>
+			<control type="scrollbar" id="61">
+				<visible>Control.IsVisible(504)</visible>
+				<left>0</left>
+				<top>1051</top>
+				<width>1920</width>
+				<height>14</height>
+				<onup>505</onup>
+				<ondown>505</ondown>
+				<orientation>horizontal</orientation>
+			</control>
+        </control>
+    </include>
+</includes>

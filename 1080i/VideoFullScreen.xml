@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>-</defaultcontrol>
+	<onunload condition="Window.IsActive(1118)">Dialog.Close(1118)</onunload>
+	<controls>
+		<!-- codec info -->
+		<control type="group" id="0">
+			<animation effect="slide" start="0,-340" end="0,0" time="200">WindowOpen</animation>
+			<animation effect="fade" time="200">WindowOpen</animation>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>300</height>
+				<texture>background.png</texture>
+				<colordiffuse>background</colordiffuse>
+				<animation effect="slide" start="0,0" end="0,-200" time="0" condition="![Control.isVisible(11) + Control.IsVisible(12)]">Conditional</animation>
+			</control>
+			<control type="grouplist" id="0">
+				<left>30</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>300</height>
+				<aligny>top</aligny>
+				<itemgap>10</itemgap>
+				<control type="label" id="10">
+					<description>row 1 label</description>
+					<width>1770</width>
+					<height>90</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>font14</font>
+					<textcolor>grey</textcolor>
+					<label>-</label>
+				</control>
+				<control type="label" id="11">
+					<description>row 2 label</description>
+					<width>1770</width>
+					<height>90</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>font14</font>
+					<label>-</label>
+					<textcolor>grey</textcolor>
+				</control>
+				<control type="label" id="12">
+					<description>row 3 label</description>
+					<width>1770</width>
+					<height>90</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>font14</font>
+					<label>-</label>
+					<textcolor>grey</textcolor>
+				</control>
+			</control>
+		</control>
+		<control type="group" id="1">
+			<left>560</left>
+			<top>33</top>
+			<visible allowhiddenfocus="true">Control.IsVisible(503) + VideoPlayer.Content(LiveTV)</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="image" id="1">
+				<description>background image</description>
+				<left>0</left>
+				<top>0</top>
+				<width>800</width>
+				<height>166</height>
+				<texture>dialog_context.png</texture>
+				<colordiffuse>listselect</colordiffuse>
+			</control>
+			<control type="image" id="1">
+				<description>avatar</description>
+				<left>30</left>
+				<top>34</top>
+				<width>100</width>
+				<height>100</height>
+				<bordersize>1</bordersize>
+				<aspectratio>keep</aspectratio>
+				<texture>DefaultTVShows.png</texture>
+			</control>
+			<control type="fadelabel" id="1">
+				<left>140</left>
+				<top>34</top>
+				<width>606</width>
+				<height>50</height>
+				<font>font15_title</font>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>themecolor</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$LOCALIZE[31501]</label>
+			</control>
+			<control type="selectbutton" id="503">
+				<left>140</left>
+				<top>84</top>
+				<width>606</width>
+				<height>30</height>
+				<align>left</align>
+				<font>font15</font>
+				<description>TV Channel Group Select Button</description>
+				<texturebg>-</texturebg>
+				<onleft>503</onleft>
+				<onright>503</onright>
+				<onup>500</onup>
+				<ondown>500</ondown>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Player.ShowCodec + VideoPlayer.Content(LiveTV) + system.getbool(pvrplayback.signalquality)</visible>
+			<top>750</top>
+			<animation effect="fade" time="200">WindowOpen</animation>
+			<control type="image">
+				<description>media info background image</description>
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>330</height>
+				<texture>background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="label">
+				<description>Header</description>
+				<left>30</left>
+				<top>8</top>
+				<width>1800</width>
+				<height>38</height>
+				<label>$LOCALIZE[19005]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font13_title</font>
+				<textcolor>labelheader</textcolor>
+			</control>
+			<control type="label">
+				<description>Backend</description>
+				<left>30</left>
+				<top>60</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19012]:</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>grey</textcolor>
+			</control>
+			<control type="label">
+				<description>Backend value</description>
+				<left>330</left>
+				<top>60</top>
+				<width>1500</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamClient]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+				<description>Device</description>
+				<left>30</left>
+				<top>98</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19006]:</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>grey</textcolor>
+			</control>
+			<control type="label">
+				<description>Device value</description>
+				<left>330</left>
+				<top>98</top>
+				<width>1500</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamDevice]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+				<description>Status</description>
+				<left>30</left>
+				<top>135</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19007]:</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>grey</textcolor>
+			</control>
+			<control type="label">
+				<description>Status value</description>
+				<left>330</left>
+				<top>135</top>
+				<width>1500</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamStatus]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+				<description>Signal</description>
+				<left>30</left>
+				<top>172</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19008]:</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>grey</textcolor>
+			</control>
+			<control type="progress">
+				<description>Progressbar</description>
+				<left>330</left>
+				<top>183</top>
+				<width>1365</width>
+				<height>21</height>
+				<info>PVR.ActStreamProgrSignal</info>
+			</control>
+			<control type="label">
+				<description>Signal value</description>
+				<left>1800</left>
+				<top>172</top>
+				<width>270</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamSignal]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+				<description>SNR</description>
+				<left>30</left>
+				<top>210</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19009]:</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>grey</textcolor>
+			</control>
+			<control type="progress">
+				<description>Progressbar</description>
+				<left>330</left>
+				<top>220</top>
+				<width>1365</width>
+				<height>21</height>
+				<overlaytexture>-</overlaytexture>
+				<info>PVR.ActStreamProgrSNR</info>
+			</control>
+			<control type="label">
+				<description>SNR value</description>
+				<left>1800</left>
+				<top>210</top>
+				<width>270</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamSNR]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+				<description>BER</description>
+				<left>30</left>
+				<top>248</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19010]:</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>grey</textcolor>
+			</control>
+			<control type="label">
+				<description>BER value</description>
+				<left>330</left>
+				<top>248</top>
+				<width>1500</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamBER]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+				<description>UNC</description>
+				<left>645</left>
+				<top>248</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19011]:</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>grey</textcolor>
+			</control>
+			<control type="label">
+				<description>UNC value</description>
+				<left>900</left>
+				<top>248</top>
+				<width>1500</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamUNC]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="label">
+				<description>Encryption</description>
+				<left>30</left>
+				<top>285</top>
+				<width>248</width>
+				<height>38</height>
+				<label>$LOCALIZE[19015]:</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>grey</textcolor>
+			</control>
+			<control type="label">
+				<description>Encryption value</description>
+				<left>330</left>
+				<top>285</top>
+				<width>1500</width>
+				<height>38</height>
+				<label>$INFO[PVR.ActStreamEncryptionName]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font14</font>
+				<textcolor>white</textcolor>
+			</control>
+		</control>
+	</controls>
+</window>

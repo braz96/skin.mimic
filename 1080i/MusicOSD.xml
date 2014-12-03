@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">602</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<animation effect="slide" end="0,-238" time="240" tween="quadratic" condition="Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(script-XBMC_Lyrics-main.xml)">Conditional</animation>
+			<animation effect="slide" start="0,-238" end="0,0" time="240" tween="quadratic">WindowOpen</animation>
+			<animation effect="slide" end="0,-238" start="0,0" time="240" tween="quadratic">WindowClose</animation>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>110</height>
+				<texture>background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="grouplist" id="202">
+				<top>20</top>
+				<height>144</height>
+				<width>1920</width>
+				<align>center</align>
+				<itemgap>0</itemgap>
+				<scrolltime tween="sine">200</scrolltime>
+				<orientation>horizontal</orientation>
+				<onup>700</onup>
+				<ondown>706</ondown>
+				<onleft>202</onleft>
+				<onright>202</onright>
+				<control type="button" id="700">
+					<textoffsety>60</textoffsety>
+					<texturefocus>osd/buttons/OSDPlaylist.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDPlaylist2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>ActivateWindow(MusicPlaylist)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="500">
+					<texturefocus>osd/buttons/OSDViz.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDViz2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="702">
+					<texturefocus>osd/buttons/OSDSettings.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDSettings2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="705">
+					<texturefocus>osd/buttons/OSDVideo.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDVideo2.png</texturenofocus>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>ActivateWindow(122)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="600">
+					<texturefocus>osd/buttons/OSDPrevTrack.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDPrevTrack2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>PlayerControl(Previous)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="601">
+					<texturefocus>osd/buttons/OSDRewind.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDRewind2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>PlayerControl(Rewind)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="togglebutton" id="602">
+					<texturefocus>osd/buttons/OSDPause.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDPause2.png</texturenofocus>
+					<alttexturefocus>osd/buttons/OSDPlay.png</alttexturefocus>
+					<alttexturenofocus>osd/buttons/OSDPlay2.png</alttexturenofocus>
+					<label>-</label>
+					<altlabel>208</altlabel>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<onclick>PlayerControl(Play)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="603">
+					<texturefocus>osd/buttons/OSDStop.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDStop2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>PlayerControl(Stop)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="604">
+					<texturefocus>osd/buttons/OSDForward.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDForward2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>PlayerControl(Forward)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="605">
+					<texturefocus>osd/buttons/OSDNextTrack.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDNextTrack2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>PlayerControl(Next)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="703">
+					<texturefocus>osd/buttons/OSDLyrics.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDLyrics2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>Close</onclick>
+					<onclick>XBMC.RunScript(script.cu.lrclyrics)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="togglebutton" id="704">
+					<texturefocus>osd/buttons/OSDRandomOff.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDRandomOff2.png</texturenofocus>
+					<alttexturefocus>osd/buttons/OSDRandomOn.png</alttexturefocus>
+					<alttexturenofocus>osd/buttons/OSDRandomOn2.png</alttexturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<usealttexture>Playlist.IsRandom</usealttexture>
+					<onclick>PlayerControl(Random)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+				<control type="button" id="707">
+					<width>0.1</width>
+					<height>0.1</height>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<label>$LOCALIZE[486]$INFO[Playlist.Repeat, : ]</label>
+					<font>-</font>
+					<onclick>PlayerControl(Repeat)</onclick>
+				</control>
+				<control type="image" id="708">
+					<texture colordiffuse="grey">$VAR[MusicOSDRepeatButtonVar]</texture>
+					<width>100</width>
+					<height>64</height>
+				</control>
+				<control type="button" id="706">
+					<texturefocus>osd/buttons/OSDSkin.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDSkin2.png</texturenofocus>
+					<label>-</label>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>Dialog.Close(musicosd)</onclick>
+					<onclick>ActivateWindow(1120)</onclick>
+					<onclick>SetProperty(MusicOSD.Settings,True,home)</onclick>
+					<colordiffuse>grey</colordiffuse>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

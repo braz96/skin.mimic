@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <!--PORTRAIT-->
+    <include name="View_505_Panel">
+		<include>ViewAnimation</include>
+        <control type="fixedlist" id="505">
+            <viewtype label="Panel">wrap</viewtype>
+            <left>45</left>
+            <top>250</top>
+            <width>1908</width>
+            <height>843</height>
+            <onup>SetProperty(MediaMenu,True,home)</onup>
+			<onup>SetFocus(9050)</onup>
+            <ondown>61</ondown>
+            <onleft>505</onleft>
+            <onright>505</onright>
+            <focusposition>0</focusposition>
+            <pagecontrol>61</pagecontrol>
+            <orientation>horizontal</orientation>
+            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+            <itemlayout width="600" height="843">
+                <control type="label">
+                    <top>327</top>
+                    <left>15</left>
+                    <width>525</width>
+                    <height>30</height>
+                    <label>[B]$INFO[ListItem.Label][/B]</label>
+					<font>font16_title</font>
+                    <textcolor>grey</textcolor>
+                </control>
+                <control type="textbox">
+                    <top>370</top>
+                    <left>15</left>
+                    <width>525</width>
+                    <align>left</align>
+                    <height>346</height>
+                    <label>$VAR[VideoPlotVar]</label>
+					<font>font14_textbox</font>
+					<textcolor>grey</textcolor>
+                </control>
+				<include>viewPanelTextbox-ContainerCommons</include>
+            </itemlayout>
+            <focusedlayout width="600" height="843">
+				<control type="image">
+					<width>555</width>
+                    <height>715</height>
+					<texture>listselect_fo.png</texture>
+					<colordiffuse>listselect</colordiffuse>
+					<visible>Control.HasFocus(505)</visible>
+					<include>VisibleFadeEffect</include>
+				</control>
+                <control type="label">
+                    <top>327</top>
+                    <left>15</left>
+                    <width>525</width>
+                    <height>30</height>
+                    <label>[B]$INFO[ListItem.Label][/B]</label>
+					<font>font16_title</font>
+                    <textcolor>white2</textcolor>
+                </control>
+                <control type="textbox">
+                    <top>370</top>
+                    <left>15</left>
+                    <width>525</width>
+                    <align>left</align>
+                    <height>330</height>
+                    <label>$VAR[VideoPlotVar]</label>
+					<font>font14_textbox</font>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(61)</autoscroll>
+                    <textcolor>white2</textcolor>
+                </control>
+				<include>viewPanelTextbox-ContainerCommons</include>
+            </focusedlayout>
+        </control>
+		<control type="scrollbar" id="61">
+			<visible>Control.IsVisible(505)</visible>
+			<left>0</left>
+			<top>1051</top>
+			<width>1920</width>
+			<height>14</height>
+			<onup>505</onup>
+			<ondown>505</ondown>
+			<orientation>horizontal</orientation>
+		</control>
+    </include>
+    <include name="viewPanelTextbox-ContainerCommons">
+        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+        <control type="group">
+            <control type="group">
+                <left>15</left>
+                <top>15</top>
+                <control type="image">
+					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+                    <width>525</width>
+                    <height>296</height>
+                    <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
+                    <aspectratio align="center" aligny="center">scale</aspectratio>
+                </control>
+                <control type="image">
+					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+                    <left>75</left>
+                    <width>375</width>
+                    <height>278</height>
+                    <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                    <aspectratio align="center" aligny="bottom">keep</aspectratio>
+                </control>
+				<control type="image">
+					<visible>Container.Content(episodes)</visible>
+                    <width>525</width>
+                    <height>296</height>
+                    <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                    <aspectratio align="center" aligny="center">scale</aspectratio>
+                </control>
+				<control type="image">
+					<left>465</left>
+					<top>0</top>
+					<width>60</width>
+					<height>60</height>
+					<texture>$VAR[OverlayVar]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+            </control>
+        </control>
+    </include>
+</includes>

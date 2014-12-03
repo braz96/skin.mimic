@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- BannerWall -->
+	<include name="BannerWall">
+		<control type="group">
+			<visible>Control.IsVisible(58) + !Window.IsActive(addoninformation)</visible>
+			<include>ViewAnimation</include>
+			<control type="panel" id="58">
+				<left>120</left>
+				<top>155</top>
+				<width>1680</width>
+				<height>780</height>
+				<onleft>SetProperty(MediaMenu,True,home)</onleft>
+				<onleft>SetFocus(9050)</onleft>
+				<onright>60</onright>
+				<onup>58</onup>
+				<ondown>58</ondown>
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<viewtype label="31088">icons</viewtype>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<visible>Container.Content(tvshows) | Container.Content(movies)</visible>
+				<itemlayout height="156" width="840">
+					<control type="image">
+						<width>840</width>
+						<height>156</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[BannerThumb]</texture>
+						<fadetime>400</fadetime>
+						<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
+					</control>
+					<control type="group">
+						<visible>IsEmpty(ListItem.Art(banner))</visible>
+						<control type="image">
+							<width>840</width>
+							<height>156</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<fadetime>400</fadetime>
+						</control>
+						<control type="image">
+							<top>5</top>
+							<width>450</width>
+							<height>145</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+							<fadetime>400</fadetime>
+						</control>
+					</control>
+					<control type="image">
+						<left>780</left>
+						<top>0</top>
+						<width>60</width>
+						<height>60</height>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
+					</control>
+				</itemlayout>
+				<focusedlayout height="156" width="840">
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+						</animation>
+						<control type="image">
+							<width>840</width>
+							<height>156</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$VAR[BannerThumb]</texture>
+							<fadetime>400</fadetime>
+							<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+							<bordersize>8</bordersize>
+							<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
+						</control>
+						<control type="group">
+							<visible>IsEmpty(ListItem.Art(banner))</visible>
+							<control type="image">
+								<width>840</width>
+								<height>156</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+								<fadetime>400</fadetime>
+								<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>8</bordersize>
+							</control>
+							<control type="image">
+								<top>5</top>
+								<width>450</width>
+								<height>140</height>
+								<aspectratio>keep</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+								<fadetime>400</fadetime>
+								<bordersize>4</bordersize>
+							</control>
+						</control>
+						<control type="image">
+							<left>772</left>
+							<top>8</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="60">
+				<left>1906</left>
+				<top>30</top>
+				<width>14</width>
+				<height>1035</height>
+				<onleft>50</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9050)</onright>
+				<ondown>60</ondown>
+				<onup>60</onup>
+			</control>
+		</control>
+	</include>
+</includes>
