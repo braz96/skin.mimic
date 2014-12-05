@@ -23,7 +23,16 @@
 				<effect type="zoom" start="100" end="130" center="960,540" time="300" tween="cubic" easing="in" />
 			</animation>
 			<!-- Main Menu (Includes_Home.xml) -->
-			<include>MainMenu</include>
+			<control type="image">
+				<top>94</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>120</height>
+				<texture>background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<include condition="Skin.HasSetting(HorizontalListNav)">MainMenuListFixed</include>
+			<include condition="!Skin.HasSetting(HorizontalListNav)">MainMenuListWrapped</include>
 			<control type="group" id="9001">
 				<control type="image">
 					<top>214</top>

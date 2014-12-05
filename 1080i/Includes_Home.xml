@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<!-- Main Menu Includes -->
-	<include name="MainMenu">
-		<control type="image">
-			<top>94</top>
-			<left>0</left>
-			<width>1920</width>
-			<height>120</height>
-			<texture>background.png</texture>
-			<colordiffuse>background</colordiffuse>
+	<include name="MainMenuListFixed">
+		<control type="fixedlist" id="9000">
+			<include>MainMenuListContent</include>
 		</control>
+	</include>
+	<include name="MainMenuListWrapped">
 		<control type="wraplist" id="9000">
-			<left>0</left>
-			<top>94</top>
-			<width>1920</width>
-			<height>120</height>
-			<onup condition="Control.IsVisible(9003)">9003</onup>
-			<onup condition="Control.IsVisible(300)">300</onup>
-			<ondown>9010</ondown>
-			<movement>1</movement>
-			<pagecontrol>-</pagecontrol>
-			<scrolltime tween="quadratic" easing="out">300</scrolltime>
-			<focusposition>1</focusposition>
-			<orientation>Horizontal</orientation>
-			<itemlayout height="120" width="590">
-				<control type="label">
-					<width>590</width>
-					<height>116</height>
-					<font>font_MainMenu</font>
-					<textcolor>grey</textcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-				</control>
-			</itemlayout>
-			<focusedlayout height="120" width="740">
-				<control type="image">
-					<width>740</width>
-					<height>120</height>
-					<texture>listselect_fo.png</texture>
-					<colordiffuse>listselect</colordiffuse>
-					<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">conditional</animation>
-				</control>
-				<control type="label">
-					<width>740</width>
-					<height>116</height>
-					<font>font_MainMenu_fo</font>
-					<textcolor>white2</textcolor>
-					<selectedcolor>grey</selectedcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-				</control>
-				<control type="label">
-					<width>740</width>
-					<height>116</height>
-					<font>font_MainMenu_fo</font>
-					<textcolor>white2</textcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-					<visible>Control.HasFocus(9000)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
-			</focusedlayout>
-			<include>FallbackMenu</include>
+			<include>MainMenuListContent</include>
 		</control>
+	</include>
+	<include name="MainMenuListContent">
+		<left>0</left>
+		<top>94</top>
+		<width>1920</width>
+		<height>120</height>
+		<onup condition="Control.IsVisible(9003)">9003</onup>
+		<onup condition="Control.IsVisible(300)">300</onup>
+		<ondown>9010</ondown>
+		<movement>1</movement>
+		<pagecontrol>-</pagecontrol>
+		<scrolltime tween="quadratic" easing="out">300</scrolltime>
+		<focusposition>1</focusposition>
+		<orientation>Horizontal</orientation>
+		<itemlayout height="120" width="590">
+			<control type="label">
+				<width>590</width>
+				<height>116</height>
+				<font>font_MainMenu</font>
+				<textcolor>grey</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout height="120" width="740">
+			<control type="image">
+				<width>740</width>
+				<height>120</height>
+				<texture>listselect_fo.png</texture>
+				<colordiffuse>listselect</colordiffuse>
+				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">conditional</animation>
+			</control>
+			<control type="label">
+				<width>740</width>
+				<height>116</height>
+				<font>font_MainMenu_fo</font>
+				<textcolor>white2</textcolor>
+				<selectedcolor>grey</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+			</control>
+			<control type="label">
+				<width>740</width>
+				<height>116</height>
+				<font>font_MainMenu_fo</font>
+				<textcolor>white2</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<visible>Control.HasFocus(9000)</visible>
+				<include>VisibleFadeEffect</include>
+			</control>
+		</focusedlayout>
+		<include>FallbackMenu</include>
 	</include>
 	<!--Main Menu-->
 	<include name="PicturesMainMenu">
