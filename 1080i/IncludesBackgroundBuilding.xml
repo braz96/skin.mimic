@@ -5,8 +5,6 @@
 			<include condition="Window.IsActive(home)">HomeFanart</include>
 			<include condition="!Window.IsActive(home)">GlobalFanart</include>
 			<include condition="Window.IsActive(home)">LiveCasesBackground</include>
-			<include condition="Window.IsActive(videos) + !IsEmpty(Skin.String(VideoGenreFanartPath))">VideoGenreFanart</include>
-			<include condition="Window.IsActive(musiclibrary) + !IsEmpty(Skin.String(MusicGenreFanartPath))">MusicGenreFanart</include>
 			<include condition="Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">TVShowNextAiredBackground</include>
 			<include condition="Window.IsActive(weather)">WeatherBackground</include>
 			<include condition="Window.IsActive(script-globalsearch-main.xml)">GlobalSearchBG</include>
@@ -38,26 +36,6 @@
 			<include>FullscreenDimensions</include>
 			<texture>background.png</texture>
 			<colordiffuse>background</colordiffuse>
-		</control>
-	</include>
-	<include name="VideoGenreFanart">
-		<control type="image" id="4980">
-			<description>Normal Default Background Image</description>
-			<include>FullscreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<fadetime>FanartCrossfadeTime</fadetime>
-			<texture background="true" fallback="special://skin/backgrounds/fallback_movies.jpg">$INFO[Skin.String(VideoGenreFanartPath)]$INFO[ListItem.Label,,.jpg]</texture>
-			<visible>Container.Content(genres)</visible>
-		</control>
-	</include>
-	<include name="MusicGenreFanart">
-		<control type="image">
-			<description>Normal Default Background Image</description>
-			<include>FullscreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<fadetime>FanartCrossfadeTime</fadetime>
-			<texture background="true" fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[Skin.String(MusicGenreFanartPath)]$INFO[ListItem.Label,,.jpg]</texture>
-			<visible>Container.Content(genres)</visible>
 		</control>
 	</include>
 	<include name="GlobalFanart">
