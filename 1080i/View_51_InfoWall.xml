@@ -81,63 +81,49 @@
 				<ondown>60</ondown>
 				<onup>60</onup>
 			</control>
-			<control type="image">
-				<left>1135</left>
-				<top>179</top>
-				<width>680</width>
-				<height>400</height>
-				<aspectratio>scale</aspectratio>
-				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-				<fadetime>400</fadetime>
-			</control>
-			<control type="label">
-				<left>1119</left>
-				<top>590</top>
-				<width>628</width>
-				<height>60</height>
-				<font>font16_title</font>
-				<textcolor>grey</textcolor>
-				<scroll>true</scroll>
-				<label>[B]$VAR[FloorLabelVar][/B]</label>
-				<textoffsetx>15</textoffsetx>
-			</control>
-			<control type="image">
-				<left>1763</left>
-				<top>606</top>
-				<width>42</width>
-				<height>28</height>
-				<aspectratio>keep</aspectratio>
-				<texture>$VAR[UnFocusHDIndicator]</texture>
-				<colordiffuse>grey</colordiffuse>
-			</control>
 			<control type="grouplist">
-				<left>1119</left>
-				<top>650</top>
-				<width>680</width>
-				<height>270</height>
+				<top>179</top>
+				<left>1140</left>
+				<itemgap>15</itemgap>
+				<control type="image">
+					<width>680</width>
+					<height>400</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					<fadetime>400</fadetime>
+					<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+				</control>
+				<control type="label">
+					<width>680</width>
+					<height>32</height>
+					<font>font16_title</font>
+					<textcolor>grey</textcolor>
+					<scroll>true</scroll>
+					<label>[B]$VAR[FloorLabelVar][/B]</label>
+				</control>
 				<control type="label">
 					<label>$INFO[ListItem.Genre]</label>
 					<width>680</width>
-					<height>40</height>
-					<include>ShowCaseInfoPanelButtonsValues</include>
+					<height>30</height>
+					<font>font14</font>
+					<textcolor>grey</textcolor>
 					<visible>!IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label">
 					<label>$VAR[VideoSubLabelVar]</label>
 					<width>680</width>
-					<height>40</height>
+					<height>30</height>
+					<font>font14</font>
+					<textcolor>grey</textcolor>
+				</control>
+				<control type="textbox">
+					<label>$VAR[VideoPlotVar]</label>
+					<width>680</width>
+					<height>332</height>
+					<font>font14_textbox</font>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					<include>ShowCaseInfoPanelButtonsValues</include>
 				</control>
-			</control>
-			<control type="textbox">
-				<label>$VAR[VideoPlotVar]</label>
-				<top>744</top>
-				<left>1134</left>
-				<width>650</width>
-				<height>332</height>
-				<font>font14_textbox</font>
-				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				<include>ShowCaseInfoPanelButtonsValues</include>
 			</control>
 		</control>
 	</include>
@@ -206,72 +192,68 @@
 				<ondown>60</ondown>
 				<onup>60</onup>
 			</control>
-			<control type="image">
-				<left>1085</left>
-				<top>179</top>
-				<width>680</width>
-				<height>400</height>
-				<aspectratio>scale</aspectratio>
-				<texture background="true" fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[ListItem.Art(fanart)]</texture>
-				<fadetime>400</fadetime>
-			</control>
-			<control type="label">
-				<left>1085</left>
-				<top>590</top>
-				<width>680</width>
-				<height>60</height>
-				<font>font16_title</font>
-				<textcolor>grey</textcolor>
-				<scroll>true</scroll>
-				<label>[B]$VAR[FloorLabelVar][/B]</label>
-			</control>
 			<control type="grouplist">
-				<left>1070</left>
-				<top>650</top>
-				<width>680</width>
-				<height>270</height>
-				<visible>Container.Content(albums)</visible>
+				<top>179</top>
+				<left>1090</left>
+				<itemgap>15</itemgap>
+				<control type="image">
+					<width>680</width>
+					<height>400</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+					<fadetime>400</fadetime>
+				</control>
+				<control type="label">
+					<width>680</width>
+					<height>32</height>
+					<font>font16_title</font>
+					<textcolor>grey</textcolor>
+					<scroll>true</scroll>
+					<label>[B]$VAR[FloorLabelVar][/B]</label>
+				</control>
 				<control type="label">
 					<label>$INFO[ListItem.Artist]</label>
 					<width>680</width>
-					<height>40</height>
-					<include>ShowCaseInfoPanelButtonsValues</include>
+					<height>30</height>
+					<font>font14</font>
+					<textcolor>grey</textcolor>
+					<visible>Container.Content(albums)</visible>
 				</control>
 				<control type="label">
 					<label>$INFO[ListItem.Year]$INFO[ListItem.Property(Album_Label), • ]</label>
 					<width>680</width>
-					<height>40</height>
-					<include>ShowCaseInfoPanelButtonsValues</include>
+					<height>30</height>
+					<font>font14</font>
+					<textcolor>grey</textcolor>
+					<visible>Container.Content(albums)</visible>
 				</control>
-			</control>
-			<control type="grouplist">
-				<left>1070</left>
-				<top>650</top>
-				<width>680</width>
-				<height>270</height>
-				<visible>Container.Content(artists)</visible>
 				<control type="label">
 					<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 					<width>680</width>
-					<height>40</height>
-					<include>ShowCaseInfoPanelButtonsValues</include>
+					<height>30</height>
+					<font>font14</font>
+					<textcolor>grey</textcolor>
+					<visible>Container.Content(artists)</visible>
 				</control>
 				<control type="label">
 					<label>$INFO[ListItem.Property(Artist_YearsActive)]</label>
 					<width>680</width>
-					<height>40</height>
+					<height>30</height>
+					<font>font14</font>
+					<textcolor>grey</textcolor>
+					<visible>Container.Content(artists)</visible>
+				</control>
+				<control type="textbox">
+					<label>$VAR[MusicPlotVar]</label>
+					<top>739</top>
+					<left>1086</left>
+					<width>680</width>
+					<height>332</height>
+					<font>font14_textbox</font>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					<include>ShowCaseInfoPanelButtonsValues</include>
 				</control>
-			</control>
-			<control type="textbox">
-				<label>$VAR[MusicPlotVar]</label>
-				<top>739</top>
-				<left>1086</left>
-				<width>650</width>
-				<height>332</height>
-				<font>font14_textbox</font>
-				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				<include>ShowCaseInfoPanelButtonsValues</include>
 			</control>
 		</control>
 	</include>
