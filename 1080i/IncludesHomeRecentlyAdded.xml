@@ -21,6 +21,7 @@
 			<control type="group">
 				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(8000)">Conditional</animation>
 				<control type="panel" id="8000">
+					<description>weather widget</description>
 					<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),3)</visible>
 					<left>0</left>
 					<top>80</top>
@@ -187,7 +188,7 @@
 				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(8000)">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">WindowClose</animation>
 				<control type="wraplist" id="8000">
-					<left>-180</left>
+					<left>-190</left>
 					<top>31</top>
 					<width>2220</width>
 					<height>360</height>
@@ -243,7 +244,7 @@
 					<itemlayout height="320" width="220" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),1) + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
 						<control type="image">
 							<top>30</top>
-							<left>30</left>
+							<left>40</left>
 							<width>200</width>
 							<height>300</height>
 							<aspectratio aligny="center" align="center">scale</aspectratio>
@@ -253,7 +254,7 @@
 						<control type="image">
 							<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
 							<top>30</top>
-							<left>30</left>
+							<left>40</left>
 							<width>200</width>
 							<height>300</height>
 							<aspectratio aligny="center" align="center">scale</aspectratio>
@@ -264,7 +265,7 @@
 						<control type="image">
 							<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
 							<top>30</top>
-							<left>30</left>
+							<left>40</left>
 							<width>200</width>
 							<height>300</height>
 							<aspectratio aligny="center" align="center">scale</aspectratio>
@@ -275,7 +276,7 @@
 					</itemlayout>
 					<focusedlayout height="360" width="260" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),1) + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
 						<control type="image">
-							<left>30</left>
+							<left>40</left>
 							<width>240</width>
 							<height>360</height>
 							<aspectratio aligny="center" align="center">scale</aspectratio>
@@ -284,7 +285,7 @@
 						</control>
 						<control type="image">
 							<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
-							<left>30</left>
+							<left>40</left>
 							<width>240</width>
 							<height>360</height>
 							<aspectratio aligny="center" align="center">scale</aspectratio>
@@ -293,7 +294,7 @@
 						</control>
 						<control type="image">
 							<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
-							<left>30</left>
+							<left>40</left>
 							<width>240</width>
 							<height>360</height>
 							<aspectratio aligny="center" align="center">scale</aspectratio>
@@ -323,7 +324,7 @@
 						<height>50</height>
 						<font>font16_title</font>
 						<textcolor>white2</textcolor>
-						<label>$INFO[Container(8000).ListItem.Title]</label>
+						<label>$INFO[Container(8000).ListItem.Title] $INFO[Container(8000).ListItem.Year,• ]</label>
 						<visible>IsEmpty(Container(8000).ListItem.Episode)</visible>
 					</control>
 					<control type="label">
@@ -331,7 +332,7 @@
 						<height>50</height>
 						<font>font16_title</font>
 						<textcolor>white2</textcolor>
-						<label>$INFO[Container(8000).ListItem.TvShowTitle] • $INFO[Container(8000).ListItem.Episode]. $INFO[Container(8000).ListItem.Title]</label>
+						<label>$INFO[Container(8000).ListItem.TvShowTitle] $INFO[Container(8000).ListItem.Title,• ] $INFO[Container(8000).ListItem.Season,• $LOCALIZE[20373] ] $INFO[Container(8000).ListItem.Episode,• $LOCALIZE[20452] ]</label>
 						<visible>!IsEmpty(Container(8000).ListItem.Episode)</visible>
 					</control>						
 				</control>
@@ -344,7 +345,7 @@
 						<height>50</height>
 						<font>font16_title</font>
 						<textcolor>white2</textcolor>
-						<label>$INFO[Container(8000).ListItem.Artist] • $INFO[Container(8000).ListItem.Title]</label>
+						<label>$INFO[Container(8000).ListItem.Artist] $INFO[Container(8000).ListItem.Title,• ] $INFO[Container(8000).ListItem.Year,• ]</label>
 						<visible>!IsEmpty(Container(8000).ListItem.Artist)</visible>
 					</control>
 					<control type="label">
