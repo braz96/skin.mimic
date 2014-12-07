@@ -17,7 +17,7 @@
             <focusposition>0</focusposition>
             <pagecontrol>61</pagecontrol>
             <orientation>horizontal</orientation>
-            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(artists)</visible>
             <itemlayout width="600" height="843">
                 <control type="label">
                     <top>327</top>
@@ -29,12 +29,24 @@
                     <textcolor>grey</textcolor>
                 </control>
                 <control type="textbox">
+					<visible>!Container.Content(artists)</visible>
                     <top>370</top>
                     <left>15</left>
                     <width>525</width>
                     <align>left</align>
                     <height>346</height>
                     <label>$VAR[VideoPlotVar]</label>
+					<font>font14_textbox</font>
+					<textcolor>grey</textcolor>
+                </control>
+				<control type="textbox">
+					<visible>Container.Content(artists)</visible>
+                    <top>370</top>
+                    <left>15</left>
+                    <width>525</width>
+                    <align>left</align>
+                    <height>346</height>
+                    <label>$INFO[ListItem.Property(Artist_Description)]</label>
 					<font>font14_textbox</font>
 					<textcolor>grey</textcolor>
                 </control>
@@ -59,12 +71,25 @@
                     <textcolor>white2</textcolor>
                 </control>
                 <control type="textbox">
+					<visible>!Container.Content(artists)</visible>
                     <top>370</top>
                     <left>15</left>
                     <width>525</width>
                     <align>left</align>
                     <height>330</height>
                     <label>$VAR[VideoPlotVar]</label>
+					<font>font14_textbox</font>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(61)</autoscroll>
+                    <textcolor>white2</textcolor>
+                </control>
+				<control type="textbox">
+					<visible>Container.Content(artists)</visible>
+                    <top>370</top>
+                    <left>15</left>
+                    <width>525</width>
+                    <align>left</align>
+                    <height>330</height>
+                    <label>$INFO[ListItem.Property(Artist_Description)]</label>
 					<font>font14_textbox</font>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(61)</autoscroll>
                     <textcolor>white2</textcolor>
@@ -84,13 +109,13 @@
 		</control>
     </include>
     <include name="viewPanelTextbox-ContainerCommons">
-        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(artists)</visible>
         <control type="group">
             <control type="group">
                 <left>15</left>
                 <top>15</top>
                 <control type="image">
-					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists)</visible>
                     <width>525</width>
                     <height>296</height>
                     <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
@@ -112,6 +137,7 @@
                     <aspectratio align="center" aligny="center">scale</aspectratio>
                 </control>
 				<control type="image">
+					<visible>!Container.Content(artists)</visible>
 					<left>465</left>
 					<top>0</top>
 					<width>60</width>
