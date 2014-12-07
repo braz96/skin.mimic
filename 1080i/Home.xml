@@ -7,7 +7,6 @@
 		<include>CommonBackground</include>
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
-		<include>HomeRecentlyAddedInfo</include>
 		<control type="group">
 			<top>796</top>
 			<animation type="WindowOpen" reversible="false" condition="Window.Previous(Startup)">
@@ -34,10 +33,19 @@
 			<include condition="!Skin.HasSetting(HorizontalListNav)">MainMenuListWrapped</include>
 			<control type="group" id="9001">
 				<control type="image">
+					<visible>!Skin.HasSetting(Disable.HomeOverlay)</visible>
 					<top>214</top>
 					<width>1920</width>
 					<height>70</height>
 					<texture>listselect_fo.png</texture>
+					<colordiffuse>shadow</colordiffuse>
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
+					<top>214</top>
+					<width>1920</width>
+					<height>70</height>
+					<texture>background.png</texture>
 					<colordiffuse>shadow</colordiffuse>
 				</control>
 				<control type="fixedlist" id="9010">
@@ -130,6 +138,13 @@
 			<control type="group">
 				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
 				<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
+				<control type="image">
+					<visible>Skin.HasSetting(Disable.HomeOverlay) + ![Player.HasMedia | Player.HasAudio]</visible>
+					<width>1920</width>
+					<height>45</height>
+					<texture>background.png</texture>
+					<colordiffuse>background</colordiffuse>
+				</control>
 				<control type="grouplist">
 					<left>0</left>
 					<top>0</top>
@@ -162,5 +177,6 @@
 				</control>
 			</control>
 		</control>
+		<include>HomeRecentlyAddedInfo</include>
 	</controls>
 </window>

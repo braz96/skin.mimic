@@ -26,13 +26,7 @@
 			</control>
 		</control>
 		<control type="image">
-			<visible>!Window.IsActive(home)</visible>
-			<include>FullscreenDimensions</include>
-			<texture>background.png</texture>
-			<colordiffuse>background</colordiffuse>
-		</control>
-		<control type="image">
-			<visible>Window.IsActive(home)</visible>
+			<visible>!Window.IsActive(home) | [Window.IsActive(home) + !Skin.HasSetting(Disable.HomeOverlay)]</visible>
 			<include>FullscreenDimensions</include>
 			<texture>background.png</texture>
 			<colordiffuse>background</colordiffuse>

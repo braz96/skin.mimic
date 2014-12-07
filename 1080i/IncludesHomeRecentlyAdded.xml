@@ -6,18 +6,26 @@
 			<include>VisibleFadeEffect</include>
 			<top>380</top>
 			<control type="image">
+				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(8000) + Skin.HasSetting(Disable.HomeOverlay)]">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">WindowClose</animation>
+				<top>-4</top>
+				<width>1920</width>
+				<height>458</height>
+				<texture>background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<!--<control type="image">
 				<animation effect="rotate" start="0" end="-30" center="auto" condition="true">conditional</animation>
 				<animation effect="fade" start="0" end="30" time="500" tween="sine" easing="inout">WindowOpen</animation>
 				<animation effect="fade" start="30" end="0" time="500" tween="sine" easing="inout">WindowClose</animation>
-				<top>400</top>
-				<left>1800</left>
+				<top>530</top>
+				<left>1230</left>
 				<width>80</width>
 				<height>80</height>
 				<texture>DefaultIconPlay.png</texture>
 				<visible>!Control.HasFocus(8000)</visible>
 				<fadetime>800</fadetime>
-				<colordiffuse>listselect</colordiffuse>
-			</control>
+			</control>-->
 			<control type="group">
 				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(8000)">Conditional</animation>
 				<control type="panel" id="8000">
@@ -471,6 +479,14 @@
 			<include>VisibleFadeEffect</include>
 			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0">WindowClose</animation>
+			<control type="image">
+				<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
+				<top>0</top>
+				<width>1920</width>
+				<height>376</height>
+				<texture>background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
 			<control type="grouplist">
 				<left>370</left>
 				<top>45</top>
