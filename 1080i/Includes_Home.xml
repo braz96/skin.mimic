@@ -42,6 +42,16 @@
 				<colordiffuse>listselect</colordiffuse>
 				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">conditional</animation>
 			</control>
+			<control type="image">
+				<animation effect="fade" start="0" end="50" time="500">Focus</animation>
+				<top>0</top>
+				<left>710</left>
+				<width>30</width>
+				<height>30</height>
+				<texture>WidgetIndicator.png</texture>
+				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Control.HasFocus(8000) + Control.HasFocus(9000)</visible>
+				<fadetime>800</fadetime>
+			</control>
 			<control type="label">
 				<width>740</width>
 				<height>116</height>
@@ -62,17 +72,6 @@
 				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 				<visible>Control.HasFocus(9000)</visible>
 				<include>VisibleFadeEffect</include>
-			</control>
-			<control type="image">
-				<animation effect="rotate" start="0" end="-30" center="auto" condition="true">conditional</animation>
-				<animation effect="fade" start="0" end="20" time="500">Focus</animation>
-				<top>20</top>
-				<left>640</left>
-				<width>80</width>
-				<height>80</height>
-				<texture>DefaultIconPlay.png</texture>
-				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Control.HasFocus(8000) + Control.HasFocus(9000)</visible>
-				<fadetime>800</fadetime>
 			</control>
 		</focusedlayout>
 		<include>FallbackMenu</include>
