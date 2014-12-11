@@ -552,69 +552,85 @@
 					</control>
 				</control>
 				<control type="panel" id="50">
-					<left>-36</left>
-					<top>550</top>
-					<width>856</width>
-					<height>420</height>
-					<onleft>9000</onleft>
-					<onright>9000</onright>
-					<onup>50</onup>
+					<left>-38</left>
+					<top>552</top>
+					<width>1188</width>
+					<height>418</height>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<onup>9000</onup>
 					<ondown>50</ondown>
 					<viewtype label="">list</viewtype>
 					<pagecontrol>61</pagecontrol>
-					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<orientation>vertical</orientation>
-					<itemlayout height="84" width="856">
-						<control type="label">
-							<width>856</width>
-							<height>84</height>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<orientation>horizontal</orientation>
+					<itemlayout height="418" width="297">
+						<control type="image">
+							<width>297</width>
+							<height>418</height>
+							<texture background="true">solid_bg.png</texture>
+							<colordiffuse>background</colordiffuse>
+						</control>
+						<control type="image">
+							<width>297</width>
+							<height>418</height>
+							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<colordiffuse>BAffffff</colordiffuse>
+						</control>
+						<control type="image">
+							<top>318</top>
+							<width>297</width>
+							<height>100</height>
+							<texture>black.png</texture>
+							<colordiffuse>88ffffff</colordiffuse>
+						</control>
+						<control type="textbox">
+							<left>10</left>
+							<top>313</top>
+							<width>277</width>
+							<height>100</height>
 							<font>font15</font>
-							<textoffsetx>36</textoffsetx>
 							<textcolor>grey</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="84" width="856">
-						<control type="image">
-							<width>856</width>
-							<height>84</height>
-							<texture border="5">listselect_fo.png</texture>
-							<colordiffuse>listselect</colordiffuse>
-							<visible>Control.HasFocus(50)</visible>
-							<include>VisibleFadeEffect</include>
-						</control>
-						<control type="label">
-							<width>856</width>
-							<height>84</height>
-							<font>font15</font>
-							<textoffsetx>36</textoffsetx>
-							<textcolor>white</textcolor>
-							<selectedcolor>selected</selectedcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+					<focusedlayout height="418" width="297">
+						<control type="group">
+							<animation type="Focus" reversible="false">
+								<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+								<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+							</animation>
+							<control type="image">
+								<width>297</width>
+								<height>418</height>
+								<aspectratio align="center" aligny="center">scale</aspectratio>
+								<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Thumb]</texture>
+								<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>8</bordersize>
+							</control>
+							<control type="image">
+								<top>318</top>
+								<left>8</left>
+								<width>282</width>
+								<height>92</height>
+								<texture>black.png</texture>
+								<colordiffuse>88ffffff</colordiffuse>
+							</control>
+							<control type="textbox">
+								<left>10</left>
+								<top>313</top>
+								<width>278</width>
+								<height>100</height>
+								<font>font15</font>
+								<selectedcolor>selected</selectedcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+							</control>
 						</control>
 					</focusedlayout>
 				</control>
-				<control type="image">
-					<left>822</left>
-					<top>550</top>
-					<width>300</width>
-					<height>420</height>
-					<aspectratio>scale</aspectratio>
-					<texture fallback="default_Actor.png" background="true">$INFO[Container(50).ListItem.Thumb]</texture>
-					<fadetime>400</fadetime>
-					<visible>Control.IsVisible(50) + !IsEmpty(Container(50).ListItem.Label)</visible>
-				</control>
-				<!--<control type="image">
-					<left>822</left>
-					<top>550</top>
-					<width>300</width>
-					<height>420</height>
-					<texture colordiffuse="themecolor">listselect_fo.png</texture>
-					<fadetime>400</fadetime>
-					<visible>Container(50).HasFocus() + Control.IsVisible(50) + IsEmpty(Container(50).ListItem.Thumb)</visible>
-				</control>-->
 			</control>
 			<control type="group">
 				<left>3</left>
