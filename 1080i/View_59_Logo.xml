@@ -10,8 +10,17 @@
 			<aspectratio aligny="bottom">keep</aspectratio>
 			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 		</control>
+		<control type="image">
+			<visible>StringCompare(ListItem.Label,..)</visible>
+			<left>52</left>
+			<top>178</top>
+			<width>390</width>
+			<height>164</height>
+			<aspectratio aligny="bottom">keep</aspectratio>
+			<texture background="true">$INFO[ListItem.Icon]</texture>
+		</control>
 		<control type="group">
-			<visible>IsEmpty(ListItem.Art(clearlogo))</visible>
+			<visible>IsEmpty(ListItem.Art(clearlogo)) + !StringCompare(ListItem.Label,..)</visible>
 			<control type="label">
 				<left>15</left>
 				<top>335</top>
