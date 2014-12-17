@@ -86,10 +86,10 @@
 				<left>552</left>
 				<top>754</top>
 				<width>1256</width>
-				<height>115</height>
+				<height>140</height>
 				<font>font15_textbox</font>
 				<align>left</align>
-				<textcolor>grey</textcolor>
+				<textcolor>themecolor</textcolor>
 				<label>$VAR[SkinSettingsDescriptionVar]</label>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 				<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
@@ -189,16 +189,17 @@
 					<onclick>SetProperty(Mimic.WidgetType,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.WidgetType],home)</onclick>
 					<onclick>ActivateWindow(1124)</onclick>
 				</control>
-				<control type="button" id="90015">
-					<description>Icon Button</description>
+				<control type="button" id="90016">
+					<description>Infoline Button</description>
 					<width>1316</width>
 					<height>90</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
-					<label>$LOCALIZE[31047]</label>
-					<label2>-</label2>
-					<onclick>Skin.SetFile($INFO[Container(90000).ListItem.Property(Item),,HomeItem.Icon],.png|.jpg|.bmp,special://skin/extras/icons/)</onclick>
-					<visible>Skin.HasSetting(mainmenuicons)</visible>
+					<label>$LOCALIZE[31053]</label>
+					<label2>$VAR[InfoLineLabelVar]</label2>
+					<onfocus>Skin.Reset(ItemToEdit.InfoLine)</onfocus>
+					<onclick>SetProperty(Mimic.InfoLine,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.InfoLine],home)</onclick>
+					<onclick>ActivateWindow(1125)</onclick>
 				</control>
 				<control type="button" id="90017">
 					<description>Move Item Button</description>
@@ -211,6 +212,7 @@
 					<onclick>SetProperty(ItemToEdit.Path,$INFO[Container(90000).ListItem.Property(Path)],home)</onclick>
 					<onclick>SetProperty(ItemToEdit.MultiFanart,$INFO[Container(90000).ListItem.Thumb],home)</onclick>
 					<onclick>SetProperty(ItemToEdit.Icon,$INFO[Container(90000).ListItem.ActualIcon],home)</onclick>
+					<onclick>SetProperty(ItemToEdit.InfoLine,$INFO[Container(90000).ListItem.Property(InfoLine)],home)</onclick>
 					<onclick>SetProperty(ItemToEdit.SubMenu,$INFO[Container(90000).ListItem.Property(submenuVisibility)],home)</onclick>
 					<onclick>SetProperty(ItemToEdit.Widget,$INFO[Container(90000).ListItem.Property(Widget)],home)</onclick>
 					<onclick>SetProperty(ItemToEdit.WidgetLabel,$INFO[Container(90000).ListItem.Property(WidgetLabel)],home)</onclick>
@@ -220,6 +222,7 @@
 					<onclick>SetProperty(Mimic.Path,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.Path],home)</onclick>
 					<onclick>SetProperty(Mimic.MultiFanart,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.MultiFanart],home)</onclick>
 					<onclick>SetProperty(Mimic.Icon,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.Icon],home)</onclick>
+					<onclick>SetProperty(Mimic.InfoLine,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.InfoLine],home)</onclick>
 					<onclick>SetProperty(Mimic.SubMenu,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.SubMenu],home)</onclick>
 					<onclick>SetProperty(Mimic.Widget,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.Widget],home)</onclick>
 					<onclick>SetProperty(Mimic.WidgetLabel,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.WidgetLabel],home)</onclick>
@@ -248,21 +251,13 @@
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.Path])</onclick>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.MultiFanart])</onclick>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.Icon])</onclick>
+					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.InfoLine])</onclick>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.SubMenu])</onclick>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.Widget])</onclick>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.WidgetLabel])</onclick>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.WidgetType])</onclick>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.BGType])</onclick>
 				</control>
-			</control>
-			<control type="image">
-				<left>1729</left>
-				<top>482</top>
-				<width>90</width>
-				<height>90</height>
-				<texture background="true">$INFO[Container(90000).ListItem.ActualIcon]</texture>
-				<visible>Skin.HasSetting(mainmenuicons)</visible>
-				<animation effect="fade" start="100" end="70" time="100" tween="sine" easing="inout" condition="!Control.HasFocus(90015)">Conditional</animation>
 			</control>
 			<control type="scrollbar" id="60">
 				<left>1906</left>

@@ -331,4 +331,16 @@
 	<include name="LoadTvTunes">
 		<onload condition="System.HasAddon(script.tvtunes) + !SubString(Window(10025).Property(CinemaExperienceRunning),True)">RunScript(script.tvtunes,backend=True)</onload>
 	</include>
+	<include name="PlayListStatsList">
+		<control type="list" id="43260">
+			<visible>StringCompare(Container(9000).ListItem.Property(InfoLine),9) | StringCompare(Container(9000).ListItem.Property(InfoLine),10) | StringCompare(Container(9000).ListItem.Property(InfoLine),11)</visible>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1</width>
+			<height>1</height>
+			<focusedlayout/>
+			<itemlayout/>
+			<content>plugin://service.library.data.provider?type=playliststats&amp;id=$INFO[Container(9000).ListItem.Property(Path)]</content>
+		</control>
+	</include>
 </includes>
