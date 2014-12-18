@@ -17,7 +17,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Removed option for genre fanart for video and music.
 - Changed main menu to obey fixed horizontal list setting.
 - Moved notifications to the right side of screen.
-- Changed how InfoWall handles missing fanart.
+- Changed how InfoWall and BannerInfo handle missing fanart.
 - Added setting to hide weather/clock on home screen.
 - Updated rating stars to all use themecolor.
 - Added panel view for Artists.
@@ -25,6 +25,9 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added a skin setting to remove fullscreen overlay on Home screen.
 - Changed videoinfo actor list from labels to thumbs.
 - Removed cdART from album info. Replaced with artist logo.
+- Fixed display of parent folder items.
+- Added infolines back to the topbar.
+- Converted Favorites to a standard window with List and Icon views.
 
 ***
 **1.0.0**
