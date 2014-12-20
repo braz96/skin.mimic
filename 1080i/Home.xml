@@ -22,6 +22,15 @@
 			</animation>
 			<!-- Main Menu (Includes_Home.xml) -->
 			<control type="image">
+				<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
+				<top>94</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>190</height>
+				<texture>background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="image">
 				<top>94</top>
 				<left>0</left>
 				<width>1920</width>
@@ -33,21 +42,21 @@
 			<include condition="!Skin.HasSetting(HorizontalListNav)">MainMenuListWrapped</include>
 			<control type="group" id="9001">
 				<control type="image">
-					<visible>!Skin.HasSetting(Disable.HomeOverlay)</visible>
+					<!--<visible>!Skin.HasSetting(Disable.HomeOverlay)</visible>-->
 					<top>214</top>
 					<width>1920</width>
 					<height>70</height>
 					<texture>listselect_fo.png</texture>
 					<colordiffuse>shadow</colordiffuse>
 				</control>
-				<control type="image">
+				<!--<control type="image">
 					<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
 					<top>214</top>
 					<width>1920</width>
 					<height>70</height>
 					<texture>background.png</texture>
-					<colordiffuse>shadow</colordiffuse>
-				</control>
+					<colordiffuse>background</colordiffuse>
+				</control>-->
 				<control type="fixedlist" id="9010">
 					<include>SubMenuAnimation</include>
 					<include>VisibleFadeEffect</include>
