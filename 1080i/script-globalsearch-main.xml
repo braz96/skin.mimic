@@ -5,11 +5,46 @@
 	<onunload>SetProperty(Window.HasSettings,True,home)</onunload>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-		<include>CommonBackground</include>
-		<include>Topbar</include>
 		<control type="group">
-			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480" condition="Window.Previous(home)">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480" condition="Window.Next(home)">WindowClose</animation>
+			<animation effect="fade" time="300">WindowClose</animation>
+			<include>CommonBackground</include>
+		</control>
+		<control type="group">
+			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
+			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
+			<control type="image">
+				<width>1920</width>
+				<height>45</height>
+				<texture>background.png</texture>
+				<colordiffuse>topbar</colordiffuse>
+			</control>
+			<control type="label">
+				<width>900</width>
+				<height>90</height>
+				<font>font13_title</font>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>top</aligny>
+				<textoffsety>-2</textoffsety>
+				<label>$LOCALIZE[137]</label>
+			</control>
+			<control type="label">
+				<left>0</left>
+				<width>1920</width>
+				<height>90</height>
+				<font>font13_title</font>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>grey</textcolor>
+				<align>center</align>
+				<aligny>top</aligny>
+				<textoffsety>-2</textoffsety>
+				<label>$INFO[System.Time]</label>
+			</control>
+		</control>
+		<control type="group">
+			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
+			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
 			<width>105</width>
 			<height>30</height>
 			<left>1670</left>
@@ -179,11 +214,9 @@
 			</control>
 		</control>
 		<control type="group" id="100">
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
 			<control type="label">
-				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480" condition="Window.Previous(home)">WindowOpen</animation>
-				<animation effect="slide" end="0,-90" start="0,0" time="480" condition="Window.Next(home)">WindowClose</animation>
+				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
+				<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
 				<left>1220</left>
 				<top>4</top>
 				<width>700</width>
@@ -194,73 +227,55 @@
 				<align>right</align>
 				<label>[COLOR themecolor]$LOCALIZE[31961]:[/COLOR] $INFO[Window.Property(GlobalSearch.SearchString)]</label>
 			</control>
-			<control type="label" id="190">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="191">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="199">
-				<left>522</left>
-				<top>160</top>
-				<width>1316</width>
-				<height>839</height>
-				<font>font45caps_title</font>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$LOCALIZE[284]</label>
-				<include>VisibleFadeEffect</include>
- 			</control>
-			<control type="button" id="198">
-				<onfocus>SetFocus(9000,9)</onfocus>
-				<include>HiddenObject</include>
-			</control>
-			<control type="grouplist" id="101">
-				<left>522</left>
-				<top>160</top>
-				<width>1316</width>
-				<height>839</height>
-				<orientation>horizontal</orientation>
-				<!-- Movies -->
-				<control type="group" id="119">
-					<visible>Container(9000).HasFocus(1)</visible>
-					<include>SettingsFadeEffect</include>
-					<control type="panel" id="111">
-						<left>0</left>
-						<top>0</top>
-						<width>1316</width>
-						<height>658</height>
-						<pagecontrol>61</pagecontrol>
-						<onleft>Control.SetFocus(9000,1)</onleft>
-						<onright>61</onright>
-						<onup>111</onup>
-						<ondown>111</ondown>
-						<orientation>vertical</orientation>
-						<focusposition>0</focusposition>
-						<viewtype label="535">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<texture>background.png</texture>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>BAffffff</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout width="219" height="329">
-							<control type="group">
-								<animation type="Focus">
-									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-									<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-								</animation>
+			<control type="group">
+				<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
+				<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
+				<control type="label" id="190">
+					<include>HiddenObject</include>
+				</control>
+				<control type="label" id="191">
+					<include>HiddenObject</include>
+				</control>
+				<control type="label" id="199">
+					<left>522</left>
+					<top>160</top>
+					<width>1316</width>
+					<height>839</height>
+					<font>font45caps_title</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$LOCALIZE[284]</label>
+					<include>VisibleFadeEffect</include>
+				</control>
+				<control type="button" id="198">
+					<onfocus>SetFocus(9000,9)</onfocus>
+					<include>HiddenObject</include>
+				</control>
+				<control type="grouplist" id="101">
+					<left>522</left>
+					<top>160</top>
+					<width>1316</width>
+					<height>839</height>
+					<orientation>horizontal</orientation>
+					<!-- Movies -->
+					<control type="group" id="119">
+						<visible>Container(9000).HasFocus(1)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="111">
+							<left>0</left>
+							<top>0</top>
+							<width>1316</width>
+							<height>658</height>
+							<pagecontrol>61</pagecontrol>
+							<onleft>Control.SetFocus(9000,1)</onleft>
+							<onright>61</onright>
+							<onup>111</onup>
+							<ondown>111</ondown>
+							<orientation>vertical</orientation>
+							<focusposition>0</focusposition>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="219" height="329">
 								<control type="image">
 									<width>219</width>
 									<height>329</height>
@@ -268,102 +283,102 @@
 									<colordiffuse>background</colordiffuse>
 								</control>
 								<control type="image">
-									<left>0</left>
-									<top>0</top>
 									<width>219</width>
 									<height>329</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
-									<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
-									<bordersize>8</bordersize>
+									<colordiffuse>BAffffff</colordiffuse>
 								</control>
+							</itemlayout>
+							<focusedlayout width="219" height="329">
+								<control type="group">
+									<animation type="Focus">
+										<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+										<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+									</animation>
+									<control type="image">
+										<width>219</width>
+										<height>329</height>
+										<texture>background.png</texture>
+										<colordiffuse>background</colordiffuse>
+									</control>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>219</width>
+										<height>329</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>400</fadetime>
+										<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(111).ListItem.Label]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
 							</control>
-						</focusedlayout>
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<align>right</align>
+								<label>$INFO[Container(111).ListItem.Property(Year),, • ]$INFO[Container(111).ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(111).ListItem.Property(PlotOutline)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(111).ListItem.Property(Plot)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+								<visible>IsEmpty(Container(111).ListItem.Property(PlotOutline))</visible>
+							</control>
+						</control>
 					</control>
-					<control type="group">
-						<control type="label">
+					<!-- TV Shows -->
+					<control type="group" id="129">
+						<visible>Container(9000).HasFocus(2)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="121">
 							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<label>$INFO[Container(111).ListItem.Label]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<align>right</align>
-							<label>$INFO[Container(111).ListItem.Property(Year),, • ]$INFO[Container(111).ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(111).ListItem.Property(PlotOutline)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(111).ListItem.Property(Plot)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-							<visible>IsEmpty(Container(111).ListItem.Property(PlotOutline))</visible>
-						</control>
-					</control>
-				</control>
-				<!-- TV Shows -->
-				<control type="group" id="129">
-					<visible>Container(9000).HasFocus(2)</visible>
-					<include>SettingsFadeEffect</include>
-					<control type="panel" id="121">
-						<left>0</left>
-						<top>0</top>
-						<width>1316</width>
-						<height>658</height>
-						<pagecontrol>61</pagecontrol>
-						<onleft>Control.SetFocus(9000,2)</onleft>
-						<onright>61</onright>
-						<onup>121</onup>
-						<ondown>121</ondown>
-						<orientation>vertical</orientation>
-						<focusposition>0</focusposition>
-						<viewtype label="535">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<texture>background.png</texture>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>BAffffff</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout width="219" height="329">
-							<control type="group">
-								<animation type="Focus">
-									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-									<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-								</animation>
+							<top>0</top>
+							<width>1316</width>
+							<height>658</height>
+							<pagecontrol>61</pagecontrol>
+							<onleft>Control.SetFocus(9000,2)</onleft>
+							<onright>61</onright>
+							<onup>121</onup>
+							<ondown>121</ondown>
+							<orientation>vertical</orientation>
+							<focusposition>0</focusposition>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="219" height="329">
 								<control type="image">
 									<width>219</width>
 									<height>329</height>
@@ -371,90 +386,90 @@
 									<colordiffuse>background</colordiffuse>
 								</control>
 								<control type="image">
-									<left>0</left>
-									<top>0</top>
 									<width>219</width>
 									<height>329</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
-									<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
-									<bordersize>8</bordersize>
+									<colordiffuse>BAffffff</colordiffuse>
 								</control>
+							</itemlayout>
+							<focusedlayout width="219" height="329">
+								<control type="group">
+									<animation type="Focus">
+										<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+										<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+									</animation>
+									<control type="image">
+										<width>219</width>
+										<height>329</height>
+										<texture>background.png</texture>
+										<colordiffuse>background</colordiffuse>
+									</control>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>219</width>
+										<height>329</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>400</fadetime>
+										<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(121).ListItem.Label]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
 							</control>
-						</focusedlayout>
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<align>right</align>
+								<label>$INFO[Container(121).ListItem.Property(Premiered)]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(121).ListItem.Property(Plot)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
+						</control>
 					</control>
-					<control type="group">
-						<control type="label">
+					<!-- Seasons -->
+					<control type="group" id="139">
+						<visible>Container(9000).HasFocus(3)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="131">
 							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<label>$INFO[Container(121).ListItem.Label]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<align>right</align>
-							<label>$INFO[Container(121).ListItem.Property(Premiered)]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(121).ListItem.Property(Plot)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-						</control>
-					</control>
-				</control>
-				<!-- Seasons -->
-				<control type="group" id="139">
-					<visible>Container(9000).HasFocus(3)</visible>
-					<include>SettingsFadeEffect</include>
-					<control type="panel" id="131">
-						<left>0</left>
-						<top>0</top>
-						<width>1316</width>
-						<height>658</height>
-						<pagecontrol>61</pagecontrol>
-						<onleft>Control.SetFocus(9000,3)</onleft>
-						<onright>61</onright>
-						<onup>131</onup>
-						<ondown>131</ondown>
-						<orientation>vertical</orientation>
-						<viewtype label="535">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<texture>background.png</texture>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>BAffffff</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout width="219" height="329">
-							<control type="group">
-								<animation type="Focus">
-									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-									<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-								</animation>
+							<top>0</top>
+							<width>1316</width>
+							<height>658</height>
+							<pagecontrol>61</pagecontrol>
+							<onleft>Control.SetFocus(9000,3)</onleft>
+							<onright>61</onright>
+							<onup>131</onup>
+							<ondown>131</ondown>
+							<orientation>vertical</orientation>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="219" height="329">
 								<control type="image">
 									<width>219</width>
 									<height>329</height>
@@ -462,90 +477,90 @@
 									<colordiffuse>background</colordiffuse>
 								</control>
 								<control type="image">
-									<left>0</left>
-									<top>0</top>
 									<width>219</width>
 									<height>329</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
-									<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
-									<bordersize>8</bordersize>
+									<colordiffuse>BAffffff</colordiffuse>
 								</control>
+							</itemlayout>
+							<focusedlayout width="219" height="329">
+								<control type="group">
+									<animation type="Focus">
+										<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+										<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+									</animation>
+									<control type="image">
+										<width>219</width>
+										<height>329</height>
+										<texture>background.png</texture>
+										<colordiffuse>background</colordiffuse>
+									</control>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>219</width>
+										<height>329</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>400</fadetime>
+										<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(131).ListItem.Label]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
 							</control>
-						</focusedlayout>
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<align>right</align>
+								<label>$INFO[Container(131).ListItem.Property(tvshowtitle)]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(131).ListItem.Property(Plot)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
+						</control>
 					</control>
-					<control type="group">
-						<control type="label">
+					<!-- Episodes -->
+					<control type="group" id="149">
+						<visible>Container(9000).HasFocus(4)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="141">
 							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<label>$INFO[Container(131).ListItem.Label]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<align>right</align>
-							<label>$INFO[Container(131).ListItem.Property(tvshowtitle)]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(131).ListItem.Property(Plot)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-						</control>
-					</control>
-				</control>
-				<!-- Episodes -->
-				<control type="group" id="149">
-					<visible>Container(9000).HasFocus(4)</visible>
-					<include>SettingsFadeEffect</include>
-					<control type="panel" id="141">
-						<left>0</left>
-						<top>0</top>
-						<width>1316</width>
-						<height>657</height>
-						<pagecontrol>61</pagecontrol>
-						<onleft>Control.SetFocus(9000,4)</onleft>
-						<onright>61</onright>
-						<onup>141</onup>
-						<ondown>141</ondown>
-						<orientation>vertical</orientation>
-						<viewtype label="535">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<itemlayout width="329" height="219">
-							<control type="image">
-								<width>329</width>
-								<height>219</height>
-								<texture>background.png</texture>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>329</width>
-								<height>219</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>BAffffff</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout width="329" height="219">
-							<control type="group">
-								<animation type="Focus">
-									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-									<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-								</animation>
+							<top>0</top>
+							<width>1316</width>
+							<height>657</height>
+							<pagecontrol>61</pagecontrol>
+							<onleft>Control.SetFocus(9000,4)</onleft>
+							<onright>61</onright>
+							<onup>141</onup>
+							<ondown>141</ondown>
+							<orientation>vertical</orientation>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="329" height="219">
 								<control type="image">
 									<width>329</width>
 									<height>219</height>
@@ -553,91 +568,91 @@
 									<colordiffuse>background</colordiffuse>
 								</control>
 								<control type="image">
-									<left>0</left>
-									<top>0</top>
 									<width>329</width>
 									<height>219</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
-									<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
-									<bordersize>8</bordersize>
+									<colordiffuse>BAffffff</colordiffuse>
 								</control>
+							</itemlayout>
+							<focusedlayout width="329" height="219">
+								<control type="group">
+									<animation type="Focus">
+										<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+										<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+									</animation>
+									<control type="image">
+										<width>329</width>
+										<height>219</height>
+										<texture>background.png</texture>
+										<colordiffuse>background</colordiffuse>
+									</control>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>329</width>
+										<height>219</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>400</fadetime>
+										<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(141).ListItem.Label]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
 							</control>
-						</focusedlayout>
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<align>right</align>
+								<label>$INFO[Container(141).ListItem.Property(TvShowTitle)]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(141).ListItem.Property(Plot)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
+						</control>
 					</control>
-					<control type="group">
-						<control type="label">
+					<!-- Actors	-->
+					<control type="group" id="219">
+						<visible>Container(9000).HasFocus(5)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="211">
 							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<label>$INFO[Container(141).ListItem.Label]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<align>right</align>
-							<label>$INFO[Container(141).ListItem.Property(TvShowTitle)]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(141).ListItem.Property(Plot)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-						</control>
-					</control>
-				</control>
-				<!-- Actors	-->
-				<control type="group" id="219">
-					<visible>Container(9000).HasFocus(5)</visible>
-					<include>SettingsFadeEffect</include>
-					<control type="panel" id="211">
-						<left>0</left>
-						<top>0</top>
-						<width>1316</width>
-						<height>658</height>
-						<pagecontrol>61</pagecontrol>
-						<onleft>Control.SetFocus(9000,5)</onleft>
-						<onright>61</onright>
-						<onup>211</onup>
-						<ondown>211</ondown>
-						<orientation>vertical</orientation>
-						<focusposition>0</focusposition>
-						<viewtype label="535">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<texture>background.png</texture>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>BAffffff</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout width="219" height="329">
-							<control type="group">
-								<animation type="Focus">
-									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-									<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-								</animation>
+							<top>0</top>
+							<width>1316</width>
+							<height>658</height>
+							<pagecontrol>61</pagecontrol>
+							<onleft>Control.SetFocus(9000,5)</onleft>
+							<onright>61</onright>
+							<onup>211</onup>
+							<ondown>211</ondown>
+							<orientation>vertical</orientation>
+							<focusposition>0</focusposition>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="219" height="329">
 								<control type="image">
 									<width>219</width>
 									<height>329</height>
@@ -645,101 +660,101 @@
 									<colordiffuse>background</colordiffuse>
 								</control>
 								<control type="image">
-									<left>0</left>
-									<top>0</top>
 									<width>219</width>
 									<height>329</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
-									<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
-									<bordersize>8</bordersize>
+									<colordiffuse>BAffffff</colordiffuse>
 								</control>
+							</itemlayout>
+							<focusedlayout width="219" height="329">
+								<control type="group">
+									<animation type="Focus">
+										<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+										<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+									</animation>
+									<control type="image">
+										<width>219</width>
+										<height>329</height>
+										<texture>background.png</texture>
+										<colordiffuse>background</colordiffuse>
+									</control>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>219</width>
+										<height>329</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>400</fadetime>
+										<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(211).ListItem.Label]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
 							</control>
-						</focusedlayout>
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<align>right</align>
+								<label>$INFO[Container(211).ListItem.Property(Year),, • ]$INFO[Container(211).ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(211).ListItem.Property(PlotOutline)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(211).ListItem.Property(Plot)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+								<visible>IsEmpty(Container(211).ListItem.Property(PlotOutline))</visible>
+							</control>
+						</control>
 					</control>
-					<control type="group">
-						<control type="label">
+					<!-- Music Videos -->
+					<control type="group" id="159">
+						<visible>Container(9000).HasFocus(6)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="151">
 							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<label>$INFO[Container(211).ListItem.Label]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<align>right</align>
-							<label>$INFO[Container(211).ListItem.Property(Year),, • ]$INFO[Container(211).ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(211).ListItem.Property(PlotOutline)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(211).ListItem.Property(Plot)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-							<visible>IsEmpty(Container(211).ListItem.Property(PlotOutline))</visible>
-						</control>
-					</control>
-				</control>
-				<!-- Music Videos -->
-				<control type="group" id="159">
-					<visible>Container(9000).HasFocus(6)</visible>
-					<include>SettingsFadeEffect</include>
-					<control type="panel" id="151">
-						<left>0</left>
-						<top>0</top>
-						<width>1316</width>
-						<height>658</height>
-						<pagecontrol>61</pagecontrol>
-						<onleft>Control.SetFocus(9000,6)</onleft>
-						<onright>61</onright>
-						<onup>151</onup>
-						<ondown>151</ondown>
-						<orientation>vertical</orientation>
-						<viewtype label="535">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<texture>background.png</texture>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>219</width>
-								<height>329</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>BAffffff</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout width="219" height="329">
-							<control type="group">
-								<animation type="Focus">
-									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-									<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-								</animation>
+							<top>0</top>
+							<width>1316</width>
+							<height>658</height>
+							<pagecontrol>61</pagecontrol>
+							<onleft>Control.SetFocus(9000,6)</onleft>
+							<onright>61</onright>
+							<onup>151</onup>
+							<ondown>151</ondown>
+							<orientation>vertical</orientation>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="219" height="329">
 								<control type="image">
 									<width>219</width>
 									<height>329</height>
@@ -747,90 +762,90 @@
 									<colordiffuse>background</colordiffuse>
 								</control>
 								<control type="image">
-									<left>0</left>
-									<top>0</top>
 									<width>219</width>
 									<height>329</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
-									<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
-									<bordersize>8</bordersize>
+									<colordiffuse>BAffffff</colordiffuse>
 								</control>
+							</itemlayout>
+							<focusedlayout width="219" height="329">
+								<control type="group">
+									<animation type="Focus">
+										<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+										<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+									</animation>
+									<control type="image">
+										<width>219</width>
+										<height>329</height>
+										<texture>background.png</texture>
+										<colordiffuse>background</colordiffuse>
+									</control>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>219</width>
+										<height>329</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>400</fadetime>
+										<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(151).ListItem.Property(Artist)] • $INFO[Container(151).ListItem.Label]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
 							</control>
-						</focusedlayout>
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<align>right</align>
+								<label>$INFO[Container(151).ListItem.Property(Year)] • $INFO[Container(151).ListItem.Property(Duration)]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(151).ListItem.Property(Plot)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
+						</control>
 					</control>
-					<control type="group">
-						<control type="label">
+					<!-- Artists -->
+					<control type="group" id="169">
+						<visible>Container(9000).HasFocus(7)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="161">
 							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<label>$INFO[Container(151).ListItem.Property(Artist)] • $INFO[Container(151).ListItem.Label]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<align>right</align>
-							<label>$INFO[Container(151).ListItem.Property(Year)] • $INFO[Container(151).ListItem.Property(Duration)]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(151).ListItem.Property(Plot)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-						</control>
-					</control>
-				</control>
-				<!-- Artists -->
-				<control type="group" id="169">
-					<visible>Container(9000).HasFocus(7)</visible>
-					<include>SettingsFadeEffect</include>
-					<control type="panel" id="161">
-						<left>0</left>
-						<top>0</top>
-						<width>1316</width>
-						<height>658</height>
-						<pagecontrol>61</pagecontrol>
-						<onleft>Control.SetFocus(9000,7)</onleft>
-						<onright>61</onright>
-						<onup>161</onup>
-						<ondown>161</ondown>
-						<orientation>vertical</orientation>
-						<viewtype label="535">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<itemlayout width="329" height="329">
-							<control type="image">
-								<width>329</width>
-								<height>329</height>
-								<texture>background.png</texture>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>329</width>
-								<height>329</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>BAffffff</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout width="329" height="329">
-							<control type="group">
-								<animation type="Focus">
-									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-									<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-								</animation>
+							<top>0</top>
+							<width>1316</width>
+							<height>658</height>
+							<pagecontrol>61</pagecontrol>
+							<onleft>Control.SetFocus(9000,7)</onleft>
+							<onright>61</onright>
+							<onup>161</onup>
+							<ondown>161</ondown>
+							<orientation>vertical</orientation>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="329" height="329">
 								<control type="image">
 									<width>329</width>
 									<height>329</height>
@@ -838,80 +853,80 @@
 									<colordiffuse>background</colordiffuse>
 								</control>
 								<control type="image">
-									<left>0</left>
-									<top>0</top>
 									<width>329</width>
 									<height>329</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
-									<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
-									<bordersize>8</bordersize>
+									<colordiffuse>BAffffff</colordiffuse>
 								</control>
-							</control>
-						</focusedlayout>
-					</control>
-					<control type="group">
-						<control type="label">
-							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<label>$INFO[Container(161).ListItem.Label]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
+							</itemlayout>
+							<focusedlayout width="329" height="329">
+								<control type="group">
+									<animation type="Focus">
+										<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+										<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+									</animation>
+									<control type="image">
+										<width>329</width>
+										<height>329</height>
+										<texture>background.png</texture>
+										<colordiffuse>background</colordiffuse>
+									</control>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>329</width>
+										<height>329</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>400</fadetime>
+										<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
 						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(161).ListItem.Property(Artist_Description)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(161).ListItem.Label]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(161).ListItem.Property(Artist_Description)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
 						</control>
 					</control>
-				</control>
-				<!-- Albums -->
-				<control type="group" id="179">
-					<visible>Container(9000).HasFocus(8)</visible>
-					<include>SettingsFadeEffect</include>
-					<control type="panel" id="171">
-						<left>0</left>
-						<top>0</top>
-						<width>1316</width>
-						<height>658</height>
-						<pagecontrol>61</pagecontrol>
-						<onleft>Control.SetFocus(9000,8)</onleft>
-						<onright>61</onright>
-						<onup>171</onup>
-						<ondown>171</ondown>
-						<orientation>vertical</orientation>
-						<viewtype label="535">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<itemlayout width="329" height="329">
-							<control type="image">
-								<width>329</width>
-								<height>329</height>
-								<texture>background.png</texture>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>329</width>
-								<height>329</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>BAffffff</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout width="329" height="329">
-							<control type="group">
-								<animation type="Focus">
-									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-									<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-								</animation>
+					<!-- Albums -->
+					<control type="group" id="179">
+						<visible>Container(9000).HasFocus(8)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="171">
+							<left>0</left>
+							<top>0</top>
+							<width>1316</width>
+							<height>658</height>
+							<pagecontrol>61</pagecontrol>
+							<onleft>Control.SetFocus(9000,8)</onleft>
+							<onright>61</onright>
+							<onup>171</onup>
+							<ondown>171</ondown>
+							<orientation>vertical</orientation>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="329" height="329">
 								<control type="image">
 									<width>329</width>
 									<height>329</height>
@@ -919,80 +934,80 @@
 									<colordiffuse>background</colordiffuse>
 								</control>
 								<control type="image">
-									<left>0</left>
-									<top>0</top>
 									<width>329</width>
 									<height>329</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
-									<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
-									<bordersize>8</bordersize>
+									<colordiffuse>BAffffff</colordiffuse>
 								</control>
-							</control>
-						</focusedlayout>
-					</control>
-					<control type="group">
-						<control type="label">
-							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<label>$INFO[Container(171).ListItem.Property(Artist)] • $INFO[Container(171).ListItem.Label]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
+							</itemlayout>
+							<focusedlayout width="329" height="329">
+								<control type="group">
+									<animation type="Focus">
+										<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+										<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+									</animation>
+									<control type="image">
+										<width>329</width>
+										<height>329</height>
+										<texture>background.png</texture>
+										<colordiffuse>background</colordiffuse>
+									</control>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>329</width>
+										<height>329</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>400</fadetime>
+										<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
 						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(171).ListItem.Property(Album_Description)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(171).ListItem.Property(Artist)] • $INFO[Container(171).ListItem.Label]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(171).ListItem.Property(Album_Description)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
 						</control>
 					</control>
-				</control>
-				<!-- Songs -->
-				<control type="group" id="189">
-					<visible>Container(9000).HasFocus(9)</visible>
-					<include>SettingsFadeEffect</include>
-					<control type="panel" id="181">
-						<left>0</left>
-						<top>0</top>
-						<width>1316</width>
-						<height>658</height>
-						<pagecontrol>61</pagecontrol>
-						<onleft>Control.SetFocus(9000,9)</onleft>
-						<onright>61</onright>
-						<onup>181</onup>
-						<ondown>181</ondown>
-						<orientation>vertical</orientation>
-						<viewtype label="535">list</viewtype>
-						<preloaditems>2</preloaditems>
-						<itemlayout width="329" height="329">
-							<control type="image">
-								<width>329</width>
-								<height>329</height>
-								<texture>background.png</texture>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>329</width>
-								<height>329</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>BAffffff</colordiffuse>
-							</control>
-						</itemlayout>
-						<focusedlayout width="329" height="329">
-							<control type="group">
-								<animation type="Focus">
-									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-									<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-								</animation>
+					<!-- Songs -->
+					<control type="group" id="189">
+						<visible>Container(9000).HasFocus(9)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="181">
+							<left>0</left>
+							<top>0</top>
+							<width>1316</width>
+							<height>658</height>
+							<pagecontrol>61</pagecontrol>
+							<onleft>Control.SetFocus(9000,9)</onleft>
+							<onright>61</onright>
+							<onup>181</onup>
+							<ondown>181</ondown>
+							<orientation>vertical</orientation>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="329" height="329">
 								<control type="image">
 									<width>329</width>
 									<height>329</height>
@@ -1000,38 +1015,60 @@
 									<colordiffuse>background</colordiffuse>
 								</control>
 								<control type="image">
-									<left>0</left>
-									<top>0</top>
 									<width>329</width>
 									<height>329</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
-									<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
-									<bordersize>8</bordersize>
+									<colordiffuse>BAffffff</colordiffuse>
 								</control>
-							</control>
-						</focusedlayout>
-					</control>
-					<control type="group">
-						<control type="label">
-							<left>0</left>
-							<top>670</top>
-							<width>1314</width>
-							<height>40</height>
-							<label>$INFO[Container(181).ListItem.Property(Artist)] • $INFO[Container(181).ListItem.Label]</label>
-							<font>font15</font>
-							<textcolor>labelheader</textcolor>
+							</itemlayout>
+							<focusedlayout width="329" height="329">
+								<control type="group">
+									<animation type="Focus">
+										<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+										<effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
+									</animation>
+									<control type="image">
+										<width>329</width>
+										<height>329</height>
+										<texture>background.png</texture>
+										<colordiffuse>background</colordiffuse>
+									</control>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>329</width>
+										<height>329</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>400</fadetime>
+										<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
 						</control>
-						<control type="textbox">
-							<left>0</left>
-							<top>720</top>
-							<width>1314</width>
-							<height>116</height>
-							<label>$INFO[Container(181).ListItem.Property(Album)] ($INFO[Container(181).ListItem.Property(Year)])[CR]$INFO[Container(181).ListItem.Property(Genre)] • $INFO[Container(181).ListItem.Property(Duration)]</label>
-							<font>font15_textbox</font>
-							<textcolor>grey</textcolor>
-							<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>670</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(181).ListItem.Property(Artist)] • $INFO[Container(181).ListItem.Label]</label>
+								<font>font15</font>
+								<textcolor>labelheader</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>140</height>
+								<label>$INFO[Container(181).ListItem.Property(Album)] ($INFO[Container(181).ListItem.Property(Year)])[CR]$INFO[Container(181).ListItem.Property(Genre)] • $INFO[Container(181).ListItem.Property(Duration)]</label>
+								<font>font15_textbox</font>
+								<textcolor>grey</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
 						</control>
 					</control>
 				</control>
