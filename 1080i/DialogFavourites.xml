@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">450</defaultcontrol>
-	<onload condition="!IsEmpty(Window(home).Property(Window.HasSettings))">ClearProperty(Window.HasSettings,Home)</onload>
-	<onunload>SetProperty(Window.HasSettings,True,home)</onunload>
 	<allowoverlay>no</allowoverlay>
 	<controls>
 		<include>CommonBackground</include>
+		<control type="image">
+			<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
+			<include>FullscreenDimensions</include>
+			<texture>background.png</texture>
+			<colordiffuse>background</colordiffuse>
+		</control>
 		<control type="group">
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
+			<include>Window_OpenClose_Animation</include>
 			<include condition="!Skin.HasSetting(Enable.FavView)">FavList</include>
 			<include condition="Skin.HasSetting(Enable.FavView)">FavPanel</include>
 			<control type="scrollbar" id="60">
@@ -24,16 +27,18 @@
 			</control>
 		</control>
 		<include>ScrollOffsetLabel</include>
-		<control type="group">
+		<control type="group">	
+			<control type="image">
+				<width>1920</width>
+				<height>45</height>
+				<texture>background.png</texture>
+				<colordiffuse>topbar</colordiffuse>
+				<animation effect="fade" time="200" condition="Skin.HasSetting(Disable.Topbarinfo)">WindowOpen</animation>
+				<animation effect="fade" time="200" condition="Skin.HasSetting(Disable.Topbarinfo)">WindowClose</animation>
+			</control>
 			<control type="group">
-				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-				<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-				<control type="image">
-					<width>1920</width>
-					<height>45</height>
-					<texture>background.png</texture>
-					<colordiffuse>topbar</colordiffuse>
-				</control>
+				<animation effect="fade" time="600">WindowOpen</animation>
+				<animation effect="fade" time="200">WindowClose</animation>
 				<control type="label">
 					<width>900</width>
 					<height>90</height>

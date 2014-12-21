@@ -6,15 +6,23 @@
 	<allowoverlay>no</allowoverlay>
 	<controls>
 		<include>CommonBackground</include>
+		<control type="image">
+			<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
+			<include>FullscreenDimensions</include>
+			<texture>background.png</texture>
+			<colordiffuse>background</colordiffuse>
+		</control>
+		<control type="image">
+			<animation effect="fade" time="200" condition="Skin.HasSetting(Disable.Topbarinfo)">WindowOpen</animation>
+			<animation effect="fade" time="200" condition="Skin.HasSetting(Disable.Topbarinfo)">WindowClose</animation>
+			<width>1920</width>
+			<height>45</height>
+			<texture>background.png</texture>
+			<colordiffuse>topbar</colordiffuse>
+		</control>
 		<control type="group">
-			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-			<control type="image">
-				<width>1920</width>
-				<height>45</height>
-				<texture>background.png</texture>
-				<colordiffuse>topbar</colordiffuse>
-			</control>
+			<animation effect="fade" time="600">WindowOpen</animation>
+			<animation effect="fade" time="200">WindowClose</animation>
 			<control type="label">
 				<width>900</width>
 				<height>90</height>
@@ -40,8 +48,8 @@
 			</control>
 		</control>
 		<control type="group">
-			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
+			<animation effect="fade" time="600">WindowOpen</animation>
+			<animation effect="fade" time="200">WindowClose</animation>
 			<width>105</width>
 			<height>30</height>
 			<left>1670</left>
@@ -77,8 +85,7 @@
 		<control type="group">
 			<left>0</left>
 			<top>128</top>
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
+			<include>Window_OpenClose_Animation</include>
 			<control type="panel" id="9000">
 				<left>82</left>
 				<top>32</top>
@@ -212,8 +219,8 @@
 		</control>
 		<control type="group" id="100">
 			<control type="label">
-				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-				<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
+				<animation effect="fade" time="600">WindowOpen</animation>
+				<animation effect="fade" time="200">WindowClose</animation>
 				<left>1220</left>
 				<top>4</top>
 				<width>700</width>
