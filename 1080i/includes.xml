@@ -250,53 +250,49 @@
 	<include name="Topbar">
 		<control type="group">
 			<visible>!Control.IsVisible(509)</visible>
+			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
+			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
 			<control type="image">
 				<width>1920</width>
 				<height>45</height>
 				<texture>background.png</texture>
 				<colordiffuse>topbar</colordiffuse>
-				<animation effect="fade" time="200" condition="Skin.HasSetting(Disable.Topbarinfo)">WindowOpen</animation>
-				<animation effect="fade" time="200" condition="Skin.HasSetting(Disable.Topbarinfo)">WindowClose</animation>
 			</control>
-			<control type="group">
-				<animation effect="fade" time="600">WindowOpen</animation>
-				<animation effect="fade" time="200">WindowClose</animation>
-				<control type="label">
-					<width>900</width>
-					<height>90</height>
-					<font>font13_title</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
-					<align>left</align>
-					<aligny>top</aligny>
-					<textoffsety>-2</textoffsety>
-					<label>$VAR[BreadcrumbsVar]</label>
-				</control>
-				<control type="label">
-					<visible>!Window.IsActive(script-globalsearch-main.xml)</visible>
-					<left>1020</left>
-					<width>900</width>
-					<height>90</height>
-					<font>font13_title</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
-					<align>right</align>
-					<aligny>top</aligny>
-					<textoffsety>-2</textoffsety>
-					<label>$INFO[Container.NumItems,, $LOCALIZE[31025]]$INFO[Container.CurrentPage,[COLOR themecolor] | ,]$INFO[Container.NumPages,/,[/COLOR]]</label>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<width>1920</width>
-					<height>90</height>
-					<font>font13_title</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
-					<align>center</align>
-					<aligny>top</aligny>
-					<textoffsety>-2</textoffsety>
-					<label>$INFO[System.Time]</label>
-				</control>
+			<control type="label">
+				<width>900</width>
+				<height>90</height>
+				<font>font13_title</font>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>top</aligny>
+				<textoffsety>-2</textoffsety>
+				<label>$VAR[BreadcrumbsVar]</label>
+			</control>
+			<control type="label">
+				<visible>!Window.IsActive(script-globalsearch-main.xml)</visible>
+				<left>1020</left>
+				<width>900</width>
+				<height>90</height>
+				<font>font13_title</font>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>grey</textcolor>
+				<align>right</align>
+				<aligny>top</aligny>
+				<textoffsety>-2</textoffsety>
+				<label>$INFO[Container.NumItems,, $LOCALIZE[31025]]$INFO[Container.CurrentPage,[COLOR themecolor] | ,]$INFO[Container.NumPages,/,[/COLOR]]</label>
+			</control>
+			<control type="label">
+				<left>0</left>
+				<width>1920</width>
+				<height>90</height>
+				<font>font13_title</font>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>grey</textcolor>
+				<align>center</align>
+				<aligny>top</aligny>
+				<textoffsety>-2</textoffsety>
+				<label>$INFO[System.Time]</label>
 			</control>
 		</control>
 	</include>

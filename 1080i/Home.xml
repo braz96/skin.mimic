@@ -11,8 +11,6 @@
 			<top>796</top>
 			<animation effect="slide" tween="cubic" time="600" start="0,190" end="0,0" reversible="false">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,190" reversible="false">WindowClose</animation>
-			<!--<animation effect="slide" tween="cubic" time="600" start="0,190" end="0,0" delay="600" reversible="false" condition="!Window.IsVisible(favourites)">Visible</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,190" reversible="false" condition="!Window.IsVisible(favourites)">Hidden</animation>-->
 			<!-- Main Menu (Includes_Home.xml) -->
 			<control type="image">
 				<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
@@ -129,6 +127,8 @@
 		<control type="group">
 			<visible>!Skin.HasSetting(Disable.Topbarinfo)</visible>
 			<control type="group">
+				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
+				<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
 				<control type="image">
 					<width>1920</width>
 					<height>45</height>
@@ -143,8 +143,6 @@
 					<colordiffuse>background</colordiffuse>
 				</control>
 				<control type="grouplist">
-					<animation effect="fade" time="600">WindowOpen</animation>
-					<animation effect="fade" time="200">WindowClose</animation>
 					<left>0</left>
 					<top>-1</top>
 					<width>1905</width>
@@ -175,8 +173,6 @@
 					</control>
 				</control>
 				<control type="group">
-					<animation effect="fade" time="600">WindowOpen</animation>
-					<animation effect="fade" time="200">WindowClose</animation>
 					<include condition="System.HasAddon(service.library.data.provider)">PlayListStatsList</include>
 					<control type="label">
 						<left>0</left>
