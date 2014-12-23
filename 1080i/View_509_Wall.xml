@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- Fullscreen Wall -->
+	<include name="View_509_Wall">
+		<control type="group">
+			<visible>Control.IsVisible(509)</visible>
+			<include>ViewAnimation</include>
+			<top>-15</top>
+			<control type="panel" id="509">
+				<width>1920</width>
+				<height>1080</height>
+				<onleft>SetProperty(MediaMenu,True,home)</onleft>
+				<onleft>SetFocus(9050)</onleft>
+				<onright>60</onright>
+				<onup>509</onup>
+				<ondown>509</ondown>
+				<orientation>vertical</orientation>
+				<viewtype label="Wall">icon</viewtype>
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<focusposition>1</focusposition>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<itemlayout width="240" height="360" condition="Container.Content(movies) | Container.Content(tvshows)">
+					<control type="group">
+						<control type="image">
+							<left>0</left>
+							<width>240</width>
+							<height>360</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true">$VAR[PosterThumbVar]</texture>
+							<fadetime>300</fadetime>
+						</control>
+						<control type="image">
+							<left>180</left>
+							<top>0</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+						<control type="image">
+							<width>240</width>
+							<height>360</height>
+							<texture>thumbs/diffuse.png</texture>
+							<fadetime>300</fadetime>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="240" height="360" condition="Container.Content(movies) | Container.Content(tvshows)">
+					<control type="group">
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" start="95" end="100" time="300" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="80" end="100" time="300" tween="sine" easing="in" />
+						</animation>
+						<control type="image">
+							<left>0</left>
+							<width>240</width>
+							<height>360</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true">$VAR[PosterThumbVar]</texture>
+							<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+							<fadetime>300</fadetime>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="image">
+							<left>172</left>
+							<top>8</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+						<control type="image">
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="in" reversible="false">Focus</animation>
+							<width>240</width>
+							<height>360</height>
+							<texture>thumbs/diffuse.png</texture>
+							<bordersize>8</bordersize>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="60">
+				<left>1906</left>
+				<top>0</top>
+				<width>14</width>
+				<height>1080</height>
+				<onup>60</onup>
+				<ondown>60</ondown>
+				<onleft>509</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9050)</onright>
+				<orientation>vertical</orientation>
+				<texturesliderbarfocus colordiffuse="themecolor">solid_bg.png</texturesliderbarfocus>
+			</control>
+		</control>
+	</include>
+</includes>
