@@ -25,16 +25,15 @@
 					<control type="image">
 						<width>200</width>
 						<height>300</height>
-						<texture background="true">background.png</texture>
-						<colordiffuse>background</colordiffuse>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$VAR[PosterThumb]</texture>
+						<fadetime>300</fadetime>
 					</control>
 					<control type="image">
 						<width>200</width>
 						<height>300</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true">$VAR[PosterThumb]</texture>
-						<fadetime>400</fadetime>
-						<colordiffuse>BAffffff</colordiffuse>
+						<texture>thumbs/diffuse.png</texture>
+						<fadetime>300</fadetime>
 					</control>
 					<control type="image">
 						<left>140</left>
@@ -54,16 +53,17 @@
 						<control type="image">
 							<width>200</width>
 							<height>300</height>
-							<texture background="true">background.png</texture>
-							<colordiffuse>background</colordiffuse>
-						</control>
-						<control type="image">
-							<width>200</width>
-							<height>300</height>
 							<aspectratio>scale</aspectratio>
 							<texture background="true">$VAR[PosterThumb]</texture>
-							<fadetime>400</fadetime>
-							<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+							<fadetime>300</fadetime>
+							<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="image">
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="in" reversible="false">Focus</animation>
+							<width>200</width>
+							<height>300</height>
+							<texture>thumbs/diffuse.png</texture>
 							<bordersize>8</bordersize>
 						</control>
 						<control type="image">
@@ -158,30 +158,29 @@
 					<control type="image">
 						<width>300</width>
 						<height>300</height>
-						<texture background="true">background.png</texture>
-						<colordiffuse>background</colordiffuse>
-					</control>
-					<control type="image">
-						<width>300</width>
-						<height>300</height>
 						<aspectratio>scale</aspectratio>
 						<texture background="true">$INFO[ListItem.Thumb]</texture>
-						<fadetime>400</fadetime>
-						<colordiffuse>BAffffff</colordiffuse>
+						<fadetime>300</fadetime>
+					</control>
+					<control type="image">
+						<visible>Container.Content(albums)</visible>
+						<width>300</width>
+						<height>300</height>
+						<texture>thumbs/diffuse.png</texture>
+						<fadetime>300</fadetime>
 					</control>
 					<control type="group">
 						<visible>Container.Content(artists)</visible>
 						<control type="image">
-							<top>250</top>
 							<width>300</width>
-							<height>50</height>
-							<texture>black.png</texture>
-							<colordiffuse>88ffffff</colordiffuse>
+							<height>300</height>
+							<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+							<fadetime>300</fadetime>
 						</control>
 						<control type="label">
 							<top>260</top>
 							<width>300</width>
-							<height>30</height>
+							<height>28</height>
 							<align>center</align>
 							<textoffsetx>4</textoffsetx>
 							<textcolor>grey</textcolor>
@@ -198,36 +197,33 @@
 						<control type="image">
 							<width>300</width>
 							<height>300</height>
-							<texture background="true">background.png</texture>
-							<colordiffuse>background</colordiffuse>
+							<aspectratio>scale</aspectratio>
+							<texture fallback="blank.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<fadetime>300</fadetime>
+							<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+							<bordersize>8</bordersize>
 						</control>
 						<control type="image">
+							<visible>Container.Content(albums)</visible>
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="in" reversible="false">Focus</animation>
 							<width>300</width>
 							<height>300</height>
-							<aspectratio>scale</aspectratio>
-							<texture background="true">$INFO[ListItem.Thumb]</texture>
-							<fadetime>400</fadetime>
-							<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+							<texture>thumbs/diffuse.png</texture>
 							<bordersize>8</bordersize>
 						</control>
 						<control type="group">
 							<visible>Container.Content(artists)</visible>
-							<animation type="Focus" reversible="false">
-								<effect type="fade" start="100" end="0" time="300" tween="sine" easing="in" />
-								<!--<effect type="slide" start="0,0" end="0,30" time="300" tween="sine" easing="in" />-->
-							</animation>
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="in" reversible="false">Focus</animation>
 							<control type="image">
-								<top>250</top>
 								<width>300</width>
-								<height>50</height>
-								<texture>black.png</texture>
+								<height>300</height>
+								<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
 								<bordersize>8</bordersize>
-								<colordiffuse>88ffffff</colordiffuse>
 							</control>
 							<control type="label">
 								<top>260</top>
 								<width>300</width>
-								<height>30</height>
+								<height>28</height>
 								<align>center</align>
 								<textoffsetx>10</textoffsetx>
 								<textcolor>grey</textcolor>

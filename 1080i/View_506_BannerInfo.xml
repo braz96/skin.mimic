@@ -26,17 +26,9 @@
 					<control type="image">
 						<width>980</width>
 						<height>181</height>
-						<texture>background.png</texture>
-						<fadetime>400</fadetime>
-						<colordiffuse>background</colordiffuse>
-					</control>
-					<control type="image">
-						<width>980</width>
-						<height>181</height>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
 						<texture background="true">$VAR[BannerThumb]</texture>
-						<fadetime>400</fadetime>
-						<colordiffuse>BAffffff</colordiffuse>
+						<fadetime>300</fadetime>
 						<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
 					</control>
 					<control type="image">
@@ -44,8 +36,7 @@
 						<height>181</height>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<fadetime>400</fadetime>
-						<colordiffuse>BAffffff</colordiffuse>
+						<fadetime>300</fadetime>
 						<visible>IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
 					</control>
                     <control type="group">
@@ -55,8 +46,7 @@
                             <height>181</height>
 							<aspectratio>scale</aspectratio>
 							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-							<colordiffuse>BAffffff</colordiffuse>
-							<fadetime>400</fadetime>
+							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
 							<left>15</left>
@@ -64,9 +54,14 @@
 							<height>181</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-							<colordiffuse>BAffffff</colordiffuse>
-							<fadetime>400</fadetime>
+							<fadetime>300</fadetime>
 						</control>
+					</control>
+					<control type="image">
+						<width>980</width>
+						<height>181</height>
+						<texture>thumbs/diffuse.png</texture>
+						<fadetime>300</fadetime>
 					</control>
 					<control type="image">
 						<left>920</left>
@@ -88,17 +83,10 @@
 							<control type="image">
 								<width>980</width>
 								<height>181</height>
-								<texture>background.png</texture>
-								<fadetime>400</fadetime>
-								<colordiffuse>background</colordiffuse>
-							</control>
-							<control type="image">
-								<width>980</width>
-								<height>181</height>
 								<aspectratio align="center" aligny="center">scale</aspectratio>
 								<texture background="true">$VAR[BannerThumb]</texture>
-								<fadetime>400</fadetime>
-								<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+								<fadetime>300</fadetime>
+								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
 						</control>
@@ -108,9 +96,9 @@
 								<width>980</width>
 								<height>181</height>
 								<texture>background.png</texture>
-								<fadetime>400</fadetime>
+								<fadetime>300</fadetime>
 								<colordiffuse>background</colordiffuse>
-								<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
 							<control type="image">
@@ -118,7 +106,7 @@
 								<height>181</height>
 								<aspectratio align="center" aligny="center">keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>400</fadetime>	
+								<fadetime>300</fadetime>	
 							</control>
 						</control>
                         <control type="group">
@@ -128,8 +116,8 @@
                                 <height>181</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-								<fadetime>400</fadetime>
-								<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+								<fadetime>300</fadetime>
+								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
 							<control type="image">
@@ -138,9 +126,16 @@
 								<height>181</height>
 								<aspectratio>keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-								<fadetime>400</fadetime>
+								<fadetime>300</fadetime>
 								<bordersize>2</bordersize>
 							</control>
+						</control>
+						<control type="image">
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="in" reversible="false">Focus</animation>
+							<width>980</width>
+							<height>181</height>
+							<texture>thumbs/diffuse.png</texture>
+							<bordersize>8</bordersize>
 						</control>
                         <control type="image">
 							<left>912</left>
@@ -174,7 +169,7 @@
 					<height>385</height>
 					<aspectratio>scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-					<fadetime>400</fadetime>
+					<fadetime>300</fadetime>
 					<visible>!IsEmpty(ListItem.Art(fanart))</visible>
 				</control>
 				<control type="label">

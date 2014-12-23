@@ -568,15 +568,15 @@
 						<control type="image">
 							<width>297</width>
 							<height>418</height>
-							<texture background="true">solid_bg.png</texture>
-							<colordiffuse>background</colordiffuse>
+							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
 							<width>297</width>
 							<height>418</height>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
-							<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Thumb]</texture>
-							<colordiffuse>BAffffff</colordiffuse>
+							<texture>thumbs/diffuse.png</texture>
+							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
 							<top>318</top>
@@ -584,6 +584,7 @@
 							<height>100</height>
 							<texture>black.png</texture>
 							<colordiffuse>88ffffff</colordiffuse>
+							<fadetime>300</fadetime>
 						</control>
 						<control type="textbox">
 							<left>10</left>
@@ -594,6 +595,7 @@
 							<textcolor>grey</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
+							<fadetime>300</fadetime>
 						</control>
 					</itemlayout>
 					<focusedlayout height="418" width="297">
@@ -607,7 +609,14 @@
 								<height>418</height>
 								<aspectratio align="center" aligny="center">scale</aspectratio>
 								<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Thumb]</texture>
-								<bordertexture colordiffuse="themecolor" border="8">thumbs/thumbnail_focused.png</bordertexture>
+								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>8</bordersize>
+							</control>
+							<control type="image">
+								<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="in" reversible="false">Focus</animation>
+								<width>297</width>
+								<height>418</height>
+								<texture>thumbs/diffuse.png</texture>
 								<bordersize>8</bordersize>
 							</control>
 							<control type="image">
