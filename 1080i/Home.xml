@@ -8,9 +8,12 @@
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
 		<control type="group">
+			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml)]</visible>
 			<top>796</top>
 			<animation effect="slide" tween="cubic" time="600" start="0,190" end="0,0" reversible="false">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,190" reversible="false">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="600" start="0,190" end="0,0" reversible="false">Visible</animation>
+			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,190" reversible="false">Hidden</animation>
 			<!-- Main Menu (Includes_Home.xml) -->
 			<control type="image">
 				<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
@@ -125,65 +128,65 @@
 		</control>
 		<include condition="system.getbool(lookandfeel.enablerssfeeds)">RSSFeedWidget</include>
 		<control type="group">
-			<visible>!Skin.HasSetting(Disable.Topbarinfo)</visible>
+			<visible>![Skin.HasSetting(Disable.Topbarinfo) | Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml)]</visible>
+			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
+			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
+			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">Visible</animation>
+			<animation effect="slide" end="0,-90" start="0,0" time="480">Hidden</animation>
+			<control type="image">
+				<visible>Skin.HasSetting(Disable.HomeOverlay) + ![Player.HasMedia | Player.HasAudio]</visible>
+				<width>1920</width>
+				<height>45</height>
+				<texture>background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="image">
+				<width>1920</width>
+				<height>45</height>
+				<texture>background.png</texture>
+				<colordiffuse>topbar</colordiffuse>
+			</control>
+			<control type="grouplist">
+				<left>0</left>
+				<top>-1</top>
+				<width>1905</width>
+				<height>41</height>
+				<align>right</align>
+				<orientation>horizontal</orientation>
+				<control type="label" id="9026">
+					<width>5</width>
+					<height>41</height>
+					<label>-</label>
+					<font>font13_title</font>
+					<textcolor>themecolor</textcolor>
+				</control>
+				<control type="label" id="9023">
+					<width>auto</width>
+					<height>41</height>
+					<label>$INFO[Weather.Temperature,,[COLOR grey]  |  [/COLOR]]</label>
+					<font>font13_title</font>
+					<textcolor>themecolor</textcolor>
+					<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin)</visible>
+				</control>
+				<control type="label" id="9025">
+					<width>auto</width>
+					<height>41</height>
+					<label>$INFO[System.Date,[COLOR grey],  |  [/COLOR]]$INFO[System.Time]</label>
+					<font>font13_title</font>
+					<textcolor>themecolor</textcolor>
+				</control>
+			</control>
 			<control type="group">
-				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-				<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-				<control type="image">
-					<visible>Skin.HasSetting(Disable.HomeOverlay) + ![Player.HasMedia | Player.HasAudio]</visible>
-					<width>1920</width>
-					<height>45</height>
-					<texture>background.png</texture>
-					<colordiffuse>background</colordiffuse>
-				</control>
-				<control type="image">
-					<width>1920</width>
-					<height>45</height>
-					<texture>background.png</texture>
-					<colordiffuse>topbar</colordiffuse>
-				</control>
-				<control type="grouplist">
+				<include condition="System.HasAddon(service.library.data.provider)">PlayListStatsList</include>
+				<control type="label">
 					<left>0</left>
 					<top>-1</top>
-					<width>1905</width>
+					<width>1600</width>
 					<height>41</height>
-					<align>right</align>
-					<orientation>horizontal</orientation>
-					<control type="label" id="9026">
-						<width>5</width>
-						<height>41</height>
-						<label>-</label>
-						<font>font13_title</font>
-						<textcolor>themecolor</textcolor>
-					</control>
-					<control type="label" id="9023">
-						<width>auto</width>
-						<height>41</height>
-						<label>$INFO[Weather.Temperature,,[COLOR grey]  |  [/COLOR]]</label>
-						<font>font13_title</font>
-						<textcolor>themecolor</textcolor>
-						<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin)</visible>
-					</control>
-					<control type="label" id="9025">
-						<width>auto</width>
-						<height>41</height>
-						<label>$INFO[System.Date,[COLOR grey],  |  [/COLOR]]$INFO[System.Time]</label>
-						<font>font13_title</font>
-						<textcolor>themecolor</textcolor>
-					</control>
-				</control>
-				<control type="group">
-					<include condition="System.HasAddon(service.library.data.provider)">PlayListStatsList</include>
-					<control type="label">
-						<left>0</left>
-						<top>-1</top>
-						<width>1600</width>
-						<height>41</height>
-						<label>$VAR[LibraryStatsVar]</label>
-						<textoffsetx>15</textoffsetx>
-						<font>font13_title</font>
-						<textcolor>themecolor</textcolor>
-					</control>
+					<label>$VAR[LibraryStatsVar]</label>
+					<textoffsetx>15</textoffsetx>
+					<font>font13_title</font>
+					<textcolor>themecolor</textcolor>
 				</control>
 			</control>
 		</control>
