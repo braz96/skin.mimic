@@ -14,6 +14,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 **1.0.2**
 - Changed window animations.
 - Fixed fanart overlay for Favourites and Global Search.
+- Added additional font set, Encode Sans.
 
 ***
 **1.0.1**
