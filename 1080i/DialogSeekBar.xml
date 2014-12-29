@@ -44,22 +44,22 @@
 				<left>300</left>
 				<width>900</width>
 				<height>35</height>
-				<font>font14</font>
+				<font>font14_title</font>
 				<textcolor>grey</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Time]</label>
+				<label>$INFO[Player.Time]$INFO[System.Time, • ,]</label>
 			</control>
 			<control type="label">
 				<top>333</top>
 				<left>975</left>
 				<width>900</width>
 				<height>35</height>
-				<font>font14</font>
+				<font>font14_title</font>
 				<textcolor>grey</textcolor>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Duration]</label>
+				<label>$INFO[Player.Duration]$INFO[Player.FinishTime, • ,]</label>
 			</control>
 			<control type="label">
 				<visible>Player.Paused + !Window.IsActive(subtitlesearch)</visible>
@@ -70,8 +70,8 @@
 				<label>[UPPERCASE]$LOCALIZE[112][/UPPERCASE]</label>
 				<aligny>center</aligny>
 				<align>center</align>
-				<font>font14</font>
-				<textcolor>white</textcolor>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
 			</control>
 			<control type="grouplist">
 				<left>290</left>
@@ -134,17 +134,6 @@
 				<aspectratio>keep</aspectratio>
 				<texture colordiffuse="themecolor" fallback="rating0.png">$INFO[Player.StarRating]</texture>
 			</control>
-			<control type="slider" id="401">
-				<description>Seek Slider</description>
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>12</height>
-				<texturesliderbar>seekslider2.png</texturesliderbar>
-				<textureslidernib>osd_slider_nib.png</textureslidernib>
-				<textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
-				<visible>Player.Seeking</visible>
-			</control>
 		</control>
 		<control type="group">
 			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
@@ -187,22 +176,22 @@
 				<left>409</left>
 				<width>500</width>
 				<height>35</height>
-				<font>font14</font>
+				<font>font14_title</font>
 				<textcolor>grey</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Time]</label>
+				<label>$INFO[Player.Time]$INFO[System.Time, • ,]</label>
 			</control>
 			<control type="label">
 				<top>218</top>
 				<left>1383</left>
 				<width>500</width>
 				<height>35</height>
-				<font>font14</font>
+				<font>font14_title</font>
 				<textcolor>grey</textcolor>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Duration]</label>
+				<label>$INFO[Player.Duration]$INFO[Player.FinishTime, • ,]</label>
 			</control>
 			<control type="label">
 				<visible>Player.Paused + !Window.IsActive(subtitlesearch)</visible>
@@ -213,8 +202,8 @@
 				<label>[UPPERCASE]$LOCALIZE[112][/UPPERCASE]</label>
 				<aligny>center</aligny>
 				<align>center</align>
-				<font>font14</font>
-				<textcolor>white</textcolor>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
 			</control>
 			<control type="textbox">
 				<left>400</left>
@@ -233,17 +222,6 @@
 				<width>198</width>
 				<include>MediaFlagVars</include>
 				<texture colordiffuse="grey">$INFO[VideoPlayer.VideoCodec,flags/video/,.png]</texture>
-			</control>
-			<control type="slider" id="401">
-				<description>Seek Slider</description>
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>12</height>
-				<texturesliderbar>seekslider2.png</texturesliderbar>
-				<textureslidernib>osd_slider_nib.png</textureslidernib>
-				<textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
-				<visible>Player.Seeking</visible>
 			</control>
 		</control>
 		<control type="group">
@@ -316,22 +294,22 @@
 				<left>263</left>
 				<width>900</width>
 				<height>35</height>
-				<font>font14</font>
+				<font>font14_title</font>
 				<textcolor>grey</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Time]</label>
+				<label>$INFO[Player.Time]$INFO[System.Time, • ,]</label>
 			</control>
 			<control type="label">
 				<top>233</top>
 				<left>975</left>
 				<width>900</width>
 				<height>35</height>
-				<font>font14</font>
+				<font>font14_title</font>
 				<textcolor>grey</textcolor>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Duration]</label>
+				<label>$INFO[Player.Duration]$INFO[VideoPlayer.EndTime, • ,]</label>
 			</control>
 			<control type="label">
 				<left>293</left>
@@ -365,11 +343,11 @@
 				<visible>Player.Rewinding</visible>
 			</control>
 			<control type="label">
+				<top>6</top>
 				<label>$VAR[VideoPlayerForwardRewindVar]</label>
 				<width min="10" max="300">auto</width>
-				<height>90</height>
-				<textoffsetx>0</textoffsetx>
-				<aligny>top</aligny>
+				<height>35</height>
+				<aligny>center</aligny>
 				<font>font14_title</font>
 				<textcolor>grey</textcolor>
 			</control>
