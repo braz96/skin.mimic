@@ -1680,16 +1680,26 @@
 					<orientation>vertical</orientation>
 				</control>
 			</control>
-			<control type="group">
+			<control type="grouplist">
 				<left>1276</left>
 				<top>140</top>
+				<itemgap>15</itemgap>
 				<control type="image">
 					<width>560</width>
-					<height>840</height>
-					<aspectratio aligny="bottom">keep</aspectratio>
+					<height>560</height>
+					<aspectratio aligny="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>!ListItem.IsFolder</visible>
+					<visible>!ListItem.IsFolder + !IsEmpty(ListItem.Thumb)</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+				<control type="textbox">
+					<description>Description</description>
+					<width>560</width>
+					<height>270</height>
+					<font>font15_textbox</font>
+					<textcolor>grey</textcolor>
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
 			</control>
 		</control>
@@ -2021,7 +2031,7 @@
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="60" width="1150" condition="!Container.Content(addons)">
 						<control type="label">
-							<left>30</left>
+							<left>20</left>
 							<width>895</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2042,7 +2052,7 @@
 							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
 						</control>
 						<control type="label">
-							<left>5</left>
+							<left>10</left>
 							<width>1060</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2053,7 +2063,7 @@
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 						<control type="image">
-							<left>1076</left>
+							<left>1081</left>
 							<top>0</top>
 							<width>64</width>
 							<height>64</height>
@@ -2071,7 +2081,7 @@
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>20</left>
 							<width>895</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2093,7 +2103,7 @@
 							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
 						</control>
 						<control type="label">
-							<left>5</left>
+							<left>10</left>
 							<width>1060</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2105,7 +2115,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 						<control type="image">
-							<left>1076</left>
+							<left>1081</left>
 							<top>0</top>
 							<width>64</width>
 							<height>64</height>
@@ -2115,7 +2125,7 @@
 					</focusedlayout>
 					<itemlayout height="60" width="1150" condition="Container.Content(addons)">
 						<control type="label">
-							<left>30</left>
+							<left>20</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2126,7 +2136,7 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>50</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2147,7 +2157,7 @@
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>20</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2159,7 +2169,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>50</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2253,7 +2263,7 @@
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="60" width="1150" condition="Container.Content(albums) | Container.Content(songs)">
 						<control type="label">
-							<left>10</left>
+							<left>20</left>
 							<width>830</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2274,7 +2284,7 @@
 							<visible>!IsEmpty(ListItem.Title) + Container.Content(songs)</visible>
 						</control>
 						<control type="label">
-							<left>240</left>
+							<left>230</left>
 							<width>900</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2295,7 +2305,7 @@
 							<include>VisibleFadeEffect</include>
 						</control>	
 						<control type="label">
-							<left>10</left>
+							<left>20</left>
 							<width>830</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2316,7 +2326,7 @@
 							<visible>!IsEmpty(ListItem.Title) + Container.Content(songs)</visible>
 						</control>
 						<control type="label">
-							<left>240</left>
+							<left>230</left>
 							<width>900</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2330,7 +2340,7 @@
 					</focusedlayout>
 					<itemlayout height="60" width="1150" condition="![Container.Content(albums) | Container.Content(songs)]">
 						<control type="label">
-							<left>30</left>
+							<left>20</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2341,7 +2351,7 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>50</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2362,7 +2372,7 @@
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>20</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2374,7 +2384,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>50</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2485,7 +2495,7 @@
 					<animation effect="slide" end="0,-15" start="0,0" condition="Window.IsActive(pictures)">Conditional</animation>
 					<itemlayout height="60" width="1150">
 						<control type="label">
-							<left>30</left>
+							<left>20</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2496,7 +2506,7 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>50</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2517,7 +2527,7 @@
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>20</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2529,7 +2539,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 						<control type="label">
-							<left>30</left>
+							<left>50</left>
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
@@ -2561,11 +2571,125 @@
 				<control type="image">
 					<width>560</width>
 					<height>840</height>
-					<aspectratio aligny="bottom">keep</aspectratio>
+					<aspectratio aligny="top">keep</aspectratio>
 					<texture background="true">$INFO[ListItem.Thumb]</texture>
 					<visible>!ListItem.IsFolder</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<animation effect="slide" end="0,-15" start="0,0" condition="Window.IsActive(pictures)">Conditional</animation>
+				</control>
+			</control>
+		</control>
+	</include>
+	<!-- Slim AddonList-->
+	<include name="AddonSlimList">
+		<control type="group">
+			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
+			<include>ViewAnimation</include>
+			<control type="group">
+				<control type="list" id="50">
+					<left>90</left>
+					<top>140</top>
+					<width>1150</width>
+					<height>840</height>
+					<onleft>SetProperty(MediaMenu,True,home)</onleft>
+					<onleft>SetFocus(9050)</onleft>
+					<onright>60</onright>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>60</pagecontrol>
+					<scrolltime tween="quadratic" easing="out">200</scrolltime>
+					<itemlayout height="60" width="1150">
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>grey</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60" width="1150">
+						<control type="image">
+							<width>1150</width>
+							<height>60</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>listselect</colordiffuse>
+							<visible>Control.HasFocus(50)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="scrollbar" id="60">
+					<left>1906</left>
+					<top>45</top>
+					<width>14</width>
+					<height>1035</height>
+					<onup>60</onup>
+					<ondown>60</ondown>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<orientation>vertical</orientation>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>1276</left>
+				<top>140</top>
+				<itemgap>15</itemgap>
+				<control type="image">
+					<width>560</width>
+					<height>560</height>
+					<aspectratio aligny="center">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<visible>!ListItem.IsFolder + !IsEmpty(ListItem.Thumb)</visible>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+				<control type="textbox">
+					<description>Description</description>
+					<width>560</width>
+					<height>270</height>
+					<font>font15_textbox</font>
+					<textcolor>grey</textcolor>
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
 			</control>
 		</control>
