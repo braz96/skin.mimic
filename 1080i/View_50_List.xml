@@ -960,6 +960,29 @@
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 			</control>
+			<control type="grouplist">
+				<left>1276</left>
+				<top>130</top>
+				<itemgap>15</itemgap>
+				<visible>Container.Content(addons)</visible>
+				<control type="image">
+					<width>560</width>
+					<height>560</height>
+					<aspectratio aligny="center">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+				<control type="textbox">
+					<visible>Container.Content(addons)</visible>
+					<description>Description</description>
+					<width>560</width>
+					<height>270</height>
+					<font>font14_textbox7</font>
+					<textcolor>grey</textcolor>
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				</control>
+			</control>
 			<control type="group">
 				<left>1276</left>
 				<top>410</top>
@@ -1461,6 +1484,16 @@
 					<texture background="true">$INFO[ListItem.Thumb]</texture>
 					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons)] + !IsEmpty(ListItem.Thumb)</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+				<control type="textbox">
+					<visible>Container.Content(addons)</visible>
+					<description>Description</description>
+					<width>560</width>
+					<height>270</height>
+					<font>font14_textbox7</font>
+					<textcolor>grey</textcolor>
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
 				<control type="label">
 					<visible>Container.Content(albums)</visible>
@@ -1999,6 +2032,7 @@
 			<control type="group">
 				<left>1276</left>
 				<top>130</top>
+				<visible>!Container.Content(addons)</visible>
 				<control type="image">
 					<width>560</width>
 					<height>840</height>
@@ -2006,6 +2040,29 @@
 					<texture background="true">$INFO[ListItem.Thumb]</texture>
 					<visible>!IsEmpty(ListItem.PicturePath)</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>1276</left>
+				<top>130</top>
+				<itemgap>15</itemgap>
+				<visible>Container.Content(addons)</visible>
+				<control type="image">
+					<width>560</width>
+					<height>560</height>
+					<aspectratio aligny="center">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+				<control type="textbox">
+					<visible>Container.Content(addons)</visible>
+					<description>Description</description>
+					<width>560</width>
+					<height>270</height>
+					<font>font14_textbox7</font>
+					<textcolor>grey</textcolor>
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
 			</control>
 		</control>
