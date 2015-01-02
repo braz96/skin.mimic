@@ -4,7 +4,7 @@
 		<control type="group">
 			<animation effect="slide" start="0,-110" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,-110" end="0,0" time="200">VisibleChange</animation>
-			<visible>!Window.IsActive(videoosd) + !VideoPlayer.Content(LiveTV)</visible>
+			<visible>!Window.IsActive(videoosd)</visible>
 			<top>0</top>
 			<control type="image">
 				<left>0</left>
@@ -96,6 +96,7 @@
 			<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>
 			<top>680</top>
 			<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)</visible>
+			<visible>!Window.IsActive(videoosd)</visible>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
@@ -155,15 +156,51 @@
 				</control>
 				<control type="textbox">
 					<width>1600</width>
-					<height>220</height>
-					<font>font14_textbox4</font>
+					<height>160</height>
+					<font>font14_textbox3</font>
 					<textcolor>grey</textcolor>
 					<align>left</align>
 					<aligny>top</aligny>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<include>ShowCaseInfoPanelButtonsValues</include>
 					<label>[COLOR themecolor]$INFO[VideoPlayer.Tagline,, ][/COLOR]$INFO[VideoPlayer.Plot]</label>
 				</control>
+			</control>
+			<control type="progress">
+				<left>287</left>
+				<top>335</top>
+				<width>1605</width>
+				<height>35</height>
+				<info>Player.ProgressCache</info>
+			</control>
+			<control type="progress">
+				<left>287</left>
+				<top>335</top>
+				<width>1605</width>
+				<height>35</height>
+				<info>Player.Progress</info>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="label">
+				<top>333</top>
+				<left>307</left>
+				<width>900</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Time]$INFO[System.Time, • ,]</label>
+			</control>
+			<control type="label">
+				<top>333</top>
+				<left>975</left>
+				<width>900</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Duration]$INFO[Player.FinishTime, • ,]</label>
 			</control>
 			<control type="image">
 				<left>1590</left>
@@ -179,6 +216,7 @@
 			<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>
 			<top>795</top>
 			<visible>![VideoPlayer.Content(LiveTV) | VideoPlayer.Content(movies) | VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)]</visible>
+			<visible>!Window.IsActive(videoosd)</visible>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
@@ -213,12 +251,50 @@
 				<include>MediaFlagVars</include>
 				<texture colordiffuse="grey">$INFO[VideoPlayer.VideoCodec,flags/video/,.png]</texture>
 			</control>
+			<control type="progress">
+				<left>400</left>
+				<top>220</top>
+				<width>1490</width>
+				<height>35</height>
+				<info>Player.ProgressCache</info>
+			</control>
+			<control type="progress">
+				<left>400</left>
+				<top>220</top>
+				<width>1490</width>
+				<height>35</height>
+				<info>Player.Progress</info>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="label">
+				<top>218</top>
+				<left>420</left>
+				<width>900</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Time]$INFO[System.Time, • ,]</label>
+			</control>
+			<control type="label">
+				<top>218</top>
+				<left>975</left>
+				<width>900</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Duration]$INFO[Player.FinishTime, • ,]</label>
+			</control>
 		</control>
 		<control type="group">
 			<animation effect="slide" start="0,290" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,290" end="0,0" time="200">VisibleChange</animation>
 			<top>780</top>
 			<visible>VideoPlayer.Content(LiveTV)</visible>
+			<visible>!Window.IsActive(videoosd)</visible>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
@@ -259,9 +335,9 @@
 				<left>260</left>
 				<top>115</top>
 				<width>1595</width>
-				<height>160</height>
-				<font>font14_textbox3</font>
-				<include>ShowCaseInfoPanelButtonsValues</include>
+				<height>108</height>
+				<font>font14_textbox2</font>
+				<textcolor>grey</textcolor>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 			</control>
 			<control type="label">
@@ -273,6 +349,43 @@
 				<align>right</align>
 				<textcolor>grey</textcolor>
 				<label>$INFO[VideoPlayer.NextTitle,[COLOR labelheader]$LOCALIZE[19031]: [/COLOR]]$INFO[VideoPlayer.NextStartTime, (, - ]$INFO[VideoPlayer.NextEndTime,,)]</label>
+			</control>
+			<control type="progress">
+				<left>260</left>
+				<top>235</top>
+				<width>1627</width>
+				<height>35</height>
+				<info>Player.ProgressCache</info>
+			</control>
+			<control type="progress">
+				<left>260</left>
+				<top>235</top>
+				<width>1627</width>
+				<height>35</height>
+				<info>Player.Progress</info>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="label">
+				<top>233</top>
+				<left>270</left>
+				<width>900</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Time]$INFO[System.Time, • ,]</label>
+			</control>
+			<control type="label">
+				<top>233</top>
+				<left>975</left>
+				<width>900</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Duration]$INFO[VideoPlayer.EndTime, • ,]</label>
 			</control>
 		</control>
 	</controls>
