@@ -953,9 +953,18 @@
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
+					<visible>!IsEmpty(ListItem.Art(poster))</visible>
 					<width>560</width>
 					<height>840</height>
-					<aspectratio aligny="center">scale</aspectratio>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture background="true">$VAR[PosterThumb]</texture>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+				<control type="image">
+					<visible>IsEmpty(ListItem.Art(poster))</visible>
+					<width>560</width>
+					<height>840</height>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
 					<texture background="true">$VAR[PosterThumb]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
