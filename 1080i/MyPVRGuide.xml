@@ -76,6 +76,7 @@
 						<height>90</height>
 						<texture>listselect_fo.png</texture> 
 						<colordiffuse>listselect</colordiffuse>
+						<bordersize>0,3,0,3</bordersize>
 					</control>
 					<control type="label">
 						<left>5</left>
@@ -101,14 +102,11 @@
 						<height>90</height>
 						<bordersize>3</bordersize>
 						<texture>background2.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<colordiffuse>background</colordiffuse>
 					</control>
 					<control type="image" id="2">
 						<width>120</width>
 						<height>90</height>
 						<bordersize>3</bordersize>
-						<aspectratio>stretch</aspectratio>
 						<texture>$INFO[ListItem.Property(GenreType),pvr/genres/,.png]</texture>
 					</control>
 					<control type="group">
@@ -148,6 +146,12 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="90" width="120">
+					<control type="image" id="2">
+						<width>120</width>
+						<height>90</height>
+						<bordersize>3</bordersize>
+						<texture>background2.png</texture>
+					</control>
 					<control type="image" id="14">
 						<width>120</width>
 						<height>90</height>
@@ -159,7 +163,6 @@
 						<width>120</width>
 						<height>90</height>
 						<bordersize>3</bordersize>
-						<aspectratio>stretch</aspectratio>
 						<texture>$INFO[ListItem.Property(GenreType),pvr/genres/,.png]</texture>
 					</control> 
 					<control type="group">
@@ -283,6 +286,20 @@
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.ChannelName]</label>
 						</control>
+						<control type="image">
+							<left>440</left>
+							<width>1316</width>
+							<height>90</height>
+							<bordersize>3</bordersize>
+							<texture>background2.png</texture>
+						</control>
+						<control type="image">
+							<left>440</left>
+							<width>1316</width>
+							<height>90</height>
+							<bordersize>3</bordersize>
+							<texture>$INFO[ListItem.Property(GenreType),pvr/genres/,.png]</texture>
+						</control>
 						<control type="label">
 							<left>440</left>
 							<width>1000</width>
@@ -342,15 +359,31 @@
 							<colordiffuse>listselect</colordiffuse>
 							<visible>Control.HasFocus(11)</visible>
 							<include>VisibleFadeEffect</include>
+							<bordersize>0,3,0,3</bordersize>
 						</control>
 						<control type="image">
 							<left>440</left>
 							<width>1316</width>
 							<height>90</height>
+							<bordersize>3</bordersize>
+							<texture>background2.png</texture>
+						</control>
+						<control type="image">
+							<left>440</left>
+							<width>1316</width>
+							<height>90</height>
+							<bordersize>3</bordersize>
 							<texture>listselect_fo.png</texture>
 							<colordiffuse>listselect</colordiffuse>
 							<visible>Control.HasFocus(11)</visible>
 							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="image">
+							<left>440</left>
+							<width>1316</width>
+							<height>90</height>
+							<bordersize>3</bordersize>
+							<texture>$INFO[ListItem.Property(GenreType),pvr/genres/,.png]</texture>
 						</control>
 						<control type="label">
 							<left>5</left>
@@ -519,6 +552,20 @@
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.ChannelName]</label>
 						</control>
+						<control type="image">
+							<left>440</left>
+							<width>1316</width>
+							<height>90</height>
+							<bordersize>3</bordersize>
+							<texture>background2.png</texture>
+						</control>
+						<control type="image">
+							<left>440</left>
+							<width>1316</width>
+							<height>90</height>
+							<bordersize>3</bordersize>
+							<texture>$INFO[ListItem.Property(GenreType),pvr/genres/,.png]</texture>
+						</control>
 						<control type="label">
 							<left>440</left>
 							<width>1000</width>
@@ -571,9 +618,29 @@
 						</control>
 					</itemlayout>
 					<focusedlayout height="90">
+						<control type="group">
+							<visible>Control.HasFocus(12) + !IsEmpty(ListItem.ChannelName)</visible>
+							<control type="image">
+								<width>356</width>
+								<height>90</height>
+								<texture>listselect_fo.png</texture>
+								<colordiffuse>listselect</colordiffuse>
+								<include>VisibleFadeEffect</include>
+								<bordersize>0,3,0,3</bordersize>
+							</control>
+						</control>
 						<control type="image">
-							<width>356</width>
+							<left>440</left>
+							<width>1316</width>
 							<height>90</height>
+							<bordersize>3</bordersize>
+							<texture>background2.png</texture>
+						</control>
+						<control type="image">
+							<left>440</left>
+							<width>1316</width>
+							<height>90</height>
+							<bordersize>3</bordersize>
 							<texture>listselect_fo.png</texture>
 							<colordiffuse>listselect</colordiffuse>
 							<visible>Control.HasFocus(12)</visible>
@@ -583,10 +650,8 @@
 							<left>440</left>
 							<width>1316</width>
 							<height>90</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>listselect</colordiffuse>
-							<visible>Control.HasFocus(12)</visible>
-							<include>VisibleFadeEffect</include>
+							<bordersize>3</bordersize>
+							<texture>$INFO[ListItem.Property(GenreType),pvr/genres/,.png]</texture>
 						</control>
 						<control type="label">
 							<left>5</left>
