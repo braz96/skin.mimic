@@ -19,6 +19,9 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added foreign language support with Arial font.
 - Made Webly Sleek UI the default font, added Roboto 2014.
 - Replaced Logo view with Fanart view.
+- Added a 7th line to the EPG.
+- Added Black-Green, Black-Mauve, and Black-Purple color themes.
+- Updated language files from Transifex.
 
 ***
 **1.0.1**
