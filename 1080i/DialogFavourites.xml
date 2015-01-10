@@ -55,8 +55,8 @@
 					<label>$LOCALIZE[1036]</label>
 				</control>
 				<control type="label">
-					<left>1020</left>
-					<width>900</width>
+					<left>1040</left>
+					<width>880</width>
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
@@ -64,6 +64,7 @@
 					<align>right</align>
 					<aligny>center</aligny>
 					<label>$INFO[Container(450).NumItems,, $LOCALIZE[31025]]$INFO[Container(450).CurrentPage,  •  [COLOR themecolor],]$INFO[Container(450).NumPages,/,[/COLOR]]</label>
+					<visible>!Player.HasAudio</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -75,6 +76,19 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[System.Time]</label>
+				</control>
+				<control type="label">
+					<left>1040</left>
+					<width>880</width>
+					<height>45</height>
+					<font>topbar</font>
+					<textoffsetx>15</textoffsetx>
+					<textcolor>grey</textcolor>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$LOCALIZE[31040]: [COLOR=themecolor]$INFO[MusicPlayer.Artist] - $INFO[MusicPlayer.Title][/COLOR]</label>
+					<scroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</scroll>
+					<visible>Player.HasAudio</visible>
 				</control>
 			</control>
 		</control>
