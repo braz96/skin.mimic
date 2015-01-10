@@ -7,6 +7,10 @@
 			<include>Animation_DialogPopup</include>
 			<control type="image">
 				<include>FullscreenDimensions</include>
+				<texture>black.png</texture>
+			</control>
+			<control type="image">
+				<include>FullscreenDimensions</include>
 				<aspectratio align="center">scale</aspectratio>
 				<texture background="true" fallback="black.png">$INFO[Window.Property(movie.fanart)]</texture>
 			</control>
@@ -22,8 +26,8 @@
 				<texture background="true">$INFO[Window.Property(movie.Poster)]</texture>
 			</control>
 			<control type="image">
-				<top>980</top>
-				<left>20</left>
+				<top>-995</top>
+				<left>1610</left>
 				<width>300</width>
 				<aspectratio>keep</aspectratio>
 				<texture>tmdb.png</texture>
@@ -39,12 +43,12 @@
 				<height>854</height>
 				<control type="grouplist">
 					<top>-20</top>
-					<width>1100</width>
+					<width>1042</width>
 					<height>110</height>
 					<itemgap>0</itemgap>
 					<align>center</align>
 					<control type="label">
-						<width>1042</width>
+						<width>810</width>
 						<height>60</height>
 						<aligny>center</aligny>
 						<align>left</align>
@@ -442,7 +446,7 @@
 					<viewtype label="">icon</viewtype>
 					<pagecontrol>61</pagecontrol>
 					<orientation>horizontal</orientation>
-                    <visible>IntegerGreaterThan(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(206) + StringCompare(Control.GetLabel(206),Set)</visible>	
+                    <visible>IntegerGreaterThan(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(206) + StringCompare(Control.GetLabel(206),$LOCALIZE[20141])</visible>	
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout" condition="Control.IsVisible(250)">Conditional</animation>					
 					<itemlayout height="418" width="297">
 						<control type="image">
@@ -702,13 +706,13 @@
 					<control type="button" id="204">
 						<description>Trailer</description>
 						<include>ButtonInfoDialogsCommonValues</include>
-						<label>Trailer</label>
+						<label>20410</label>
 						<enable>IntegerGreaterThan(Container(1150).NumItems,0)</enable>						
 					</control>
                     <control type="togglebutton" id="206">
 						<description>Movie Sets/Seasons</description>
 						<include>ButtonInfoDialogsCommonValues</include>
-						<label>Set</label>
+						<label>20141</label>
 						<enable>IntegerGreaterThan(Container(250).NumItems,0)</enable>							
 					</control>
 				</control>

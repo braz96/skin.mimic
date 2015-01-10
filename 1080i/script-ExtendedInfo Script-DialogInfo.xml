@@ -5,16 +5,16 @@
 	<controls>
 		<control type="group">
 			<include>Animation_DialogPopup</include>
-			<!--<control type="image">
+			<control type="image">
 				<include>FullscreenDimensions</include>
 				<aspectratio align="center">scale</aspectratio>
 				<texture background="true">$INFO[Window.Property(actor.ImageFilter)]</texture>
 				<animation effect="zoom" start="0,0,1192,1080" end="0,0,1930,1080" time="500" tween="quadratic" condition="Control.IsVisible(909)">Conditional</animation>
-			</control>-->
-			<control type="image">
+			</control>
+			<!--<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture>black.png</texture>
-			</control>
+			</control>-->
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture>background.png</texture>
@@ -27,8 +27,8 @@
 				<texture background="true">$INFO[Window.Property(actor.thumb)]</texture>
 			</control>
 			<control type="image">
-				<top>980</top>
-				<left>20</left>
+				<top>-980</top>
+				<left>1600</left>
 				<width>300</width>
 				<aspectratio>keep</aspectratio>
 				<texture>tmdb.png</texture>
@@ -44,7 +44,7 @@
 				<height>854</height>
                 <control type="label">
                     <top>-20</top>
-                    <width>1100</width>
+                    <width>810</width>
                     <height>110</height>
                     <aligny>center</aligny>
                     <align>left</align>
@@ -164,7 +164,7 @@
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="6000" repeat="6000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout" condition="Control.IsVisible(800)">Conditional</animation>
-					<visible>ControlGroup(9000).HasFocus(30) + StringCompare(Control.GetLabel(30),YouTube)</visible>
+					<visible>ControlGroup(9000).HasFocus(30) + StringCompare(Control.GetLabel(30),$LOCALIZE[31070])</visible>
 				</control>
 				<control type="scrollbar" id="60">
 					<left>1136</left>
@@ -189,7 +189,7 @@
                     <font>font14</font>	
 					<textcolor>white</textcolor>
                     <fadetime>300</fadetime>						
-                    <visible>IntegerGreaterThan(Container(150).NumItems,0) + ControlGroup(9000).HasFocus(32) + StringCompare(Control.GetLabel(32),TV Shows)</visible>
+                    <visible>IntegerGreaterThan(Container(150).NumItems,0) + ControlGroup(9000).HasFocus(32) + StringCompare(Control.GetLabel(32),$LOCALIZE[31955])</visible>
 					<label>$INFO[Container(150).NumItems] ITEMS • [COLOR=labelheader]$INFO[Container(150).CurrentPage]/$INFO[Container(150).NumPages][/COLOR]</label>
                 </control>	
                 <control type="panel" id="150">
@@ -203,7 +203,7 @@
                     <ondown>9000</ondown>
 					<orientation>horizontal</orientation>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-					<visible>ControlGroup(9000).HasFocus(32) + StringCompare(Control.GetLabel(32),TV Shows)</visible>
+					<visible>ControlGroup(9000).HasFocus(32) + StringCompare(Control.GetLabel(32),$LOCALIZE[31955])</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout" condition="Control.IsVisible(150)">Conditional</animation>
 					<itemlayout height="440" width="297">
 						<control type="image">
@@ -233,7 +233,7 @@
 							<texture>black.png</texture>
 							<colordiffuse>88ffffff</colordiffuse>
 							<fadetime>300</fadetime>
-							<visible>!IsEmpty(ListItem.Label)</visible>
+							<visible>!IsEmpty(ListItem.Property(Character))</visible>
 						</control>
 						<control type="label">
 							<left>10</left>
@@ -306,7 +306,7 @@
                     <font>font14</font>	
 					<textcolor>white</textcolor>
                     <fadetime>300</fadetime>						
-                    <visible>IntegerGreaterThan(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(32) + StringCompare(Control.GetLabel(32),Movies)</visible>
+                    <visible>IntegerGreaterThan(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(32) + StringCompare(Control.GetLabel(32),$LOCALIZE[342])</visible>
 					<label>$INFO[Container(250).NumItems] ITEMS • [COLOR=labelheader]$INFO[Container(250).CurrentPage]/$INFO[Container(250).NumPages][/COLOR]</label>
                 </control>			
 	            <control type="panel" id="250">
@@ -320,7 +320,7 @@
                     <ondown>9000</ondown>
 					<orientation>horizontal</orientation>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>ControlGroup(9000).HasFocus(32) + StringCompare(Control.GetLabel(32),Movies)</visible>
+                    <visible>ControlGroup(9000).HasFocus(32) + StringCompare(Control.GetLabel(32),$LOCALIZE[342])</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout" condition="Control.IsVisible(250)">Conditional</animation>
 					<itemlayout height="440" width="297">
 						<control type="image">
@@ -336,6 +336,13 @@
 							<texture>thumbs/diffuse.png</texture>
 							<fadetime>300</fadetime>
 						</control>
+						<control type="image">
+							<left>257</left>
+                            <width>40</width>
+                            <height>40</height>
+                            <texture>WidgetIndicator.png</texture>						
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+                        </control>
 						<control type="label">
 							<left>14</left>
                             <top>385</top>
@@ -363,6 +370,14 @@
                                 <bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
                                 <bordersize>8</bordersize>
                             </control>
+                        </control>
+						<control type="image">
+							<top>8</top>
+							<left>249</left>
+                            <width>40</width>
+                            <height>40</height>
+                            <texture>WidgetIndicator.png</texture>						
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
                         </control>
 						<control type="label">
 							<left>14</left>
@@ -505,7 +520,7 @@
                     <font>font14</font>	
 					<textcolor>white</textcolor>
                     <fadetime>300</fadetime>						
-                    <visible>IntegerGreaterThan(Container(450).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),Fanart)</visible>
+                    <visible>IntegerGreaterThan(Container(450).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),$LOCALIZE[20445])</visible>
 					<label>$INFO[Container(450).NumItems] ITEMS • [COLOR=labelheader]$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages][/COLOR]</label>
                 </control>
                 <control type="panel" id="450">
@@ -519,7 +534,7 @@
                     <ondown>9000</ondown>
 					<orientation>horizontal</orientation>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>IntegerGreaterThan(Container(450).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),Fanart)</visible>
+                    <visible>IntegerGreaterThan(Container(450).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),$LOCALIZE[20445])</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout" condition="Control.IsVisible(450)">Conditional</animation>
 					<itemlayout height="446" width="297">
 						<control type="image">
@@ -570,7 +585,7 @@
                     <font>font14</font>	
 					<textcolor>white</textcolor>
                     <fadetime>300</fadetime>						
-                    <visible>IntegerGreaterThan(Container(750).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),Thumbs)</visible>
+                    <visible>IntegerGreaterThan(Container(750).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),$LOCALIZE[21371])</visible>
 					<label>$INFO[Container(750).NumItems] ITEMS • [COLOR=labelheader]$INFO[Container(750).CurrentPage]/$INFO[Container(750).NumPages][/COLOR]</label>
                 </control>			
                 <control type="panel" id="750">
@@ -584,7 +599,7 @@
                     <ondown>9000</ondown>
 					<orientation>horizontal</orientation>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>IntegerGreaterThan(Container(750).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),Thumbs)</visible>
+                    <visible>IntegerGreaterThan(Container(750).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),$LOCALIZE[21371])</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout" condition="Control.IsVisible(750)">Conditional</animation>
 					<itemlayout height="383" width="594">
 						<control type="image">
@@ -786,49 +801,31 @@
                     <ondown condition="Control.IsVisible(350)">350</ondown>					
                     <orientation>horizontal</orientation>
                     <control type="togglebutton" id="30">
-                        <description>Biography/YouTube</description>			
+                        <description>YouTube/Biography</description>			
                         <include>ButtonInfoDialogsCommonValues</include>
-                        <label>YouTube</label>
+                        <label>31070</label>
                         <altlabel>21887</altlabel>
                     </control>
-                    <!--<control type="image" id="31">
-                        <width>2</width>
-                        <height>58</height>
-                        <texture border="1">separator3.png</texture>
-                    </control>-->
                     <control type="togglebutton" id="32">
-                        <description>Movies/TV Shows</description>					
+                        <description>TV Shows/Movies</description>					
                         <include>ButtonInfoDialogsCommonValues</include>
-                        <label>TV Shows</label>
-						<altlabel>Movies</altlabel>
+                        <label>31955</label>
+						<altlabel>342</altlabel>
                         <enable>[IntegerGreaterThan(Container(150).NumItems,0) | IntegerGreaterThan(Container(250).NumItems,0)]</enable>						
                     </control>
-                    <!--<control type="image" id="33">
-                        <width>2</width>
-                        <height>58</height>
-                        <texture border="1">separator3.png</texture>
-                    </control>-->
                     <control type="button" id="34">
+						<description>Movie Crew</description>
                         <include>ButtonInfoDialogsCommonValues</include>						
-                        <label>Movie Crew</label>
+                        <label>31100</label>
                         <enable>IntegerGreaterThan(Container(550).NumItems,0)</enable>						
                     </control>
-                    <!--<control type="image" id="35">
-                        <width>2</width>
-                        <height>58</height>
-                        <texture border="1">separator3.png</texture>
-                    </control>-->
                    <control type="togglebutton" id="36">
+						<description>Fanart/Thumbnail</description>
                         <include>ButtonInfoDialogsCommonValues</include>						
-                        <label>Fanart</label>
-						<altlabel>Thumbs</altlabel>
+                        <label>20445</label>
+						<altlabel>21371</altlabel>
                         <enable>IntegerGreaterThan(Container(450).NumItems,0)</enable>
                     </control>					
-                    <!--<control type="image" id="37">
-                        <width>2</width>
-                        <height>58</height>
-                        <texture border="1">separator3.png</texture>
-                    </control>-->
                 </control>
             </control>
 		</control>
