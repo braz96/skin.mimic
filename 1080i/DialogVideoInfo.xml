@@ -5,6 +5,7 @@
 	<include condition="Skin.HasSetting(Enable.TvTunes)">LoadTvTunes</include>
 	<controls>
 		<control type="group">
+			<animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Conditional</animation>
 			<animation effect="fade" time="300">WindowClose</animation>
 			<include>FullscreenDimensions</include>
 			<control type="image">
@@ -21,6 +22,7 @@
 			</control>
 		</control>
 		<control type="group">
+			<animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Conditional</animation>
 			<include>Animation_DialogPopup</include>
 			<left>729</left>
 			<control type="group">
@@ -559,7 +561,7 @@
 					<onleft>50</onleft>
 					<onright>50</onright>
 					<onup>9000</onup>
-					<ondown>50</ondown>
+					<ondown condition="System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).ListItem.Label])</ondown>
 					<viewtype label="">list</viewtype>
 					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">300</scrolltime>
@@ -738,6 +740,7 @@
 			</control>
 		</control>
 		<control type="group">
+			<animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Conditional</animation>
 			<include>Animation_DialogPopup</include>
 			<control type="image">
 				<width>731</width>
