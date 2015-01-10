@@ -22,6 +22,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added a 7th line to the EPG.
 - Added Black-Green, Black-Mauve, and Black-Purple color themes.
 - Updated language files from Transifex.
+- Added support for script.extendedinfo.
 
 ***
 **1.0.1**
