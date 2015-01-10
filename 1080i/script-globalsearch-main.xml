@@ -215,19 +215,37 @@
 			</control>
 		</control>
 		<control type="group" id="100">
-			<control type="label">
+			<control type="group">
 				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
 				<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-				<left>1220</left>
-				<top>-2</top>
-				<width>700</width>
-				<height>45</height>
-				<font>topbar</font>
-				<textoffsetx>15</textoffsetx>
-				<textcolor>grey</textcolor>
-				<align>right</align>
-				<aligny>center</aligny>
-				<label>$LOCALIZE[31961]: [COLOR themecolor]$INFO[Window.Property(GlobalSearch.SearchString)][/COLOR]</label>
+				<control type="label">
+					<left>1040</left>
+					<top>-2</top>
+					<width>880</width>
+					<height>45</height>
+					<font>topbar</font>
+					<textoffsetx>15</textoffsetx>
+					<textcolor>grey</textcolor>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$LOCALIZE[31961]: [COLOR themecolor]$INFO[Window.Property(GlobalSearch.SearchString)][/COLOR]</label>
+					<scroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</scroll>
+					<visible>!Player.HasAudio</visible>
+				</control>
+				<control type="label">
+					<left>1040</left>
+					<top>-2</top>
+					<width>880</width>
+					<height>45</height>
+					<font>topbar</font>
+					<textoffsetx>15</textoffsetx>
+					<textcolor>grey</textcolor>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$LOCALIZE[31040]: [COLOR=themecolor]$INFO[MusicPlayer.Artist] - $INFO[MusicPlayer.Title][/COLOR]</label>
+					<scroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</scroll>
+					<visible>Player.HasAudio</visible>
+				</control>
 			</control>
 			<control type="group">
 				<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
@@ -240,7 +258,7 @@
 				</control>
 				<control type="label" id="199">
 					<left>522</left>
-					<top>160</top>
+					<top>120</top>
 					<width>1316</width>
 					<height>839</height>
 					<font>font45caps_title</font>
