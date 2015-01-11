@@ -290,7 +290,7 @@
 					<align>right</align>
 					<aligny>center</aligny>
 					<label>$INFO[Container.NumItems,, $LOCALIZE[31025]]$INFO[Container.CurrentPage,  •  [COLOR themecolor],]$INFO[Container.NumPages,/,[/COLOR]]</label>
-					<visible>!Player.HasAudio</visible>
+					<!--<visible>!Player.HasAudio</visible>-->
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -303,7 +303,7 @@
 					<aligny>center</aligny>
 					<label>$INFO[System.Time]</label>
 				</control>
-				<control type="label">
+				<!--<control type="label">
 					<left>1040</left>
 					<width>880</width>
 					<height>45</height>
@@ -315,6 +315,48 @@
 					<label>$LOCALIZE[31040]: [COLOR=themecolor]$INFO[MusicPlayer.Artist] - $INFO[MusicPlayer.Title][/COLOR]</label>
 					<scroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</scroll>
 					<visible>Player.HasAudio</visible>
+				</control>-->
+			</control>
+		</control>
+	</include>
+	<include name="Bottombar">
+		<control type="group">
+			<top>1035</top>
+			<visible>!Control.IsVisible(509) + Player.HasAudio + !Skin.HasSetting(Disable.ShowPlayingMusic)</visible>
+			<animation effect="slide" start="0,90" end="0,0" delay="800" time="480">WindowOpen</animation>
+			<animation effect="slide" end="0,90" start="0,0" time="480">WindowClose</animation>
+			<animation effect="slide" start="0,90" end="0,0" time="480" condition="!Control.HasFocus(60)">Conditional</animation>
+			<animation effect="slide" end="0,90" start="0,0" time="480" condition="Control.HasFocus(60)">Conditional</animation>
+			<control type="image">
+				<visible>!Control.IsVisible(59)</visible>
+				<width>1920</width>
+				<height>45</height>
+				<texture>background.png</texture>
+				<colordiffuse>topbar</colordiffuse>
+			</control>
+			<control type="group">
+				<top>-1</top>
+				<control type="label">
+					<width>1500</width>
+					<height>45</height>
+					<font>topbar</font>
+					<textoffsetx>15</textoffsetx>
+					<textcolor>grey</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$LOCALIZE[31040]: [COLOR=themecolor]$INFO[MusicPlayer.Artist] - $INFO[MusicPlayer.Title][/COLOR]</label>
+					<scroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</scroll>
+				</control>
+				<control type="label">
+					<left>1500</left>
+					<width>420</width>
+					<height>45</height>
+					<font>topbar</font>
+					<textoffsetx>15</textoffsetx>
+					<textcolor>grey</textcolor>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration]</label>
 				</control>
 			</control>
 		</control>

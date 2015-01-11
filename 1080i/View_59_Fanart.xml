@@ -112,12 +112,13 @@
 	<include name="View_59_Fanart">
 		<control type="group">
 			<visible>Control.IsVisible(59) + !Window.IsActive(addoninformation)</visible>
+			<animation effect="slide" end="0,-20" start="0,0" time="480" condition="Player.HasAudio + !Skin.HasSetting(Disable.ShowPlayingMusic)">Conditional</animation>
 			<include>ViewAnimation</include>
 			<control type="fixedlist" id="59">
 				<left>0</left>
 				<top>715</top>
 				<width>1920</width>
-				<height>350</height>
+				<height>370</height>
 				<onleft>59</onleft>
 				<onright>59</onright>
 				<onup>SetProperty(MediaMenu,True,home)</onup>
@@ -128,19 +129,19 @@
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)] + !Window.IsVisible(home)</visible>
 				<orientation>horizontal</orientation>
-				<itemlayout width="1920" height="350">
+				<itemlayout width="1920" height="370">
 					<control type="image">
 						<width>1920</width>
-						<height>350</height>
+						<height>370</height>
 						<texture>background.png</texture>
 						<colordiffuse>background</colordiffuse>
 					</control>
 					<include>FanartDetails</include>
 				</itemlayout>
-				<focusedlayout width="1920" height="350">
+				<focusedlayout width="1920" height="370">
 					<control type="image">
 						<width>1920</width>
-						<height>350</height>
+						<height>370</height>
 						<texture>background.png</texture>
 						<colordiffuse>background</colordiffuse>
 					</control>

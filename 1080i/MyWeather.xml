@@ -9,19 +9,19 @@
 		<include>CommonBackground</include>
 		<control type="group">
 			<left>0</left>
-			<top>128</top>
+			<top>90</top>
 			<include>Window_OpenClose_Animation</include>
 			<control type="panel" id="9000">
 				<left>82</left>
 				<top>32</top>
 				<width>356</width>
 				<height>720</height>
-				<onleft>61</onleft>
+				<onleft>60</onleft>
 				<onright condition="Container(9000).HasFocus(1)">300</onright>
 				<onright condition="Container(9000).HasFocus(5)">304</onright>
 				<onup>9000</onup>
 				<ondown>9000</ondown>
-				<pagecontrol>61</pagecontrol>
+				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="quadratic">300</scrolltime>
 				<itemlayout height="90" width="356">
 					<control type="label">
@@ -120,21 +120,19 @@
 					</item>
 				</content>
 			</control>
-			<control type="scrollbar" id="61">
+			<control type="scrollbar" id="60">
 				<left>0</left>
-				<top>-83</top>
+				<top>-45</top>
 				<width>14</width>
 				<height>1035</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<onright>9000</onright>
-				<ondown>61</ondown>
-				<onup>61</onup>
 			</control>
 			<control type="image">
 				<description>LOGO</description>
 				<left>82</left>
-				<top>752</top>
+				<top>790</top>
 				<width>356</width>
 				<height>120</height>
 				<aspectratio>keep</aspectratio>
@@ -1840,6 +1838,7 @@
 			</control>
 		</control>
 		<include>Topbar</include>
+		<include>Bottombar</include>
 		<control type="label">
 			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
 			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
@@ -1853,7 +1852,6 @@
 			<align>right</align>
 			<aligny>center</aligny>
 			<label>$INFO[Weather.Location]</label>
-			<visible>!Player.HasAudio</visible>
 		</control>
 		<control type="group">
 			<left>-440</left>

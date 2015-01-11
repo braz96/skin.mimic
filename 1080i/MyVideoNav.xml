@@ -58,7 +58,7 @@
 				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 				<control type="grouplist">
 					<left>300</left>
-					<top>1010</top>
+					<top>970</top>
 					<width>1320</width>
 					<height>42</height>
 					<align>center</align>
@@ -86,7 +86,7 @@
 				</control>
 				<control type="group">
 					<left>300</left>
-					<top>1010</top>
+					<top>970</top>
 					<control type="label">
 						<left>0</left>
 						<top>45</top>
@@ -101,7 +101,7 @@
 				</control>
 				<control type="group">
 					<left>0</left>
-					<top>1010</top>
+					<top>970</top>
 					<width>1920</width>
 					<align>center</align>
 					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
@@ -170,13 +170,14 @@
 			</control>
 			<control type="group">
 				<visible>Control.IsVisible(500) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58)</visible>
-				<animation effect="slide" start="0,0" end="80,15" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(56)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="80,-20" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(56)">Conditional</animation>
 				<animation effect="slide" start="0" end="40" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-25" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(500)">Conditional</animation>
 				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] | [Container.Content(sets) + Control.IsVisible(57)]</visible>
 				<control type="group">
 					<left>90</left>
-					<top>1010</top>
+					<top>980</top>
 					<visible>![Control.IsVisible(56)]</visible>
 					<include>VisibleFadeEffect</include>
 					<control type="label">
@@ -207,12 +208,13 @@
 				</control>
 				<control type="group">
 					<left>1444</left>
-					<top>1000</top>
+					<top>970</top>
 					<width>1840</width>
 					<height>90</height>
 					<orientation>horizontal</orientation>
 					<include>VisibleFadeEffect</include>
 					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+					<!--<animation effect="slide" end="0,-20" start="0,0" time="480" condition="Control.IsVisible(56)">Conditional</animation>-->
 					<control type="image" id="800012">
 						<left>32</left>
 						<width>198</width>
@@ -240,7 +242,7 @@
 				</control>
 				<control type="group">
 					<left>1246</left>
-					<top>1000</top>
+					<top>980</top>
 					<width>1840</width>
 					<height>90</height>
 					<include>VisibleFadeEffect</include>
@@ -285,6 +287,7 @@
 		</control>
 		<include>ScrollOffsetLabel</include>
 		<include>Topbar</include>
+		<include>Bottombar</include>
 		<control type="group">
 			<left>-440</left>
 			<include>SideBladeLeft</include>
