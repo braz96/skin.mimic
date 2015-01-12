@@ -23,6 +23,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added Black-Green, Black-Mauve, and Black-Purple color themes.
 - Updated language files from Transifex.
 - Added support for script.extendedinfo.
+- Added an optional bottom bar to display now playing music info.
 
 ***
 **1.0.1**
