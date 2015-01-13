@@ -2313,6 +2313,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
+			<animation effect="slide" end="0,15" start="0,0" condition="Container.Content(files) | Container.Content(addons)">Conditional</animation>
 			<control type="group">
 				<control type="list" id="50">
 					<left>90</left>
@@ -2484,7 +2485,7 @@
 					<height>560</height>
 					<aspectratio aligny="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs)] + !IsEmpty(ListItem.Thumb)</visible>
+					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(files) | Container.Content(addons)] + !IsEmpty(ListItem.Thumb)</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="label">
@@ -2528,9 +2529,18 @@
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					<include>ShowCaseInfoPanelButtonsValues</include>
 				</control>
+				<control type="textbox">
+					<visible>Container.Content(addons)</visible>
+					<width>560</width>
+					<height>275</height>
+					<font>font14_textbox5</font>
+					<textcolor>grey</textcolor>
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				</control>
 			</control>
 			<control type="image">
-				<visible>Container.Content(songs)</visible>
+				<visible>Container.Content(songs) | Container.Content(files)</visible>
 				<left>1670</left>
 				<top>885</top>
 				<width>198</width>
@@ -2639,7 +2649,6 @@
 					<height>840</height>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
 					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>!ListItem.IsFolder</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<animation effect="slide" end="0,-15" start="0,0" condition="Window.IsActive(pictures)">Conditional</animation>
 				</control>
