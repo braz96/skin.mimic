@@ -357,7 +357,7 @@
 		<!-- Video Info -->
 		<control type="group">
 			<visible>Player.HasVideo</visible>
-			<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)</visible>
+			<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)</visible>
 			<include>VisibleFadeEffect</include>
 			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0">WindowClose</animation>
@@ -370,6 +370,7 @@
 					<height>376</height>
 					<texture>background.png</texture>
 					<colordiffuse>background</colordiffuse>
+					<animation effect="slide" tween="cubic" time="720" end="0,-90" start="0,0" condition="VideoPlayer.Content(livetv)">Conditional</animation>
 				</control>
 				<control type="image">
 					<description>Cover image</description>
@@ -378,34 +379,43 @@
 					<width>179</width>
 					<height>269</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture fallback="DefaultVideoCover.png">$INFO[Player.Art(poster)]</texture>
-					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
+					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="image">
 					<description>Cover image</description>
 					<left>35</left>
 					<top>70</top>
 					<width>179</width>
-					<height>269</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture fallback="DefaultVideoCover.png">$INFO[Player.Art(tvshow.poster)]</texture>
-					<visible>VideoPlayer.Content(episodes)</visible>
+					<height>179</height>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+					<colordiffuse>grey</colordiffuse>
+					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="grouplist">
 					<left>250</left>
 					<top>68</top>
-					<width>1510</width>
+					<width>1600</width>
 					<height>460</height>
 					<itemgap>12</itemgap>
 					<control type="label">
-						<width>1400</width>
+						<width>1600</width>
+						<height>53</height>
+						<font>font48_title</font>
+						<textcolor>white2</textcolor>
+						<label>$INFO[VideoPlayer.ChannelName]</label>
+						<visible>[B]VideoPlayer.Content(livetv)[/B]</visible>
+					</control>
+					<control type="label">
+						<width>1600</width>
 						<height>53</height>
 						<font>font48_title</font>
 						<textcolor>white2</textcolor>
 						<label>[B]$INFO[Player.Title][/B]</label>
 					</control>
 					<control type="label">
-						<width>1400</width>
+						<width>1600</width>
 						<height>40</height>
 						<font>font28_title</font>
 						<textcolor>themecolor</textcolor>
@@ -413,7 +423,7 @@
 						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
-						<width>1400</width>
+						<width>1600</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -421,7 +431,7 @@
 						<visible>VideoPlayer.Content(musicvideos)</visible>
 					</control>
 					<control type="label">
-						<width>1400</width>
+						<width>1600</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -429,7 +439,7 @@
 						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
-						<width>1400</width>
+						<width>1600</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -437,7 +447,7 @@
 						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
-						<width>1400</width>
+						<width>1600</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -445,7 +455,7 @@
 						<visible>VideoPlayer.Content(movies)</visible>
 					</control>
 					<control type="label">
-						<width>1400</width>
+						<width>1600</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -453,7 +463,7 @@
 						<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
 					</control>
 					<control type="label">
-						<width>1400</width>
+						<width>1600</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -461,9 +471,18 @@
 						<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
 					</control>
 					<control type="label">
+						<width>1600</width>
+						<height>54</height>
+						<font>font15</font>
+						<textcolor>white2</textcolor>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<scroll>true</scroll>
+						<visible>VideoPlayer.Content(livetv)</visible>
+					</control>
+					<control type="label">
 						<description>Time Label</description>
 						<height>50</height>
-						<width>1400</width>
+						<width>1600</width>
 						<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
 						<font>font48</font>
 						<textcolor>white2</textcolor>
