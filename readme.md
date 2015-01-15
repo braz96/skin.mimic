@@ -10,6 +10,11 @@ Mimic is a Kodi skin that combines features from reFocus and Aeon Nox. Based on 
 
 More screenshots available here: http://imgur.com/a/anSBV#0
 
+
+***
+**1.0.3**
+- Updated language files from Transifex.
+
 ***
 **1.0.2**
 - Changed window animations.
