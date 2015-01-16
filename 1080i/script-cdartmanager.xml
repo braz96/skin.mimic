@@ -519,7 +519,7 @@ id      | description
 								<height>320</height>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<info>Listitem.Thumb</info>
-								<fadetime>400</fadetime>
+								<fadetime>300</fadetime>
 								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
@@ -570,10 +570,10 @@ id      | description
                 </control>
                 <control type="panel" id="404">
                     <description>Album List</description>
-                    <left>236</left>
-                    <top>172</top>
-                    <width>1008</width>
-                    <height>759</height>
+                    <left>98</left>
+                    <top>60</top>
+                    <width>1280</width>
+                    <height>960</height>
                     <onleft>9000</onleft>
                     <onright>404</onright>
                     <onup>404</onup>
@@ -581,47 +581,34 @@ id      | description
                     <viewtype label="Album List">list</viewtype>
                     <pagecontrol>4041</pagecontrol>
                     <scrolltime>200</scrolltime>
-                    <itemlayout width="336" height="380">
+                    <itemlayout width="320" height="320">
                         <control type="image">
-                            <width>300</width>
-                            <height>300</height>
+                            <width>320</width>
+                            <height>320</height>
                             <aspectratio scalediffuse="false">keep</aspectratio>
                             <info>Listitem.Thumb</info>
                         </control>
-                        <control type="label">
-                            <top>327</top>
-                            <width>300</width>
-                            <height>50</height>
-                            <font>font13</font>
-                            <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
-                            <focusedcolor>white</focusedcolor>
-                            <selectedcolor>green</selectedcolor>
-                            <info>ListItem.Label</info>
-                        </control>
+						<control type="image">
+							<width>320</width>
+							<height>320</height>
+							<texture>thumbs/diffuse.png</texture>
+							<fadetime>300</fadetime>
+						</control>
                     </itemlayout>
-                    <focusedlayout width="336" height="380">
-                        <control type="image">
-                            <left>18</left>
-                            <top>18</top>
-                            <width>300</width>
-                            <height>300</height>
-                            <info>Listitem.Thumb</info>
-                            <aspectratio scalediffuse="false">keep</aspectratio>
-                            <visible>Control.HasFocus(404)</visible>
-                            <fadetime>300</fadetime>
-                        </control>
-                        <control type="label">
-                            <top>327</top>
-                            <width>300</width>
-                            <height>50</height>
-                            <font>font13</font>
-                            <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
-                            <focusedcolor>white</focusedcolor>
-                            <selectedcolor>green</selectedcolor>
-                            <info>ListItem.Label</info>
-                        </control>
+                    <focusedlayout width="320" height="320">
+						<control type="group">
+							<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+							<control type="image">
+								<width>320</width>
+								<height>320</height>
+								<info>Listitem.Thumb</info>
+								<aspectratio scalediffuse="false">keep</aspectratio>
+								<visible>Control.HasFocus(404)</visible>
+								<fadetime>300</fadetime>
+								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>8</bordersize>
+							</control>
+						</control>
                     </focusedlayout>
                 </control>
                 <control type="group">
