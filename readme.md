@@ -14,6 +14,9 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 ***
 **1.0.3**
 - Updated language files from Transifex.
+- Added Live TV now playing info to the home screen.
+- Added video now playing info to the bottom bar.
+- Changed home widgets to comply with wrap/fixed list setting.
 
 ***
 **1.0.2**
