@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- Home Widgets Includes -->
+	<include name="WidgetListFixed">
+		<control type="fixedlist" id="8000">
+			<include>WidgetListContent</include>
+		</control>
+	</include>
+	<include name="WidgetListWrapped">
+		<control type="wraplist" id="8000">
+			<include>WidgetListContent</include>
+		</control>
+	</include>
+	<include name="WidgetListContent">
+		<left>31</left>
+		<top>31</top>
+		<width>1840</width>
+		<height>360</height>
+		<onup>9000</onup>
+		<ondown>9000</ondown>
+		<onback>9000</onback>
+		<viewtype label="535">list</viewtype>
+		<focusposition>0</focusposition>
+		<pagecontrol>-</pagecontrol>
+		<orientation>horizontal</orientation>
+		<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),2) | StringCompare(Container(9000).ListItem.Property(WidgetType),4) | StringCompare(Container(9000).ListItem.Property(WidgetType),5)]</visible>
+		<autoscroll time="10000" delay="10000" repeat="10000">Control.IsVisible(9003) + !Control.HasFocus(8000)</autoscroll>
+		<itemlayout height="320" width="354" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+			<left>50</left>
+			<control type="image">
+				<top>30</top>
+				<left>77</left>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture background="true">solid_bg.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="image">
+				<top>30</top>
+				<left>77</left>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<colordiffuse>8affffff</colordiffuse>
+			</control>
+		</itemlayout>
+		<focusedlayout height="360" width="380" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+			<control type="image">
+				<animation effect="zoom" center="auto" start="100" end="120" time="200" tween="quadratic">Focus</animation>
+				<animation effect="zoom" center="auto" start="120" end="100" time="200" tween="quadratic">Unfocus</animation>
+				<top>30</top>
+				<left>70</left>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture background="true">background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="image">
+				<animation effect="zoom" center="auto" start="100" end="120" time="200" tween="quadratic">Focus</animation>
+				<animation effect="zoom" center="auto" start="120" end="100" time="200" tween="quadratic">Unfocus</animation>
+				<top>30</top>
+				<left>70</left>
+				<width>300</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+			</control>
+		</focusedlayout>
+		<itemlayout height="320" width="220" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),1) + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+			<control type="image">
+				<top>30</top>
+				<left>40</left>
+				<width>200</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture background="true">solid_bg.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="image">
+				<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+				<top>30</top>
+				<left>40</left>
+				<width>200</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Thumb]</texture>
+				<fadetime>400</fadetime>
+				<colordiffuse>8affffff</colordiffuse>
+			</control>
+			<control type="image">
+				<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+				<top>30</top>
+				<left>40</left>
+				<width>200</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+				<fadetime>400</fadetime>
+				<colordiffuse>8affffff</colordiffuse>
+			</control>
+		</itemlayout>
+		<focusedlayout height="360" width="260" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),1) + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+			<control type="image">
+				<animation effect="zoom" center="auto" start="100" end="120" time="200" tween="quadratic">Focus</animation>
+				<animation effect="zoom" center="auto" start="120" end="100" time="200" tween="quadratic">Unfocus</animation>
+				<top>30</top>
+				<left>60</left>
+				<width>200</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture background="true">background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="image">
+				<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+				<animation effect="zoom" center="auto" start="100" end="120" time="200" tween="quadratic">Focus</animation>
+				<animation effect="zoom" center="auto" start="120" end="100" time="200" tween="quadratic">Unfocus</animation>
+				<top>30</top>
+				<left>60</left>
+				<width>200</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Thumb]</texture>
+			</control>
+			<control type="image">
+				<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+				<animation effect="zoom" center="auto" start="100" end="120" time="200" tween="quadratic">Focus</animation>
+				<animation effect="zoom" center="auto" start="120" end="100" time="200" tween="quadratic">Unfocus</animation>
+				<top>30</top>
+				<left>60</left>
+				<width>200</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+			</control>
+		</focusedlayout>
+		<content target="$VAR[WidgetListTargetVar]">$VAR[WidgetListContent]</content>
+	</include>
+</includes>
