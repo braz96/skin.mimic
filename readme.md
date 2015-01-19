@@ -17,6 +17,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added Live TV now playing info to the home screen.
 - Added video now playing info to the bottom bar.
 - Changed home widgets to comply with wrap/fixed list setting.
+- Added a white theme.
 
 ***
 **1.0.2**
