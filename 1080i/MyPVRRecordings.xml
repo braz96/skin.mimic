@@ -32,9 +32,22 @@
 						<width>105</width>
 						<height>105</height>
 						<aspectratio>keep</aspectratio>
-						<texture background="true" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="IsEmpty(ListItem.Thumb)">Conditional</animation>
 						<fadetime>IconCrossfadeTime</fadetime>
+						<visible>!SubString(ListItem.Icon,Default,left)</visible>
+					</control>
+					<control type="image">
+						<left>15</left>
+						<top>8</top>
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<colordiffuse>grey</colordiffuse>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="IsEmpty(ListItem.Thumb)">Conditional</animation>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<visible>SubString(ListItem.Icon,Default,left)</visible>
 					</control>
 					<control type="label">
 						<left>135</left>
@@ -48,18 +61,6 @@
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
-					<!--<control type="label">
-						<left>135</left>
-						<top>55</top>
-						<width>790</width>
-						<height>60</height>
-						<font>font15</font>
-						<textcolor>themecolor</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Plot]</label>
-					</control>-->
 					<control type="label">
 						<left>100</left>
 						<width>960</width>
@@ -78,6 +79,7 @@
 						<height>64</height>
 						<aspectratio>keep</aspectratio>
 						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>grey</colordiffuse>
 					</control>
 				</itemlayout>
 				<focusedlayout height="120" width="1140">
@@ -97,8 +99,20 @@
 						<width>105</width>
 						<height>105</height>
 						<aspectratio>keep</aspectratio>
-						<texture background="true" fallback="DefaultVideo.png">$INFO[ListItem.Icon]</texture>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
+						<visible>!SubString(ListItem.Icon,Default,left)</visible>
+					</control>
+					<control type="image">
+						<left>15</left>
+						<top>8</top>
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<colordiffuse>white</colordiffuse>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<visible>SubString(ListItem.Icon,Default,left)</visible>
 					</control>
 					<control type="label">
 						<left>135</left>
@@ -113,19 +127,6 @@
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
-					<!--<control type="label">
-						<left>135</left>
-						<top>55</top>
-						<width>790</width>
-						<height>60</height>
-						<font>font15</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Plot]</label>
-						<animation effect="fade" start="100" end="30" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-					</control>-->
 					<control type="label">
 						<left>100</left>
 						<width>960</width>
@@ -145,6 +146,7 @@
 						<height>64</height>
 						<aspectratio>keep</aspectratio>
 						<texture>$VAR[ListItem.Overlay]</texture>
+						<colordiffuse>white</colordiffuse>
 					</control>
 				</focusedlayout>
 			</control>
