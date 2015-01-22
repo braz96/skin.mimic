@@ -151,6 +151,32 @@
 				<label>31089</label>
 				<visible>System.HasAddon(script.playalbum) + Container.Content(albums)</visible>
 			</control>
+			<control type="button" id="90215">
+				<description>ExtendedInfo Movies</description>
+				<width>510</width>
+				<textwidth>425</textwidth>
+				<textoffsetx>45</textoffsetx>
+				<texturefocus>button_shutdown_focus.png</texturefocus>
+				<texturenofocus>button_shutdown_nofocus.png</texturenofocus>
+				<onclick>Dialog.Close(1119)</onclick>	
+				<onclick>Dialog.Close(MovieInformation)</onclick>	
+				<onclick>RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
+				<label>Extended Info</label>
+				<visible>Container.Content(movies) + System.HasAddon(script.extendedinfo)</visible>
+			</control>
+			<control type="button" id="90216">
+				<description>ExtendedInfo TV Shows</description>
+				<width>510</width>
+				<textwidth>425</textwidth>
+				<textoffsetx>45</textoffsetx>
+				<texturefocus>button_shutdown_focus.png</texturefocus>
+				<texturenofocus>button_shutdown_nofocus.png</texturenofocus>
+				<onclick>Dialog.Close(1119)</onclick>	
+				<onclick>Dialog.Close(MovieInformation)</onclick>	
+				<onclick>RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID])</onclick>
+				<label>Extended Info</label>
+				<visible>Container.Content(tvshows) + System.HasAddon(script.extendedinfo)</visible>
+			</control>
 			<control type="button" id="90211">
 				<description>FS Fanart button</description>
 				<width>510</width>
