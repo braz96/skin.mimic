@@ -282,6 +282,7 @@
 			<animation effect="slide" end="0,-45" time="240" condition="Window.Next(home)">WindowClose</animation>
 			<animation effect="slide" start="0,-45" end="0,0" time="240">VisibleChange</animation>
 			<animation effect="slide" start="0,-45" end="0,0" time="240" condition="Window.Previous(home)">WindowOpen</animation>
+			<visible>!Window.IsActive(MusicOSD) + !Window.IsActive(1120) + !Player.ShowCodec</visible>
 			<visible>System.HasAddon(script.artistslideshow) + [!IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)) | !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) | !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarName))]</visible>
 			<visible>[Player.ShowInfo + Skin.HasSetting(Enable.VizInfo)] | Skin.HasSetting(Enable.VizPersistent)</visible>
 			<top>0</top>
