@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>1</defaultcontrol>
-	<visible>[Window.IsActive(videoosd)] + !Window.IsVisible(musicosd) + VideoPlayer.IsFullscreen</visible>
+	<visible>[Window.IsActive(videoosd)] + VideoPlayer.IsFullscreen</visible>
+	<visible>![Window.IsVisible(musicosd) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels)]</visible>
 	<controls>
 		<control type="group">
 			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
