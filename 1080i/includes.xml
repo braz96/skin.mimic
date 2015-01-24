@@ -62,6 +62,7 @@
 			<height>1080</height>
 			<texturefocus>false</texturefocus>
 			<onfocus>SetProperty(MediaMenu,True,home)</onfocus>
+			<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 		</control>
 		<control type="button" id="8999">
 			<description>Close Window button</description>
@@ -378,7 +379,7 @@
 						<textcolor>grey</textcolor>
 						<align>left</align>
 						<aligny>center</aligny>
-						<label>$INFO[MusicPlayer.Artist] - $INFO[MusicPlayer.Title]</label>
+						<label>$INFO[MusicPlayer.Artist,, - ]$INFO[MusicPlayer.Title]</label>
 						<scroll time="3000" delay="4000" repeat="5000">true</scroll>
 					</control>
 					<control type="label">
@@ -390,7 +391,7 @@
 						<textcolor>grey</textcolor>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration]$INFO[MusicPlayer.PlaylistPosition,  •  [COLOR=themecolor],]/$INFO[MusicPlayer.PlaylistLength][/COLOR]</label>
+						<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ,]$INFO[MusicPlayer.PlaylistPosition,  •  [COLOR=themecolor],]/$INFO[MusicPlayer.PlaylistLength][/COLOR]</label>
 					</control>
 				</control>
 				<control type="group">
@@ -419,7 +420,7 @@
 						<textcolor>grey</textcolor>
 						<align>left</align>
 						<aligny>center</aligny>
-						<label>$INFO[VideoPlayer.TVShowTitle] - $INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.TVShowTitle,, - ]$INFO[Player.Title]</label>
 						<scroll time="3000" delay="4000" repeat="5000">true</scroll>
 						<visible>!IsEmpty(VideoPlayer.TVShowTitle)</visible>
 					</control>
@@ -433,7 +434,7 @@
 						<textcolor>grey</textcolor>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$INFO[VideoPlayer.Time] / $INFO[VideoPlayer.Duration]  •  $LOCALIZE[19127]: $INFO[VideoPlayer.FinishTime,[COLOR=themecolor],[/COLOR]]</label>
+						<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ,]$INFO[VideoPlayer.FinishTime,  •  $LOCALIZE[19127]: [COLOR=themecolor],[/COLOR]]</label>
 						<visible>IsEmpty(VideoPlayer.EndTime)</visible>
 					</control>
 					<control type="label">
@@ -446,7 +447,7 @@
 						<textcolor>grey</textcolor>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$INFO[VideoPlayer.Time] / $INFO[VideoPlayer.Duration]  •  $LOCALIZE[19127]: $INFO[VideoPlayer.EndTime,[COLOR=themecolor],[/COLOR]]</label>
+						<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ,]$INFO[VideoPlayer.EndTime,  •  $LOCALIZE[19127]: [COLOR=themecolor],[/COLOR]]</label>
 						<visible>!IsEmpty(VideoPlayer.EndTime)</visible>
 					</control>
 				</control>
