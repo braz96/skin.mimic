@@ -18,6 +18,8 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added video now playing info to the bottom bar.
 - Changed home widgets to comply with wrap/fixed list setting.
 - Added a white theme.
+- Added mouse support for the media menu.
+- Added extendedinfo to extras context menu, thx Warner306.
 
 ***
 **1.0.2**
