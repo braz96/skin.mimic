@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>1</defaultcontrol>
-	<visible>[Window.IsActive(videoosd) | Player.Paused | Player.Seeking | Player.DisplayAfterSeek] + VideoPlayer.IsFullscreen + ![Window.IsVisible(fullscreeninfo) | Window.IsVisible(musicosd) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(subtitlesearch)]</visible>
+	<visible>[Window.IsActive(videoosd) | Player.Paused | Player.Seeking | Player.DisplayAfterSeek | Player.Forwarding | Player.Rewinding] + VideoPlayer.IsFullscreen + ![Window.IsVisible(fullscreeninfo) | Window.IsVisible(musicosd) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(subtitlesearch)]</visible>
 	<controls>
 		<control type="group">
 			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
@@ -40,7 +40,7 @@
 				<textcolor>grey</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Time]$INFO[System.Time, • ,]</label>
+				<label>$INFO[Player.Time]$INFO[System.Time(hh:mm xx), • ,]</label>
 			</control>
 			<control type="label">
 				<top>28</top>
@@ -51,7 +51,7 @@
 				<textcolor>grey</textcolor>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Duration]$INFO[Player.FinishTime, • ,]</label>
+				<label>$INFO[Player.Duration]$INFO[Player.FinishTime(hh:mm xx), • ,]</label>
 			</control>
 			<control type="label">
 				<visible>Player.Paused + !Window.IsActive(subtitlesearch)</visible>
