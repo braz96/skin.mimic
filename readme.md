@@ -20,6 +20,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added a white theme.
 - Added mouse support for the media menu.
 - Added extendedinfo to extras context menu, thx Warner306.
+- Added drop shadows to dialogs and two additional options with BoldDialog and FlatDialog themes.
 
 ***
 **1.0.2**
