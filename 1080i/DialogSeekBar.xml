@@ -33,14 +33,14 @@
 			</control>
 			<control type="label">
 				<top>28</top>
-				<left>50</left>
+				<left>45</left>
 				<width>900</width>
 				<height>35</height>
 				<font>font14_title</font>
 				<textcolor>grey</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Time]$INFO[System.Time(hh:mm xx), • ,]</label>
+				<label>$INFO[Player.Time]</label>
 			</control>
 			<control type="label">
 				<top>28</top>
@@ -51,19 +51,18 @@
 				<textcolor>grey</textcolor>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Duration]$INFO[Player.FinishTime(hh:mm xx), • ,]</label>
+				<label>$INFO[Player.Duration]</label>
 			</control>
 			<control type="label">
-				<visible>Player.Paused + !Window.IsActive(subtitlesearch)</visible>
+				<top>28</top>
+				<left>30</left>
 				<width>1860</width>
 				<height>35</height>
-				<left>30</left>
-				<top>28</top>
-				<label>[UPPERCASE]$LOCALIZE[112][/UPPERCASE]</label>
-				<aligny>center</aligny>
-				<align>center</align>
 				<font>font14_title</font>
 				<textcolor>grey</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$VAR[SeekLabelVar]</label>
 			</control>
 		</control>
 		<control type="group">
@@ -150,7 +149,7 @@
 				<textcolor>grey</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Time]$INFO[System.Time, • ,]</label>
+				<label>$INFO[Player.Time]</label>
 			</control>
 			<control type="label">
 				<top>233</top>
@@ -161,7 +160,32 @@
 				<textcolor>grey</textcolor>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$INFO[Player.Duration]$INFO[VideoPlayer.EndTime, • ,]</label>
+				<label>$INFO[Player.Duration]</label>
+			</control>
+			<control type="label">
+				<top>233</top>
+				<left>260</left>
+				<width>1627</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$VAR[SeekLabelVar]</label>
+			</control>
+		</control>
+		<control type="group">
+			<left>832</left>
+			<top>412</top>
+			<include>Animation_DialogPopup</include>
+			<visible>Player.Paused + !Window.IsActive(subtitlesearch)</visible>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>256</width>
+				<height>256</height>
+				<texture>osd/paused.png</texture>
+				<colordiffuse>background</colordiffuse>
 			</control>
 		</control>
 		<control type="grouplist">
