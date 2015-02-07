@@ -184,7 +184,8 @@
 					<visible>!StringCompare(Container(9000).ListItem.Property(WidgetType),3)</visible>
 				</control>
 				<control type="group">
-					<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),1) + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left) + Control.HasFocus(8000)</visible>
+					<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),6)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left) + Control.HasFocus(8000)</visible>
+					<animation effect="slide" tween="cubic" time="0" start="0,0" end="10,0" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">Conditional</animation>
 					<top>396</top>
 					<left>70</left>
 					<control type="label">
