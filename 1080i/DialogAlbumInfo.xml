@@ -366,9 +366,10 @@
 					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus(4003)">Conditional</animation>
 				</control>
 				<control type="panel" id="50">
-					<left>-36</left>
-					<top>550</top>
-					<width>1186</width>
+					<visible>Container.Content(artists) + System.HasAddon(script.extendedinfo)</visible>
+					<left>-38</left>
+					<top>552</top>
+					<width>1188</width>
 					<height>504</height>
 					<onleft>50</onleft>
 					<onright>50</onright>
@@ -378,31 +379,130 @@
 					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<orientation>horizontal</orientation>
-					<itemlayout height="84" width="593" condition="Container.Content(artists)">
+					<itemlayout height="396" width="396" condition="Container.Content(artists)">
+						<control type="image">
+							<width>396</width>
+							<height>396</height>
+							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<fadetime>300</fadetime>
+						</control>
+						<control type="image">
+							<width>396</width>
+							<height>396</height>
+							<texture>thumbs/diffuse.png</texture>
+							<fadetime>300</fadetime>
+						</control>
+						<control type="image">
+							<top>306</top>
+							<width>396</width>
+							<height>90</height>
+							<texture>black.png</texture>
+							<colordiffuse>88ffffff</colordiffuse>
+							<fadetime>300</fadetime>
+						</control>
 						<control type="label">
-							<width>593</width>
-							<height>84</height>
-							<font>font15</font>
-							<textoffsetx>36</textoffsetx>
+							<left>10</left>
+							<top>306</top>
+							<width>376</width>
+							<height>40</height>
+							<font>font_Actor</font>
 							<textcolor>grey</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>593</left>
-							<width>593</width>
+							<left>10</left>
+							<top>346</top>
+							<width>376</width>
+							<height>40</height>
+							<font>font_Actor</font>
+							<textcolor>grey</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<label>$INFO[ListItem.Year]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="396" width="396" condition="Container.Content(artists)">
+						<control type="group">
+							<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+							<control type="image">
+								<width>396</width>
+								<height>396</height>
+								<aspectratio align="center" aligny="center">scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Thumb]</texture>
+								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>8</bordersize>
+								<fadetime>300</fadetime>
+							</control>
+							<control type="image">
+								<visible>IsEmpty(ListItem.Thumb)</visible>
+								<width>396</width>
+								<height>396</height>
+								<texture>thumbs/diffuse.png</texture>
+								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordersize>8</bordersize>
+								<fadetime>300</fadetime>
+							</control>
+							<control type="image">
+								<top>306</top>
+								<left>8</left>
+								<width>380</width>
+								<height>82</height>
+								<texture>black.png</texture>
+								<colordiffuse>88ffffff</colordiffuse>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<top>306</top>
+								<width>376</width>
+								<height>40</height>
+								<font>font_Actor</font>
+								<selectedcolor>selected</selectedcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<top>346</top>
+								<width>376</width>
+								<height>40</height>
+								<font>font_Actor</font>
+								<selectedcolor>selected</selectedcolor>
+								<label>$INFO[ListItem.Year]</label>
+								<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="music">plugin://script.extendedinfo?info=discography&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
+				</control>
+				<control type="panel" id="50">
+					<visible>Container.Content(albums) | !System.HasAddon(script.extendedinfo)</visible>
+					<left>-38</left>
+					<top>552</top>
+					<width>1188</width>
+					<height>504</height>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<viewtype label="">list</viewtype>
+					<pagecontrol>61</pagecontrol>
+					<scrolltime tween="quadratic" easing="out">200</scrolltime>
+					<orientation>horizontal</orientation>
+					<itemlayout height="84" width="594" condition="Container.Content(artists)">
+						<control type="label">
+							<width>594</width>
 							<height>84</height>
 							<font>font15</font>
 							<textoffsetx>36</textoffsetx>
 							<textcolor>grey</textcolor>
-							<align>right</align>
 							<selectedcolor>selected</selectedcolor>
-							<label>$INFO[ListItem.Label2]</label>
+							<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="84" width="593" condition="Container.Content(artists)">
+					<focusedlayout height="84" width="594" condition="Container.Content(artists)">
 						<control type="image">
-							<width>593</width>
+							<width>594</width>
 							<height>84</height>
 							<texture>listselect_fo.png</texture>
 							<colordiffuse>listselect</colordiffuse>
@@ -410,30 +510,19 @@
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<width>593</width>
+							<width>594</width>
 							<height>84</height>
 							<font>font15</font>
 							<textoffsetx>36</textoffsetx>
 							<textcolor>white</textcolor>
 							<selectedcolor>selected</selectedcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-						<control type="label">
-							<left>593</left>
-							<width>593</width>
-							<height>84</height>
-							<font>font15</font>
-							<textoffsetx>36</textoffsetx>
-							<align>right</align>
-							<selectedcolor>selected</selectedcolor>
-							<label>$INFO[ListItem.Label2]</label>
+							<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
 							<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 					</focusedlayout>
-					<itemlayout height="84" width="593" condition="Container.Content(albums)">
+					<itemlayout height="84" width="594" condition="Container.Content(albums)">
 						<control type="label">
-							<width>593</width>
+							<width>594</width>
 							<height>84</height>
 							<font>font15</font>
 							<textoffsetx>36</textoffsetx>
@@ -441,21 +530,10 @@
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
 						</control>
-						<control type="label">
-							<left>593</left>
-							<width>593</width>
-							<height>84</height>
-							<font>font15</font>
-							<textoffsetx>36</textoffsetx>
-							<textcolor>grey</textcolor>
-							<align>right</align>
-							<selectedcolor>selected</selectedcolor>
-							<label>$INFO[ListItem.Duration]</label>
-						</control>
 					</itemlayout>
-					<focusedlayout height="84" width="593" condition="Container.Content(albums)">
+					<focusedlayout height="84" width="594" condition="Container.Content(albums)">
 						<control type="image">
-							<width>593</width>
+							<width>594</width>
 							<height>84</height>
 							<texture>listselect_fo.png</texture>
 							<colordiffuse>listselect</colordiffuse>
@@ -463,24 +541,13 @@
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<width>593</width>
+							<width>594</width>
 							<height>84</height>
 							<font>font15</font>
 							<textoffsetx>36</textoffsetx>
 							<textcolor>white</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-						<control type="label">
-							<left>593</left>
-							<width>593</width>
-							<height>84</height>
-							<font>font15</font>
-							<textoffsetx>36</textoffsetx>
-							<align>right</align>
-							<selectedcolor>selected</selectedcolor>
-							<label>$INFO[ListItem.Duration]</label>
 							<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 					</focusedlayout>
@@ -565,7 +632,7 @@
 						<visible>false</visible>
 					</control>
 					<control type="button" id="207">
-						<description>Refresh</description>
+						<description>Extras</description>
 						<font>IconMedium</font>
 						<width>84</width>
 						<include>ButtonInfoDialogsCommonValues</include>
