@@ -16,6 +16,8 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added skin setting to always display home screen widgets, rather than press up from main menu.
 - Fixed list view posters for Files and Addons.
 - Updated language files from Transifex.
+- Removed color diffuse from TV channel logos.
+- Added a serif font, NotoSerif.
 
 ***
 **1.0.3**
