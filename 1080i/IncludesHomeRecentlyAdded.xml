@@ -168,8 +168,9 @@
 				</control>
 			</control>
 			<control type="group">
-				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(8000) + Skin.HasSetting(Disable.WidgetPressUp)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">WindowClose</animation>
+				<animation effect="fade" start="100" end="0" time="0" condition="Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious | [!Control.HasFocus(8000) + Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="0">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" time="300" condition="!Container(8000).IsUpdating">Conditional</animation>
 				<include condition="Skin.HasSetting(HorizontalListNav)">WidgetListFixed</include>
 				<include condition="!Skin.HasSetting(HorizontalListNav)">WidgetListWrapped</include>
 				<control type="label">
@@ -184,7 +185,7 @@
 					<visible>!StringCompare(Container(9000).ListItem.Property(WidgetType),3)</visible>
 				</control>
 				<control type="group">
-					<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),6)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left) + Control.HasFocus(8000)</visible>
+					<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) |  StringCompare(Container(9000).ListItem.Property(WidgetType),5) | StringCompare(Container(9000).ListItem.Property(WidgetType),6)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left) + Control.HasFocus(8000)</visible>
 					<animation effect="slide" tween="cubic" time="0" start="0,0" end="10,0" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">Conditional</animation>
 					<top>396</top>
 					<left>70</left>
