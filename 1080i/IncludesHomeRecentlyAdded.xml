@@ -247,7 +247,6 @@
 					<height>376</height>
 					<texture>background.png</texture>
 					<colordiffuse>background</colordiffuse>
-					<animation effect="slide" tween="cubic" time="720" end="0,-60" start="0,0" condition="VideoPlayer.Content(livetv)">Conditional</animation>
 				</control>
 				<control type="image">
 					<description>Cover image</description>
@@ -263,27 +262,28 @@
 					<description>Cover image</description>
 					<left>35</left>
 					<top>70</top>
-					<width>179</width>
+					<width>269</width>
 					<height>269</height>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="grouplist">
+					<animation effect="slide" tween="cubic" time="0" end="85,0" start="0,0" condition="VideoPlayer.Content(livetv)">Conditional</animation>
 					<left>250</left>
 					<top>68</top>
-					<width>1600</width>
+					<width>1530</width>
 					<height>460</height>
 					<itemgap>12</itemgap>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>53</height>
 						<font>font48_title</font>
 						<textcolor>white2</textcolor>
 						<label>[B]$INFO[Player.Title][/B]</label>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font28_title</font>
 						<textcolor>themecolor</textcolor>
@@ -291,7 +291,7 @@
 						<visible>VideoPlayer.Content(livetv)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font28_title</font>
 						<textcolor>themecolor</textcolor>
@@ -299,7 +299,7 @@
 						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -307,7 +307,7 @@
 						<visible>VideoPlayer.Content(musicvideos)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -315,7 +315,7 @@
 						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -323,7 +323,7 @@
 						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -331,7 +331,7 @@
 						<visible>VideoPlayer.Content(movies)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -339,7 +339,7 @@
 						<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -347,7 +347,7 @@
 						<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -356,16 +356,16 @@
 						<visible>VideoPlayer.Content(livetv) + !IsEmpty(VideoPlayer.Plot)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
-						<label>$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$LOCALIZE[19127,,: ]$INFO[VideoPlayer.EndTime]</label>
 						<scroll>true</scroll>
 						<visible>VideoPlayer.Content(livetv) + IsEmpty(VideoPlayer.Plot)</visible>
 					</control>
 					<control type="label">
-						<width>1600</width>
+						<width>1530</width>
 						<height>40</height>
 						<font>font15</font>
 						<textcolor>white2</textcolor>
@@ -376,7 +376,7 @@
 					<control type="label">
 						<description>Time Label</description>
 						<height>50</height>
-						<width>1600</width>
+						<width>1530</width>
 						<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
 						<font>font48</font>
 						<textcolor>white2</textcolor>
