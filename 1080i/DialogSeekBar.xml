@@ -7,6 +7,7 @@
 			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>
 			<top>985</top>
+			<visible>!VideoPlayer.Content(livetv)</visible>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
@@ -56,6 +57,114 @@
 				<top>28</top>
 				<left>30</left>
 				<width>1860</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$VAR[SeekLabelVar]</label>
+			</control>
+		</control>
+		<control type="group">
+			<animation effect="slide" start="0,290" end="0,0" time="200">WindowOpen</animation>
+			<animation effect="slide" start="0,290" end="0,0" time="200">VisibleChange</animation>
+			<top>780</top>
+			<visible>VideoPlayer.Content(livetv)</visible>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>300</height>
+				<texture>background.png</texture>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="image">
+				<left>30</left>
+				<top>30</top>
+				<width>240</width>
+				<height>240</height>
+				<aspectratio aligny="center" align="center">keep</aspectratio>
+				<texture background="true">$INFO[Player.Art(thumb)]</texture>
+			</control>
+			<control type="label">
+				<left>300</left>
+				<top>25</top>
+				<width>1255</width>
+				<height>40</height>
+				<font>font16_title</font>
+				<textcolor>grey</textcolor>
+				<label>[B]$INFO[VideoPlayer.Title][/B]</label>
+			</control>
+			<control type="label">
+				<left>300</left>
+				<top>72</top>
+				<width>1555</width>
+				<height>40</height>
+				<font>font14_title</font>
+				<textcolor>themecolor</textcolor>
+				<label>$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</label>
+			</control>
+			<control type="textbox">
+				<label>$INFO[VideoPlayer.Plot]</label>
+				<left>300</left>
+				<top>115</top>
+				<width>1555</width>
+				<height>108</height>
+				<font>font14_textbox2</font>
+				<textcolor>grey</textcolor>
+				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+			</control>
+			<control type="label">
+				<left>300</left>
+				<top>20</top>
+				<width>1595</width>
+				<height>40</height>
+				<font>font14</font>
+				<align>right</align>
+				<textcolor>grey</textcolor>
+				<label>$INFO[VideoPlayer.NextTitle,[COLOR labelheader]$LOCALIZE[19031]: [/COLOR]]$INFO[VideoPlayer.NextStartTime, (, - ]$INFO[VideoPlayer.NextEndTime,,)]</label>
+			</control>
+			<control type="progress">
+				<left>300</left>
+				<top>233</top>
+				<width>1587</width>
+				<height>37</height>
+				<info>Player.ProgressCache</info>
+			</control>
+			<control type="progress">
+				<left>300</left>
+				<top>233</top>
+				<width>1587</width>
+				<height>37</height>
+				<info>Player.Progress</info>
+				<colordiffuse>background</colordiffuse>
+			</control>
+			<control type="label">
+				<top>232</top>
+				<left>315</left>
+				<width>900</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Time]</label>
+			</control>
+			<control type="label">
+				<top>232</top>
+				<left>975</left>
+				<width>900</width>
+				<height>35</height>
+				<font>font14_title</font>
+				<textcolor>grey</textcolor>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Duration]</label>
+			</control>
+			<control type="label">
+				<top>232</top>
+				<left>300</left>
+				<width>1587</width>
 				<height>35</height>
 				<font>font14_title</font>
 				<textcolor>grey</textcolor>
