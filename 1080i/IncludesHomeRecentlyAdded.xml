@@ -234,154 +234,153 @@
 		<!-- Video Info -->
 		<control type="group">
 			<visible>Player.HasVideo</visible>
-			<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)</visible>
-			<include>VisibleFadeEffect</include>
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-35" start="0,0" condition="Skin.HasSetting(Disable.Topbarinfo)">Conditional</animation>
-			<control type="group">
-				<control type="image">
-					<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
-					<top>0</top>
-					<width>1920</width>
-					<height>376</height>
-					<texture>background.png</texture>
-					<colordiffuse>background</colordiffuse>
-				</control>
-				<control type="image">
-					<description>Cover image</description>
-					<left>35</left>
-					<top>70</top>
-					<width>179</width>
-					<height>269</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
-					<visible>!VideoPlayer.Content(livetv)</visible>
-				</control>
-				<control type="image">
-					<description>Cover image</description>
-					<left>35</left>
-					<top>70</top>
-					<width>269</width>
-					<height>269</height>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
-					<visible>VideoPlayer.Content(livetv)</visible>
-				</control>
-				<control type="grouplist">
-					<animation effect="slide" tween="cubic" time="0" end="85,0" start="0,0" condition="VideoPlayer.Content(livetv)">Conditional</animation>
-					<left>250</left>
-					<top>68</top>
-					<width>1530</width>
-					<height>460</height>
-					<itemgap>12</itemgap>
-					<control type="label">
-						<width>1530</width>
-						<height>53</height>
-						<font>font48_title</font>
-						<textcolor>white2</textcolor>
-						<label>[B]$INFO[Player.Title][/B]</label>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font28_title</font>
-						<textcolor>themecolor</textcolor>
-						<label>$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</label>
-						<visible>VideoPlayer.Content(livetv)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font28_title</font>
-						<textcolor>themecolor</textcolor>
-						<label>$INFO[VideoPlayer.TvShowTitle]</label>
-						<visible>VideoPlayer.Content(episodes)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<label>[B]$INFO[VideoPlayer.Artist][/B]</label>
-						<visible>VideoPlayer.Content(musicvideos)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<label>$INFO[VideoPlayer.Season,$LOCALIZE[20373] ,], $INFO[VideoPlayer.Episode,$LOCALIZE[20452] , , ]</label>
-						<visible>VideoPlayer.Content(episodes)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<label>$INFO[VideoPlayer.Premiered]</label>
-						<visible>VideoPlayer.Content(episodes)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<label>$INFO[VideoPlayer.Tagline]</label>
-						<visible>VideoPlayer.Content(movies)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, | ]</label>
-						<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<label>$INFO[VideoPlayer.Studio]</label>
-						<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<label>$INFO[VideoPlayer.Plot]</label>
-						<scroll>true</scroll>
-						<visible>VideoPlayer.Content(livetv) + !IsEmpty(VideoPlayer.Plot)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<label>$LOCALIZE[19127,,: ]$INFO[VideoPlayer.EndTime]</label>
-						<scroll>true</scroll>
-						<visible>VideoPlayer.Content(livetv) + IsEmpty(VideoPlayer.Plot)</visible>
-					</control>
-					<control type="label">
-						<width>1530</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<label>$INFO[VideoPlayer.NextTitle,[COLOR labelheader]$LOCALIZE[19031]: [/COLOR]]$INFO[VideoPlayer.NextStartTime, (, - ]$INFO[VideoPlayer.NextEndTime,,)]</label>
-						<scroll>true</scroll>
-						<visible>VideoPlayer.Content(livetv)</visible>
-					</control>
-					<control type="label">
-						<description>Time Label</description>
-						<height>50</height>
-						<width>1530</width>
-						<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
-						<font>font48</font>
-						<textcolor>white2</textcolor>
-					</control>
-				</control>
+			<include>Animation_DialogPopup</include>
+			<left>1090</left>
+			<top>75</top>
+			<control type="image">
+				<description>background image</description>
+				<left>0</left>
+				<top>0</top>
+				<width>800</width>
+				<height>166</height>
+				<texture border="12">dialog_context.png</texture>
+				<colordiffuse>context</colordiffuse>
+			</control>
+			<control type="image">
+				<description>avatar</description>
+				<left>33</left>
+				<top>33</top>
+				<width>100</width>
+				<height>100</height>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+				<visible>VideoPlayer.Content(livetv)</visible>
+			</control>
+			<control type="image">
+				<description>avatar</description>
+				<left>33</left>
+				<top>33</top>
+				<width>67</width>
+				<height>100</height>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
+			</control>
+			<control type="image">
+				<description>avatar</description>
+				<left>33</left>
+				<top>33</top>
+				<width>177</width>
+				<height>100</height>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv)]</visible>
+			</control>
+			<control type="fadelabel">
+				<description>Line 1 Label</description>
+				<left>122</left>
+				<top>28</top>
+				<width>645</width>
+				<height>50</height>
+				<font>font15_title</font>
+				<textcolor>themecolor</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[Player.Title]</label>
+				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
+			</control>
+			<control type="fadelabel">
+				<description>Line 1 Label</description>
+				<left>122</left>
+				<top>28</top>
+				<width>645</width>
+				<height>50</height>
+				<font>font15_title</font>
+				<textcolor>themecolor</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,X,. ]$INFO[Player.Title]</label>
+				<visible>VideoPlayer.Content(episodes)</visible>
+			</control>
+			<control type="fadelabel">
+				<description>Line 1 Label</description>
+				<left>155</left>
+				<top>28</top>
+				<width>612</width>
+				<height>50</height>
+				<font>font15_title</font>
+				<textcolor>themecolor</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[Player.Title]</label>
+				<visible>VideoPlayer.Content(livetv)</visible>
+			</control>
+			<control type="label">
+				<description>Line 1 Label</description>
+				<left>232</left>
+				<top>40</top>
+				<width>535</width>
+				<height>82</height>
+				<font>font15_title</font>
+				<textcolor>themecolor</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<wrapmultiline>true</wrapmultiline>
+				<label>$INFO[Player.Title]</label>
+				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</visible>
+			</control>
+			<control type="fadelabel">
+				<description>Line 2 Label</description>
+				<left>155</left>
+				<top>92</top>
+				<width>612</width>
+				<height>30</height>
+				<font>font15</font>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</label>
+				<visible>VideoPlayer.Content(livetv)</visible>
+			</control>
+			<control type="fadelabel">
+				<description>Line 2 Label</description>
+				<left>122</left>
+				<top>92</top>
+				<width>645</width>
+				<height>30</height>
+				<font>font15</font>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[VideoPlayer.Premiered,, • ]$INFO[VideoPlayer.TvShowTitle]</label>
+				<visible>VideoPlayer.Content(episodes)</visible>
+			</control>
+			<control type="fadelabel">
+				<description>Line 2 Label</description>
+				<left>122</left>
+				<top>92</top>
+				<width>645</width>
+				<height>30</height>
+				<font>font15</font>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ]</label>
+				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
 			</control>
 		</control>
 	</include>
@@ -389,69 +388,54 @@
 		<!-- Music Info -->
 		<control type="group">
 			<visible>Player.HasAudio</visible>
-			<include>VisibleFadeEffect</include>
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-35" start="0,0" condition="Skin.HasSetting(Disable.Topbarinfo)">Conditional</animation>
+			<include>Animation_DialogPopup</include>
+			<left>1090</left>
+			<top>75</top>
 			<control type="image">
-				<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
+				<description>background image</description>
+				<left>0</left>
 				<top>0</top>
-				<width>1920</width>
-				<height>376</height>
-				<texture>background.png</texture>
-				<colordiffuse>background</colordiffuse>
-			</control>
-			<control type="grouplist">
-				<left>340</left>
-				<top>66</top>
-				<width>1530</width>
-				<height>460</height>
-				<itemgap>12</itemgap>
-				<control type="label">
-					<width>1530</width>
-					<height>55</height>
-					<font>font48_title</font>
-					<textcolor>white2</textcolor>
-					<label>[B]$INFO[MusicPlayer.TrackNumber,,. ]$INFO[Player.Title][/B]</label>
-				</control>
-				<control type="label">
-					<width>1530</width>
-					<height>40</height>
-					<font>font28_title</font>
-					<textcolor>themecolor</textcolor>
-					<label>$INFO[MusicPlayer.Artist]</label>
-				</control>
-				<control type="label">
-					<width>1530</width>
-					<height>40</height>
-					<font>font15</font>
-					<textcolor>white2</textcolor>
-					<label>$INFO[MusicPlayer.Album]$INFO[musicplayer.discnumber, - $LOCALIZE[427]:]</label>
-				</control>
-				<control type="label">
-					<width>1530</width>
-					<height>40</height>
-					<font>font15</font>
-					<textcolor>white2</textcolor>
-					<label>$INFO[MusicPlayer.offset(1).TrackNumber,[COLOR=labelheader]$LOCALIZE[19031]:[/COLOR] ,. ]$INFO[MusicPlayer.offset(1).Artist,, - ]$INFO[MusicPlayer.offset(1).Title]</label>
-				</control>
-				<control type="label">
-					<description>Time Label</description>
-					<height>50</height>
-					<width>1530</width>
-					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
-					<font>font48</font>
-					<textcolor>white2</textcolor>
-				</control>
+				<width>800</width>
+				<height>166</height>
+				<texture border="12">dialog_context.png</texture>
+				<colordiffuse>context</colordiffuse>
 			</control>
 			<control type="image">
-				<description>Cover image</description>
-				<left>35</left>
-				<top>70</top>
-				<width>269</width>
-				<height>269</height>
+				<description>avatar</description>
+				<left>33</left>
+				<top>33</top>
+				<width>100</width>
+				<height>100</height>
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture fallback="DefaultAlbumCover.png">$INFO[Player.Art(thumb)]</texture>
+			</control>
+			<control type="fadelabel">
+				<description>Line 1 Label</description>
+				<left>155</left>
+				<top>28</top>
+				<width>606</width>
+				<height>50</height>
+				<font>font15_title</font>
+				<textcolor>themecolor</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[MusicPlayer.TrackNumber,,. ]$INFO[Player.Title]</label>
+			</control>
+			<control type="fadelabel">
+				<description>Line 2 Label</description>
+				<left>155</left>
+				<top>92</top>
+				<width>606</width>
+				<height>30</height>
+				<font>font15</font>
+				<textcolor>grey</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]</label>
 			</control>
 		</control>
 	</include>
