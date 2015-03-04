@@ -12,6 +12,12 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 
 
 ***
+**1.0.5**
+- Updated language files from Transifex.
+- Added a Thai language font.
+- Various bug fixes.
+
+***
 **1.0.4**
 - Added skin setting to always display home screen widgets, rather than press up from main menu.
 - Fixed list view posters for Files and Addons.
