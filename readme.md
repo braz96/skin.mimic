@@ -16,6 +16,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Updated language files from Transifex.
 - Added a Thai language font.
 - Various bug fixes.
+- Added option to animate music visualization fanart.
 
 ***
 **1.0.4**
