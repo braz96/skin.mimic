@@ -10,19 +10,30 @@
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml)]</visible>
 			<top>796</top>
-			<animation effect="slide" tween="cubic" time="600" start="0,190" end="0,0" reversible="false">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,190" reversible="false">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="600" start="0,190" end="0,0" reversible="false">Visible</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,190" reversible="false">Hidden</animation>
+			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
+			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
 			<!-- Main Menu (Includes_Home.xml) -->
-			<control type="image">
-				<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
-				<top>94</top>
-				<left>0</left>
-				<width>1920</width>
-				<height>190</height>
-				<texture>background.png</texture>
-				<colordiffuse>background</colordiffuse>
+			<control type="group">
+				<!--<visible>!IsEmpty(Container(9000).ListItem.Property(Widget))</visible>-->
+				<animation effect="slide" start="0" end="0,-480" time="300" reversible="false" easing="out" condition="![Control.HasFocus(9000) | Control.HasFocus(9010)] | [!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<animation effect="slide" end="0" start="0,-480" time="300" reversible="false" condition="[Control.HasFocus(9000) | Control.HasFocus(9010)] + IsEmpty(Container(9000).ListItem.Property(Widget)) + !Skin.HasSetting(Disable.WidgetPressUp)">Conditional</animation>
+				<animation effect="slide" end="0" start="0,-480" time="300" reversible="false" condition="[!Control.HasFocus(8000) + Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<control type="image">
+					<top>94</top>
+					<width>1920</width>
+					<height>700</height>
+					<texture>background.png</texture>
+					<colordiffuse>background</colordiffuse>
+				</control>
+				<control type="image">
+					<top>94</top>
+					<width>1920</width>
+					<height>700</height>
+					<texture>listselect_fo.png</texture>
+					<colordiffuse>shadow</colordiffuse>
+				</control>
 			</control>
 			<control type="image">
 				<top>94</top>
@@ -65,13 +76,6 @@
 			<include condition="Skin.HasSetting(HorizontalListNav)">MainMenuListFixed</include>
 			<include condition="!Skin.HasSetting(HorizontalListNav)">MainMenuListWrapped</include>
 			<control type="group" id="9001">
-				<control type="image">
-					<top>214</top>
-					<width>1920</width>
-					<height>70</height>
-					<texture>listselect_fo.png</texture>
-					<colordiffuse>shadow</colordiffuse>
-				</control>
 				<control type="fixedlist" id="9010">
 					<include>SubMenuAnimation</include>
 					<include>VisibleFadeEffect</include>
@@ -164,17 +168,10 @@
 			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">Visible</animation>
 			<animation effect="slide" end="0,-90" start="0,0" time="480">Hidden</animation>
 			<control type="image">
-				<visible>Skin.HasSetting(Disable.HomeOverlay)</visible>
 				<width>1920</width>
 				<height>45</height>
 				<texture>background.png</texture>
 				<colordiffuse>background</colordiffuse>
-			</control>
-			<control type="image">
-				<width>1920</width>
-				<height>45</height>
-				<texture>background.png</texture>
-				<colordiffuse>topbar</colordiffuse>
 			</control>
 			<control type="grouplist">
 				<left>0</left>

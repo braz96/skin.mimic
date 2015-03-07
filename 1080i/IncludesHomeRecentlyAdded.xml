@@ -4,24 +4,22 @@
 		<control type="group" id="9003">
 			<visible>!IsEmpty(Container(9000).ListItem.Property(Widget))</visible>
 			<include>VisibleFadeEffect</include>
-			<animation effect="slide" tween="cubic" time="720" end="0,-35" start="0,0" condition="Skin.HasSetting(Disable.Topbarinfo)">Conditional</animation>
 			<top>380</top>
-			<control type="image">
-				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![[Control.HasFocus(8000) + Skin.HasSetting(Disable.HomeOverlay)] | [!Skin.HasSetting(Disable.WidgetPressUp) + Skin.HasSetting(Disable.HomeOverlay)]]">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">WindowClose</animation>
-				<top>-4</top>
-				<width>1920</width>
-				<height>458</height>
-				<texture>background.png</texture>
-				<colordiffuse>background</colordiffuse>
-			</control>
 			<control type="group">
-				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(8000) + Skin.HasSetting(Disable.WidgetPressUp)">Conditional</animation>
+				<animation effect="slide" start="0" end="0,-580" time="300" reversible="false" easing="out" condition="![Control.HasFocus(9000) | Control.HasFocus(9010)] | [!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="200" condition="![Control.HasFocus(9000) | Control.HasFocus(9010)] | [!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<animation effect="slide" end="0" start="0,-580" time="300" reversible="false" condition="[Control.HasFocus(9000) | Control.HasFocus(9010)] + IsEmpty(Container(9000).ListItem.Property(Widget))">Conditional</animation>
+				<animation effect="fade" end="0" start="100" time="200" condition="[Control.HasFocus(9000) | Control.HasFocus(9010)] + IsEmpty(Container(9000).ListItem.Property(Widget))">Conditional</animation>
+				<animation effect="fade" end="0" start="100" time="200" condition="[Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious] | [!Control.HasFocus(8000) + Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
+				<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
+				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
+				<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
 				<control type="panel" id="8000">
 					<description>weather widget</description>
 					<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),3)</visible>
 					<left>0</left>
-					<top>80</top>
+					<top>700</top>
 					<width>1920</width>
 					<height>300</height>
 					<onup>9000</onup>
@@ -168,14 +166,20 @@
 				</control>
 			</control>
 			<control type="group">
-				<animation effect="fade" start="100" end="0" time="0" condition="Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious | [!Control.HasFocus(8000) + Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="0">WindowClose</animation>
-				<animation effect="fade" start="0" end="100" time="300" condition="!Container(8000).IsUpdating">Conditional</animation>
+				<animation effect="slide" start="0" end="0,-460" time="300" reversible="false" easing="out" condition="![Control.HasFocus(9000) | Control.HasFocus(9010)] | [!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="250" condition="![Control.HasFocus(9000) | Control.HasFocus(9010)] | [!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<animation effect="slide" end="0" start="0,-460" time="300" reversible="false" condition="[Control.HasFocus(9000) | Control.HasFocus(9010)] + IsEmpty(Container(9000).ListItem.Property(Widget))">Conditional</animation>
+				<animation effect="fade" end="0" start="100" time="0" condition="[Control.HasFocus(9000) | Control.HasFocus(9010)] + IsEmpty(Container(9000).ListItem.Property(Widget))">Conditional</animation>
+				<animation effect="fade" end="0" start="100" time="0" condition="[Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious] | [!Control.HasFocus(8000) + Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
+				<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
+				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
+				<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
 				<include condition="Skin.HasSetting(HorizontalListNav)">WidgetListFixed</include>
 				<include condition="!Skin.HasSetting(HorizontalListNav)">WidgetListWrapped</include>
 				<control type="label">
 					<left>950</left>
-					<top>6</top>
+					<top>506</top>
 					<width>920</width>
 					<height>40</height>
 					<font>font15_title</font>
@@ -187,7 +191,7 @@
 				<control type="group">
 					<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) |  StringCompare(Container(9000).ListItem.Property(WidgetType),5) | StringCompare(Container(9000).ListItem.Property(WidgetType),6)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left) + Control.HasFocus(8000)</visible>
 					<animation effect="slide" tween="cubic" time="0" start="0,0" end="10,0" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">Conditional</animation>
-					<top>396</top>
+					<top>896</top>
 					<left>70</left>
 					<control type="label">
 						<width>1750</width>
@@ -208,7 +212,7 @@
 				</control>
 				<control type="group">
 					<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)] + Control.HasFocus(8000)</visible>
-					<top>396</top>
+					<top>896</top>
 					<left>115</left>
 					<control type="label">
 						<width>1750</width>
