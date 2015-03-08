@@ -179,7 +179,7 @@
 				<include condition="!Skin.HasSetting(HorizontalListNav)">WidgetListWrapped</include>
 				<control type="label">
 					<left>950</left>
-					<top>506</top>
+					<top>530</top>
 					<width>920</width>
 					<height>40</height>
 					<font>font15_title</font>
@@ -190,9 +190,11 @@
 				</control>
 				<control type="group">
 					<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) |  StringCompare(Container(9000).ListItem.Property(WidgetType),5) | StringCompare(Container(9000).ListItem.Property(WidgetType),6)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left) + Control.HasFocus(8000)</visible>
+					<visible>![Container(8000).OnNext | Container(8000).OnPrevious]</visible>
+					<animation effect="fade" start="0" end="100" delay="450" time="250" reversible="false">Visible</animation>
 					<animation effect="slide" tween="cubic" time="0" start="0,0" end="10,0" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">Conditional</animation>
-					<top>896</top>
-					<left>70</left>
+					<top>903</top>
+					<left>349</left>
 					<control type="label">
 						<width>1750</width>
 						<height>50</height>
@@ -212,10 +214,12 @@
 				</control>
 				<control type="group">
 					<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)] + Control.HasFocus(8000)</visible>
-					<top>896</top>
-					<left>115</left>
+					<visible>![Container(8000).OnNext | Container(8000).OnPrevious]</visible>
+					<animation effect="fade" start="0" end="100" delay="450" time="250" reversible="false">Visible</animation>
+					<top>903</top>
+					<left>527</left>
 					<control type="label">
-						<width>1750</width>
+						<width>1363</width>
 						<height>50</height>
 						<font>font16_title</font>
 						<textcolor>grey</textcolor>
@@ -223,7 +227,7 @@
 						<visible>!IsEmpty(Container(8000).ListItem.Artist)</visible>
 					</control>
 					<control type="label">
-						<width>1750</width>
+						<width>1363</width>
 						<height>50</height>
 						<font>font16_title</font>
 						<textcolor>grey</textcolor>
