@@ -19,6 +19,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added option to animate music visualization fanart.
 - Redesigned music/video now playing info on the home screen.
 - Redesigned home screen widgets so they are part of the main menu.
+- Redesigned Icon view for Pictures and added a setting to hide Picture filenames.
 
 ***
 **1.0.4**
