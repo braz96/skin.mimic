@@ -20,6 +20,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Redesigned music/video now playing info on the home screen.
 - Redesigned home screen widgets so they are part of the main menu.
 - Redesigned Icon view for Pictures and added a setting to hide Picture filenames.
+- Fixed musicvideo views and added new ones.
 
 ***
 **1.0.4**
