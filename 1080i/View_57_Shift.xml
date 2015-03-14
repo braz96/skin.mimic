@@ -30,13 +30,12 @@
 			<bordersize>20</bordersize>
 		</control>
 		<control type="image">
-			<left>239</left>
-			<top>135</top>
+			<left>248</left>
+			<top>285</top>
 			<width>60</width>
 			<height>60</height>
 			<texture>$VAR[OverlayVar]</texture>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
-			<bordersize>1</bordersize>
 		</control>
 	</include>
 	<include name="PosterShift">
@@ -59,21 +58,21 @@
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">400</scrolltime>
 				<focusposition>1</focusposition>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos) | Container.Content(seasons) | Container.Content(sets)</visible>
-				<itemlayout width="315" height="750" condition="!Container.Content(addons)">
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos)</visible>
+				<itemlayout width="315" height="750" condition="!Container.Content(musicvideos)">
 					<include>ShiftPosterThumbs</include>
 				</itemlayout>
-				<focusedlayout width="315" height="750" condition="!Container.Content(addons)">
+				<focusedlayout width="315" height="750" condition="!Container.Content(musicvideos)">
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
 						<include>ShiftPosterThumbs</include>
 					</control>
 				</focusedlayout>
-				<itemlayout width="315" height="750" condition="Container.Content(addons)">
+				<itemlayout width="315" height="750" condition="Container.Content(musicvideos)">
 					<include>ShiftSquareThumbs</include>
 				</itemlayout>
-				<focusedlayout width="415" height="750" condition="Container.Content(addons)">
+				<focusedlayout width="315" height="750" condition="Container.Content(musicvideos)">
 					<control type="group">
 						<animation effect="zoom" center="150,450" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
 						<animation effect="zoom" center="150,450" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>

@@ -17,7 +17,7 @@
 				<ondown>500</ondown>
 				<pagecontrol>60</pagecontrol>
 				<preloaditems>2</preloaditems>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | [Container.Content(files) + Container(500).HasFiles]</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(musicvideos) | [Container.Content(files) + Container(500).HasFiles]</visible>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<itemlayout height="360" width="240" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)">
 					<control type="image">
@@ -120,6 +120,60 @@
 						</control>
 					</control>
 				</focusedlayout>
+				<itemlayout height="240" width="240" condition="Container.Content(musicvideos)">
+					<control type="image">
+						<width>240</width>
+						<height>240</height>
+						<aspectratio>scale</aspectratio>
+						<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<fadetime>300</fadetime>
+					</control>
+					<control type="image">
+						<width>240</width>
+						<height>240</height>
+						<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+						<fadetime>300</fadetime>
+					</control>
+					<control type="label">
+						<top>192</top>
+						<width>240</width>
+						<height>40</height>
+						<align>center</align>
+						<textoffsetx>10</textoffsetx>
+						<textcolor>grey</textcolor>
+						<info>ListItem.Label</info>
+					</control>
+					<control type="image">
+						<left>180</left>
+						<top>0</top>
+						<width>60</width>
+						<height>60</height>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
+					</control>
+				</itemlayout>
+				<focusedlayout height="240" width="240" condition="Container.Content(musicvideos)">
+					<control type="group">
+						<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+						<control type="image">
+							<width>240</width>
+							<height>240</height>
+							<aspectratio>scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<fadetime>300</fadetime>
+							<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+							<bordersize>8</bordersize>
+						</control>
+						<control type="image">
+							<left>172</left>
+							<top>8</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
 				<left>1906</left>
@@ -133,7 +187,7 @@
 				<onup>60</onup>
 			</control>
 			<control type="group">
-				<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+				<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
 				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 				<control type="button">
 					<top>890</top>
