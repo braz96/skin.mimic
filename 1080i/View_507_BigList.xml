@@ -21,7 +21,7 @@
                 <focusposition>1</focusposition>
                 <preloaditems>2</preloaditems>
                 <orientation>vertical</orientation>
-                <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(artists)</visible>
+                <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos)</visible>
                 <!--landscape layout-->
                 <itemlayout width="1808" height="231">
                     <include>view_BigList-LandscapeCommons</include>
@@ -80,7 +80,7 @@
                             <height>33</height>
                             <texture colordiffuse="themecolor" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
                             <aspectratio align="right">keep</aspectratio>
-                            <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | substring(Container.FolderPath,plugin.video)]</visible>
+                            <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)]</visible>
                         </control>
                     </control>
                 </itemlayout>
@@ -153,7 +153,7 @@
                                 <height>33</height>
                                 <texture colordiffuse="white2" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
                                 <aspectratio align="right">keep</aspectratio>
-                                <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | substring(Container.FolderPath,plugin.video)]</visible>
+                                <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)]</visible>
                             </control>
                         </control>
                     </control>
@@ -188,14 +188,14 @@
                 <height>195</height>
                 <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
                 <aspectratio>scale</aspectratio>
-				<visible>!Container.Content(episodes)</visible>
+				<visible>![Container.Content(episodes) | Container.Content(musicvideos)]</visible>
             </control>
 			<control type="image">
                 <width>346</width>
                 <height>195</height>
                 <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(thumb)]</texture>
                 <aspectratio>scale</aspectratio>
-				<visible>Container.Content(episodes)</visible>
+				<visible>Container.Content(episodes) | Container.Content(musicvideos)</visible>
             </control>
 			<control type="image">
 				<left>286</left>
@@ -210,7 +210,7 @@
                 <height>98</height>
                 <aspectratio align="center" aligny="bottom">keep</aspectratio>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-				<visible>![Container.Content(episodes) | Container.Content(artists)]</visible>
+				<visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos)]</visible>
             </control>
         </control>
     </include>
