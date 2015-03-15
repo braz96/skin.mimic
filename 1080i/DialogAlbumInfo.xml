@@ -384,7 +384,7 @@
 							<width>396</width>
 							<height>396</height>
 							<aspectratio align="center" aligny="center">scale</aspectratio>
-							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<texture fallback="DefaultAlbumCover2.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
@@ -429,7 +429,7 @@
 								<width>396</width>
 								<height>396</height>
 								<aspectratio align="center" aligny="center">scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Thumb]</texture>
+								<texture fallback="DefaultAlbumCover2.png" background="true">$INFO[ListItem.Thumb]</texture>
 								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 								<fadetime>300</fadetime>
@@ -438,7 +438,7 @@
 								<visible>IsEmpty(ListItem.Thumb)</visible>
 								<width>396</width>
 								<height>396</height>
-								<texture>thumbs/diffuse.png</texture>
+								<texture>blank.png</texture>
 								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 								<fadetime>300</fadetime>
@@ -563,7 +563,7 @@
                     <align>right</align>
                     <aligny>top</aligny>
                     <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025]]$INFO[Container(50).CurrentPage, • [COLOR labelheader],]$INFO[Container(50).NumPages,/,[/COLOR]]</label>
-                    <visible>Control.IsVisible(50) + IntegerGreaterThan(Container(50).NumItems,0)</visible>
+                    <visible>Control.IsVisible(50) + IntegerGreaterThan(Container(50).NumItems,0) + [Container.Content(artists) + System.HasAddon(script.extendedinfo)]</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
                 </control>
 			</control>
