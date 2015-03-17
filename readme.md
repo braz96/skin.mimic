@@ -12,6 +12,14 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 
 
 ***
+**2.0.0**
+- Initial release for Kodi Isengard, includes updates to the skinning engine.
+
+***
+**1.1.1**
+- Added back the option for home fanart overlay.
+
+***
 **1.1.0**
 - Updated language files from Transifex.
 - Added a Thai language font.
