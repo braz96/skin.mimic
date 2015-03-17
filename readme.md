@@ -12,6 +12,10 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 
 
 ***
+**1.1.1**
+- Added back the option for home fanart overlay.
+
+***
 **1.1.0**
 - Updated language files from Transifex.
 - Added a Thai language font.
