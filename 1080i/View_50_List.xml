@@ -947,7 +947,7 @@
 				<itemgap>15</itemgap>
 				<visible>Container.Content(addons)</visible>
 				<control type="image">
-					<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
+					<visible>!IsEmpty(ListItem.Property(Addon.Description)) + !IsEmpty(ListItem.Thumb)</visible>
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
@@ -2054,7 +2054,7 @@
 					<height>840</height>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
 					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>!IsEmpty(ListItem.PicturePath)</visible>
+					<!--<visible>!IsEmpty(ListItem.PicturePath)</visible>-->
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 			</control>
@@ -2064,6 +2064,7 @@
 				<itemgap>15</itemgap>
 				<visible>Container.Content(addons)</visible>
 				<control type="image">
+					<visible>!IsEmpty(ListItem.Thumb)</visible>
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
@@ -2071,7 +2072,6 @@
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
-					<visible>Container.Content(addons)</visible>
 					<description>Description</description>
 					<width>560</width>
 					<height>275</height>
