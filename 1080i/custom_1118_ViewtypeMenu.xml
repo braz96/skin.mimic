@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1118">
+    <defaultcontrol always="true">9011</defaultcontrol>
+    <onunload>ClearProperty(viewtypeselect,home)</onunload>
+    <onload condition="IsEmpty(Window(home).Property(viewtypeselect))">Dialog.Close(1118)</onload>
+    <coordinates>
+        <posx>0</posx>
+        <posy>0</posy>
+        <system>1</system>
+    </coordinates>
+    <controls>
+		<control type="button" id="8998">
+			<description>Close Window button</description>
+			<left>358</left>
+			<top>0</top>
+			<width>64</width>
+			<height>48</height>
+			<label></label>
+			<font>CloseButton</font>
+			<textcolor>grey</textcolor>
+			<focusedcolor>themecolor</focusedcolor>
+			<onclick>Dialog.Close(1118)</onclick>
+			<onclick>ClearProperty(MediaMenu,Home)</onclick>
+			<onclick>SetFocus(50)</onclick>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onleft>2</onleft>
+			<onright>13</onright>
+			<onup>13</onup>
+			<ondown>2</ondown>
+			<align>center</align>
+			<aligny>center</aligny>
+			<visible>system.getbool(input.enablemouse) + Window.IsActive(1118)</visible>
+		</control>
+		<control type="group">
+			<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="-440,0" time="160" tween="quadratic" easing="out">WindowClose</animation>
+			<control type="label">
+				<top>115</top>
+				<width>400</width>
+				<height>52</height>
+				<textoffsetx>15</textoffsetx>
+				<font>font13_title</font>
+				<label>31127</label>
+				<textcolor>themecolor</textcolor>
+			</control>
+			<control type="list" id="9011">
+				<!-- viewtype selection-->
+				<top>167</top>
+				<width>400</width>
+				<height>900</height>
+				<visible>!IsEmpty(Window(home).Property(viewtypeselect))</visible>
+				<orientation>vertical</orientation>
+				<onright>Dialog.Close(1118)</onright>
+				<onright>ClearProperty(MediaMenu,Home)</onright>
+				<onright>Control.SetFocus(50)</onright>
+				<onup>9011</onup>
+				<ondown>9011</ondown>
+				<itemlayout width="400" height="60">
+					<control type="label">
+						<left>15</left>
+						<width>400</width>
+						<height>60</height>
+						<font>font13</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="400" height="60">
+					<control type="image">
+						<width>400</width>
+						<height>60</height>
+						<texture>listselect_fo.png</texture>
+						<colordiffuse>listselect</colordiffuse>
+						<visible>Control.HasFocus(9011)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<width>400</width>
+						<height>60</height>
+						<font>font13</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<description>List</description>
+						<label>535</label>
+						<onclick>Container.SetViewMode(50)</onclick>
+					</item>
+					<item>
+						<description>Icon</description>
+						<label>31086</label>
+						<onclick>Container.SetViewMode(500)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Container.Content(artists) + !Window.IsActive(videos)] | [Container.Content(albums) + !Window.IsActive(videos)] | [Container.Content(addons) + Container(500).HasFiles + !Window.IsActive(musiclibrary) + !Window.IsActive(videos)] | [Container.Content(files) + Container(500).HasFiles]] + !Skin.HasSetting(IconView.Disabled) + !Window.IsActive(pictures)</visible>
+					</item>
+					<item>
+						<description>Icon</description>
+						<label>31086</label>
+						<onclick>Container.SetViewMode(510)</onclick>
+						<visible>[Window.IsActive(pictures) + Container(510).HasFiles + !Container.Content(addons)] + !Skin.HasSetting(IconView.Disabled)</visible>
+					</item>
+					<item>
+						<description>InfoWall</description>
+						<label>31021</label>
+						<onclick>Container.SetViewMode(51)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(artists) + !Window.IsActive(videos)] | [Container.Content(albums) + !Window.IsActive(videos)]] + !Skin.HasSetting(InfoWallView.Disabled)</visible>
+					</item>
+					<item>
+						<description>Poster</description>
+						<label>31016</label>
+						<onclick>Container.SetViewMode(56)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !Skin.HasSetting(PosterView.Disabled)</visible>
+					</item>
+					<item>
+						<description>Shift</description>
+						<label>31079</label>
+						<onclick>Container.SetViewMode(57)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Container.Content(artists) + !Window.IsActive(videos)] | [Container.Content(albums) + !Window.IsActive(videos)]] + !Skin.HasSetting(ShiftView.Disabled)</visible>
+					</item>
+					<item>
+						<description>ShowCase</description>
+						<label>31077</label>
+						<onclick>Container.SetViewMode(53)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos)] + !Skin.HasSetting(ShowCaseView.Disabled)</visible>
+					</item>
+					<item>
+						<description>ShowCase</description>
+						<label>31077</label>
+						<onclick>Container.SetViewMode(54)</onclick>
+						<visible>[Container.Content(artists) | Container.Content(albums)] + !Skin.HasSetting(ShowCaseView.Disabled) + !Window.IsActive(videos)</visible>
+					</item>
+					<item>
+						<description>Fanart</description>
+						<label>20445</label>
+						<onclick>Container.SetViewMode(59)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(artists) + !Window.IsActive(videos)]] + !Skin.HasSetting(FanartView.Disabled)</visible>
+					</item>
+					<item>
+						<description>Gallery</description>
+						<label>31054</label>
+						<onclick>Container.SetViewMode(504)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | [Window.IsActive(pictures) + Container(504).HasFiles] | [Container.Content(artists) + !Window.IsActive(videos)]] + !Skin.HasSetting(GalleryView.Disabled) + !Container.Content(addons)</visible>
+					</item>
+					<item>
+						<description>Panel</description>
+						<label>31059</label>
+						<onclick>Container.SetViewMode(505)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos) | [Container.Content(artists) + !Window.IsActive(videos)]] + !Skin.HasSetting(PanelView.Disabled)</visible>
+					</item>
+					<item>
+						<description>BigList</description>
+						<label>31052</label>
+						<onclick>Container.SetViewMode(507)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos) | [Container.Content(artists) + !Window.IsActive(videos)]] + !Skin.HasSetting(BigListView.Disabled)</visible>
+					</item>
+					<item>
+						<description>Wall</description>
+						<label>31078</label>
+						<onclick>Container.SetViewMode(509)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | [Container.Content(artists) + !Window.IsActive(videos)] | [Container.Content(albums) + !Window.IsActive(videos)]  | [Window.IsActive(pictures) + Container(509).HasFiles + !Container.Content(addons)]] + !Skin.HasSetting(WallView.Disabled)</visible>
+					</item>
+					<item>
+						<description>BannerWall</description>
+						<label>31088</label>
+						<onclick>Container.SetViewMode(58)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(BannerWallView.Disabled)</visible>
+					</item>
+					<item>
+						<description>BannerInfo</description>
+						<label>31085</label>
+						<onclick>Container.SetViewMode(506)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(BannerInfoView.Disabled)</visible>
+					</item>
+					<item>
+						<description>Episode</description>
+						<label>31093</label>
+						<onclick>Container.SetViewMode(502)</onclick>
+						<visible>[Container.Content(episodes)] + !Skin.HasSetting(EpisodeView.Disabled)</visible>
+					</item>
+					<item>
+						<description>Song</description>
+						<label>31076</label>
+						<onclick>Container.SetViewMode(508)</onclick>
+						<visible>[Container.Content(songs)] + !Skin.HasSetting(SongView.Disabled)</visible>
+					</item>
+				</content>
+			</control>
+		</control>
+    </controls>
+</window>

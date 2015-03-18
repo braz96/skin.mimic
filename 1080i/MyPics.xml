@@ -5,7 +5,7 @@
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<views>50,510,504</views>
+	<views>50,510,504,509</views>
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
@@ -13,10 +13,12 @@
 			<include condition="!Skin.HasSetting(Enable.SlimList)">PictureList</include>
 			<include condition="Skin.HasSetting(Enable.SlimList)">SlimList</include>
 			<!-- view id = 50 -->
-			<include condition="!Skin.HasSetting(IconView.Disabled)">PictureWall</include>
-			<!-- view id = 500 -->
-			<include condition="!Skin.HasSetting(GalleryView.Disabled)">View_504_Gallery</include>
+			<include>PictureWall</include>
+			<!-- view id = 510 -->
+			<include>View_504_Gallery</include>
 			<!-- view id = 504 -->
+			<include>View_509_Wall</include>
+			<!-- view id = 509 -->
 		</control>
 		<control type="group">
 			<visible>!Skin.HasSetting(PictureInfo.Disabled) + Control.IsVisible(510)</visible>

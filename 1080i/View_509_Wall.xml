@@ -7,7 +7,7 @@
 			<include>ViewAnimation</include>
 			<top>-15</top>
 			<control type="group">
-				<visible>Container.Content(artists) | Container.Content(albums)</visible>
+				<visible>Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)</visible>
 				<control type="image">
 					<left>0</left>
 					<width>1</width>
@@ -35,7 +35,7 @@
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">400</scrolltime>
 				<focusposition>1</focusposition>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(artists) | Container.Content(albums)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)</visible>
 				<itemlayout width="240" height="360" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)">
 					<control type="group">
 						<control type="image">
@@ -85,7 +85,7 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout width="274" height="270" condition="Container.Content(artists) | Container.Content(albums)">
+				<itemlayout width="274" height="270" condition="Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)">
 					<control type="group">
 						<left>1</left>
 						<control type="image">
@@ -123,7 +123,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="274" height="270" condition="Container.Content(artists) | Container.Content(albums)">
+				<focusedlayout width="274" height="270" condition="Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)">
 					<control type="group">
 						<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
 						<left>1</left>

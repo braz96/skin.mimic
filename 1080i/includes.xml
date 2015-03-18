@@ -84,7 +84,7 @@
 			<ondown>2</ondown>
 			<align>center</align>
 			<aligny>center</aligny>
-			<visible>system.getbool(input.enablemouse)</visible>
+			<visible>system.getbool(input.enablemouse) + !Window.IsActive(1118)</visible>
 		</control>
 		<control type="image">
 			<description>LOGO</description>
@@ -121,6 +121,8 @@
 		<onback>50</onback>
 		<itemgap>0</itemgap>
 		<include condition="Skin.HasSetting(KioskMode.Enabled)">KioskModeButton</include>
+		<visible>IsEmpty(Window(home).Property(viewtypeselect))</visible>
+		<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
 		<control type="label" id="200">
 			<width>400</width>
 			<height>52</height>
@@ -130,11 +132,19 @@
 			<textcolor>themecolor</textcolor>
 			<aligny>center</aligny>
 		</control>
-		<control type="button" id="2">
+		<!--<control type="button" id="2">
 			<description>View As button</description>
 			<textwidth>352</textwidth>
 			<include>ButtonCommonValues</include>
 			<label>-</label>
+		</control>-->
+		<control type="button" id="1802">
+			<label>$INFO[Container.Viewmode,$LOCALIZE[31906]: ]</label>
+			<selected>Control.HasFocus(1802)</selected>
+			<include>ButtonCommonValues</include>
+			<onclick>SetProperty(viewtypeselect,1,home)</onclick>
+			<onclick>ActivateWindow(1118)</onclick>
+			<visible>!Window.IsActive(musicplaylisteditor)</visible>
 		</control>
 		<control type="button" id="3">
 			<description>Sort by button</description>
