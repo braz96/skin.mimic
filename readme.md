@@ -14,6 +14,8 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 ***
 **2.0.0**
 - Initial release for Kodi Isengard, includes updates to the skinning engine.
+- Added a dialog to the sidebar for choosing view modes.
+- Added a new Blue theme.
 
 ***
 **1.1.1**
