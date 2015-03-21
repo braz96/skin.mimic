@@ -297,7 +297,7 @@
 			<animation effect="slide" end="0,-45" time="240" condition="Window.Next(home)">WindowClose</animation>
 			<animation effect="slide" start="0,-45" end="0,0" time="240">VisibleChange</animation>
 			<animation effect="slide" start="0,-45" end="0,0" time="240" condition="Window.Previous(home)">WindowOpen</animation>
-			<visible>!Window.IsActive(MusicOSD) + !Window.IsActive(1120) + !Player.ShowCodec</visible>
+			<visible>!Window.IsActive(MusicOSD) + !Window.IsActive(1120) + !Player.ShowCodec + !Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
 			<visible>System.HasAddon(script.artistslideshow) + [!IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)) | !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) | !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarName))]</visible>
 			<visible>[Player.ShowInfo + Skin.HasSetting(Enable.VizInfo)] | Skin.HasSetting(Enable.VizPersistent)</visible>
 			<top>0</top>
@@ -335,7 +335,7 @@
 		<control type="group" id="0">
 			<animation effect="slide" start="0,-320" end="0,0" time="200">VisibleChange</animation>
 			<animation effect="fade" time="200">VisibleChange</animation>
-			<visible>Player.ShowCodec + ![Window.IsVisible(script-XBMC_Lyrics-main.xml) | Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList)]</visible>
+			<visible>Player.ShowCodec + ![Window.IsVisible(script-cu-lrclyrics-main.xml) | Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList)]</visible>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
