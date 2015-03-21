@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<!-- Video Episode -->
+	<!-- Song -->
 	<include name="View_508_SongList">
 		<control type="group">
 			<visible>Control.IsVisible(508) + !Window.IsActive(addoninformation)</visible>
@@ -22,14 +22,13 @@
 					<pagecontrol>60</pagecontrol>
 					<viewtype label="31076">list</viewtype>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<visible>Container.Content(songs)</visible>
 					<animation effect="slide" end="0,0" time="300" condition="Container(508).Row(0)">Conditional</animation>
 					<animation effect="slide" end="0,0" time="300" condition="Container(508).Row(1)">Conditional</animation>
 					<animation effect="slide" end="0,0" time="300" condition="Container(508).Row(2)">Conditional</animation>
 					<animation effect="slide" end="0,0" time="300" condition="Container(508).Row(3)">Conditional</animation>
 					<animation effect="slide" end="0,0" time="300" condition="Container(508).Row(4)">Conditional</animation>
 					<animation effect="slide" end="0,0" time="300" condition="Container(508).Row(5)">Conditional</animation>
-					<itemlayout height="100" width="1300" condition="Container.Content(songs)">
+					<itemlayout height="100" width="1300">
 						<control type="label">
 							<top>15</top>
 							<left>275</left>
@@ -43,7 +42,7 @@
 							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="275" width="1300" condition="Container.Content(songs)">
+					<focusedlayout height="275" width="1300">
 						<control type="image">
 							<top>0</top>
 							<width>1300</width>
