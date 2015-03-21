@@ -2,7 +2,7 @@
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
-	<views>50,500</views>
+	<views>50,500,57</views>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
@@ -15,16 +15,17 @@
 			<!-- view id = 50 -->
 			<include>AddonWall</include>
 			<!-- view id = 500 -->
+			<include>PosterShift</include>
+			<!-- view id = 57 -->
 		</control>
 		<control type="group">
-			<visible>Control.IsVisible(500)</visible>
+			<visible>Control.IsVisible(500) | Control.IsVisible(57)</visible>
 			<visible>!Window.IsActive(addoninformation)</visible>
 			<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 			<include>Window_OpenClose_Animation</include>
 			<top>-60</top>
 			<control type="group">
-				<visible>Control.IsVisible(500)</visible>
-				<animation effect="slide" start="0" end="40" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="40,-10" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
 				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 				<control type="group">
 					<left>90</left>

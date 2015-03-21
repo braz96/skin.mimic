@@ -58,21 +58,21 @@
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">400</scrolltime>
 				<focusposition>1</focusposition>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos)</visible>
-				<itemlayout width="315" height="750" condition="!Container.Content(musicvideos)">
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | Container.Content(addons)</visible>
+				<itemlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons)">
 					<include>ShiftPosterThumbs</include>
 				</itemlayout>
-				<focusedlayout width="315" height="750" condition="!Container.Content(musicvideos)">
+				<focusedlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons)">
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
 						<include>ShiftPosterThumbs</include>
 					</control>
 				</focusedlayout>
-				<itemlayout width="315" height="750" condition="Container.Content(musicvideos)">
+				<itemlayout width="315" height="750" condition="Container.Content(musicvideos) | Container.Content(addons)">
 					<include>ShiftSquareThumbs</include>
 				</itemlayout>
-				<focusedlayout width="315" height="750" condition="Container.Content(musicvideos)">
+				<focusedlayout width="315" height="750" condition="Container.Content(musicvideos) | Container.Content(addons)">
 					<control type="group">
 						<animation effect="zoom" center="150,450" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
 						<animation effect="zoom" center="150,450" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
@@ -81,6 +81,7 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
+				<animation effect="slide" time="0" start="0,0" end="0,15" condition="Container.Content(addons)">Conditional</animation>
 				<left>0</left>
 				<top>1051</top>
 				<width>1920</width>
