@@ -5,7 +5,7 @@
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<views>50,510,504,509</views>
+	<views>50,510,504,509,500,57</views>
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
@@ -19,10 +19,16 @@
 			<!-- view id = 504 -->
 			<include>View_509_Wall</include>
 			<!-- view id = 509 -->
+			<include>AddonWall</include>
+			<!-- view id = 500 -->
+			<include>PosterShift</include>
+			<!-- view id = 57 -->
 		</control>
 		<control type="group">
-			<visible>!Skin.HasSetting(PictureInfo.Disabled) + Control.IsVisible(510)</visible>
+			<visible>!Skin.HasSetting(PictureInfo.Disabled) + [Control.IsVisible(510) | Control.IsVisible(500) | Control.IsVisible(57)]</visible>
 			<visible>!Window.IsActive(addoninformation)</visible>
+			<animation effect="slide" tween="cubic" time="720" start="0,0" end="40,30" condition="Control.IsVisible(57)">Conditional</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,0" end="0,40" condition="Control.IsVisible(500)">Conditional</animation>
 			<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 			<include>Window_OpenClose_Animation</include>
 			<control type="group">
