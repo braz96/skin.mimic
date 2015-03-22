@@ -5,7 +5,7 @@
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<views>50,510,504,509,500,57</views>
+	<views>50,510,504,509,520,57</views>
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
@@ -20,12 +20,12 @@
 			<include>View_509_Wall</include>
 			<!-- view id = 509 -->
 			<include>AddonWall</include>
-			<!-- view id = 500 -->
+			<!-- view id = 520 -->
 			<include>PosterShift</include>
 			<!-- view id = 57 -->
 		</control>
 		<control type="group">
-			<visible>!Skin.HasSetting(PictureInfo.Disabled) + [Control.IsVisible(510) | Control.IsVisible(500) | Control.IsVisible(57)]</visible>
+			<visible>!Skin.HasSetting(PictureInfo.Disabled) + Control.IsVisible(510) + !Container.Content(addons)</visible>
 			<visible>!Window.IsActive(addoninformation)</visible>
 			<animation effect="slide" tween="cubic" time="720" start="0,0" end="40,30" condition="Control.IsVisible(57)">Conditional</animation>
 			<animation effect="slide" tween="cubic" time="720" start="0,0" end="0,40" condition="Control.IsVisible(500)">Conditional</animation>
@@ -49,6 +49,53 @@
 					<textoffsety>-2</textoffsety>
 					<textoffsetx>30</textoffsetx>
 				</control>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Container.Content(addons) + [Control.IsVisible(520) | Control.IsVisible(57)]</visible>
+			<visible>!Window.IsActive(addoninformation)</visible>
+			<animation effect="slide" tween="cubic" time="720" start="0,0" end="-40,0" condition="Control.IsVisible(57)">Conditional</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
+			<include>Window_OpenClose_Animation</include>
+			<control type="group">
+				<left>170</left>
+				<top>930</top>
+				<control type="label">
+					<left>0</left>
+					<top>0</top>
+					<width>1300</width>
+					<height>42</height>
+					<aligny>top</aligny>
+					<align>left</align>
+					<font>font16_title</font>
+					<textcolor>white</textcolor>
+					<scroll>true</scroll>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<textoffsety>-2</textoffsety>
+					<textoffsetx>30</textoffsetx>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>45</top>
+					<width>1300</width>
+					<height>30</height>
+					<align>left</align>
+					<font>font13_title</font>
+					<textcolor>white</textcolor>
+					<scroll>true</scroll>
+					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+					<textoffsetx>30</textoffsetx>
+				</control>
+			</control>
+			<control type="label">
+				<left>1420</left>
+				<top>930</top>
+				<width>300</width>
+				<height>90</height>
+				<align>right</align>
+				<label>$INFO[ListItem.Property(Addon.Version),[B],[/B]]</label>
+				<font>font16_title</font>
+				<textcolor>white</textcolor>
 			</control>
 		</control>
 		<include>ScrollOffsetLabel</include>
@@ -101,7 +148,7 @@
 					<label>13319</label>
 				</control>
 				<control type="radiobutton" id="10">
-					<enable>!Control.IsVisible(50)</enable>
+					<enable>!Control.IsVisible(50) + !Container.Content(addons)</enable>
 					<label>31017</label>
 					<onclick>Skin.ToggleSetting(PictureInfo.Disabled)</onclick>
 					<selected>Skin.HasSetting(PictureInfo.Disabled)</selected>

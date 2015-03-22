@@ -6,7 +6,7 @@
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<onunload>ClearProperty(Progams.Games,Home)</onunload>
-	<views>50,500,57</views>
+	<views>50,520,57</views>
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
@@ -15,26 +15,25 @@
 			<include condition="Skin.HasSetting(Enable.SlimList)">AddonSlimList</include>
 			<!-- view id = 50 -->
 			<include>AddonWall</include>
-			<!-- view id = 500 -->
+			<!-- view id = 520 -->
 			<include>PosterShift</include>
 			<!-- view id = 57 -->
 		</control>
 		<control type="group">
-			<visible>Control.IsVisible(500) | Control.IsVisible(57)</visible>
+			<visible>Control.IsVisible(520) | Control.IsVisible(57)</visible>
 			<visible>!Window.IsActive(addoninformation)</visible>
 			<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 			<include>Window_OpenClose_Animation</include>
-			<top>-60</top>
+			<top>920</top>
 			<control type="group">
-				<animation effect="slide" start="0,0" end="40,-10" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-40,0" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
 				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 				<control type="group">
-					<left>90</left>
-					<top>1010</top>
+					<left>170</left>
 					<control type="label">
 						<left>0</left>
 						<top>0</top>
-						<width>1150</width>
+						<width>1300</width>
 						<height>42</height>
 						<aligny>top</aligny>
 						<align>left</align>
@@ -48,7 +47,7 @@
 					<control type="label">
 						<left>0</left>
 						<top>45</top>
-						<width>1500</width>
+						<width>1300</width>
 						<height>30</height>
 						<align>left</align>
 						<font>font13_title</font>
@@ -59,13 +58,12 @@
 					</control>
 				</control>
 				<control type="label">
-					<left>1500</left>
-					<top>1005</top>
+					<left>1420</left>
 					<width>300</width>
 					<height>90</height>
 					<align>right</align>
 					<label>$INFO[ListItem.Property(Addon.Version),[B],[/B]]</label>
-					<font>font35_title</font>
+					<font>font16_title</font>
 					<textcolor>white</textcolor>
 				</control>
 			</control>

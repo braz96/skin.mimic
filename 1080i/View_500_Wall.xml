@@ -330,39 +330,39 @@
 	<!-- Addon Wall -->
 	<include name="AddonWall">
 		<control type="group">
-			<visible>Control.IsVisible(500) + !Window.IsActive(addoninformation)</visible>
+			<visible>Control.IsVisible(520) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
-			<control type="panel" id="500">
-				<left>120</left>
-				<top>95</top>
-				<width>1680</width>
-				<height>840</height>
+			<control type="panel" id="520">
+				<left>200</left>
+				<top>140</top>
+				<width>1520</width>
+				<height>760</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<onright condition="Control.IsVisible(60)">60</onright>
-				<onright>500</onright>
-				<onup>500</onup>
-				<ondown>500</ondown>
+				<onright>520</onright>
+				<onup>520</onup>
+				<ondown>520</ondown>
 				<pagecontrol>60</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="420" width="420">
+				<itemlayout height="380" width="380">
 					<control type="image">
-						<width>420</width>
-						<height>420</height>
+						<width>380</width>
+						<height>380</height>
 						<aspectratio aligny="top">scale</aspectratio>
-						<texture fallback="DefaultFallbackFavourite.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="DefaultFallbackAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<fadetime>300</fadetime>
 					</control>
 					<control type="image">
-						<width>420</width>
-						<height>420</height>
+						<width>380</width>
+						<height>380</height>
 						<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
 						<fadetime>300</fadetime>
 					</control>
 					<control type="label">
-						<top>377</top>
-						<width>420</width>
+						<top>337</top>
+						<width>380</width>
 						<height>30</height>
 						<align>center</align>
 						<textoffsetx>10</textoffsetx>
@@ -370,14 +370,14 @@
 						<info>ListItem.Label</info>
 					</control>
 				</itemlayout>
-				<focusedlayout height="420" width="420">
+				<focusedlayout height="380" width="380">
 					<control type="group">
 						<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
 						<control type="image">
-							<width>420</width>
-							<height>420</height>
+							<width>380</width>
+							<height>380</height>
 							<aspectratio aligny="top">scale</aspectratio>
-							<texture fallback="DefaultFallbackFavourite.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<texture fallback="DefaultFallbackAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<fadetime>300</fadetime>
 							<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
 							<bordersize>8</bordersize>
@@ -386,6 +386,7 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
+				<animation effect="slide" time="0" start="0,0" end="0,-15" condition="Window.IsActive(videos) | Window.IsActive(pictures) | Window.IsActive(musiclibrary)">Conditional</animation>
 				<left>1906</left>
 				<top>45</top>
 				<width>14</width>
