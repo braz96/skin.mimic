@@ -17,7 +17,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added a dialog to the sidebar for choosing view modes.
 - Added a new Blue theme.
 - Added support for The Big Picture addon.
-- Consolidated addons views, added Shift view for addons.
+- Consolidated addon views, added Shift view for addons.
 
 ***
 **1.1.1**
