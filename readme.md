@@ -16,6 +16,8 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Initial release for Kodi Isengard, includes updates to the skinning engine.
 - Added a dialog to the sidebar for choosing view modes.
 - Added a new Blue theme.
+- Added support for The Big Picture addon.
+- Consolidated addons views, added Shift view for addons.
 
 ***
 **1.1.1**
