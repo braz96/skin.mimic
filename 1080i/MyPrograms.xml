@@ -19,43 +19,7 @@
 			<include>PosterShift</include>
 			<!-- view id = 57 -->
 		</control>
-		<control type="group">
-			<visible>Control.IsVisible(520) | Control.IsVisible(57)</visible>
-			<visible>!Window.IsActive(addoninformation)</visible>
-			<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
-			<include>Window_OpenClose_Animation</include>
-			<top>925</top>
-			<control type="group">
-				<animation effect="slide" start="0,0" end="-40,0" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
-				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
-				<control type="group">
-					<left>170</left>
-					<control type="label">
-						<left>0</left>
-						<top>0</top>
-						<width>1520</width>
-						<height>42</height>
-						<align>left</align>
-						<font>font16_title</font>
-						<textcolor>white</textcolor>
-						<scroll>true</scroll>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<textoffsetx>30</textoffsetx>
-					</control>
-					<control type="label">
-						<left>0</left>
-						<top>45</top>
-						<width>1520</width>
-						<height>30</height>
-						<align>left</align>
-						<font>font13_title</font>
-						<textcolor>white</textcolor>
-						<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-						<textoffsetx>30</textoffsetx>
-					</control>
-				</control>
-			</control>
-		</control>
+		<include>AddonsFloorLabels</include>
 		<include>ScrollOffsetLabel</include>
 		<include>Topbar</include>
 		<include>Bottombar</include>
