@@ -152,7 +152,7 @@
 				<visible>System.HasAddon(script.playalbum) + Container.Content(albums)</visible>
 			</control>
 			<control type="button" id="90215">
-				<description>ExtendedInfo Movies</description>
+				<description>ExtendedInfo</description>
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
@@ -160,22 +160,10 @@
 				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
 				<onclick>Dialog.Close(1119)</onclick>	
 				<onclick>Dialog.Close(MovieInformation)</onclick>	
-				<onclick>RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
+				<onclick condition="Container.Content(movies)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
 				<label>$INFO[System.AddonTitle(script.extendedinfo)]</label>
-				<visible>Container.Content(movies) + System.HasAddon(script.extendedinfo)</visible>
-			</control>
-			<control type="button" id="90216">
-				<description>ExtendedInfo TV Shows</description>
-				<width>510</width>
-				<textwidth>425</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
-				<onclick>Dialog.Close(1119)</onclick>	
-				<onclick>Dialog.Close(MovieInformation)</onclick>	
-				<onclick>RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.extendedinfo)]</label>
-				<visible>Container.Content(tvshows) + System.HasAddon(script.extendedinfo)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows)] + System.HasAddon(script.extendedinfo)</visible>
 			</control>
 			<control type="button" id="90211">
 				<description>FS Fanart button</description>
