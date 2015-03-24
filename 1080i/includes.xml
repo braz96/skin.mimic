@@ -29,19 +29,6 @@
 	<include file="script-skinshortcuts-includes.xml" />
 	<constant name="FanartCrossfadeTime">500</constant>
 	<constant name="IconCrossfadeTime">400</constant>
-	<variable name="BannerThumb">
-		<value condition="!IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
-		<value condition="!IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(poster)]</value>
-	</variable>
-	<variable name="PosterThumb">
-		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-		<value condition="StringCompare(ListItem.Label,..)">$INFO[ListItem.Icon]</value>
-		<value>$INFO[ListItem.Thumb]</value>
-	</variable>
-	<!--<variable name="PlayList">
-		<value condition="Player.HasVideo">ActivateWindow(videoplaylist)</value>
-		<value condition="Player.HasAudio">ActivateWindow(musicplaylist)</value>
-	</variable>-->
 	<!-- Media Menu -->
 	<include name="SideBladeLeft">
 		<animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
