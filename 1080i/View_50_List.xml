@@ -23,7 +23,7 @@
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="120" width="1150" condition="Container.Content(movies)">
 						<control type="image">
-							<visible>!stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp)</visible>
+							<visible>!stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp) + !substring(Container.FolderPath,plugin.video)</visible>
 							<left>15</left>
 							<top>8</top>
 							<width>105</width>
@@ -31,6 +31,16 @@
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$VAR[StudioIconVar]</texture>
 							<colordiffuse>grey</colordiffuse>
+							<fadetime>IconCrossfadeTime</fadetime>
+						</control>
+						<control type="image">
+							<visible>substring(Container.FolderPath,plugin.video)</visible>
+							<left>15</left>
+							<top>8</top>
+							<width>105</width>
+							<height>105</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="label">
@@ -124,7 +134,7 @@
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="image">
-							<visible>!stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp)</visible>
+							<visible>!stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp) + !substring(Container.FolderPath,plugin.video)</visible>
 							<left>15</left>
 							<top>8</top>
 							<width>105</width>
@@ -132,6 +142,16 @@
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$VAR[StudioIconVar]</texture>
 							<colordiffuse>white</colordiffuse>
+							<fadetime>IconCrossfadeTime</fadetime>
+						</control>
+						<control type="image">
+							<visible>substring(Container.FolderPath,plugin.video)</visible>
+							<left>15</left>
+							<top>8</top>
+							<width>105</width>
+							<height>105</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="label">
@@ -410,6 +430,7 @@
 					</focusedlayout>
 					<itemlayout height="120" width="1150" condition="Container.Content(tvshows)">
 						<control type="image">
+							<visible>!substring(Container.FolderPath,plugin.video)</visible>
 							<left>15</left>
 							<top>8</top>
 							<width>105</width>
@@ -417,6 +438,16 @@
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$VAR[StudioIconVar]</texture>
 							<colordiffuse>grey</colordiffuse>
+							<fadetime>IconCrossfadeTime</fadetime>
+						</control>
+						<control type="image">
+							<visible>substring(Container.FolderPath,plugin.video)</visible>
+							<left>15</left>
+							<top>8</top>
+							<width>105</width>
+							<height>105</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="label">
@@ -474,6 +505,7 @@
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="image">
+							<visible>!substring(Container.FolderPath,plugin.video)</visible>
 							<left>15</left>
 							<top>8</top>
 							<width>105</width>
@@ -481,6 +513,16 @@
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$VAR[StudioIconVar]</texture>
 							<colordiffuse>white</colordiffuse>
+							<fadetime>IconCrossfadeTime</fadetime>
+						</control>
+						<control type="image">
+							<visible>substring(Container.FolderPath,plugin.video)</visible>
+							<left>15</left>
+							<top>8</top>
+							<width>105</width>
+							<height>105</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="label">
@@ -931,7 +973,7 @@
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !substring(Container.FolderPath,plugin.video)</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
 					<width>560</width>
@@ -976,7 +1018,7 @@
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos)] + !IsEmpty(ListItem.Thumb)</visible>
+				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)] + !IsEmpty(ListItem.Thumb)</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
 					<width>560</width>
