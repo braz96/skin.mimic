@@ -105,7 +105,7 @@
 					<top>970</top>
 					<width>1920</width>
 					<align>center</align>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !substring(Container.FolderPath,plugin.video)</visible>
 					<control type="group">
 						<left>120</left>
 						<control type="image" id="800011">
@@ -159,7 +159,7 @@
 				<control type="group">
 					<left>90</left>
 					<top>965</top>
-					<visible>![Control.IsVisible(56)]</visible>
+					<visible>![Control.IsVisible(56) | Container.Content(files)]</visible>
 					<include>VisibleFadeEffect</include>
 					<control type="label">
 						<left>0</left>
@@ -224,7 +224,7 @@
 					<width>1840</width>
 					<height>90</height>
 					<include>VisibleFadeEffect</include>
-					<visible>![Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(files)]</visible>
 					<visible>!stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp)</visible>
 					<control type="image">
 						<left>32</left>
