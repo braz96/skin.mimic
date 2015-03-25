@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <window type="window">
     <controls>
 
@@ -6,18 +6,13 @@
             <description>Background image</description>
             <left>0</left>
             <top>0</top>
-            <aspectratio align="center" aligny="center">scale</aspectratio>
+            <colordiffuse>FF555555</colordiffuse>
+            <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
             <include>FullscreenDimensions</include>
             <texture></texture>
             <fadetime>2000</fadetime>
-            <animation effect="fade" start="100" end="20" time="0" condition="![StringCompare(Visualisation.Name,waveform) | StringCompare(Visualisation.Name,opengl spectrum) | StringCompare(Visualisation.Name,directx spectrum) | IsEmpty(Visualisation.Name)] + !Skin.HasSetting(HideVisualizationFanart)">Conditional</animation>
-            <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
-            <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
-        </control>
-        <control type="image">
-            <include>FullscreenDimensions</include>
-            <texture>background.png</texture>
-            <colordiffuse>background</colordiffuse>
+            <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="true">Conditional</animation>
+            <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="true">Conditional</animation>
         </control>
 
         <control type="image" id="30006">
@@ -27,7 +22,6 @@
             <top>530</top>
             <aspectratio scalediffuse="false" align="right" aligny="bottom">keep</aspectratio>
             <fadetime>1000</fadetime>
-            <colordiffuse>FFFFFFFF</colordiffuse>
             <width>500</width>
             <height>500</height>
             <texture></texture>
