@@ -2310,7 +2310,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !IsEmpty(ListItem.Thumb)</visible>
 				<left>1276</left>
 				<top>105</top>
 				<control type="image">
@@ -2321,8 +2321,31 @@
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 			</control>
+			<control type="grouplist">
+				<visible>Container.Content(addons)</visible>
+				<left>1276</left>
+				<top>105</top>
+				<itemgap>15</itemgap>
+				<control type="image">
+					<width>560</width>
+					<height>560</height>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<visible>!IsEmpty(ListItem.Thumb)</visible>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+				<control type="textbox">
+					<visible>Container.Content(addons)</visible>
+					<width>560</width>
+					<height>275</height>
+					<font>font14_textbox5</font>
+					<textcolor>grey</textcolor>
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				</control>
+			</control>
 			<control type="group">
-				<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+				<visible>[![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(episodes) | Container.Content(addons)] + Container.HasFiles] | Container.Content(actors) | Container.Content(files)</visible>
 				<left>1276</left>
 				<top>105</top>
 				<control type="image">
@@ -2799,11 +2822,11 @@
 				<top>120</top>
 				<itemgap>10</itemgap>
 				<control type="image">
-					<visible>!IsEmpty(ListItem.Property(Addon.Description)) + !IsEmpty(ListItem.Thumb)</visible>
+					<visible>!ListItem.IsFolder</visible>
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="DefaultFallbackAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
@@ -2815,14 +2838,6 @@
 					<textcolor>grey</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				</control>
-				<control type="image">
-					<visible>IsEmpty(ListItem.Property(Addon.Description)) + !ListItem.IsFolder + !IsEmpty(ListItem.Thumb)</visible>
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 			</control>
 		</control>
