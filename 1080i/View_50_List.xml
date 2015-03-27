@@ -1764,11 +1764,11 @@
 				<top>120</top>
 				<itemgap>10</itemgap>
 				<control type="image">
-					<visible>!IsEmpty(ListItem.Property(Addon.Description)) + !IsEmpty(ListItem.Thumb)</visible>
+					<visible>!IsEmpty(ListItem.Thumb)</visible>
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="DefaultFallbackAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
@@ -1780,14 +1780,6 @@
 					<textcolor>grey</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				</control>
-				<control type="image">
-					<visible>IsEmpty(ListItem.Property(Addon.Description)) + !ListItem.IsFolder + !IsEmpty(ListItem.Thumb)</visible>
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 			</control>
 		</control>
