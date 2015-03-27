@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1119" type="dialog">
-	<defaultcontrol always="true">90200</defaultcontrol>
+	<defaultcontrol always="true">90300</defaultcontrol>
 	<coordinates>
 		<system>1</system>
 		<left>0</left>
@@ -23,7 +23,7 @@
 				<description>background image</description>
 				<width>510</width>
 				<height>32</height>
-				<texture border="12">button_shutdown_border.png</texture>
+				<texture border="12">button_border.png</texture>
 				<colordiffuse>context</colordiffuse>
 			</control>
 			<control type="button" id="90202">
@@ -31,13 +31,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick>Dialog.Close(MovieInformation)</onclick>
-				<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
 				<visible>System.HasAddon(script.cinema.experience)</visible>
 				<visible>Container.Content(movies) + !SubString(Window(10025).Property(CinemaExperienceRunning),True)</visible>
 			</control>
@@ -46,13 +42,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-				<onclick condition="Container.Content(tvshows)">RunScript(script.artwork.downloader, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.artwork.downloader)]</label>
 				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			</control>
 			<control type="button" id="90204">
@@ -60,13 +52,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-				<onclick condition="Container.Content(tvshows)">RunScript(script.artwork.downloader,mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.artwork.downloader),,: $LOCALIZE[413]]</label>
 				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			</control>
 			<control type="button" id="90205">
@@ -74,12 +62,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
-				<label>21435</label>
 				<visible>System.HasAddon(script.libraryeditor)</visible>
 			</control>
 			<control type="button" id="90206">
@@ -87,12 +72,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
-				<label>31067</label>
 				<visible>System.HasAddon(script.ratingupdate)</visible>
 				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 			</control>
@@ -101,12 +83,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick>RunScript(script.tvtunes,mode=solo)</onclick>
-				<label>$INFO[System.AddonTitle(script.tvtunes)]</label>
 				<visible>System.HasAddon(script.tvtunes)</visible>
 				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
 			</control>
@@ -115,13 +94,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick condition="!Container.Content(tvshows)">RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
-				<onclick condition="Container.Content(tvshows)">RunScript(script.videoextras,display,"$INFO[ListItem.Path]")</onclick>
-				<label>$INFO[System.AddonTitle(script.videoextras)]</label>
 				<visible>System.HasAddon(script.videoextras)</visible>
 				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
 			</control>
@@ -130,12 +105,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(all,true)</onclick>
-				<onclick>ActivateWindow(videos,$ESCINFO[ListItem.Label,plugin://plugin.video.youtube/kodion/search/query/?q=],return)</onclick>
-				<label>$INFO[System.AddonTitle(plugin.video.youtube)]</label>
 				<visible>System.HasAddon(plugin.video.youtube) + [Container.Content(albums) | Container.Content(songs)]</visible>
 			</control>
 			<control type="button" id="90210">
@@ -143,12 +115,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick>Skin.SetString(Startup_Playlist_Path,RunScript(script.playalbum,albumid=$INFO[ListItem.DBID]))</onclick>
-				<label>31089</label>
 				<visible>System.HasAddon(script.playalbum) + Container.Content(albums)</visible>
 			</control>
 			<control type="button" id="90215">
@@ -156,13 +125,9 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
-				<onclick>Dialog.Close(1119)</onclick>	
-				<onclick>Dialog.Close(MovieInformation)</onclick>	
-				<onclick condition="Container.Content(movies)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
-				<onclick condition="Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.extendedinfo)]</label>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
+				<colordiffuse>context</colordiffuse>
 				<visible>[Container.Content(movies) | Container.Content(tvshows)] + System.HasAddon(script.extendedinfo)</visible>
 			</control>
 			<control type="button" id="90211">
@@ -170,23 +135,18 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>SetFocus(90300)</onclick>
-				<label>$LOCALIZE[31092]</label>
 			</control>
 			<control type="button" id="90212">
 				<description>Concerts in google maps addon</description>
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>RunScript(script.maps.browser,artist=$INFO[ListItem.Artist])</onclick>
-				<onclick>Dialog.Close(1119)</onclick>
-				<label>$LOCALIZE[31096]</label>
 				<visible>Container.Content(artists) + System.HasAddon(script.maps.browser)</visible>
 			</control>
 			<control type="button" id="90213">
@@ -194,12 +154,10 @@
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="12">button_shutdown_nofocus.png</texturenofocus>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>context</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<label>$LOCALIZE[31075]</label>
-				<visible>![Control.IsVisible(90202) | Control.IsVisible(90203) | Control.IsVisible(90204) | Control.IsVisible(90205) | Control.IsVisible(90206) | Control.IsVisible(90207) | Control.IsVisible(90208) | Control.IsVisible(90209) | Control.IsVisible(90210) | Control.IsVisible(90211)]</visible>
+				<visible>![Control.IsVisible(90202) | Control.IsVisible(90203) | Control.IsVisible(90204) | Control.IsVisible(90205) | Control.IsVisible(90206) | Control.IsVisible(90207) | Control.IsVisible(90208) | Control.IsVisible(90209) | Control.IsVisible(90210) | Control.IsVisible(90211) | Control.IsVisible(90212)]</visible>
 			</control>
 			<control type="image" id="90214">
 				<description>background image</description>
@@ -207,20 +165,169 @@
 				<top>0</top>
 				<width>510</width>
 				<height>33</height>
-				<texture flipy="true" border="12">button_shutdown_border.png</texture>
+				<texture flipy="true" border="12">button_border.png</texture>
 				<colordiffuse>context</colordiffuse>
 			</control>
 		</control>
+		<control type="grouplist" id="90300">
+			<left>735</left>
+			<top>0</top>
+			<width>450</width>
+			<height>1080</height>
+			<onleft>90300</onleft>
+			<onright>90300</onright>
+			<onup>90300</onup>
+			<ondown>90300</ondown>
+			<itemgap>0</itemgap>
+			<align>center</align>
+			<control type="button" id="90302">
+				<description>Cinema Experience button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick>Dialog.Close(MovieInformation)</onclick>
+				<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+				<label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
+				<visible>System.HasAddon(script.cinema.experience)</visible>
+				<visible>Container.Content(movies) + !SubString(Window(10025).Property(CinemaExperienceRunning),True)</visible>
+			</control>
+			<control type="button" id="90303">
+				<description>Artwork downloader button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="Container.Content(tvshows)">RunScript(script.artwork.downloader, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+				<label>$INFO[System.AddonTitle(script.artwork.downloader)]</label>
+				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+			</control>
+			<control type="button" id="90304">
+				<description>Artwork downloader button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="Container.Content(tvshows)">RunScript(script.artwork.downloader,mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+				<label>$INFO[System.AddonTitle(script.artwork.downloader),,: $LOCALIZE[413]]</label>
+				<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+			</control>
+			<control type="button" id="90305">
+				<description>Edit button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
+				<label>21435</label>
+				<visible>System.HasAddon(script.libraryeditor)</visible>
+			</control>
+			<control type="button" id="90306">
+				<description>Rating Update button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
+				<label>31067</label>
+				<visible>System.HasAddon(script.ratingupdate)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+			</control>
+			<control type="button" id="90307">
+				<description>TvTunes button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick>RunScript(script.tvtunes,mode=solo)</onclick>
+				<label>$INFO[System.AddonTitle(script.tvtunes)]</label>
+				<visible>System.HasAddon(script.tvtunes)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
+			</control>
+			<control type="button" id="90308">
+				<description>VideoExtras button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick condition="!Container.Content(tvshows)">RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
+				<onclick condition="Container.Content(tvshows)">RunScript(script.videoextras,display,"$INFO[ListItem.Path]")</onclick>
+				<label>$INFO[System.AddonTitle(script.videoextras)]</label>
+				<visible>System.HasAddon(script.videoextras)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
+			</control>
+			<control type="button" id="90309">
+				<description>Search YouTube button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>ActivateWindow(videos,$ESCINFO[ListItem.Label,plugin://plugin.video.youtube/kodion/search/query/?q=],return)</onclick>
+				<label>$INFO[System.AddonTitle(plugin.video.youtube)]</label>
+				<visible>System.HasAddon(plugin.video.youtube) + [Container.Content(albums) | Container.Content(songs)]</visible>
+			</control>
+			<control type="button" id="90310">
+				<description>Add album as startup playlist button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick>Skin.SetString(Startup_Playlist_Path,RunScript(script.playalbum,albumid=$INFO[ListItem.DBID]))</onclick>
+				<label>31089</label>
+				<visible>System.HasAddon(script.playalbum) + Container.Content(albums)</visible>
+			</control>
+			<control type="button" id="90315">
+				<description>ExtendedInfo</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>	
+				<onclick>Dialog.Close(MovieInformation)</onclick>	
+				<onclick condition="Container.Content(movies)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
+				<onclick condition="Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
+				<label>$INFO[System.AddonTitle(script.extendedinfo)]</label>
+				<visible>[Container.Content(movies) | Container.Content(tvshows)] + System.HasAddon(script.extendedinfo)</visible>
+			</control>
+			<control type="button" id="90311">
+				<description>FS Fanart button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>SetFocus(90400)</onclick>
+				<label>$LOCALIZE[31092]</label>
+			</control>
+			<control type="button" id="90312">
+				<description>Concerts in google maps addon</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>RunScript(script.maps.browser,artist=$INFO[ListItem.Artist])</onclick>
+				<onclick>Dialog.Close(1119)</onclick>
+				<label>$LOCALIZE[31096]</label>
+				<visible>Container.Content(artists) + System.HasAddon(script.maps.browser)</visible>
+			</control>
+			<control type="button" id="90313">
+				<description>No extra feautures button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>listselect</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<label>$LOCALIZE[31075]</label>
+				<visible>![Control.IsVisible(90202) | Control.IsVisible(90203) | Control.IsVisible(90204) | Control.IsVisible(90205) | Control.IsVisible(90206) | Control.IsVisible(90207) | Control.IsVisible(90208) | Control.IsVisible(90209) | Control.IsVisible(90210) | Control.IsVisible(90211) | Control.IsVisible(90212)]</visible>
+			</control>
+		</control>
 		<control type="group">
-			<visible allowhiddenfocus="true">Control.HasFocus(90300)</visible>
+			<visible allowhiddenfocus="true">Control.HasFocus(90400)</visible>
 			<include>VisibleFadeEffect</include>
-			<control type="button" id="90300">
+			<control type="button" id="90400">
 				<description>FS Fanart button</description>
 				<width>1920</width>
 				<height>1080</height>
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
-				<onclick>SetFocus(90200)</onclick>
+				<onclick>SetFocus(90300)</onclick>
 				<label>-</label>
 			</control>
 			<control type="image">
