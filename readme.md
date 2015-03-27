@@ -19,6 +19,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added support for The Big Picture addon.
 - Consolidated addon views, added Shift view for addons.
 - Updated language files from Transifex.
+- Changed default theme to black-blue.
 
 ***
 **1.1.1**
