@@ -20,6 +20,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Consolidated addon views, added Shift view for addons.
 - Updated language files from Transifex.
 - Changed default theme to black-blue.
+- Added support for LazyTV addon.
 
 ***
 **1.1.1**
