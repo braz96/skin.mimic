@@ -225,7 +225,7 @@
 					<height>90</height>
 					<include>VisibleFadeEffect</include>
 					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(files)]</visible>
-					<visible>!stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp)</visible>
+					<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
 					<control type="image">
 						<left>32</left>
 						<include>MediaFlagVars</include>
@@ -246,19 +246,26 @@
 					</control>
 				</control>
 				<control type="group">
-					<left>1705</left>
-					<top>965</top>
-					<width>700</width>
+					<left>1477</left>
+					<top>972</top>
+					<width>500</width>
 					<height>150</height>
 					<include>VisibleFadeEffect</include>
-					<visible>stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp)</visible>
+					<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+					<control type="image">
+						<height>50</height>
+						<colordiffuse>white2</colordiffuse>
+						<texture>imdb.png</texture>
+						<aspectratio align="left" aligny="top">keep</aspectratio>
+					</control>
 					<control type="label">
-						<left>0</left>
-						<width>150</width>
+						<left>15</left>
+						<top>3</top>
+						<width>200</width>
 						<height>42</height>
-						<font>font16_title</font>
+						<font>font13</font>
 						<textcolor>white2</textcolor>
-						<label>[B]$INFO[ListItem.Top250,#][/B]</label>
+						<label>[B][UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#][/B]</label>
 						<align>left</align>
 					</control>
 				</control>

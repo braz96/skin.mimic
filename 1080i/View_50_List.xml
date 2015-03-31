@@ -23,7 +23,7 @@
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="120" width="1150" condition="Container.Content(movies)">
 						<control type="image">
-							<visible>!stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp) + !substring(Container.FolderPath,plugin.video)</visible>
+							<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409]) + !substring(Container.FolderPath,plugin.video)</visible>
 							<left>15</left>
 							<top>8</top>
 							<width>105</width>
@@ -44,7 +44,7 @@
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="label">
-							<visible>stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp)</visible>
+							<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
 							<left>15</left>
 							<top>6</top>
 							<width>105</width>
@@ -134,7 +134,7 @@
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="image">
-							<visible>!stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp) + !substring(Container.FolderPath,plugin.video)</visible>
+							<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409]) + !substring(Container.FolderPath,plugin.video)</visible>
 							<left>15</left>
 							<top>8</top>
 							<width>105</width>
@@ -145,6 +145,7 @@
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="image">
+							<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409]) + substring(Container.FolderPath,plugin.video)</visible>
 							<left>15</left>
 							<top>8</top>
 							<width>105</width>
@@ -154,7 +155,7 @@
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="label">
-							<visible>stringcompare(container.folderpath,special://skin/extras/playlists/IMDbTop250.xsp)</visible>
+							<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
 							<left>15</left>
 							<top>6</top>
 							<width>105</width>
