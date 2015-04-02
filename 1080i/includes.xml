@@ -17,6 +17,7 @@
 	<include file="View_58_BannerWall.xml" />
 	<include file="View_59_Fanart.xml" />
 	<include file="View_500_Wall.xml" />
+	<include file="View_501_LowList.xml" />
 	<include file="View_502_Episode.xml" />
 	<include file="View_504_Gallery.xml" />
 	<include file="View_505_Panel.xml" />
@@ -277,14 +278,14 @@
 			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
 			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
 			<control type="image">
-				<visible>!Control.IsVisible(59)</visible>
+				<visible>![Control.IsVisible(59) | Control.IsVisible(501)]</visible>
 				<width>1920</width>
 				<height>45</height>
 				<texture>background.png</texture>
 				<colordiffuse>topbar</colordiffuse>
 			</control>
 			<control type="image">
-				<visible>Control.IsVisible(59)</visible>
+				<visible>Control.IsVisible(59) | Control.IsVisible(501)</visible>
 				<width>1920</width>
 				<height>45</height>
 				<texture>background.png</texture>
@@ -337,7 +338,7 @@
 			<animation effect="slide" start="0,90" end="0,0" time="480" condition="!Control.HasFocus(60)">Conditional</animation>
 			<animation effect="slide" end="0,90" start="0,0" time="480" condition="Control.HasFocus(60)">Conditional</animation>
 			<control type="image">
-				<visible>!Control.IsVisible(59)</visible>
+				<visible>![Control.IsVisible(59) | Control.IsVisible(501)]</visible>
 				<width>1920</width>
 				<height>45</height>
 				<texture>background.png</texture>
