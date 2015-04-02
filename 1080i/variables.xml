@@ -121,6 +121,10 @@
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
+	<variable name="MusicThumbVar">
+		<value condition="SubString(ListItem.Label,* All Albums) | SubString(ListItem.Label,* All Songs)">$INFO[ListItem.Icon]</value>
+		<value>$INFO[ListItem.Thumb]</value>
+	</variable>
 	<variable name="RatingAndVotesVar">
 		<value condition="IsEmpty(ListItem.Votes)">$LOCALIZE[563]</value>
 		<value>$INFO[ListItem.Votes,, $LOCALIZE[20350]]</value>
