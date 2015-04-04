@@ -15,6 +15,8 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 **2.0.1**
 - Added IMDb flag for views when sorted by Top 250.
 - Added LowList view from Aeon Nox 5.
+- Added skin setting to disable autoscroll for home widgets.
+- Redesigned video bookmarks window.
 
 ***
 **2.0.0**
