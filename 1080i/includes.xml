@@ -293,15 +293,28 @@
 			</control>
 			<control type="group">
 				<top>-2</top>
-				<control type="label">
-					<width>900</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$VAR[BreadcrumbsVar]</label>
+				<control type="group">
+					<animation effect="slide" time="400" tween="" easing="" start="0" end="35" condition="Control.IsVisible(1996)">Conditional</animation>
+					<control type="image" id="1996">
+						<visible>![Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(addoninformation)]</visible>
+						<top>8</top>
+						<left>-27</left>
+						<width>32</width>
+						<height>32</height>
+						<texture>arrow.png</texture>
+						<colordiffuse>grey</colordiffuse>
+						<animation effect="rotate" end="-90" center="auto" delay="240" time="640" condition="SubString(Container.Viewmode,$LOCALIZE[31016]) | SubString(Container.Viewmode,$LOCALIZE[31079]) | SubString(Container.Viewmode,$LOCALIZE[31077]) | SubString(Container.Viewmode,$LOCALIZE[20445]) | SubString(Container.Viewmode,$LOCALIZE[31054]) | SubString(Container.Viewmode,$LOCALIZE[31059])">Conditional</animation>
+					</control>
+					<control type="label">
+						<width>900</width>
+						<height>45</height>
+						<font>topbar</font>
+						<textoffsetx>15</textoffsetx>
+						<textcolor>grey</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$VAR[BreadcrumbsVar]</label>
+					</control>
 				</control>
 				<control type="label">
 					<visible>!Window.IsActive(script-globalsearch-main.xml)</visible>
