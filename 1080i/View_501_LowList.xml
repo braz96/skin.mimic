@@ -5,7 +5,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(501) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
-			<animation effect="slide" end="0,-20" start="0,0" time="480" condition="[Player.HasAudio + !Skin.HasSetting(Disable.ShowPlayingMusic)] | [Player.HasVideo + !Skin.HasSetting(Disable.ShowPlayingVideo)]">Conditional</animation>
+			<animation effect="slide" end="0,-20" start="0,0" time="480" condition="[Player.HasAudio + !Skin.HasSetting(Disable.ShowPlayingMusic) + !Control.HasFocus(60)] | [Player.HasVideo + !Skin.HasSetting(Disable.ShowPlayingVideo) + !Control.HasFocus(60)]">Conditional</animation>
 			<control type="image">
 				<top>770</top>
 				<width>1920</width>
@@ -97,8 +97,8 @@
 							<width>162.5</width>
 							<height>60</height>
 							<align>center</align>
-							<label>$INFO[ListItem.Property(TotalSeasons)]</label>
-							<font>font48_bold</font>
+							<label>[B]$INFO[ListItem.Property(TotalSeasons)][/B]</label>
+							<font>font16</font>
 							<wrapmultiline>true</wrapmultiline>
 							<textcolor>maintext</textcolor>
 						</control>
@@ -123,8 +123,8 @@
 							<width>162.5</width>
 							<height>60</height>
 							<align>center</align>
-							<label>$INFO[ListItem.Property(TotalEpisodes)]</label>
-							<font>font48_bold</font>
+							<label>[B]$INFO[ListItem.Property(TotalEpisodes)][/B]</label>
+							<font>font16</font>
 							<wrapmultiline>true</wrapmultiline>
 							<textcolor>maintext</textcolor>
 						</control>
@@ -676,7 +676,7 @@
 						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.label2]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
 						<visible>StringCompare(Container.SortMethod,$LOCALIZE[557])</visible>
 					</control>
 					<control type="image">
@@ -687,7 +687,7 @@
 						<aspectratio>keep</aspectratio>
 						<texture fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
 						<visible>!IsEmpty(ListItem.Title)</visible>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<itemlayout height="67" width="806" condition="Container.Content(songs)">
@@ -787,7 +787,7 @@
 						<aspectratio>keep</aspectratio>
 						<texture fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
 						<visible>!IsEmpty(ListItem.Title)</visible>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(55)">Conditional</animation>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<itemlayout height="67" width="806" condition="![Container.Content(albums) | Container.Content(songs)]">
