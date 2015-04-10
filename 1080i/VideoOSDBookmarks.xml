@@ -15,7 +15,7 @@
             <width>1200</width>
             <height>900</height>
             <texture border="12">dialog_context.png</texture>
-            <colordiffuse>context</colordiffuse>
+            <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
         </control>
         <control type="label">
             <description>header label</description>
@@ -27,7 +27,7 @@
             <label>$LOCALIZE[298]</label>
             <align>center</align>
             <aligny>center</aligny>
-            <textcolor>dialogheader</textcolor>
+            <textcolor>maintext</textcolor>
         </control>
         <control type="label">
             <visible>!Window.IsActive(script-globalsearch-main.xml)</visible>
@@ -37,10 +37,10 @@
             <height>45</height>
             <font>topbar</font>
             <textoffsetx>15</textoffsetx>
-            <textcolor>grey</textcolor>
+            <textcolor>maintext</textcolor>
             <align>right</align>
             <aligny>center</aligny>
-            <label>$INFO[Container(11).NumItems,, $LOCALIZE[31025]]$INFO[Container(11).CurrentPage,  •  [COLOR themecolor],]$INFO[Container(11).NumPages,/,[/COLOR]]</label>
+            <label>$INFO[Container(11).NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(11).CurrentPage]$INFO[Container(11).NumPages,/][/COLOR]</label>
         </control>
         <control type="panel" id="11">
             <left>40</left>
@@ -76,7 +76,7 @@
                     <width>374</width>
                     <height>20</height>
                     <align>center</align>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <info>ListItem.Label</info>
                 </control>
             </itemlayout>
@@ -91,7 +91,7 @@
                         <height>210</height>
                         <texture background="true">$INFO[ListItem.Icon]</texture>
                         <aspectratio align="center" aligny="center">scale</aspectratio>
-                        <bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+                        <bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
                         <bordersize>8</bordersize>
                         <fadetime>200</fadetime>
                     </control>

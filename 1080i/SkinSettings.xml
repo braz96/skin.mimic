@@ -29,8 +29,8 @@
 						<height>90</height>
 						<font>font15</font>
 						<textoffsetx>20</textoffsetx>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -41,7 +41,7 @@
 						<width>356</width>
 						<height>90</height>
 						<texture>listselect_fo.png</texture>
-						<colordiffuse>listselect</colordiffuse>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<include>VisibleFadeEffect</include>
 					</control>
 					<control type="label">
@@ -49,8 +49,8 @@
 						<height>90</height>
 						<font>font15</font>
 						<textoffsetx>20</textoffsetx>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -77,12 +77,12 @@
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<!--<item id="5">
-						<label>582</label>
+					<item id="5">
+						<label>Colors</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="6">
+					<!--<item id="6">
 						<label>8</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
@@ -117,7 +117,7 @@
 				<height>140</height>
 				<font>font15_textbox</font>
 				<align>left</align>
-				<textcolor>themecolor</textcolor>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				<label>$VAR[SkinSettingsDescriptionVar]</label>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 				<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
@@ -401,6 +401,98 @@
 						<label2>$VAR[FavViewSettingVar]</label2>
 						<onclick>Skin.ToggleSetting(Enable.FavView)</onclick>
 					</control>
+				</control>
+				<control type="grouplist" id="9005">
+					<description>control area</description>
+					<left>522</left>
+					<top>32</top>
+					<width>1316</width>
+					<height>720</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9005</onup>
+					<ondown>9005</ondown>
+					<visible>Container(9000).HasFocus(5)</visible>
+					<control type="radiobutton" id="502">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31211</label>
+						<onclick>Skin.ToggleSetting(ColorCustomizer.Enabled)</onclick>
+						<selected>Skin.HasSetting(ColorCustomizer.Enabled)</selected>
+					</control>
+					<control type="button" id="503">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31212</label>
+						<onclick>SetProperty(highlightselect,1,home)</onclick>
+						<onclick>ActivateWindow(1130)</onclick>
+						<enable>Skin.HasSetting(ColorCustomizer.Enabled)</enable>
+\					</control>
+					<control type="button" id="504">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31213</label>
+						<onclick>SetProperty(backgroundselect,1,home)</onclick>
+						<onclick>ActivateWindow(1130)</onclick>
+						<enable>Skin.HasSetting(ColorCustomizer.Enabled)</enable>
+					</control>
+					<control type="button" id="505">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31214</label>
+						<onclick>SetProperty(dialogselect,1,home)</onclick>
+						<onclick>ActivateWindow(1130)</onclick>
+						<enable>Skin.HasSetting(ColorCustomizer.Enabled)</enable>
+					</control>
+					<!--<control type="button" id="506">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31215</label>
+						<onclick>SetProperty(textselect,1,home)</onclick>
+						<onclick>ActivateWindow(1130)</onclick>
+						<enable>Skin.HasSetting(ColorCustomizer.Enabled)</enable>
+					</control>-->
+				</control>
+				<control type="grouplist" id="90050">
+					<description>control area</description>
+					<left>1760</left>
+					<top>135</top>
+					<width>64</width>
+					<height>720</height>
+					<itemgap>26</itemgap>
+					<visible>Container(9000).HasFocus(5) + Skin.HasSetting(ColorCustomizer.Enabled)</visible>
+					<control type="image" id="5050">
+						<width>64</width>
+						<height>64</height>
+						<texture>colors/$INFO[Skin.String(highlightcolor.name)].png</texture>
+					</control>
+					<control type="image" id="5051">
+						<width>64</width>
+						<height>64</height>
+						<texture>colors/$INFO[Skin.String(backgroundcolor.name)].png</texture>
+					</control>
+					<control type="image" id="5052">
+						<width>64</width>
+						<height>64</height>
+						<texture>colors/$INFO[Skin.String(dialogcolor.name)].png</texture>
+					</control>
+					<!--<control type="image" id="5053">
+						<width>64</width>
+						<height>64</height>
+						<texture>colors/$INFO[Skin.String(textcolor.name)].png</texture>
+					</control>-->
 				</control>
 			</control>
 		</control>

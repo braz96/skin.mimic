@@ -16,7 +16,7 @@
 				<width>1522</width>
 				<height>600</height>
 				<texture border="12">dialog_context.png</texture>
-				<colordiffuse>context</colordiffuse>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
 			<control type="label" id="1">
 				<description>header label</description>
@@ -27,7 +27,7 @@
 				<font>font15_title</font>
 				<label>$LOCALIZE[35000]</label>
 				<align>center</align>
-				<textcolor>dialogheader</textcolor>
+				<textcolor>maintext</textcolor>
 			</control>
 			<control type="list" id="20">
 				<left>31</left>
@@ -48,8 +48,8 @@
 						<height>50</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
@@ -59,9 +59,9 @@
 						<height>50</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>labelheader</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(Product),$LOCALIZE[35504]:  [COLOR=grey],[/COLOR]    ]$INFO[ListItem.Property(Vendor),$LOCALIZE[35503]:  [COLOR=grey],[/COLOR]    ]$INFO[ListItem.Property(Class),$LOCALIZE[35501]:  [COLOR=grey],[/COLOR]     ]$INFO[ListItem.Property(Version),$LOCALIZE[19114]:  [COLOR=grey],[/COLOR]]</label>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Property(Product),$LOCALIZE[35504]: ]$INFO[ListItem.Property(Vendor),$LOCALIZE[35503]: ]$INFO[ListItem.Property(Class),$LOCALIZE[35501]: ]$INFO[ListItem.Property(Version),$LOCALIZE[19114]: ]</label>
 					</control>
 				</itemlayout>
 				<focusedlayout height="120" width="1138">
@@ -69,7 +69,7 @@
 						<width>1138</width>
 						<height>120</height>
 						<texture border="5">listselect_fo.png</texture>
-						<colordiffuse>listselect</colordiffuse>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(20)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -79,8 +79,8 @@
 						<height>50</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(20)">Conditional</animation>
 					</control>
@@ -90,9 +90,9 @@
 						<height>50</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(Product),$LOCALIZE[35504]:  [COLOR=grey],[/COLOR]    ]$INFO[ListItem.Property(Vendor),$LOCALIZE[35503]:  [COLOR=grey],[/COLOR]    ]$INFO[ListItem.Property(Class),$LOCALIZE[35501]:  [COLOR=grey],[/COLOR]     ]$INFO[ListItem.Property(Version),$LOCALIZE[19114]:  [COLOR=grey],[/COLOR]]</label>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Property(Product),$LOCALIZE[35504]: ]$INFO[ListItem.Property(Vendor),$LOCALIZE[35503]: ]$INFO[ListItem.Property(Class),$LOCALIZE[35501]: ]$INFO[ListItem.Property(Version),$LOCALIZE[19114]: ]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(20)">Conditional</animation>
 					</control>
 				</focusedlayout>
@@ -120,8 +120,8 @@
 						<description>Ok Button</description>
 						<width>310</width>
 						<align>left</align>
-						<textcolor>grey</textcolor>
-						<focusedcolor>white</focusedcolor>
+						<textcolor>maintext</textcolor>
+						<focusedcolor>maintext</focusedcolor>
 						<label>186</label>
 						<font>font15</font>
 					</control>

@@ -31,7 +31,7 @@
                             <width>1380</width>
                             <label>[B]$INFO[ListItem.Label][/B]</label>
                             <font>font16_title</font>
-							<textcolor>grey</textcolor>
+							<textcolor>maintext</textcolor>
 							<aligny>top</aligny>
                         </control>
                         <control type="label">
@@ -40,8 +40,8 @@
                             <label>$VAR[VideoListLabel2Var]</label>
                             <aligny>top</aligny>
 							<font>font15</font>
-							<textcolor>themecolor</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<visible>!Container.Content(artists)</visible>
                         </control>
 						<control type="label">
@@ -50,8 +50,8 @@
                             <label>$INFO[ListItem.Property(Artist_Genre)]</label>
                             <aligny>top</aligny>
 							<font>font15</font>
-							<textcolor>themecolor</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<visible>Container.Content(artists)</visible>
                         </control>
                         <control type="textbox">
@@ -60,7 +60,7 @@
                             <height>108</height>
                             <label>$VAR[VideoPlotVar]</label>
 							<font>font14_textbox2</font>
-							<textcolor>grey</textcolor>
+							<textcolor>maintext</textcolor>
 							<visible>!Container.Content(artists)</visible>
                         </control>
 						<control type="textbox">
@@ -69,7 +69,7 @@
                             <height>108</height>
                             <label>$VAR[MusicPlotVar]</label>
 							<font>font14_textbox2</font>
-							<textcolor>grey</textcolor>
+							<textcolor>maintext</textcolor>
 							<visible>Container.Content(artists)</visible>
                         </control>
                         <control type="image">
@@ -77,7 +77,7 @@
                             <top>16</top>
                             <width>192</width>
                             <height>33</height>
-                            <texture colordiffuse="themecolor" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+                            <texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
                             <aspectratio align="right">keep</aspectratio>
                             <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)]</visible>
                         </control>
@@ -89,7 +89,7 @@
 						<width>1803</width>
 						<height>231</height>
 						<texture>listselect_fo.png</texture>
-						<colordiffuse>listselect</colordiffuse>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(507)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -103,7 +103,7 @@
                                 <label>[B]$INFO[ListItem.Label][/B]</label>
                                 <font>font16_title</font>
 								<aligny>top</aligny>
-								<textcolor>white2</textcolor>
+								<textcolor>maintext</textcolor>
                             </control>
                             <control type="label">
                                 <top>50</top>
@@ -111,8 +111,8 @@
                                 <label>$VAR[VideoListLabel2Var]</label>
                                 <aligny>top</aligny>
 								<font>font15</font>
-								<textcolor>white2</textcolor>
-								<selectedcolor>selected</selectedcolor>
+								<textcolor>maintext</textcolor>
+								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 								<visible>!Container.Content(artists)</visible>
                             </control>
 							<control type="label">
@@ -121,8 +121,8 @@
 								<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 								<aligny>top</aligny>
 								<font>font15</font>
-								<textcolor>white2</textcolor>
-								<selectedcolor>selected</selectedcolor>
+								<textcolor>maintext</textcolor>
+								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 								<visible>Container.Content(artists)</visible>
 							</control>
                             <control type="textbox">
@@ -131,7 +131,7 @@
                                 <width>1380</width>
                                 <height>108</height>
                                 <label>$VAR[VideoPlotVar]</label>
-								<textcolor>white2</textcolor>
+								<textcolor>maintext</textcolor>
 								<font>font14_textbox2</font>
 								<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(60)</autoscroll>
                             </control>
@@ -141,7 +141,7 @@
 								<height>108</height>
 								<label>$VAR[MusicPlotVar]</label>
 								<font>font14_textbox2</font>
-								<textcolor>white2</textcolor>
+								<textcolor>maintext</textcolor>
 								<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(60)</autoscroll>
 								<visible>Container.Content(artists)</visible>
 							</control>
@@ -150,7 +150,7 @@
                                 <top>16</top>
                                 <width>192</width>
                                 <height>33</height>
-                                <texture colordiffuse="white2" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+                                <texture colordiffuse="maintext" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
                                 <aspectratio align="right">keep</aspectratio>
                                 <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)]</visible>
                             </control>
@@ -180,7 +180,7 @@
                 <width>346</width>
                 <height>195</height>
                 <texture>background.png</texture>
-                <colordiffuse>background</colordiffuse>
+                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
             </control>
             <control type="image">
                 <width>346</width>

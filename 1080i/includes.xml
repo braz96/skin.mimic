@@ -42,7 +42,7 @@
 			<height>1104</height>
 			<texturefocus border="12">dialog_context.png</texturefocus>
 			<texturenofocus border="12">dialog_context.png</texturenofocus>
- 			<colordiffuse>context</colordiffuse>
+ 			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 		</control>
 		<control type="button">
 			<left>420</left>
@@ -60,8 +60,8 @@
 			<height>48</height>
 			<label></label>
 			<font>CloseButton</font>
-			<textcolor>grey</textcolor>
-			<focusedcolor>themecolor</focusedcolor>
+			<textcolor>maintext</textcolor>
+			<focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
 			<onclick>ClearProperty(MediaMenu,Home)</onclick>
 			<onclick>SetFocus(50)</onclick>
 			<texturefocus>-</texturefocus>
@@ -82,7 +82,7 @@
 			<height>70</height>
 			<aspectratio>keep</aspectratio>
 			<texture>logo.png</texture>
-			<colordiffuse>listselect</colordiffuse>
+			<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 		</control>
 	</include>
 	<include name="KioskModeButton">
@@ -117,7 +117,7 @@
 			<textoffsetx>15</textoffsetx>
 			<font>font13_title</font>
 			<label>31006</label>
-			<textcolor>themecolor</textcolor>
+			<textcolor>$VAR[ColorHighlightVar]</textcolor>
 			<aligny>center</aligny>
 		</control>
 		<control type="button" id="1802">
@@ -162,7 +162,7 @@
 					<include>ButtonCommonValues</include>
 					<label>31039</label>
 					<enable>no</enable>
-					<disabledcolor>themecolor</disabledcolor>
+					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
 				</control>
 				<control type="button" id="100">
 					<description>Channels</description>
@@ -211,7 +211,7 @@
 					<include>ButtonCommonValues</include>
 					<label>31026</label>
 					<enable>no</enable>
-					<disabledcolor>themecolor</disabledcolor>
+					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
 				</control>
 				<control type="button" id="28">
 					<description>Channel Groups</description>
@@ -256,7 +256,7 @@
 				<width>120</width>
 				<height>130</height>
 				<texture border="12">dialog_context.png</texture>
-				<colordiffuse>context</colordiffuse>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
 			<control type="label">
 				<left>0</left>
@@ -266,7 +266,7 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.SortLetter]</label>
-				<textcolor>white2</textcolor>
+				<textcolor>maintext</textcolor>
 				<font>font_MainMenu</font>
 			</control>
 		</control>
@@ -281,15 +281,15 @@
 				<visible>![Control.IsVisible(59) | Control.IsVisible(501)]</visible>
 				<width>1920</width>
 				<height>45</height>
-				<texture>background.png</texture>
-				<colordiffuse>topbar</colordiffuse>
+				<texture>topbar.png</texture>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="image">
 				<visible>Control.IsVisible(59) | Control.IsVisible(501)</visible>
 				<width>1920</width>
 				<height>45</height>
 				<texture>background.png</texture>
-				<colordiffuse>background</colordiffuse>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="group">
 				<top>-2</top>
@@ -302,7 +302,7 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>arrow.png</texture>
-						<colordiffuse>grey</colordiffuse>
+						<colordiffuse>maintext</colordiffuse>
 						<animation effect="rotate" end="-90" center="auto" delay="240" time="640" condition="SubString(Container.Viewmode,$LOCALIZE[31016]) | SubString(Container.Viewmode,$LOCALIZE[31079]) | SubString(Container.Viewmode,$LOCALIZE[31077]) | SubString(Container.Viewmode,$LOCALIZE[20445]) | SubString(Container.Viewmode,$LOCALIZE[31054]) | SubString(Container.Viewmode,$LOCALIZE[31059])">Conditional</animation>
 					</control>
 					<control type="label">
@@ -310,7 +310,7 @@
 						<height>45</height>
 						<font>topbar</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>grey</textcolor>
+						<textcolor>maintext</textcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$VAR[BreadcrumbsVar]</label>
@@ -323,10 +323,10 @@
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<align>right</align>
 					<aligny>center</aligny>
-					<label>$INFO[Container.NumItems,, $LOCALIZE[31025]]$INFO[Container.CurrentPage,  •  [COLOR themecolor],]$INFO[Container.NumPages,/,[/COLOR]]</label>
+					<label>$INFO[Container.NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container.CurrentPage]$INFO[Container.NumPages,/][/COLOR]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -334,7 +334,7 @@
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[System.Time]</label>
@@ -354,8 +354,8 @@
 				<visible>![Control.IsVisible(59) | Control.IsVisible(501)]</visible>
 				<width>1920</width>
 				<height>45</height>
-				<texture>background.png</texture>
-				<colordiffuse>topbar</colordiffuse>
+				<texture>topbar.png</texture>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="group">
 				<top>-1</top>
@@ -365,7 +365,7 @@
 					<width>50</width>
 					<height>32</height>
 					<texture>osd/buttons/OSDPlay.png</texture>
-					<colordiffuse>white</colordiffuse>
+					<colordiffuse>maintext</colordiffuse>
 					<visible>Player.Playing</visible>
 				</control>
 				<control type="image">
@@ -374,7 +374,7 @@
 					<width>50</width>
 					<height>32</height>
 					<texture>osd/buttons/OSDPause.png</texture>
-					<colordiffuse>white</colordiffuse>
+					<colordiffuse>maintext</colordiffuse>
 					<visible>Player.Paused</visible>
 				</control>
 				<control type="image">
@@ -383,7 +383,7 @@
 					<width>50</width>
 					<height>32</height>
 					<texture>osd/buttons/OSDForward.png</texture>
-					<colordiffuse>white</colordiffuse>
+					<colordiffuse>maintext</colordiffuse>
 					<visible>Player.Forwarding</visible>
 				</control>
 				<control type="image">
@@ -392,7 +392,7 @@
 					<width>50</width>
 					<height>32</height>
 					<texture>osd/buttons/OSDRewind.png</texture>
-					<colordiffuse>white</colordiffuse>
+					<colordiffuse>maintext</colordiffuse>
 					<visible>Player.Rewinding</visible>
 				</control>
 				<control type="group">
@@ -403,7 +403,7 @@
 						<height>45</height>
 						<font>topbar</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>grey</textcolor>
+						<textcolor>maintext</textcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[MusicPlayer.Artist,, - ]$INFO[MusicPlayer.Title]</label>
@@ -415,10 +415,10 @@
 						<height>45</height>
 						<font>topbar</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>grey</textcolor>
+						<textcolor>maintext</textcolor>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ,]$INFO[MusicPlayer.PlaylistPosition,  •  [COLOR=themecolor],]/$INFO[MusicPlayer.PlaylistLength][/COLOR]</label>
+						<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ,  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[MusicPlayer.PlaylistPosition]/$INFO[MusicPlayer.PlaylistLength][/COLOR]</label>
 					</control>
 				</control>
 				<control type="group">
@@ -430,7 +430,7 @@
 						<height>45</height>
 						<font>topbar</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>grey</textcolor>
+						<textcolor>maintext</textcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[Player.Title]</label>
@@ -444,7 +444,7 @@
 						<height>45</height>
 						<font>topbar</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>grey</textcolor>
+						<textcolor>maintext</textcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[VideoPlayer.TVShowTitle,, - ]$INFO[Player.Title]</label>
@@ -458,10 +458,10 @@
 						<height>45</height>
 						<font>topbar</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>grey</textcolor>
+						<textcolor>maintext</textcolor>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ,]$INFO[VideoPlayer.FinishTime(hh:mm xx),  •  $LOCALIZE[19127]: [COLOR=themecolor],[/COLOR]]</label>
+						<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ,  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[VideoPlayer.FinishTime(hh:mm xx),$LOCALIZE[19127]: ][/COLOR]</label>
 						<visible>IsEmpty(VideoPlayer.EndTime)</visible>
 					</control>
 					<control type="label">
@@ -471,10 +471,10 @@
 						<height>45</height>
 						<font>topbar</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>grey</textcolor>
+						<textcolor>maintext</textcolor>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ,]$INFO[VideoPlayer.EndTime(hh:mm xx),  •  $LOCALIZE[19127]: [COLOR=themecolor],[/COLOR]]</label>
+						<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ,  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[VideoPlayer.EndTime(hh:mm xx),$LOCALIZE[19127]: ][/COLOR]</label>
 						<visible>!IsEmpty(VideoPlayer.EndTime)</visible>
 					</control>
 				</control>
@@ -532,7 +532,7 @@
 						<height>42</height>
 						<align>left</align>
 						<font>font16_title</font>
-						<textcolor>white</textcolor>
+						<textcolor>maintext</textcolor>
 						<scroll>true</scroll>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
 						<textoffsetx>30</textoffsetx>
@@ -544,7 +544,7 @@
 						<height>30</height>
 						<align>left</align>
 						<font>font13_title</font>
-						<textcolor>white</textcolor>
+						<textcolor>maintext</textcolor>
 						<label>$INFO[ListItem.Property(Addon.Summary)]</label>
 						<textoffsetx>30</textoffsetx>
 					</control>

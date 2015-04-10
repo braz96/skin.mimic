@@ -33,8 +33,8 @@
 						<width>128</width>
 						<height>120</height>
 						<font>font45caps_title</font>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>[B]$INFO[ListItem.ChannelNumber][/B]</label>
@@ -45,8 +45,8 @@
 						<width>530</width>
 						<height>70</height>
 						<font>font30</font>
-						<textcolor>grey</textcolor>
-						<selectedcolor>grey</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>maintext</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -57,8 +57,8 @@
 						<width>530</width>
 						<height>60</height>
 						<font>font15</font>
-						<textcolor>themecolor</textcolor>
-						<selectedcolor>themecolor</selectedcolor>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Title]</label>
@@ -90,9 +90,9 @@
 						<height>30</height>
 						<font>IconSmall</font>
 						<textoffsetx>15</textoffsetx>
-						<textcolor>grey</textcolor>
+						<textcolor>maintext</textcolor>
 						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label></label>
 						<visible>ListItem.IsRecording</visible>
 					</control>
@@ -102,7 +102,7 @@
 						<width>821</width>
 						<height>120</height>
 						<texture>listselect_fo.png</texture>
-						<colordiffuse>listselect</colordiffuse>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(50)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -110,7 +110,7 @@
 						<width>128</width>
 						<height>120</height>
 						<font>font45caps_title</font>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>[B]$INFO[ListItem.ChannelNumber][/B]</label>
@@ -121,7 +121,7 @@
 						<width>530</width>
 						<height>70</height>
 						<font>font30</font>
-						<selectedcolor>white</selectedcolor>
+						<selectedcolor>maintext</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -133,7 +133,7 @@
 						<width>530</width>
 						<height>60</height>
 						<font>font15</font>
-						<selectedcolor>white</selectedcolor>
+						<selectedcolor>maintext</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Title]</label>
@@ -167,7 +167,7 @@
 						<font>IconSmall</font>
 						<textoffsetx>15</textoffsetx>
 						<align>right</align>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label></label>
 						<visible>ListItem.IsRecording</visible>
 					</control>
@@ -223,9 +223,9 @@
 					<height>30</height>
 					<align>left</align>
 					<font>font15</font>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<visible>Container(50).ListItem.HasEpg</visible>
-					<label>[COLOR labelheader]$INFO[Container(50).ListItem.StartTime]$INFO[Container(50).ListItem.EndTime, - ,: ][/COLOR]$INFO[Container(50).ListItem.Title]</label>
+					<label>[COLOR $VAR[ColorHighlightVar]]$INFO[Container(50).ListItem.StartTime]$INFO[Container(50).ListItem.EndTime, - ,: ][/COLOR]$INFO[Container(50).ListItem.Title]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -233,9 +233,9 @@
 					<width>821</width>
 					<height>30</height>
 					<font>font15</font>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<visible>!IsEmpty(Container(50).ListItem.NextTitle)</visible>
-					<label>$INFO[Container(50).ListItem.NextTitle,[COLOR labelheader]$LOCALIZE[19031]:[/COLOR] ,]</label>
+					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[19031]:[/COLOR] $INFO[Container(50).ListItem.NextTitle]</label>
 				</control>
 				<control type="textbox" id="80">
 					<label>$INFO[Container(50).ListItem.Plot]</label>

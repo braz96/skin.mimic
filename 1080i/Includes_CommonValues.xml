@@ -35,8 +35,8 @@
 		<aligny>top</aligny>
 		<textoffsety>3</textoffsety>
 		<font>IconSmall</font>
-		<textcolor>grey</textcolor>
-		<focusedcolor>white</focusedcolor>
+		<textcolor>maintext</textcolor>
+		<focusedcolor>maintext</focusedcolor>
 		<texturenofocus>-</texturenofocus>
 		<alttexturenofocus>-</alttexturenofocus>
 	</include>
@@ -44,13 +44,13 @@
 		<width>400</width>
 		<height>60</height>
 		<textoffsetx>15</textoffsetx>
-		<textcolor>grey</textcolor>
-		<focusedcolor>white</focusedcolor>
+		<textcolor>maintext</textcolor>
+		<focusedcolor>maintext</focusedcolor>
 		<textwidth>300</textwidth>
 		<aligny>center</aligny>
 		<font>font13</font>
 		<radioposx>340</radioposx>
-		<colordiffuse>listselect</colordiffuse>
+		<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 	</include>
 	<include name="ButtonInfoDialogsCommonValues">
 		<height>60</height>
@@ -59,9 +59,9 @@
 		<align>center</align>
 		<aligny>center</aligny>
 		<font>font15</font>
-		<textcolor>grey</textcolor>
-		<focusedcolor>white</focusedcolor>
-		<colordiffuse>listselect</colordiffuse>
+		<textcolor>maintext</textcolor>
+		<focusedcolor>maintext</focusedcolor>
+		<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 	</include>
 	<!-- KeyBoard -->
 	<include name="Objects_KeyOffVars">
@@ -69,11 +69,11 @@
 		<align>center</align>
 		<aligny>center</aligny>
 		<font>font15</font>
-		<textcolor>grey</textcolor>
-		<focusedcolor>white</focusedcolor>
-		<selectedcolor>grey</selectedcolor>
-		<texturenofocus colordiffuse="background">background.png</texturenofocus>
-		<alttexturenofocus colordiffuse="background">background.png</alttexturenofocus>
+		<textcolor>maintext</textcolor>
+		<focusedcolor>maintext</focusedcolor>
+		<selectedcolor>maintext</selectedcolor>
+		<texturenofocus colordiffuse="shadow">topbar.png</texturenofocus>
+		<alttexturenofocus colordiffuse="shadow">topbar.png</alttexturenofocus>
 	</include>
 	<include name="Objects_DoubleKeyOff">
 		<left>-123</left>
@@ -92,8 +92,8 @@
 		<textoffsetx>15</textoffsetx>
 		<aligny>top</aligny>
 		<font>font14</font>
-		<textcolor>grey</textcolor>
-		<focusedcolor>grey</focusedcolor>
+		<textcolor>maintext</textcolor>
+		<focusedcolor>maintext</focusedcolor>
 		<texturefocus>blank.png</texturefocus>
 		<texturenofocus>blank.png</texturenofocus>
 		<onclick>noop</onclick>
@@ -105,8 +105,8 @@
 		<textoffsety>-4</textoffsety>
 		<aligny>top</aligny>
 		<font>font15</font>
-		<textcolor>grey</textcolor>
-		<focusedcolor>grey</focusedcolor>
+		<textcolor>maintext</textcolor>
+		<focusedcolor>maintext</focusedcolor>
 		<onclick>noop</onclick>
 	</include>
 	<!-- Media Flags -->
@@ -115,7 +115,7 @@
 		<height>90</height>
 		<aspectratio>keep</aspectratio>
 		<fadetime>250</fadetime>
-		<colordiffuse>white2</colordiffuse>
+		<colordiffuse>maintext</colordiffuse>
 		<animation effect="fade" time="200">VisibleChange</animation>
 	</include>
 	<!-- TV Shows Next Aired script -->
@@ -144,8 +144,8 @@
 				<top>250</top>
 				<width>405</width>
 				<height>150</height>
-				<label>[COLOR themecolor]$LOCALIZE[31010]:[/COLOR][CR]$INFO[ListItem.Property(NextNumber),,. ]$INFO[ListItem.Property(NextTitle)]</label>
-				<textcolor>grey</textcolor>
+				<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[31010]:[/COLOR][CR]$INFO[ListItem.Property(NextNumber),,. ]$INFO[ListItem.Property(NextTitle)]</label>
+				<textcolor>maintext</textcolor>
 				<font>font15</font>
 				<autoscroll>false</autoscroll>
 			</control>
@@ -154,8 +154,8 @@
 				<top>400</top>
 				<width>405</width>
 				<height>150</height>
-				<label>[COLOR themecolor]$LOCALIZE[31011]:[/COLOR][CR]$INFO[ListItem.Property(LatestDate),, | ]$INFO[ListItem.Property(LatestTitle)]</label>
-				<textcolor>grey</textcolor>
+				<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[31011]:[/COLOR][CR]$INFO[ListItem.Property(LatestDate),, | ]$INFO[ListItem.Property(LatestTitle)]</label>
+				<textcolor>maintext</textcolor>
 				<font>font15</font>
 				<autoscroll>false</autoscroll>
 			</control>
@@ -165,7 +165,7 @@
 				<width>435</width>
 				<height>45</height>
 				<label>$LOCALIZE[126]:</label>
-				<textcolor>themecolor</textcolor>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				<textoffsetx>15</textoffsetx>
 				<font>font15</font>
 			</control>
@@ -175,7 +175,7 @@
 				<width>435</width>
 				<height>45</height>
 				<label>$INFO[ListItem.Property(Status)]</label>
-				<textcolor>grey</textcolor>
+				<textcolor>maintext</textcolor>
 				<textoffsetx>15</textoffsetx>
 				<font>font15</font>
 			</control>
@@ -185,7 +185,7 @@
 				<width>435</width>
 				<height>45</height>
 				<label>$LOCALIZE[31012]:</label>
-				<textcolor>themecolor</textcolor>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				<textoffsetx>15</textoffsetx>
 				<font>font15</font>
 			</control>
@@ -195,7 +195,7 @@
 				<width>435</width>
 				<height>45</height>
 				<label>$INFO[ListItem.Property(ShortTime)]$INFO[ListItem.Property(Network), @ ]</label>
-				<textcolor>grey</textcolor>
+				<textcolor>maintext</textcolor>
 				<textoffsetx>15</textoffsetx>
 				<font>font15</font>
 			</control>
@@ -205,7 +205,7 @@
 				<width>435</width>
 				<height>840</height>
 				<texture>listselect_fo.png</texture>
-				<colordiffuse>listselect</colordiffuse>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 				<visible>ControlGroup(9001).HasFocus()</visible>
 				<include>VisibleFadeEffect</include>
 			</control>
@@ -222,7 +222,7 @@
 				<top>250</top>
 				<width>405</width>
 				<height>150</height>
-				<label>[COLOR grey]$LOCALIZE[31010]:[/COLOR][CR]$INFO[ListItem.Property(NextNumber),,. ]$INFO[ListItem.Property(NextTitle)]</label>
+				<label>[COLOR maintext]$LOCALIZE[31010]:[/COLOR][CR]$INFO[ListItem.Property(NextNumber),,. ]$INFO[ListItem.Property(NextTitle)]</label>
 				<font>font15</font>
 				<autoscroll>false</autoscroll>
 			</control>
@@ -231,7 +231,7 @@
 				<top>400</top>
 				<width>405</width>
 				<height>150</height>
-				<label>[COLOR grey]$LOCALIZE[31011]:[/COLOR][CR]$INFO[ListItem.Property(LatestDate),, | ]$INFO[ListItem.Property(LatestTitle)]</label>
+				<label>[COLOR maintext]$LOCALIZE[31011]:[/COLOR][CR]$INFO[ListItem.Property(LatestDate),, | ]$INFO[ListItem.Property(LatestTitle)]</label>
 				<font>font15</font>
 				<autoscroll>false</autoscroll>
 			</control>
@@ -241,7 +241,7 @@
 				<width>435</width>
 				<height>45</height>
 				<label>$LOCALIZE[126]:</label>
-				<textcolor>grey</textcolor>
+				<textcolor>maintext</textcolor>
 				<textoffsetx>15</textoffsetx>
 				<font>font15</font>
 			</control>
@@ -260,7 +260,7 @@
 				<width>435</width>
 				<height>45</height>
 				<label>$LOCALIZE[31012]:</label>
-				<textcolor>grey</textcolor>
+				<textcolor>maintext</textcolor>
 				<textoffsetx>15</textoffsetx>
 				<font>font15</font>
 			</control>

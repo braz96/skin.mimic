@@ -44,8 +44,8 @@
 							<height>90</height>
 							<font>font15_bold</font>
 							<textoffsetx>20</textoffsetx>
-							<textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
@@ -55,8 +55,8 @@
 							<height>90</height>
 							<font>font15</font>
 							<textoffsetx>20</textoffsetx>
-							<textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -69,8 +69,8 @@
 							<height>90</height>
 							<font>font15_bold</font>
 							<textoffsetx>20</textoffsetx>
-							<textcolor>selected</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
@@ -80,8 +80,8 @@
 							<height>90</height>
 							<font>font15</font>
 							<textoffsetx>20</textoffsetx>
-							<textcolor>selected</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -95,7 +95,7 @@
 						<width>356</width>
 						<height>90</height>
 						<texture>listselect_fo.png</texture>
-						<colordiffuse>listselect</colordiffuse>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(9000)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -105,7 +105,7 @@
 							<height>90</height>
 							<font>font15_bold</font>
 							<textoffsetx>20</textoffsetx>
-							<selectedcolor>selected</selectedcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
@@ -115,7 +115,7 @@
 							<height>90</height>
 							<font>font15</font>
 							<textoffsetx>20</textoffsetx>
-							<selectedcolor>selected</selectedcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -131,8 +131,8 @@
 						<visible>!IsEmpty(Window(home).Property(NextAired.200.Wday))</visible>
 					</item>
 					<item id="2">
-						<label>[COLOR selected]$INFO[Window(home).Property(NextAired.201.Wday)]$INFO[Container(201).NumItems, (,)][/COLOR]</label>
-						<label2>[COLOR selected]$INFO[Window(Home).Property(NextAired.201.Date)][/COLOR]</label2>
+						<label>[COLOR $VAR[ColorHighlightVar]]$INFO[Window(home).Property(NextAired.201.Wday)]$INFO[Container(201).NumItems, (,)][/COLOR]</label>
+						<label2>[COLOR $VAR[ColorHighlightVar]]$INFO[Window(Home).Property(NextAired.201.Date)][/COLOR]</label2>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
@@ -385,7 +385,7 @@
 				<height>1104</height>
 				<texturefocus border="0,12,0,0">dialog_context.png</texturefocus>
 				<texturenofocus border="0,12,0,0">dialog_context.png</texturenofocus>
-				<colordiffuse>context</colordiffuse>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
 			<control type="button">
 				<left>432</left>
@@ -402,8 +402,8 @@
 				<height>48</height>
 				<label></label>
 				<font>CloseButton</font>
-				<textcolor>grey</textcolor>
-				<focusedcolor>themecolor</focusedcolor>
+				<textcolor>maintext</textcolor>
+				<focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
 				<onclick>ClearProperty(MediaMenu,Home)</onclick>
 				<onclick>SetFocus(50)</onclick>
 				<texturefocus>-</texturefocus>
@@ -420,7 +420,7 @@
 				<height>120</height>
 				<aspectratio>keep</aspectratio>
 				<texture>mimic-logo.png</texture>
-				<colordiffuse>listselect</colordiffuse>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 			</control>
 			<control type="grouplist" id="9050">
 				<left>0</left>
@@ -434,7 +434,7 @@
 					<textoffsetx>15</textoffsetx>
 					<font>font13_title</font>
 					<label>$INFO[System.AddonTitle(script.tv.show.next.aired)]</label>
-					<textcolor>themecolor</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<aligny>center</aligny>
 				</control>
 				<control type="button" id="8">

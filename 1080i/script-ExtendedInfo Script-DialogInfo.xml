@@ -13,7 +13,7 @@
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture>background.png</texture>
-				<colordiffuse>background</colordiffuse>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="image">
 				<width>731</width>
@@ -44,7 +44,7 @@
                     <aligny>center</aligny>
                     <align>left</align>
                     <font>font30_title</font>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <scroll>true</scroll>
                     <label>[B]$INFO[Window.Property(actor.title)][/B]</label>
                 </control>
@@ -63,8 +63,8 @@
 							<width>594</width>
 							<height>40</height>
 							<font>font15</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<textoffsetx>36</textoffsetx>
 						</control>
@@ -73,8 +73,8 @@
 							<width>594</width>
 							<height>40</height>
 							<font>font15</font>
-							<textcolor>labelheader</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
 							<textoffsetx>36</textoffsetx>
 						</control>
@@ -87,15 +87,15 @@
 							<texture>listselect_fo.png</texture>
 							<visible>Control.HasFocus(300)</visible>
 							<include>VisibleFadeEffect</include>
-                            <colordiffuse>listselect</colordiffuse>
+                            <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						</control>
 						<control type="label">
 							<top>50</top>
 							<width>594</width>
 							<height>40</height>
 							<font>font15</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<textoffsetx>36</textoffsetx>
 						</control>
@@ -104,8 +104,8 @@
 							<width>594</width>
 							<height>40</height>
 							<font>font15</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
 							<textoffsetx>36</textoffsetx>
 						</control>
@@ -166,7 +166,7 @@
 					<font>font15_textbox</font>
 					<align>left</align>
 					<label fallback="161">$INFO[Window.Property(actor.Biography)]</label>
-					<textcolor>white</textcolor>
+					<textcolor>maintext</textcolor>
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="6000" repeat="6000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
@@ -227,7 +227,7 @@
                             <height>90</height>
                             <align>center</align>
 							<font>font_Actor</font>
-							<textcolor>white</textcolor>
+							<textcolor>maintext</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<visible>IsEmpty(ListItem.Thumb)</visible>							
 						</control>
@@ -246,8 +246,8 @@
 							<width>277</width>
 							<height>45</height>
 							<font>font_Actor</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Property(Character)]</label>
 						</control>
 					</itemlayout>
@@ -263,7 +263,7 @@
                                 <aspectratio align="center" aligny="center">scale</aspectratio>
                                 <fadetime>300</fadetime>
                                 <texture background="true" fallback="blank.png">$INFO[ListItem.Thumb]</texture>
-                                <bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+                                <bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
                                 <bordersize>8</bordersize>
                             </control>
                         </control>
@@ -282,7 +282,7 @@
                             <height>90</height>
                             <align>center</align>
 							<font>font_Actor</font>
-							<textcolor>white</textcolor>
+							<textcolor>maintext</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 							<visible>IsEmpty(ListItem.Thumb)</visible>							
@@ -303,8 +303,8 @@
 							<width>277</width>
 							<height>45</height>
 							<font>font_Actor</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Property(Character)]</label>
 							<scroll time="3000" delay="4000" repeat="5000">true</scroll>
 						</control>
@@ -352,7 +352,7 @@
                             <height>90</height>
                             <align>center</align>
 							<font>font_Actor</font>
-							<textcolor>white</textcolor>
+							<textcolor>maintext</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<visible>IsEmpty(ListItem.Thumb)</visible>							
 						</control>
@@ -369,7 +369,7 @@
                                 <aspectratio>scale</aspectratio>
                                 <fadetime>300</fadetime>
                                 <texture background="true" fallback="blank.png">$INFO[ListItem.Thumb]</texture>
-                                <bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+                                <bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
                                 <bordersize>8</bordersize>
                             </control>
                         </control>
@@ -388,7 +388,7 @@
                             <height>90</height>
                             <align>center</align>
 							<font>font_Actor</font>
-							<textcolor>white</textcolor>
+							<textcolor>maintext</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 							<visible>IsEmpty(ListItem.Thumb)</visible>							
@@ -439,8 +439,8 @@
                             <height>90</height>
                             <align>left</align>
 							<font>font_Actor</font>
-                            <textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+                            <textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Property(Type),[B],: [/B]]$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
@@ -456,7 +456,7 @@
 								<fadetime>300</fadetime>
 								<aspectratio>scale</aspectratio>
 								<texture background="true" fallback="blank.png">$INFO[ListItem.Thumb]</texture>
-                                <bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+                                <bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
                                 <bordersize>8</bordersize>								
 							</control>							
 						</control>
@@ -477,8 +477,8 @@
                             <height>90</height>
                             <align>left</align>
 							<font>font_Actor</font>
-                            <textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+                            <textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Property(Type),[B],: [/B]]$INFO[ListItem.Label]</label>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 						</control>
@@ -525,7 +525,7 @@
                                 <aspectratio>scale</aspectratio>
                                 <fadetime>300</fadetime>
                                 <texture background="true" fallback="blank.png">$INFO[ListItem.Thumb]</texture>
-                                <bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+                                <bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
                                 <bordersize>8</bordersize>
                             </control>
                         </control>							
@@ -573,7 +573,7 @@
                             <height>90</height>
                             <align>center</align>
 							<font>font_Actor</font>
-							<textcolor>white</textcolor>
+							<textcolor>maintext</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<visible>IsEmpty(ListItem.Thumb)</visible>							
 						</control>
@@ -592,8 +592,8 @@
 							<width>277</width>
 							<height>45</height>
 							<font>font_Actor</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Property(Job)]</label>
 						</control>						
 					</itemlayout>
@@ -609,7 +609,7 @@
                                 <aspectratio>scale</aspectratio>
                                 <fadetime>300</fadetime>
                                 <texture background="true" fallback="blank.png">$INFO[ListItem.Thumb]</texture>
-                                <bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+                                <bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
                                 <bordersize>8</bordersize>
                             </control>
                         </control>
@@ -628,7 +628,7 @@
                             <height>90</height>
                             <align>center</align>
 							<font>font_Actor</font>
-							<textcolor>white</textcolor>
+							<textcolor>maintext</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 							<visible>IsEmpty(ListItem.Thumb)</visible>							
@@ -649,8 +649,8 @@
 							<width>277</width>
 							<height>45</height>
 							<font>font_Actor</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Property(Job)]</label>
 						</control>	
 					</focusedlayout>
@@ -697,7 +697,7 @@
                             <height>90</height>
                             <align>center</align>
 							<font>font_Actor</font>
-							<textcolor>white</textcolor>
+							<textcolor>maintext</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<visible>IsEmpty(ListItem.Thumb)</visible>							
 						</control>
@@ -716,8 +716,8 @@
 							<width>277</width>
 							<height>45</height>
 							<font>font_Actor</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Property(Job)]</label>
 						</control>						
 					</itemlayout>
@@ -733,7 +733,7 @@
                                 <aspectratio>scale</aspectratio>
                                 <fadetime>300</fadetime>
                                 <texture background="true" fallback="blank.png">$INFO[ListItem.Thumb]</texture>
-                                <bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+                                <bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
                                 <bordersize>8</bordersize>
                             </control>
                         </control>
@@ -752,7 +752,7 @@
                             <height>90</height>
                             <align>center</align>
 							<font>font_Actor</font>
-							<textcolor>white</textcolor>
+							<textcolor>maintext</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 							<visible>IsEmpty(ListItem.Thumb)</visible>							
@@ -773,8 +773,8 @@
 							<width>277</width>
 							<height>45</height>
 							<font>font_Actor</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Property(Job)]</label>
 						</control>	
 					</focusedlayout>
@@ -821,7 +821,7 @@
                             <width>566</width>
                             <height>45</height>
                             <align>left</align>
-							<textcolor>grey</textcolor>
+							<textcolor>maintext</textcolor>
 							<font>font_Actor</font>
 							<label>$INFO[ListItem.Title]</label>
 						</control>
@@ -838,7 +838,7 @@
                                 <aspectratio>scale</aspectratio>
                                 <fadetime>300</fadetime>
                                 <texture background="true" fallback="blank.png">$INFO[ListItem.Thumb]</texture>
-                                <bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+                                <bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
                                 <bordersize>8</bordersize>
                             </control>
                         </control>
@@ -858,7 +858,7 @@
                             <height>45</height>
                             <align>left</align>
 							<aligny>center</aligny>
-							<textcolor>grey</textcolor>
+							<textcolor>maintext</textcolor>
 							<font>font_Actor</font>
 							<label>$INFO[ListItem.Title]</label>
 							<scroll time="3000" delay="4000" repeat="5000">true</scroll>							
@@ -874,7 +874,7 @@
                     <aligny>center</aligny>
                     <align>center</align>
                     <font>font30_title</font>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <label>[B]$LOCALIZE[161][/B]</label>
                     <visible>ControlGroup(9000).HasFocus(36) + [[!IntegerGreaterThan(Container(750).NumItems,0) + StringCompare(Control.GetLabel(36),$LOCALIZE[31016])] | [!IntegerGreaterThan(Container(450).NumItems,0) + StringCompare(Control.GetLabel(36),$LOCALIZE[20445])]]</visible>                    
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
@@ -887,10 +887,10 @@
                     <height>40</height>
                     <font>font13_title</font>
                     <textoffsetx>15</textoffsetx>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <align>right</align>
                     <aligny>top</aligny>
-                    <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025]]$INFO[Container(150).CurrentPage, • [COLOR labelheader],]$INFO[Container(150).NumPages,/,[/COLOR]]</label>
+                    <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/][/COLOR]</label>
                     <visible>IntegerGreaterThan(Container(150).NumItems,0) + ControlGroup(9000).HasFocus(32)</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 </control>
@@ -902,10 +902,10 @@
                     <height>40</height>
                     <font>font13_title</font>
                     <textoffsetx>15</textoffsetx>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <align>right</align>
                     <aligny>top</aligny>
-                    <label>$INFO[Container(550).NumItems,, $LOCALIZE[31025]]$INFO[Container(550).CurrentPage, • [COLOR labelheader],]$INFO[Container(550).NumPages,/,[/COLOR]]</label>
+                    <label>$INFO[Container(550).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(550).CurrentPage]$INFO[Container(550).NumPages,/][/COLOR]</label>
                     <visible>IntegerGreaterThan(Container(550).NumItems,0) + ControlGroup(9000).HasFocus(40)</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 </control>
@@ -917,10 +917,10 @@
                     <height>40</height>
                     <font>font13_title</font>
                     <textoffsetx>15</textoffsetx>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <align>right</align>
                     <aligny>top</aligny>
-                    <label>$INFO[Container(250).NumItems,, $LOCALIZE[31025]]$INFO[Container(250).CurrentPage, • [COLOR labelheader],]$INFO[Container(250).NumPages,/,[/COLOR]]</label>
+                    <label>$INFO[Container(250).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(250).CurrentPage]$INFO[Container(250).NumPages,/][/COLOR]</label>
                     <visible>IntegerGreaterThan(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(34)</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 </control>
@@ -932,10 +932,10 @@
                     <height>40</height>
                     <font>font13_title</font>
                     <textoffsetx>15</textoffsetx>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <align>right</align>
                     <aligny>top</aligny>
-                    <label>$INFO[Container(650).NumItems,, $LOCALIZE[31025]]$INFO[Container(650).CurrentPage, • [COLOR labelheader],]$INFO[Container(650).NumPages,/,[/COLOR]]</label>
+                    <label>$INFO[Container(650).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(650).CurrentPage]$INFO[Container(650).NumPages,/][/COLOR]</label>
                     <visible>IntegerGreaterThan(Container(650).NumItems,0) + ControlGroup(9000).HasFocus(42)</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 </control>
@@ -947,10 +947,10 @@
                     <height>40</height>
                     <font>font13_title</font>
                     <textoffsetx>15</textoffsetx>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <align>right</align>
                     <aligny>top</aligny>
-                    <label>$INFO[Container(750).NumItems,, $LOCALIZE[31025]]$INFO[Container(750).CurrentPage, • [COLOR labelheader],]$INFO[Container(750).NumPages,/,[/COLOR]]</label>
+                    <label>$INFO[Container(750).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(750).CurrentPage]$INFO[Container(750).NumPages,/][/COLOR]</label>
                     <visible>IntegerGreaterThan(Container(750).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),$LOCALIZE[31016])</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 </control>
@@ -962,10 +962,10 @@
                     <height>40</height>
                     <font>font13_title</font>
                     <textoffsetx>15</textoffsetx>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <align>right</align>
                     <aligny>top</aligny>
-                    <label>$INFO[Container(450).NumItems,, $LOCALIZE[31025]]$INFO[Container(450).CurrentPage, • [COLOR labelheader],]$INFO[Container(450).NumPages,/,[/COLOR]]</label>
+                    <label>$INFO[Container(450).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(450).CurrentPage]$INFO[Container(450).NumPages,/][/COLOR]</label>
                     <visible>IntegerGreaterThan(Container(450).NumItems,0) + ControlGroup(9000).HasFocus(36) + StringCompare(Control.GetLabel(36),$LOCALIZE[20445])</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 </control>
@@ -977,10 +977,10 @@
                     <height>40</height>
                     <font>font13_title</font>
                     <textoffsetx>15</textoffsetx>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <align>right</align>
                     <aligny>top</aligny>
-                    <label>$INFO[Container(350).NumItems,, $LOCALIZE[31025]]$INFO[Container(350).CurrentPage, • [COLOR labelheader],]$INFO[Container(350).NumPages,/,[/COLOR]]</label>
+                    <label>$INFO[Container(350).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(350).CurrentPage]$INFO[Container(350).NumPages,/][/COLOR]</label>
                     <visible>IntegerGreaterThan(Container(350).NumItems,0) + ControlGroup(9000).HasFocus(38)</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 </control>

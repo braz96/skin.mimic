@@ -16,7 +16,7 @@
 				<width>1122</width>
 				<height>750</height>
 				<texture border="12">dialog_context.png</texture>
-				<colordiffuse>context</colordiffuse>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
 			<control type="label" id="2">
 				<description>header label</description>
@@ -27,7 +27,7 @@
 				<font>font14_title</font>
 				<label>658</label>
 				<align>center</align>
-				<textcolor>dialogheader</textcolor>
+				<textcolor>maintext</textcolor>
 			</control>
 			<control type="panel" id="9002">
 				<left>31</left>
@@ -46,8 +46,8 @@
 						<width>738</width>
 						<height>38</height>
 						<font>font14</font>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<textoffsetx>15</textoffsetx>
 					</control>
@@ -56,8 +56,8 @@
 						<width>738</width>
 						<height>45</height>
 						<font>font14</font>
-						<textcolor>labelheader</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
 						<textoffsetx>15</textoffsetx>
 					</control>
@@ -68,7 +68,7 @@
 						<width>738</width>
 						<height>90</height>
 						<texture>listselect_fo.png</texture>
-						<colordiffuse>listselect</colordiffuse>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(9002)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -77,8 +77,8 @@
 						<width>738</width>
 						<height>38</height>
 						<font>font14</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(9002)">Conditional</animation>
 						<textoffsetx>15</textoffsetx>
@@ -88,8 +88,8 @@
 						<width>738</width>
 						<height>45</height>
 						<font>font14</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(9002)">Conditional</animation>
 						<textoffsetx>15</textoffsetx>
@@ -191,7 +191,7 @@
 				<width>302</width>
 				<height>64</height>
 				<aspectratio align="left">keep</aspectratio>
-				<texture colordiffuse="themecolor" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+				<texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
 			</control>
 			<control type="grouplist" id="9000">
 				<description>control area</description>
@@ -213,8 +213,8 @@
 					<width>40</width>
 					<height>25</height>
 					<onclick>DecreaseRating</onclick>
-					<texturenofocus colordiffuse="grey">android/numberpicker_down_normal_holo_dark.png</texturenofocus>
-					<texturefocus colordiffuse="white">android/numberpicker_down_normal_holo_dark.png</texturefocus>
+					<texturenofocus colordiffuse="maintext">android/numberpicker_down_normal_holo_dark.png</texturenofocus>
+					<texturefocus colordiffuse="maintext">android/numberpicker_down_normal_holo_dark.png</texturefocus>
 				</control>
 				<control type="button" id="15">
 					<description>Increase Rating</description>
@@ -222,8 +222,8 @@
 					<width>40</width>
 					<height>25</height>
 					<onclick>IncreaseRating</onclick>
-					<texturenofocus colordiffuse="grey">android/numberpicker_up_normal_holo_dark.png</texturenofocus>
-					<texturefocus colordiffuse="white">android/numberpicker_up_normal_holo_dark.png</texturefocus>
+					<texturenofocus colordiffuse="maintext">android/numberpicker_up_normal_holo_dark.png</texturenofocus>
+					<texturefocus colordiffuse="maintext">android/numberpicker_up_normal_holo_dark.png</texturefocus>
 				</control>
 			</control>
 			<!-- right group -->

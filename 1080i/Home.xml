@@ -23,7 +23,7 @@
 					<width>1920</width>
 					<height>700</height>
 					<texture>background.png</texture>
-					<colordiffuse>background</colordiffuse>
+					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 				</control>
 				<control type="image">
 					<top>94</top>
@@ -39,7 +39,7 @@
 				<width>1920</width>
 				<height>120</height>
 				<texture>mainmenu.png</texture>
-				<colordiffuse>background</colordiffuse>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="image">
 				<top>94</top>
@@ -47,7 +47,7 @@
 				<width>740</width>
 				<height>120</height>
 				<texture>mainmenu_fo.png</texture>
-				<colordiffuse>listselect</colordiffuse>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
 				<visible>Container(9000).Position(0)</visible>
 			</control>
@@ -57,7 +57,7 @@
 				<width>740</width>
 				<height>120</height>
 				<texture>mainmenu_fo.png</texture>
-				<colordiffuse>listselect</colordiffuse>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
 				<visible>Container(9000).Position(1)</visible>
 			</control>
@@ -67,7 +67,7 @@
 				<width>740</width>
 				<height>120</height>
 				<texture>mainmenu_fo.png</texture>
-				<colordiffuse>listselect</colordiffuse>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
 				<visible>Container(9000).Position(2)</visible>
 			</control>
@@ -94,8 +94,8 @@
 							<width>384</width>
 							<height>70</height>
 							<font>font_SubMenu</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>grey</selectedcolor>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>maintext</selectedcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -106,7 +106,7 @@
 							<width>384</width>
 							<height>70</height>
 							<texture>listselect_fo.png</texture>
-							<colordiffuse>listselect</colordiffuse>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 							<visible>ControlGroup(9001).HasFocus()</visible>
 						</control>
 						<control type="group">
@@ -115,7 +115,7 @@
 								<width>384</width>
 								<height>70</height>
 								<font>font_SubMenu</font>
-								<textcolor>white</textcolor>
+								<textcolor>maintext</textcolor>
 								<align>center</align>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Label]</label>
@@ -127,7 +127,7 @@
 								<width>384</width>
 								<height>70</height>
 								<font>font_SubMenu</font>
-								<textcolor>grey</textcolor>
+								<textcolor>maintext</textcolor>
 								<align>center</align>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Label]</label>
@@ -142,7 +142,7 @@
 					<top>235</top>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus flipx="true" colordiffuse="white">arrowright.png</texturefocus>
+					<texturefocus flipx="true" colordiffuse="maintext">arrowright.png</texturefocus>
 					<texturenofocus flipx="true">arrowright.png</texturenofocus>
 					<visible>Container(9010).HasPrevious</visible>
 					<onclick>Control.Move(9010,-1)</onclick>
@@ -152,7 +152,7 @@
 					<top>235</top>
 					<width>30</width>
 					<height>30</height>
-					<texturefocus colordiffuse="white">arrowright.png</texturefocus>
+					<texturefocus colordiffuse="maintext">arrowright.png</texturefocus>
 					<texturenofocus>arrowright.png</texturenofocus>
 					<visible>Container(9010).HasNext</visible>
 					<onclick>Control.Move(9010,1)</onclick>
@@ -170,7 +170,7 @@
 				<width>1920</width>
 				<height>45</height>
 				<texture>background.png</texture>
-				<colordiffuse>background</colordiffuse>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="grouplist">
 				<left>0</left>
@@ -185,22 +185,22 @@
 					<height>45</height>
 					<label>-</label>
 					<font>topbar</font>
-					<textcolor>themecolor</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				</control>
 				<control type="label" id="9023">
 					<width>auto</width>
 					<height>45</height>
-					<label>$INFO[Weather.Temperature,,[COLOR grey]  •  [/COLOR]]</label>
+					<label>$INFO[Weather.Temperature][COLOR maintext]  •  [/COLOR]</label>
 					<font>topbar</font>
-					<textcolor>themecolor</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin)</visible>
 				</control>
 				<control type="label" id="9025">
 					<width>auto</width>
 					<height>45</height>
-					<label>$INFO[System.Date,[COLOR grey],  •  [/COLOR]]$INFO[System.Time]</label>
+					<label>[COLOR maintext]$INFO[System.Date]  •  [/COLOR]$INFO[System.Time]</label>
 					<font>topbar</font>
-					<textcolor>themecolor</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				</control>
 			</control>
 			<control type="group">
@@ -214,7 +214,7 @@
 					<label>$VAR[LibraryStatsVar]</label>
 					<aligny>center</aligny>
 					<font>topbar</font>
-					<textcolor>themecolor</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				</control>
 			</control>
 		</control>

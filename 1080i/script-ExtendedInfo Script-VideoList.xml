@@ -14,7 +14,7 @@
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture>background.png</texture>
-				<colordiffuse>background</colordiffuse>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 				<fadetime>300</fadetime>
 			</control>
 		</control>
@@ -71,7 +71,7 @@
 							<aspectratio>scale</aspectratio>
                             <texture background="true" fallback="DefaultMovieTitle.png">$INFO[ListItem.Art(poster)]</texture>
                             <fadetime>300</fadetime>
-							<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+							<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
 							<bordersize>8</bordersize>
                         </control>                       
                         <control type="image">
@@ -108,7 +108,7 @@
 					<align>left</align>
 					<font>font16_title</font>
 					<scroll>true</scroll>
-					<label>[B]$INFO[Container(500).ListItem.Label]$INFO[Container(500).ListItem.Property(User_Rating),  •  [COLOR themecolor],[/COLOR]][/B]</label>
+					<label>[B]$INFO[Container(500).ListItem.Label,, • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(500).ListItem.Property(User_Rating)][/COLOR][/B]</label>
 					<textoffsety>-2</textoffsety>
 				</control>
 				<control type="grouplist">
@@ -149,8 +149,8 @@
 				<top>0</top>
 				<width>1920</width>
 				<height>45</height>
-				<texture>background.png</texture>
-				<colordiffuse>topbar</colordiffuse>
+				<texture>topbar.png</texture>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="group">
 				<top>-2</top>
@@ -159,7 +159,7 @@
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Control.GetLabel(5001)]</label>
@@ -170,7 +170,7 @@
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[System.Time]</label>
@@ -181,10 +181,10 @@
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<align>right</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(TotalItems),, $LOCALIZE[31025]]$INFO[Window.Property(CurrentPage),  •  [COLOR themecolor],]$INFO[Window.Property(TotalPages),/,[/COLOR]]</label>
+					<label>$INFO[Window.Property(TotalItems),, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Window.Property(CurrentPage)]$INFO[Window.Property(TotalPages),/][/COLOR]</label>
 				</control>
 			</control>
 		</control>
@@ -198,7 +198,7 @@
                 <width>442</width>
                 <height>1104</height>
                 <texture border="12">dialog_context.png</texture>
-				<colordiffuse>context</colordiffuse>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
             </control>
             <control type="image">
                 <description>LOGO</description>
@@ -208,7 +208,7 @@
                 <height>70</height>
                 <aspectratio>keep</aspectratio>
                 <texture>logo.png</texture>
-                <colordiffuse>listselect</colordiffuse>
+                <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
             </control>
             <control type="grouplist" id="9000">
                 <left>0</left>
@@ -228,7 +228,7 @@
                     <textoffsetx>15</textoffsetx>
                     <font>font13_title</font>
                     <label>31006</label>
-                    <textcolor>themecolor</textcolor>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
                     <aligny>center</aligny>
                 </control>               
                 <control type="button" id="5001">
@@ -250,7 +250,7 @@
 					<include>ButtonCommonValues</include>
 					<label>587</label>
 					<enable>no</enable>
-					<disabledcolor>themecolor</disabledcolor>
+					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
 				</control>
                 <control type="button" id="5007">
                     <description>Type</description>
@@ -301,7 +301,7 @@
 					<include>ButtonCommonValues</include>
 					<label>31026</label>
 					<enable>no</enable>
-					<disabledcolor>themecolor</disabledcolor>
+					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
 				</control>
                 <control type="button" id="6000">
                     <description>Search</description>

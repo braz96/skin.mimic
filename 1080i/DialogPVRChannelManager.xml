@@ -16,7 +16,7 @@
 			<width>1602</width>
 			<height>880</height>
 			<texture border="12">dialog_context.png</texture>
-			<colordiffuse>context</colordiffuse>
+			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 		</control>
 		<control type="label">
 			<description>header label</description>
@@ -27,7 +27,7 @@
 			<font>font15_title</font>
 			<label>$LOCALIZE[19199] - $LOCALIZE[19023]</label>
 			<align>center</align>
-			<textcolor>dialogheader</textcolor>
+			<textcolor>maintext</textcolor>
 			<visible>IsEmpty(Window.Property(IsRadio))</visible>
 		</control>
 		<control type="label">
@@ -39,7 +39,7 @@
 			<font>font15_title</font>
 			<label>$LOCALIZE[19199] - $LOCALIZE[19024]</label>
 			<align>center</align>
-			<textcolor>dialogheader</textcolor>
+			<textcolor>maintext</textcolor>
 			<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 		</control>
 		<control type="group" id="9000">
@@ -82,8 +82,8 @@
 						<font>font14</font>
 						<align>left</align>
 						<aligny>center</aligny>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Property(Number),(,) - ]$INFO[ListItem.Property(Name)]</label>
 						<visible>ListItem.Property(ActiveChannel)</visible>
 					</control>
@@ -95,8 +95,8 @@
 						<font>font14</font>
 						<align>left</align>
 						<aligny>center</aligny>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>disabled</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Property(Number),(,) - ]$INFO[ListItem.Property(Name)]</label>
 						<visible>!ListItem.Property(ActiveChannel)</visible>
 					</control>
@@ -114,7 +114,7 @@
 						<width>630</width>
 						<height>100</height>
 						<texture border="5">listselect_fo.png</texture>
-						<colordiffuse>listselect</colordiffuse>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(20)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -143,7 +143,7 @@
 						<font>font14</font>
 						<align>left</align>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Property(Number),(,) - ]$INFO[ListItem.Property(Name)]</label>
 						<visible>ListItem.Property(ActiveChannel)</visible>
 					</control>
@@ -155,7 +155,7 @@
 						<font>font14</font>
 						<align>left</align>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Property(Number),(,) - ]$INFO[ListItem.Property(Name)]</label>
 						<visible>!ListItem.Property(ActiveChannel)</visible>
 					</control>
@@ -175,8 +175,8 @@
 						<font>font13</font>
 						<align>left</align>
 						<aligny>center</aligny>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
 					</control>
 				</focusedlayout>
@@ -193,7 +193,7 @@
 				<height>40</height>
 				<font>font14</font>
 				<label>$LOCALIZE[31511]</label>
-				<textcolor>labelheader</textcolor>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				<textoffsetx>15</textoffsetx>
 			</control>
 			<control type="grouplist" id="9002">
@@ -244,7 +244,7 @@
 					<height>50</height>
 					<font>font14</font>
 					<label>$LOCALIZE[31026]</label>
-					<textcolor>labelheader</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<textoffsetx>15</textoffsetx>
 				</control>
 				<control type="button" id="31">

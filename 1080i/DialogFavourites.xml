@@ -13,7 +13,7 @@
 			<animation effect="fade" time="0" delay="800">WindowOpen</animation>
 			<include>FullscreenDimensions</include>
 			<texture>background.png</texture>
-			<colordiffuse>background</colordiffuse>
+			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 		</control>
 		<control type="group">
 			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" delay="800">WindowOpen</animation>
@@ -39,8 +39,8 @@
 			<control type="image">
 				<width>1920</width>
 				<height>45</height>
-				<texture>background.png</texture>
-				<colordiffuse>topbar</colordiffuse>
+				<texture>topbar.png</texture>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="group">
 				<top>-2</top>
@@ -49,7 +49,7 @@
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$LOCALIZE[1036]</label>
@@ -60,10 +60,10 @@
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<align>right</align>
 					<aligny>center</aligny>
-					<label>$INFO[Container(450).NumItems,, $LOCALIZE[31025]]$INFO[Container(450).CurrentPage,  •  [COLOR themecolor],]$INFO[Container(450).NumPages,/,[/COLOR]]</label>
+					<label>$INFO[Container(450).NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(450).CurrentPage]$INFO[Container(450).NumPages,/][/COLOR]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -71,7 +71,7 @@
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[System.Time]</label>

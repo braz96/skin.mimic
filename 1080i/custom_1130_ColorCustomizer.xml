@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1130" type="dialog">
+	<defaultcontrol always="true">100</defaultcontrol>
+	<onunload>ClearProperty(highlightselect,home)</onunload>
+	<onunload>ClearProperty(backgroundselect,home)</onunload>
+	<onunload>ClearProperty(dialogselect,home)</onunload>
+	<!--<onunload>ClearProperty(textselect,home)</onunload>-->
+	<allowoverlay>yes</allowoverlay>
+	<include>dialogeffect</include>
+	<controls>
+		<control type="image">
+			<description>background image</description>
+			<left>229</left>
+			<top>89</top>
+			<width>1462</width>
+			<height>902</height>
+			<texture border="12">dialog_context.png</texture>
+			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+		</control>
+		<control type="label">
+			<description>header label</description>
+			<left>259</left>
+			<top>120</top>
+			<width>1402</width>
+			<height>40</height>
+			<textoffsetx>15</textoffsetx>
+			<font>font15_title</font>
+			<label>$VAR[ColorCustomizerLabelVar]</label>
+			<align>center</align>
+			<aligny>center</aligny>
+			<textcolor>maintext</textcolor>
+		</control>
+		<control type="group"> <!--content -->
+			<control type="panel" id="100"> <!--colours -->
+				<left>259</left>
+				<top>179</top>
+				<width>1402</width>
+				<height>782</height>
+				<onup>100</onup>
+				<ondown>100</ondown>
+				<onleft>100</onleft>
+				<onright>100</onright>
+				<orientation>horizontal</orientation>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="155" width="155">
+					<control type="image">
+						<left>7</left>
+						<top>7</top>
+						<width>148</width>
+						<height>148</height>
+						<texture>$INFO[ListItem.Thumb]</texture>
+					</control>
+					<control type="label">
+						<width>155</width>
+						<height>155</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>IconMedium</font>
+						<textcolor>shadow</textcolor>
+						<label>✓</label>
+						<visible>[StringCompare(ListItem.Label,Skin.String(highlightcolor.name)) + !IsEmpty(Window(home).Property(highlightselect))] | [StringCompare(ListItem.Label,Skin.String(backgroundcolor.name)) + !IsEmpty(Window(home).Property(backgroundselect))] | [StringCompare(ListItem.Label,Skin.String(dialogcolor.name)) + !IsEmpty(Window(home).Property(dialogselect))]</visible>
+					</control>
+					<control type="label">
+						<width>155</width>
+						<height>155</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>IconMedium</font>
+						<textcolor>AAffffff</textcolor>
+						<label>✓</label>
+						<visible>[StringCompare(ListItem.Label,Skin.String(highlightcolor.name)) + !IsEmpty(Window(home).Property(highlightselect)) + StringCompare(Skin.String(highlightcolor.name),FF000000)] | [StringCompare(ListItem.Label,Skin.String(backgroundcolor.name)) + !IsEmpty(Window(home).Property(backgroundselect)) + StringCompare(Skin.String(backgroundcolor.name),FF000000)] | [StringCompare(ListItem.Label,Skin.String(dialogcolor.name)) + !IsEmpty(Window(home).Property(dialogselect)) + StringCompare(Skin.String(dialogcolor.name),FF000000)]</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="155" width="155">
+					<control type="image">
+						<left>0</left>
+						<width>162</width>
+						<height>162</height>
+						<texture>$INFO[ListItem.Thumb]</texture>
+						<bordertexture>thumbs/thumbnail_focused.png</bordertexture>
+						<bordersize>7</bordersize>
+					</control>
+					<control type="label">
+						<width>155</width>
+						<height>155</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>IconMedium</font>
+						<textcolor>shadow</textcolor>
+						<label>✓</label>
+						<visible>[StringCompare(ListItem.Label,Skin.String(highlightcolor.name)) + !IsEmpty(Window(home).Property(highlightselect))] | [StringCompare(ListItem.Label,Skin.String(backgroundcolor.name)) + !IsEmpty(Window(home).Property(backgroundselect))] | [StringCompare(ListItem.Label,Skin.String(dialogcolor.name)) + !IsEmpty(Window(home).Property(dialogselect))]</visible>
+					</control>
+					<control type="label">
+						<width>155</width>
+						<height>155</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>IconMedium</font>
+						<textcolor>AAffffff</textcolor>
+						<label>✓</label>
+						<visible>[StringCompare(ListItem.Label,Skin.String(highlightcolor.name)) + !IsEmpty(Window(home).Property(highlightselect)) + StringCompare(Skin.String(highlightcolor.name),FF000000)] | [StringCompare(ListItem.Label,Skin.String(backgroundcolor.name)) + !IsEmpty(Window(home).Property(backgroundselect)) + StringCompare(Skin.String(backgroundcolor.name),FF000000)] | [StringCompare(ListItem.Label,Skin.String(dialogcolor.name)) + !IsEmpty(Window(home).Property(dialogselect)) + StringCompare(Skin.String(dialogcolor.name),FF000000)]</visible>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1"> <!--green 1 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF93ce5f)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF93ce5f)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF93ce5f)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF93ce5f)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF93ce5f.png</thumb>
+						<label>FF93ce5f</label>
+					</item>
+					<item id="2"> <!--green 2 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF80d535)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF80d535)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF80d535)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF80d535)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF80d535.png</thumb>
+						<label>FF80d535</label>
+					</item>
+					<item id="3"> <!--green 6 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF69a013)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF69a013)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF69a013)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF69a013)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF69a013.png</thumb>
+						<label>FF69a013</label>
+					</item>
+					<item id="4"> <!--green 7 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF91ad10)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF91ad10)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF91ad10)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF91ad10)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF91ad10.png</thumb>
+						<label>FF91ad10</label>
+					</item>
+					<item id="5"> <!--black -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF000000)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF000000)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF000000)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF000000)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF000000.png</thumb>
+						<label>FF000000</label>
+					</item>
+					<item id="6"> <!--green 9 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFb5c814)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFb5c814)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFb5c814)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFb5c814)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFb5c814.png</thumb>
+						<label>FFb5c814</label>
+					</item>
+					<item id="7"> <!--green 12 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFe8ef23)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFe8ef23)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFe8ef23)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFe8ef23)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFe8ef23.png</thumb>
+						<label>FFe8ef23</label>
+					</item>
+					<item id="8"> <!--yellow 1 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFfed530)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFfed530)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFfed530)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFfed530)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFfed530.png</thumb>
+						<label>FFfed530</label>
+					</item>
+					<item id="9"> <!--yellow 3 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFebbd04)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFebbd04)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFebbd04)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFebbd04)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFebbd04.png</thumb>
+						<label>FFebbd04</label>
+					</item>
+					<item id="10"> <!--grey 1 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF222222)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF222222)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF222222)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF222222)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF222222.png</thumb>
+						<label>FF222222</label>
+					</item>
+					<item id="11"> <!--yellow 5 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFd1a408)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFd1a408)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFd1a408)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFd1a408)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFd1a408.png</thumb>
+						<label>FFd1a408</label>
+					</item>
+					<item id="12"> <!--orange 1 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFf6983c)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFf6983c)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFf6983c)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFf6983c)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFf6983c.png</thumb>
+						<label>FFf6983c</label>
+					</item>
+					<item id="13"> <!--orange 3 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFfb8512)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFfb8512)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFfb8512)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFfb8512)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFfb8512.png</thumb>
+						<label>FFfb8512</label>
+					</item>
+					<item id="14"> <!--orange 5 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFf16816)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFf16816)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFf16816)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFf16816)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFf16816.png</thumb>
+						<label>FFf16816</label>
+					</item>
+					<item id="15"> <!--grey 2 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF444444)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF444444)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF444444)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF444444)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF444444.png</thumb>
+						<label>FF444444</label>
+					</item>
+					<item id="16"> <!--orange 6 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFf14416)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFf14416)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFf14416)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFf14416)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFf14416.png</thumb>
+						<label>FFf14416</label>
+					</item>
+					<item id="17"> <!--red 1 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFe95d4e)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFe95d4e)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFe95d4e)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFe95d4e)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFe95d4e.png</thumb>
+						<label>FFe95d4e</label>
+					</item>
+					<item id="19"> <!--red 4 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFed2914)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFed2914)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFed2914)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFed2914)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFed2914.png</thumb>
+						<label>FFed2914</label>
+					</item>
+					<item id="21"> <!--red 6 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFc81805)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFc81805)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFc81805)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFc81805)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFc81805.png</thumb>
+						<label>FFc81805</label>
+					</item>
+					<item id="20"> <!--grey 3 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF666666)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF666666)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF666666)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF666666)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF666666.png</thumb>
+						<label>FF666666</label>
+					</item>
+					<item id="22"> <!--red 7 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFc90533)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFc90533)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFc90533)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFc90533)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFc90533.png</thumb>
+						<label>FFc90533</label>
+					</item>
+					<item id="23"> <!--red 9 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFd82f76)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFd82f76)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFd82f76)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFd82f76)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFd82f76.png</thumb>
+						<label>FFd82f76</label>
+					</item>
+					<item id="24"> <!--pink 2 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFfd76d0)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFfd76d0)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFfd76d0)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFfd76d0)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFfd76d0.png</thumb>
+						<label>FFfd76d0</label>
+					</item>
+					<item id="26"> <!--pink 6 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFeb37d0)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFeb37d0)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFeb37d0)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFeb37d0)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFeb37d0.png</thumb>
+						<label>FFeb37d0</label>
+					</item>
+					<item id="25"> <!--grey 4 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF888888)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF888888)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF888888)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF888888)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF888888.png</thumb>
+						<label>FF888888</label>
+					</item>
+					<item id="27"> <!--pink 8 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF995b7e)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF995b7e)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF995b7e)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF995b7e)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF995b7e.png</thumb>
+						<label>FF995b7e</label>
+					</item>
+					<item id="28"> <!--purple 2 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFaf6bdf)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFaf6bdf)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFaf6bdf)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFaf6bdf)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFaf6bdf.png</thumb>
+						<label>FFaf6bdf</label>
+					</item>
+					<item id="29"> <!--purple 4 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF9544ce)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF9544ce)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF9544ce)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF9544ce)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF9544ce.png</thumb>
+						<label>FF9544ce</label>
+					</item>
+					<item id="31"> <!--purple 5 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF862ec3)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF862ec3)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF862ec3)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF862ec3)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF862ec3.png</thumb>
+						<label>FF862ec3</label>
+					</item>
+					<item id="30"> <!--grey 5 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFaaaaaa)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFaaaaaa)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFaaaaaa)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFaaaaaa)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFaaaaaa.png</thumb>
+						<label>FFaaaaaa</label>
+					</item>
+					<item id="32"> <!--purple 6 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF522f73)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF522f73)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF522f73)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF522f73)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF522f73.png</thumb>
+						<label>FF522f73</label>
+					</item>
+					<item id="33"> <!--purple 7 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF5334da)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF5334da)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF5334da)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF5334da)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF5334da.png</thumb>
+						<label>FF5334da</label>
+					</item>
+					<item id="34"> <!--purple 8 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF305bd4)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF305bd4)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF305bd4)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF305bd4)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF305bd4.png</thumb>
+						<label>FF305bd4</label>
+					</item>
+					<item id="36"> <!--purple 10 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF4b82de)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF4b82de)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF4b82de)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF4b82de)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF4b82de.png</thumb>
+						<label>FF4b82de</label>
+					</item>
+					<item id="35"> <!--grey 6 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFcccccc)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFcccccc)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFcccccc)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFcccccc)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFcccccc.png</thumb>
+						<label>FFcccccc</label>
+					</item>
+					<item id="37"> <!--blue -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF4d86a6)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF4d86a6)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF4d86a6)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF4d86a6)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF4d86a6.png</thumb>
+						<label>FF4d86a6</label>
+					</item>
+					<item id="38"> <!--blue 5 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF2d95d7)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF2d95d7)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF2d95d7)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF2d95d7)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF2d95d7.png</thumb>
+						<label>FF2d95d7</label>
+					</item>					
+					<item id="39"> <!--blue 3 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF4bb4f6)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF4bb4f6)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF4bb4f6)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF4bb4f6)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF4bb4f6.png</thumb>
+						<label>FF4bb4f6</label>
+					</item>
+					<item id="41"> <!--cyan 1 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF00ffff)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF00ffff)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF00ffff)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF00ffff)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF00ffff.png</thumb>
+						<label>FF00ffff</label>
+					</item>
+					<item id="40"> <!--grey 7 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFeeeeee)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFeeeeee)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFeeeeee)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFeeeeee)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFeeeeee.png</thumb>
+						<label>FFeeeeee</label>
+					</item>
+					<item id="42"> <!--aqua 3 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF2ae1b8)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF2ae1b8)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF2ae1b8)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF2ae1b8)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF2ae1b8.png</thumb>
+						<label>FF2ae1b8</label>
+					</item>
+					<item id="43"> <!--aqua 6 -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF0fd382)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF0fd382)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF0fd382)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF0fd382)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF0fd382.png</thumb>
+						<label>FF0fd382</label>
+					</item>
+					<item id="44"> <!--green -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF499d73)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF499d73)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF499d73)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF499d73)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF499d73.png</thumb>
+						<label>FF499d73</label>
+					</item>
+					<item id="18"> <!--brown -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FF6b5441)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FF6b5441)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FF6b5441)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FF6b5441)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FF6b5441.png</thumb>
+						<label>FF6b5441</label>
+					</item>
+					<item id="45"> <!--white -->
+						<onclick condition="!IsEmpty(Window(home).Property(highlightselect))">Skin.SetString(highlightcolor.name,FFffffff)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(backgroundselect))">Skin.SetString(backgroundcolor.name,FFffffff)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(dialogselect))">Skin.SetString(dialogcolor.name,FFffffff)</onclick>
+						<onclick condition="!IsEmpty(Window(home).Property(textselect))">Skin.SetString(textcolor.name,FFffffff)</onclick>
+						<onclick>Close</onclick>
+						<thumb>colors/FFffffff.png</thumb>
+						<label>FFffffff</label>
+					</item>
+				</content>
+			</control>
+		</control>
+	</controls>
+</window>

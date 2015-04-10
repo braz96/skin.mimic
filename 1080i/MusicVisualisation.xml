@@ -122,7 +122,7 @@
 				<width>256</width>
 				<height>256</height>
 				<texture>osd/paused.png</texture>
-				<colordiffuse>background</colordiffuse>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 		</control>
 		<control type="group">
@@ -137,7 +137,7 @@
 				<width>1920</width>
 				<height>361</height>
 				<texture>background.png</texture>
-				<colordiffuse>background</colordiffuse>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="image">
 				<left>1590</left>
@@ -145,14 +145,14 @@
 				<width>400</width>
 				<height>45</height>
 				<aspectratio>keep</aspectratio>
-				<texture colordiffuse="themecolor" fallback="rating0.png">$INFO[Player.StarRating]</texture>
+				<texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[Player.StarRating]</texture>
 			</control>
 			<control type="image">
 				<left>1730</left>
 				<top>175</top>
 				<width>198</width>
 				<include>MediaFlagVars</include>
-				<texture colordiffuse="grey">$INFO[MusicPlayer.Codec,flags/audio/,.png]</texture>
+				<texture colordiffuse="maintext">$INFO[MusicPlayer.Codec,flags/audio/,.png]</texture>
 			</control>
 			<control type="progress">
 				<left>345</left>
@@ -160,7 +160,7 @@
 				<width>1543</width>
 				<height>35</height>
 				<info>Player.Progress</info>
-				<colordiffuse>background</colordiffuse>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="slider">
 				<left>345</left>
@@ -176,7 +176,7 @@
 				<width>900</width>
 				<height>35</height>
 				<font>font14_title</font>
-				<textcolor>grey</textcolor>
+				<textcolor>maintext</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
 				<label>$INFO[Player.Time]</label>
@@ -187,7 +187,7 @@
 				<width>900</width>
 				<height>35</height>
 				<font>font14_title</font>
-				<textcolor>grey</textcolor>
+				<textcolor>maintext</textcolor>
 				<align>right</align>
 				<aligny>center</aligny>
 				<label>$INFO[Player.Duration]</label>
@@ -198,7 +198,7 @@
 				<width>1543</width>
 				<height>35</height>
 				<font>font14_title</font>
-				<textcolor>grey</textcolor>
+				<textcolor>maintext</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$VAR[MusicSeekLabelVar]</label>
@@ -213,7 +213,7 @@
 					<width>1300</width>
 					<height>60</height>
 					<font>font35_title</font>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<label>$INFO[MusicPlayer.TrackNumber,,. ]$INFO[Player.Title]</label>
 					<scroll>true</scroll>
 				</control>
@@ -221,23 +221,23 @@
 					<width>1300</width>
 					<height>50</height>
 					<font>font28_title</font>
-					<textcolor>themecolor</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<label>$INFO[MusicPlayer.Artist]</label>
 				</control>
 				<control type="label">
 					<width>1300</width>
 					<height>50</height>
 					<font>font14_textbox</font>
-					<textcolor>grey</textcolor>
-					<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year, • ,]</label>
+					<textcolor>maintext</textcolor>
+					<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year,  •  ,]</label>
 				</control>
 				<control type="label">
 					<width>1300</width>
 					<height>48</height>
 					<font>font14_textbox</font>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 					<scroll>true</scroll>
-					<label>$INFO[MusicPlayer.offset(1).TrackNumber,[COLOR=labelheader]$LOCALIZE[19031]:[/COLOR] ,. ]$INFO[MusicPlayer.offset(1).Artist,, - ]$INFO[MusicPlayer.offset(1).Title]</label>
+					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[19031]:[/COLOR] $INFO[MusicPlayer.offset(1).TrackNumber,,  •  ]$INFO[MusicPlayer.offset(1).Artist,, - ]$INFO[MusicPlayer.offset(1).Title]</label>
 				</control>
 			</control>
 			<control type="group">
@@ -278,7 +278,7 @@
 					<height>35</height>
 					<aligny>center</aligny>
 					<font>font14_title</font>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 				</control>
 				<control type="image">
 					<top>4</top>
@@ -306,7 +306,7 @@
 					<width>1920</width>
 					<height>45</height>
 					<texture>background.png</texture>
-					<colordiffuse>background</colordiffuse>
+					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 				</control>
 				<control type="label">
 					<left>1880</left>
@@ -315,7 +315,7 @@
 					<height>41</height>
 					<label></label>
 					<font>IconSmall</font>
-					<textcolor>themecolor</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				</control>
 				<control type="fadelabel">
 					<description>RSS feed</description>
@@ -324,10 +324,10 @@
 					<height>40</height>
 					<width>1850</width>
 					<font>font13</font>
-					<textcolor>grey</textcolor>
-					<!--<label>$INFO[Window(Visualisation).Property(ArtistSlideshow.ArtistBiography),[COLOR labelheader]$LOCALIZE[21887]:[/COLOR] ]</label>
-					<label>$INFO[MusicPlayer.Artist,[COLOR labelheader]$LOCALIZE[31105] ,:[/COLOR] ]$INFO[Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)]$INFO[Window(Visualisation).Property(ArtistSlideshow.2.AlbumName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.3.AlbumName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.4.AlbumName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.5.AlbumName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.6.AlbumName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.7.AlbumName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.8.AlbumName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.9.AlbumName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.10.AlbumName),[COLOR labelheader]  •  [/COLOR]]</label>-->
-					<label>$INFO[Window(Visualisation).Property(ArtistSlideshow.1.SimilarName),[COLOR labelheader]$LOCALIZE[31104]:[/COLOR] ]$INFO[Window(Visualisation).Property(ArtistSlideshow.2.SimilarName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.3.SimilarName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.4.SimilarName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.5.SimilarName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.6.SimilarName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.7.SimilarName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.8.SimilarName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.9.SimilarName),[COLOR labelheader]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.10.SimilarName),[COLOR labelheader]  •  [/COLOR]]</label>
+					<textcolor>maintext</textcolor>
+					<!--<label>$INFO[Window(Visualisation).Property(ArtistSlideshow.ArtistBiography),[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21887]:[/COLOR] ]</label>
+					<label>$INFO[MusicPlayer.Artist,[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[31105] ,:[/COLOR] ]$INFO[Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)]$INFO[Window(Visualisation).Property(ArtistSlideshow.2.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.3.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.4.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.5.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.6.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.7.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.8.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.9.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.10.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]</label>-->
+					<label>$INFO[Window(Visualisation).Property(ArtistSlideshow.1.SimilarName),[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[31104]:[/COLOR] ]$INFO[Window(Visualisation).Property(ArtistSlideshow.2.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.3.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.4.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.5.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.6.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.7.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.8.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.9.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.10.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]</label>
 				</control>
 			</control>
 		</control>
@@ -342,7 +342,7 @@
 				<width>1920</width>
 				<height>310</height>
 				<texture>background.png</texture>
-				<colordiffuse>background</colordiffuse>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="grouplist">
 				<left>30</left>
@@ -359,8 +359,8 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font14</font>
-					<textcolor>grey</textcolor>
-					<label>$INFO[musicplayer.Codec,$LOCALIZE[21446]: ,]$INFO[musicplayer.Bitrate, · $LOCALIZE[623]: ,kbps]$INFO[musicplayer.bitspersample, · $LOCALIZE[612]: ,]$INFO[musicplayer.Samplerate, · $LOCALIZE[613]: ,kHz]$INFO[musicplayer.Channels, · $LOCALIZE[21444]: ]</label>
+					<textcolor>maintext</textcolor>
+					<label>$INFO[musicplayer.Codec,$LOCALIZE[21446]: ,]$INFO[musicplayer.Bitrate,  •  $LOCALIZE[623]: ,kbps]$INFO[musicplayer.bitspersample,  •  $LOCALIZE[612]: ,]$INFO[musicplayer.Samplerate,  •  $LOCALIZE[613]: ,kHz]$INFO[musicplayer.Channels,  •  $LOCALIZE[21444]: ]</label>
 				</control>
 				<control type="label">
 					<description>row 2 label</description>
@@ -369,8 +369,8 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font14</font>
-					<label>$INFO[Visualisation.Name,, [I][COLOR=orange]($LOCALIZE[20166])[/COLOR][/I] · ]fps: $INFO[System.FPS]</label>
-					<textcolor>grey</textcolor>
+					<label>$INFO[Visualisation.Name,, [I][COLOR=orange]($LOCALIZE[20166])[/COLOR][/I]  •  ]fps: $INFO[System.FPS]</label>
+					<textcolor>maintext</textcolor>
 					<visible>Visualisation.Locked</visible>
 				</control>
 				<control type="label">
@@ -380,8 +380,8 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font14</font>
-					<label>$INFO[Visualisation.Name,, · ]fps: $INFO[System.FPS]</label>
-					<textcolor>grey</textcolor>
+					<label>$INFO[Visualisation.Name,,  •  ]fps: $INFO[System.FPS]</label>
+					<textcolor>maintext</textcolor>
 					<visible>!Visualisation.Locked</visible>
 				</control>
 				<control type="label">
@@ -392,7 +392,7 @@
 					<aligny>center</aligny>
 					<font>font14</font>
 					<label>$INFO[Visualisation.Preset,$LOCALIZE[13388]: ]</label>
-					<textcolor>grey</textcolor>
+					<textcolor>maintext</textcolor>
 				</control>
 			</control>
 		</control>

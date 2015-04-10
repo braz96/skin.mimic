@@ -173,7 +173,7 @@ id      | description
             <control type="image">
                 <include>FullscreenDimensions</include>
                 <texture>background.png</texture>
-                <colordiffuse>background</colordiffuse>
+                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
             </control>
             <!-- ** Required ** Do not change <id> or <type> -->
             <control type="group" id="9051">
@@ -197,7 +197,7 @@ id      | description
                     <height>40</height>
                     <font>font16_title</font>
                     <wrapmultiline>false</wrapmultiline>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <visible>SubString(Window(10001).Property(artwork),fanart)|SubString(Window(10001).Property(artwork),cover)|SubString(Window(10001).Property(artwork),cdart)|SubString(Window(10001).Property(artwork),clearlogo)|SubString(Window(10001).Property(artwork),artistthumb)| Control.HasFocus(145) + !Control.HasFocus(120) </visible>
                     <align>left</align>
                     <aligny>bottom</aligny>
@@ -224,7 +224,7 @@ id      | description
                     <width>390</width>
                     <height>60</height>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <visible>SubString(Window(10001).Property(artwork),cdart) + Control.HasFocus(140)</visible>
                     <align>center</align>
                     <aligny>center</aligny>
@@ -267,7 +267,7 @@ id      | description
                             <height>150</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label</info>
@@ -279,7 +279,7 @@ id      | description
                             <height>150</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label2</info>
@@ -292,7 +292,7 @@ id      | description
                             <width>1395</width>
                             <height>150</height>
                             <texture>listselect_fo.png</texture>
-                            <colordiffuse>listselect</colordiffuse>
+                            <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
                             <visible>Control.HasFocus(145)</visible>
                         </control>
                         <control type="label">
@@ -302,7 +302,7 @@ id      | description
                             <height>150</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label</info>
@@ -315,7 +315,7 @@ id      | description
                             <height>150</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label2</info>
@@ -355,7 +355,7 @@ id      | description
                     <height>1080</height>
                     <!--<aspectratio scalediffuse="false">keep</aspectratio>-->
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="list" id="120">
                     <description>Artist List</description>
@@ -378,7 +378,7 @@ id      | description
                             <height>57</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label</info>
@@ -390,7 +390,7 @@ id      | description
                             <height>57</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label2</info>
@@ -403,7 +403,7 @@ id      | description
                             <width>530</width>
                             <height>57</height>
                             <texture>listselect_fo.png</texture>
-                            <colordiffuse>listselect</colordiffuse>
+                            <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
                             <visible>Control.HasFocus(120)</visible>
                         </control>
                         <control type="label">
@@ -413,7 +413,7 @@ id      | description
                             <height>57</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label</info>
@@ -425,7 +425,7 @@ id      | description
                             <height>57</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label2</info>
@@ -488,7 +488,7 @@ id      | description
                             <align>left</align>
                             <aligny>center</aligny>
 							<textoffsetx>4</textoffsetx>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <info>ListItem.Label</info>
                         </control>
                     </itemlayout>
@@ -501,7 +501,7 @@ id      | description
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<info>Listitem.Thumb</info>
 								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
 						</control>
@@ -544,7 +544,7 @@ id      | description
                     <height>30</height>
                     <font>font13</font>
                     <aligny>center</aligny>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <label>$ADDON[script.cdartmanager 32111]</label>
                     <visible>false</visible>
                 </control>
@@ -585,7 +585,7 @@ id      | description
 								<aspectratio scalediffuse="false">keep</aspectratio>
 								<visible>Control.HasFocus(404)</visible>
 								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
 						</control>
@@ -647,7 +647,7 @@ id      | description
 								<info>Listitem.Thumb</info>
 								<visible>Control.HasFocus(199)</visible>
 								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
 						</control>
@@ -705,7 +705,7 @@ id      | description
 								<aspectratio align="center" aligny="center">scale</aspectratio>
 								<visible>Control.HasFocus(202)</visible>
 								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
 						</control>
@@ -765,7 +765,7 @@ id      | description
                             <aligny>center</aligny>
                             <align>left</align>
 							<textoffsetx>4</textoffsetx>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <info>ListItem.Label</info>
                         </control>
                     </itemlayout>
@@ -779,7 +779,7 @@ id      | description
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<visible>Control.HasFocus(167)</visible>
 								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
 						</control>
@@ -842,7 +842,7 @@ id      | description
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<visible>Control.HasFocus(160)</visible>
 								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="themecolor" border="9">thumbs/thumbnail_focused.png</bordertexture>
+								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
 								<bordersize>8</bordersize>
 							</control>
 						</control>
@@ -897,7 +897,7 @@ id      | description
                             <height>57</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label</info>
@@ -909,7 +909,7 @@ id      | description
                             <height>57</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label2</info>
@@ -922,7 +922,7 @@ id      | description
                             <width>1395</width>
                             <height>57</height>
                             <texture>listselect_fo.png</texture>
-                            <colordiffuse>listselect</colordiffuse>
+                            <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
                             <visible>Control.HasFocus(161)</visible>
                         </control>
                         <control type="label">
@@ -932,7 +932,7 @@ id      | description
                             <height>57</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label</info>
@@ -944,7 +944,7 @@ id      | description
                             <height>57</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label2</info>
@@ -982,7 +982,7 @@ id      | description
                     <width>800</width>
                     <height>1080</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="list" id="140">
                     <description>Local cdART List</description>
@@ -1013,7 +1013,7 @@ id      | description
                             <height>60</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label</info>
@@ -1033,7 +1033,7 @@ id      | description
                             <top>0</top>
                             <width>760</width>
                             <height>60</height>
-                            <texture colordiffuse="listselect">listselect_fo.png</texture>
+                            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                             <visible>Control.HasFocus(140)</visible>
                         </control>
                         <control type="label">
@@ -1043,7 +1043,7 @@ id      | description
                             <height>60</height>
                             <font>font13</font>
                             <aligny>center</aligny>
-                            <textcolor>grey</textcolor>
+                            <textcolor>maintext</textcolor>
                             <selectedcolor>green</selectedcolor>
                             <align>left</align>
                             <info>ListItem.Label</info>
@@ -1096,12 +1096,12 @@ id      | description
                     <textoffsetx>15</textoffsetx>
                     <textwidth>540</textwidth>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32074]</label>
                     <align>center</align>
                     <aligny>center</aligny>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>140</onleft>
                     <onright>142</onright>
@@ -1120,10 +1120,10 @@ id      | description
                     <align>center</align>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32075]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>140</onleft>
                     <onright>143</onright>
@@ -1142,10 +1142,10 @@ id      | description
                     <align>center</align>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32076]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>140</onleft>
                     <onright>144</onright>
@@ -1167,7 +1167,7 @@ id      | description
                     <width>570</width>
                     <height>330</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-					<colordiffuse>context</colordiffuse>
+					<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>ControlGroup(9032).HasFocus</visible>
                 </control>
                 <control type="label" id="156">
@@ -1177,7 +1177,7 @@ id      | description
                     <height>60</height>
                     <font>font13</font>
                     <aligny>center</aligny>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <label>-</label>
                     <scroll>true</scroll>
                     <align>center</align>
@@ -1191,8 +1191,8 @@ id      | description
                     <textoffsetx>15</textoffsetx>
                     <textwidth>540</textwidth>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32155]</label>
                     <align>center</align>
                     <aligny>center</aligny>
@@ -1214,8 +1214,8 @@ id      | description
                     <align>center</align>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32156]</label>
                     <texturenofocus>-</texturenofocus>
                     <onleft>145</onleft>
@@ -1235,8 +1235,8 @@ id      | description
                     <align>center</align>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32157]</label>
                     <texturenofocus>-</texturenofocus>
                     <onleft>145</onleft>
@@ -1258,7 +1258,7 @@ id      | description
                     <width>900</width>
                     <height>150</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-					<colordiffuse>context</colordiffuse>
+					<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="label" id="400">
                     <left>8</left>
@@ -1330,7 +1330,7 @@ id      | description
                     <width>480</width>
                     <height>180</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="button" id="135">
                     <!-- Backup cdART -->
@@ -1343,10 +1343,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32067]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9005</onleft>
                     <onright>9006</onright>
@@ -1364,10 +1364,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32068]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9005</onleft>
                     <onright>9006</onright>
@@ -1390,7 +1390,7 @@ id      | description
                     <height>180</height>
                     <top>-21</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="button" id="147">
                     <!-- Select Album -->
@@ -1403,10 +1403,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey2</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>disabled</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32166]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9026</onleft>
                     <onright>9030</onright>
@@ -1424,10 +1424,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32154]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9026</onleft>
                     <onright>9030</onright>
@@ -1450,7 +1450,7 @@ id      | description
                     <height>180</height>
                     <top>-23</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="button" id="126">
                     <!-- Select Artist -->
@@ -1463,10 +1463,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32002]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9026</onleft>
                     <onright>90329</onright>
@@ -1484,10 +1484,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32166]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9026</onleft>
                     <onright>9029</onright>
@@ -1512,7 +1512,7 @@ id      | description
                     <width>460</width>
                     <height>242</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="123">
                     <!-- Change MBID -->
@@ -1525,10 +1525,10 @@ id      | description
                     <textwidth>360</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32153]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -1558,10 +1558,10 @@ id      | description
                     <textwidth>360</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32152]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -1592,10 +1592,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32151]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9019</onleft>
                     <onright>9026</onright>
@@ -1618,7 +1618,7 @@ id      | description
                     <height>180</height>
                     <top>-23</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="button" id="138">
                     <!-- Select Artist -->
@@ -1631,10 +1631,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey2</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>disabled</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32002]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9025</onleft>
                     <onright>9028</onright>
@@ -1652,10 +1652,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32154]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9025</onleft>
                     <onright>9028</onright>
@@ -1680,7 +1680,7 @@ id      | description
                     <width>460</width>
                     <height>240</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="button" id="113">
                     <!-- Change MBID -->
@@ -1693,10 +1693,10 @@ id      | description
                     <textwidth>360</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32153]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9019</onleft>
                     <onright>113</onright>
@@ -1714,10 +1714,10 @@ id      | description
                     <textwidth>360</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32152]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -1748,10 +1748,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32151]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9019</onleft>
                     <onright>9025</onright>
@@ -1777,7 +1777,7 @@ id      | description
                     <width>460</width>
                     <height>364</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="188">
                     <!-- Edit By Artist -->
@@ -1790,10 +1790,10 @@ id      | description
                     <textwidth>360</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32122]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -1824,10 +1824,10 @@ id      | description
                     <textwidth>360</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32127]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -1858,10 +1858,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32123]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9005</onleft>
                     <onright>9019</onright>
@@ -1879,10 +1879,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32012]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9005</onleft>
                     <onright>9019</onright>
@@ -1900,10 +1900,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32129]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9005</onleft>
                     <onright>9019</onright>
@@ -1928,7 +1928,7 @@ id      | description
                     <height>363</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="130">
                     <!-- cdART Backup -->
@@ -1941,10 +1941,10 @@ id      | description
                     <textwidth>360</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32061]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -1975,10 +1975,10 @@ id      | description
                     <textwidth>360</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32126]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -2009,10 +2009,10 @@ id      | description
                     <textwidth>405</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32013]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9005</onright>
@@ -2030,10 +2030,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32014]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9005</onright>
@@ -2052,10 +2052,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32098]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9005</onright>
@@ -2073,10 +2073,10 @@ id      | description
                     <textwidth>390</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32191]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9005</onright>
@@ -2101,7 +2101,7 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="button" id="105">
                     <!-- Search Artists -->
@@ -2114,10 +2114,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32002]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9001</onright>
@@ -2135,10 +2135,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32004]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9001</onright>
@@ -2161,7 +2161,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="button" id="150">
                     <!-- Search Artists -->
@@ -2174,10 +2174,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32002]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9002</onright>
@@ -2195,10 +2195,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32004]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9002</onright>
@@ -2221,7 +2221,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2230,7 +2230,7 @@ id      | description
                     <width>400</width>
                     <height>120</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="197">
@@ -2244,10 +2244,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32121]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9020</onleft>
                     <onright>9021</onright>
@@ -2265,10 +2265,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32120]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9020</onleft>
                     <onright>9021</onright>
@@ -2292,7 +2292,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2301,7 +2301,7 @@ id      | description
                     <width>400</width>
                     <height>120</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="195">
@@ -2315,10 +2315,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32121]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9020</onleft>
                     <onright>9023</onright>
@@ -2336,10 +2336,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32120]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9020</onleft>
                     <onright>9023</onright>
@@ -2363,7 +2363,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="193">
                     <!-- Search Artists -->
@@ -2376,10 +2376,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32002]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -2410,10 +2410,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32004]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -2449,7 +2449,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2458,7 +2458,7 @@ id      | description
                     <width>400</width>
                     <height>120</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="205">
@@ -2472,10 +2472,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32121]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9034</onleft>
                     <onright>9035</onright>
@@ -2493,10 +2493,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32120]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9034</onleft>
                     <onright>9035</onright>
@@ -2520,7 +2520,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2529,7 +2529,7 @@ id      | description
                     <height>120</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="207">
@@ -2543,10 +2543,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32121]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9034</onleft>
                     <onright>9036</onright>
@@ -2564,10 +2564,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32120]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9034</onleft>
                     <onright>9036</onright>
@@ -2591,7 +2591,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="200">
                     <!-- Search Artists -->
@@ -2604,10 +2604,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32002]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -2638,10 +2638,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32004]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -2677,7 +2677,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2686,7 +2686,7 @@ id      | description
                     <width>400</width>
                     <height>120</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="184">
@@ -2700,10 +2700,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32121]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9008</onleft>
                     <onright>9017</onright>
@@ -2721,10 +2721,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32120]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9008</onleft>
                     <onright>9017</onright>
@@ -2748,7 +2748,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2757,7 +2757,7 @@ id      | description
                     <width>400</width>
                     <height>120</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="186">
@@ -2771,10 +2771,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32121]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9008</onleft>
                     <onright>9018</onright>
@@ -2792,10 +2792,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32120]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9008</onleft>
                     <onright>9018</onright>
@@ -2819,7 +2819,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="168">
                     <!-- Search Artists -->
@@ -2832,10 +2832,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32002]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -2866,10 +2866,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32004]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -2905,7 +2905,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2914,7 +2914,7 @@ id      | description
                     <width>400</width>
                     <height>120</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="180">
@@ -2928,10 +2928,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32121]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9009</onleft>
                     <onright>9015</onright>
@@ -2949,10 +2949,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32120]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9009</onleft>
                     <onright>9015</onright>
@@ -2976,7 +2976,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2985,7 +2985,7 @@ id      | description
                     <width>400</width>
                     <height>120</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="182">
@@ -2999,10 +2999,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32121]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9009</onleft>
                     <onright>9016</onright>
@@ -3020,10 +3020,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32120]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9009</onleft>
                     <onright>9016</onright>
@@ -3048,7 +3048,7 @@ id      | description
                     <height>180</height>
                     <top>-15</top>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="170">
                     <!-- Search Artists -->
@@ -3061,10 +3061,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32002]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -3095,10 +3095,10 @@ id      | description
                     <textwidth>330</textwidth>
                     <aligny>center</aligny>
                     <font>font13</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32004]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -3130,7 +3130,7 @@ id      | description
                     <width>450</width>
                     <height>1080</height>
                     <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>context</colordiffuse>
+                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
                 </control>
                 <control type="image" id="200">
                     <!-- script Icon -->
@@ -3153,10 +3153,10 @@ id      | description
                     <textwidth>375</textwidth>
                     <aligny>center</aligny>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32001]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -3187,10 +3187,10 @@ id      | description
                     <textwidth>375</textwidth>
                     <aligny>center</aligny>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32003]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -3221,10 +3221,10 @@ id      | description
                     <textwidth>375</textwidth>
                     <aligny>center</aligny>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32006]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -3255,10 +3255,10 @@ id      | description
                     <textwidth>375</textwidth>
                     <aligny>center</aligny>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32009]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -3289,10 +3289,10 @@ id      | description
                     <textwidth>375</textwidth>
                     <aligny>center</aligny>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32144]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -3323,10 +3323,10 @@ id      | description
                     <textwidth>375</textwidth>
                     <aligny>center</aligny>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32168]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -3357,10 +3357,10 @@ id      | description
                     <textwidth>375</textwidth>
                     <aligny>center</aligny>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32011]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
 					<textureradioonfocus>-</textureradioonfocus>
 					<textureradioonnofocus>-</textureradioonnofocus>
 					<textureradioofffocus>-</textureradioofffocus>
@@ -3391,10 +3391,10 @@ id      | description
                     <textwidth>375</textwidth>
                     <aligny>center</aligny>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32146]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9000</onright>
@@ -3412,10 +3412,10 @@ id      | description
                     <textwidth>375</textwidth>
                     <aligny>center</aligny>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
-                    <focusedcolor>white</focusedcolor>
+                    <textcolor>maintext</textcolor>
+                    <focusedcolor>maintext</focusedcolor>
                     <label>$ADDON[script.cdartmanager 32147]</label>
-                    <texturefocus colordiffuse="listselect">listselect_fo.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
                     <texturenofocus>-</texturenofocus>
                     <onleft>9000</onleft>
                     <onright>9000</onright>
@@ -3430,7 +3430,7 @@ id      | description
                     <width>405</width>
                     <height>45</height>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <label>$ADDON[script.cdartmanager 32043]</label>
                     <aligny>center</aligny>
                     <align>left</align>
@@ -3443,7 +3443,7 @@ id      | description
                     <width>405</width>
                     <height>45</height>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <label>$ADDON[script.cdartmanager 32045]</label>
                     <aligny>center</aligny>
                     <align>left</align>
@@ -3457,7 +3457,7 @@ id      | description
                     <width>405</width>
                     <height>45</height>
                     <font>font15</font>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <label>$ADDON[script.cdartmanager 32044]</label>
                     <aligny>center</aligny>
                     <align>left</align>
@@ -3479,7 +3479,7 @@ id      | description
                     <aligny>top</aligny>
                     <wrapmultiline>true</wrapmultiline>
                     <label>-</label>
-                    <textcolor>grey</textcolor>
+                    <textcolor>maintext</textcolor>
                     <selectedcolor>green</selectedcolor>
                     <align>left</align>
                 </control>
