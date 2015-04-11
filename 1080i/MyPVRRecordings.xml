@@ -33,7 +33,7 @@
 						<height>105</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="IsEmpty(ListItem.Thumb)">Conditional</animation>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="IsEmpty(ListItem.Art(thumb))">Conditional</animation>
 						<fadetime>IconCrossfadeTime</fadetime>
 						<visible>!SubString(ListItem.Icon,Default,left)</visible>
 					</control>
@@ -45,7 +45,7 @@
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<colordiffuse>maintext</colordiffuse>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="IsEmpty(ListItem.Thumb)">Conditional</animation>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="IsEmpty(ListItem.Art(thumb))">Conditional</animation>
 						<fadetime>IconCrossfadeTime</fadetime>
 						<visible>SubString(ListItem.Icon,Default,left)</visible>
 					</control>
@@ -168,9 +168,9 @@
 					<width>570</width>
 					<height>321</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
-					<visible>!IsEmpty(ListItem.Thumb)</visible>
+					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 				<control type="textbox">
 					<description>Description</description>

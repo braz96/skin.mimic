@@ -989,11 +989,11 @@
 				<itemgap>15</itemgap>
 				<visible>Container.Content(addons)</visible>
 				<control type="image">
-					<visible>!IsEmpty(ListItem.Property(Addon.Description)) + !IsEmpty(ListItem.Thumb)</visible>
+					<visible>!IsEmpty(ListItem.Property(Addon.Description)) + !IsEmpty(ListItem.Art(thumb))</visible>
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
@@ -1011,20 +1011,20 @@
 					<width>560</width>
 					<height>840</height>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 			</control>
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)] + !IsEmpty(ListItem.Thumb)</visible>
+				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)] + !IsEmpty(ListItem.Art(thumb))</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
 					<width>560</width>
 					<height>840</height>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 			</control>
@@ -1055,7 +1055,7 @@
 					<width>560</width>
 					<height>840</height>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<visible>IsEmpty(ListItem.Plot)</visible>
 				</control>
@@ -1527,8 +1527,8 @@
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | Container.Content(files)] + !IsEmpty(ListItem.Thumb)</visible>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | Container.Content(files)] + !IsEmpty(ListItem.Art(thumb))</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
@@ -1765,11 +1765,11 @@
 				<top>120</top>
 				<itemgap>10</itemgap>
 				<control type="image">
-					<visible>!IsEmpty(ListItem.Thumb) + !SubString(ListItem.Thumb,Default)</visible>
+					<visible>!IsEmpty(ListItem.Art(thumb)) + !SubString(ListItem.Art(thumb),Default)</visible>
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture fallback="DefaultFallbackAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="DefaultFallbackAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
@@ -2087,7 +2087,7 @@
 					<width>560</width>
 					<height>840</height>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<visible>!StringCompare(ListItem.Label,Picture Add-ons)</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
@@ -2098,11 +2098,11 @@
 				<itemgap>15</itemgap>
 				<visible>Container.Content(addons)</visible>
 				<control type="image">
-					<visible>!IsEmpty(ListItem.Thumb)</visible>
+					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
@@ -2303,7 +2303,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !IsEmpty(ListItem.Thumb)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !IsEmpty(ListItem.Art(thumb))</visible>
 				<left>1276</left>
 				<top>105</top>
 				<control type="image">
@@ -2323,8 +2323,8 @@
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>!IsEmpty(ListItem.Thumb)</visible>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
@@ -2549,8 +2549,8 @@
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(files) | Container.Content(addons)] + !IsEmpty(ListItem.Thumb)</visible>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(files) | Container.Content(addons)] + !IsEmpty(ListItem.Art(thumb))</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="label">
@@ -2713,7 +2713,7 @@
 					<width>560</width>
 					<height>840</height>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<animation effect="slide" end="0,-15" start="0,0" condition="Window.IsActive(pictures)">Conditional</animation>
 				</control>
@@ -2819,7 +2819,7 @@
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture fallback="DefaultFallbackAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="DefaultFallbackAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
