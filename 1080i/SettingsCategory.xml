@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>3</defaultcontrol>
+	<onload>SetProperty(Window.HasSettings,True,home)</onload>
+	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<allowoverlay>no</allowoverlay>
 	<controls>
 		<include>CommonBackground</include>
@@ -15,7 +18,8 @@
 				<width>356</width>
 				<height>840</height>
 				<itemgap>0</itemgap>
-				<onleft>9000</onleft>
+				<onleft condition="!Window.IsActive(addonbrowser)">SetProperty(MediaMenu,True,home)</onleft>
+				<onleft condition="!Winodw.IsActive(addonbrowser)">SetFocus(9050)</onleft>
 				<onright>5</onright>
 				<onup>3</onup>
 				<ondown>20</ondown>
@@ -155,5 +159,6 @@
 		</control>
 		<include>Topbar</include>
 		<include>Bottombar</include>
+		<include>SettingsMediaMenu</include>
 	</controls>
 </window>
