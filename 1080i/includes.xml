@@ -248,9 +248,18 @@
 		<control type="group">
 			<left>-440</left>
 			<include>SideBladeLeft</include>
-			<control type="grouplist" id="9050">
-				<left>0</left>
+			<control type="label">
 				<top>115</top>
+				<height>60</height>
+				<textwidth>352</textwidth>
+				<textoffsetx>15</textoffsetx>
+				<font>font13_title</font>
+				<label>31015</label>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			</control>
+			<control type="list" id="9050">
+				<left>0</left>
+				<top>175</top>
 				<width>400</width>
 				<height>1080</height>
 				<onleft>9050</onleft>
@@ -265,122 +274,105 @@
 				<itemgap>0</itemgap>
 				<include condition="Skin.HasSetting(KioskMode.Enabled)">KioskModeButton</include>
 				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-				<control type="label" id="900">
-					<width>356</width>
-					<height>60</height>
-					<textwidth>352</textwidth>
-					<textoffsetx>15</textoffsetx>
-					<font>font13_title</font>
-					<label>31015</label>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-				<control type="button" id="901">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>157</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(MyVideosSettings)</onclick>
-					<onclick>Control.SetFocus(3)</onclick>
-				</control>
-				<control type="button" id="902">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>2</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(MyMusicSettings)</onclick>
-					<onclick>Control.SetFocus(3)</onclick>
-				</control>
-				<control type="button" id="903">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>1</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(MyPicturesSettings)</onclick>
-					<onclick>Control.SetFocus(3)</onclick>
-				</control>
-				<control type="button" id="904">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>19020</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(TVSettings)</onclick>
-					<onclick>Control.SetFocus(3)</onclick>
-				</control>
-				<control type="button" id="905">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>24001</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(AddonBrowser)</onclick>
-				</control>
-				<control type="button" id="906">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>8</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(MyWeatherSettings)</onclick>
-					<onclick>Control.SetFocus(3)</onclick>
-				</control>
-				<control type="button" id="907">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>480</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(AppearanceSettings)</onclick>
-					<onclick>Control.SetFocus(3)</onclick>
-				</control>
-				<control type="button" id="908">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>20077</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(skinsettings)</onclick>
-					<onclick>Control.SetFocus(9000)</onclick>
-				</control>
-				<control type="button" id="909">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>14036</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(ServiceSettings)</onclick>
-					<onclick>Control.SetFocus(3)</onclick>
-				</control>
-				<control type="button" id="910">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>13000</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(SystemSettings)</onclick>
-					<onclick>Control.SetFocus(3)</onclick>
-				</control>
-				<control type="button" id="911">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>13200</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(Profiles)</onclick>
-					<onclick>Control.SetFocus(2)</onclick>
-				</control>
-				<control type="button" id="912">
-					<textwidth>352</textwidth>
-					<font>font13</font>
-					<include>ButtonCommonValues</include>
-					<label>19033</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(systeminfo)</onclick>
-					<onclick>Control.SetFocus(9000)</onclick>
-				</control>
+				<itemlayout width="400" height="60">
+					<control type="label">
+						<left>15</left>
+						<width>400</width>
+						<height>60</height>
+						<font>font13</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="400" height="60">
+					<control type="image">
+						<width>400</width>
+						<height>60</height>
+						<texture>listselect_fo.png</texture>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+						<visible>Control.HasFocus(9050)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<width>400</width>
+						<height>60</height>
+						<font>font13</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>157</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(MyVideosSettings)</onclick>
+						<onclick>Control.SetFocus(3)</onclick>
+					</item>
+					<item id="2">
+						<label>2</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(MyMusicSettings)</onclick>
+						<onclick>Control.SetFocus(3)</onclick>
+					</item>
+					<item id="3">
+						<label>1</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(MyPicturesSettings)</onclick>
+						<onclick>Control.SetFocus(3)</onclick>
+					</item>
+					<item id="4">
+						<label>19020</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(TVSettings)</onclick>
+						<onclick>Control.SetFocus(3)</onclick>
+					</item>
+					<item id="5">
+						<label>24001</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(AddonBrowser)</onclick>
+					</item>
+					<item id="6">
+						<label>8</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(MyWeatherSettings)</onclick>
+						<onclick>Control.SetFocus(3)</onclick>
+					</item>
+					<item id="7">
+						<label>480</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(AppearanceSettings)</onclick>
+						<onclick>Control.SetFocus(3)</onclick>
+					</item>
+					<item id="8">
+						<label>20077</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(skinsettings)</onclick>
+						<onclick>Control.SetFocus(9000)</onclick>
+					</item>
+					<item id="9">
+						<label>14036</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(ServiceSettings)</onclick>
+						<onclick>Control.SetFocus(3)</onclick>
+					</item>
+					<item id="10">
+						<label>13000</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(SystemSettings)</onclick>
+						<onclick>Control.SetFocus(3)</onclick>
+					</item>
+					<item id="11">
+						<label>13200</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(Profiles)</onclick>
+						<onclick>Control.SetFocus(2)</onclick>
+					</item>
+					<item id="12">
+						<label>19033</label>
+						<onclick>ClearProperty(MediaMenu,Home)</onclick>
+						<onclick>ReplaceWindow(systeminfo)</onclick>
+						<onclick>Control.SetFocus(9000)</onclick>
+					</item>
+				</content>
 			</control>
 		</control>
 	</include>
