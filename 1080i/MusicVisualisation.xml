@@ -292,42 +292,32 @@
 				</control>
 			</control>
 		</control>
-		<!-- RSS Feed: similar artists-->
+		<!-- Artist bio -->
 		<control type="group">
-			<animation effect="slide" end="0,-45" time="240" condition="Window.Next(home)">WindowClose</animation>
-			<animation effect="slide" start="0,-45" end="0,0" time="240">VisibleChange</animation>
-			<animation effect="slide" start="0,-45" end="0,0" time="240" condition="Window.Previous(home)">WindowOpen</animation>
+			<animation effect="slide" end="0,-188" time="240" condition="Window.Next(home)">WindowClose</animation>
+			<animation effect="slide" start="0,-188" end="0,0" time="240">VisibleChange</animation>
+			<animation effect="slide" start="0,-188" end="0,0" time="400" condition="Window.Previous(home)">WindowOpen</animation>
 			<visible>!Window.IsActive(MusicOSD) + !Window.IsActive(1120) + !Player.ShowCodec + !Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
-			<visible>System.HasAddon(script.artistslideshow) + [!IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)) | !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)) | !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.1.SimilarName))]</visible>
+			<visible>System.HasAddon(script.artistslideshow) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography))</visible>
 			<visible>[Player.ShowInfo + Skin.HasSetting(Enable.VizInfo)] | Skin.HasSetting(Enable.VizPersistent)</visible>
 			<top>0</top>
 			<control type="group">
 				<control type="image">
 					<width>1920</width>
-					<height>45</height>
+					<height>188</height>
 					<texture>background.png</texture>
 					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 				</control>
-				<control type="label">
-					<left>1880</left>
-					<top>0</top>
-					<width>60</width>
-					<height>41</height>
-					<label></label>
-					<font>IconSmall</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-				<control type="fadelabel">
-					<description>RSS feed</description>
-					<left>20</left>
-					<top>-2</top>
-					<height>40</height>
-					<width>1850</width>
-					<font>font13</font>
+				<control type="textbox">
+					<description>Artist bio</description>
+					<left>25</left>
+					<top>12</top>
+					<height>160</height>
+					<width>1870</width>
+					<font>font14_textbox3</font>
 					<textcolor>maintext</textcolor>
-					<!--<label>$INFO[Window(Visualisation).Property(ArtistSlideshow.ArtistBiography),[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21887]:[/COLOR] ]</label>
-					<label>$INFO[MusicPlayer.Artist,[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[31105] ,:[/COLOR] ]$INFO[Window(Visualisation).Property(ArtistSlideshow.1.AlbumName)]$INFO[Window(Visualisation).Property(ArtistSlideshow.2.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.3.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.4.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.5.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.6.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.7.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.8.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.9.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.10.AlbumName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]</label>-->
-					<label>$INFO[Window(Visualisation).Property(ArtistSlideshow.1.SimilarName),[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[31104]:[/COLOR] ]$INFO[Window(Visualisation).Property(ArtistSlideshow.2.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.3.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.4.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.5.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.6.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.7.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.8.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.9.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]$INFO[Window(Visualisation).Property(ArtistSlideshow.10.SimilarName),[COLOR $VAR[ColorHighlightVar]]  •  [/COLOR]]</label>
+					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21887]:[/COLOR] $INFO[Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)]</label>
+					<autoscroll time="3000" delay="10000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
 			</control>
 		</control>
