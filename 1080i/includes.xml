@@ -271,7 +271,7 @@
 					<textwidth>352</textwidth>
 					<textoffsetx>15</textoffsetx>
 					<font>font13_title</font>
-					<label>Settings</label>
+					<label>31015</label>
 					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				</control>
 				<control type="button" id="901">
@@ -281,6 +281,7 @@
 					<label>157</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(MyVideosSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
 				</control>
 				<control type="button" id="902">
 					<textwidth>352</textwidth>
@@ -289,6 +290,7 @@
 					<label>2</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(MyMusicSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
 				</control>
 				<control type="button" id="903">
 					<textwidth>352</textwidth>
@@ -297,6 +299,7 @@
 					<label>1</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(MyPicturesSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
 				</control>
 				<control type="button" id="904">
 					<textwidth>352</textwidth>
@@ -305,6 +308,7 @@
 					<label>19020</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(TVSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
 				</control>
 				<control type="button" id="905">
 					<textwidth>352</textwidth>
@@ -321,6 +325,7 @@
 					<label>8</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(MyWeatherSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
 				</control>
 				<control type="button" id="907">
 					<textwidth>352</textwidth>
@@ -329,6 +334,7 @@
 					<label>480</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(AppearanceSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
 				</control>
 				<control type="button" id="908">
 					<textwidth>352</textwidth>
@@ -337,6 +343,7 @@
 					<label>20077</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(skinsettings)</onclick>
+					<onclick>Control.SetFocus(9000)</onclick>
 				</control>
 				<control type="button" id="909">
 					<textwidth>352</textwidth>
@@ -345,6 +352,7 @@
 					<label>14036</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(ServiceSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
 				</control>
 				<control type="button" id="910">
 					<textwidth>352</textwidth>
@@ -353,6 +361,7 @@
 					<label>13000</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(SystemSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
 				</control>
 				<control type="button" id="911">
 					<textwidth>352</textwidth>
@@ -361,6 +370,7 @@
 					<label>13200</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(Profiles)</onclick>
+					<onclick>Control.SetFocus(2)</onclick>
 				</control>
 				<control type="button" id="912">
 					<textwidth>352</textwidth>
@@ -369,6 +379,7 @@
 					<label>19033</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
 					<onclick>ReplaceWindow(systeminfo)</onclick>
+					<onclick>Control.SetFocus(9000)</onclick>
 				</control>
 			</control>
 		</control>
@@ -426,7 +437,7 @@
 				<control type="group">
 					<animation effect="slide" time="400" tween="" easing="" start="0" end="35" condition="Control.IsVisible(1996)">Conditional</animation>
 					<control type="image" id="1996">
-						<visible>![Window.IsActive(settings) | Window.IsActive(addoninformation)]</visible>
+						<visible>![Window.IsActive(settings) | Window.IsActive(addoninformation) | Skin.HasSetting(KioskMode.Enabled)]</visible>
 						<top>8</top>
 						<left>-27</left>
 						<width>32</width>
