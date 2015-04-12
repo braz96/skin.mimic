@@ -17,6 +17,8 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added LowList view from Aeon Nox 5.
 - Added skin setting to disable autoscroll for home widgets.
 - Redesigned video bookmarks window.
+- Replaced premade color themes with color customizer in skin settings.
+- Added a sidebar menu for the Settings section.
 
 ***
 **2.0.0**
