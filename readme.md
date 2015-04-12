@@ -19,6 +19,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Redesigned video bookmarks window.
 - Replaced premade color themes with color customizer in skin settings.
 - Added a sidebar menu for the Settings section.
+- Replaced similar artists with artist bio in music viz options.
 
 ***
 **2.0.0**
