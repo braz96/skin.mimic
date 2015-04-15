@@ -20,6 +20,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Replaced premade color themes with color customizer in skin settings.
 - Added a sidebar menu for the Settings section.
 - Replaced similar artists with artist bio in music viz options.
+- Added EPG support to Global Search (requires version 4.x).
 
 ***
 **2.0.0**
