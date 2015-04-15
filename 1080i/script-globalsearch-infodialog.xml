@@ -1075,6 +1075,112 @@
 						</item>
 					</content>
 				</control>
+				<control type="list" id="200">
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
+					<orientation>horizontal</orientation>
+					<scrolltime tween="quadratic" easing="out">200</scrolltime>
+					<itemlayout height="82" width="569">
+						<control type="label">
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<top>0</top>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+					</itemlayout>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(140)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="label">
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(140)">Conditional</animation>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<top>0</top>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>maintext</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(140)">Conditional</animation>
+							<textoffsetx>15</textoffsetx>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<label>$LOCALIZE[19080]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(StartTime)]</label2>
+							<onclick>-</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(StartTime))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[19081]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(EndTime)]</label2>
+							<onclick>-</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(EndTime))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[2050]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]</label2>
+							<onclick>-</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[515]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
+							<onclick>-</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[19148]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(ChannelNumber)]. $INFO[Container(100).ListItem.Property(ChannelName)]</label2>
+							<onclick>-</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(ChannelName))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[15311]</label>
+							<label2>$INFO[Container(100).ListItem.Property(Path)]</label2>
+							<onclick>-</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(Path))</visible>
+						</item>
+					</content>
+				</control>
 			</control>
 			<control type="textbox">
 				<left>46</left>

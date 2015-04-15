@@ -79,6 +79,9 @@
 			<control type="label" id="180">
 				<include>HiddenObject</include>
 			</control>
+			<control type="label" id="220">
+				<include>HiddenObject</include>
+			</control>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(100)</visible>
@@ -188,6 +191,12 @@
 						<icon>-</icon>
 					</item>
 					<item id="10">
+						<visible>!IsEmpty(Container(221).ListItem.Label)</visible>
+						<label>$LOCALIZE[19069]$INFO[Control.GetLabel(220), (,)]</label>
+						<onclick>noop</onclick>
+						<icon>-</icon>
+					</item>
+					<item id="11">
 						<visible>Control.IsVisible(198)</visible>
 						<label>$INFO[Control.GetLabel(198)]</label>
 						<onclick>SendClick(198)</onclick>
@@ -1033,6 +1042,94 @@
 								<width>1314</width>
 								<height>108</height>
 								<label>$INFO[Container(181).ListItem.Property(Album)] ($INFO[Container(181).ListItem.Property(Year)])[CR]$INFO[Container(181).ListItem.Property(Genre)] • $INFO[Container(181).ListItem.Property(Duration)]</label>
+								<font>font14_textbox2</font>
+								<textcolor>maintext</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
+						</control>
+					</control>
+					<!-- EPG -->
+					<control type="group" id="229">
+						<visible>Container(9000).HasFocus(10)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="221">
+							<left>0</left>
+							<top>0</top>
+							<width>1316</width>
+							<height>657</height>
+							<pagecontrol>60</pagecontrol>
+							<onleft>Control.SetFocus(9000,10)</onleft>
+							<onright>60</onright>
+							<onup>221</onup>
+							<ondown>221</ondown>
+							<orientation>vertical</orientation>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="329" height="219">
+								<control type="image">
+									<width>329</width>
+									<height>219</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Icon]</texture>
+									<fadetime>300</fadetime>
+								</control>
+								<control type="image">
+									<width>329</width>
+									<height>219</height>
+									<texture>thumbs/diffuse.png</texture>
+									<fadetime>300</fadetime>
+								</control>
+							</itemlayout>
+							<focusedlayout width="329" height="219">
+								<control type="group">
+									<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>329</width>
+										<height>219</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>300</fadetime>
+										<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+									<control type="image">
+										<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="in" reversible="false">Focus</animation>
+										<width>329</width>
+										<height>219</height>
+										<texture>thumbs/diffuse.png</texture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>672</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(221).ListItem.Label]</label>
+								<font>font14_title</font>
+								<textcolor>maintext</textcolor>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<top>672</top>
+								<width>1314</width>
+								<height>40</height>
+								<align>right</align>
+								<label>$INFO[Container(221).ListItem.Property(ChannelNumber),,. ]$INFO[Container(221).ListItem.Property(ChannelName)]</label>
+								<font>font14_title</font>
+								<textcolor>maintext</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>108</height>
+								<label>$INFO[Container(221).ListItem.Property(Plot)]</label>
 								<font>font14_textbox2</font>
 								<textcolor>maintext</textcolor>
 								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
