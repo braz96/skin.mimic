@@ -9,26 +9,12 @@
 	<include>dialogeffect</include>
 	<controls>
 		<control type="group">
-			<control type="image">
-				<description>background image</description>
-				<left>0</left>
-				<top>0</top>
-				<width>1122</width>
-				<height>720</height>
-				<texture border="12">dialog_context.png</texture>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="label" id="2">
-				<description>header label</description>
-				<left>30</left>
-				<top>32</top>
-				<width>1062</width>
-				<height>40</height>
-				<font>font15_title</font>
-				<label>13406</label>
-				<align>center</align>
-				<textcolor>maintext</textcolor>
-			</control>
+			<include name="DialogBackgroundCommons">
+				<param name="DialogBackgroundWidth" value="1122" />
+				<param name="DialogBackgroundHeight" value="720" />
+				<param name="DialogHeaderLabel" value="$LOCALIZE[13406]" />
+				<param name="DialogHeaderId" value="2" />
+			</include>
 			<control type="list" id="5">
 				<left>31</left>
 				<top>88</top>

@@ -8,27 +8,12 @@
 	</coordinates>
 	<include>dialogeffect</include>
 	<controls>
-		<control type="image">
-			<description>background image</description>
-			<left>0</left>
-			<top>0</top>
-			<width>1498</width>
-			<height>480</height>
-			<texture border="12">dialog_context.png</texture>
-			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-		</control>
-		<control type="label" id="2">
-			<description>header label</description>
-			<left>30</left>
-			<top>20</top>
-			<width>1438</width>
-			<height>50</height>
-			<textoffsetx>15</textoffsetx>
-			<font>font15_title</font>
-			<label>$LOCALIZE[13406]</label>
-			<align>center</align>
-			<textcolor>maintext</textcolor>
-		</control>
+		<include name="DialogBackgroundCommons">
+			<param name="DialogBackgroundWidth" value="1498" />
+			<param name="DialogBackgroundHeight" value="480" />
+			<param name="DialogHeaderLabel" value="$LOCALIZE[13406]" />
+			<param name="DialogHeaderId" value="2" />
+		</include>
 		<control type="label">
 			<description>path label</description>
 			<left>30</left>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1130" type="dialog">
 	<defaultcontrol always="true">100</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<left>229</left>
+		<top>93</top>
+	</coordinates>
 	<onunload>ClearProperty(highlightselect,home)</onunload>
 	<onunload>ClearProperty(backgroundselect,home)</onunload>
 	<onunload>ClearProperty(dialogselect,home)</onunload>
@@ -8,32 +13,16 @@
 	<allowoverlay>yes</allowoverlay>
 	<include>dialogeffect</include>
 	<controls>
-		<control type="image">
-			<description>background image</description>
-			<left>229</left>
-			<top>89</top>
-			<width>1462</width>
-			<height>902</height>
-			<texture border="12">dialog_context.png</texture>
-			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-		</control>
-		<control type="label">
-			<description>header label</description>
-			<left>259</left>
-			<top>120</top>
-			<width>1402</width>
-			<height>40</height>
-			<textoffsetx>15</textoffsetx>
-			<font>font15_title</font>
-			<label>$VAR[ColorCustomizerLabelVar]</label>
-			<align>center</align>
-			<aligny>center</aligny>
-			<textcolor>maintext</textcolor>
-		</control>
+		<include name="DialogBackgroundCommons">
+            <param name="DialogBackgroundWidth" value="1462" />
+            <param name="DialogBackgroundHeight" value="894" />
+            <param name="DialogHeaderLabel" value="$VAR[ColorCustomizerLabelVar]" />
+            <param name="DialogHeaderId" value="" />
+        </include>
 		<control type="group"> <!--content -->
 			<control type="panel" id="100"> <!--colours -->
-				<left>259</left>
-				<top>179</top>
+				<left>30</left>
+				<top>83</top>
 				<width>1402</width>
 				<height>782</height>
 				<onup>100</onup>

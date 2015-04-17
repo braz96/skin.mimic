@@ -10,47 +10,33 @@
 	<include>dialogeffect</include>
 	<controls>
 		<control type="group">
-			<control type="image">
+			<control type="group">
 				<left>157</left>
-				<top>0</top>
-				<width>692</width>
-				<height>600</height>
-				<texture border="12">dialog_context.png</texture>
 				<visible>Control.IsVisible(3) + !Control.IsVisible(5)</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>1006</width>
-				<height>600</height>
-				<texture border="12">dialog_context.png</texture>
-				<visible>Control.IsVisible(5) | Control.isVisible(6)</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="label" id="1">
-				<left>30</left>
-				<top>32</top>
-				<width>940</width>
-				<height>40</height>
-				<font>font15_title</font>
-				<label>$LOCALIZE[13406]</label>
-				<align>center</align>
-				<textcolor>maintext</textcolor>
-				<font>font15_title</font>
+				<include name="DialogBackgroundCommons">
+					<param name="DialogBackgroundWidth" value="692" />
+					<param name="DialogBackgroundHeight" value="600" />
+					<param name="DialogHeaderLabel" value="$LOCALIZE[13406]" />
+					<param name="DialogHeaderId" value="1" />
+				</include>
 			</control>
 			<control type="group">
+				<visible>Control.IsVisible(5) | Control.isVisible(6)</visible>
+				<include name="DialogBackgroundCommons">
+					<param name="DialogBackgroundWidth" value="1006" />
+					<param name="DialogBackgroundHeight" value="600" />
+					<param name="DialogHeaderLabel" value="$LOCALIZE[13406]" />
+					<param name="DialogHeaderId" value="1" />
+				</include>
+			</control>
+			<control type="image">
 				<left>676</left>
 				<top>86</top>
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>300</width>
-					<height>332</height>
-					<aspectratio aligny="top">keep</aspectratio>
-					<texture>$INFO[Container(6).ListItem.Icon]</texture>
-					<visible>Control.IsVisible(6)</visible>
-				</control>
+				<width>300</width>
+				<height>332</height>
+				<aspectratio aligny="top">keep</aspectratio>
+				<texture>$INFO[Container(6).ListItem.Icon]</texture>
+				<visible>Control.IsVisible(6)</visible>
 			</control>
 			<control type="group" id="9000">
 				<control type="list" id="3">

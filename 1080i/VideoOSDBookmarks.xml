@@ -8,27 +8,12 @@
     </coordinates>
     <include>dialogeffect</include>
     <controls>
-        <control type="image">
-            <description>background image</description>
-            <left>0</left>
-            <top>0</top>
-            <width>1200</width>
-            <height>900</height>
-            <texture border="12">dialog_context.png</texture>
-            <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-        </control>
-        <control type="label">
-            <description>header label</description>
-            <left>60</left>
-            <top>30</top>
-            <width>1080</width>
-            <height>45</height>
-            <font>font15_title</font>
-            <label>$LOCALIZE[298]</label>
-            <align>center</align>
-            <aligny>center</aligny>
-            <textcolor>maintext</textcolor>
-        </control>
+        <include name="DialogBackgroundCommons">
+            <param name="DialogBackgroundWidth" value="1200" />
+            <param name="DialogBackgroundHeight" value="900" />
+            <param name="DialogHeaderLabel" value="$LOCALIZE[298]" />
+            <param name="DialogHeaderId" value="" />
+        </include>
         <control type="label">
             <visible>!Window.IsActive(script-globalsearch-main.xml)</visible>
             <top>742</top>

@@ -9,39 +9,24 @@
 	</coordinates>
 	<include>dialogeffect</include>
 	<controls>
-		<control type="image">
-			<description>background image</description>
-			<left>0</left>
-			<top>0</top>
-			<width>1602</width>
-			<height>880</height>
-			<texture border="12">dialog_context.png</texture>
-			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-		</control>
-		<control type="label">
-			<description>header label</description>
-			<left>30</left>
-			<top>32</top>
-			<width>1542</width>
-			<height>40</height>
-			<font>font15_title</font>
-			<label>$LOCALIZE[19199] - $LOCALIZE[19023]</label>
-			<align>center</align>
-			<textcolor>maintext</textcolor>
+		<control type="group">
 			<visible>IsEmpty(Window.Property(IsRadio))</visible>
-		</control>
-		<control type="label">
-			<description>header label</description>
-			<left>30</left>
-			<top>32</top>
-			<width>1542</width>
-			<height>40</height>
-			<font>font15_title</font>
-			<label>$LOCALIZE[19199] - $LOCALIZE[19024]</label>
-			<align>center</align>
-			<textcolor>maintext</textcolor>
+			<include name="DialogBackgroundCommons">
+	            <param name="DialogBackgroundWidth" value="1602" />
+	            <param name="DialogBackgroundHeight" value="880" />
+	            <param name="DialogHeaderLabel" value="$LOCALIZE[19199] - $LOCALIZE[19023]" />
+	            <param name="DialogHeaderId" value="" />
+	        </include>
+	    </control>
+	    <control type="group">
 			<visible>!IsEmpty(Window.Property(IsRadio))</visible>
-		</control>
+			<include name="DialogBackgroundCommons">
+	            <param name="DialogBackgroundWidth" value="1602" />
+	            <param name="DialogBackgroundHeight" value="880" />
+	            <param name="DialogHeaderLabel" value="$LOCALIZE[19199] - $LOCALIZE[19024]" />
+	            <param name="DialogHeaderId" value="" />
+	        </include>
+	    </control>
 		<control type="group" id="9000">
 			<left>30</left>
 			<top>86</top>

@@ -10,25 +10,12 @@
 	<controls>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
-			<control type="image">
-				<description>background image</description>
-				<left>0</left>
-				<top>0</top>
-				<width>1200</width>
-				<height>722</height>
-				<texture border="12">dialog_context.png</texture>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="label" id="2">
-				<left>30</left>
-				<top>32</top>
-				<width>1140</width>
-				<height>40</height>
-				<font>font15_title</font>
-				<align>center</align>
-				<textcolor>maintext</textcolor>
-				<font>font15_title</font>
-			</control>
+			<include name="DialogBackgroundCommons">
+				<param name="DialogBackgroundWidth" value="1200" />
+				<param name="DialogBackgroundHeight" value="722" />
+				<param name="DialogHeaderLabel" value="-" />
+				<param name="DialogHeaderId" value="2" />
+			</include>
 			<control type="grouplist" id="5">
 				<description>control area</description>
 				<left>32</left>
