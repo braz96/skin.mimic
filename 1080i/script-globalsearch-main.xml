@@ -22,16 +22,29 @@
 				<texture>topbar.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
-			<control type="label">
+			<control type="group">
+				<animation effect="slide" time="400" tween="" easing="" start="0" end="35" condition="Control.IsVisible(1996)">Conditional</animation>
 				<top>-2</top>
-				<width>900</width>
-				<height>45</height>
-				<font>topbar</font>
-				<textoffsetx>15</textoffsetx>
-				<textcolor>maintext</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<label>$LOCALIZE[137]</label>
+				<control type="image" id="1996">
+					<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
+					<top>8</top>
+					<left>-27</left>
+					<width>32</width>
+					<height>32</height>
+					<texture>arrow.png</texture>
+					<colordiffuse>maintext</colordiffuse>
+					<animation effect="rotate" end="-90" center="auto" delay="240" time="640" condition="SubString(Container.Viewmode,$LOCALIZE[31016]) | SubString(Container.Viewmode,$LOCALIZE[31079]) | SubString(Container.Viewmode,$LOCALIZE[31077]) | SubString(Container.Viewmode,$LOCALIZE[20445]) | SubString(Container.Viewmode,$LOCALIZE[31054]) | SubString(Container.Viewmode,$LOCALIZE[31059])">Conditional</animation>
+				</control>
+				<control type="label">
+					<width>900</width>
+					<height>45</height>
+					<font>topbar</font>
+					<textoffsetx>15</textoffsetx>
+					<textcolor>maintext</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$LOCALIZE[137]</label>
+				</control>
 			</control>
 			<control type="label">
 				<top>-2</top>
@@ -85,12 +98,10 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(100)</visible>
-			<left>0</left>
-			<top>128</top>
 			<include>Window_OpenClose_Animation</include>
 			<control type="panel" id="9000">
 				<left>82</left>
-				<top>32</top>
+				<top>135</top>
 				<width>356</width>
 				<height>810</height>
 				<onleft>61</onleft>
@@ -136,63 +147,63 @@
 				</focusedlayout>
 				<content>
 					<item id="1">
+						<visible>!IsEmpty(Container(221).ListItem.Label)</visible>
+						<label>$LOCALIZE[19069]$INFO[Control.GetLabel(220), (,)]</label>
+						<onclick>noop</onclick>
+						<icon>-</icon>
+					</item>
+					<item id="2">
 						<visible>!IsEmpty(Container(111).ListItem.Label)</visible>
 						<label>$LOCALIZE[342]$INFO[Control.GetLabel(110), (,)]</label>
 						<onclick>noop</onclick>
 						<onright>111</onright>
 						<icon>-</icon>
 					</item>
-					<item id="2">
+					<item id="3">
 						<visible>!IsEmpty(Container(121).ListItem.Label)</visible>
 						<label>$LOCALIZE[20343]$INFO[Control.GetLabel(120), (,)]</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="3">
+					<item id="4">
 						<visible>!IsEmpty(Container(131).ListItem.Label)</visible>
 						<label>$LOCALIZE[33054]$INFO[Control.GetLabel(130), (,)]</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="4">
+					<item id="5">
 						<visible>!IsEmpty(Container(141).ListItem.Label)</visible>
 						<label>$LOCALIZE[20360]$INFO[Control.GetLabel(140), (,)]</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="5">
+					<item id="6">
 						<visible>!IsEmpty(Container(211).ListItem.Label)</visible>
 						<label>$LOCALIZE[344]$INFO[Control.GetLabel(210), (,)]</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="6">
+					<item id="7">
 						<visible>!IsEmpty(Container(151).ListItem.Label)</visible>
 						<label>$LOCALIZE[20389]$INFO[Control.GetLabel(150), (,)]</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="7">
+					<item id="8">
 						<visible>!IsEmpty(Container(161).ListItem.Label)</visible>
 						<label>$LOCALIZE[133]$INFO[Control.GetLabel(160), (,)]</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="8">
+					<item id="9">
 						<visible>!IsEmpty(Container(171).ListItem.Label)</visible>
 						<label>$LOCALIZE[132]$INFO[Control.GetLabel(170), (,)]</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="9">
+					<item id="10">
 						<visible>!IsEmpty(Container(181).ListItem.Label)</visible>
 						<label>$LOCALIZE[134]$INFO[Control.GetLabel(180), (,)]</label>
-						<onclick>noop</onclick>
-						<icon>-</icon>
-					</item>
-					<item id="10">
-						<visible>!IsEmpty(Container(221).ListItem.Label)</visible>
-						<label>$LOCALIZE[19069]$INFO[Control.GetLabel(220), (,)]</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
@@ -205,11 +216,12 @@
 				</content>
 			</control>
 			<control type="scrollbar" id="61">
-				<left>65</left>
-				<top>32</top>
+				<left>0</left>
+				<top>45</top>
 				<width>14</width>
-				<height>720</height>
-				<onleft>101</onleft>
+				<height>1035</height>
+				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
+				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">8</onleft>
 				<onright>9000</onright>
 			</control>
 		</control>
@@ -241,6 +253,7 @@
 					<include>HiddenObject</include>
 				</control>
 				<control type="label" id="199">
+					<visible>false</visible>
 					<left>522</left>
 					<top>120</top>
 					<width>1316</width>
@@ -257,13 +270,101 @@
 				</control>
 				<control type="grouplist" id="101">
 					<left>522</left>
-					<top>160</top>
+					<top>135</top>
 					<width>1316</width>
 					<height>839</height>
 					<orientation>horizontal</orientation>
+					<!-- EPG -->
+					<control type="group" id="229">
+						<visible>Container(9000).HasFocus(1)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="221">
+							<left>0</left>
+							<top>0</top>
+							<width>1316</width>
+							<height>657</height>
+							<pagecontrol>60</pagecontrol>
+							<onleft>Control.SetFocus(9000,1)</onleft>
+							<onright>60</onright>
+							<onup>221</onup>
+							<ondown>221</ondown>
+							<orientation>vertical</orientation>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="329" height="329">
+								<control type="image">
+									<width>329</width>
+									<height>329</height>
+									<aspectratio>scale</aspectratio>
+									<texture background="true">$INFO[ListItem.Icon]</texture>
+									<fadetime>300</fadetime>
+								</control>
+								<control type="image">
+									<width>329</width>
+									<height>329</height>
+									<texture>thumbs/diffuse.png</texture>
+									<fadetime>300</fadetime>
+								</control>
+							</itemlayout>
+							<focusedlayout width="329" height="329">
+								<control type="group">
+									<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+									<control type="image">
+										<left>0</left>
+										<top>0</top>
+										<width>329</width>
+										<height>329</height>
+										<aspectratio>scale</aspectratio>
+										<texture background="true">$INFO[ListItem.Icon]</texture>
+										<fadetime>300</fadetime>
+										<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="8">thumbs/thumbnail_focused.png</bordertexture>
+										<bordersize>8</bordersize>
+									</control>
+									<control type="image">
+										<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="in" reversible="false">Focus</animation>
+										<width>329</width>
+										<height>329</height>
+										<texture>thumbs/diffuse.png</texture>
+										<bordersize>8</bordersize>
+									</control>
+								</control>
+							</focusedlayout>
+						</control>
+						<control type="group">
+							<control type="label">
+								<left>0</left>
+								<top>672</top>
+								<width>1314</width>
+								<height>40</height>
+								<label>$INFO[Container(221).ListItem.Label]</label>
+								<font>font14_title</font>
+								<textcolor>maintext</textcolor>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<top>672</top>
+								<width>1314</width>
+								<height>40</height>
+								<align>right</align>
+								<label>$INFO[Container(221).ListItem.Property(ChannelNumber),,. ]$INFO[Container(221).ListItem.Property(ChannelName)]</label>
+								<font>font14_title</font>
+								<textcolor>maintext</textcolor>
+							</control>
+							<control type="textbox">
+								<left>0</left>
+								<top>720</top>
+								<width>1314</width>
+								<height>108</height>
+								<label>$INFO[Container(221).ListItem.Property(Plot)]</label>
+								<font>font14_textbox2</font>
+								<textcolor>maintext</textcolor>
+								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+							</control>
+						</control>
+					</control>
 					<!-- Movies -->
 					<control type="group" id="119">
-						<visible>Container(9000).HasFocus(1)</visible>
+						<visible>Container(9000).HasFocus(2)</visible>
 						<include>SettingsFadeEffect</include>
 						<control type="panel" id="111">
 							<left>0</left>
@@ -271,7 +372,7 @@
 							<width>1316</width>
 							<height>658</height>
 							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,1)</onleft>
+							<onleft>Control.SetFocus(9000,2)</onleft>
 							<onright>60</onright>
 							<onup>111</onup>
 							<ondown>111</ondown>
@@ -363,7 +464,7 @@
 					</control>
 					<!-- TV Shows -->
 					<control type="group" id="129">
-						<visible>Container(9000).HasFocus(2)</visible>
+						<visible>Container(9000).HasFocus(3)</visible>
 						<include>SettingsFadeEffect</include>
 						<control type="panel" id="121">
 							<left>0</left>
@@ -371,7 +472,7 @@
 							<width>1316</width>
 							<height>658</height>
 							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,2)</onleft>
+							<onleft>Control.SetFocus(9000,3)</onleft>
 							<onright>60</onright>
 							<onup>121</onup>
 							<ondown>121</ondown>
@@ -452,7 +553,7 @@
 					</control>
 					<!-- Seasons -->
 					<control type="group" id="139">
-						<visible>Container(9000).HasFocus(3)</visible>
+						<visible>Container(9000).HasFocus(4)</visible>
 						<include>SettingsFadeEffect</include>
 						<control type="panel" id="131">
 							<left>0</left>
@@ -460,7 +561,7 @@
 							<width>1316</width>
 							<height>658</height>
 							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,3)</onleft>
+							<onleft>Control.SetFocus(9000,4)</onleft>
 							<onright>60</onright>
 							<onup>131</onup>
 							<ondown>131</ondown>
@@ -540,7 +641,7 @@
 					</control>
 					<!-- Episodes -->
 					<control type="group" id="149">
-						<visible>Container(9000).HasFocus(4)</visible>
+						<visible>Container(9000).HasFocus(5)</visible>
 						<include>SettingsFadeEffect</include>
 						<control type="panel" id="141">
 							<left>0</left>
@@ -548,7 +649,7 @@
 							<width>1316</width>
 							<height>657</height>
 							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,4)</onleft>
+							<onleft>Control.SetFocus(9000,5)</onleft>
 							<onright>60</onright>
 							<onup>141</onup>
 							<ondown>141</ondown>
@@ -628,7 +729,7 @@
 					</control>
 					<!-- Actors	-->
 					<control type="group" id="219">
-						<visible>Container(9000).HasFocus(5)</visible>
+						<visible>Container(9000).HasFocus(6)</visible>
 						<include>SettingsFadeEffect</include>
 						<control type="panel" id="211">
 							<left>0</left>
@@ -636,7 +737,7 @@
 							<width>1316</width>
 							<height>658</height>
 							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,5)</onleft>
+							<onleft>Control.SetFocus(9000,6)</onleft>
 							<onright>60</onright>
 							<onup>211</onup>
 							<ondown>211</ondown>
@@ -728,7 +829,7 @@
 					</control>
 					<!-- Music Videos -->
 					<control type="group" id="159">
-						<visible>Container(9000).HasFocus(6)</visible>
+						<visible>Container(9000).HasFocus(7)</visible>
 						<include>SettingsFadeEffect</include>
 						<control type="panel" id="151">
 							<left>0</left>
@@ -736,7 +837,7 @@
 							<width>1316</width>
 							<height>658</height>
 							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,6)</onleft>
+							<onleft>Control.SetFocus(9000,7)</onleft>
 							<onright>60</onright>
 							<onup>151</onup>
 							<ondown>151</ondown>
@@ -816,7 +917,7 @@
 					</control>
 					<!-- Artists -->
 					<control type="group" id="169">
-						<visible>Container(9000).HasFocus(7)</visible>
+						<visible>Container(9000).HasFocus(8)</visible>
 						<include>SettingsFadeEffect</include>
 						<control type="panel" id="161">
 							<left>0</left>
@@ -824,7 +925,7 @@
 							<width>1316</width>
 							<height>658</height>
 							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,7)</onleft>
+							<onleft>Control.SetFocus(9000,8)</onleft>
 							<onright>60</onright>
 							<onup>161</onup>
 							<ondown>161</ondown>
@@ -896,7 +997,7 @@
 					</control>
 					<!-- Albums -->
 					<control type="group" id="179">
-						<visible>Container(9000).HasFocus(8)</visible>
+						<visible>Container(9000).HasFocus(9)</visible>
 						<include>SettingsFadeEffect</include>
 						<control type="panel" id="171">
 							<left>0</left>
@@ -904,7 +1005,7 @@
 							<width>1316</width>
 							<height>658</height>
 							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,8)</onleft>
+							<onleft>Control.SetFocus(9000,9)</onleft>
 							<onright>60</onright>
 							<onup>171</onup>
 							<ondown>171</ondown>
@@ -972,7 +1073,7 @@
 					</control>
 					<!-- Songs -->
 					<control type="group" id="189">
-						<visible>Container(9000).HasFocus(9)</visible>
+						<visible>Container(9000).HasFocus(10)</visible>
 						<include>SettingsFadeEffect</include>
 						<control type="panel" id="181">
 							<left>0</left>
@@ -980,7 +1081,7 @@
 							<width>1316</width>
 							<height>658</height>
 							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,9)</onleft>
+							<onleft>Control.SetFocus(9000,10)</onleft>
 							<onright>60</onright>
 							<onup>181</onup>
 							<ondown>181</ondown>
@@ -1048,94 +1149,6 @@
 							</control>
 						</control>
 					</control>
-					<!-- EPG -->
-					<control type="group" id="229">
-						<visible>Container(9000).HasFocus(10)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="221">
-							<left>0</left>
-							<top>0</top>
-							<width>1316</width>
-							<height>657</height>
-							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000,10)</onleft>
-							<onright>60</onright>
-							<onup>221</onup>
-							<ondown>221</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="329" height="329">
-								<control type="image">
-									<width>329</width>
-									<height>329</height>
-									<aspectratio>scale</aspectratio>
-									<texture background="true">$INFO[ListItem.Icon]</texture>
-									<fadetime>300</fadetime>
-								</control>
-								<control type="image">
-									<width>329</width>
-									<height>329</height>
-									<texture>thumbs/diffuse.png</texture>
-									<fadetime>300</fadetime>
-								</control>
-							</itemlayout>
-							<focusedlayout width="329" height="329">
-								<control type="group">
-									<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
-									<control type="image">
-										<left>0</left>
-										<top>0</top>
-										<width>329</width>
-										<height>329</height>
-										<aspectratio>scale</aspectratio>
-										<texture background="true">$INFO[ListItem.Icon]</texture>
-										<fadetime>300</fadetime>
-										<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="8">thumbs/thumbnail_focused.png</bordertexture>
-										<bordersize>8</bordersize>
-									</control>
-									<control type="image">
-										<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="in" reversible="false">Focus</animation>
-										<width>329</width>
-										<height>329</height>
-										<texture>thumbs/diffuse.png</texture>
-										<bordersize>8</bordersize>
-									</control>
-								</control>
-							</focusedlayout>
-						</control>
-						<control type="group">
-							<control type="label">
-								<left>0</left>
-								<top>672</top>
-								<width>1314</width>
-								<height>40</height>
-								<label>$INFO[Container(221).ListItem.Label]</label>
-								<font>font14_title</font>
-								<textcolor>maintext</textcolor>
-							</control>
-							<control type="label">
-								<left>0</left>
-								<top>672</top>
-								<width>1314</width>
-								<height>40</height>
-								<align>right</align>
-								<label>$INFO[Container(221).ListItem.Property(ChannelNumber),,. ]$INFO[Container(221).ListItem.Property(ChannelName)]</label>
-								<font>font14_title</font>
-								<textcolor>maintext</textcolor>
-							</control>
-							<control type="textbox">
-								<left>0</left>
-								<top>720</top>
-								<width>1314</width>
-								<height>108</height>
-								<label>$INFO[Container(221).ListItem.Property(Plot)]</label>
-								<font>font14_textbox2</font>
-								<textcolor>maintext</textcolor>
-								<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-							</control>
-						</control>
-					</control>
 				</control>
 			</control>
 			<control type="scrollbar" id="60">
@@ -1149,6 +1162,81 @@
 				<ondown>60</ondown>
 			</control>
 			<include>Bottombar</include>
+		</control>
+		<control type="group">
+			<left>-440</left>
+			<animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
+			<control type="button">
+				<top>-12</top>
+				<left>-12</left>
+				<width>442</width>
+				<height>1104</height>
+				<texturefocus border="12">dialog_context.png</texturefocus>
+				<texturenofocus border="12">dialog_context.png</texturenofocus>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+			</control>
+			<control type="button">
+				<left>420</left>
+				<width>30</width>
+				<height>1080</height>
+				<texturefocus>-</texturefocus>
+				<onfocus>SetProperty(MediaMenu,True,home)</onfocus>
+			</control>
+			<control type="button" id="8999">
+				<description>Close Window button</description>
+				<left>358</left>
+				<top>0</top>
+				<width>64</width>
+				<height>48</height>
+				<label></label>
+				<font>CloseButton</font>
+				<textcolor>maintext</textcolor>
+				<focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
+				<onclick>ClearProperty(MediaMenu,Home)</onclick>
+				<onclick>SetFocus(50)</onclick>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<align>center</align>
+				<aligny>center</aligny>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
+			<control type="image">
+				<description>LOGO</description>
+				<left>0</left>
+				<top>0</top>
+				<width>400</width>
+				<height>120</height>
+				<aspectratio>keep</aspectratio>
+				<texture>mimic-logo.png</texture>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+			</control>
+			<control type="grouplist" id="9050">
+				<left>0</left>
+				<top>115</top>
+				<width>400</width>
+				<height>1080</height>
+				<itemgap>0</itemgap>
+				<control type="label" id="20001">
+					<width>400</width>
+					<height>52</height>
+					<textoffsetx>15</textoffsetx>
+					<font>font13_title</font>
+					<label>$INFO[System.AddonTitle(script.globalsearch)]</label>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
+					<aligny>center</aligny>
+				</control>
+				<control type="button" id="8">
+					<description>Settings</description>
+					<textwidth>352</textwidth>
+					<onright>ClearProperty(MediaMenu,Home)</onright>
+					<onright>9000</onright>
+					<onclick>Addon.OpenSettings(script.globalsearch)</onclick>
+					<onup>8</onup>
+					<ondown>8</ondown>
+					<include>ButtonCommonValues</include>
+					<label>5</label>
+				</control>
+			</control>
 		</control>
 	</controls>
 </window>
