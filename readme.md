@@ -21,6 +21,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added a sidebar menu for the Settings section.
 - Replaced similar artists with artist bio in music viz options.
 - Added EPG support to Global Search (requires version 4.x).
+- Updated language files from Transifex.
 
 ***
 **2.0.0**
