@@ -14,6 +14,14 @@
 			<include>VisibleFadeEffect</include>
 			<include>Window_OpenClose_Animation</include>
 			<top>78</top>
+			<control type="image">
+				<top>58</top>
+				<left>520</left>
+				<width>1400</width>
+				<height>634</height>
+				<texture background="true">background.png</texture>
+				<colordiffuse>shadow</colordiffuse>
+			</control>
 			<control type="epggrid" id="10">
 				<description>EPG Grid</description>
 				<left>82</left>
@@ -23,7 +31,7 @@
 				<pagecontrol>10</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
 				<timeblocks>20</timeblocks>
-				<progresstexture colordiffuse="$VAR[ColorHighlightVar]" border="0,48,18,14">PVR-EpgProgressIndicator.png</progresstexture>
+				<progresstexture colordiffuse="$VAR[ColorHighlightVar]" border="0,72,18,14">PVR-EpgProgressIndicator.png</progresstexture>
 				<rulerunit>6</rulerunit>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
@@ -97,12 +105,12 @@
 					</control>
 				</focusedchannellayout>
 				<itemlayout height="90" width="120">
-					<control type="image" id="2">
+					<!--<control type="image" id="2">
 						<width>120</width>
 						<height>90</height>
 						<bordersize>3</bordersize>
-						<texture>background2.png</texture>
-					</control>
+						<texture>background_epg.png</texture>
+					</control>-->
 					<control type="image" id="2">
 						<width>120</width>
 						<height>90</height>
@@ -146,12 +154,12 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="90" width="120">
-					<control type="image" id="2">
+					<!--<control type="image" id="2">
 						<width>120</width>
 						<height>90</height>
 						<bordersize>3</bordersize>
-						<texture>background2.png</texture>
-					</control>
+						<texture>background_epg.png</texture>
+					</control>-->
 					<control type="image" id="14">
 						<width>120</width>
 						<height>90</height>
@@ -159,12 +167,12 @@
 						<bordersize>3</bordersize>
 						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 					</control>
-					<control type="image" id="2">
+					<!--<control type="image" id="2">
 						<width>120</width>
 						<height>90</height>
 						<bordersize>3</bordersize>
 						<texture>$INFO[ListItem.Property(GenreType),pvr/genres/,.png]</texture>
-					</control> 
+					</control>-->
 					<control type="group">
 						<visible>[ListItem.HasTimer | ListItem.IsRecording]</visible>
 						<control type="label">
@@ -205,7 +213,7 @@
 				<width>356</width>
 				<height>235</height>
 				<aspectratio aligny="center" align="right">keep</aspectratio>
-				<texture>$INFO[Container(10).ListItem.Icon]</texture>
+				<texture>$INFO[ListItem.Icon]</texture>
 			</control>
 			<control type="group">
 				<left>510</left>
@@ -291,7 +299,7 @@
 							<bordersize>3</bordersize>
 							<texture>background2.png</texture>
 						</control>
-						<control type="image">
+						<control type="image" id="2">
 							<left>440</left>
 							<width>1316</width>
 							<height>90</height>
