@@ -14,7 +14,7 @@
 				<height>460</height>
 				<texture>background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + Skin.HasSetting(Disable.DefaultHome)</visible>
+				<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + !IsEmpty(Window(Home).Property(HomeTopMenu))</visible>
 			</control>
 			<!--<top>380</top>-->
 			<control type="group">
@@ -23,7 +23,7 @@
 				<animation effect="slide" end="0" start="0,-580" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="fade" end="0" start="100" time="200" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="fade" end="0" start="100" time="200" condition="[Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
-				<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Disable.DefaultHome)">Conditional</animation>
+				<animation effect="slide" time="0" start="0,0" end="0,190" condition="!IsEmpty(Window(Home).Property(HomeTopMenu))">Conditional</animation>
 				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
 				<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
 				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
@@ -191,7 +191,7 @@
 				<include condition="Skin.HasSetting(HorizontalListNav)">WidgetListFixed</include>
 				<include condition="!Skin.HasSetting(HorizontalListNav)">WidgetListWrapped</include>
 				<control type="group">
-					<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Disable.DefaultHome)">Conditional</animation>
+					<animation effect="slide" time="0" start="0,0" end="0,190" condition="!IsEmpty(Window(Home).Property(HomeTopMenu))">Conditional</animation>
 					<control type="label">
 						<left>950</left>
 						<top>909</top>
