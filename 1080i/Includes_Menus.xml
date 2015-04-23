@@ -16,6 +16,7 @@
 			<include>MainMenuListContentTop</include>
 		</control>
 		<control type="group">
+			<visible>!Skin.HasSetting(Disable.Topbarinfo)</visible>
 			<left>1536</left>
 			<top>8</top>
 			<control type="label">
@@ -45,6 +46,7 @@
 			<include>MainMenuListContentVertical</include>
 		</control>
 		<control type="group">
+			<visible>!Skin.HasSetting(Disable.Topbarinfo)</visible>
 			<left>5</left>
 			<top>970</top>
 			<control type="label">
@@ -184,8 +186,8 @@
 		<top>0</top>
 		<width>434</width>
 		<height>960</height>
-		<!--<onup condition="!IsEmpty(Container(9000).ListItem.Property(Widget)) + !StringCompare(Container(9000).ListItem.Property(WidgetType),3)">8000</onup>
-		<onup condition="StringCompare(Container(9000).ListItem.Property(WidgetType),3) + !Skin.HasSetting(Disable.WidgetPressUp)">8000</onup>-->
+		<onleft condition="!IsEmpty(Container(9000).ListItem.Property(Widget)) + !StringCompare(Container(9000).ListItem.Property(WidgetType),3)">8000</onleft>
+		<onleft condition="StringCompare(Container(9000).ListItem.Property(WidgetType),3) + !Skin.HasSetting(Disable.WidgetPressUp)">8000</onleft>
 		<ondown>9000</ondown>
 		<onup>9000</onup>
 		<onright>9010</onright>
@@ -215,7 +217,7 @@
 				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
 			</control>
-			<control type="image">
+			<!--<control type="image">
 				<animation effect="fade" start="0" end="80" time="500" delay="800">Focus</animation>
 				<top>31</top>
 				<left>385</left>
@@ -224,7 +226,7 @@
 				<texture>arrowright.png</texture>
 				<visible>!StringCompare(Container(9010).NumItems,0)</visible>
 				<fadetime>500</fadetime>
-			</control>
+			</control>-->
 			<control type="label">
 				<width>384</width>
 				<height>120</height>
