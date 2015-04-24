@@ -128,9 +128,18 @@
 		<content target="$VAR[WidgetListTargetVar]">$VAR[WidgetListContent]</content>
 	</include>
 	<include name="WidgetPanelContent">
+		<control type="image">
+			<top>217</top>
+			<left>2650</left>
+			<width>750</width>
+			<height>805</height>
+			<texture border="12">dialog_context.png</texture>
+			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+			<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + Skin.HasSetting(Enable.HomeVerticalMenu)</visible>
+		</control>
 		<control type="panel" id="8000">
-			<left>1990</left>
-			<top>310</top>
+			<left>2690</left>
+			<top>297</top>
 			<width>600</width>
 			<height>600</height>
 			<onleft>8000</onleft>
