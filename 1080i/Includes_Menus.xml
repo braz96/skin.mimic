@@ -217,6 +217,17 @@
 				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
 			</control>
+			<control type="image">
+				<animation effect="fade" start="0" end="80" time="500" delay="800">Focus</animation>
+				<top>1</top>
+				<left>1</left>
+				<width>30</width>
+				<height>30</height>
+				<texture>WidgetIndicator.png</texture>
+				<animation effect="rotate" end="90" center="auto" time="0" condition="True">Conditional</animation>
+				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Control.HasFocus(8000) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
+				<fadetime>500</fadetime>
+			</control>
 			<!--<control type="image">
 				<animation effect="fade" start="0" end="80" time="500" delay="800">Focus</animation>
 				<top>31</top>
