@@ -14,7 +14,7 @@
 				<height>460</height>
 				<texture>background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + !IsEmpty(Window(Home).Property(HomeTopMenu))</visible>
+				<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + Skin.HasSetting(Enable.HomeTopMenu)</visible>
 			</control>
 			<control type="group">
 				<animation effect="slide" start="0" end="0,-580" time="300" reversible="false" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
@@ -22,14 +22,14 @@
 				<animation effect="slide" end="0" start="0,-580" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="fade" end="0" start="100" time="200" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="fade" end="0" start="100" time="200" condition="[Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
-				<animation effect="slide" time="0" start="0,0" end="0,190" condition="!IsEmpty(Window(Home).Property(HomeTopMenu))">Conditional</animation>
+				<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
 				<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
 				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
 				<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
 				<include name="WeatherWidgetCommons">
 					<param name="WeatherPositionLeft" value="0" />
-					<param name="WeatherPositionTop" value="1080" />
+					<param name="WeatherPositionTop" value="1057" />
 					<param name="WeatherPanelWidth" value="1920" />
 					<param name="WeatherPanelHeight" value="300" />
 					<param name="WeatherItemWidth" value="320" />
@@ -53,7 +53,7 @@
 				<include condition="Skin.HasSetting(HorizontalListNav)">WidgetListFixed</include>
 				<include condition="!Skin.HasSetting(HorizontalListNav)">WidgetListWrapped</include>
 				<control type="group">
-					<animation effect="slide" time="0" start="0,0" end="0,190" condition="!IsEmpty(Window(Home).Property(HomeTopMenu))">Conditional</animation>
+					<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 					<control type="label">
 						<left>950</left>
 						<top>909</top>
@@ -132,7 +132,7 @@
 				<height>805</height>
 				<texture border="12">dialog_context.png</texture>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-				<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !IsEmpty(Window(Home).Property(HomeVerticalMenu))</visible>
+				<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + Skin.HasSetting(Enable.HomeVerticalMenu)</visible>
 			</control>
 			<control type="group">
 				<animation effect="slide" start="0" end="-700" time="300" reversible="false" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
@@ -247,10 +247,10 @@
 				<animation effect="slide" tween="cubic" time="300" start="0" end="-700" reversible="false">Visible</animation>
 				<animation effect="slide" tween="cubic" time="300" start="-700" end="0" reversible="false">Hidden</animation>
 				<include name="WeatherWidgetCommons">
-					<param name="WeatherPositionLeft" value="2620" />
-					<param name="WeatherPositionTop" value="300" />
+					<param name="WeatherPositionLeft" value="2691" />
+					<param name="WeatherPositionTop" value="262" />
 					<param name="WeatherPanelWidth" value="600" />
-					<param name="WeatherPanelHeight" value="600" />
+					<param name="WeatherPanelHeight" value="740" />
 					<param name="WeatherItemWidth" value="300" />
 					<param name="WeatherOrientation" value="Vertical" />
 					<param name="WeatherOnUp" value="8000" />
@@ -266,8 +266,8 @@
 		<control type="group">
 			<visible>Player.HasVideo + !Window.IsVisible(extendedprogressdialog)</visible>
 			<include>Animation_DialogPopup</include>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,77" condition="!IsEmpty(Window(Home).Property(HomeTopMenu))">Conditional</animation>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,-45" condition="!IsEmpty(Window(Home).Property(HomeVerticalMenu))">Conditional</animation>
+			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,77" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
+			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,-45" condition="Skin.HasSetting(Enable.HomeVerticalMenu)">Conditional</animation>
 			<left>1090</left>
 			<top>75</top>
 			<control type="image">
@@ -422,8 +422,8 @@
 		<control type="group">
 			<visible>Player.HasAudio + !Window.IsVisible(extendedprogressdialog)</visible>
 			<include>Animation_DialogPopup</include>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,77" condition="!IsEmpty(Window(Home).Property(HomeTopMenu))">Conditional</animation>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,-45" condition="!IsEmpty(Window(Home).Property(HomeVerticalMenu))">Conditional</animation>
+			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,77" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
+			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,-45" condition="Skin.HasSetting(Enable.HomeVerticalMenu)">Conditional</animation>
 			<left>1090</left>
 			<top>75</top>
 			<control type="image">

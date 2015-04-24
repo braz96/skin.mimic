@@ -12,7 +12,7 @@
 		</control>
 	</include>
 	<include name="WidgetListContent">
-		<animation effect="slide" time="0" start="0,0" end="0,190" condition="!IsEmpty(Window(Home).Property(HomeTopMenu))">Conditional</animation>
+		<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 		<left>0</left>
 		<top>940</top>
 		<width>1920</width>
@@ -265,85 +265,99 @@
 			<onback>9000</onback>
 			<orientation>$PARAM[WeatherOrientation]</orientation>
 			<scrolltime tween="quadratic" easing="out">200</scrolltime>
-			<itemlayout height="300" width="$PARAM[WeatherItemWidth]">
-				<control type="image">
-					<description>current weather icon</description>
-					<top>60</top>
-					<width>$PARAM[WeatherItemWidth]</width>
-					<height>100</height>
-					<texture>$INFO[ListItem.Icon]</texture>
-					<aspectratio aligny="top">keep</aspectratio>
-				</control>
-				<control type="label">
-					<width>$PARAM[WeatherItemWidth]</width>
-					<height>60</height>
-					<font>font15</font>
-					<align>center</align>
-					<textcolor>maintext</textcolor>
-					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<textoffsetx>15</textoffsetx>
-				</control>
-				<control type="label">
-					<top>160</top>
-					<width>$PARAM[WeatherItemWidth]</width>
-					<height>60</height>
-					<font>font15</font>
-					<align>center</align>
-					<textcolor>maintext</textcolor>
-					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<textoffsetx>15</textoffsetx>
-				</control>
-				<control type="label">
-					<top>240</top>
-					<width>$PARAM[WeatherItemWidth]</width>
-					<height>60</height>
-					<font>font15</font>
-					<align>center</align>
-					<textcolor>maintext</textcolor>
-					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-					<label>$INFO[ListItem.Property(HighTemp),[COLOR invalid],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR ff8de0ff],[/COLOR]]</label>
-					<textoffsetx>15</textoffsetx>
+			<itemlayout height="370" width="$PARAM[WeatherItemWidth]">
+				<control type="group">
+					<top>35</top>
+					<control type="image">
+						<description>current weather icon</description>
+						<top>60</top>
+						<width>$PARAM[WeatherItemWidth]</width>
+						<height>100</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio aligny="top">keep</aspectratio>
+					</control>
+					<control type="label">
+						<width>$PARAM[WeatherItemWidth]</width>
+						<height>60</height>
+						<font>font15_title</font>
+						<align>center</align>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<textoffsetx>15</textoffsetx>
+					</control>
+					<control type="label">
+						<top>160</top>
+						<width>$PARAM[WeatherItemWidth]</width>
+						<height>60</height>
+						<font>font15</font>
+						<align>center</align>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<textoffsetx>15</textoffsetx>
+					</control>
+					<control type="label">
+						<top>240</top>
+						<width>$PARAM[WeatherItemWidth]</width>
+						<height>60</height>
+						<font>font15</font>
+						<align>center</align>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Property(HighTemp),[COLOR invalid],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR ff8de0ff],[/COLOR]]</label>
+						<textoffsetx>15</textoffsetx>
+					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="300" width="$PARAM[WeatherItemWidth]">
-				<control type="image">
-					<description>current weather icon</description>
-					<top>60</top>
-					<width>$PARAM[WeatherItemWidth]</width>
-					<height>100</height>
-					<texture>$INFO[ListItem.Icon]</texture>
-					<aspectratio aligny="top">keep</aspectratio>
-				</control>
-				<control type="label">
-					<width>$PARAM[WeatherItemWidth]</width>
-					<height>60</height>
-					<font>font15</font>
-					<align>center</align>
-					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<textoffsetx>15</textoffsetx>
-				</control>
-				<control type="label">
-					<top>160</top>
-					<width>$PARAM[WeatherItemWidth]</width>
-					<height>60</height>
-					<font>font15</font>
-					<align>center</align>
-					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<textoffsetx>15</textoffsetx>
-				</control>
-				<control type="label">
-					<top>240</top>
-					<width>$PARAM[WeatherItemWidth]</width>
-					<height>60</height>
-					<font>font15</font>
-					<align>center</align>
-					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-					<label>$INFO[ListItem.Property(HighTemp),[COLOR invalid],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR ff8de0ff],[/COLOR]]</label>
-					<textoffsetx>15</textoffsetx>
+			<focusedlayout height="370" width="$PARAM[WeatherItemWidth]">
+				<control type="group">
+					<top>35</top>
+					<control type="image">
+						<width>$PARAM[WeatherItemWidth]</width>
+						<height>300</height>
+						<texture>listselect_fo.png</texture>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+						<visible>Control.HasFocus(8000)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="image">
+						<description>current weather icon</description>
+						<top>60</top>
+						<width>$PARAM[WeatherItemWidth]</width>
+						<height>100</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio aligny="top">keep</aspectratio>
+					</control>
+					<control type="label">
+						<width>$PARAM[WeatherItemWidth]</width>
+						<height>60</height>
+						<font>font15_title</font>
+						<align>center</align>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<textoffsetx>15</textoffsetx>
+					</control>
+					<control type="label">
+						<top>160</top>
+						<width>$PARAM[WeatherItemWidth]</width>
+						<height>60</height>
+						<font>font15</font>
+						<align>center</align>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<textoffsetx>15</textoffsetx>
+					</control>
+					<control type="label">
+						<top>240</top>
+						<width>$PARAM[WeatherItemWidth]</width>
+						<height>60</height>
+						<font>font15</font>
+						<align>center</align>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Property(HighTemp),[COLOR invalid],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR ff8de0ff],[/COLOR]]</label>
+						<textoffsetx>15</textoffsetx>
+					</control>
 				</control>
 			</focusedlayout>
 			<content>
@@ -399,6 +413,14 @@
 					<icon>$INFO[Window(weather).Property(Day5.OutlookIcon)]</icon>
 					<property name="HighTemp">$INFO[Window(weather).Property(Day5.HighTemp)]$INFO[System.TemperatureUnits]</property>
 					<property name="LowTemp">$INFO[Window(weather).Property(Day5.LowTemp)]$INFO[System.TemperatureUnits]</property>
+					<onclick>noop</onclick>
+				</item>
+				<item>
+					<label>$INFO[Window(weather).Property(Day6.Title)]</label>
+					<label2>$INFO[Window(weather).Property(Day6.Outlook)]</label2>
+					<icon>$INFO[Window(weather).Property(Day6.OutlookIcon)]</icon>
+					<property name="HighTemp">$INFO[Window(weather).Property(Day6.HighTemp)]$INFO[System.TemperatureUnits]</property>
+					<property name="LowTemp">$INFO[Window(weather).Property(Day6.LowTemp)]$INFO[System.TemperatureUnits]</property>
 					<onclick>noop</onclick>
 				</item>
 			</content>
