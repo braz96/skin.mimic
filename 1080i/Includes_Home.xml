@@ -3,6 +3,7 @@
 	<include name="HomeDefault">
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
+		<include>HomeDefaultWidgets</include>
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
 			<top>796</top>
@@ -11,24 +12,6 @@
 			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
 			<!-- Main Menu (Includes_Home.xml) -->
-			<control type="group">
-				<animation effect="slide" start="0" end="0,-459" time="300" reversible="false" easing="out" condition="[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" end="0" start="0,-459" time="300" reversible="false" condition="[[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<control type="image">
-					<top>94</top>
-					<width>1920</width>
-					<height>700</height>
-					<texture>background.png</texture>
-					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<top>94</top>
-					<width>1920</width>
-					<height>700</height>
-					<texture>listselect_fo.png</texture>
-					<colordiffuse>shadow</colordiffuse>
-				</control>
-			</control>
 			<control type="image">
 				<top>94</top>
 				<left>0</left>
@@ -214,7 +197,6 @@
 				</control>
 			</control>
 		</control>
-		<include>HomeDefaultWidgets</include>
 	</include>
 	<include name="HomeTopMenu">
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
