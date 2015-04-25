@@ -4,9 +4,9 @@
 	<include name="WidgetListFixed">
 		<control type="image">
 			<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
-			<top>1140</top>
+			<top>1138</top>
 			<width>1920</width>
-			<height>450</height>
+			<height>452</height>
 			<texture>background.png</texture>
 			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + !Skin.HasSetting(Enable.HomeVerticalMenu)</visible>
@@ -18,9 +18,9 @@
 	<include name="WidgetListWrapped">
 		<control type="image">
 			<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
-			<top>1140</top>
+			<top>1138</top>
 			<width>1920</width>
-			<height>450</height>
+			<height>452</height>
 			<texture>background.png</texture>
 			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + !Skin.HasSetting(Enable.HomeVerticalMenu)</visible>
@@ -281,6 +281,7 @@
 	</include>
 	<include name="WeatherWidgetCommons">
 		<control type="panel" id="8000">
+			<animation effect="fade" start="0" end="100" time="300" delay="300" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 			<description>weather widget</description>
 			<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),3)</visible>
 			<left>$PARAM[WeatherPositionLeft]</left>
