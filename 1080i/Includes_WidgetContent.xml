@@ -3,13 +3,13 @@
 	<!-- Home Widgets Includes -->
 	<include name="WidgetListFixed">
 		<control type="image">
-			<animation effect="slide" time="0" start="0,0" end="0,460" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
-			<top>620</top>
+			<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
+			<top>1140</top>
 			<width>1920</width>
-			<height>460</height>
+			<height>450</height>
 			<texture>background.png</texture>
 			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + Skin.HasSetting(Enable.HomeTopMenu)</visible>
+			<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + !Skin.HasSetting(Enable.HomeVerticalMenu)</visible>
 		</control>
 		<control type="fixedlist" id="8000">
 			<include>WidgetListContent</include>
@@ -17,30 +17,13 @@
 	</include>
 	<include name="WidgetListWrapped">
 		<control type="image">
-			<animation effect="slide" time="0" start="0,0" end="0,460" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
-			<top>620</top>
+			<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
+			<top>1140</top>
 			<width>1920</width>
-			<height>460</height>
+			<height>450</height>
 			<texture>background.png</texture>
 			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + Skin.HasSetting(Enable.HomeTopMenu)</visible>
-		</control>
-		<control type="group">
-			<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + Skin.HasSetting(Enable.HomeDefault)</visible>
-			<control type="image">
-				<top>890</top>
-				<width>1920</width>
-				<height>700</height>
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="image">
-				<top>890</top>
-				<width>1920</width>
-				<height>700</height>
-				<texture>listselect_fo.png</texture>
-				<colordiffuse>shadow</colordiffuse>
-			</control>
+			<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + !Skin.HasSetting(Enable.HomeFanartOverlay) + !Skin.HasSetting(Enable.HomeVerticalMenu)</visible>
 		</control>
 		<control type="wraplist" id="8000">
 			<include>WidgetListContent</include>
@@ -48,9 +31,10 @@
 	</include>
 	<include name="WidgetListContent">
 		<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
-		<animation effect="fade" start="100" end="0" time="100" condition="Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
+		<animation effect="fade" start="100" end="0" time="0" condition="Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
+		<animation effect="fade" start="0" end="100" time="300" delay="300" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 		<left>0</left>
-		<top>940</top>
+		<top>1185</top>
 		<width>1920</width>
 		<height>360</height>
 		<onup>9000</onup>
