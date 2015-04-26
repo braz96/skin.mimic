@@ -312,6 +312,45 @@
 			</control>
 			<include>MainMenuListTop</include>
 		</control>
+		<control type="group">
+			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]]</visible>
+			<animation effect="slide" end="0,50" time="240">WindowClose</animation>
+			<animation effect="slide" start="0,50" end="0,0" delay="300" time="240" condition="!window.previous(startup)">WindowOpen</animation>
+			<animation effect="slide" start="0,50" end="0,0" time="240">VisibleChange</animation>
+			<animation effect="slide" start="0,50" end="0,0" delay="800" time="480" condition="window.previous(startup)">WindowOpen</animation>
+			<top>989</top>
+			<control type="group">
+				<control type="image">
+					<top>42</top>
+					<left>0</left>
+					<width>1920</width>
+					<height>50</height>
+					<texture>background.png</texture>
+					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+				</control>
+				<control type="label">
+					<left>1880</left>
+					<top>44</top>
+					<width>60</width>
+					<height>41</height>
+					<label></label>
+					<font>IconSmall</font>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
+				</control>
+				<control type="rss">
+					<description>RSS feed</description>
+					<left>15</left>
+					<top>44</top>
+					<height>30</height>
+					<width>1855</width>
+					<font>font13</font>
+					<urlset>1</urlset>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
+					<titlecolor>$VAR[ColorHighlightVar]</titlecolor>
+					<headlinecolor>maintext</headlinecolor>
+				</control>
+			</control>
+		</control>
 	</include>
 	<include name="HomeVerticalMenu">
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
