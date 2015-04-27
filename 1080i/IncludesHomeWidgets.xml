@@ -4,20 +4,6 @@
 		<control type="group" id="9003">
 			<include>VisibleFadeEffect</include>
 			<control type="group">
-				<visible>Skin.HasSetting(Enable.HomeDefault)</visible>
-				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
-				<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
-				<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
-				<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
-				<control type="image">
-					<top>890</top>
-					<width>1920</width>
-					<height>190</height>
-					<texture background="true">background.png</texture>
-					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				</control>
-			</control>
-			<control type="group">
 				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget))</visible>
 				<animation effect="slide" start="0" end="0,-700" time="300" reversible="false" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="slide" start="0" end="0,700" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
