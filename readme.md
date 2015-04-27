@@ -12,7 +12,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 
 
 ***
-**2.0.2**
+**2.1.0**
 - Added two new home layouts: top menu and vertical menu.
 
 ***
