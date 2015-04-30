@@ -990,4 +990,70 @@
 			<include>skinshortcuts-submenu</include>
 		</content>
 	</include>
+	<include name="SubmenuListContent">
+		<itemlayout height="$PARAM[SubmenuHeight]" width="384">
+			<control type="image">
+				<width>384</width>
+				<height>$PARAM[SubmenuHeight]</height>
+				<texture>background.png</texture>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+				<visible>!Skin.HasSetting(Enable.DefaultMenu)</visible>
+			</control>
+			<control type="label">
+				<width>384</width>
+				<height>$PARAM[SubmenuHeight]</height>
+				<font>font_SubMenu</font>
+				<textcolor>maintext</textcolor>
+				<textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
+				<selectedcolor>maintext</selectedcolor>
+				<align>$PARAM[SubmenuAlign]</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout height="$PARAM[SubmenuHeight]" width="384">
+			<control type="image">
+				<width>384</width>
+				<height>$PARAM[SubmenuHeight]</height>
+				<texture>background.png</texture>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+				<visible>!Skin.HasSetting(Enable.DefaultMenu)</visible>
+			</control>
+			<control type="image">
+				<width>384</width>
+				<height>$PARAM[SubmenuHeight]</height>
+				<texture>listselect_fo.png</texture>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+				<visible>ControlGroup(9001).HasFocus()</visible>
+			</control>
+			<control type="group">
+				<visible>Control.HasFocus(9010)</visible>
+				<control type="label">
+					<width>384</width>
+					<height>$PARAM[SubmenuHeight]</height>
+					<font>font_SubMenu</font>
+					<textcolor>maintext</textcolor>
+					<textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
+					<align>$PARAM[SubmenuAlign]</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Control.HasFocus(9010)</visible>
+				<control type="label">
+					<width>384</width>
+					<height>$PARAM[SubmenuHeight]</height>
+					<font>font_SubMenu</font>
+					<textcolor>maintext</textcolor>
+					<textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
+					<align>$PARAM[SubmenuAlign]</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</control>
+		</focusedlayout>
+		<include condition="!System.HasAddon(script.skinshortcuts)">FallbackSubMenu</include>
+		<include condition="System.HasAddon(script.skinshortcuts)">CustomSubMenu</include>
+	</include>
 </includes>

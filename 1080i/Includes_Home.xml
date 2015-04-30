@@ -70,53 +70,11 @@
 					<focusposition>2</focusposition>
 					<movement>2</movement>
 					<orientation>Horizontal</orientation>
-					<itemlayout height="70" width="384">
-						<control type="label">
-							<width>384</width>
-							<height>70</height>
-							<font>font_SubMenu</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
-							<align>center</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="70" width="384">
-						<control type="image">
-							<width>384</width>
-							<height>70</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>ControlGroup(9001).HasFocus()</visible>
-						</control>
-						<control type="group">
-							<visible>Control.HasFocus(9010)</visible>
-							<control type="label">
-								<width>384</width>
-								<height>70</height>
-								<font>font_SubMenu</font>
-								<textcolor>maintext</textcolor>
-								<align>center</align>
-								<aligny>center</aligny>
-								<label>$INFO[ListItem.Label]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>!Control.HasFocus(9010)</visible>
-							<control type="label">
-								<width>384</width>
-								<height>70</height>
-								<font>font_SubMenu</font>
-								<textcolor>maintext</textcolor>
-								<align>center</align>
-								<aligny>center</aligny>
-								<label>$INFO[ListItem.Label]</label>
-							</control>
-						</control>
-					</focusedlayout>
-					<include condition="!System.HasAddon(script.skinshortcuts)">FallbackSubMenu</include>
-					<include condition="System.HasAddon(script.skinshortcuts)">CustomSubMenu</include>
+					<include name="SubmenuListContent">
+						<param name="SubmenuHeight" value="70" />
+						<param name="SubmenuAlign" value="center" />
+						<param name="SubmenuTextOffset" value="0" />
+					</include>
 				</control>
 				<control type="button">
 					<left>5</left>
@@ -232,68 +190,11 @@
 					<focusposition>1</focusposition>
 					<movement>2</movement>
 					<orientation>Vertical</orientation>
-					<itemlayout height="70" width="384">
-						<control type="image">
-							<width>384</width>
-							<height>70</height>
-							<texture>background.png</texture>
-							<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-						</control>
-						<control type="label">
-							<width>384</width>
-							<height>70</height>
-							<font>font_SubMenu</font>
-							<textcolor>maintext</textcolor>
-							<textoffsetx>15</textoffsetx>
-							<selectedcolor>maintext</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="70" width="384">
-						<control type="image">
-							<width>384</width>
-							<height>70</height>
-							<texture>background.png</texture>
-							<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-						</control>
-						<control type="image">
-							<width>384</width>
-							<height>70</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>ControlGroup(9001).HasFocus()</visible>
-						</control>
-						<control type="group">
-							<visible>Control.HasFocus(9010)</visible>
-							<control type="label">
-								<width>384</width>
-								<height>70</height>
-								<font>font_SubMenu</font>
-								<textoffsetx>15</textoffsetx>
-								<textcolor>maintext</textcolor>
-								<align>left</align>
-								<aligny>center</aligny>
-								<label>$INFO[ListItem.Label]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>!Control.HasFocus(9010)</visible>
-							<control type="label">
-								<width>384</width>
-								<height>70</height>
-								<font>font_SubMenu</font>
-								<textoffsetx>15</textoffsetx>
-								<textcolor>maintext</textcolor>
-								<align>left</align>
-								<aligny>center</aligny>
-								<label>$INFO[ListItem.Label]</label>
-							</control>
-						</control>
-					</focusedlayout>
-					<include condition="!System.HasAddon(script.skinshortcuts)">FallbackSubMenu</include>
-					<include condition="System.HasAddon(script.skinshortcuts)">CustomSubMenu</include>
+					<include name="SubmenuListContent">
+						<param name="SubmenuHeight" value="70" />
+						<param name="SubmenuAlign" value="left" />
+						<param name="SubmenuTextOffset" value="15" />
+					</include>
 				</control>
 			</control>
 			<!-- Main Menu (Includes_Home.xml) -->
@@ -434,68 +335,11 @@
 					<focusposition>1</focusposition>
 					<movement>2</movement>
 					<orientation>Vertical</orientation>
-					<itemlayout height="72" width="384">
-						<control type="image">
-							<width>384</width>
-							<height>72</height>
-							<texture>background.png</texture>
-							<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-						</control>
-						<control type="label">
-							<width>384</width>
-							<height>72</height>
-							<font>font_SubMenu</font>
-							<textcolor>maintext</textcolor>
-							<textoffsetx>15</textoffsetx>
-							<selectedcolor>maintext</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="72" width="384">
-						<control type="image">
-							<width>384</width>
-							<height>72</height>
-							<texture>background.png</texture>
-							<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-						</control>
-						<control type="image">
-							<width>384</width>
-							<height>72</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>ControlGroup(9001).HasFocus()</visible>
-						</control>
-						<control type="group">
-							<visible>Control.HasFocus(9010)</visible>
-							<control type="label">
-								<width>384</width>
-								<height>72</height>
-								<font>font_SubMenu</font>
-								<textoffsetx>15</textoffsetx>
-								<textcolor>maintext</textcolor>
-								<align>left</align>
-								<aligny>center</aligny>
-								<label>$INFO[ListItem.Label]</label>
-							</control>
-						</control>
-						<control type="group">
-							<visible>!Control.HasFocus(9010)</visible>
-							<control type="label">
-								<width>384</width>
-								<height>72</height>
-								<font>font_SubMenu</font>
-								<textoffsetx>15</textoffsetx>
-								<textcolor>maintext</textcolor>
-								<align>left</align>
-								<aligny>center</aligny>
-								<label>$INFO[ListItem.Label]</label>
-							</control>
-						</control>
-					</focusedlayout>
-					<include condition="!System.HasAddon(script.skinshortcuts)">FallbackSubMenu</include>
-					<include condition="System.HasAddon(script.skinshortcuts)">CustomSubMenu</include>
+					<include name="SubmenuListContent">
+						<param name="SubmenuHeight" value="72" />
+						<param name="SubmenuAlign" value="left" />
+						<param name="SubmenuTextOffset" value="15" />
+					</include>
 				</control>
 				<control type="group">
 					<visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
