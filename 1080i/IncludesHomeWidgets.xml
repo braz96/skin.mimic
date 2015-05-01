@@ -107,18 +107,21 @@
 				<animation effect="slide" tween="cubic" easing="out" time="600" start="-700" end="0" reversible="false">WindowClose</animation>
 				<animation effect="slide" tween="cubic" easing="out" time="300" start="-700" end="0" reversible="false">Hidden</animation>
 				<include>WidgetPanelContent</include>
-				<include name="WeatherWidgetCommons">
-					<param name="WeatherPositionLeft" value="2691" />
-					<param name="WeatherPositionTop" value="249" />
-					<param name="WeatherPanelWidth" value="600" />
-					<param name="WeatherPanelHeight" value="740" />
-					<param name="WeatherItemWidth" value="300" />
-					<param name="WeatherOrientation" value="Vertical" />
-					<param name="WeatherOnUp" value="8000" />
-					<param name="WeatherOnDown" value="8000" />
-					<param name="WeatherOnLeft" value="8000" />
-					<param name="WeatherOnRight" value="9000" />
-				</include>
+				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+					<include name="WeatherWidgetCommons">
+						<param name="WeatherPositionLeft" value="2691" />
+						<param name="WeatherPositionTop" value="249" />
+						<param name="WeatherPanelWidth" value="600" />
+						<param name="WeatherPanelHeight" value="740" />
+						<param name="WeatherItemWidth" value="300" />
+						<param name="WeatherOrientation" value="Vertical" />
+						<param name="WeatherOnUp" value="8000" />
+						<param name="WeatherOnDown" value="8000" />
+						<param name="WeatherOnLeft" value="8000" />
+						<param name="WeatherOnRight" value="9000" />
+					</include>
+				</control>
 				<control type="group">
 					<control type="label">
 						<left>2690</left>
