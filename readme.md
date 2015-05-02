@@ -16,6 +16,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 - Added two new home layouts: top menu and vertical menu.
 - Added support for series recording with pvr.wmc.
 - Fixed critical error with color customizer when enabled for the first time.
+- Added skin setting to show submenus all the time on alternative home layouts.
 
 ***
 **2.0.1**
