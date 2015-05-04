@@ -7,27 +7,13 @@
         <system>1</system>
     </coordinates>
     <controls>
-		<control type="button" id="8998">
-			<description>Close Window button</description>
-			<left>358</left>
-			<top>0</top>
-			<width>64</width>
-			<height>48</height>
-			<label></label>
-			<font>CloseButton</font>
-			<textcolor>maintext</textcolor>
-			<focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
-			<onclick>Dialog.Close(1129)</onclick>
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onleft>2</onleft>
-			<onright>13</onright>
-			<onup>13</onup>
-			<ondown>2</ondown>
-			<align>center</align>
-			<aligny>center</aligny>
-			<visible>system.getbool(input.enablemouse) + Window.IsActive(1129)</visible>
-		</control>
+		<include name="SideBladeCloseIcon">
+            <param name="CloseIconDialogClose" value="Dialog.Close(1129)" />
+            <param name="CloseIconDialogClose2" value="Dialog.Close(1118)" />
+            <param name="ClearMediaMenu" value="ClearProperty(MediaMenu,Home)" />
+            <param name="CloseIconSetFocus" value="SetFocus(50)" />
+            <param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + Window.IsActive(1129)" />
+        </include>
 		<control type="group">
 			<control type="label">
 				<top>115</top>

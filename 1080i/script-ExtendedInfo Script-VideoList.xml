@@ -225,28 +225,13 @@
                 <onfocus>SetProperty(MediaMenu,True,home)</onfocus>
                 <visible>system.getbool(input.enablemouse)</visible>
             </control>
-            <control type="button" id="8999">
-                <description>Close Window button</description>
-                <left>358</left>
-                <top>0</top>
-                <width>64</width>
-                <height>48</height>
-                <label></label>
-                <font>CloseButton</font>
-                <textcolor>maintext</textcolor>
-                <focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
-                <onclick>ClearProperty(MediaMenu,Home)</onclick>
-                <onclick>SetFocus(500)</onclick>
-                <texturefocus>-</texturefocus>
-                <texturenofocus>-</texturenofocus>
-                <onleft>2</onleft>
-                <onright>13</onright>
-                <onup>13</onup>
-                <ondown>2</ondown>
-                <align>center</align>
-                <aligny>center</aligny>
-                <visible>system.getbool(input.enablemouse)</visible>
-            </control>
+            <include name="SideBladeCloseIcon">
+                <param name="CloseIconDialogClose" value="noop" />
+                <param name="CloseIconDialogClose2" value="noop" />
+                <param name="ClearMediaMenu" value="ClearProperty(MediaMenu,Home)" />
+                <param name="CloseIconSetFocus" value="SetFocus(500)" />
+                <param name="CloseIconVisibility" value="system.getbool(input.enablemouse)" />
+            </include>
             <control type="image">
                 <description>LOGO</description>
                 <left>0</left>
