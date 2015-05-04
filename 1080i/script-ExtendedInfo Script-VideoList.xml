@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="true">500</defaultcontrol>
+    <onload>ClearProperty(MediaMenu,Home)</onload>
     <controls>
 		<control type="group">
 			<animation effect="fade" time="300">WindowOpen</animation>
@@ -28,7 +29,9 @@
 				<height>720</height>
                 <preloaditems>2</preloaditems>
                 <scrolltime tween="quadratic">300</scrolltime>
-                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9000</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetFocus(9000)</onleft>
+                <!--<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9000</onleft>-->
                 <onright>500</onright>
                 <onup>700</onup>
                 <ondown>600</ondown>
@@ -202,16 +205,47 @@
 		</control>
         <include>Bottombar</include>
         <control type="group">
-            <animation type="Conditional" condition="!ControlGroup(9000).HasFocus">
-                <effect type="slide" end="-440" time="400" tween="quadratic" easing="out" />
-            </animation>
-            <control type="image">
+            <animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
+            <animation effect="slide" start="0,0" end="440,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9000)">Conditional</animation>
+            <left>-440</left>
+            <control type="button">
                 <left>-12</left>
                 <top>-12</top>
                 <width>442</width>
                 <height>1104</height>
-                <texture border="12">dialog_context.png</texture>
+                <texturefocus border="12">dialog_context.png</texturefocus>
+                <texturenofocus border="12">dialog_context.png</texturenofocus>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="button">
+                <left>420</left>
+                <width>30</width>
+                <height>1080</height>
+                <texturefocus>-</texturefocus>
+                <onfocus>SetProperty(MediaMenu,True,home)</onfocus>
+                <visible>system.getbool(input.enablemouse)</visible>
+            </control>
+            <control type="button" id="8999">
+                <description>Close Window button</description>
+                <left>358</left>
+                <top>0</top>
+                <width>64</width>
+                <height>48</height>
+                <label></label>
+                <font>CloseButton</font>
+                <textcolor>maintext</textcolor>
+                <focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
+                <onclick>ClearProperty(MediaMenu,Home)</onclick>
+                <onclick>SetFocus(500)</onclick>
+                <texturefocus>-</texturefocus>
+                <texturenofocus>-</texturenofocus>
+                <onleft>2</onleft>
+                <onright>13</onright>
+                <onup>13</onup>
+                <ondown>2</ondown>
+                <align>center</align>
+                <aligny>center</aligny>
+                <visible>system.getbool(input.enablemouse)</visible>
             </control>
             <control type="image">
                 <description>LOGO</description>
@@ -232,8 +266,11 @@
                 <scroll>true</scroll>
                 <onup>9000</onup>
                 <ondown>9000</ondown>
+                <onright>ClearProperty(MediaMenu,Home)</onright>
                 <onright>500</onright>
                 <onleft>noop</onleft>
+                <onback>ClearProperty(MediaMenu,Home)</onback>
+                <onback>500</onback>
                 <control type="label" id="200">
                     <description>View Options Heading</description>
                     <width>400</width>
