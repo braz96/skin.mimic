@@ -130,6 +130,16 @@
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 				<visible>[Container.Content(movies) | Container.Content(tvshows)] + System.HasAddon(script.extendedinfo)</visible>
 			</control>
+			<control type="button" id="90216">
+				<description>Add to playlist</description>
+				<width>510</width>
+				<textwidth>425</textwidth>
+				<textoffsetx>45</textoffsetx>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+				<visible>[Container.Content(movies) | Container.Content(episodes)] + System.HasAddon(script.simpleplaylists)</visible>
+			</control>
 			<control type="button" id="90211">
 				<description>FS Fanart button</description>
 				<width>510</width>
@@ -289,6 +299,15 @@
 				<onclick condition="Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
 				<label>$INFO[System.AddonTitle(script.extendedinfo)]</label>
 				<visible>[Container.Content(movies) | Container.Content(tvshows)] + System.HasAddon(script.extendedinfo)</visible>
+			</control>
+			<control type="button" id="90316">
+				<description>Add to playlist</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+				<onclick>RunPlugin(plugin://script.simpleplaylists/?mode=addCurrentUrl)</onclick>
+				<label>$INFO[System.AddonTitle(script.simpleplaylists)]</label>
+				<visible>[Container.Content(movies) | Container.Content(episodes)] + System.HasAddon(script.simpleplaylists)</visible>
 			</control>
 			<control type="button" id="90311">
 				<description>FS Fanart button</description>
