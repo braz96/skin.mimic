@@ -15,6 +15,7 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 **2.1.1**
 - Added support for SimplePlaylists addon.
 - Fixed LowList view for video/music addons, added it for picture addons.
+- Updated language files from Transifex.
 
 ***
 **2.1.0**
