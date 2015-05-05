@@ -12,6 +12,11 @@ More screenshots available here: http://imgur.com/a/anSBV#0
 
 
 ***
+**2.1.1**
+- Added support for SimplePlaylists addon.
+- Fixed LowList view for video/music addons, added it for picture addons.
+
+***
 **2.1.0**
 - Added two new home layouts: top menu and vertical menu.
 - Added support for series recording with pvr.wmc.
