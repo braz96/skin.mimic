@@ -15,6 +15,7 @@
 				<animation effect="slide" end="0,-170" time="120" condition="!Skin.HasSetting(nohighlist)">Conditional</animation>
 			</control>
 			<control type="group">
+				<visible>!Container.Content(addons)</visible>
 				<left>30</left>
 				<top>431</top>
 				<control type="image">
@@ -35,6 +36,18 @@
 				</control>
 			</control>
 			<control type="group">
+				<visible>Container.Content(addons)</visible>
+				<left>30</left>
+				<top>633</top>
+				<control type="image">
+					<width>402</width>
+					<height>402</height>
+					<aspectratio aligny="center" align="center">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+			</control>
+			<control type="group">
 				<left>1300</left>
 				<top>625</top>
 				<include>VisibleFadeEffect</include>
@@ -48,6 +61,7 @@
 				</control>
 			</control>
 			<control type="group">
+				<visible>!Container.Content(addons)</visible>
 				<left>1267</left>
 				<top>965</top>
 				<width>1840</width>
@@ -150,6 +164,39 @@
 						<include>MediaFlagVars</include>
 						<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
 					</control>
+				</control>
+			</control>
+			<control type="grouplist">
+				<visible>Container.Content(addons)</visible>
+				<left>1280</left>
+				<top>620</top>
+				<width>610</width>
+				<height>360</height>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="button">
+					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.Property(Addon.Type)]</label>
+					<width>610</width>
+					<include>ShowCaseInfoPanelButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Addon.Type))</visible>
+				</control>
+				<control type="button">
+					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.Property(Addon.Creator)]</label>
+					<width>610</width>
+					<include>ShowCaseInfoPanelButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(addons)</visible>
+				<left>1295</left>
+				<top>814</top>
+				<control type="textbox" id="70">
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
+					<width>595</width>
+					<height>220</height>
+					<font>font14_textbox4</font>
+					<include>ShowCaseInfoPanelButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
 			</control>
 			<control type="list" id="501">
@@ -485,6 +532,58 @@
 						<texture>$VAR[ListItem.Overlay]</texture>
 					</control>
 				</focusedlayout>
+				<itemlayout height="67" width="806" condition="Container.Content(addons)">
+					<control type="label">
+						<left>15</left>
+						<width>775</width>
+						<height>67</height>
+						<font>font15</font>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>110</left>
+						<width>680</width>
+						<height>67</height>
+						<font>font15</font>
+						<align>right</align>
+						<textcolor>maintext</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="67" width="806" condition="Container.Content(addons)">
+					<control type="image">
+						<width>806</width>
+						<height>67</height>
+						<texture>listselect_fo.png</texture>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+						<visible>Control.HasFocus(501)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<width>775</width>
+						<height>67</height>
+						<font>font15</font>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>110</left>
+						<width>680</width>
+						<height>67</height>
+						<font>font15</font>
+						<align>right</align>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.label2]</label>
+						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(501)">Conditional</animation>
+					</control>
+				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
 				<left>1906</left>
@@ -514,7 +613,8 @@
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="group">
-				<left>29</left>
+				<visible>!Container.Content(addons)</visible>
+				<left>30</left>
 				<top>633</top>
 				<control type="image">
 					<width>402</width>
@@ -524,7 +624,20 @@
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 			</control>
+			<control type="group">
+				<visible>Container.Content(addons)</visible>
+				<left>30</left>
+				<top>633</top>
+				<control type="image">
+					<width>402</width>
+					<height>402</height>
+					<aspectratio aligny="center" align="center">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+			</control>
 			<control type="grouplist">
+				<visible>!Container.Content(addons)</visible>
 				<left>1280</left>
 				<top>620</top>
 				<width>610</width>
@@ -568,10 +681,44 @@
 				</control>
 			</control>
 			<control type="group">
+				<visible>!Container.Content(addons)</visible>
 				<left>1295</left>
 				<top>814</top>
 				<control type="textbox" id="70">
 					<label>$VAR[OtherPlotVar]</label>
+					<width>595</width>
+					<height>220</height>
+					<font>font14_textbox4</font>
+					<include>ShowCaseInfoPanelButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				</control>
+			</control>
+			<control type="grouplist">
+				<visible>Container.Content(addons)</visible>
+				<left>1280</left>
+				<top>620</top>
+				<width>610</width>
+				<height>360</height>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="button">
+					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.Property(Addon.Type)]</label>
+					<width>610</width>
+					<include>ShowCaseInfoPanelButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Addon.Type))</visible>
+				</control>
+				<control type="button">
+					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.Property(Addon.Creator)]</label>
+					<width>610</width>
+					<include>ShowCaseInfoPanelButtonsValues</include>
+					<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(addons)</visible>
+				<left>1295</left>
+				<top>814</top>
+				<control type="textbox" id="70">
+					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<width>595</width>
 					<height>220</height>
 					<font>font14_textbox4</font>
@@ -862,6 +1009,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(501) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
+			<animation effect="slide" end="0,-15" start="0,0" time="0" condition="Window.IsActive(pictures)">Conditional</animation>
 			<animation effect="slide" end="0,-20" start="0,0" time="480" condition="[[Player.HasAudio + !Skin.HasSetting(Disable.ShowPlayingMusic)] | [Player.HasVideo + !Skin.HasSetting(Disable.ShowPlayingVideo)]] + !Control.HasFocus(60)">Conditional</animation>
 			<control type="image">
 				<top>617</top>
@@ -871,7 +1019,7 @@
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="group">
-				<left>29</left>
+				<left>30</left>
 				<top>648</top>
 				<control type="image">
 					<width>402</width>
