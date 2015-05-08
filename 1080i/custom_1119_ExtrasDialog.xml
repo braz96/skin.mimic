@@ -275,7 +275,7 @@
 				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 				<onclick>Dialog.Close(all,true)</onclick>
 				<onclick>ActivateWindow(videos,$ESCINFO[ListItem.Label,plugin://plugin.video.youtube/kodion/search/query/?q=],return)</onclick>
-				<label>$INFO[System.AddonTitle(plugin.video.youtube)]</label>
+				<label>$INFO[System.AddonTitle(plugin.video.youtube),$LOCALIZE[137] ]</label>
 				<visible>System.HasAddon(plugin.video.youtube) + [Container.Content(albums) | Container.Content(songs)]</visible>
 			</control>
 			<control type="button" id="90310">
@@ -288,6 +288,15 @@
 				<label>31089</label>
 				<visible>System.HasAddon(script.playalbum) + Container.Content(albums)</visible>
 			</control>
+			<control type="button" id="90316">
+				<description>Add to playlist</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+				<onclick>RunPlugin(plugin://script.simpleplaylists/?mode=addCurrentUrl)</onclick>
+				<label>31087</label>
+				<visible>[Container.Content(movies) | Container.Content(episodes)] + System.HasAddon(script.simpleplaylists)</visible>
+			</control>
 			<control type="button" id="90315">
 				<description>ExtendedInfo</description>
 				<texturefocus>listselect_fo.png</texturefocus>
@@ -297,17 +306,8 @@
 				<onclick>Dialog.Close(MovieInformation)</onclick>	
 				<onclick condition="Container.Content(movies)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
 				<onclick condition="Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.extendedinfo)]</label>
+				<label>31081</label>
 				<visible>[Container.Content(movies) | Container.Content(tvshows)] + System.HasAddon(script.extendedinfo)</visible>
-			</control>
-			<control type="button" id="90316">
-				<description>Add to playlist</description>
-				<texturefocus>listselect_fo.png</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<onclick>RunPlugin(plugin://script.simpleplaylists/?mode=addCurrentUrl)</onclick>
-				<label>$INFO[System.AddonTitle(script.simpleplaylists)]</label>
-				<visible>[Container.Content(movies) | Container.Content(episodes)] + System.HasAddon(script.simpleplaylists)</visible>
 			</control>
 			<control type="button" id="90311">
 				<description>FS Fanart button</description>
