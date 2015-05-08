@@ -78,12 +78,12 @@
 						<icon>-</icon>
 					</item>
 					<item id="4">
-						<label>10038</label>
+						<label>31009</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
 					<item id="5">
-						<label>31009</label>
+						<label>10038</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
@@ -133,7 +133,7 @@
 				<visible>!Window.IsActive(1121)</visible>
 				<include>SettingsFadeEffect</include>
 				<control type="grouplist" id="9001">
-					<description>control area</description>
+					<description>Home window control area</description>
 					<left>522</left>
 					<top>32</top>
 					<width>1316</width>
@@ -228,7 +228,7 @@
 					</control>
 				</control>
 				<control type="grouplist" id="9002">
-					<description>control area</description>
+					<description>General control area</description>
 					<left>522</left>
 					<top>32</top>
 					<width>1316</width>
@@ -295,7 +295,7 @@
 					</control>
 				</control>
 				<control type="grouplist" id="9003">
-					<description>control area</description>
+					<description>Extras control area</description>
 					<left>522</left>
 					<top>32</top>
 					<width>1316</width>
@@ -367,74 +367,8 @@
 						<visible>!IsEmpty(Skin.String(MusicLibraryPath))</visible>
 					</control>
 				</control>
-				<control type="grouplist" id="9004">
-					<description>control area</description>
-					<left>522</left>
-					<top>32</top>
-					<width>1316</width>
-					<height>720</height>
-					<itemgap>0</itemgap>
-					<pagecontrol>60</pagecontrol>
-					<onleft>9000</onleft>
-					<onright>60</onright>
-					<onup>9004</onup>
-					<ondown>9004</ondown>
-					<visible>Container(9000).HasFocus(4)</visible>
-					<control type="radiobutton" id="402">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31941</label>
-						<onclick>Skin.ToggleSetting(KioskMode.Enabled)</onclick>
-						<selected>Skin.HasSetting(KioskMode.Enabled)</selected>
-					</control>
-					<control type="button" id="403">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31915</label>
-						<label2>$VAR[HorizontalListNavVar]</label2>
-						<onclick>Skin.ToggleSetting(HorizontalListNav)</onclick>
-					</control>
-					<control type="button" id="404">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31943</label>
-						<onclick>ActivateWindow(1127)</onclick>
-					</control>
-					<control type="button" id="405">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31094</label>
-						<label2>$VAR[SlimListSettingVar]</label2>
-						<onclick>Skin.ToggleSetting(Enable.SlimList)</onclick>
-					</control>
-					<control type="button" id="406">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31929</label>
-						<label2>$VAR[FavViewSettingVar]</label2>
-						<onclick>Skin.ToggleSetting(Enable.FavView)</onclick>
-					</control>
-					<control type="button" id="407">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31109</label>
-						<onclick>RunScript(special://skin/extras/yesno.py)</onclick>
-					</control>
-				</control>
 				<control type="grouplist" id="9005">
-					<description>control area</description>
+					<description>Colors control area</description>
 					<left>522</left>
 					<top>32</top>
 					<width>1316</width>
@@ -445,7 +379,7 @@
 					<onright>60</onright>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
-					<visible>Container(9000).HasFocus(5)</visible>
+					<visible>Container(9000).HasFocus(4)</visible>
 					<control type="radiobutton" id="502">
 						<width>1316</width>
 						<height>90</height>
@@ -503,7 +437,7 @@
 					<width>64</width>
 					<height>720</height>
 					<itemgap>26</itemgap>
-					<visible>Container(9000).HasFocus(5) + Skin.HasSetting(ColorCustomizer.Enabled)</visible>
+					<visible>Container(9000).HasFocus(4) + Skin.HasSetting(ColorCustomizer.Enabled)</visible>
 					<animation effect="fade" time="400" tween="" easing="" start="0" end="100">Visible</animation>
 					<control type="image" id="5050">
 						<width>64</width>
@@ -525,6 +459,72 @@
 						<height>64</height>
 						<texture>colors/$INFO[Skin.String(textcolor.name)].png</texture>
 					</control>-->
+				</control>
+				<control type="grouplist" id="9004">
+					<description>Advanced control area</description>
+					<left>522</left>
+					<top>32</top>
+					<width>1316</width>
+					<height>720</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9004</onup>
+					<ondown>9004</ondown>
+					<visible>Container(9000).HasFocus(5)</visible>
+					<control type="radiobutton" id="402">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31941</label>
+						<onclick>Skin.ToggleSetting(KioskMode.Enabled)</onclick>
+						<selected>Skin.HasSetting(KioskMode.Enabled)</selected>
+					</control>
+					<control type="button" id="403">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31915</label>
+						<label2>$VAR[HorizontalListNavVar]</label2>
+						<onclick>Skin.ToggleSetting(HorizontalListNav)</onclick>
+					</control>
+					<control type="button" id="404">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31943</label>
+						<onclick>ActivateWindow(1127)</onclick>
+					</control>
+					<control type="button" id="405">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31094</label>
+						<label2>$VAR[SlimListSettingVar]</label2>
+						<onclick>Skin.ToggleSetting(Enable.SlimList)</onclick>
+					</control>
+					<control type="button" id="406">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31929</label>
+						<label2>$VAR[FavViewSettingVar]</label2>
+						<onclick>Skin.ToggleSetting(Enable.FavView)</onclick>
+					</control>
+					<control type="button" id="407">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31109</label>
+						<onclick>RunScript(special://skin/extras/yesno.py)</onclick>
+					</control>
 				</control>
 			</control>
 			<control type="scrollbar" id="60">
