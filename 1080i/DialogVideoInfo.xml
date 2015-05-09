@@ -2,6 +2,7 @@
 <window>
 	<defaultcontrol always="true">8</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	<onload condition="System.HasAddon(script.videolanguage) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)]">RunScript(script.videolanguage,movieid=$INFO[ListItem.DBID])</onload>
 	<include condition="Skin.HasSetting(Enable.TvTunes)">LoadTvTunes</include>
 	<controls>
 		<control type="group">
@@ -330,24 +331,6 @@
 							<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Country))</visible>
 						</item>
 						<item>
-							<label>$INFO[ListItem.Path]</label>
-							<label2>$LOCALIZE[573]:</label2>
-							<onclick>Dialog.Close(movieinformation)</onclick>
-							<onclick>ActivateWindow(Videos,$INFO[ListItem.Path],return)</onclick>
-						</item>
-						<item>
-							<label>[UPPERCASE]$INFO[Window.Property(AudioLanguage)][/UPPERCASE]</label>
-							<label2>$LOCALIZE[21447]:</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(AudioLanguage.1))</visible>
-						</item>
-						<item>
-							<label>$INFO[ListItem.Filename]</label>
-							<label2>$LOCALIZE[21800]:</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Filename)</visible>
-						</item>
-						<item>
 							<label>$INFO[ListItem.LastPlayed]</label>
 							<label2 fallback="-">$LOCALIZE[568]:</label2>
 							<onclick>noop</onclick>
@@ -372,11 +355,41 @@
 							<visible>ListItem.IsResumable</visible>
 						</item>
 						<item>
-							<label>[UPPERCASE]$INFO[Window.Property(SubtitleLanguage)][/UPPERCASE]</label>
+							<label>[UPPERCASE]$INFO[Window.Property(AudioLanguage.1)]$INFO[Window.Property(AudioLanguage.2),/]$INFO[Window.Property(AudioLanguage.3),/]$INFO[Window.Property(AudioLanguage.4),/]$INFO[Window.Property(AudioLanguage.5),/]$INFO[Window.Property(AudioLanguage.6),/]$INFO[Window.Property(AudioLanguage.7),/][/UPPERCASE]</label>
+							<label2>$LOCALIZE[21447]:</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Window.Property(AudioLanguage.1))</visible>
+						</item>
+						<item>
+							<label>[UPPERCASE]$INFO[Window.Property(SubtitleLanguage.1)]$INFO[Window.Property(SubtitleLanguage.2),/]$INFO[Window.Property(SubtitleLanguage.3),/]$INFO[Window.Property(SubtitleLanguage.4),/]$INFO[Window.Property(SubtitleLanguage.5),/]$INFO[Window.Property(SubtitleLanguage.6),/]$INFO[Window.Property(SubtitleLanguage.7),/][/UPPERCASE]</label>
 							<label2>$LOCALIZE[21448]:</label2>
 							<onclick>noop</onclick>
 							<visible>!IsEmpty(Window.Property(SubtitleLanguage.1))</visible>
 						</item>
+						<item>
+							<label>$INFO[ListItem.Filename]</label>
+							<label2>$LOCALIZE[21800]:</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(ListItem.Filename)</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Path]</label>
+							<label2>$LOCALIZE[573]:</label2>
+							<onclick>Dialog.Close(movieinformation)</onclick>
+							<onclick>ActivateWindow(Videos,$INFO[ListItem.Path],return)</onclick>
+						</item>
+						<!--<item>
+							<label>[UPPERCASE]$INFO[ListItem.AudioLanguage][/UPPERCASE]</label>
+							<label2>$LOCALIZE[21447]:</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(ListItem.AudioLanguage)</visible>
+						</item>
+						<item>
+							<label>[UPPERCASE]$INFO[ListItem.SubtitleLanguage][/UPPERCASE]</label>
+							<label2>$LOCALIZE[21448]:</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
+						</item>-->
 					</content>
 				</control>
 				<control type="textbox" id="4">
