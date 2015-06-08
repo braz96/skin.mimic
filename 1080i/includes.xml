@@ -31,6 +31,7 @@
 	<include file="script-skinshortcuts-includes.xml" />
 	<constant name="FanartCrossfadeTime">500</constant>
 	<constant name="IconCrossfadeTime">400</constant>
+	<constant name="FullScreenWidth">1920</constant>
 	<!-- Media Menu -->
 	<include name="SideBladeLeft">
 		<animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
@@ -419,14 +420,14 @@
 			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
 			<control type="image">
 				<visible>![Control.IsVisible(59) | Control.IsVisible(501)]</visible>
-				<width>1920</width>
+				<width>FullScreenWidth</width>
 				<height>45</height>
 				<texture>topbar.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
 			<control type="image">
 				<visible>Control.IsVisible(59) | Control.IsVisible(501)</visible>
-				<width>1920</width>
+				<width>FullScreenWidth</width>
 				<height>45</height>
 				<texture>background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
@@ -470,7 +471,7 @@
 				</control>
 				<control type="label">
 					<left>0</left>
-					<width>1920</width>
+					<width>FullScreenWidth</width>
 					<height>45</height>
 					<font>topbar</font>
 					<textoffsetx>15</textoffsetx>
@@ -492,7 +493,7 @@
 			<animation effect="slide" end="0,90" start="0,0" time="480" condition="Control.HasFocus(60)">Conditional</animation>
 			<control type="image">
 				<visible>![Control.IsVisible(59) | Control.IsVisible(501)]</visible>
-				<width>1920</width>
+				<width>FullScreenWidth</width>
 				<height>45</height>
 				<texture>topbar.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
