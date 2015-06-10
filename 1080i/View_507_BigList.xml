@@ -6,10 +6,10 @@
         <control type="group">
 			<visible>Control.IsVisible(507)</visible>
             <!--container-->
-            <control type="fixedlist" id="507">
+            <control type="list" id="507">
                 <viewtype label="31052">list</viewtype>
                 <left>60</left>
-                <top>72</top>
+                <top>62</top>
                 <width>1808</width>
                 <height>934</height>
                 <onleft>SetProperty(MediaMenu,True,home)</onleft>
@@ -18,15 +18,15 @@
                 <onup>507</onup>
                 <ondown>507</ondown>
                 <pagecontrol>60</pagecontrol>
-                <focusposition>1</focusposition>
                 <preloaditems>2</preloaditems>
                 <orientation>vertical</orientation>
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
                 <!--landscape layout-->
                 <itemlayout width="1808" height="231">
                     <include>view_BigList-LandscapeCommons</include>
                     <control type="group">
                         <left>382</left>
-                        <top>6</top>
+                        <top>11</top>
                         <control type="label">
                             <width>1380</width>
                             <label>[B]$INFO[ListItem.Label][/B]</label>
@@ -85,18 +85,27 @@
                 </itemlayout>
                 <focusedlayout width="1808" height="231">
 					<control type="image">
-						<top>-8</top>
+						<top>0</top>
 						<width>1803</width>
 						<height>231</height>
 						<texture>listselect_fo.png</texture>
 						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(507)</visible>
 						<include>VisibleFadeEffect</include>
+                        <animation type="Focus" reversible="false" condition="Container(507).OnPrevious">
+                            <effect type="slide" start="0,231" end="0,0" time="300" tween="quadratic" easing="out" />
+                        </animation>
+                        <animation type="Focus" reversible="false" condition="Container(507).OnNext">
+                            <effect type="slide" start="0,-231" end="0,0" time="300" tween="quadratic" easing="out" />
+                        </animation>
+                        <animation type="UnFocus" reversible="false">
+                            <effect type="fade" end="0" start="100" time="0" tween="sine" easing="in" />
+                        </animation>
 					</control>
                     <include>view_BigList-LandscapeCommons</include>
                     <control type="group">
                         <left>382</left>
-                        <top>6</top>
+                        <top>11</top>
                         <control type="group">
                             <control type="label">
                                 <width>1380</width>
@@ -175,7 +184,7 @@
     <include name="view_BigList-LandscapeCommons">
         <control type="group">
             <left>18</left>
-            <top>10</top>
+            <top>18</top>
 			<control type="image">
                 <width>346</width>
                 <height>195</height>
