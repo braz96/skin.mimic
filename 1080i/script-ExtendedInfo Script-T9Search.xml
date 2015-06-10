@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <!--<onload condition="IsEmpty(Window(home).Property(WindowColor))">SetProperty(WindowColor,FFFFFFFF,home)</onload>-->
+    <!--
+    <onload condition="IsEmpty(Window(home).Property(WindowColor))">SetProperty(WindowColor,$VAR[AreaColorVar],home)</onload>-->
+    <!--<onunload>ClearProperty(WindowColor,home)</onunload>-->
+    <onload>SetProperty(t9search,1,home)</onload>
+    <onunload>ClearProperty(t9search,home)</onunload>
+    <defaultcontrol always="true">9090</defaultcontrol>
+    <controls>
+        <control type="group">
+            <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+            <animation effect="slide" start="0,0" end="-440,0" time="160" tween="quadratic" easing="out">WindowClose</animation>
+            <control type="panel" id="9090">
+                <left>11</left>
+                <top>130</top>
+                <width>430</width>
+                <height>708</height>
+                <onleft>9090</onleft>
+                <onright>Action(Close)</onright>
+                <onright>ClearProperty(MediaMenu,Home)</onright>
+                <onup condition="IntegerGreaterThan(Container(9091).NumItems,0)">Control.SetFocus(9091,999)</onup>
+                <ondown condition="IntegerGreaterThan(Container(9091).NumItems,0)">Control.SetFocus(9091,0)</ondown>
+                <onback>noop</onback>
+                <onback>ClearProperty(MediaMenu,Home)</onback>
+                <orientation>vertical</orientation>
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <itemlayout height="100" width="100">
+                    <control type="image">
+                        <left>5</left>
+                        <top>5</top>
+                        <width>90</width>
+                        <height>90</height>
+                        <texture colordiffuse="shadow">topbar.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>5</left>
+                        <top>-10</top>
+                        <width>90</width>
+                        <height>90</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font12</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>5</left>
+                        <top>20</top>
+                        <width>90</width>
+                        <height>90</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font10</font>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="100" width="100">
+                    <control type="image">
+                        <left>5</left>
+                        <top>5</top>
+                        <width>90</width>
+                        <height>90</height>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>5</left>
+                        <top>-10</top>
+                        <width>90</width>
+                        <height>90</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font12</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>5</left>
+                        <top>20</top>
+                        <width>90</width>
+                        <height>90</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font10</font>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="list" id="9091">
+                <left>11</left>
+                <top>500</top>
+                <width>390</width>
+                <height>550</height>
+                <onleft>9091</onleft>
+                <onright>Action(Close)</onright>
+                <onright>ClearProperty(MediaMenu,Home)</onright>
+                <onup>9090</onup>
+                <ondown>9090</ondown>
+                <onback>noop</onback>
+                <onback>ClearProperty(MediaMenu,Home)</onback>
+                <orientation>vertical</orientation>
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <itemlayout height="55" width="390">
+                    <control type="label">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>390</width>
+                        <height>55</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font12</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="55" width="390">
+                    <control type="label">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>390</width>
+                        <height>55</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font12</font>
+                        <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="label" id="600">
+                <left>11</left>
+                <top>440</top>
+                <width>390</width>
+                <height>50</height>
+                <align>center</align>
+                <textoffsetx>15</textoffsetx>
+                <textcolor>white</textcolor>
+                <scroll>true</scroll>
+                <scrollspeed>20</scrollspeed>
+            </control>
+        </control>
+    </controls>
+</window>
