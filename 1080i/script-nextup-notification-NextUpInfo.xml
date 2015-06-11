@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">3012</defaultcontrol>
+	<include>dialogeffect</include>
+    <zorder>0</zorder>
+    <coordinates>
+        <system>1</system>
+        <left>310</left>
+        <top>190</top>
+    </coordinates>
+	<controls>
+		<control type="group">
+			 <include name="DialogBackgroundCommons">
+                <param name="DialogBackgroundWidth" value="1300" />
+                <param name="DialogBackgroundHeight" value="700" />
+                <param name="DialogHeaderLabel" value="$ADDON[service.nextup.notification 30008]..." />
+                <param name="DialogHeaderId" value="-" />
+            </include>
+            <control type="image" id="3009" description="poster">
+                <left>30</left>
+                <top>90</top>
+                <width>333</width>
+                <height>500</height>
+                <fadetime>350</fadetime>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+            </control>
+            <control type="label">
+                <left>383</left>
+                <width>887</width>
+                <top>75</top>
+                <height>65</height>
+                <aligny>top</aligny>
+                <font>font28_title</font>
+                <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                <label>$INFO[Control.GetLabel(3002)] $INFO[Control.GetLabel(3000)]</label>
+            </control>
+            <control type="textbox" description="Plot" id="3001">
+                <left>383</left>
+                <top>140</top>
+                <height>455</height>
+                <width>887</width>
+                <font>font14_textbox</font>
+                <textcolor>maintext</textcolor>
+                <align>left</align>
+                <aligny>top</aligny>
+                <autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+            </control>
+            <control type="button" id="3012">
+                <description>Watch Now</description>
+                <left>30</left>
+                <top>610</top>
+                <width>605</width>
+                <onleft>3013</onleft>
+                <onright>3013</onright>
+                <font>font15_title</font>
+                <align>center</align>
+                <aligny>center</aligny>
+                <label>$ADDON[service.nextup.notification 30006]</label>
+                <height>60</height>
+            </control>
+            <control type="button" id="3013">
+                <description>Cancel</description>
+                <left>665</left>
+                <top>610</top>
+                <width>605</width>
+                <onleft>3012</onleft>
+                <onright>3012</onright>
+                <font>font15_title</font>
+                <align>center</align>
+                <aligny>center</aligny>
+                <label>222</label>
+                <height>60</height>
+            </control>
+            <control type="image" id="3006" description="clearart">
+                <visible>false</visible>
+            </control>
+            <control type="image" id="3010" description="landscape">
+                <visible>false</visible>
+            </control>
+            <control type="label" description="episode/season info" id="3002">
+                <visible>false</visible>
+            </control>
+            <control type="label" description="Title" id="3000">
+                <visible>false</visible>
+            </control>
+            <control type="label" id="3003" description="rating">
+                <visible>false</visible>
+            </control>
+            <control type="label" id="3004" description="year/runtime">
+                <visible>false</visible>
+            </control>
+		</control>
+	</controls>
+</window>
