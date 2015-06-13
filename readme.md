@@ -12,6 +12,15 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 
 
 ***
+**2.1.2**
+- Updated language files from Transifex.
+- Added skin settings to import/export the skin settings.
+- Added keyboard auto-complete via Extended Info script.
+- Skinned T9 keyboard for Extended Info.
+- Added support for Nextup Notification Service addon.
+- Added blurred album cover background for music viz, courtesy of AN5.
+
+***
 **2.1.1**
 - Added support for SimplePlaylists addon.
 - Fixed LowList view for video/music addons, added it for picture addons.
