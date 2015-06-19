@@ -4,8 +4,12 @@
     <onload>ClearProperty(MediaMenu,Home)</onload>
     <controls>
 		<control type="group">
+            <control type="image">
+                <texture>black.png</texture>
+                <include>FullscreenDimensions</include>
+            </control>
 			<control type="image">
-				<texture background="true" fallback="black.png">$INFO[Container(500).ListItem.Art(fanart)]</texture>
+				<texture background="true">$INFO[Container(500).ListItem.Art(fanart)]</texture>
 				<include>FullscreenDimensions</include>
 				<aspectratio aligny="top">scale</aspectratio>  
 				<fadetime>300</fadetime>
@@ -20,127 +24,156 @@
         <control type="group">
             <animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
             <animation effect="slide" tween="cubic" time="720" start="0,0" end="0,1080">WindowClose</animation>
-            <control type="panel" id="500">
-                <left>120</left>
-				<top>179</top>
-				<width>1680</width>
-				<height>720</height>
+            <control type="fixedlist" id="500">
+                <left>-120</left>
+                <top>250</top>
+                <width>2100</width>
+                <height>750</height>
+                <onup condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onup>
+                <onup condition="!Skin.HasSetting(KioskMode.Enabled)">SetFocus(9000)</onup>
+                <onleft>700</onleft>
+                <onright>600</onright>
+                <ondown>60</ondown>
+                <orientation>horizontal</orientation>
+                <viewtype label="31079">BigWrap</viewtype>
+                <pagecontrol>60</pagecontrol>
                 <preloaditems>2</preloaditems>
-                <scrolltime tween="quadratic">300</scrolltime>
-                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
-                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetFocus(9000)</onleft>
-                <!--<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9000</onleft>-->
-                <onright>500</onright>
-                <onup>700</onup>
-                <ondown>600</ondown>
-                <orientation>vertical</orientation>
-                <itemlayout height="360" width="240">
-                    <control type="group">
-                        <control type="image">
-                            <width>240</width>
-                            <height>360</height>
-                            <aspectratio>scale</aspectratio>
-                            <texture background="true" fallback="blank.png">$INFO[ListItem.Art(poster)]</texture>
-                            <fadetime>300</fadetime>
-                        </control>
-						<control type="image">
-							<width>240</width>
-							<height>360</height>
-							<texture>thumbs/diffuse.png</texture>
-							<fadetime>300</fadetime>
-						</control>
-                        <control type="image">
-                            <left>200</left>
-                            <width>40</width>
-                            <height>40</height>
-                            <texture>WidgetIndicator.png</texture>
-                            <visible>!IsEmpty(ListItem.Property(DBID))</visible>
-                        </control>                        
+                <scrolltime tween="quadratic">400</scrolltime>
+                <focusposition>1</focusposition>
+                <movement>4</movement>
+                <animation effect="slide" start="0" end="315" time="400" tween="quadratic" easing="out" reversible="true" condition="Control.HasFocus(500) + Container(500).Position(0)">Conditional</animation>
+                <itemlayout width="315" height="750">
+                    <control type="image">
+                        <left>-12</left>
+                        <top>130</top>
+                        <width>340</width>
+                        <height>490</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture background="true">$INFO[ListItem.Art(poster)]</texture>
+                        <bordersize>20</bordersize>
+                    </control>
+                    <control type="image">
+                        <left>248</left>
+                        <top>150</top>
+                        <width>60</width>
+                        <height>60</height>
+                        <texture>WidgetIndicator.png</texture>
+                        <aspectratio align="center" aligny="top">keep</aspectratio>
+                        <visible>!IsEmpty(ListItem.Property(DBID))</visible>
                     </control>
                 </itemlayout>
-                <focusedlayout height="360" width="240">
+                <focusedlayout width="315" height="750" >
                     <control type="group">
-                        <animation type="Focus" reversible="false">
-							<effect type="zoom" start="95" end="100" time="300" tween="sine" easing="inout" center="auto" />
-							<effect type="fade" start="80" end="100" time="300" tween="sine" easing="in" />
-						</animation>
+                        <animation effect="zoom" center="auto" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
+                        <animation effect="zoom" center="auto" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
                         <control type="image">
-                            <left>0</left>
-							<top>0</top>
-							<width>240</width>
-							<height>360</height>
-							<aspectratio>scale</aspectratio>
-                            <texture background="true" fallback="blank.png">$INFO[ListItem.Art(poster)]</texture>
-                            <fadetime>300</fadetime>
-							<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-							<bordersize>8</bordersize>
-                        </control>                       
+                            <left>-12</left>
+                            <top>130</top>
+                            <width>340</width>
+                            <height>490</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture background="true">$INFO[ListItem.Art(poster)]</texture>
+                            <bordersize>20</bordersize>
+                        </control>
                         <control type="image">
-							<top>8</top>
-                            <left>192</left>
-                            <width>40</width>
-                            <height>40</height>
+                            <left>248</left>
+                            <top>150</top>
+                            <width>60</width>
+                            <height>60</height>
                             <texture>WidgetIndicator.png</texture>
+                            <aspectratio align="center" aligny="top">keep</aspectratio>
                             <visible>!IsEmpty(ListItem.Property(DBID))</visible>
                         </control>
-                    </control>                    
+                    </control>
                 </focusedlayout>
-            </control>           
+            </control>
+            <control type="scrollbar" id="60">
+                <left>0</left>
+                <top>1066</top>
+                <width>FullScreenWidth</width>
+                <height>14</height>
+                <onup>500</onup>
+                <ondown>noop</ondown>
+                <onleft>700</onleft>
+                <onright>600</onright>
+                <orientation>horizontal</orientation>
+            </control>
+            <control type="image">
+                <left>60</left>
+                <top>596</top>
+                <width>29</width>
+                <height>58</height>
+                <texture flipx="true" colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
+                <visible>Container(500).Position(0) + !IsEmpty(Window.Property(ArrowUp))</visible>
+                <animation effect="fade" start="60" end="100" time="1600" pulse="true" condition="true">Conditional</animation>
+            </control>
+            <control type="image">
+                <left>1850</left>
+                <top>596</top>
+                <width>29</width>
+                <height>58</height>
+                <texture colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
+                <visible>Container(500).Position(5) + !IsEmpty(Window.Property(ArrowDown))</visible>
+                <animation effect="fade" start="60" end="100" time="1600" pulse="true" condition="true">Conditional</animation>
+            </control>
             <control type="button" id="600">
+                <include>HiddenObject</include>
                 <onfocus>SetFocus(500)</onfocus>
-                <width>1</width>
-                <height>1</height>
-                <posx>-1000</posx>
             </control>
             <control type="button" id="700">
+                <include>HiddenObject</include>
                 <onfocus>SetFocus(500)</onfocus>
-                <width>1</width>
-                <height>1</height>
-                <posx>-1000</posx>
             </control>
-			<control type="group">
-				<left>120</left>
-				<top>920</top>
-				<include>VisibleFadeEffect</include>
-				<control type="label">
-					<width>1150</width>
-					<height>42</height>
-					<aligny>top</aligny>
-					<align>left</align>
-					<font>font16_title</font>
-					<scroll>true</scroll>
-					<label>[B]$INFO[Container(500).ListItem.Label]$INFO[Container(500).ListItem.Property(User_Rating), • ][/B]</label>
-					<textoffsety>-2</textoffsety>
-				</control>
-				<control type="grouplist">
-					<top>50</top>
-					<width>1100</width>
-					<height>30</height>
-					<align>left</align>
-					<itemgap>10</itemgap>
-					<orientation>horizontal</orientation>
-					<control type="label">
-						<width>auto</width>
-						<height>30</height>
-						<align>left</align>
-						<font>font13_title</font>
-						<label>$ADDON[script.extendedinfo 32023]:</label>
-					</control>
-					<control type="label">                            
-						<width>auto</width>
-						<height>30</height>
-						<font>font13_title</font>
-						<label fallback="16018">$INFO[Window.Property(Filter_Label)]</label>
-					</control>
-				</control>
-				<control type="image">
-					<left>1395</left>
-					<top>-80</top>
-					<width>300</width>
-					<aspectratio>keep</aspectratio>
-					<texture>tmdb.png</texture>
-				</control>
-			</control>                
+            <control type="group">
+                <control type="group">
+                    <left>90</left>
+                    <top>925</top>
+                    <include>VisibleFadeEffect</include>
+                    <control type="label">
+                        <left>35</left>
+                        <top>0</top>
+                        <width>1150</width>
+                        <height>42</height>
+                        <aligny>top</aligny>
+                        <align>left</align>
+                        <font>font16_title</font>
+                        <scroll>true</scroll>
+                        <label>[B]$INFO[Container(500).ListItem.Label]$INFO[Container(500).ListItem.Property(User_Rating),[COLOR $VAR[ColorHighlightVar]]  |  ,[/COLOR]][/B]</label>
+                        <textoffsety>-2</textoffsety>
+                        <textoffsetx>30</textoffsetx>
+                    </control>
+                    <control type="grouplist">
+                        <left>65</left>
+                        <top>50</top>
+                        <width>1100</width>
+                        <height>30</height>
+                        <align>left</align>
+                        <itemgap>10</itemgap>
+                        <orientation>horizontal</orientation>
+                        <control type="label">
+                            <width>auto</width>
+                            <height>30</height>
+                            <align>left</align>
+                            <font>font13_title</font>
+                            <label>$ADDON[script.extendedinfo 32023]:</label>
+                        </control>
+                        <control type="label">
+                            <width>auto</width>
+                            <height>30</height>
+                            <font>font13_title</font>
+                            <label fallback="16018">$INFO[Window.Property(Filter_Label)]</label>
+                        </control>
+                    </control>
+                </control>
+                <control type="image">
+                    <left>1550</left>
+                    <top>940</top>
+                    <width>280</width>
+                    <height>59</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture>tmdb.png</texture>
+                </control>
+            </control>
         </control>
         <control type="group">
 			<animation effect="slide" start="0,-90" end="0,0" time="480" delay="800" condition="true">WindowOpen</animation>
