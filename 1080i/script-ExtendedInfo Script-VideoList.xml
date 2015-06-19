@@ -25,7 +25,7 @@
             <animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
             <animation effect="slide" tween="cubic" time="720" start="0,0" end="0,1080">WindowClose</animation>
             <control type="fixedlist" id="500">
-                <left>-120</left>
+                <left>-140</left>
                 <top>275</top>
                 <width>2100</width>
                 <height>750</height>
@@ -99,22 +99,22 @@
                 <orientation>horizontal</orientation>
             </control>
             <control type="image">
-                <left>60</left>
+                <left>50</left>
                 <top>581</top>
                 <width>29</width>
                 <height>58</height>
                 <texture flipx="true" colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
-                <visible>Container(500).Position(0) + !IsEmpty(Window.Property(ArrowUp))</visible>
-                <animation effect="fade" start="60" end="100" time="1600" pulse="true" condition="true">Conditional</animation>
+                <visible>Control.HasFocus(500) + Container(500).Position(0) + !IsEmpty(Window.Property(ArrowUp))</visible>
+                <animation effect="fade" start="60" end="100" time="800" condition="true">Conditional</animation>
             </control>
             <control type="image">
-                <left>1850</left>
+                <left>1841</left>
                 <top>581</top>
                 <width>29</width>
                 <height>58</height>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
-                <visible>Container(500).Position(5) + !IsEmpty(Window.Property(ArrowDown))</visible>
-                <animation effect="fade" start="60" end="100" time="1600" pulse="true" condition="true">Conditional</animation>
+                <visible>Control.HasFocus(500) + Container(500).Position(5) + !IsEmpty(Window.Property(ArrowDown))</visible>
+                <animation effect="fade" start="60" end="100" time="800" condition="true">Conditional</animation>
             </control>
             <control type="button" id="600">
                 <include>HiddenObject</include>
@@ -126,7 +126,7 @@
             </control>
             <control type="group">
                 <control type="group">
-                    <left>90</left>
+                    <left>70</left>
                     <top>910</top>
                     <include>VisibleFadeEffect</include>
                     <control type="label">
@@ -166,8 +166,8 @@
                     </control>
                 </control>
                 <control type="image">
-                    <left>1550</left>
-                    <top>910</top>
+                    <left>1530</left>
+                    <top>935</top>
                     <width>280</width>
                     <height>59</height>
                     <aspectratio>keep</aspectratio>
