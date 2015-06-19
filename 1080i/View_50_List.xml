@@ -8,6 +8,7 @@
 			<control type="group">
 				<left>90</left>
 				<top>-50</top>
+				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist)">Conditional</animation>
 				<control type="list" id="50">
 					<left>0</left>
 					<top>155</top>
@@ -1018,7 +1019,8 @@
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)] + !IsEmpty(ListItem.Art(thumb))</visible>
+				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video) | Window.IsActive(videoplaylist)] + !IsEmpty(ListItem.Art(thumb))</visible>
+				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist)">Conditional</animation>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
 					<width>560</width>

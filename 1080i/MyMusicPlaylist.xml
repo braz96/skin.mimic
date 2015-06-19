@@ -2,7 +2,8 @@
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
-	<views>50,508</views>
+	<views>50,501,508</views>
+	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
@@ -13,7 +14,9 @@
 			<!-- view id = 50 -->
 		</control>
 		<control type="group">
-			<include condition="!Skin.HasSetting(SongView.Disabled)">View_508_SongList</include>
+			<include>MusicLowList</include>
+			<!-- view id = 501 -->
+			<include>View_508_SongList</include>
 			<!-- view id = 508 -->
 		</control>
 		<include>ScrollOffsetLabel</include>
