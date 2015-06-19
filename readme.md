@@ -19,6 +19,7 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 - Skinned T9 keyboard for Extended Info.
 - Added support for Nextup Notification Service addon.
 - Added blurred album cover background for music viz, courtesy of AN5.
+- Changed Extended Info video list to Shift view.
 
 ***
 **2.1.1**
