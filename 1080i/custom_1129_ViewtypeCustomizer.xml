@@ -104,7 +104,7 @@
 					<include>ButtonCommonValues</include>
 					<onclick>Skin.ToggleSetting(Disable.PosterView)</onclick>
 					<selected>!Skin.HasSetting(Disable.PosterView)</selected>
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | [Container.Content(musicvideos) + Window.IsActive(videos)]</visible>
 				</control>
 				<control type="radiobutton" id="1299">
 					<description>Shift</description>
@@ -120,7 +120,7 @@
 					<include>ButtonCommonValues</include>
 					<onclick>Skin.ToggleSetting(Disable.ShowCaseView)</onclick>
 					<selected>!Skin.HasSetting(Disable.ShowCaseView)</selected>
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos)</visible>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | [Container.Content(musicvideos) + Window.IsActive(videos)]</visible>
 				</control>
 				<control type="radiobutton" id="1301">
 					<description>ShowCase</description>
@@ -128,7 +128,7 @@
 					<include>ButtonCommonValues</include>
 					<onclick>Skin.ToggleSetting(Disable.ShowCaseView)</onclick>
 					<selected>!Skin.HasSetting(Disable.ShowCaseView)</selected>
-					<visible>[Container.Content(artists) | Container.Content(albums)] + !Window.IsActive(videos)</visible>
+					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)] + !Window.IsActive(videos)</visible>
 				</control>
 				<control type="radiobutton" id="1302">
 					<description>LowList</description>
@@ -176,7 +176,7 @@
 					<include>ButtonCommonValues</include>
 					<onclick>Skin.ToggleSetting(Disable.WallView)</onclick>
 					<selected>!Skin.HasSetting(Disable.WallView)</selected>
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(artists) + !Window.IsActive(videos)] | [Container.Content(albums) + !Window.IsActive(videos)]  | [Window.IsActive(pictures) + Container(509).HasFiles + !Container.Content(addons)]</visible>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos) | [Container.Content(artists) + !Window.IsActive(videos)] | [Container.Content(albums) + !Window.IsActive(videos)]  | [Window.IsActive(pictures) + Container(509).HasFiles + !Container.Content(addons)]</visible>
 				</control>
 				<control type="radiobutton" id="1308">
 					<description>BannerWall</description>
