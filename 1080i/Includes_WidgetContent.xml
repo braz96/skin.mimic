@@ -55,14 +55,21 @@
 				<left>148</left>
 				<width>300</width>
 				<height>300</height>
-				<colordiffuse>ff878787</colordiffuse>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
 				<texture background="true">$INFO[ListItem.Icon]</texture>
+			</control>
+			<control type="image">
+				<top>30</top>
+				<left>148</left>
+				<width>300</width>
+				<height>300</height>
+				<texture>overlays/OverlayNF.png</texture>
 			</control>
 		</itemlayout>
 		<focusedlayout height="300" width="330" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
 			<control type="group">
-				<animation effect="zoom" start="100" end="136" center="298,180" time="720" tween="back" easing="out" reversible="false">Focus</animation>
+				<animation center="298,180" easing="inout" effect="zoom" end="136" start="100" time="300" tween="sine">Focus</animation>
+				<animation center="298,180" condition="Container(8000).OnNext | Container(8000).OnPrevious" easing="inout" effect="zoom" end="100" start="136" time="300" tween="sine">UnFocus</animation>
 				<control type="image">
 					<top>30</top>
 					<left>148</left>
@@ -70,6 +77,15 @@
 					<height>300</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="image">
+					<top>30</top>
+					<left>148</left>
+					<width>300</width>
+					<height>300</height>
+					<texture>overlays/OverlayNF.png</texture>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 				</control>
 			</control>
 		</focusedlayout>
@@ -80,7 +96,6 @@
 				<left>90</left>
 				<width>200</width>
 				<height>300</height>
-				<colordiffuse>ff878787</colordiffuse>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
 				<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(thumb)]</texture>
 			</control>
@@ -90,14 +105,21 @@
 				<left>90</left>
 				<width>200</width>
 				<height>300</height>
-				<colordiffuse>ff878787</colordiffuse>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
 				<texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+			</control>
+			<control type="image">
+				<top>30</top>
+				<left>90</left>
+				<width>200</width>
+				<height>300</height>
+				<texture>overlays/OverlayNF.png</texture>
 			</control>
 		</itemlayout>
 		<focusedlayout height="320" width="220" condition="[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),5)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
 			<control type="group">
-				<animation effect="zoom" start="100" end="136" center="190,180" time="720" tween="back" easing="out" reversible="false">Focus</animation>
+				<animation center="190,180" easing="inout" effect="zoom" end="136" start="100" time="300" tween="sine">Focus</animation>
+				<animation center="190,180" condition="Container(8000).OnNext | Container(8000).OnPrevious" easing="inout" effect="zoom" end="100" start="136" time="300" tween="sine">UnFocus</animation>
 				<control type="image">
 					<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
 					<top>30</top>
@@ -116,6 +138,15 @@
 					<aspectratio aligny="center" align="center">scale</aspectratio>
 					<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
 				</control>
+				<control type="image">
+					<top>30</top>
+					<left>90</left>
+					<width>200</width>
+					<height>300</height>
+					<texture>overlays/OverlayNF.png</texture>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+				</control>
 			</control>
 		</focusedlayout>
 		<itemlayout height="300" width="563" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">
@@ -124,14 +155,21 @@
 				<left>130</left>
 				<width>533</width>
 				<height>300</height>
-				<colordiffuse>ff878787</colordiffuse>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
 				<texture background="true">$INFO[ListItem.Icon]</texture>
+			</control>
+			<control type="image">
+				<top>30</top>
+				<left>130</left>
+				<width>533</width>
+				<height>300</height>
+				<texture>overlays/OverlayNF.png</texture>
 			</control>
 		</itemlayout>
 		<focusedlayout height="300" width="563" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">
 			<control type="group">
-				<animation effect="zoom" start="100" end="136" center="396,180" time="720" tween="back" easing="out" reversible="false">Focus</animation>
+				<animation center="396,180" easing="inout" effect="zoom" end="136" start="100" time="300" tween="sine">Focus</animation>
+				<animation center="396,180" condition="Container(8000).OnNext | Container(8000).OnPrevious" easing="inout" effect="zoom" end="100" start="136" time="300" tween="sine">UnFocus</animation>
 				<control type="image">
 					<top>30</top>
 					<left>130</left>
@@ -139,6 +177,15 @@
 					<height>300</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="image">
+					<top>30</top>
+					<left>130</left>
+					<width>533</width>
+					<height>300</height>
+					<texture>overlays/OverlayNF.png</texture>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 				</control>
 			</control>
 		</focusedlayout>
