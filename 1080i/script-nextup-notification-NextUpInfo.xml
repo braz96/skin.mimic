@@ -13,9 +13,33 @@
 			 <include name="DialogBackgroundCommons">
                 <param name="DialogBackgroundWidth" value="1300" />
                 <param name="DialogBackgroundHeight" value="700" />
-                <param name="DialogHeaderLabel" value="$ADDON[service.nextup.notification 30008]..." />
+                <param name="DialogHeaderLabel" value="" />
                 <param name="DialogHeaderId" value="-" />
             </include>
+            <control type="label">
+                <description>header label</description>
+                <visible>IntegerGreaterThan(Player.TimeRemaining(ss),59)</visible>
+                <top>25</top>
+                <width>1300</width>
+                <height>40</height>
+                <font>font15_title</font>
+                <label>$ADDON[service.nextup.notification 30008]...</label>
+                <textoffsetx>30</textoffsetx>
+                <align>center</align>
+                <textcolor>maintext</textcolor>
+            </control>
+            <control type="label">
+                <description>header label</description>
+                <visible>!IntegerGreaterThan(Player.TimeRemaining(ss),59)</visible>
+                <top>25</top>
+                <width>1300</width>
+                <height>40</height>
+                <font>font15_title</font>
+                <label>$ADDON[service.nextup.notification 30008]... $INFO[Player.TimeRemaining(ss)]</label>
+                <textoffsetx>30</textoffsetx>
+                <align>center</align>
+                <textcolor>maintext</textcolor>
+            </control>
             <control type="image" id="3009" description="poster">
                 <left>30</left>
                 <top>90</top>
