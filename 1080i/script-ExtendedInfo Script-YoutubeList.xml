@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <defaultcontrol always="true">500</defaultcontrol>
+    <onload>ClearProperty(MediaMenu,Home)</onload>
+    <controls>
+        <control type="group">
+            <control type="image">
+                <texture>black.png</texture>
+                <include>FullscreenDimensions</include>
+            </control>
+            <control type="image">
+                <texture background="true">$INFO[Container(500).ListItem.Thumb]</texture>
+                <include>FullscreenDimensions</include>
+                <aspectratio aligny="top">scale</aspectratio>  
+                <fadetime>300</fadetime>
+            </control>
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture>background.png</texture>
+                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+                <fadetime>300</fadetime>
+            </control>
+        </control>
+        <control type="group">
+            <top>0</top>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="zoom" start="80" end="100" center="960,540" delay="500" tween="back" time="240" />
+                <effect type="fade" delay="500" end="100" time="240" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
+                <effect type="fade" start="100" end="0" time="240" />
+            </animation>
+            <control type="group">
+                <visible>IntegerGreaterThan(Container(500).NumItems,0)</visible>
+                <animation effect="fade" time="320" delay="300">Visible</animation>
+                <control type="image">
+                    <left>80</left>
+                    <top>142</top>
+                    <width>440</width>
+                    <height>380</height>
+                    <visible>Control.HasFocus(500)</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,410" time="300" tween="cubic" easing="inout" condition="Container(500).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3)">Conditional</animation>
+                    <animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3) | Container(500).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3) | Container(500).Column(2) | Container(500).Column(1)">Conditional</animation>
+                </control>
+            </control>
+            <control type="panel" id="500">
+                <left>80</left>
+                <top>167</top>
+                <width>1760</width>
+                <height>820</height>
+                <viewtype label="31234">icon</viewtype>
+                <pagecontrol>60</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <scrolltime tween="quadratic">300</scrolltime>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetFocus(9000)</onleft>
+                <onright>60</onright>
+                <onup>700</onup>
+                <ondown>600</ondown>
+                <orientation>vertical</orientation>
+                <itemlayout height="410" width="440">
+                    <control type="group">
+                        <left>0</left>
+                        <top>0</top>
+                        <control type="image">
+                            <left>25</left>
+                            <width>390</width>
+                            <height>220</height>
+                            <fadetime>200</fadetime>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <left>280</left>
+                            <top>225</top>
+                            <width>130</width>
+                            <height>30</height>
+                            <texture colordiffuse="maintext">$INFO[ListItem.Rating,flags/rating/,.png]</texture>
+                            <animation effect="fade" delay="800" time="400">WindowOpen</animation>
+                            <animation effect="fade" time="160">WindowClose</animation>
+                            <animation effect="fade" time="240">VisibleChange</animation>
+                        </control>
+                        <control type="label">
+                            <left>30</left>
+                            <top>225</top>
+                            <width>380</width>
+                            <height>30</height>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <label>$INFO[ListItem.Property(viewcount),, $ADDON[script.extendedinfo 32061]]</label>
+                            <font>font10</font>
+                        </control>
+                        <control type="textbox">
+                            <left>20</left>
+                            <top>260</top>
+                            <height>75</height>
+                            <width>400</width>
+                            <label>$INFO[ListItem.Label]</label>
+                            <align>center</align>
+                            <font>font12</font>
+                        </control>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="410" width="440">
+                    <control type="group">
+                        <left>0</left>
+                        <top>0</top>
+                        <animation type="Focus">
+                            <effect type="zoom" time="150" start="95" end="100" center="245,260" />
+                            <effect type="zoom" time="150" start="105" end="100" delay="150" center="245,260" />
+                        </animation>
+                        <control type="image">
+                            <left>25</left>
+                            <width>390</width>
+                            <height>220</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <left>280</left>
+                            <top>225</top>
+                            <width>130</width>
+                            <height>30</height>
+                            <texture colordiffuse="maintext">$INFO[ListItem.Rating,flags/rating/,.png]</texture>
+                            <animation effect="fade" delay="800" time="400">WindowOpen</animation>
+                            <animation effect="fade" time="160">WindowClose</animation>
+                            <animation effect="fade" time="240">VisibleChange</animation>
+                        </control>
+                        <control type="label">
+                            <left>30</left>
+                            <top>225</top>
+                            <width>380</width>
+                            <height>30</height>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <label>$INFO[ListItem.Property(viewcount),, $ADDON[script.extendedinfo 32061]]</label>
+                            <font>font10</font>
+                        </control>
+                        <control type="textbox">
+                            <left>20</left>
+                            <top>260</top>
+                            <height>75</height>
+                            <width>400</width>
+                            <align>center</align>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>font12</font>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="scrollbar" id="60">
+                <left>1906</left>
+                <top>45</top>
+                <width>14</width>
+                <height>1035</height>
+                <onleft>500</onleft>
+                <onright>500</onright>
+                <ondown>60</ondown>
+                <onup>60</onup>
+            </control>
+            <control type="button" id="600">
+                <onfocus>SetFocus(500)</onfocus>
+                <width>1</width>
+                <height>1</height>
+                <left>-1000</left>
+            </control>
+            <control type="button" id="700">
+                <onfocus>SetFocus(500)</onfocus>
+                <width>1</width>
+                <height>1</height>
+                <left>-1000</left>
+            </control>
+        </control>
+        <control type="group">
+            <animation effect="slide" start="0,-90" end="0,0" time="480" delay="800" condition="true">WindowOpen</animation>
+            <animation effect="slide" end="0,-90" start="0,0" time="480" condition="true">WindowClose</animation>
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>FullScreenWidth</width>
+                <height>45</height>
+                <texture>topbar.png</texture>
+                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+            </control>
+            <control type="group">
+                <top>-2</top>
+                <control type="group">
+                    <animation effect="slide" time="400" tween="" easing="" start="0" end="35" condition="Control.IsVisible(1996)">Conditional</animation>
+                    <control type="image" id="1996">
+                        <visible>![Window.IsActive(settings) | Window.IsActive(addoninformation) | Skin.HasSetting(KioskMode.Enabled)]</visible>
+                        <top>8</top>
+                        <left>-27</left>
+                        <width>32</width>
+                        <height>32</height>
+                        <texture>arrow.png</texture>
+                        <colordiffuse>maintext</colordiffuse>
+                    </control>
+                    <control type="label">
+                        <width>900</width>
+                        <height>45</height>
+                        <font>topbar</font>
+                        <textoffsetx>15</textoffsetx>
+                        <textcolor>maintext</textcolor>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <label>$INFO[Control.GetLabel(5001)]</label>
+                    </control>
+                </control>
+                <control type="label">
+                    <left>0</left>
+                    <width>FullScreenWidth</width>
+                    <height>45</height>
+                    <font>topbar</font>
+                    <textoffsetx>15</textoffsetx>
+                    <textcolor>maintext</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[System.Time]</label>
+                </control>
+                <control type="label">
+                    <left>1020</left>
+                    <width>900</width>
+                    <height>45</height>
+                    <font>topbar</font>
+                    <textoffsetx>15</textoffsetx>
+                    <textcolor>maintext</textcolor>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[Window.Property(TotalItems),, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Window.Property(CurrentPage)]$INFO[Window.Property(TotalPages),/][/COLOR]</label>
+                </control>
+            </control>
+        </control>
+        <include>Bottombar</include>
+        <control type="group">
+            <animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
+            <animation effect="slide" start="0,0" end="440,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9000)">Conditional</animation>
+            <left>-440</left>
+            <control type="button">
+                <left>-12</left>
+                <top>-12</top>
+                <width>442</width>
+                <height>1104</height>
+                <texturefocus border="12">dialog_context.png</texturefocus>
+                <texturenofocus border="12">dialog_context.png</texturenofocus>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="button">
+                <left>420</left>
+                <width>30</width>
+                <height>1080</height>
+                <texturefocus>-</texturefocus>
+                <onfocus>SetProperty(MediaMenu,True,home)</onfocus>
+                <visible>system.getbool(input.enablemouse)</visible>
+            </control>
+            <include name="SideBladeCloseIcon">
+                <param name="CloseIconDialogClose" value="noop" />
+                <param name="CloseIconDialogClose2" value="noop" />
+                <param name="ClearMediaMenu" value="ClearProperty(MediaMenu,Home)" />
+                <param name="CloseIconSetFocus" value="SetFocus(500)" />
+                <param name="CloseIconVisibility" value="system.getbool(input.enablemouse)" />
+            </include>
+            <control type="image">
+                <description>LOGO</description>
+                <left>0</left>
+                <top>25</top>
+                <width>400</width>
+                <height>70</height>
+                <aspectratio>keep</aspectratio>
+                <texture>logo.png</texture>
+                <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+            </control>
+            <control type="grouplist" id="9000">
+                <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
+                <visible>IsEmpty(Window(home).Property(t9search))</visible>
+                <left>0</left>
+                <top>120</top>
+                <width>400</width>
+                <height>1080</height>
+                <orientation>vertical</orientation>
+                <scroll>true</scroll>
+                <onup>9000</onup>
+                <ondown>9000</ondown>
+                <onright>ClearProperty(MediaMenu,Home)</onright>
+                <onright>500</onright>
+                <onleft>500</onleft>
+                <onback>500</onback>
+                <control type="label" id="5014">
+                    <description>View Options Heading</description>
+                    <width>400</width>
+                    <height>52</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>font13_title</font>
+                    <label>31006</label>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                    <aligny>center</aligny>
+                </control>     
+                <control type="button" id="5007">
+                    <label>$INFO[Window.Property(Type),$LOCALIZE[467]: ]</label>
+                    <width>400</width>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5001">
+                    <label>$INFO[Window.Property(Sort_Label),$ADDON[script.extendedinfo 32104]: ]</label>
+                    <width>400</width>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5004">
+                    <label>$ADDON[script.extendedinfo 32128]</label>
+                    <label2>$INFO[Window.Property(Order_Label)]</label2>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="label" id="5333">
+                    <label>$ADDON[script.extendedinfo 32023]</label>
+                    <width>400</width>
+                    <height>52</height>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13_title</font>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                </control>
+                <control type="button" id="5002">
+                    <label>$LOCALIZE[172]</label>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5003">
+                    <label>$LOCALIZE[248]</label>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5006">
+                    <label>$ADDON[script.extendedinfo 32066]</label>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5008">
+                    <label>$LOCALIZE[180]</label>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5009">
+                    <label>$LOCALIZE[287]</label>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5010">
+                    <label>$LOCALIZE[572]</label>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5012">
+                    <label>$LOCALIZE[169]</label>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5013">
+                    <description>Misc Options Heading</description>
+                    <textwidth>352</textwidth>
+                    <font>font13_title</font>
+                    <include>ButtonCommonValues</include>
+                    <label>31026</label>
+                    <enable>no</enable>
+                    <disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
+                </control>
+                <control type="button" id="6000">
+                    <label>$LOCALIZE[19140]</label>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="button" id="5005">
+                    <label>$ADDON[script.extendedinfo 32022]</label>
+                    <textoffsetx>15</textoffsetx>
+                    <aligny>center</aligny>
+                    <font>font13</font>
+                </control>
+                <control type="radiobutton" id="7000">
+                    <aligny>center</aligny>
+                    <textoffsetx>15</textoffsetx>
+                    <font>font13</font>
+                    <label>$ADDON[script.extendedinfo 32024]</label>
+                    <radiowidth>90</radiowidth>
+                    <radioheight>60</radioheight>
+                    <radioleft>288</radioleft>
+                    <textureradioonfocus>common/youtube.png</textureradioonfocus>
+                    <textureradioofffocus>common/youtube.png</textureradioofffocus>
+                    <textureradioonnofocus>common/youtube.png</textureradioonnofocus>
+                    <textureradiooffnofocus>common/youtube.png</textureradiooffnofocus>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>
