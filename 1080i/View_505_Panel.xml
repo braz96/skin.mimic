@@ -3,7 +3,23 @@
     <!--PORTRAIT-->
     <include name="View_505_Panel">
 		<include>ViewAnimation</include>
-        <control type="list" id="505">
+        <control type="group">
+            <visible>IntegerGreaterThan(Container(505).NumItems,0)</visible>
+            <animation effect="fade" time="320" delay="300">Visible</animation>
+            <control type="image">
+                <left>83</left>
+                <top>255</top>
+                <width>555</width>
+                <height>725</height>
+                <visible>Control.HasFocus(505)</visible>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="200">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Container(505).Column(2)">Conditional</animation>
+                <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Container(505).Column(2) | Container(505).Column(1)">Conditional</animation>
+            </control>
+        </control>
+        <control type="panel" id="505">
             <viewtype label="31059">wrap</viewtype>
             <left>83</left>
             <top>255</top>
@@ -51,14 +67,6 @@
 				<include>viewPanelTextbox-ContainerCommons</include>
             </itemlayout>
             <focusedlayout width="600" height="725">
-				<control type="image">
-					<width>555</width>
-                    <height>725</height>
-					<texture>listselect_fo.png</texture>
-					<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-					<visible>Control.HasFocus(505)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
                 <control type="label">
                     <top>327</top>
                     <left>15</left>
@@ -112,6 +120,7 @@
             <control type="group">
                 <left>15</left>
                 <top>15</top>
+                <include>PanelFocusedItemZoom</include>
                 <control type="image">
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists)</visible>
                     <width>525</width>

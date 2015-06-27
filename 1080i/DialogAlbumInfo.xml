@@ -365,11 +365,27 @@
 					<texturesliderbar>scrollbar.png</texturesliderbar>
 					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus(4003)">Conditional</animation>
 				</control>
+				<control type="group">
+	                <visible>IntegerGreaterThan(Container(50).NumItems,0) + Container.Content(artists) + System.HasAddon(script.extendedinfo)</visible>
+	                <!--<animation effect="fade" time="320" delay="300">Visible</animation>-->
+	                <control type="image">
+	                	<visible>Control.HasFocus(50)</visible>
+	                    <left>-38</left>
+	                    <top>550</top>
+	                    <width>404</width>
+	                    <height>404</height>
+	                    <animation effect="fade" time="320" delay="0">Visible</animation>
+	                    <animation effect="fade" time="200">Hidden</animation>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+	                    <animation effect="slide" end="392,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(2)">Conditional</animation>
+	                    <animation effect="slide" end="392,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(2) | Container(50).Column(1)">Conditional</animation>
+	                </control>
+	            </control>
 				<control type="panel" id="50">
 					<visible>Container.Content(artists) + System.HasAddon(script.extendedinfo)</visible>
-					<left>-38</left>
-					<top>552</top>
-					<width>1188</width>
+					<left>-32</left>
+					<top>556</top>
+					<width>1176</width>
 					<height>504</height>
 					<onleft>50</onleft>
 					<onright>50</onright>
@@ -379,32 +395,34 @@
 					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<orientation>horizontal</orientation>
-					<itemlayout height="396" width="396" condition="Container.Content(artists)">
+					<itemlayout height="392" width="392" condition="Container.Content(artists)">
 						<control type="image">
-							<width>396</width>
-							<height>396</height>
+							<top>6</top>
+							<left>6</left>
+							<width>380</width>
+							<height>380</height>
 							<aspectratio align="center" aligny="center">scale</aspectratio>
 							<texture fallback="DefaultFallbackAlbum.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
-							<width>396</width>
-							<height>396</height>
+							<top>6</top>
+							<left>6</left>
+							<width>380</width>
+							<height>380</height>
 							<texture>thumbs/diffuse.png</texture>
-							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
-							<top>306</top>
-							<width>396</width>
+							<top>296</top>
+							<left>6</left>
+							<width>380</width>
 							<height>90</height>
 							<texture>black.png</texture>
 							<colordiffuse>bbffffff</colordiffuse>
-							<fadetime>300</fadetime>
 						</control>
 						<control type="label">
-							<left>10</left>
-							<top>306</top>
-							<width>376</width>
+							<left>16</left>
+							<top>300</top>
+							<width>360</width>
 							<height>40</height>
 							<font>font_Actor</font>
 							<textcolor>maintext</textcolor>
@@ -412,9 +430,9 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>10</left>
-							<top>346</top>
-							<width>376</width>
+							<left>16</left>
+							<top>340</top>
+							<width>360</width>
 							<height>40</height>
 							<font>font_Actor</font>
 							<textcolor>maintext</textcolor>
@@ -422,39 +440,37 @@
 							<label>$INFO[ListItem.Year]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="396" width="396" condition="Container.Content(artists)">
+					<focusedlayout height="392" width="392" condition="Container.Content(artists)">
 						<control type="group">
-							<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
 							<control type="image">
-								<width>396</width>
-								<height>396</height>
+								<top>6</top>
+								<left>6</left>
+								<width>380</width>
+								<height>380</height>
 								<aspectratio align="center" aligny="center">scale</aspectratio>
 								<texture fallback="DefaultFallbackAlbum.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
-								<fadetime>300</fadetime>
 							</control>
 							<control type="image">
-								<visible>IsEmpty(ListItem.Art(thumb))</visible>
-								<width>396</width>
-								<height>396</height>
-								<texture>blank.png</texture>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
-								<fadetime>300</fadetime>
-							</control>
-							<control type="image">
-								<top>306</top>
-								<left>8</left>
+								<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+								<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+								<top>6</top>
+								<left>6</left>
 								<width>380</width>
-								<height>82</height>
+								<height>380</height>
+								<texture>thumbs/diffuse.png</texture>
+							</control>
+							<control type="image">
+								<top>296</top>
+								<left>6</left>
+								<width>380</width>
+								<height>90</height>
 								<texture>black.png</texture>
 								<colordiffuse>bbffffff</colordiffuse>
 							</control>
 							<control type="label">
-								<left>10</left>
-								<top>306</top>
-								<width>376</width>
+								<left>16</left>
+								<top>300</top>
+								<width>360</width>
 								<height>40</height>
 								<font>font_Actor</font>
 								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
@@ -462,9 +478,9 @@
 								<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 							</control>
 							<control type="label">
-								<left>10</left>
-								<top>346</top>
-								<width>376</width>
+								<left>16</left>
+								<top>340</top>
+								<width>360</width>
 								<height>40</height>
 								<font>font_Actor</font>
 								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>

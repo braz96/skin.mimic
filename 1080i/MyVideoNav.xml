@@ -7,7 +7,6 @@
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(Disable.NextAired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
-	<include condition="Skin.HasSetting(Enable.TvTunes)">LoadTvTunes</include>
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
@@ -154,14 +153,15 @@
 			</control>
 			<control type="group">
 				<visible>Control.IsVisible(500) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58)</visible>
-				<animation effect="slide" start="0,0" end="80,0" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(56)">Conditional</animation>
-				<animation effect="slide" start="0" end="40" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-5" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(500)">Conditional</animation>
-				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
+				<animation effect="slide" start="0,0" end="80,0" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(56)">Conditional</animation>
+				<animation effect="slide" start="0" end="40" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="45,0" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(58)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-10" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(500)">Conditional</animation>
+				<animation effect="slide" tween="cubic" time="400" start="0,806" end="0,0">VisibleChange</animation>
 				<control type="group">
 					<left>90</left>
 					<top>965</top>
-					<visible>![Control.IsVisible(56) | Container.Content(files)]</visible>
+					<visible>![Control.IsVisible(56) | Container.Content(files) | Container.Content(sets)]</visible>
 					<include>VisibleFadeEffect</include>
 					<control type="label">
 						<left>0</left>
@@ -188,6 +188,7 @@
 					</control>
 				</control>
 				<control type="group">
+					<animation effect="slide" start="0,0" end="-75,0" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(58)">Conditional</animation>
 					<left>1444</left>
 					<top>965</top>
 					<width>1840</width>
@@ -221,6 +222,7 @@
 					</control>
 				</control>
 				<control type="group">
+					<animation effect="slide" start="0,0" end="90,0" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(500)">Conditional</animation>
 					<left>1246</left>
 					<top>950</top>
 					<width>1840</width>
@@ -229,25 +231,25 @@
 					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(files)]</visible>
 					<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
 					<control type="image">
-						<left>32</left>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
 						<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 					</control>
 					<control type="image">
-						<left>230</left>
+						<left>160</left>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
 						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					</control>
 					<control type="image">
-						<left>428</left>
+						<left>328</left>
 						<include>MediaFlagVars</include>
 						<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
 						<visible>!IsEmpty(ListItem.VideoCodec)</visible>
 					</control>
 				</control>
 				<control type="group">
+					<animation effect="slide" start="0,0" end="-90,0" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(58)">Conditional</animation>
 					<left>1477</left>
 					<top>972</top>
 					<width>500</width>

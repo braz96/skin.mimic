@@ -63,7 +63,7 @@
 				<left>148</left>
 				<width>300</width>
 				<height>300</height>
-				<texture>overlays/OverlayNF.png</texture>
+				<texture>thumbs/diffuse.png</texture>
 			</control>
 		</itemlayout>
 		<focusedlayout height="300" width="330" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
@@ -83,7 +83,7 @@
 					<left>148</left>
 					<width>300</width>
 					<height>300</height>
-					<texture>overlays/OverlayNF.png</texture>
+					<texture>thumbs/diffuse.png</texture>
 					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 				</control>
@@ -113,7 +113,7 @@
 				<left>90</left>
 				<width>200</width>
 				<height>300</height>
-				<texture>overlays/OverlayNF.png</texture>
+				<texture>thumbs/diffuse.png</texture>
 			</control>
 		</itemlayout>
 		<focusedlayout height="320" width="220" condition="[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),5)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
@@ -143,7 +143,7 @@
 					<left>90</left>
 					<width>200</width>
 					<height>300</height>
-					<texture>overlays/OverlayNF.png</texture>
+					<texture>thumbs/diffuse.png</texture>
 					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 				</control>
@@ -163,7 +163,7 @@
 				<left>130</left>
 				<width>533</width>
 				<height>300</height>
-				<texture>overlays/OverlayNF.png</texture>
+				<texture>thumbs/diffuse.png</texture>
 			</control>
 		</itemlayout>
 		<focusedlayout height="300" width="563" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">
@@ -183,7 +183,7 @@
 					<left>130</left>
 					<width>533</width>
 					<height>300</height>
-					<texture>overlays/OverlayNF.png</texture>
+					<texture>thumbs/diffuse.png</texture>
 					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 				</control>
@@ -194,18 +194,44 @@
 	<include name="WidgetPanelContent">
 		<control type="image">
 			<top>217</top>
-			<left>2650</left>
-			<width>750</width>
-			<height>805</height>
+			<left>2630</left>
+			<width>770</width>
+			<height>815</height>
 			<texture border="12">dialog_context.png</texture>
 			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + Skin.HasSetting(Enable.HomeVerticalMenu)</visible>
 		</control>
+		<control type="image">
+			<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),1)</visible>
+            <left>2664</left>
+            <top>292</top>
+            <width>219</width>
+            <height>316</height>
+            <animation effect="fade" time="320" delay="200">Visible</animation>
+            <animation effect="fade" time="200">Hidden</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+            <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(1)">Conditional</animation>
+            <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2)">Conditional</animation>
+            <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2) | Container(8000).Column(1)">Conditional</animation>
+        </control>
+        <control type="image">
+        	<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),2)</visible>
+            <left>2671</left>
+            <top>292</top>
+            <width>316</width>
+            <height>316</height>
+            <animation effect="fade" time="320" delay="200">Visible</animation>
+            <animation effect="fade" time="200">Hidden</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+            <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(1)">Conditional</animation>
+            <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2)">Conditional</animation>
+            <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2) | Container(8000).Column(1)">Conditional</animation>
+        </control>
 		<control type="panel" id="8000">
-			<left>2690</left>
-			<top>297</top>
-			<width>600</width>
-			<height>600</height>
+			<left>2670</left>
+			<top>298</top>
+			<width>621</width>
+			<height>608</height>
 			<onleft>8000</onleft>
 			<onright>9000</onright>
 			<onback>9000</onback>
@@ -218,79 +244,110 @@
 			<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),2) | StringCompare(Container(9000).ListItem.Property(WidgetType),4) | StringCompare(Container(9000).ListItem.Property(WidgetType),5) | StringCompare(Container(9000).ListItem.Property(WidgetType),6)]</visible>
 			<visible>!IsEmpty(Container(9000).ListItem.Property(Widget))</visible>
 			<autoscroll time="10000" delay="10000" repeat="10000">[Control.IsVisible(9003) + !Control.HasFocus(8000)] + !Skin.HasSetting(Disable.WidgetAutoScroll)</autoscroll>
-			<itemlayout height="300" width="300" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
-				<control type="image">
-					<width>300</width>
-					<height>300</height>
-					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<fadetime>400</fadetime>
-				</control>
-				<control type="image">
-					<width>300</width>
-					<height>300</height>
-					<texture>thumbs/diffuse.png</texture>
-					<fadetime>300</fadetime>
+			<itemlayout height="304" width="304" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+				<control type="group">
+					<left>7</left>
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>292</width>
+						<height>292</height>
+						<aspectratio aligny="center" align="center">scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<fadetime>400</fadetime>
+					</control>
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>292</width>
+						<height>292</height>
+						<texture>thumbs/diffuse.png</texture>
+					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="300" width="300" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
-				<control type="image">
-					<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
-					<width>300</width>
-					<height>300</height>
-					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<fadetime>400</fadetime>
-					<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-					<bordersize>8</bordersize>
+			<focusedlayout height="298" width="298" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+				<control type="group">
+					<include>PanelFocusedItemZoom</include>
+                    <left>7</left>
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>292</width>
+						<height>292</height>
+						<aspectratio aligny="center" align="center">scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="image">
+						<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+						<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						<top>6</top>
+						<left>6</left>
+						<width>292</width>
+						<height>292</height>
+						<texture>thumbs/diffuse.png</texture>
+					</control>
 				</control>
 			</focusedlayout>
-			<itemlayout height="300" width="200" condition="[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),5)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+			<itemlayout height="304" width="207" condition="[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),5)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
 				<control type="image">
 					<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
-					<width>200</width>
-					<height>300</height>
+					<top>6</top>
+					<left>6</left>
+					<width>195</width>
+					<height>292</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
 					<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>400</fadetime>
 				</control>
 				<control type="image">
 					<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
-					<width>200</width>
-					<height>300</height>
+					<top>6</top>
+					<left>6</left>
+					<width>195</width>
+					<height>292</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
 					<fadetime>400</fadetime>
 				</control>
 				<control type="image">
-					<width>200</width>
-					<height>300</height>
+					<top>6</top>
+					<left>6</left>
+					<width>195</width>
+					<height>292</height>
 					<texture>thumbs/diffuse.png</texture>
 					<fadetime>300</fadetime>
 				</control>
 			</itemlayout>
 			<focusedlayout height="300" width="200" condition="[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),5)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
-				<control type="image">
-					<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
-					<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
-					<width>200</width>
-					<height>300</height>
-					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<fadetime>400</fadetime>
-					<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-					<bordersize>8</bordersize>
-				</control>
-				<control type="image">
-					<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
-					<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
-					<width>200</width>
-					<height>300</height>
-					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
-					<fadetime>400</fadetime>
-					<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-					<bordersize>8</bordersize>
+				<control type="group">
+					<include>PanelFocusedItemZoom</include>
+					<control type="image">
+						<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+						<top>6</top>
+						<left>6</left>
+						<width>195</width>
+						<height>292</height>
+						<aspectratio aligny="center" align="center">scale</aspectratio>
+						<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+					<control type="image">
+						<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+						<top>6</top>
+						<left>6</left>
+						<width>195</width>
+						<height>292</height>
+						<aspectratio aligny="center" align="center">scale</aspectratio>
+						<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+					</control>
+					<control type="image">
+						<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+						<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						<top>6</top>
+						<left>6</left>
+						<width>195</width>
+						<height>292</height>
+						<texture>thumbs/diffuse.png</texture>
+					</control>
 				</control>
 			</focusedlayout>
 			<itemlayout height="200" width="300" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">
@@ -305,19 +362,24 @@
 					<width>300</width>
 					<height>200</height>
 					<texture>thumbs/diffuse.png</texture>
-					<fadetime>300</fadetime>
 				</control>
 			</itemlayout>
 			<focusedlayout height="200" width="300" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">
+				<include>PanelFocusedItemZoom</include>
 				<control type="image">
-					<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
 					<width>300</width>
 					<height>200</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<fadetime>400</fadetime>
-					<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-					<bordersize>8</bordersize>
+				</control>
+				<control type="image">
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+					<top>6</top>
+					<left>6</left>
+					<width>300</width>
+					<height>200</height>
+					<texture>thumbs/diffuse.png</texture>
 				</control>
 			</focusedlayout>
 			<content target="$VAR[WidgetListTargetVar]">$VAR[WidgetListContent]</content>

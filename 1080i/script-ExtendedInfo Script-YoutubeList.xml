@@ -23,14 +23,15 @@
         </control>
         <control type="group">
             <top>0</top>
-            <animation type="WindowOpen" reversible="false">
+            <!--<animation type="WindowOpen" reversible="false">
                 <effect type="zoom" start="80" end="100" center="960,540" delay="500" tween="back" time="240" />
                 <effect type="fade" delay="500" end="100" time="240" />
             </animation>
             <animation type="WindowClose" reversible="false">
                 <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
                 <effect type="fade" start="100" end="0" time="240" />
-            </animation>
+            </animation>-->
+            <include>Window_OpenClose_Animation</include>
             <control type="group">
                 <visible>IntegerGreaterThan(Container(500).NumItems,0)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
@@ -111,10 +112,7 @@
                     <control type="group">
                         <left>0</left>
                         <top>0</top>
-                        <animation type="Focus">
-                            <effect type="zoom" time="150" start="95" end="100" center="245,260" />
-                            <effect type="zoom" time="150" start="105" end="100" delay="150" center="245,260" />
-                        </animation>
+                        <include>PanelFocusedItemZoom</include>
                         <control type="image">
                             <left>25</left>
                             <width>390</width>
@@ -315,8 +313,7 @@
                     <font>font13</font>
                 </control>
                 <control type="button" id="5004">
-                    <label>$ADDON[script.extendedinfo 32128]</label>
-                    <label2>$INFO[Window.Property(Order_Label)]</label2>
+                    <label>$ADDON[script.extendedinfo 32128]: $INFO[Window.Property(Order_Label)]</label>
                     <textoffsetx>15</textoffsetx>
                     <aligny>center</aligny>
                     <font>font13</font>
@@ -343,7 +340,7 @@
                     <font>font13</font>
                 </control>
                 <control type="button" id="5006">
-                    <label>$ADDON[script.extendedinfo 32066]</label>
+                    <label>[UPPERCASE]$ADDON[script.extendedinfo 32066][/UPPERCASE]</label>
                     <textoffsetx>15</textoffsetx>
                     <aligny>center</aligny>
                     <font>font13</font>
@@ -394,17 +391,19 @@
                     <font>font13</font>
                 </control>
                 <control type="radiobutton" id="7000">
+                    <width>400</width>
                     <aligny>center</aligny>
                     <textoffsetx>15</textoffsetx>
                     <font>font13</font>
                     <label>$ADDON[script.extendedinfo 32024]</label>
-                    <radiowidth>90</radiowidth>
-                    <radioheight>60</radioheight>
-                    <radioleft>288</radioleft>
-                    <textureradioonfocus>common/youtube.png</textureradioonfocus>
-                    <textureradioofffocus>common/youtube.png</textureradioofffocus>
-                    <textureradioonnofocus>common/youtube.png</textureradioonnofocus>
-                    <textureradiooffnofocus>common/youtube.png</textureradiooffnofocus>
+                    <radiowidth>85</radiowidth>
+                    <radioheight>34</radioheight>
+                    <radioposy>13</radioposy>
+                    <!--<radioleft>120</radioleft>-->
+                    <textureradioonfocus colordiffuse="maintext">youtube.png</textureradioonfocus>
+                    <textureradioofffocus colordiffuse="maintext">youtube.png</textureradioofffocus>
+                    <textureradioonnofocus colordiffuse="maintext">youtube.png</textureradioonnofocus>
+                    <textureradiooffnofocus colordiffuse="maintext">youtube.png</textureradiooffnofocus>
                 </control>
             </control>
         </control>

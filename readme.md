@@ -12,6 +12,10 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 
 
 ***
+**2.2.0**
+- Updated all of the panel views using Phil65's design.
+
+***
 **2.1.2**
 - Updated language files from Transifex.
 - Added skin settings to import/export the skin settings.

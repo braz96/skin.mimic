@@ -5,8 +5,24 @@
 		<include>ViewAnimation</include>
         <control type="group">
 			<visible>Control.IsVisible(507)</visible>
+            <control type="group">
+                <visible>IntegerGreaterThan(Container(507).NumItems,0)</visible>
+                <control type="image">
+                    <left>60</left>
+                    <top>64</top>
+                    <width>1808</width>
+                    <height>231</height>
+                    <visible>Control.HasFocus(507)</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="50">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(507).Row(3)">Conditional</animation>
+                    <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(507).Row(3) | Container(507).Row(2)">Conditional</animation>
+                    <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(507).Row(3) | Container(507).Row(2) | Container(507).Row(1)">Conditional</animation>
+                </control>
+            </control>
             <!--container-->
-            <control type="list" id="507">
+            <control type="panel" id="507">
                 <viewtype label="31052">list</viewtype>
                 <left>60</left>
                 <top>64</top>
@@ -84,15 +100,6 @@
                     </control>
                 </itemlayout>
                 <focusedlayout width="1808" height="231">
-					<control type="image">
-						<top>0</top>
-						<width>1803</width>
-						<height>231</height>
-						<texture>listselect_fo.png</texture>
-						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						<visible>Control.HasFocus(507)</visible>
-						<include>VisibleFadeEffect</include>
-					</control>
                     <include>view_BigList-LandscapeCommons</include>
                     <control type="group">
                         <left>382</left>
@@ -176,6 +183,10 @@
         <control type="group">
             <left>18</left>
             <top>18</top>
+            <animation type="Focus">
+                <effect type="zoom" time="150" start="95" end="100" center="251,147" />
+                <effect type="zoom" time="150" start="105" end="100" delay="150" center="251,147" />
+            </animation>
 			<control type="image">
                 <width>346</width>
                 <height>195</height>

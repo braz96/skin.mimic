@@ -6,24 +6,49 @@
 			<visible>Control.IsVisible(509)</visible>
 			<include>ViewAnimation</include>
 			<top>-15</top>
-			<control type="group">
-				<visible>Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)</visible>
-				<control type="image">
-					<left>0</left>
-					<width>1</width>
-					<height>1080</height>
-					<texture>black.png</texture>
-				</control>
-				<control type="image">
-					<left>1919</left>
-					<width>1</width>
-					<height>1080</height>
-					<texture>black.png</texture>
-				</control>
-			</control>
+			<control type="image">
+            	<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + Control.HasFocus(509)</visible>
+                <left>14</left>
+                <top>15</top>
+                <width>247</width>
+                <height>358</height>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="200">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                <animation effect="slide" end="0,346" time="300" tween="cubic" easing="inout" condition="Container(509).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,346" time="300" tween="cubic" easing="inout" condition="Container(509).Row(2) | Container(509).Row(1)">Conditional</animation>
+                <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7)">Conditional</animation>
+                <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6)">Conditional</animation>
+                <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6) | Container(509).Column(5)">Conditional</animation>
+                <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4)">Conditional</animation>
+                <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3)">Conditional</animation>
+                <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3) | Container(509).Column(2)">Conditional</animation>
+                <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3) | Container(509).Column(2) | Container(509).Column(1)">Conditional</animation>
+            </control>
+            <control type="image">
+            	<visible>[Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)] + Control.HasFocus(509)</visible>
+                <left>44</left>
+                <top>14</top>
+                <width>272</width>
+                <height>272</height>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="200">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3)">Conditional</animation>
+                <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3) | Container(509).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3) | Container(509).Row(2) | Container(509).Row(1)">Conditional</animation>
+                <animation effect="slide" end="260,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(6)">Conditional</animation>
+                <animation effect="slide" end="260,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(6) | Container(509).Column(5)">Conditional</animation>
+                <animation effect="slide" end="260,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4)">Conditional</animation>
+                <animation effect="slide" end="260,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3)">Conditional</animation>
+                <animation effect="slide" end="260,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3) | Container(509).Column(2)">Conditional</animation>
+                <animation effect="slide" end="260,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3) | Container(509).Column(2) | Container(509).Column(1)">Conditional</animation>
+            </control>
 			<control type="panel" id="509">
-				<width>FullScreenWidth</width>
-				<height>1080</height>
+				<top>20</top>
+				<left>20</left>
+				<width>1880</width>
+				<height>1040</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<onright>60</onright>
@@ -35,25 +60,29 @@
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">400</scrolltime>
 				<focusposition>1</focusposition>
-				<itemlayout width="240" height="360" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)">
+				<itemlayout width="235" height="346" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)">
 					<control type="group">
+						<top>1</top>
+						<height>1038</height>
 						<control type="image">
-							<left>0</left>
-							<width>240</width>
-							<height>360</height>
+							<top>6</top>
+							<left>6</left>
+							<width>223</width>
+							<height>334</height>
 							<aspectratio scalediffuse="false">scale</aspectratio>
 							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
 							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
-							<width>240</width>
-							<height>360</height>
+							<top>6</top>
+							<left>6</left>
+							<width>223</width>
+							<height>334</height>
 							<texture>thumbs/diffuse.png</texture>
-							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
-							<left>180</left>
-							<top>0</top>
+							<left>169</left>
+							<top>6</top>
 							<width>60</width>
 							<height>60</height>
 							<texture>$VAR[OverlayVar]</texture>
@@ -61,22 +90,34 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="240" height="360" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)">
+				<focusedlayout width="235" height="346" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)">
 					<control type="group">
-						<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+						<animation type="Focus">
+				            <effect type="zoom" time="150" start="95" end="100" center="117,174" />
+				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="117,174" />
+				        </animation>
+						<top>1</top>
+						<height>1038</height>
 						<control type="image">
-							<left>0</left>
-							<width>240</width>
-							<height>360</height>
+							<top>6</top>
+							<left>6</left>
+							<width>223</width>
+							<height>334</height>
 							<aspectratio scalediffuse="false">scale</aspectratio>
 							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
-							<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-							<fadetime>300</fadetime>
-							<bordersize>8</bordersize>
 						</control>
 						<control type="image">
-							<left>172</left>
-							<top>8</top>
+							<animation center="auto" condition="Control.HasFocus(509)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(509)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>223</width>
+							<height>334</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="image">
+							<left>169</left>
+							<top>6</top>
 							<width>60</width>
 							<height>60</height>
 							<texture>$VAR[OverlayVar]</texture>
@@ -84,35 +125,40 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout width="274" height="270" condition="Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)">
+				<itemlayout width="260" height="260" condition="Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)">
 					<control type="group">
-						<left>1</left>
+						<width>1820</width>
+						<left>30</left>
 						<control type="image">
-							<left>0</left>
-							<width>274</width>
-							<height>270</height>
+							<top>6</top>
+							<left>6</left>
+							<width>248</width>
+							<height>248</height>
 							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
 							<texture background="true">$VAR[MusicThumbVar]</texture>
 							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
-							<visible>Container.Content(albums)</visible>
-							<width>274</width>
-							<height>270</height>
+							<top>6</top>
+							<left>6</left>
+							<width>248</width>
+							<height>248</height>
 							<texture>thumbs/diffuse.png</texture>
-							<fadetime>300</fadetime>
 						</control>
 						<control type="group">
 							<visible>Container.Content(artists)</visible>
 							<control type="image">
-								<width>274</width>
-								<height>270</height>
-								<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
-								<fadetime>300</fadetime>
+								<left>6</left>
+								<top>204</top>
+								<width>248</width>
+								<height>50</height>
+								<texture>black.png</texture>
+								<colordiffuse>99ffffff</colordiffuse>
 							</control>
 							<control type="label">
-								<top>230</top>
-								<width>274</width>
+								<left>6</left>
+								<top>214</top>
+								<width>248</width>
 								<height>28</height>
 								<align>center</align>
 								<textoffsetx>4</textoffsetx>
@@ -122,36 +168,49 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="274" height="270" condition="Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)">
+				<focusedlayout width="260" height="260" condition="Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)">
 					<control type="group">
-						<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
-						<left>1</left>
+						<animation type="Focus">
+				            <effect type="zoom" time="150" start="95" end="100" center="166,136" />
+				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="166,136" />
+				        </animation>
+						<width>1820</width>
+						<left>30</left>
 						<control type="image">
-							<width>274</width>
-							<height>270</height>
+							<top>6</top>
+							<left>6</left>
+							<width>248</width>
+							<height>248</height>
 							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
 							<texture background="true">$VAR[MusicThumbVar]</texture>
-							<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-							<fadetime>300</fadetime>
-							<bordersize>8</bordersize>
 						</control>
 						<control type="group">
-							<visible>Container.Content(artists)</visible>
 							<control type="image">
-								<left>8</left>
-								<top>220</top>
-								<width>258</width>
-								<height>42</height>
+								<animation center="auto" condition="Control.HasFocus(509)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+								<animation center="auto" condition="Control.HasFocus(509)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+								<top>6</top>
+								<left>6</left>
+								<width>248</width>
+								<height>248</height>
+								<texture>thumbs/diffuse.png</texture>
+							</control>
+							<control type="image">
+								<visible>Container.Content(artists)</visible>
+								<left>6</left>
+								<top>204</top>
+								<width>248</width>
+								<height>50</height>
 								<texture>black.png</texture>
 								<colordiffuse>99ffffff</colordiffuse>
-								<fadetime>300</fadetime>
 							</control>
 							<control type="label">
-								<top>225</top>
-								<width>274</width>
+								<visible>Container.Content(artists)</visible>
+								<left>6</left>
+								<top>214</top>
+								<width>248</width>
 								<height>28</height>
 								<align>center</align>
-								<textoffsetx>10</textoffsetx>
+								<textoffsetx>4</textoffsetx>
 								<textcolor>maintext</textcolor>
 								<info>ListItem.Label</info>
 							</control>
@@ -170,7 +229,6 @@
 				<onright>SetProperty(MediaMenu,True,home)</onright>
 				<onright>SetFocus(9050)</onright>
 				<orientation>vertical</orientation>
-				<texturesliderbarfocus colordiffuse="$VAR[ColorHighlightVar]">solid_bg.png</texturesliderbarfocus>
 			</control>
 		</control>
 	</include>

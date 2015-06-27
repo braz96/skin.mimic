@@ -5,11 +5,25 @@
 		<control type="group">
 			<visible>Control.IsVisible(506) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
-            <control type="fixedlist" id="506">
+			<control type="image">
+				<visible>Control.HasFocus(506)</visible>
+                <left>98</left>
+                <top>62</top>
+                <width>998</width>
+                <height>195</height>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="50">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(506).Row(4)">Conditional</animation>
+                <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(506).Row(4) | Container(506).Row(3)">Conditional</animation>
+                <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(506).Row(4) | Container(506).Row(3) | Container(506).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(506).Row(4) | Container(506).Row(3) | Container(506).Row(2) | Container(506).Row(1)">Conditional</animation>
+            </control>
+            <control type="panel" id="506">
 				<viewtype label="31085">icon</viewtype>
-				<left>115</left>
-				<top>73</top>
-				<height>905</height>
+				<left>104</left>
+				<top>68</top>
+				<height>915</height>
 				<width>980</width>
                 <onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
@@ -17,22 +31,24 @@
 				<onup>506</onup>
 				<ondown>506</ondown>
 				<orientation>vertical</orientation>
-				<focusposition>2</focusposition>
-                <movement>2</movement>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<pagecontrol>60</pagecontrol>
-				<itemlayout width="980" height="181">
+				<itemlayout width="991" height="183">
 					<control type="image">
-						<width>980</width>
-						<height>181</height>
+						<top>6</top>
+						<left>6</left>
+						<width>979</width>
+						<height>171</height>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
 						<texture background="true">$VAR[BannerThumb]</texture>
 						<fadetime>300</fadetime>
 						<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
 					</control>
 					<control type="image">
-						<width>980</width>
-						<height>181</height>
+						<top>6</top>
+						<left>6</left>
+						<width>979</width>
+						<height>171</height>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<fadetime>300</fadetime>
@@ -41,94 +57,102 @@
                     <control type="group">
 						<visible>IsEmpty(ListItem.Art(banner))</visible>
 						<control type="image">
-							<width>980</width>
-                            <height>181</height>
+							<top>6</top>
+							<left>6</left>
+							<width>979</width>
+							<height>171</height>
 							<aspectratio>scale</aspectratio>
 							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
 							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
 							<left>15</left>
-							<width>400</width>
-							<height>181</height>
+							<width>450</width>
+							<height>171</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 							<fadetime>300</fadetime>
 						</control>
 					</control>
 					<control type="image">
-						<width>980</width>
-						<height>181</height>
+						<top>6</top>
+						<left>6</left>
+						<width>979</width>
+						<height>171</height>
 						<texture>thumbs/diffuse.png</texture>
-						<fadetime>300</fadetime>
 					</control>
 					<control type="image">
 						<left>920</left>
-						<top>0</top>
+						<top>6</top>
 						<width>60</width>
 						<height>60</height>
 						<texture>$VAR[OverlayVar]</texture>
 						<aspectratio align="center" aligny="top">keep</aspectratio>
 					</control>
 				</itemlayout>
-				<focusedlayout width="980" height="181">
+				<focusedlayout width="991" height="183">
                     <control type="group">
-                        <animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+                        <include>PanelFocusedItemZoom</include>
 						<control type="group">
 							<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
 							<control type="image">
-								<width>980</width>
-								<height>181</height>
+								<top>6</top>
+								<left>6</left>
+								<width>979</width>
+								<height>171</height>
 								<aspectratio align="center" aligny="center">scale</aspectratio>
 								<texture background="true">$VAR[BannerThumb]</texture>
-								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
 							</control>
 						</control>
 						<control type="group">
 							<visible>IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
 							<control type="image">
-								<width>980</width>
-								<height>181</height>
+								<top>6</top>
+								<left>6</left>
+								<width>979</width>
+								<height>171</height>
 								<texture>background.png</texture>
-								<fadetime>300</fadetime>
 								<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
 							</control>
 							<control type="image">
-								<width>980</width>
-								<height>181</height>
+								<top>6</top>
+								<left>6</left>
+								<width>979</width>
+								<height>171</height>
 								<aspectratio align="center" aligny="center">keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
-								<fadetime>300</fadetime>	
 							</control>
 						</control>
                         <control type="group">
 							<visible>IsEmpty(ListItem.Art(banner))</visible>
 							<control type="image">
-								<width>980</width>
-                                <height>181</height>
+								<top>6</top>
+								<left>6</left>
+								<width>979</width>
+								<height>171</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
 							</control>
 							<control type="image">
 								<left>15</left>
-								<width>400</width>
-								<height>181</height>
+								<width>450</width>
+								<height>171</height>
 								<aspectratio>keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-								<fadetime>300</fadetime>
-								<bordersize>2</bordersize>
 							</control>
 						</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(506)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(506)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>979</width>
+							<height>171</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
                         <control type="image">
-							<left>912</left>
-							<top>8</top>
+							<left>920</left>
+							<top>6</top>
 							<width>60</width>
 							<height>60</height>
 							<texture>$VAR[OverlayVar]</texture>
@@ -149,7 +173,7 @@
 			</control>
 			<control type="grouplist">
 				<top>73</top>
-				<left>1130</left>
+				<left>1134</left>
 				<itemgap>15</itemgap>
 				<control type="image">
 					<left>1122</left>
