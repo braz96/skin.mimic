@@ -194,7 +194,7 @@
 	<include name="WidgetPanelContent">
 		<control type="image">
 			<top>217</top>
-			<left>2630</left>
+			<left>2650</left>
 			<width>770</width>
 			<height>815</height>
 			<texture border="12">dialog_context.png</texture>
@@ -203,7 +203,7 @@
 		</control>
 		<control type="image">
 			<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),1)</visible>
-            <left>2664</left>
+            <left>2674</left>
             <top>292</top>
             <width>219</width>
             <height>316</height>
@@ -216,7 +216,7 @@
         </control>
         <control type="image">
         	<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),2)</visible>
-            <left>2671</left>
+            <left>2681</left>
             <top>292</top>
             <width>316</width>
             <height>316</height>
@@ -227,11 +227,25 @@
             <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2)">Conditional</animation>
             <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2) | Container(8000).Column(1)">Conditional</animation>
         </control>
+        <control type="image">
+        	<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),6)</visible>
+            <left>2674</left>
+            <top>287</top>
+            <width>322</width>
+            <height>215</height>
+            <animation effect="fade" time="320" delay="200">Visible</animation>
+            <animation effect="fade" time="200">Hidden</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+            <animation effect="slide" end="310,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(1)">Conditional</animation>
+            <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(2)">Conditional</animation>
+            <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(2) | Container(8000).Row(1)">Conditional</animation>
+        </control>
 		<control type="panel" id="8000">
-			<left>2670</left>
+			<animation effect="slide" end="0,-5" time="300" tween="cubic" easing="inout" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">Conditional</animation>
+			<left>2680</left>
 			<top>298</top>
 			<width>621</width>
-			<height>608</height>
+			<height>609</height>
 			<onleft>8000</onleft>
 			<onright>9000</onright>
 			<onback>9000</onback>
@@ -318,7 +332,7 @@
 					<fadetime>300</fadetime>
 				</control>
 			</itemlayout>
-			<focusedlayout height="300" width="200" condition="[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),5)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+			<focusedlayout height="304" width="207" condition="[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),5)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
 				<control type="group">
 					<include>PanelFocusedItemZoom</include>
 					<control type="image">
@@ -350,25 +364,31 @@
 					</control>
 				</control>
 			</focusedlayout>
-			<itemlayout height="200" width="300" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">
+			<itemlayout height="203" width="310" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">
 				<control type="image">
-					<width>300</width>
-					<height>200</height>
+					<top>6</top>
+					<left>6</left>
+					<width>298</width>
+					<height>191</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
 					<fadetime>400</fadetime>
 				</control>
 				<control type="image">
-					<width>300</width>
-					<height>200</height>
+					<top>6</top>
+					<left>6</left>
+					<width>298</width>
+					<height>191</height>
 					<texture>thumbs/diffuse.png</texture>
 				</control>
 			</itemlayout>
-			<focusedlayout height="200" width="300" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">
+			<focusedlayout height="203" width="310" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),6)">
 				<include>PanelFocusedItemZoom</include>
 				<control type="image">
-					<width>300</width>
-					<height>200</height>
+					<top>6</top>
+					<left>6</left>
+					<width>298</width>
+					<height>191</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
 				</control>
@@ -377,8 +397,8 @@
 					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 					<top>6</top>
 					<left>6</left>
-					<width>300</width>
-					<height>200</height>
+					<width>298</width>
+					<height>191</height>
 					<texture>thumbs/diffuse.png</texture>
 				</control>
 			</focusedlayout>
