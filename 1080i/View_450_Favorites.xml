@@ -31,7 +31,6 @@
 						<height>105</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<fadetime>IconCrossfadeTime</fadetime>
 						<colordiffuse>maintext</colordiffuse>
 					</control>
 					<control type="label">
@@ -76,7 +75,6 @@
 						<height>105</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<fadetime>IconCrossfadeTime</fadetime>
 					</control>
 					<control type="label">
 						<left>135</left>
@@ -110,6 +108,24 @@
 	<!-- Favorite Panel -->
 	<include name="FavPanel">
 		<control type="group">
+			<control type="group">
+                <visible>IntegerGreaterThan(Container(450).NumItems,0)</visible>
+                <animation effect="fade" time="320" delay="300">Visible</animation>
+                <control type="image">
+                	<visible>Control.HasFocus(450)</visible>
+                    <left>194</left>
+                    <top>134</top>
+                    <width>392</width>
+                    <height>392</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,380" time="300" tween="cubic" easing="inout" condition="Container(450).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="380,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(3)">Conditional</animation>
+                    <animation effect="slide" end="380,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(3) | Container(450).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="380,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(3) | Container(450).Column(2) | Container(450).Column(1)">Conditional</animation>
+                </control>
+            </control>
 			<control type="panel" id="450">
 				<left>200</left>
 				<top>140</top>
@@ -125,39 +141,60 @@
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<itemlayout height="380" width="380">
 					<control type="image">
-						<width>380</width>
-						<height>380</height>
+						<top>6</top>
+						<left>6</left>
+						<width>368</width>
+						<height>368</height>
 						<aspectratio aligny="top">scale</aspectratio>
 						<texture fallback="DefaultFallbackFavourite.png" background="true">$INFO[ListItem.Icon]</texture>
-						<fadetime>300</fadetime>
 					</control>
 					<control type="image">
-						<width>380</width>
-						<height>380</height>
+						<top>6</top>
+						<left>6</left>
+						<width>368</width>
+						<height>368</height>
 						<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
-						<fadetime>300</fadetime>
 					</control>
 					<control type="label">
-						<top>337</top>
-						<width>380</width>
+						<top>331</top>
+						<left>16</left>
+						<width>348</width>
 						<height>30</height>
 						<align>center</align>
-						<textoffsetx>10</textoffsetx>
 						<textcolor>maintext</textcolor>
 						<info>ListItem.Label</info>
 					</control>
 				</itemlayout>
 				<focusedlayout height="380" width="380">
 					<control type="group">
-						<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+						<include>PanelFocusedItemZoom</include>
 						<control type="image">
-							<width>380</width>
-							<height>380</height>
+							<top>6</top>
+							<left>6</left>
+							<width>368</width>
+							<height>368</height>
 							<aspectratio aligny="top">scale</aspectratio>
 							<texture fallback="DefaultFallbackFavourite.png" background="true">$INFO[ListItem.Icon]</texture>
-							<fadetime>300</fadetime>
-							<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-							<bordersize>8</bordersize>
+						</control>
+						<control type="group">
+							<animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>368</width>
+								<height>368</height>
+								<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+							</control>
+							<control type="label">
+								<top>331</top>
+								<left>16</left>
+								<width>348</width>
+								<height>30</height>
+								<align>center</align>
+								<textcolor>maintext</textcolor>
+								<info>ListItem.Label</info>
+							</control>
 						</control>
 					</control>
 				</focusedlayout>
@@ -166,7 +203,7 @@
 				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 				<control type="button">
 					<top>900</top>
-					<left>170</left>
+					<left>176</left>
 					<width>1740</width>
 					<height>90</height>
 					<font>font16_title</font>
