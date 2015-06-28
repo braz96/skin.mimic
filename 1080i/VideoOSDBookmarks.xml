@@ -3,18 +3,18 @@
     <defaultcontrol always="true">2</defaultcontrol>
     <coordinates>
         <system>1</system>
-        <left>360</left>
-        <top>90</top>
+        <left>365</left>
+        <top>105</top>
     </coordinates>
     <include>dialogeffect</include>
     <controls>
         <include name="DialogBackgroundCommons">
-            <param name="DialogBackgroundWidth" value="1200" />
-            <param name="DialogBackgroundHeight" value="900" />
+            <param name="DialogBackgroundWidth" value="1190" />
+            <param name="DialogBackgroundHeight" value="870" />
             <param name="DialogHeaderLabel" value="$LOCALIZE[298]" />
             <param name="DialogHeaderId" value="" />
         </include>
-        <control type="label">
+        <!--<control type="label">
             <visible>!Window.IsActive(script-globalsearch-main.xml)</visible>
             <top>742</top>
             <left>380</left>
@@ -26,12 +26,29 @@
             <align>right</align>
             <aligny>center</aligny>
             <label>$INFO[Container(11).NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(11).CurrentPage]$INFO[Container(11).NumPages,/][/COLOR]</label>
+        </control>-->
+        <control type="group">
+            <visible>IntegerGreaterThan(Container(11).NumItems,0)</visible>
+            <control type="image">
+                <visible>Control.HasFocus(11)</visible>
+                <left>28</left>
+                <top>72</top>
+                <width>386</width>
+                <height>234</height>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="200">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                <animation effect="slide" end="0,222" time="300" tween="cubic" easing="inout" condition="Container(11).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,222" time="300" tween="cubic" easing="inout" condition="Container(11).Row(2) | Container(11).Row(1)">Conditional</animation>
+                <animation effect="slide" end="374,0" time="300" tween="cubic" easing="inout" condition="Container(11).Column(2)">Conditional</animation>
+                <animation effect="slide" end="374,0" time="300" tween="cubic" easing="inout" condition="Container(11).Column(2) | Container(11).Column(1)">Conditional</animation>
+            </control>
         </control>
         <control type="panel" id="11">
-            <left>40</left>
-            <top>98</top>
+            <left>34</left>
+            <top>78</top>
             <width>1122</width>
-            <height>630</height>
+            <height>666</height>
             <onleft>2</onleft>
             <onright>3</onright>
             <ondown>2</ondown>
@@ -40,58 +57,72 @@
             <viewtype label="536">icon</viewtype>
             <pagecontrol>-</pagecontrol>
             <orientation>vertical</orientation>
-            <itemlayout height="210" width="374">
+            <itemlayout height="222" width="374">
                 <control type="image">
-                    <width>374</width>
+                    <top>6</top>
+                    <left>6</left>
+                    <width>362</width>
                     <height>210</height>
                     <texture background="true">$INFO[ListItem.Icon]</texture>
                     <aspectratio align="center" aligny="center">scale</aspectratio>
-                    <fadetime>200</fadetime>
                 </control>
                 <control type="image">
-                    <top>170</top>
-                    <width>374</width>
-                    <height>40</height>
+                    <top>6</top>
+                    <left>6</left>
+                    <width>362</width>
+                    <height>210</height>
+                    <texture>thumbs/diffuse.png</texture>
+                </control>
+                <control type="image">
+                    <left>6</left>
+                    <top>166</top>
+                    <width>362</width>
+                    <height>50</height>
                     <texture>black.png</texture>
                     <colordiffuse>bbffffff</colordiffuse>
                 </control>
                 <control type="label">
-                    <left>0</left>
-                    <top>180</top>
-                    <width>374</width>
-                    <height>20</height>
+                    <left>16</left>
+                    <top>174</top>
+                    <width>342</width>
+                    <height>30</height>
                     <align>center</align>
                     <textcolor>maintext</textcolor>
                     <info>ListItem.Label</info>
                 </control>
             </itemlayout>
-            <focusedlayout height="210" width="374">
+            <focusedlayout height="222" width="374">
                 <control type="group">
-                    <animation type="Focus">
-                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-                        <effect type="fade" start="80" end="100" time="200" tween="sine" easing="in" />
-                    </animation>
+                    <include>PanelFocusedItemZoom</include>
                     <control type="image">
-                        <width>374</width>
+                        <top>6</top>
+                        <left>6</left>
+                        <width>362</width>
                         <height>210</height>
                         <texture background="true">$INFO[ListItem.Icon]</texture>
                         <aspectratio align="center" aligny="center">scale</aspectratio>
-                        <bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-                        <bordersize>8</bordersize>
-                        <fadetime>200</fadetime>
                     </control>
                     <control type="image">
-                        <top>160</top>
-                        <width>374</width>
+                        <animation center="auto" condition="Control.HasFocus(11)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                        <animation center="auto" condition="Control.HasFocus(11)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                        <top>6</top>
+                        <left>6</left>
+                        <width>362</width>
+                        <height>210</height>
+                        <texture>thumbs/diffuse.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>6</left>
+                        <top>166</top>
+                        <width>362</width>
                         <height>50</height>
                         <texture>black.png</texture>
-                        <bordersize>8</bordersize>
                         <colordiffuse>bbffffff</colordiffuse>
                     </control>
                     <control type="label">
-                        <left>0</left>
-                        <top>170</top>
-                        <width>374</width>
+                        <left>16</left>
+                        <top>174</top>
+                        <width>342</width>
                         <height>30</height>
                         <align>center</align>
                         <info>ListItem.Label</info>
@@ -100,9 +131,9 @@
             </focusedlayout>
         </control>
         <control type="grouplist" id="9000">
-            <left>30</left>
-            <top>802</top>
-            <width>1140</width>
+            <left>33</left>
+            <top>768</top>
+            <width>1122</width>
             <height>60</height>
             <itemgap>8</itemgap>
             <align>center</align>
@@ -110,23 +141,23 @@
             <onleft>9000</onleft>
             <onright>9000</onright>
             <onup>11</onup>
-            <ondown>11</ondown>
+            <ondown>11</ondown>  
             <control type="button" id="2">
                 <description>Create Bookmark button</description>
                 <label>294</label>
-                <width>360</width>
+                <width>363</width>
                 <include>ButtonInfoDialogsCommonValues</include>
             </control>
             <control type="button" id="3">
                 <description>Clear Bookmark button</description>
                 <label>296</label>
-                <width>360</width>
+                <width>363</width>
                 <include>ButtonInfoDialogsCommonValues</include>
             </control>
             <control type="button" id="4">
                 <description>Set episode bookmark</description>
                 <label>20406</label>
-                <width>360</width>
+                <width>363</width>
                 <include>ButtonInfoDialogsCommonValues</include>
                 <visible>videoplayer.content(episodes)</visible>
             </control>
