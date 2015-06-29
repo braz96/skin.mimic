@@ -25,10 +25,26 @@
                 <visible>Control.IsVisible(655)</visible>
                 <include>Window_OpenClose_Animation</include>
                 <!--container-->
-                <control type="fixedlist" id="655">
+                <control type="group">
+                    <visible>IntegerGreaterThan(Container(655).NumItems,0)</visible>
+                    <control type="image">
+                        <left>60</left>
+                        <top>76</top>
+                        <width>1808</width>
+                        <height>230</height>
+                        <visible>Control.HasFocus(655)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="50">Hidden</animation>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(655).Row(3)">Conditional</animation>
+                        <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(655).Row(3) | Container(655).Row(2)">Conditional</animation>
+                        <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(655).Row(3) | Container(655).Row(2) | Container(655).Row(1)">Conditional</animation>
+                    </control>
+                </control>
+                <control type="panel" id="655">
                     <viewtype label="31052">list</viewtype>
                     <left>60</left>
-                    <top>87</top>
+                    <top>82</top>
                     <width>1808</width>
                     <height>934</height>
                     <onleft>655</onleft>
@@ -36,24 +52,13 @@
                     <onup>655</onup>
                     <ondown>655</ondown>
                     <pagecontrol>60</pagecontrol>
-                    <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
                     <orientation>vertical</orientation>
                     <!--landscape layout-->
                     <itemlayout width="1808" height="231">
                         <control type="group">
                             <left>18</left>
-                            <top>10</top>
-                            <control type="image">
-                                <left>-18</left>
-                                <top>-18</top>
-                                <width>1803</width>
-                                <height>231</height>
-                                <texture>listselect_fo.png</texture>
-                                <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-                                <visible>ListItem.IsSelected</visible>
-                                <include>VisibleFadeEffect</include>
-                            </control>
+                            <top>11</top>
                             <control type="image">
                                 <width>346</width>
                                 <height>195</height>
@@ -67,17 +72,11 @@
                                 <aspectratio>scale</aspectratio>
                             </control>
                             <control type="image">
+                                <visible>ListItem.IsSelected</visible>
                                 <width>346</width>
                                 <height>195</height>
-                                <texture>thumbs/diffuse.png</texture>
-                                <fadetime>300</fadetime>
-                            </control>
-                            <control type="image">
-                                <left>286</left>
-                                <width>60</width>
-                                <height>60</height>
-                                <texture>$VAR[OverlayVar]</texture>
-                                <aspectratio align="right" aligny="top">keep</aspectratio>
+                                <texture>listselect_fo.png</texture>
+                                <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
                             </control>
                         </control>
                         <control type="group">
@@ -88,6 +87,7 @@
                                 <label>[B]$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Label2][/B]</label>
                                 <font>font16_title</font>
     							<textcolor>maintext</textcolor>
+                                <selectedcolor>maintext</selectedcolor>
     							<aligny>top</aligny>
                             </control>
                             <control type="label">
@@ -110,18 +110,13 @@
                         </control>
                     </itemlayout>
                     <focusedlayout width="1808" height="231">
-    					<control type="image">
-    						<top>-8</top>
-    						<width>1803</width>
-    						<height>231</height>
-    						<texture>listselect_fo.png</texture>
-    						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-    						<visible>Control.HasFocus(655)</visible>
-    						<include>VisibleFadeEffect</include>
-    					</control>
                         <control type="group">
                             <left>18</left>
-                            <top>10</top>
+                            <top>11</top>
+                            <animation type="Focus">
+                                <effect type="zoom" time="150" start="95" end="100" center="251,147" />
+                                <effect type="zoom" time="150" start="105" end="100" delay="150" center="251,147" />
+                            </animation>
                             <control type="image">
                                 <width>346</width>
                                 <height>195</height>
@@ -135,11 +130,11 @@
                                 <aspectratio>scale</aspectratio>
                             </control>
                             <control type="image">
-                                <left>286</left>
-                                <width>60</width>
-                                <height>60</height>
-                                <texture>$VAR[OverlayVar]</texture>
-                                <aspectratio align="right" aligny="top">keep</aspectratio>
+                                <visible>ListItem.IsSelected</visible>
+                                <width>346</width>
+                                <height>195</height>
+                                <texture>listselect_fo.png</texture>
+                                <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
                             </control>
                         </control>
                         <control type="group">
@@ -152,6 +147,7 @@
                                     <font>font16_title</font>
     								<aligny>top</aligny>
     								<textcolor>maintext</textcolor>
+                                    <selectedcolor>maintext</selectedcolor>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -159,20 +155,9 @@
                                     <label>$INFO[ListItem.Label]</label>
                                     <aligny>top</aligny>
     								<font>font15</font>
-    								<textcolor>maintext</textcolor>
-    								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-    								<visible>!Container.Content(artists)</visible>
+    								<textcolor>$VAR[ColorHighlightVar]</textcolor>
+                                    <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
                                 </control>
-    							<control type="label">
-    								<top>50</top>
-    								<width>1380</width>
-    								<label>$INFO[ListItem.Property(Artist_Genre)]</label>
-    								<aligny>top</aligny>
-    								<font>font15</font>
-    								<textcolor>maintext</textcolor>
-    								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-    								<visible>Container.Content(artists)</visible>
-    							</control>
                                 <control type="textbox">
                                     <top>100</top>
                                     <width>1380</width>
