@@ -8,6 +8,22 @@
         <include>Bottombar</include>
         <control type="group">
             <include>Window_OpenClose_Animation</include>
+            <control type="image">
+                <visible>Control.HasFocus(9000)</visible>
+                <left>145</left>
+                <top>95</top>
+                <width>810</width>
+                <height>141</height>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="50">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5)">Conditional</animation>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4)">Conditional</animation>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4) | Container(9000).Row(3)">Conditional</animation>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4) | Container(9000).Row(3) | Container(9000).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4) | Container(9000).Row(3) | Container(9000).Row(2) | Container(9000).Row(1)">Conditional</animation>
+                <animation effect="slide" end="825,0" time="300" tween="cubic" easing="inout" condition="Container(9000).Column(1)">Conditional</animation>
+            </control>
             <control type="panel" id="9000">
                 <left>145</left>
                 <top>95</top>
@@ -49,12 +65,6 @@
                 </itemlayout>
                 <focusedlayout width="825" height="150">
                     <control type="image">
-                        <width>810</width>
-                        <height>141</height>
-                        <texture>listselect_fo.png</texture>
-                        <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-                    </control>
-                    <control type="image">
                         <left>10</left>
                         <top>10</top>
                         <width>120</width>
@@ -78,7 +88,7 @@
                         <width>620</width>
                         <height>51</height>
                         <font>font15</font>
-                        <textcolor>maintext</textcolor>
+                        <textcolor>$VAR[ColorHighlightVar]</textcolor>
                         <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
                         <label>$INFO[ListItem.Label2]</label>
                     </control>
@@ -116,7 +126,7 @@
                     </item>
                     <item id="6">
                         <label>$LOCALIZE[14036]</label>
-                        <label2>$LOCALIZE[20187] • $LOCALIZE[33101] • $LOCALIZE[1259] • $LOCALIZE[1273]</label2>
+                        <label2>$LOCALIZE[20187] • $LOCALIZE[33101] • $LOCALIZE[1259]</label2>
                         <icon>DefaultAddonService.png</icon>
                         <onclick>ActivateWindow(ServiceSettings)</onclick>
                     </item>
