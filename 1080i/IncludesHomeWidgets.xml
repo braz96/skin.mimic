@@ -121,15 +121,36 @@
 				<animation effect="slide" tween="cubic" easing="out" time="300" start="0" end="-700" reversible="false">Visible</animation>
 				<animation effect="slide" tween="cubic" easing="out" time="600" start="-700" end="0" reversible="false">WindowClose</animation>
 				<animation effect="slide" tween="cubic" easing="out" time="300" start="-700" end="0" reversible="false">Hidden</animation>
+				<control type="image">
+					<top>217</top>
+					<left>2650</left>
+					<width>770</width>
+					<height>815</height>
+					<texture border="12">dialog_context.png</texture>
+					<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+					<visible>[[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]] + Skin.HasSetting(Enable.HomeVerticalMenu)</visible>
+				</control>
 				<include>WidgetPanelContent</include>
+				<control type="image">
+		        	<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),3) + Skin.HasSetting(Enable.HomeVerticalMenu)</visible>
+		            <left>2691</left>
+		            <top>260</top>
+		            <width>300</width>
+		            <height>360</height>
+		            <animation effect="fade" time="320" delay="200">Visible</animation>
+		            <animation effect="fade" time="200">Hidden</animation>
+		            <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+		            <animation effect="slide" end="300,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(1)">Conditional</animation>
+		            <animation effect="slide" end="0,370" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(1)">Conditional</animation>
+		        </control>
 				<control type="group">
 					<animation effect="fade" start="100" end="0" time="0" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 					<include name="WeatherWidgetCommons">
-						<param name="WeatherPositionLeft" value="2691" />
+						<param name="WeatherPositionLeft" value="2690" />
 						<param name="WeatherPositionTop" value="255" />
-						<param name="WeatherPanelWidth" value="600" />
+						<param name="WeatherPanelWidth" value="608" />
 						<param name="WeatherPanelHeight" value="740" />
-						<param name="WeatherItemWidth" value="300" />
+						<param name="WeatherItemWidth" value="304" />
 						<param name="WeatherOrientation" value="Vertical" />
 						<param name="WeatherOnUp" value="8000" />
 						<param name="WeatherOnDown" value="8000" />
