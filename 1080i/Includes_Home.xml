@@ -27,32 +27,17 @@
 				<colordiffuse>shadow</colordiffuse>
 			</control>
 			<control type="image">
-				<left>0</left>
-				<width>740</width>
-				<height>120</height>
-				<texture>listselect_fo.png</texture>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-				<visible>Container(9000).Position(0)</visible>
-			</control>
-			<control type="image">
-				<left>590</left>
-				<width>740</width>
-				<height>120</height>
-				<texture>listselect_fo.png</texture>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-				<visible>Container(9000).Position(1)</visible>
-			</control>
-			<control type="image">
-				<left>1180</left>
-				<width>740</width>
-				<height>120</height>
-				<texture>listselect_fo.png</texture>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-				<visible>Container(9000).Position(2)</visible>
-			</control>
+                <left>0</left>
+                <top>0</top>
+                <width>740</width>
+                <height>120</height>
+                <!--<animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="50">Hidden</animation>-->
+                <animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="40">listselect_fo.png</texture>
+                <animation effect="slide" end="590" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(2)">Conditional</animation>
+                <animation effect="slide" end="590" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
+            </control>
 			<include condition="Skin.HasSetting(HorizontalListNav)">MainMenuListFixed</include>
 			<include condition="!Skin.HasSetting(HorizontalListNav)">MainMenuListWrapped</include>
 			<control type="group" id="9001">
