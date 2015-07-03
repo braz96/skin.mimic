@@ -157,16 +157,6 @@
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
-						<description>update label</description>
-						<top>160</top>
-						<width>690</width>
-						<height>45</height>
-						<font>font13_title</font>
-						<textoffsetx>15</textoffsetx>
-						<textcolor>disabled</textcolor>
-						<label>$INFO[Window.Property(Updated),$LOCALIZE[31301]: ]</label>
-					</control>
-					<control type="label">
 						<description>current temp Value</description>
 						<left>560</left>
 						<top>0</top>
@@ -189,7 +179,7 @@
 					</control>
 					<control type="label">
 						<description>current condition label</description>
-						<top>250</top>
+						<top>220</top>
 						<width>1316</width>
 						<height>60</height>
 						<info>Window.Property(Current.Condition)</info>
@@ -1782,28 +1772,14 @@
 				<top>32</top>
 				<width>1316</width>
 				<height>840</height>
-				<control type="group">
+				<control type="image">
 					<top>850</top>
 					<left>1175</left>
-					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>450</width>
-						<height>100</height>
-						<aspectratio align="right" aligny="center">keep</aspectratio>
-						<texture>$INFO[Window.Property(WeatherProviderLogo)]</texture>
-						<colordiffuse>maintext</colordiffuse>
-					</control>
-					<control type="label">
-						<description>update label</description>
-						<top>105</top>
-						<width>690</width>
-						<height>45</height>
-						<font>font13</font>
-						<textoffsetx>15</textoffsetx>
-						<textcolor>disabled</textcolor>
-						<label>$INFO[Window.Property(Updated),$LOCALIZE[31301]: ]</label>
-					</control>
+					<width>450</width>
+					<height>100</height>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+					<texture>$INFO[Window.Property(WeatherProviderLogo)]</texture>
+					<colordiffuse>maintext</colordiffuse>
 				</control>
 				<control type="image">
 					<top>140</top>
@@ -2146,6 +2122,20 @@
 					<label>10035</label>
 					<onclick>Skin.SetString(WeatherFanartDir,http://aeon-nox-background-packs.googlecode.com/svn/trunk/weather-fanart/default/)</onclick>
 					<enable>Skin.HasSetting(ShowWeatherFanart)</enable>
+				</control>
+				<control type="label" id="207">
+					<width>400</width>
+					<height>52</height>
+					<textoffsetx>15</textoffsetx>
+					<font>font13_title</font>
+					<aligny>center</aligny>
+					<label>31301</label>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
+				</control>
+				<control type="label" id="208">
+					<include>ButtonCommonValues</include>
+					<label>$INFO[Window.Property(Updated)]</label>
+					<textcolor>maintext</textcolor>
 				</control>
 			</control>
 			<control type="group">
