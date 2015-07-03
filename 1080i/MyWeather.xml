@@ -8,6 +8,7 @@
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
+			<visible>!Skin.HasSetting(Enable.BasicWeatherView)</visible>
 			<left>0</left>
 			<top>90</top>
 			<include>Window_OpenClose_Animation</include>
@@ -1772,6 +1773,292 @@
 				</control>
 			</control>
 		</control>
+		<control type="group">
+			<visible>Skin.HasSetting(Enable.BasicWeatherView)</visible>
+			<include>Window_OpenClose_Animation</include>
+			<control type="group">
+				<include>SettingsFadeEffect</include>
+				<left>137</left>
+				<top>32</top>
+				<width>1316</width>
+				<height>840</height>
+				<control type="group">
+					<top>850</top>
+					<left>1175</left>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>450</width>
+						<height>100</height>
+						<aspectratio align="right" aligny="center">keep</aspectratio>
+						<texture>$INFO[Window.Property(WeatherProviderLogo)]</texture>
+						<colordiffuse>maintext</colordiffuse>
+					</control>
+					<control type="label">
+						<description>update label</description>
+						<top>105</top>
+						<width>690</width>
+						<height>45</height>
+						<font>font13</font>
+						<textoffsetx>15</textoffsetx>
+						<textcolor>disabled</textcolor>
+						<label>$INFO[Window.Property(Updated),$LOCALIZE[31301]: ]</label>
+					</control>
+				</control>
+				<control type="image">
+					<top>140</top>
+					<left>10</left>
+					<width>1625</width>
+					<height>340</height>
+					<texture>thumbs/diffuse.png</texture>
+				</control>
+				<control type="image">
+					<description>current weather icon</description>
+					<left>50</left>
+					<top>145</top>
+					<width>320</width>
+					<height>320</height>
+					<texture>$INFO[Window.Property(Current.ConditionIcon)]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="group">
+					<top>90</top>
+					<left>310</left>
+					<control type="label">
+						<description>current temp Value</description>
+						<width>270</width>
+						<height>345</height>
+						<font>WeatherTemp</font>
+						<align>right</align>
+						<label>$INFO[Window.Property(Current.Temperature)]</label>
+						<textcolor>maintext</textcolor>
+					</control>
+					<control type="label">
+						<description>current temp Value Units</description>
+						<left>270</left>
+						<top>3</top>
+						<width>150</width>
+						<height>290</height>
+						<font>font16</font>
+						<label>$INFO[System.TemperatureUnits]</label>
+						<textcolor>maintext</textcolor>
+					</control>
+				</control>
+				<control type="label">
+					<description>current condition label</description>
+					<top>350</top>
+					<left>430</left>
+					<width>1316</width>
+					<height>60</height>
+					<label>$INFO[Window.Property(Current.Condition)], $LOCALIZE[402] $INFO[Window.Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+					<font>font48</font>
+					<textoffsetx>15</textoffsetx>
+					<textcolor>maintext</textcolor>
+				</control>
+				<control type="grouplist">
+					<left>1130</left>
+					<top>196</top>
+					<width>438</width>
+					<itemgap>20</itemgap>
+					<control type="label">
+						<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[406]: [/COLOR]$INFO[Window.Property(Current.Humidity)]</label>
+						<width>438</width>
+						<height>40</height>
+						<align>right</align>
+						<font>font14</font>
+					</control>
+					<control type="label">
+						<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[404]:[/COLOR] $INFO[Window.Property(Current.Wind)]</label>
+						<width>438</width>
+						<height>40</height>
+						<align>right</align>
+						<font>font14</font>
+					</control>
+					<control type="label">
+						<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33027]:[/COLOR] $INFO[Window.Property(Today.Sunrise)]</label>
+						<width>438</width>
+						<height>40</height>
+						<align>right</align>
+						<font>font14</font>
+					</control>
+					<control type="label">
+						<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33028]:[/COLOR] $INFO[Window.Property(Today.Sunset)]</label>
+						<width>438</width>
+						<height>40</height>
+						<align>right</align>
+						<font>font14</font>
+					</control>
+				</control>
+				<control type="button" id="9000">
+					<top>0</top>
+					<left>0</left>
+					<width>1</width>
+					<height>1</height>
+					<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
+					<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetFocus(9050)</onleft>
+				</control>
+				<control type="panel">
+					<left>0</left>
+					<top>500</top>
+					<width>1645</width>
+					<height>340</height>
+					<orientation>horizontal</orientation>
+					<scrolltime tween="quadratic" easing="out">200</scrolltime>
+					<itemlayout height="340" width="329">
+						<control type="image">
+							<top>0</top>
+							<left>10</left>
+							<width>309</width>
+							<height>340</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="group">
+							<top>15</top>
+							<control type="image">
+								<description>current weather icon</description>
+								<top>60</top>
+								<width>329</width>
+								<height>100</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio aligny="top">keep</aspectratio>
+							</control>
+							<control type="label">
+								<width>329</width>
+								<height>60</height>
+								<font>font15</font>
+								<align>center</align>
+								<textcolor>maintext</textcolor>
+								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<textoffsetx>15</textoffsetx>
+							</control>
+							<control type="label">
+								<top>160</top>
+								<width>329</width>
+								<height>60</height>
+								<font>font15</font>
+								<align>center</align>
+								<textcolor>maintext</textcolor>
+								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<label>$INFO[ListItem.Label2]</label>
+								<textoffsetx>15</textoffsetx>
+							</control>
+							<control type="label">
+								<top>240</top>
+								<width>329</width>
+								<height>60</height>
+								<font>font15</font>
+								<align>center</align>
+								<textcolor>maintext</textcolor>
+								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<label>$INFO[ListItem.Property(HighTemp),[COLOR invalid],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR ff8de0ff],[/COLOR]]</label>
+								<textoffsetx>15</textoffsetx>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="340" width="329">
+						<control type="image">
+							<top>0</top>
+							<left>10</left>
+							<width>309</width>
+							<height>340</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="group">
+							<top>15</top>
+							<control type="image">
+								<description>current weather icon</description>
+								<top>60</top>
+								<width>329</width>
+								<height>100</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio aligny="top">keep</aspectratio>
+							</control>
+							<control type="label">
+								<width>329</width>
+								<height>60</height>
+								<font>font15</font>
+								<align>center</align>
+								<textcolor>maintext</textcolor>
+								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<textoffsetx>15</textoffsetx>
+							</control>
+							<control type="label">
+								<top>160</top>
+								<width>329</width>
+								<height>60</height>
+								<font>font15</font>
+								<align>center</align>
+								<textcolor>maintext</textcolor>
+								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<label>$INFO[ListItem.Label2]</label>
+								<textoffsetx>15</textoffsetx>
+							</control>
+							<control type="label">
+								<top>240</top>
+								<width>329</width>
+								<height>60</height>
+								<font>font15</font>
+								<align>center</align>
+								<textcolor>maintext</textcolor>
+								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<label>$INFO[ListItem.Property(HighTemp),[COLOR invalid],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR ff8de0ff],[/COLOR]]</label>
+								<textoffsetx>15</textoffsetx>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<label>$LOCALIZE[31909]</label>
+							<icon>-</icon>
+							<onclick>noop</onclick>
+							<visible>!Weather.IsFetched</visible>
+						</item>
+						<item>
+							<label>$INFO[Window.Property(Day0.Title)]</label>
+							<label2>$INFO[Window.Property(Day0.Outlook)]</label2>
+							<icon>$INFO[Window.Property(Day0.OutlookIcon)]</icon>
+							<property name="HighTemp">$INFO[Window.Property(Day0.HighTemp)]$INFO[System.TemperatureUnits]</property>
+							<property name="LowTemp">$INFO[Window.Property(Day0.LowTemp)]$INFO[System.TemperatureUnits]</property>
+							<onclick>noop</onclick>
+						</item>
+						<item>
+							<label>$INFO[Window.Property(Day1.Title)]</label>
+							<label2>$INFO[Window.Property(Day1.Outlook)]</label2>
+							<icon>$INFO[Window.Property(Day1.OutlookIcon)]</icon>
+							<property name="HighTemp">$INFO[Window.Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</property>
+							<property name="LowTemp">$INFO[Window.Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</property>
+							<onclick>noop</onclick>
+						</item>
+						<item>
+							<label>$INFO[Window.Property(Day2.Title)]</label>
+							<label2>$INFO[Window.Property(Day2.Outlook)]</label2>
+							<icon>$INFO[Window.Property(Day2.OutlookIcon)]</icon>
+							<property name="HighTemp">$INFO[Window.Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</property>
+							<property name="LowTemp">$INFO[Window.Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</property>
+							<onclick>noop</onclick>
+						</item>
+						<item>
+							<label>$INFO[Window.Property(Day3.Title)]</label>
+							<label2>$INFO[Window.Property(Day3.Outlook)]</label2>
+							<icon>$INFO[Window.Property(Day3.OutlookIcon)]</icon>
+							<property name="HighTemp">$INFO[Window.Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</property>
+							<property name="LowTemp">$INFO[Window.Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</property>
+							<onclick>noop</onclick>
+						</item>
+						<item>
+							<label>$INFO[Window.Property(Day4.Title)]</label>
+							<label2>$INFO[Window.Property(Day4.Outlook)]</label2>
+							<icon>$INFO[Window.Property(Day4.OutlookIcon)]</icon>
+							<property name="HighTemp">$INFO[Window.Property(Day4.HighTemp)]$INFO[System.TemperatureUnits]</property>
+							<property name="LowTemp">$INFO[Window.Property(Day4.LowTemp)]$INFO[System.TemperatureUnits]</property>
+							<onclick>noop</onclick>
+						</item>
+					</content>
+				</control>
+			</control>
+		</control>
 		<include>Topbar</include>
 		<include>Bottombar</include>
 		<control type="label">
@@ -1862,8 +2149,8 @@
 				</control>
 			</control>
 			<control type="group">
-				<posx>0</posx>
-				<posy>167</posy>
+				<left>0</left>
+				<top>167</top>
 				<control type="label" id="201">
 					<include>ButtonCommonValues</include>
 					<label>31069</label>
