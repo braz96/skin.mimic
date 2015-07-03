@@ -6,7 +6,7 @@
 			<control type="group">
 				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget))</visible>
 				<animation effect="fade" start="0" end="100" delay="200" time="300" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] | Control.HasFocus(9000)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="300" condition="[[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] | Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious] + Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 				<animation effect="fade" tween="cubic" time="600" delay="200" start="0" end="100" reversible="false">WindowOpen</animation>
 				<animation effect="fade" tween="cubic" time="300" start="100" end="0" reversible="false">WindowClose</animation>
@@ -18,7 +18,7 @@
 					<animation effect="slide" time="0" start="0,0" end="0,195" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 					<include name="WeatherWidgetCommons">
 						<param name="WeatherPositionLeft" value="0" />
-						<param name="WeatherPositionTop" value="1180" />
+						<param name="WeatherPositionTop" value="480" />
 						<param name="WeatherPanelWidth" value="1920" />
 						<param name="WeatherPanelHeight" value="335" />
 						<param name="WeatherItemWidth" value="320" />
