@@ -12,6 +12,17 @@
 		</control>
 	</include>
 	<include name="MainMenuListTop">
+		<control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>384</width>
+            <height>120</height>
+            <animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(3)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
+        </control>
 		<control type="list" id="9000">
 			<include>MainMenuListContentTop</include>
 		</control>
@@ -55,6 +66,21 @@
 		</control>
 	</include>
 	<include name="MainMenuListVertical">
+		<control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>434</width>
+            <height>120</height>
+            <animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
+        </control>
 		<control type="list" id="9000">
 			<include>MainMenuListContentVertical</include>
 		</control>
@@ -107,15 +133,16 @@
 		<ondown>9010</ondown>
 		<movement>1</movement>
 		<pagecontrol>-</pagecontrol>
-		<scrolltime tween="quadratic" easing="out">300</scrolltime>
+		<scrolltime tween="quadratic" easing="out">500</scrolltime>
 		<focusposition>1</focusposition>
 		<orientation>Horizontal</orientation>
 		<itemlayout height="120" width="590">
 			<control type="label">
+				<animation effect="zoom" time="0" tween="sine" easing="inout" start="100" end="70" center="auto" condition="true">Conditional</animation>
 				<width>590</width>
 				<height>120</height>
 				<top>-2</top>
-				<font>font_MainMenu</font>
+				<font>font_MainMenu_fo</font>
 				<textcolor>maintext</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -157,7 +184,7 @@
 		<ondown>9010</ondown>
 		<movement>1</movement>
 		<pagecontrol>-</pagecontrol>
-		<scrolltime tween="quadratic" easing="out">300</scrolltime>
+		<scrolltime tween="quadratic" easing="out">500</scrolltime>
 		<focusposition>1</focusposition>
 		<orientation>Horizontal</orientation>
 		<itemlayout height="120" width="384">
@@ -173,13 +200,6 @@
 			</control>
 		</itemlayout>
 		<focusedlayout height="120" width="384">
-			<control type="image">
-				<width>384</width>
-				<height>120</height>
-				<texture>listselect_fo.png</texture>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-			</control>
 			<control type="image">
 				<animation effect="fade" start="0" end="80" time="500" delay="800">Focus</animation>
 				<top>1</top>
@@ -216,7 +236,7 @@
 		<onright>9010</onright>
 		<movement>1</movement>
 		<pagecontrol>-</pagecontrol>
-		<scrolltime tween="quadratic" easing="out">300</scrolltime>
+		<scrolltime tween="quadratic" easing="out">500</scrolltime>
 		<focusposition>1</focusposition>
 		<orientation>Vertical</orientation>
 		<itemlayout height="120" width="434">
@@ -233,13 +253,6 @@
 			</control>
 		</itemlayout>
 		<focusedlayout height="120" width="434">
-			<control type="image">
-				<width>434</width>
-				<height>120</height>
-				<texture>listselect_fo.png</texture>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-			</control>
 			<control type="image">
 				<animation effect="fade" start="0" end="80" time="500" delay="800">Focus</animation>
 				<top>1</top>
