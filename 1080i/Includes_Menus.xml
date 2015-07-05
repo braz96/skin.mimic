@@ -133,43 +133,49 @@
 		<ondown>9010</ondown>
 		<movement>1</movement>
 		<pagecontrol>-</pagecontrol>
-		<scrolltime tween="quadratic" easing="out">500</scrolltime>
+		<scrolltime tween="sine" easing="inout">500</scrolltime>
 		<focusposition>1</focusposition>
 		<orientation>Horizontal</orientation>
 		<itemlayout height="120" width="590">
-			<control type="label">
-				<animation effect="zoom" time="0" tween="sine" easing="inout" start="100" end="70" center="auto" condition="true">Conditional</animation>
-				<width>590</width>
-				<height>120</height>
-				<top>-2</top>
-				<font>font_MainMenu_fo</font>
-				<textcolor>maintext</textcolor>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label]</label>
+			<control type="group">
+				<animation effect="zoom" time="0" tween="sine" easing="inout" start="70" end="70" center="auto" condition="true">Conditional</animation>
+				<control type="label">
+					<width>590</width>
+					<height>120</height>
+					<top>-4</top>
+					<font>font_MainMenu_fo</font>
+					<textcolor>maintext</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
 			</control>
 		</itemlayout>
 		<focusedlayout height="120" width="740">
 			<control type="image">
 				<animation effect="fade" start="0" end="80" time="500" delay="800">Focus</animation>
+				<animation effect="fade" start="80" end="0" time="0">UnFocus</animation>
 				<top>1</top>
 				<left>709</left>
 				<width>30</width>
 				<height>30</height>
 				<texture>WidgetIndicator.png</texture>
 				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Control.HasFocus(8000) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
-				<fadetime>500</fadetime>
 			</control>
-			<control type="label">
-				<width>740</width>
-				<height>120</height>
-				<top>-4</top>
-				<font>font_MainMenu_fo</font>
-				<textcolor>maintext</textcolor>
-				<selectedcolor>maintext</selectedcolor>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label]</label>
+			<control type="group">
+				<animation effect="zoom" time="150" tween="sine" easing="inout" start="70" end="100" center="auto">Focus</animation>
+				<animation effect="zoom" time="150" tween="sine" easing="inout" start="100" end="70" center="auto">UnFocus</animation>
+				<control type="label">
+					<width>740</width>
+					<height>120</height>
+					<top>-4</top>
+					<font>font_MainMenu_fo</font>
+					<textcolor>maintext</textcolor>
+					<selectedcolor>maintext</selectedcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
 			</control>
 		</focusedlayout>
 		<include>FallbackMenu</include>
@@ -202,13 +208,13 @@
 		<focusedlayout height="120" width="384">
 			<control type="image">
 				<animation effect="fade" start="0" end="80" time="500" delay="800">Focus</animation>
+				<animation effect="fade" start="80" end="0" time="0">UnFocus</animation>
 				<top>1</top>
 				<left>353</left>
 				<width>30</width>
 				<height>30</height>
 				<texture>WidgetIndicator.png</texture>
 				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Control.HasFocus(8000) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
-				<fadetime>500</fadetime>
 			</control>
 			<control type="label">
 				<width>384</width>
@@ -255,6 +261,7 @@
 		<focusedlayout height="120" width="434">
 			<control type="image">
 				<animation effect="fade" start="0" end="80" time="500" delay="800">Focus</animation>
+				<animation effect="fade" start="80" end="0" time="0">UnFocus</animation>
 				<top>1</top>
 				<left>1</left>
 				<width>30</width>
@@ -262,7 +269,6 @@
 				<texture>WidgetIndicator.png</texture>
 				<animation effect="rotate" end="90" center="auto" time="0" condition="True">Conditional</animation>
 				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Control.HasFocus(8000) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
-				<fadetime>500</fadetime>
 			</control>
 			<control type="label">
 				<width>434</width>
