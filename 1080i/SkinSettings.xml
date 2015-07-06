@@ -66,12 +66,12 @@
 						<icon>-</icon>
 					</item>
 					<item id="2">
-						<label>16000</label>
+						<label>33069</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
 					<item id="3">
-						<label>31014</label>
+						<label>16000</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
@@ -81,16 +81,16 @@
 						<icon>-</icon>
 					</item>
 					<item id="5">
+						<label>31014</label>
+						<onclick>noop</onclick>
+						<icon>-</icon>
+					</item>
+					<item id="6">
 						<label>10038</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<!--<item id="6">
-						<label>8</label>
-						<onclick>noop</onclick>
-						<icon>-</icon>
-					</item>
-					<item id="7">
+					<!--<item id="7">
 						<label>24001</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
@@ -175,7 +175,7 @@
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>20083</label>
+						<label>31509</label>
 						<onclick>Skin.ToggleSetting(Disable.Musicinfo)</onclick>
 						<selected>!Skin.HasSetting(Disable.Musicinfo)</selected>
 					</control>
@@ -184,7 +184,7 @@
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>20176</label>
+						<label>31510</label>
 						<onclick>Skin.ToggleSetting(Disable.Videoinfo)</onclick>
 						<selected>!Skin.HasSetting(Disable.Videoinfo)</selected>
 					</control>
@@ -235,6 +235,64 @@
 						<selected>Skin.HasSetting(Disable.SubmenuSlide)</selected>
 					</control>
 				</control>
+				<control type="grouplist" id="9006">
+					<description>Backgrounds control area</description>
+					<left>522</left>
+					<top>0</top>
+					<width>1316</width>
+					<height>720</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9003</onup>
+					<ondown>9003</ondown>
+					<visible>Container(9000).HasFocus(2)</visible>
+					<control type="button" id="600">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31947</label>
+						<onclick>ActivateWindow(1128)</onclick>
+					</control>
+					<control type="button" id="601">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31115</label>
+						<label2>$INFO[Skin.String(CustomBackground)]</label2>
+						<onclick>Skin.SetImage(CustomBackground,,special://skin/backgrounds)</onclick>
+					</control>
+					<control type="button" id="604">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[10035]</label>
+						<onclick>Skin.Reset(CustomBackground)</onclick>
+						<visible>!IsEmpty(Skin.String(CustomBackground))</visible>
+					</control>
+					<control type="radiobutton" id="602">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31124</label>
+						<onclick>Skin.ToggleSetting(Disable.ShowBackgroundVideo)</onclick>
+						<selected>!Skin.HasSetting(Disable.ShowBackgroundVideo)</selected>
+					</control>
+					<control type="radiobutton" id="603">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31125</label>
+						<onclick>Skin.ToggleSetting(Disable.ShowBackgroundVis)</onclick>
+						<selected>!Skin.HasSetting(Disable.ShowBackgroundVis)</selected>
+					</control>
+				</control>
 				<control type="grouplist" id="9002">
 					<description>General control area</description>
 					<left>522</left>
@@ -247,15 +305,7 @@
 					<onright>60</onright>
 					<onup>9002</onup>
 					<ondown>9002</ondown>
-					<visible>Container(9000).HasFocus(2)</visible>
-					<control type="button" id="203">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31947</label>
-						<onclick>ActivateWindow(1128)</onclick>
-					</control>
+					<visible>Container(9000).HasFocus(3)</visible>
 					<control type="radiobutton" id="200">
 						<width>1316</width>
 						<height>90</height>
@@ -265,7 +315,7 @@
 						<onclick>Skin.ToggleSetting(Enable.AutoScroll)</onclick>
 						<selected>Skin.HasSetting(Enable.AutoScroll)</selected>
 					</control>
-					<control type="button" id="204">
+					<control type="button" id="201">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
@@ -274,7 +324,7 @@
 						<label2>$VAR[VideoPlotLocalizeVar]</label2>
 						<onclick>Skin.ToggleSetting(VideoInfoPlotToggle)</onclick>
 					</control>
-					<control type="button" id="206">
+					<control type="button" id="203">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
@@ -283,33 +333,34 @@
 						<label2>$VAR[HorizontalListNavVar]</label2>
 						<onclick>Skin.ToggleSetting(HorizontalListNav)</onclick>
 					</control>
-					<control type="button" id="207">
+					<control type="button" id="204">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>31943</label>
-						<onclick>ActivateWindow(1127)</onclick>
+						<label>31094</label>
+						<label2>$VAR[SlimListSettingVar]</label2>
+						<onclick>Skin.ToggleSetting(Enable.SlimList)</onclick>
 					</control>
-					<control type="radiobutton" id="201">
+					<control type="button" id="205">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>31124</label>
-						<onclick>Skin.ToggleSetting(Disable.ShowBackgroundVideo)</onclick>
-						<selected>!Skin.HasSetting(Disable.ShowBackgroundVideo)</selected>
+						<label>31929</label>
+						<label2>$VAR[FavViewSettingVar]</label2>
+						<onclick>Skin.ToggleSetting(Enable.FavView)</onclick>
 					</control>
-					<control type="radiobutton" id="202">
+					<control type="button" id="206">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>31125</label>
-						<onclick>Skin.ToggleSetting(Disable.ShowBackgroundVis)</onclick>
-						<selected>!Skin.HasSetting(Disable.ShowBackgroundVis)</selected>
+						<label>31507</label>
+						<label2>$VAR[WeatherViewSettingVar]</label2>
+						<onclick>Skin.ToggleSetting(Enable.BasicWeatherView)</onclick>
 					</control>
-					<control type="radiobutton" id="205">
+					<control type="radiobutton" id="207">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
@@ -318,76 +369,13 @@
 						<onclick>Skin.ToggleSetting(Disable.ShowPlayingMusic)</onclick>
 						<selected>!Skin.HasSetting(Disable.ShowPlayingMusic)</selected>
 					</control>
-				</control>
-				<control type="grouplist" id="9003">
-					<description>Extras control area</description>
-					<left>522</left>
-					<top>0</top>
-					<width>1316</width>
-					<height>720</height>
-					<itemgap>0</itemgap>
-					<pagecontrol>60</pagecontrol>
-					<onleft>9000</onleft>
-					<onright>60</onright>
-					<onup>9003</onup>
-					<ondown>9003</ondown>
-					<visible>Container(9000).HasFocus(3)</visible>
-					<control type="radiobutton" id="306">
-						<description>Startup Playlist Path</description>
+					<control type="button" id="208">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>21398</label>
-						<onclick>Skin.ToggleSetting(Use_Startup_Playlist)</onclick>
-						<selected>Skin.HasSetting(Use_Startup_Playlist)</selected>
-					</control>
-					<control type="button" id="307">
-						<description>Startup Playlist Path</description>
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>15311</label>
-						<label2>$INFO[Skin.String(Startup_Playlist_Path)]</label2>
-						<onclick>Skin.SetFile(Startup_Playlist_Path,,special://MusicPlaylists/)</onclick>
-						<enable>Skin.HasSetting(Use_Startup_Playlist)</enable>
-					</control>
-					<control type="radiobutton" id="305">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31083</label>
-						<onclick>Skin.ToggleSetting(Disable.NextAired)</onclick>
-						<selected>!Skin.HasSetting(Disable.NextAired)</selected>
-					</control>
-					<control type="radiobutton" id="312">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31135</label>
-						<onclick>Skin.ToggleSetting(Disable.AutoComplete)</onclick>
-						<selected>!Skin.HasSetting(Disable.AutoComplete)</selected>
-					</control>
-					<control type="button" id="310">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>$LOCALIZE[31110]</label>
-						<label2>$INFO[Skin.String(MusicLibraryPath)]</label2>
-						<onclick>Skin.SetPath(MusicLibraryPath)</onclick>
-					</control>
-					<control type="button" id="311">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>- $LOCALIZE[10035]</label>
-						<onclick>Skin.Reset(MusicLibraryPath)</onclick>
-						<visible>!IsEmpty(Skin.String(MusicLibraryPath))</visible>
+						<label>31943</label>
+						<onclick>ActivateWindow(1127)</onclick>
 					</control>
 				</control>
 				<control type="grouplist" id="9005">
@@ -421,7 +409,7 @@
 						<onclick>SetProperty(highlightselect,1,home)</onclick>
 						<onclick>ActivateWindow(1130)</onclick>
 						<enable>Skin.HasSetting(ColorCustomizer.Enabled)</enable>
-\					</control>
+					</control>
 					<control type="button" id="504">
 						<width>1316</width>
 						<height>90</height>
@@ -483,6 +471,77 @@
 						<texture>colors/$INFO[Skin.String(textcolor.name)].png</texture>
 					</control>-->
 				</control>
+				<control type="grouplist" id="9003">
+					<description>Extras control area</description>
+					<left>522</left>
+					<top>0</top>
+					<width>1316</width>
+					<height>720</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9003</onup>
+					<ondown>9003</ondown>
+					<visible>Container(9000).HasFocus(5)</visible>
+					<control type="radiobutton" id="306">
+						<description>Startup Playlist Path</description>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>21398</label>
+						<onclick>Skin.ToggleSetting(Use_Startup_Playlist)</onclick>
+						<selected>Skin.HasSetting(Use_Startup_Playlist)</selected>
+					</control>
+					<control type="button" id="307">
+						<description>Startup Playlist Path</description>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>15311</label>
+						<label2>$INFO[Skin.String(Startup_Playlist_Path)]</label2>
+						<onclick>Skin.SetFile(Startup_Playlist_Path,,special://MusicPlaylists/)</onclick>
+						<enable>Skin.HasSetting(Use_Startup_Playlist)</enable>
+					</control>
+					<control type="radiobutton" id="305">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31083</label>
+						<onclick>Skin.ToggleSetting(Disable.NextAired)</onclick>
+						<selected>!Skin.HasSetting(Disable.NextAired)</selected>
+					</control>
+					<control type="radiobutton" id="312">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31135</label>
+						<onclick>Skin.ToggleSetting(Disable.AutoComplete)</onclick>
+						<selected>!Skin.HasSetting(Disable.AutoComplete)</selected>
+					</control>
+					<control type="button" id="310">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>$LOCALIZE[31110]</label>
+						<label2>$INFO[Skin.String(MusicLibraryPath)]</label2>
+						<onclick>Skin.SetPath(MusicLibraryPath)</onclick>
+					</control>
+					<control type="button" id="311">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[10035]</label>
+						<onclick>Skin.Reset(MusicLibraryPath)</onclick>
+						<visible>!IsEmpty(Skin.String(MusicLibraryPath))</visible>
+					</control>
+				</control>
 				<control type="grouplist" id="9004">
 					<description>Advanced control area</description>
 					<left>522</left>
@@ -495,7 +554,7 @@
 					<onright>60</onright>
 					<onup>9004</onup>
 					<ondown>9004</ondown>
-					<visible>Container(9000).HasFocus(5)</visible>
+					<visible>Container(9000).HasFocus(6)</visible>
 					<control type="radiobutton" id="402">
 						<width>1316</width>
 						<height>90</height>
@@ -504,51 +563,6 @@
 						<label>31941</label>
 						<onclick>Skin.ToggleSetting(KioskMode.Enabled)</onclick>
 						<selected>Skin.HasSetting(KioskMode.Enabled)</selected>
-					</control>
-					<control type="button" id="405">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31094</label>
-						<label2>$VAR[SlimListSettingVar]</label2>
-						<onclick>Skin.ToggleSetting(Enable.SlimList)</onclick>
-					</control>
-					<control type="button" id="406">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31929</label>
-						<label2>$VAR[FavViewSettingVar]</label2>
-						<onclick>Skin.ToggleSetting(Enable.FavView)</onclick>
-					</control>
-					<control type="button" id="410">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31507</label>
-						<label2>$VAR[WeatherViewSettingVar]</label2>
-						<onclick>Skin.ToggleSetting(Enable.BasicWeatherView)</onclick>
-					</control>
-					<control type="button" id="411">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31115</label>
-						<label2>$INFO[Skin.String(CustomBackground)]</label2>
-						<onclick>Skin.SetImage(CustomBackground,,special://skin/backgrounds)</onclick>
-					</control>
-					<control type="button" id="412">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>- $LOCALIZE[10035]</label>
-						<onclick>Skin.Reset(CustomBackground)</onclick>
-						<visible>!IsEmpty(Skin.String(CustomBackground))</visible>
 					</control>
 					<control type="button" id="408">
 						<width>1316</width>
