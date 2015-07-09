@@ -8,6 +8,9 @@
 	<onload>Skin.Reset(Expand.CustomWidget3)</onload>
 	<onload>Skin.Reset(Expand.CustomWidget4)</onload>
 	<onload>Skin.Reset(Expand.CustomWidget5)</onload>
+	<onload>Skin.Reset(Expand.CustomWidget6)</onload>
+	<onload>Skin.Reset(Expand.CustomWidget7)</onload>
+	<onload>Skin.Reset(Expand.CustomWidget8)</onload>
 	<onload condition="IsEmpty(Skin.String(CustomWidget1Icon)">Skin.SetString(CustomWidget1Icon,1)</onload>
 	<onload condition="IsEmpty(Skin.String(CustomWidget1IconLabel)">Skin.SetString(CustomWidget1IconLabel,$LOCALIZE[31016])</onload>
 	<onload condition="IsEmpty(Skin.String(CustomWidget2Icon)">Skin.SetString(CustomWidget2Icon,1)</onload>
@@ -18,6 +21,12 @@
 	<onload condition="IsEmpty(Skin.String(CustomWidget4IconLabel)">Skin.SetString(CustomWidget4IconLabel,$LOCALIZE[31016])</onload>
 	<onload condition="IsEmpty(Skin.String(CustomWidget5Icon)">Skin.SetString(CustomWidget5Icon,1)</onload>
 	<onload condition="IsEmpty(Skin.String(CustomWidget5IconLabel)">Skin.SetString(CustomWidget5IconLabel,$LOCALIZE[31016])</onload>
+	<onload condition="IsEmpty(Skin.String(CustomWidget6Icon)">Skin.SetString(CustomWidget6Icon,1)</onload>
+	<onload condition="IsEmpty(Skin.String(CustomWidget6IconLabel)">Skin.SetString(CustomWidget6IconLabel,$LOCALIZE[31016])</onload>
+	<onload condition="IsEmpty(Skin.String(CustomWidget7Icon)">Skin.SetString(CustomWidget7Icon,1)</onload>
+	<onload condition="IsEmpty(Skin.String(CustomWidget7IconLabel)">Skin.SetString(CustomWidget7IconLabel,$LOCALIZE[31016])</onload>
+	<onload condition="IsEmpty(Skin.String(CustomWidget8Icon)">Skin.SetString(CustomWidget8Icon,1)</onload>
+	<onload condition="IsEmpty(Skin.String(CustomWidget8IconLabel)">Skin.SetString(CustomWidget8IconLabel,$LOCALIZE[31016])</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=x1|x2|x3|x4|x5|x6|x7|x8|x9|x10|x11|x12|x13|x101|x202|x303|x404|x505|x606)</onunload>
 	<controls>
@@ -567,6 +576,186 @@
 						<onclick>Skin.SetString(CustomWidget5Icon,1)</onclick>
 						<onclick>Skin.SetString(CustomWidget5IconLabel,$LOCALIZE[31016])</onclick>
 						<visible>Skin.HasSetting(Expand.CustomWidget5)</visible>
+					</control>
+					<control type="radiobutton" id="725">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>[UPPERCASE]$LOCALIZE[31312] 6 $INFO[Skin.String(CustomWidget6Name),- ,][/UPPERCASE]</label>
+						<onclick>Skin.ToggleSetting(Expand.CustomWidget6)</onclick>
+						<radiowidth>48</radiowidth>
+						<radioheight>48</radioheight>
+						<radioposx>1250</radioposx>
+						<textureradioonfocus colordiffuse="maintext">android/numberpicker_up_normal_holo_dark.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="maintext">android/numberpicker_up_normal_holo_dark.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="maintext">android/numberpicker_down_normal_holo_dark.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="maintext">android/numberpicker_down_normal_holo_dark.png</textureradiooffnofocus>
+					</control>
+					<control type="button" id="726">
+						<description>Path</description>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[573]</label>
+						<label2>$INFO[Skin.String(CustomWidget6Path.List)]</label2>
+						<onclick>RunScript(script.favourites,property=CustomWidget6Path)</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget6)</visible>
+					</control>
+					<control type="button" id="727">
+						<description>Name</description>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[551]</label>
+						<label2>$INFO[Skin.String(CustomWidget6Name)]</label2>
+						<onclick>Skin.SetString(CustomWidget6Name)</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget6)</visible>
+					</control>
+					<control type="button" id="728">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[31086]</label>
+						<label2>$INFO[Skin.String(CustomWidget6IconLabel)]</label2>
+						<onclick>SetProperty(Mimic.CustomWidget6IconSelect,1,home)</onclick>
+						<onclick>ActivateWindow(1132)</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget6)</visible>
+					</control>
+					<control type="button" id="729">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[10035]</label>
+						<onclick>Skin.Reset(CustomWidget6Path.List)</onclick>
+						<onclick>Skin.Reset(CustomWidget6Name)</onclick>
+						<onclick>Skin.SetString(CustomWidget6Icon,1)</onclick>
+						<onclick>Skin.SetString(CustomWidget6IconLabel,$LOCALIZE[31016])</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget6)</visible>
+					</control>
+					<control type="radiobutton" id="730">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>[UPPERCASE]$LOCALIZE[31312] 7 $INFO[Skin.String(CustomWidget7Name),- ,][/UPPERCASE]</label>
+						<onclick>Skin.ToggleSetting(Expand.CustomWidget7)</onclick>
+						<radiowidth>48</radiowidth>
+						<radioheight>48</radioheight>
+						<radioposx>1250</radioposx>
+						<textureradioonfocus colordiffuse="maintext">android/numberpicker_up_normal_holo_dark.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="maintext">android/numberpicker_up_normal_holo_dark.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="maintext">android/numberpicker_down_normal_holo_dark.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="maintext">android/numberpicker_down_normal_holo_dark.png</textureradiooffnofocus>
+					</control>
+					<control type="button" id="731">
+						<description>Path</description>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[573]</label>
+						<label2>$INFO[Skin.String(CustomWidget7Path.List)]</label2>
+						<onclick>RunScript(script.favourites,property=CustomWidget7Path)</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget7)</visible>
+					</control>
+					<control type="button" id="732">
+						<description>Name</description>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[551]</label>
+						<label2>$INFO[Skin.String(CustomWidget7Name)]</label2>
+						<onclick>Skin.SetString(CustomWidget7Name)</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget7)</visible>
+					</control>
+					<control type="button" id="733">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[31086]</label>
+						<label2>$INFO[Skin.String(CustomWidget7IconLabel)]</label2>
+						<onclick>SetProperty(Mimic.CustomWidget7IconSelect,1,home)</onclick>
+						<onclick>ActivateWindow(1132)</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget7)</visible>
+					</control>
+					<control type="button" id="734">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[10035]</label>
+						<onclick>Skin.Reset(CustomWidget7Path.List)</onclick>
+						<onclick>Skin.Reset(CustomWidget7Name)</onclick>
+						<onclick>Skin.SetString(CustomWidget7Icon,1)</onclick>
+						<onclick>Skin.SetString(CustomWidget7IconLabel,$LOCALIZE[31016])</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget7)</visible>
+					</control>
+					<control type="radiobutton" id="735">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>[UPPERCASE]$LOCALIZE[31312] 8 $INFO[Skin.String(CustomWidget8Name),- ,][/UPPERCASE]</label>
+						<onclick>Skin.ToggleSetting(Expand.CustomWidget8)</onclick>
+						<radiowidth>48</radiowidth>
+						<radioheight>48</radioheight>
+						<radioposx>1250</radioposx>
+						<textureradioonfocus colordiffuse="maintext">android/numberpicker_up_normal_holo_dark.png</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="maintext">android/numberpicker_up_normal_holo_dark.png</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="maintext">android/numberpicker_down_normal_holo_dark.png</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="maintext">android/numberpicker_down_normal_holo_dark.png</textureradiooffnofocus>
+					</control>
+					<control type="button" id="736">
+						<description>Path</description>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[573]</label>
+						<label2>$INFO[Skin.String(CustomWidget8Path.List)]</label2>
+						<onclick>RunScript(script.favourites,property=CustomWidget8Path)</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget8)</visible>
+					</control>
+					<control type="button" id="737">
+						<description>Name</description>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[551]</label>
+						<label2>$INFO[Skin.String(CustomWidget8Name)]</label2>
+						<onclick>Skin.SetString(CustomWidget8Name)</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget8)</visible>
+					</control>
+					<control type="button" id="738">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[31086]</label>
+						<label2>$INFO[Skin.String(CustomWidget8IconLabel)]</label2>
+						<onclick>SetProperty(Mimic.CustomWidget8IconSelect,1,home)</onclick>
+						<onclick>ActivateWindow(1132)</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget8)</visible>
+					</control>
+					<control type="button" id="739">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[10035]</label>
+						<onclick>Skin.Reset(CustomWidget8Path.List)</onclick>
+						<onclick>Skin.Reset(CustomWidget8Name)</onclick>
+						<onclick>Skin.SetString(CustomWidget8Icon,1)</onclick>
+						<onclick>Skin.SetString(CustomWidget8IconLabel,$LOCALIZE[31016])</onclick>
+						<visible>Skin.HasSetting(Expand.CustomWidget8)</visible>
 					</control>
 				</control>
 				<control type="grouplist" id="9006">
