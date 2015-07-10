@@ -15,7 +15,7 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 **2.2.0**
 - Updated all of the panel views using Phil65's design.
 - Added support for Phil65's YouTube Browser addon.
-- Added YouTube videos to Artist/Album info dialogs.
+- Added YouTube videos to Artist/Album and Movie/TV Show info dialogs.
 - Added a basic weather view.
 - Added skin setting to change default background image.
 - Added 8 custom widgets to skin settings.
