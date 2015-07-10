@@ -7,7 +7,7 @@
 			<include>ViewAnimation</include>
 			<top>-105</top>
 			<control type="image">
-				<visible>Control.HasFocus(51)</visible>
+				<visible>Control.HasFocus(51) + !Skin.HasSetting(InfoWall.LargeIcons)</visible>
                 <left>82</left>
                 <top>167</top>
                 <width>219</width>
@@ -21,6 +21,19 @@
                 <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(4) | Container(51).Column(3)">Conditional</animation>
                 <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(4) | Container(51).Column(3) | Container(51).Column(2)">Conditional</animation>
                 <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(4) | Container(51).Column(3) | Container(51).Column(2) | Container(51).Column(1)">Conditional</animation>
+            </control>
+            <control type="image">
+				<visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.LargeIcons)</visible>
+                <left>137</left>
+                <top>167</top>
+                <width>320</width>
+                <height>468</height>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="50">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <animation effect="slide" end="0,456" time="300" tween="cubic" easing="inout" condition="Container(51).Row(1)">Conditional</animation>
+                <animation effect="slide" end="308,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(2)">Conditional</animation>
+                <animation effect="slide" end="308,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(2) | Container(51).Column(1)">Conditional</animation>
             </control>
 			<control type="panel" id="51">
 				<left>88</left>
@@ -36,7 +49,7 @@
 				<preloaditems>2</preloaditems>
 				<viewtype label="31021">icons</viewtype>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="304" width="207">
+				<itemlayout height="304" width="207" condition="!Skin.HasSetting(InfoWall.LargeIcons)">
 					<control type="image">
 						<top>6</top>
 						<left>6</left>
@@ -61,7 +74,7 @@
 						<aspectratio align="center" aligny="top">keep</aspectratio>
 					</control>
 				</itemlayout>
-				<focusedlayout height="304" width="207">
+				<focusedlayout height="304" width="207" condition="!Skin.HasSetting(InfoWall.LargeIcons)">
 					<control type="group">
 						<include>PanelFocusedItemZoom</include>
 						<control type="image">
@@ -91,6 +104,65 @@
 						</control>
 					</control>
 				</focusedlayout>
+				<itemlayout height="456" width="308" condition="Skin.HasSetting(InfoWall.LargeIcons)">
+					<control type="group">
+						<left>55</left>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>296</width>
+							<height>444</height>
+							<aspectratio>scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
+						</control>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>296</width>
+							<height>444</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="image">
+							<left>242</left>
+							<top>6</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="456" width="308" condition="Skin.HasSetting(InfoWall.LargeIcons)">
+					<control type="group">
+						<left>55</left>
+						<include>PanelFocusedItemZoom</include>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>296</width>
+							<height>444</height>
+							<aspectratio>scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
+						</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>296</width>
+							<height>444</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="image">
+							<left>242</left>
+							<top>6</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
 				<left>1906</left>
@@ -103,6 +175,7 @@
 				<onup>60</onup>
 			</control>
 			<control type="grouplist">
+				<animation effect="slide" time="300" tween="sine" easing="inout" end="-55" condition="Skin.HasSetting(InfoWall.LargeIcons)">Conditional</animation>
 				<top>179</top>
 				<left>1157</left>
 				<itemgap>15</itemgap>
