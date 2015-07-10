@@ -612,7 +612,6 @@
 				<orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
                 <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                <!--<visible>IntegerGreaterThan(Container(150).NumItems,0)</visible>-->
                 <visible>Container.Content(artists) + ControlGroup(9000).HasFocus(204) + System.HasAddon(script.extendedinfo)</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 <itemlayout height="440" width="588">
@@ -698,6 +697,7 @@
 				<content>plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.Artist] $LOCALIZE[2]</content>
             </control>
             <control type="panel" id="150">
+            	<animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
                 <description>YouTube Videos</description>
                 <left>8</left>
 				<top>576</top>
@@ -710,9 +710,7 @@
 				<orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
                 <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                <!--<visible>IntegerGreaterThan(Container(150).NumItems,0)</visible>-->
                 <visible>Container.Content(albums) + ControlGroup(9000).HasFocus(204) + System.HasAddon(script.extendedinfo)</visible>
-                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 <itemlayout height="440" width="588">
 					<control type="image">
 						<top>6</top>
@@ -819,7 +817,7 @@
                 <aligny>top</aligny>
                 <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/][/COLOR]</label>
                 <visible>IntegerGreaterThan(Container(150).NumItems,0) + ControlGroup(9000).HasFocus(204)</visible>
-                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
+                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout" delay="300">Visible</animation>
             </control>
 			<control type="group">
 				<left>3</left>
