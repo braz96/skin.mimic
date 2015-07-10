@@ -163,8 +163,8 @@
 				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + !Control.HasFocus(8000) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
 			</control>
 			<control type="group">
-				<animation effect="zoom" time="150" tween="sine" easing="inout" start="70" end="100" center="auto">Focus</animation>
-				<animation effect="zoom" time="150" tween="sine" easing="inout" start="100" end="70" center="auto">UnFocus</animation>
+				<animation effect="zoom" time="300" tween="sine" easing="inout" start="70" end="100" center="auto" condition="Control.HasFocus(9000) + [Container(9000).OnScrollNext | Container(9000).OnScrollPrevious]">Focus</animation>
+				<animation effect="zoom" time="300" tween="sine" easing="inout" start="100" end="70" center="auto" condition="Control.HasFocus(9000)">UnFocus</animation>
 				<control type="label">
 					<width>740</width>
 					<height>120</height>
