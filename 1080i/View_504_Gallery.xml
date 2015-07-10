@@ -61,6 +61,7 @@
                 <height>1200</height>
                 <onleft>504</onleft>
                 <onright>504</onright>
+                <scrolltime tween="sine" easing="inout">400</scrolltime>
                 <onup>SetProperty(MediaMenu,True,home)</onup>
 				<onup>SetFocus(9050)</onup>
 				<pagecontrol>61</pagecontrol>
@@ -76,7 +77,6 @@
                             <height>650</height>
                             <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
                             <aspectratio align="center" aligny="center">scale</aspectratio>
-							<colordiffuse>BAffffff</colordiffuse>
                         </control>
 						<control type="image">
 							<visible>Window.IsActive(pictures)</visible>
@@ -84,7 +84,6 @@
                             <height>650</height>
                             <texture background="true">$INFO[ListItem.PicturePath]</texture>
 							<aspectratio align="center" aligny="center">scale</aspectratio>
-							<colordiffuse>BAffffff</colordiffuse>
                         </control>
                         <control type="image">
 							<visible>ListItem.IsFolder + Window.IsActive(pictures)</visible>
@@ -92,6 +91,30 @@
                             <height>650</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+                        </control>
+                        <control type="image">
+                            <visible>![Window.IsActive(pictures) | Container.Content(artists)]</visible>
+                            <left>6</left>
+                            <top>420</top>
+                            <width>1155</width>
+                            <height>168</height>
+                            <aspectratio align="center">keep</aspectratio>
+                            <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                            <animation effect="zoom" start="100" end="173" time="200" center="528,308" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
+                        </control>
+                        <control type="image">
+                            <width>1155</width>
+                            <height>650</height>
+                            <texture>thumbs/diffuse.png</texture>
+                        </control>
+                        <control type="image">
+                            <visible>![Window.IsActive(pictures) | Container.Content(artists)]</visible>
+                            <left>1095</left>
+                            <top>0</top>
+                            <width>60</width>
+                            <height>60</height>
+                            <texture>$VAR[OverlayVar]</texture>
+                            <aspectratio align="center" aligny="top">keep</aspectratio>
                         </control>
                     </control>
                 </itemlayout>
@@ -114,15 +137,6 @@
                             <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
                             <aspectratio align="center" aligny="center">scale</aspectratio>
                         </control>
-						<control type="image">
-							<visible>![Window.IsActive(pictures) | Container.Content(artists)]</visible>
-							<left>1095</left>
-							<top>0</top>
-							<width>60</width>
-							<height>60</height>
-							<texture>$VAR[OverlayVar]</texture>
-							<aspectratio align="center" aligny="top">keep</aspectratio>
-						</control>
                         <control type="image">
 							<visible>![Window.IsActive(pictures) | Container.Content(artists)]</visible>
                             <left>6</left>
@@ -140,6 +154,22 @@
                             <texture background="true">$INFO[ListItem.PicturePath]</texture>
 							<aspectratio align="center" aligny="center">scale</aspectratio>
                         </control>
+                        <control type="image">
+                            <animation center="auto" condition="Control.HasFocus(504)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                            <animation center="auto" condition="Control.HasFocus(504)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                            <width>1155</width>
+                            <height>650</height>
+                            <texture>thumbs/diffuse.png</texture>
+                        </control>
+                        <control type="image">
+                            <visible>![Window.IsActive(pictures) | Container.Content(artists)]</visible>
+                            <left>1095</left>
+                            <top>0</top>
+                            <width>60</width>
+                            <height>60</height>
+                            <texture>$VAR[OverlayVar]</texture>
+                            <aspectratio align="center" aligny="top">keep</aspectratio>
+                        </control>
                     </control>
                 </focusedlayout>
             </control>
@@ -151,7 +181,6 @@
 				<aspectratio>keep</aspectratio>
 				<texture background="true">$INFO[Skin.String(MusicLibraryPath)]$INFO[Container(504).ListItem.Artist,,/logo.png]</texture>
 				<visible>Container.Content(artists)</visible>
-				<animation effect="zoom" start="100" end="173" time="200" center="528,308" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
 			</control>
 			<control type="scrollbar" id="61">
 				<visible>Control.IsVisible(504)</visible>
