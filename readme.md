@@ -18,6 +18,8 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 - Added YouTube videos to Artist/Album info dialogs.
 - Added a basic weather view.
 - Added skin setting to change default background image.
+- Added 8 custom widgets to skin settings.
+- Added large icon option to InfoWall view for videos.
 
 ***
 **2.1.2**
