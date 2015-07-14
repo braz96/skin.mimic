@@ -19,12 +19,18 @@
             <height>120</height>
             <animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
             <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(3)">Conditional</animation>
-            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
-            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
 		<control type="list" id="9000">
-			<include>MainMenuListContentTop</include>
+			<include condition="!Skin.HasSetting(Disable.Topbarinfo)" name="MainMenuListContentTop">
+				<param name="MainMenuTopWidth" value="1536" />
+			</include>
+			<include condition="Skin.HasSetting(Disable.Topbarinfo)" name="MainMenuListContentTop">
+				<param name="MainMenuTopWidth" value="1920" />
+			</include>
 		</control>
 		<control type="group">
 			<visible>!Skin.HasSetting(Disable.Topbarinfo)</visible>
@@ -73,16 +79,22 @@
             <height>120</height>
             <animation effect="fade" start="100" end="40" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
             <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7)">Conditional</animation>
-            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6)">Conditional</animation>
-            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5)">Conditional</animation>
-            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4)">Conditional</animation>
-            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3)">Conditional</animation>
-            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
-            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7) | Container(9000).Position(6)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
+            <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
 		<control type="list" id="9000">
-			<include>MainMenuListContentVertical</include>
+			<include condition="!Skin.HasSetting(Disable.Topbarinfo)" name="MainMenuListContentVertical">
+				<param name="MainMenuVerticalHeight" value="960" />
+			</include>
+			<include condition="Skin.HasSetting(Disable.Topbarinfo)" name="MainMenuListContentVertical">
+				<param name="MainMenuVerticalHeight" value="1080" />
+			</include>
 		</control>
 		<control type="group">
 			<visible>!Skin.HasSetting(Disable.Topbarinfo)</visible>
@@ -184,7 +196,7 @@
 		<animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">conditional</animation>
 		<left>0</left>
 		<top>0</top>
-		<width>1536</width>
+		<width>$PARAM[MainMenuTopWidth]</width>
 		<height>120</height>
 		<onup condition="!IsEmpty(Container(9000).ListItem.Property(Widget))">8000</onup>
 		<ondown>9010</ondown>
@@ -235,7 +247,7 @@
 		<left>0</left>
 		<top>0</top>
 		<width>434</width>
-		<height>960</height>
+		<height>$PARAM[MainMenuVerticalHeight]</height>
 		<onleft condition="!IsEmpty(Container(9000).ListItem.Property(Widget))">8000</onleft>
 		<ondown>9000</ondown>
 		<onup>9000</onup>
