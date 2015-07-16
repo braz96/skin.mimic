@@ -3,15 +3,15 @@
 	<defaultcontrol always="true">100</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<left>229</left>
-		<top>93</top>
+		<left>342</left>
+		<top>111</top>
 	</coordinates>
 	<allowoverlay>yes</allowoverlay>
 	<include>dialogeffect</include>
 	<controls>
 		<include name="DialogBackgroundCommons">
-            <param name="DialogBackgroundWidth" value="1462" />
-            <param name="DialogBackgroundHeight" value="894" />
+            <param name="DialogBackgroundWidth" value="1236" />
+            <param name="DialogBackgroundHeight" value="858" />
             <param name="DialogHeaderLabel" value="$VAR[ColorCustomizerLabelVar]" />
             <param name="DialogHeaderId" value="" />
         </include>
@@ -19,25 +19,25 @@
 			<control type="panel" id="100"> <!--colours -->
 				<left>30</left>
 				<top>83</top>
-				<width>1402</width>
-				<height>782</height>
+				<width>1177</width>
+				<height>657</height>
 				<onup>100</onup>
-				<ondown>100</ondown>
+				<ondown>165</ondown>
 				<onleft>100</onleft>
 				<onright>100</onright>
 				<orientation>horizontal</orientation>
 				<scrolltime>200</scrolltime>
-				<itemlayout height="155" width="155">
+				<itemlayout height="130" width="130">
 					<control type="image">
 						<left>7</left>
 						<top>7</top>
-						<width>148</width>
-						<height>148</height>
+						<width>123</width>
+						<height>123</height>
 						<texture>$INFO[ListItem.Art(thumb)]</texture>
 					</control>
 					<control type="label">
-						<width>155</width>
-						<height>155</height>
+						<width>130</width>
+						<height>130</height>
 						<align>center</align>
 						<aligny>center</aligny>
 						<font>IconMedium</font>
@@ -46,8 +46,8 @@
 						<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label)]] + !StringCompare(ListItem.Label,FF000000)</visible>
 					</control>
 					<control type="label">
-						<width>155</width>
-						<height>155</height>
+						<width>130</width>
+						<height>130</height>
 						<align>center</align>
 						<aligny>center</aligny>
 						<font>IconMedium</font>
@@ -56,18 +56,18 @@
 						<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label)]] + StringCompare(ListItem.Label,FF000000)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout height="155" width="155">
+				<focusedlayout height="130" width="130">
 					<control type="image">
 						<left>0</left>
-						<width>162</width>
-						<height>162</height>
+						<width>137</width>
+						<height>137</height>
 						<texture>$INFO[ListItem.Art(thumb)]</texture>
 						<bordertexture colordiffuse="maintext">thumbs/thumbnail_focused.png</bordertexture>
 						<bordersize>7</bordersize>
 					</control>
 					<control type="label">
-						<width>155</width>
-						<height>155</height>
+						<width>130</width>
+						<height>130</height>
 						<align>center</align>
 						<aligny>center</aligny>
 						<font>IconMedium</font>
@@ -76,8 +76,8 @@
 						<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label)]] + !StringCompare(ListItem.Label,FF000000)</visible>
 					</control>
 					<control type="label">
-						<width>155</width>
-						<height>155</height>
+						<width>130</width>
+						<height>130</height>
 						<align>center</align>
 						<aligny>center</aligny>
 						<font>IconMedium</font>
@@ -89,275 +89,316 @@
 				<content>
 					<item id="1"> <!--green 1 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF93ce5f)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF93ce5f.png</thumb>
 						<label>FF93ce5f</label>
 					</item>
 					<item id="2"> <!--green 2 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF80d535)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF80d535.png</thumb>
 						<label>FF80d535</label>
 					</item>
 					<item id="3"> <!--green 6 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF69a013)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF69a013.png</thumb>
 						<label>FF69a013</label>
 					</item>
 					<item id="4"> <!--green 7 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF91ad10)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF91ad10.png</thumb>
 						<label>FF91ad10</label>
 					</item>
 					<item id="5"> <!--black -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF000000)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF000000.png</thumb>
 						<label>FF000000</label>
 					</item>
 					<item id="6"> <!--green 9 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFb5c814)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFb5c814.png</thumb>
 						<label>FFb5c814</label>
 					</item>
 					<item id="7"> <!--green 12 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFe8ef23)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFe8ef23.png</thumb>
 						<label>FFe8ef23</label>
 					</item>
 					<item id="8"> <!--yellow 1 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFfed530)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFfed530.png</thumb>
 						<label>FFfed530</label>
 					</item>
 					<item id="9"> <!--yellow 3 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFebbd04)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFebbd04.png</thumb>
 						<label>FFebbd04</label>
 					</item>
 					<item id="10"> <!--grey 1 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF222222)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF222222.png</thumb>
 						<label>FF222222</label>
 					</item>
 					<item id="11"> <!--yellow 5 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFd1a408)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFd1a408.png</thumb>
 						<label>FFd1a408</label>
 					</item>
 					<item id="12"> <!--orange 1 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFf6983c)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFf6983c.png</thumb>
 						<label>FFf6983c</label>
 					</item>
 					<item id="13"> <!--orange 3 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFfb8512)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFfb8512.png</thumb>
 						<label>FFfb8512</label>
 					</item>
 					<item id="14"> <!--orange 5 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFf16816)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFf16816.png</thumb>
 						<label>FFf16816</label>
 					</item>
 					<item id="15"> <!--grey 2 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF444444)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF444444.png</thumb>
 						<label>FF444444</label>
 					</item>
 					<item id="16"> <!--orange 6 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFf14416)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFf14416.png</thumb>
 						<label>FFf14416</label>
 					</item>
 					<item id="17"> <!--red 1 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFe95d4e)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFe95d4e.png</thumb>
 						<label>FFe95d4e</label>
 					</item>
 					<item id="19"> <!--red 4 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFed2914)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFed2914.png</thumb>
 						<label>FFed2914</label>
 					</item>
 					<item id="21"> <!--red 6 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFc81805)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFc81805.png</thumb>
 						<label>FFc81805</label>
 					</item>
 					<item id="20"> <!--grey 3 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF666666)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF666666.png</thumb>
 						<label>FF666666</label>
 					</item>
 					<item id="22"> <!--red 7 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFc90533)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFc90533.png</thumb>
 						<label>FFc90533</label>
 					</item>
 					<item id="23"> <!--red 9 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFd82f76)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFd82f76.png</thumb>
 						<label>FFd82f76</label>
 					</item>
 					<item id="24"> <!--pink 2 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFfd76d0)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFfd76d0.png</thumb>
 						<label>FFfd76d0</label>
 					</item>
 					<item id="26"> <!--pink 6 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFeb37d0)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFeb37d0.png</thumb>
 						<label>FFeb37d0</label>
 					</item>
 					<item id="25"> <!--grey 4 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF888888)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF888888.png</thumb>
 						<label>FF888888</label>
 					</item>
 					<item id="27"> <!--pink 8 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF995b7e)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF995b7e.png</thumb>
 						<label>FF995b7e</label>
 					</item>
 					<item id="28"> <!--purple 2 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFaf6bdf)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFaf6bdf.png</thumb>
 						<label>FFaf6bdf</label>
 					</item>
 					<item id="29"> <!--purple 4 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF9544ce)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF9544ce.png</thumb>
 						<label>FF9544ce</label>
 					</item>
 					<item id="31"> <!--purple 5 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF862ec3)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF862ec3.png</thumb>
 						<label>FF862ec3</label>
 					</item>
 					<item id="30"> <!--grey 5 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFaaaaaa)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFaaaaaa.png</thumb>
 						<label>FFaaaaaa</label>
 					</item>
 					<item id="32"> <!--purple 6 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF522f73)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF522f73.png</thumb>
 						<label>FF522f73</label>
 					</item>
 					<item id="33"> <!--purple 7 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF5334da)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF5334da.png</thumb>
 						<label>FF5334da</label>
 					</item>
 					<item id="34"> <!--purple 8 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF305bd4)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF305bd4.png</thumb>
 						<label>FF305bd4</label>
 					</item>
 					<item id="35"> <!--purple 10 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF4b82de)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF4b82de.png</thumb>
 						<label>FF4b82de</label>
 					</item>
 					<item id="36"> <!--grey 6 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFcccccc)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFcccccc.png</thumb>
 						<label>FFcccccc</label>
 					</item>
 					<item id="37"> <!--blue -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF4d86a6)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF4d86a6.png</thumb>
 						<label>FF4d86a6</label>
 					</item>
 					<item id="38"> <!--blue 5 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF2d95d7)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF2d95d7.png</thumb>
 						<label>FF2d95d7</label>
 					</item>					
 					<item id="39"> <!--blue 3 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF4bb4f6)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF4bb4f6.png</thumb>
 						<label>FF4bb4f6</label>
 					</item>
 					<item id="41"> <!--cyan 1 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF00ffff)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF00ffff.png</thumb>
 						<label>FF00ffff</label>
 					</item>
 					<item id="40"> <!--grey 7 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFeeeeee)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFeeeeee.png</thumb>
 						<label>FFeeeeee</label>
 					</item>
 					<item id="42"> <!--aqua 3 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF2ae1b8)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF2ae1b8.png</thumb>
 						<label>FF2ae1b8</label>
 					</item>
 					<item id="43"> <!--aqua 6 -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF0fd382)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF0fd382.png</thumb>
 						<label>FF0fd382</label>
 					</item>
 					<item id="44"> <!--green -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF499d73)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF499d73.png</thumb>
 						<label>FF499d73</label>
 					</item>
 					<item id="18"> <!--brown -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FF6b5441)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FF6b5441.png</thumb>
 						<label>FF6b5441</label>
 					</item>
 					<item id="45"> <!--white -->
 						<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)],FFffffff)</onclick>
-						<onclick>Close</onclick>
+						<onclick>Skin.SetBool($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
 						<thumb>colors/FFffffff.png</thumb>
 						<label>FFffffff</label>
 					</item>
 				</content>
+			</control>
+			<control type="group">
+				<top>760</top>
+				<left>37</left>
+				<control type="button" id="165">
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<label>31138</label>
+					<textoffsetx>15</textoffsetx>
+					<width>253</width>
+					<height>60</height>
+					<onclick>Skin.Reset($INFO[Skin.String(ColorCustomizer)].preset)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(ColorCustomizer)])</onclick>
+				</control>
+				<control type="image">
+					<left>260</left>
+					<width>60</width>
+					<height>60</height>
+					<texture>colors/FFeeeeee.png</texture>
+					<colordiffuse>$VAR[CustomColorVar]</colordiffuse>
+				</control>
+				<control type="label">
+					<left>260</left>
+					<width>60</width>
+					<height>58</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>IconMedium</font>
+					<textcolor>shadow</textcolor>
+					<label>✓</label>
+					<visible>[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + !Skin.HasSetting(highlightcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + !Skin.HasSetting(backgroundcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + !Skin.HasSetting(dialogcolor.name.preset)]</visible>
+				</control>
+				<control type="label">
+					<label>31139</label>
+					<left>350</left>
+					<width>700</width>
+					<height>60</height>
+					<aligny>center</aligny>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
+					<visible>Control.HasFocus(165)</visible>
+				</control>
 			</control>
 		</control>
 	</controls>
