@@ -13,7 +13,8 @@
 	</include>
 	<include name="WidgetListContent">
 		<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
-		<animation effect="fade" start="100" end="0" time="0" condition="Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
+		<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
+		<animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="![Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious]">Conditional</animation>
 		<left>0</left>
 		<top>484</top>
 		<width>FullScreenWidth</width>
@@ -27,8 +28,7 @@
 		<preloaditems>2</preloaditems>
 		<scrolltime tween="sine" easing="out">240</scrolltime>
 		<orientation>horizontal</orientation>
-		<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) | StringCompare(Container(9000).ListItem.Property(WidgetType),2) | StringCompare(Container(9000).ListItem.Property(WidgetType),4) | StringCompare(Container(9000).ListItem.Property(WidgetType),5) | StringCompare(Container(9000).ListItem.Property(WidgetType),6)]</visible>
-		<visible>!IsEmpty(Container(9000).ListItem.Property(Widget))</visible>
+		<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + !StringCompare(Container(9000).ListItem.Property(WidgetType),3)</visible>
 		<autoscroll time="10000" delay="10000" repeat="10000">[Control.IsVisible(9003) + !Control.HasFocus(8000)] + !Skin.HasSetting(Disable.WidgetAutoScroll)</autoscroll>
 		<itemlayout height="300" width="330" condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
 			<control type="image">
