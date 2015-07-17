@@ -547,9 +547,10 @@
 		<value condition="StringCompare(Skin.String(ColorCustomizer),dialogcolor.name)">$LOCALIZE[31218]</value>
 	</variable>
 	<variable name="CustomColorVar">
-		<value condition="StringCompare(Skin.String(ColorCustomizer),highlightcolor.name)">$INFO[Skin.String(highlightcolor.name)]</value>
-		<value condition="StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name)">$INFO[Skin.String(backgroundcolor.name)]</value>
-		<value condition="StringCompare(Skin.String(ColorCustomizer),dialogcolor.name)">$INFO[Skin.String(dialogcolor.name)]</value>
+		<value condition="StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + Skin.String(highlightcolor.name)">$INFO[Skin.String(highlightcolor.name)]</value>
+		<value condition="StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + Skin.String(backgroundcolor.name)">$INFO[Skin.String(backgroundcolor.name)]</value>
+		<value condition="StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + Skin.String(dialogcolor.name)">$INFO[Skin.String(dialogcolor.name)]</value>
+		<value>$LOCALIZE[31138]</value>
 	</variable>
 	<variable name="ExtraFanartVar">
 		<value condition="Skin.HasSetting(Enable.Extrafanart) + !IsEmpty(ListItem.Art(extrafanart1))">$INFO[Control.GetLabel(4410)]</value>
