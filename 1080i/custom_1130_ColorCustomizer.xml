@@ -16,9 +16,35 @@
             <param name="DialogHeaderId" value="" />
         </include>
 		<control type="group"> <!--content -->
+			<control type="group">
+                <visible>IntegerGreaterThan(Container(100).NumItems,0)</visible>
+                <animation effect="fade" time="320" delay="300">Visible</animation>
+                <control type="image">
+                	<visible>Control.HasFocus(100)</visible>
+                    <left>30</left>
+                    <top>82</top>
+                    <width>137</width>
+                    <height>137</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="50">Hidden</animation>
+                    <texture colordiffuse="FFcccccc">colors/FFffffff.png</texture>
+                    <animation effect="slide" end="0,130" time="200" tween="cubic" easing="inout" condition="Container(100).Row(4)">Conditional</animation>
+                    <animation effect="slide" end="0,130" time="200" tween="cubic" easing="inout" condition="Container(100).Row(4) | Container(100).Row(3)">Conditional</animation>
+                    <animation effect="slide" end="0,130" time="200" tween="cubic" easing="inout" condition="Container(100).Row(4) | Container(100).Row(3) | Container(100).Row(2)">Conditional</animation>
+                    <animation effect="slide" end="0,130" time="200" tween="cubic" easing="inout" condition="Container(100).Row(4) | Container(100).Row(3) | Container(100).Row(2) | Container(100).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="130,0" time="200" tween="cubic" easing="inout" condition="Container(100).Column(8)">Conditional</animation>
+                    <animation effect="slide" end="130,0" time="200" tween="cubic" easing="inout" condition="Container(100).Column(8) | Container(100).Column(7)">Conditional</animation>
+                    <animation effect="slide" end="130,0" time="200" tween="cubic" easing="inout" condition="Container(100).Column(8) | Container(100).Column(7) | Container(100).Column(6)">Conditional</animation>
+                    <animation effect="slide" end="130,0" time="200" tween="cubic" easing="inout" condition="Container(100).Column(8) | Container(100).Column(7) | Container(100).Column(6) | Container(100).Column(5)">Conditional</animation>
+                    <animation effect="slide" end="130,0" time="200" tween="cubic" easing="inout" condition="Container(100).Column(8) | Container(100).Column(7) | Container(100).Column(6) | Container(100).Column(5) | Container(100).Column(4)">Conditional</animation>
+                    <animation effect="slide" end="130,0" time="200" tween="cubic" easing="inout" condition="Container(100).Column(8) | Container(100).Column(7) | Container(100).Column(6) | Container(100).Column(5) | Container(100).Column(4) | Container(100).Column(3)">Conditional</animation>
+                    <animation effect="slide" end="130,0" time="200" tween="cubic" easing="inout" condition="Container(100).Column(8) | Container(100).Column(7) | Container(100).Column(6) | Container(100).Column(5) | Container(100).Column(4) | Container(100).Column(3) | Container(100).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="130,0" time="200" tween="cubic" easing="inout" condition="Container(100).Column(8) | Container(100).Column(7) | Container(100).Column(6) | Container(100).Column(5) | Container(100).Column(4) | Container(100).Column(3) | Container(100).Column(2) | Container(100).Column(1)">Conditional</animation>
+                </control>
+            </control>
 			<control type="panel" id="100"> <!--colours -->
 				<left>30</left>
-				<top>83</top>
+				<top>82</top>
 				<width>1177</width>
 				<height>657</height>
 				<onup>100</onup>
@@ -28,62 +54,65 @@
 				<orientation>horizontal</orientation>
 				<scrolltime>200</scrolltime>
 				<itemlayout height="130" width="130">
-					<control type="image">
+					<control type="group">
 						<left>7</left>
 						<top>7</top>
-						<width>123</width>
-						<height>123</height>
-						<texture>$INFO[ListItem.Art(thumb)]</texture>
-					</control>
-					<control type="label">
-						<width>130</width>
-						<height>130</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<font>IconMedium</font>
-						<textcolor>shadow</textcolor>
-						<label>✓</label>
-						<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label) + Skin.HasSetting(highlightcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label) + Skin.HasSetting(backgroundcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label) + Skin.HasSetting(dialogcolor.name.preset)]] + !StringCompare(ListItem.Label,FF000000)</visible>
-					</control>
-					<control type="label">
-						<width>130</width>
-						<height>130</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<font>IconMedium</font>
-						<textcolor>AAffffff</textcolor>
-						<label>✓</label>
-						<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label) + Skin.HasSetting(highlightcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label) + Skin.HasSetting(backgroundcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label) + Skin.HasSetting(dialogcolor.name.preset)]] + StringCompare(ListItem.Label,FF000000)</visible>
+						<control type="image">
+							<width>123</width>
+							<height>123</height>
+							<texture>$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="label">
+							<width>123</width>
+							<height>123</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>IconMedium</font>
+							<textcolor>shadow</textcolor>
+							<label>✓</label>
+							<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label) + Skin.HasSetting(highlightcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label) + Skin.HasSetting(backgroundcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label) + Skin.HasSetting(dialogcolor.name.preset)]] + !StringCompare(ListItem.Label,FF000000)</visible>
+						</control>
+						<control type="label">
+							<width>123</width>
+							<height>123</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>IconMedium</font>
+							<textcolor>AAffffff</textcolor>
+							<label>✓</label>
+							<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label) + Skin.HasSetting(highlightcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label) + Skin.HasSetting(backgroundcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label) + Skin.HasSetting(dialogcolor.name.preset)]] + StringCompare(ListItem.Label,FF000000)</visible>
+						</control>
 					</control>
 				</itemlayout>
 				<focusedlayout height="130" width="130">
-					<control type="image">
-						<left>0</left>
-						<width>137</width>
-						<height>137</height>
-						<texture>$INFO[ListItem.Art(thumb)]</texture>
-						<bordertexture colordiffuse="maintext">thumbs/thumbnail_focused.png</bordertexture>
-						<bordersize>7</bordersize>
-					</control>
-					<control type="label">
-						<width>130</width>
-						<height>130</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<font>IconMedium</font>
-						<textcolor>shadow</textcolor>
-						<label>✓</label>
-						<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label) + Skin.HasSetting(highlightcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label) + Skin.HasSetting(backgroundcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label) + Skin.HasSetting(dialogcolor.name.preset)]] + !StringCompare(ListItem.Label,FF000000)</visible>
-					</control>
-					<control type="label">
-						<width>130</width>
-						<height>130</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<font>IconMedium</font>
-						<textcolor>AAffffff</textcolor>
-						<label>✓</label>
-						<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label) + Skin.HasSetting(highlightcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label) + Skin.HasSetting(backgroundcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label) + Skin.HasSetting(dialogcolor.name.preset)]] + StringCompare(ListItem.Label,FF000000)</visible>
+					<control type="group">
+						<left>7</left>
+						<top>7</top>
+						<control type="image">
+							<width>123</width>
+							<height>123</height>
+							<texture>$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="label">
+							<width>123</width>
+							<height>123</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>IconMedium</font>
+							<textcolor>shadow</textcolor>
+							<label>✓</label>
+							<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label) + Skin.HasSetting(highlightcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label) + Skin.HasSetting(backgroundcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label) + Skin.HasSetting(dialogcolor.name.preset)]] + !StringCompare(ListItem.Label,FF000000)</visible>
+						</control>
+						<control type="label">
+							<width>123</width>
+							<height>123</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>IconMedium</font>
+							<textcolor>AAffffff</textcolor>
+							<label>✓</label>
+							<visible>[[StringCompare(Skin.String(ColorCustomizer),highlightcolor.name) + StringCompare(Skin.String(highlightcolor.name),ListItem.Label) + Skin.HasSetting(highlightcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),backgroundcolor.name) + StringCompare(Skin.String(backgroundcolor.name),ListItem.Label) + Skin.HasSetting(backgroundcolor.name.preset)] | [StringCompare(Skin.String(ColorCustomizer),dialogcolor.name) + StringCompare(Skin.String(dialogcolor.name),ListItem.Label) + Skin.HasSetting(dialogcolor.name.preset)]] + StringCompare(ListItem.Label,FF000000)</visible>
+						</control>
 					</control>
 				</focusedlayout>
 				<content>
