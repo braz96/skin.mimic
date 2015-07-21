@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <allowoverlay>no</allowoverlay>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+        <system>1</system>
+    </coordinates>
+    <controls>
+        <!-- gameinfoviewgamelist -->
+        <control type="group" id="1000">
+            <control type="wraplist" id="59">
+                <include>HiddenObject</include>
+                <onleft>3000</onleft>
+                <onright>3000</onright>
+                <onup>3000</onup>
+                <ondown>3000</ondown>
+                <scrolltime>200</scrolltime>
+                <itemlayout height="0" width="0" />
+                <focusedlayout height="0" width="0"></focusedlayout>
+            </control>
+        </control>
+        <control type="group">
+            <animation effect="fade" time="300">WindowClose</animation>
+            <control type="image">
+                <aspectratio>scale</aspectratio>
+                <texture background="true" fallback="special://skin/backgrounds/default_bg.jpg">$INFO[ListItem.Property(background)]</texture>
+                <include>FullscreenDimensions</include>
+            </control>
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture>background.png</texture>
+                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+            </control>
+        </control>
+        <control type="grouplist" id="5000">
+            <visible>False</visible>
+            <onleft>5000</onleft>
+            <onright>50</onright>
+            <onup>IncreaseRating</onup>
+            <ondown>DecreaseRating</ondown>
+            <orientation>horizontal</orientation>
+            <itemgap>50</itemgap>
+            <control type="button" id="3000">
+                <label>$ADDON[script.games.rom.collection.browser 54006]</label>
+                <include>HiddenObject</include>
+            </control>
+            <control type="button" id="3001">
+                <label>31332</label>
+                <include>HiddenObject</include>
+                <onclick>PlayMedia($ESCINFO[ListItem.Property(gameplayinfo)],1)</onclick>
+                <visible>!IsEmpty(ListItem.Property(gameplayinfo))</visible>
+            </control>
+        </control>
+        <control type="group">
+            <include>Animation_DialogPopup</include>
+            <include>Animation_ExtendedInfo</include>
+            <control type="image">
+                <left>38</left>
+                <top>38</top>
+                <width>653</width>
+                <height>1002</height>
+                <aspectratio aligny="top">keep</aspectratio>
+                <texture>$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="group">
+                <left>729</left>
+                <top>15</top>
+                <width>1042</width>
+                <height>854</height>
+                <control type="grouplist">
+                    <width>1100</width>
+                    <height>110</height>
+                    <itemgap>0</itemgap>
+                    <align>center</align>
+                    <control type="label">
+                        <width>1100</width>
+                        <height>60</height>
+                        <aligny>center</aligny>
+                        <align>left</align>
+                        <font>font30_title</font>
+                        <textcolor>maintext</textcolor>
+                        <scroll>true</scroll>
+                        <label>[B]$INFO[ListItem.Label][/B]</label>
+                    </control>
+                    <control type="label">
+                        <width>1100</width>
+                        <height>30</height>
+                        <aligny>center</aligny>
+                        <align>left</align>
+                        <font>font15</font>
+                        <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                        <scroll>true</scroll>
+                        <label>$INFO[ListItem.Property(year)]</label>
+                        <visible>!IsEmpty(ListItem.Property(year))</visible>
+                    </control>
+                </control>
+                <control type="panel" id="300">
+                    <left>-36</left>
+                    <top>150</top>
+                    <width>1188</width>
+                    <height>306</height>
+                    <onup>4002</onup>
+                    <ondown>9000</ondown>
+                    <orientation>horizontal</orientation>
+                    <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                    <itemlayout height="102" width="594">
+                        <control type="label">
+                            <top>50</top>
+                            <width>594</width>
+                            <height>40</height>
+                            <font>font15</font>
+                            <textcolor>maintext</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                            <textoffsetx>36</textoffsetx>
+                        </control>
+                        <control type="label">
+                            <top>5</top>
+                            <width>594</width>
+                            <height>40</height>
+                            <font>font15</font>
+                            <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                            <label>$INFO[ListItem.Label2]</label>
+                            <textoffsetx>36</textoffsetx>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="102" width="594">
+                        <control type="image">
+                            <top>1</top>
+                            <width>594</width>
+                            <height>100</height>
+                            <texture>listselect_fo.png</texture> <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                            <visible>Control.HasFocus(300)</visible>
+                            <include>VisibleFadeEffect</include>
+                        </control>
+                        <control type="label">
+                            <top>50</top>
+                            <width>594</width>
+                            <height>40</height>
+                            <font>font15</font>
+                            <textcolor>maintext</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                            <animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(300)">Conditional</animation>
+                            <textoffsetx>36</textoffsetx>
+                        </control>
+                        <control type="label">
+                            <top>5</top>
+                            <width>594</width>
+                            <height>40</height>
+                            <font>font15</font>
+                            <textcolor>maintext</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                            <label>$INFO[ListItem.Label2]</label>
+                            <animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(300)">Conditional</animation>
+                            <textoffsetx>36</textoffsetx>
+                        </control>
+                    </focusedlayout>
+                    <content>
+                        <item> 
+                            <label fallback="N/A">$INFO[ListItem.Property(genre)]</label>
+                            <label2>$LOCALIZE[515]:</label2>
+                            <onclick>noop</onclick>
+                        </item>
+                        <item> 
+                            <label fallback="N/A">$INFO[ListItem.Property(publisher)]</label>
+                            <label2>$ADDON[script.games.rom.collection.browser 50002]:</label2>
+                            <onclick>noop</onclick>
+                        </item>
+                        <item> 
+                            <label fallback="N/A">$INFO[ListItem.Property(developer)]</label>
+                            <label2>$ADDON[script.games.rom.collection.browser 50003]:</label2>
+                            <onclick>noop</onclick>
+                        </item>
+                        <item> 
+                            <label fallback="N/A">$INFO[ListItem.Property(console)]</label>
+                            <label2>$ADDON[script.games.rom.collection.browser 50006]:</label2>
+                            <onclick>noop</onclick>
+                        </item>
+                        <item> 
+                            <label fallback="N/A">$INFO[ListItem.Property(maxplayers)]</label>
+                            <label2>$ADDON[script.games.rom.collection.browser 54004]:</label2>
+                            <onclick>noop</onclick>
+                        </item>
+                        <item> 
+                            <label fallback="13170">$INFO[ListItem.Property(playcount)]</label>
+                            <label2>$LOCALIZE[576]:</label2>
+                            <onclick>noop</onclick>
+                        </item>
+                    </content>
+                </control>
+                <control type="textbox" id="8000">
+                    <description>Plot</description>
+                    <left>0</left>
+                    <top>495</top>
+                    <width>1132</width>
+                    <height>522</height>
+                    <font>font15_textbox</font>
+                    <align>left</align>
+                    <label>$INFO[ListItem.Property(plot)]</label>
+                    <textcolor>maintext</textcolor>
+                    <autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+                </control>
+            </control>
+        </control>
+        <control type="label" id="4000">
+            <visible>False</visible>
+            <label></label>
+            <left>10</left>
+            <top>560</top>
+            <width>680</width>
+            <height>10</height>
+            <font>font10</font>
+            <textcolor>white6</textcolor>
+            <scroll>true</scroll>
+        </control>
+    </controls>
+</window>
