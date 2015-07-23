@@ -21,6 +21,7 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 - Added 8 custom widgets to skin settings.
 - Added large icon option to InfoWall view for videos.
 - Added extra fanart option to InfoWall, Showcase, and BannerInfo views for videos.
+- Added support for Rom Collection Browser.
 
 ***
 **2.1.2**
