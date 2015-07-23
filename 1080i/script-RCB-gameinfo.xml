@@ -34,7 +34,6 @@
             </control>
         </control>
         <control type="grouplist" id="5000">
-            <visible>False</visible>
             <onleft>5000</onleft>
             <onright>50</onright>
             <onup>IncreaseRating</onup>
@@ -46,7 +45,7 @@
                 <include>HiddenObject</include>
             </control>
             <control type="button" id="3001">
-                <label>31332</label>
+                <label>208</label>
                 <include>HiddenObject</include>
                 <onclick>PlayMedia($ESCINFO[ListItem.Property(gameplayinfo)],1)</onclick>
                 <visible>!IsEmpty(ListItem.Property(gameplayinfo))</visible>
@@ -160,32 +159,37 @@
                     </focusedlayout>
                     <content>
                         <item> 
-                            <label fallback="N/A">$INFO[ListItem.Property(genre)]</label>
+                            <label>$INFO[ListItem.Property(genre)]</label>
                             <label2>$LOCALIZE[515]:</label2>
+                            <visible>!IsEmpty(ListItem.Property(genre))</visible>
                             <onclick>noop</onclick>
                         </item>
                         <item> 
-                            <label fallback="N/A">$INFO[ListItem.Property(publisher)]</label>
+                            <label>$INFO[ListItem.Property(publisher)]</label>
                             <label2>$ADDON[script.games.rom.collection.browser 50002]:</label2>
+                            <visible>!IsEmpty(ListItem.Property(publisher))</visible>
                             <onclick>noop</onclick>
                         </item>
                         <item> 
-                            <label fallback="N/A">$INFO[ListItem.Property(developer)]</label>
+                            <label>$INFO[ListItem.Property(developer)]</label>
                             <label2>$ADDON[script.games.rom.collection.browser 50003]:</label2>
+                            <visible>!IsEmpty(ListItem.Property(developer))</visible>
                             <onclick>noop</onclick>
                         </item>
                         <item> 
-                            <label fallback="N/A">$INFO[ListItem.Property(console)]</label>
+                            <label>$INFO[ListItem.Property(console)]</label>
                             <label2>$ADDON[script.games.rom.collection.browser 50006]:</label2>
+                            <visible>!IsEmpty(ListItem.Property(console))</visible>
                             <onclick>noop</onclick>
                         </item>
                         <item> 
-                            <label fallback="N/A">$INFO[ListItem.Property(maxplayers)]</label>
+                            <label>$INFO[ListItem.Property(maxplayers)]</label>
                             <label2>$ADDON[script.games.rom.collection.browser 54004]:</label2>
+                            <visible>!IsEmpty(ListItem.Property(maxplayers))</visible>
                             <onclick>noop</onclick>
                         </item>
                         <item> 
-                            <label fallback="13170">$INFO[ListItem.Property(playcount)]</label>
+                            <label>$INFO[ListItem.Property(playcount)]</label>
                             <label2>$LOCALIZE[576]:</label2>
                             <onclick>noop</onclick>
                         </item>
@@ -211,9 +215,9 @@
             <left>10</left>
             <top>560</top>
             <width>680</width>
-            <height>10</height>
-            <font>font10</font>
-            <textcolor>white6</textcolor>
+            <height>30</height>
+            <font>font14</font>
+            <textcolor>maintext</textcolor>
             <scroll>true</scroll>
         </control>
     </controls>
