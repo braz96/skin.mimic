@@ -161,7 +161,14 @@
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.ToggleSetting(Enable.Extrafanart)</onclick>
 			<selected>Skin.HasSetting(Enable.Extrafanart)</selected>
-			<visible>System.HasAddon(script.toolbox) + Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(506)]</visible>
+			<visible>System.HasAddon(script.toolbox) + Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(506)] + !Container.Content(sets)</visible>
+		</control>
+		<control type="radiobutton" id="1805">
+			<label>31140</label>
+			<include>ButtonCommonValues</include>
+			<onclick>Skin.ToggleSetting(Enable.ShiftPlot)</onclick>
+			<selected>Skin.HasSetting(Enable.ShiftPlot)</selected>
+			<visible>Window.IsActive(videos) + Control.IsVisible(57) + !Container.Content(sets)</visible>
 		</control>
 	</include>
 	<include name="PVRMediaMenu">

@@ -5,6 +5,7 @@
 			<include>ViewAnimation</include>
 			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
 			<control type="fixedlist" id="57">
+				<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftPlot)">Conditional</animation>
 				<left>-120</left>
 				<top>275</top>
 				<width>2100</width>
@@ -153,6 +154,21 @@
 				<ondown>57</ondown>
 				<orientation>horizontal</orientation>
 			</control>
+			<control type="textbox">
+				<visible>Skin.HasSetting(Enable.ShiftPlot)</visible>
+				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
+				<top>775</top>
+				<left>160</left>
+				<width>1633</width>
+				<height>220</height>
+				<font>font14_textbox4</font>
+				<textcolor>maintext</textcolor>
+				<align>left</align>
+				<aligny>top</aligny>
+				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				<include>ShowCaseInfoPanelButtonsValues</include>
+				<label>[COLOR $VAR[ColorHighlightVar]]$INFO[ListItem.Tagline,, ][/COLOR]$INFO[ListItem.Plot]</label>
+			</control>
 		</control>
 	</include>
 	<include name="AlbumShift">
@@ -160,6 +176,7 @@
 			<include>ViewAnimation</include>
 			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
 			<control type="fixedlist" id="57">
+				<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftDescription)">Conditional</animation>
 				<left>-120</left>
 				<top>275</top>
 				<width>2100</width>
@@ -243,6 +260,21 @@
 				<onup>57</onup>
 				<ondown>noop</ondown>
 				<orientation>horizontal</orientation>
+			</control>
+			<control type="textbox">
+				<visible>Skin.HasSetting(Enable.ShiftDescription)</visible>
+				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
+				<top>775</top>
+				<left>160</left>
+				<width>1633</width>
+				<height>220</height>
+				<font>font14_textbox4</font>
+				<textcolor>maintext</textcolor>
+				<align>left</align>
+				<aligny>top</aligny>
+				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				<include>ShowCaseInfoPanelButtonsValues</include>
+				<label>$VAR[MusicPlotVar]</label>
 			</control>
 		</control>
 	</include>
