@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<window id="5200">
+    <defaultcontrol>7010</defaultcontrol>
+    <include>dialogeffect</include>
+    <coordinates>
+        <system>1</system>
+        <left>258</left>
+        <top>140</top>
+    </coordinates>
+    <controls>
+        <!-- Window -->
+        <include name="DialogBackgroundCommons">
+            <param name="DialogBackgroundWidth" value="1404" />
+            <param name="DialogBackgroundHeight" value="800" />
+            <param name="DialogHeaderLabel" value="$ADDON[script.games.rom.collection.browser 32999] - $ADDON[script.games.rom.collection.browser 32600]" />
+            <param name="DialogHeaderId" value="" />
+        </include>
+        <control type="button" id="5101">
+            <visible>False</visible>
+        </control>
+        <!-- Category buttons -->
+        <control type="list" id="7000">
+            <left>30</left>
+            <top>90</top>
+            <width>315</width>
+            <height>300</height>
+            <onleft>7010</onleft>
+            <onright>7010</onright>
+            <onup>7000</onup>
+            <ondown>7000</ondown>
+            <pagecontrol>-</pagecontrol>
+            <scrolltime>300</scrolltime>
+            <itemlayout height="60" width="315">
+                <control type="label">
+                    <left>0</left>
+                    <width>315</width>
+                    <height>60</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>font14</font>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="60" width="315">
+                <control type="image">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>315</width>
+                    <height>60</height>
+                    <texture>listselect_fo.png</texture>
+                    <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                    <animation effect="fade" start="100" end="40" time="100" condition="!Control.HasFocus(7000)">Conditional</animation>
+                </control>
+                <control type="label">
+                    <left>0</left>
+                    <width>315</width>
+                    <height>60</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>font14</font>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="1">
+                    <label>$ADDON[script.games.rom.collection.browser 32700]</label>
+                    <onclick>-</onclick>
+                </item>
+            </content>
+        </control>
+        <control type="group" id="7010">
+            <!-- Offline scrapers -->
+            <control type="group" id="7004">
+                <left>375</left>
+                <top>90</top>
+                <!-- Scraper List -->
+                <control type="list" id="5600">
+                    <hitrect x="0" y="0" w="0" h="0" />
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <onleft>5600</onleft>
+                    <onright>5600</onright>
+                    <onup>5600</onup>
+                    <ondown>5600</ondown>
+                    <enable>false</enable>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime>0</scrolltime>
+                    <itemlayout height="1" width="1000"></itemlayout>
+                    <focusedlayout height="60" width="1000">
+                        <control type="image">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1000</width>
+                            <height>60</height>
+                            <texture>listselect_fo.png</texture>
+                            <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                            <visible>[Control.HasFocus(5601) | Control.HasFocus(5602)]</visible>
+                        </control>
+                        <control type="label">
+                            <include>RCBimportlabels</include>
+                            <align>left</align>
+                            <label>$ADDON[script.games.rom.collection.browser 32701]</label>
+                            <visible>![Control.HasFocus(5601) | Control.HasFocus(5602)]</visible>
+                        </control>
+                        <control type="label">
+                            <include>RCBimportlabels</include>
+                            <align>left</align>
+                            <label>$ADDON[script.games.rom.collection.browser 32700]</label>
+                            <visible>[Control.HasFocus(5601) | Control.HasFocus(5602)]</visible>
+                        </control>
+                        <control type="label">
+                            <width>890</width>
+                            <include>RCBimportlabels</include>
+                            <align>right</align>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <control type="button" id="5601">
+                    <description>Menu Item Next Button</description>
+                    <left>945</left>
+                    <top>18</top>
+                    <width>40</width>
+                    <height>25</height>
+                    <label>-</label>
+                    <font>-</font>
+                    <texturenofocus colordiffuse="maintext">android/numberpicker_up_normal_holo_dark.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">android/numberpicker_up_normal_holo_dark.png</texturefocus>
+                    <onclick>Control.Move(5600,1)</onclick>
+                    <onleft>5602</onleft>
+                    <onright>6000</onright>
+                    <ondown>5550</ondown>
+                </control>
+                <control type="button" id="5602">
+                    <left>905</left>
+                    <top>18</top>
+                    <width>40</width>
+                    <height>25</height>
+                    <label>-</label>
+                    <font>-</font>
+                    <texturenofocus colordiffuse="maintext">android/numberpicker_down_normal_holo_dark.png</texturenofocus>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">android/numberpicker_down_normal_holo_dark.png</texturefocus>
+                    <onclick>Control.Move(5600,-1)</onclick>
+                    <onleft>7000</onleft>
+                    <onright>5601</onright>
+                    <ondown>5550</ondown>
+                </control>
+                <!-- descfile per game -->
+                <control type="radiobutton" id="5550">
+                    <left>0</left>
+                    <top>60</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <font>font14</font>
+                    <label>$ADDON[script.games.rom.collection.browser 32702]</label>
+                    <onleft>7000</onleft>
+                    <onright>6000</onright>
+                    <onup>5602</onup>
+                    <ondown>5520</ondown>
+                    <onclick>Skin.ToggleSetting(rcb_editScraper_descFilePerGame)</onclick>
+                </control>
+                <!-- Path game desc -->
+                <control type="button" id="5520">
+                    <description>Path game desc</description>
+                    <left>0</left>
+                    <top>120</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <visible>true</visible>
+                    <font>font14</font>
+                    <label>$INFO[ListItem.Label]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <textoffsetx>15</textoffsetx>
+                    <onup>5550</onup>
+                    <ondown>5530</ondown>
+                    <onleft>7000</onleft>
+                    <onright>6000</onright>
+                </control>
+                <control type="label">
+                    <top>120</top>
+                    <include>RCBimportlabels</include>
+                    <align>left</align>
+                    <label>$ADDON[script.games.rom.collection.browser 32703]</label>
+                </control>
+                <!-- Game desc file mask -->
+                <control type="button" id="5530">
+                    <description>Game desc file mask</description>
+                    <left>0</left>
+                    <top>180</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <visible>true</visible>
+                    <font>font14</font>
+                    <label>$INFO[ListItem.Label]</label>
+                    <align>right</align>
+                    <textoffsetx>15</textoffsetx>
+                    <onup>5520</onup>
+                    <ondown>5540</ondown>
+                    <onleft>7000</onleft>
+                    <onright>6000</onright>
+                    <enable>Skin.HasSetting(rcb_editScraper_descFilePerGame)</enable>
+                    <animation reversible="false" effect="fade" end="50" time="0" condition="!Skin.HasSetting(rcb_editScraper_descFilePerGame)">Conditional</animation>
+                </control>
+                <control type="label">
+                    <top>180</top>
+                    <include>RCBimportlabels</include>
+                    <align>left</align>
+                    <label>$ADDON[script.games.rom.collection.browser 32704]</label>
+                    <animation reversible="false" effect="fade" end="50" time="0" condition="!Skin.HasSetting(rcb_editScraper_descFilePerGame)">Conditional</animation>
+                </control>
+                <!-- Parse instruction -->
+                <control type="button" id="5540">
+                    <description>Parse instruction</description>
+                    <left>0</left>
+                    <top>240</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <visible>true</visible>
+                    <font>font14</font>
+                    <label>$INFO[ListItem.Label]</label>
+                    <align>right</align>
+                    <textoffsetx>15</textoffsetx>
+                    <onup>5530</onup>
+                    <ondown>5560</ondown>
+                    <onleft>7000</onleft>
+                    <onright>6000</onright>
+                </control>
+                <control type="label">
+                    <top>240</top>
+                    <include>RCBimportlabels</include>
+                    <align>left</align>
+                    <label>$ADDON[script.games.rom.collection.browser 32705]</label>
+                </control>
+                <!-- Search by crc -->
+                <control type="radiobutton" id="5560">
+                    <left>0</left>
+                    <top>300</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <font>font14</font>
+                    <label>$ADDON[script.games.rom.collection.browser 32706]</label>
+                    <onleft>7000</onleft>
+                    <onright>6000</onright>
+                    <onup>5540</onup>
+                    <ondown>5580</ondown>
+                </control>
+                <!-- Use foldername as crc -->
+                <control type="radiobutton" id="5580">
+                    <left>0</left>
+                    <top>360</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <font>font14</font>
+                    <label>$ADDON[script.games.rom.collection.browser 32707]</label>
+                    <onleft>7000</onleft>
+                    <onright>6000</onright>
+                    <onup>5560</onup>
+                    <ondown>5590</ondown>
+                </control>
+                <!-- Use filename as crc -->
+                <control type="radiobutton" id="5590">
+                    <left>0</left>
+                    <top>420</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <font>font14</font>
+                    <label>$ADDON[script.games.rom.collection.browser 32708]</label>
+                    <onleft>7000</onleft>
+                    <onright>6000</onright>
+                    <onup>5580</onup>
+                    <ondown>5610</ondown>
+                </control>
+                <!-- Remoce scraper -->
+                <control type="button" id="5610">
+                    <description>Remove scraper</description>
+                    <left>0</left>
+                    <top>480</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <visible>true</visible>
+                    <font>font14</font>
+                    <label>$ADDON[script.games.rom.collection.browser 32709]</label>
+                    <align>left</align>
+                    <textoffsetx>15</textoffsetx>
+                    <onup>5590</onup>
+                    <ondown>5620</ondown>
+                    <onleft>7000</onleft>
+                    <onright>6000</onright>
+                </control>
+                <!-- Add scraper -->
+                <control type="button" id="5620">
+                    <description>Add scraper</description>
+                    <left>0</left>
+                    <top>540</top>
+                    <width>1000</width>
+                    <height>60</height>
+                    <visible>true</visible>
+                    <font>font14</font>
+                    <label>$ADDON[script.games.rom.collection.browser 32710]</label>
+                    <align>left</align>
+                    <textoffsetx>15</textoffsetx>
+                    <onup>5610</onup>
+                    <ondown>6000</ondown>
+                    <onleft>7000</onleft>
+                    <onright>6000</onright>
+                </control>
+            </control>
+        </control>
+        <!-- Buttons -->
+        <control type="button" id="6000">
+            <description>Save</description>
+            <left>30</left>
+            <top>710</top>
+            <width>652</width>
+            <height>60</height>
+            <font>font15_title</font>
+            <textcolor>maintext</textcolor>
+            <focusedcolor>maintext</focusedcolor>
+            <align>center</align>
+            <texturefocus>listselect_fo.png</texturefocus>
+            <label>$ADDON[script.games.rom.collection.browser 32634]</label>
+            <onup>7010</onup>
+            <onleft>7000</onleft>
+            <onright>6010</onright>
+        </control>
+        <control type="button" id="6010">
+            <description>Cancel</description>
+            <left>722</left>
+            <top>710</top>
+            <width>652</width>
+            <height>60</height>
+            <font>font15_title</font>
+            <textcolor>maintext</textcolor>
+            <focusedcolor>maintext</focusedcolor>
+            <align>center</align>
+            <texturefocus>listselect_fo.png</texturefocus>
+            <label>$ADDON[script.games.rom.collection.browser 32635]</label>
+            <onup>7010</onup>
+            <onleft>6000</onleft>
+            <onright>7000</onright>
+        </control>
+    </controls>
+</window>
