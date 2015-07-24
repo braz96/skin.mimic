@@ -12,6 +12,11 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 
 
 ***
+**2.2.1**
+- Skinned Rom Collection Browser dialogs.
+- Added option to display plot/description on Shift view for videos/music.
+
+***
 **2.2.0**
 - Updated all of the panel views using Phil65's design.
 - Added support for Phil65's YouTube Browser addon.
