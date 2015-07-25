@@ -951,8 +951,14 @@
 						<description>Play Trailer</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>20410</label>
-						<visible>False</visible>
-						<!--<visible>!IsEmpty(ListItem.Trailer) + Container.Content(movies)</visible>-->
+						<enable>!IsEmpty(ListItem.Trailer)</enable>
+						<visible>Container.Content(movies) + !System.HasAddon(script.extendedinfo)</visible>
+					</control>
+					<control type="button" id="203">
+						<description>Spacer</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<enable>False</enable>
+						<visible>!Container.Content(movies) + !System.HasAddon(script.extendedinfo)</visible>
 					</control>
 					<control type="button" id="204">
 						<description>YouTube</description>
@@ -960,7 +966,7 @@
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+						<visible>[Container.Content(movies) | Container.Content(tvshows)] + System.HasAddon(script.extendedinfo)</visible>
 					</control>
 					<control type="button" id="6">
 						<description>Refresh</description>
