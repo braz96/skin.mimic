@@ -26,12 +26,12 @@
 			<include>Animation_ExtendedInfo</include>
 			<left>729</left>
 			<control type="group">
-				<left>40</left>
 				<top>20</top>
 				<width>1042</width>
 				<height>854</height>
 				<control type="grouplist">
-					<top>-20</top>
+					<top>-15</top>
+					<left>12</left>
 					<width>1100</width>
 					<height>110</height>
 					<itemgap>0</itemgap>
@@ -92,7 +92,7 @@
 					</control>
 				</control>
 				<control type="grouplist">
-					<left>0</left>
+					<left>12</left>
 					<top>95</top>
 					<width>1188</width>
 					<height>90</height>
@@ -206,40 +206,40 @@
 					</control>
 				</control>
 				<control type="panel" id="300">
-					<left>-36</left>
+					<left>-2</left>
 					<top>184</top>
-					<width>1188</width>
+					<width>1176</width>
 					<height>306</height>
 					<onup>4002</onup>
 					<ondown>9000</ondown>
 					<orientation>horizontal</orientation>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="102" width="594">
+					<itemlayout height="102" width="588">
 						<control type="label">
 							<top>50</top>
-							<width>594</width>
+							<width>588</width>
 							<height>40</height>
 							<font>font15</font>
 							<textcolor>maintext</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<textoffsetx>36</textoffsetx>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
 							<top>5</top>
-							<width>594</width>
+							<width>588</width>
 							<height>40</height>
 							<font>font15</font>
 							<textcolor>$VAR[ColorHighlightVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
-							<textoffsetx>36</textoffsetx>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="102" width="594">
+					<focusedlayout height="102" width="588">
 						<control type="image">
 							<top>1</top>
-							<width>594</width>
+							<width>588</width>
 							<height>100</height>
 							<texture>listselect_fo.png</texture> <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 							<visible>Control.HasFocus(300)</visible>
@@ -247,25 +247,25 @@
 						</control>
 						<control type="label">
 							<top>50</top>
-							<width>594</width>
+							<width>588</width>
 							<height>40</height>
 							<font>font15</font>
 							<textcolor>maintext</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(300)">Conditional</animation>
-							<textoffsetx>36</textoffsetx>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
 							<top>5</top>
-							<width>594</width>
+							<width>588</width>
 							<height>40</height>
 							<font>font15</font>
 							<textcolor>maintext</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(300)">Conditional</animation>
-							<textoffsetx>36</textoffsetx>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -397,7 +397,7 @@
 				</control>
 				<control type="textbox" id="400">
 					<description>Plot</description>
-					<left>0</left>
+					<left>15</left>
 					<top>560</top>
 					<width>1132</width>
 					<height>402</height>
@@ -426,7 +426,8 @@
 					<onclick>Skin.ToggleSetting(VideoInfoPlotToggle)</onclick>
 				</control>
 				<control type="scrollbar" id="60">
-					<left>1136</left>
+					<visible>Control.IsVisible(400)</visible>
+					<left>1176</left>
 					<top>560</top>
 					<width>14</width>
 					<height>500</height>
@@ -440,7 +441,7 @@
 					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus(4003)">Conditional</animation>
 				</control>
 				<control type="group">
-					<left>-37</left>
+					<left>0</left>
 					<top>970</top>
 					<visible>!Control.IsVisible(150)</visible>
 					<control type="grouplist">
@@ -571,7 +572,7 @@
 	                <animation effect="fade" time="320" delay="300">Visible</animation>
 	                <control type="image">
 	                	<visible>Control.HasFocus(50)</visible>
-	                    <left>-38</left>
+	                    <left>2</left>
 	                    <top>550</top>
 	                    <width>306</width>
 	                    <height>420</height>
@@ -586,7 +587,7 @@
 				<control type="panel" id="50">
 					<animation effect="fade" time="300" delay="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
 					<visible>!ControlGroup(9000).HasFocus(204)</visible>
-					<left>-32</left>
+					<left>8</left>
 					<top>556</top>
 					<width>1176</width>
 					<height>408</height>
@@ -912,10 +913,10 @@
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
             </control>
 			<control type="group">
-				<left>3</left>
+				<left>0</left>
 				<top>0</top>
 				<control type="grouplist" id="9000">
-					<left>1</left>
+					<left>-2</left>
 					<top>510</top>
 					<width>1192</width>
 					<height>60</height>
@@ -973,7 +974,7 @@
 					<control type="button" id="6">
 						<description>Refresh</description>
 						<font>IconMedium</font>
-						<width>84</width>
+						<width>80</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label></label>
 						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
@@ -981,7 +982,7 @@
 					<control type="button" id="207">
 						<description>Extras</description>
 						<font>IconMedium</font>
-						<width>84</width>
+						<width>80</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>+</label>
 						<onclick>ActivateWindow(1119)</onclick>
@@ -994,8 +995,10 @@
 			<include>Animation_DialogPopup</include>
 			<include>Animation_ExtendedInfo</include>
 			<control type="image">
-				<width>731</width>
-				<height>1080</height>
+				<top>30</top>
+				<left>30</left>
+				<width>680</width>
+				<height>1020</height>
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture background="true">$VAR[PosterVar]</texture>
 			</control>
