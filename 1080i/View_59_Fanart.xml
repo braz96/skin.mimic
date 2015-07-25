@@ -2,6 +2,12 @@
 <includes>
 	<!-- Details -->
 	<include name="FanartDetails">
+		<control type="image">
+			<width>FullScreenWidth</width>
+			<height>370</height>
+			<texture>background.png</texture>
+			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+		</control>
 		<control type="group">
 			<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 			<control type="image">
@@ -38,8 +44,8 @@
 				<width>1633</width>
 				<height>65</height>
 				<font>font28_title</font>
-				<textcolor>maintext</textcolor>
-				<label>[COLOR $VAR[ColorHighlightVar]]$VAR[FloorSubLabelVar][/COLOR]</label>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+				<label>$VAR[FloorSubLabelVar]</label>
 			</control>
 			<control type="textbox">
 				<top>140</top>
@@ -52,7 +58,7 @@
 				<aligny>top</aligny>
 				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				<include>ShowCaseInfoPanelButtonsValues</include>
-				<label>[COLOR $VAR[ColorHighlightVar]]$INFO[ListItem.Tagline,, ][/COLOR]$INFO[ListItem.Plot]</label>
+				<label>$INFO[ListItem.Tagline,, - ]$INFO[ListItem.Plot]</label>
 			</control>
 			<control type="image">
 				<left>1585</left>
@@ -127,24 +133,12 @@
 				<focusposition>0</focusposition>
 				<viewtype label="20445">list</viewtype>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)] + !Window.IsVisible(home)</visible>
+				<visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)]</visible>
 				<orientation>horizontal</orientation>
 				<itemlayout width="1920" height="370">
-					<control type="image">
-						<width>FullScreenWidth</width>
-						<height>370</height>
-						<texture>background.png</texture>
-						<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-					</control>
 					<include>FanartDetails</include>
 				</itemlayout>
 				<focusedlayout width="1920" height="370">
-					<control type="image">
-						<width>FullScreenWidth</width>
-						<height>370</height>
-						<texture>background.png</texture>
-						<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-					</control>
 					<include>FanartDetails</include>
 				</focusedlayout>
 			</control>
