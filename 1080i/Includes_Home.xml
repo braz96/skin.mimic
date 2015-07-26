@@ -26,18 +26,7 @@
 				<texture>listselect_fo.png</texture>
 				<colordiffuse>shadow</colordiffuse>
 			</control>
-			<control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>740</width>
-                <height>120</height>
-                <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="590" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(2)">Conditional</animation>
-                <animation effect="slide" end="590" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
-            </control>
-			<include condition="Skin.HasSetting(HorizontalListNav)">MainMenuListFixed</include>
-			<include condition="!Skin.HasSetting(HorizontalListNav)">MainMenuListWrapped</include>
+			<include>MainMenuList</include>
 			<control type="group" id="9001">
 				<animation effect="fade" start="100" end="0" time="200" condition="system.getbool(lookandfeel.enablerssfeeds) + !Control.HasFocus(9010)">Conditional</animation>
 				<control type="fixedlist" id="9010">

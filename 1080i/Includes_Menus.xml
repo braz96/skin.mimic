@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<!-- Main Menu Includes -->
-	<include name="MainMenuListFixed">
-		<control type="fixedlist" id="9000">
-			<include>MainMenuListContent</include>
-		</control>
-	</include>
-	<include name="MainMenuListWrapped">
-		<control type="wraplist" id="9000">
+	<include name="MainMenuList">
+		<control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>384</width>
+            <height>120</height>
+            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
+        </control>
+		<control type="list" id="9000">
 			<include>MainMenuListContent</include>
 		</control>
 	</include>
@@ -145,49 +152,42 @@
 		<ondown>9010</ondown>
 		<movement>1</movement>
 		<pagecontrol>-</pagecontrol>
-		<scrolltime tween="sine" easing="inout">500</scrolltime>
-		<focusposition>1</focusposition>
+		<scrolltime tween="sine" easing="inout">300</scrolltime>
+		<!--<focusposition>2</focusposition>-->
 		<orientation>Horizontal</orientation>
-		<itemlayout height="120" width="590">
-			<control type="group">
-				<animation effect="zoom" time="0" tween="sine" easing="inout" start="70" end="70" center="auto" condition="true">Conditional</animation>
-				<control type="label">
-					<width>590</width>
-					<height>120</height>
-					<top>-4</top>
-					<font>font_MainMenu_fo</font>
-					<textcolor>maintext</textcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
+		<itemlayout height="120" width="384">
+			<control type="label">
+				<width>384</width>
+				<height>120</height>
+				<top>-4</top>
+				<font>font_AltMainMenu</font>
+				<textcolor>maintext</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
-		<focusedlayout height="120" width="740">
+		<focusedlayout height="120" width="384">
 			<control type="image">
 				<animation effect="fade" start="0" end="80" time="100" delay="1000">Focus</animation>
 				<animation effect="fade" start="80" end="0" time="0">UnFocus</animation>
 				<top>1</top>
-				<left>709</left>
+				<left>353</left>
 				<width>30</width>
 				<height>30</height>
 				<texture>WidgetIndicator.png</texture>
 				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
 			</control>
-			<control type="group">
-				<animation effect="zoom" time="300" tween="sine" easing="inout" start="70" end="100" center="auto" condition="Container(9000).OnScrollNext | Container(9000).OnScrollPrevious">Focus</animation>
-				<animation effect="zoom" time="300" tween="sine" easing="inout" start="100" end="70" center="auto" condition="Control.HasFocus(9000)">UnFocus</animation>
-				<control type="label">
-					<width>740</width>
-					<height>120</height>
-					<top>-4</top>
-					<font>font_MainMenu_fo</font>
-					<textcolor>maintext</textcolor>
-					<selectedcolor>maintext</selectedcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
+			<control type="label">
+				<width>384</width>
+				<height>120</height>
+				<top>-4</top>
+				<font>font_AltMainMenu</font>
+				<textcolor>maintext</textcolor>
+				<selectedcolor>maintext</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</focusedlayout>
 		<include>FallbackMenu</include>
@@ -202,7 +202,7 @@
 		<ondown>9010</ondown>
 		<movement>1</movement>
 		<pagecontrol>-</pagecontrol>
-		<scrolltime tween="quadratic" easing="out">500</scrolltime>
+		<scrolltime tween="quadratic" easing="out">300</scrolltime>
 		<focusposition>1</focusposition>
 		<orientation>Horizontal</orientation>
 		<itemlayout height="120" width="384">
@@ -254,7 +254,7 @@
 		<onright>9010</onright>
 		<movement>1</movement>
 		<pagecontrol>-</pagecontrol>
-		<scrolltime tween="quadratic" easing="out">500</scrolltime>
+		<scrolltime tween="quadratic" easing="out">300</scrolltime>
 		<focusposition>1</focusposition>
 		<orientation>Vertical</orientation>
 		<itemlayout height="120" width="434">
