@@ -21,7 +21,7 @@
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">400</scrolltime>
 				<focusposition>1</focusposition>
-				<itemlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons)">
+				<itemlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons) + !Container.Content(episodes)">
 					<control type="image">
 						<left>-12</left>
 						<top>100</top>
@@ -48,7 +48,7 @@
 						<aspectratio align="right" aligny="top">keep</aspectratio>
 					</control>
 				</itemlayout>
-				<focusedlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons)">
+				<focusedlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons) + !Container.Content(episodes)">
 					<control type="group">
 						<animation effect="zoom" center="auto" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
 						<animation effect="zoom" center="auto" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
@@ -84,9 +84,9 @@
 				<itemlayout width="315" height="750" condition="Container.Content(musicvideos) | Container.Content(addons)">
 					<control type="image">
 						<left>-12</left>
-						<top>265</top>
+						<top>365</top>
 						<width>340</width>
-						<height>340</height>
+						<height>240</height>
 						<aspectratio scalediffuse="false">scale</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<bordersize>20</bordersize>
@@ -136,6 +136,66 @@
 							<visible>Container.Content(musicvideos)</visible>
 							<left>248</left>
 							<top>285</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+				<itemlayout width="500" height="750" condition="Container.Content(episodes)">
+					<control type="image">
+						<left>-170</left>
+						<top>240</top>
+						<width>525</width>
+						<height>360</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Thumb]</texture>
+						<bordersize>20</bordersize>
+					</control>
+					<control type="image">
+						<left>-170</left>
+						<top>240</top>
+						<width>525</width>
+						<height>360</height>
+						<texture>thumbs/diffuse.png</texture>
+						<bordersize>20</bordersize>
+					</control>
+					<control type="image">
+						<left>275</left>
+						<top>260</top>
+						<width>60</width>
+						<height>60</height>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
+					</control>
+				</itemlayout>
+				<focusedlayout width="500" height="750" condition="Container.Content(episodes)">
+					<control type="group">
+						<animation effect="zoom" center="80,426" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
+						<animation effect="zoom" center="80,426" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
+						<control type="image">
+							<left>-170</left>
+							<top>240</top>
+							<width>525</width>
+							<height>360</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<bordersize>20</bordersize>
+						</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<left>-170</left>
+							<top>240</top>
+							<width>525</width>
+							<height>360</height>
+							<texture>thumbs/diffuse.png</texture>
+							<bordersize>20</bordersize>
+						</control>
+						<control type="image">
+							<left>275</left>
+							<top>260</top>
 							<width>60</width>
 							<height>60</height>
 							<texture>$VAR[OverlayVar]</texture>
