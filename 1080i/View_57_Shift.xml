@@ -1,209 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
-	<include name="PosterShift">
-		<control type="group">
-			<include>ViewAnimation</include>
-			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
-			<control type="fixedlist" id="57">
-				<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftPlot)">Conditional</animation>
-				<left>-120</left>
-				<top>275</top>
-				<width>2100</width>
-				<height>750</height>
-				<onup>SetProperty(MediaMenu,True,home)</onup>
-				<onup>SetFocus(9050)</onup>
-				<onleft>57</onleft>
-				<onright>57</onright>
-				<ondown>60</ondown>
-				<orientation>horizontal</orientation>
-				<viewtype label="31079">BigWrap</viewtype>
-				<pagecontrol>60</pagecontrol>
-				<preloaditems>2</preloaditems>
-				<scrolltime tween="quadratic">400</scrolltime>
-				<focusposition>1</focusposition>
-				<itemlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons) + !Container.Content(episodes)">
-					<control type="image">
-						<left>-12</left>
-						<top>100</top>
-						<width>340</width>
-						<height>490</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
-						<bordersize>20</bordersize>
-					</control>
-					<control type="image">
-						<left>-12</left>
-						<top>100</top>
-						<width>340</width>
-						<height>490</height>
-						<texture>thumbs/diffuse.png</texture>
-						<bordersize>20</bordersize>
-					</control>
-					<control type="image">
-						<left>248</left>
-						<top>120</top>
-						<width>60</width>
-						<height>60</height>
-						<texture>$VAR[OverlayVar]</texture>
-						<aspectratio align="right" aligny="top">keep</aspectratio>
-					</control>
-				</itemlayout>
-				<focusedlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons) + !Container.Content(episodes)">
-					<control type="group">
-						<animation effect="zoom" center="auto" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
-						<animation effect="zoom" center="auto" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
-						<control type="image">
-							<left>-12</left>
-							<top>100</top>
-							<width>340</width>
-							<height>490</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<left>-12</left>
-							<top>100</top>
-							<width>340</width>
-							<height>490</height>
-							<texture>thumbs/diffuse.png</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<left>248</left>
-							<top>120</top>
-							<width>60</width>
-							<height>60</height>
-							<texture>$VAR[OverlayVar]</texture>
-							<aspectratio align="right" aligny="top">keep</aspectratio>
-						</control>
-					</control>
-				</focusedlayout>
-				<itemlayout width="315" height="750" condition="Container.Content(musicvideos) | Container.Content(addons)">
-					<control type="image">
-						<left>-12</left>
-						<top>365</top>
-						<width>340</width>
-						<height>240</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<bordersize>20</bordersize>
-					</control>
-					<control type="image">
-						<left>-12</left>
-						<top>265</top>
-						<width>340</width>
-						<height>340</height>
-						<texture>thumbs/diffuse.png</texture>
-						<bordersize>20</bordersize>
-					</control>
-					<control type="image">
-						<visible>Container.Content(musicvideos)</visible>
-						<left>248</left>
-						<top>285</top>
-						<width>60</width>
-						<height>60</height>
-						<texture>$VAR[OverlayVar]</texture>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-					</control>
-				</itemlayout>
-				<focusedlayout width="315" height="750" condition="Container.Content(musicvideos) | Container.Content(addons)">
-					<control type="group">
-						<animation effect="zoom" center="150,450" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
-						<animation effect="zoom" center="150,450" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
-						<control type="image">
-							<left>-12</left>
-							<top>265</top>
-							<width>340</width>
-							<height>340</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<left>-12</left>
-							<top>265</top>
-							<width>340</width>
-							<height>340</height>
-							<texture>thumbs/diffuse.png</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<visible>Container.Content(musicvideos)</visible>
-							<left>248</left>
-							<top>285</top>
-							<width>60</width>
-							<height>60</height>
-							<texture>$VAR[OverlayVar]</texture>
-							<aspectratio align="center" aligny="top">keep</aspectratio>
-						</control>
-					</control>
-				</focusedlayout>
-				<itemlayout width="500" height="750" condition="Container.Content(episodes)">
-					<control type="image">
-						<left>-170</left>
-						<top>240</top>
-						<width>525</width>
-						<height>360</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Thumb]</texture>
-						<bordersize>20</bordersize>
-					</control>
-					<control type="image">
-						<left>-170</left>
-						<top>240</top>
-						<width>525</width>
-						<height>360</height>
-						<texture>thumbs/diffuse.png</texture>
-						<bordersize>20</bordersize>
-					</control>
-					<control type="image">
-						<left>275</left>
-						<top>260</top>
-						<width>60</width>
-						<height>60</height>
-						<texture>$VAR[OverlayVar]</texture>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-					</control>
-				</itemlayout>
-				<focusedlayout width="500" height="750" condition="Container.Content(episodes)">
-					<control type="group">
-						<animation effect="zoom" center="80,426" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
-						<animation effect="zoom" center="80,426" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
-						<control type="image">
-							<left>-170</left>
-							<top>240</top>
-							<width>525</width>
-							<height>360</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture background="true">$INFO[ListItem.Thumb]</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<left>-170</left>
-							<top>240</top>
-							<width>525</width>
-							<height>360</height>
-							<texture>thumbs/diffuse.png</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<left>275</left>
-							<top>260</top>
-							<width>60</width>
-							<height>60</height>
-							<texture>$VAR[OverlayVar]</texture>
-							<aspectratio align="center" aligny="top">keep</aspectratio>
-						</control>
-					</control>
-				</focusedlayout>
+	<include name="ShiftFixedList">
+		<include>ViewAnimation</include>
+		<visible>!Window.IsActive(addoninformation)</visible>
+		<control type="fixedlist" id="57">
+			<include condition="Window.IsActive(videos)">Contents57VideoList</include>
+			<include condition="!Window.IsActive(videos)">Contents57AlbumList</include>
+		</control>
+		<include>ShiftExtras</include>
+	</include>
+	<include name="ShiftWrapList">
+		<include>ViewAnimation</include>
+		<visible>!Window.IsActive(addoninformation)</visible>
+		<control type="wraplist" id="57">
+			<include condition="Window.IsActive(videos)">Contents57VideoList</include>
+			<include condition="!Window.IsActive(videos)">Contents57AlbumList</include>
+		</control>
+		<include>ShiftExtras</include>
+	</include>
+	<include name="Contents57VideoList">
+		<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftPlot) + !Container.Content(addons)">Conditional</animation>
+		<left>-120</left>
+		<top>275</top>
+		<width>2100</width>
+		<height>750</height>
+		<onup>SetProperty(MediaMenu,True,home)</onup>
+		<onup>SetFocus(9050)</onup>
+		<onleft>57</onleft>
+		<onright>57</onright>
+		<ondown>60</ondown>
+		<orientation>horizontal</orientation>
+		<viewtype label="31079">BigWrap</viewtype>
+		<pagecontrol>60</pagecontrol>
+		<preloaditems>2</preloaditems>
+		<scrolltime tween="quadratic">400</scrolltime>
+		<focusposition>1</focusposition>
+		<itemlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons) + !Container.Content(episodes)">
+			<control type="image">
+				<left>-12</left>
+				<top>100</top>
+				<width>340</width>
+				<height>490</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
+				<bordersize>20</bordersize>
 			</control>
+			<control type="image">
+				<left>-12</left>
+				<top>100</top>
+				<width>340</width>
+				<height>490</height>
+				<texture>thumbs/diffuse.png</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image">
+				<left>248</left>
+				<top>120</top>
+				<width>60</width>
+				<height>60</height>
+				<texture>$VAR[OverlayVar]</texture>
+				<aspectratio align="right" aligny="top">keep</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons) + !Container.Content(episodes)">
+			<control type="group">
+				<animation effect="zoom" center="auto" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
+				<animation effect="zoom" center="auto" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
+				<control type="image">
+					<left>-12</left>
+					<top>100</top>
+					<width>340</width>
+					<height>490</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+					<left>-12</left>
+					<top>100</top>
+					<width>340</width>
+					<height>490</height>
+					<texture>thumbs/diffuse.png</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<left>248</left>
+					<top>120</top>
+					<width>60</width>
+					<height>60</height>
+					<texture>$VAR[OverlayVar]</texture>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+				</control>
+			</control>
+		</focusedlayout>
+		<itemlayout width="315" height="750" condition="Container.Content(musicvideos) | Container.Content(addons)">
+			<control type="image">
+				<left>-12</left>
+				<top>265</top>
+				<width>340</width>
+				<height>340</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image">
+				<left>-12</left>
+				<top>265</top>
+				<width>340</width>
+				<height>340</height>
+				<texture>thumbs/diffuse.png</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image">
+				<visible>Container.Content(musicvideos)</visible>
+				<left>248</left>
+				<top>285</top>
+				<width>60</width>
+				<height>60</height>
+				<texture>$VAR[OverlayVar]</texture>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="315" height="750" condition="Container.Content(musicvideos) | Container.Content(addons)">
+			<control type="group">
+				<animation effect="zoom" center="150,450" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
+				<animation effect="zoom" center="150,450" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
+				<control type="image">
+					<left>-12</left>
+					<top>265</top>
+					<width>340</width>
+					<height>340</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+					<left>-12</left>
+					<top>265</top>
+					<width>340</width>
+					<height>340</height>
+					<texture>thumbs/diffuse.png</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<visible>Container.Content(musicvideos)</visible>
+					<left>248</left>
+					<top>285</top>
+					<width>60</width>
+					<height>60</height>
+					<texture>$VAR[OverlayVar]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+			</control>
+		</focusedlayout>
+		<itemlayout width="500" height="750" condition="Container.Content(episodes)">
+			<control type="image">
+				<left>-170</left>
+				<top>240</top>
+				<width>525</width>
+				<height>360</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Thumb]</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image">
+				<left>-170</left>
+				<top>240</top>
+				<width>525</width>
+				<height>360</height>
+				<texture>thumbs/diffuse.png</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image">
+				<left>275</left>
+				<top>260</top>
+				<width>60</width>
+				<height>60</height>
+				<texture>$VAR[OverlayVar]</texture>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="500" height="750" condition="Container.Content(episodes)">
+			<control type="group">
+				<animation effect="zoom" center="80,426" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
+				<animation effect="zoom" center="80,426" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
+				<control type="image">
+					<left>-170</left>
+					<top>240</top>
+					<width>525</width>
+					<height>360</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+					<left>-170</left>
+					<top>240</top>
+					<width>525</width>
+					<height>360</height>
+					<texture>thumbs/diffuse.png</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<left>275</left>
+					<top>260</top>
+					<width>60</width>
+					<height>60</height>
+					<texture>$VAR[OverlayVar]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Contents57AlbumList">
+		<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftDescription) + !Container.Content(addons)">Conditional</animation>
+		<left>-120</left>
+		<top>275</top>
+		<width>2100</width>
+		<height>750</height>
+		<onup>SetProperty(MediaMenu,True,home)</onup>
+		<onup>SetFocus(9050)</onup>
+		<onleft>57</onleft>
+		<onright>57</onright>
+		<ondown>60</ondown>
+		<orientation>horizontal</orientation>
+		<viewtype label="31079">BigWrap</viewtype>
+		<pagecontrol>60</pagecontrol>
+		<scrolltime tween="quadratic">400</scrolltime>
+		<focusposition>1</focusposition>
+		<itemlayout width="315" height="750">
+			<control type="image">
+				<left>-12</left>
+				<top>265</top>
+				<width>340</width>
+				<height>340</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image">
+				<left>-12</left>
+				<top>265</top>
+				<width>340</width>
+				<height>340</height>
+				<texture>thumbs/diffuse.png</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image">
+				<left>248</left>
+				<top>285</top>
+				<width>60</width>
+				<height>60</height>
+				<texture>$VAR[OverlayVar]</texture>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="315" height="750">
+			<control type="group">
+				<animation effect="zoom" center="150,450" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
+				<animation effect="zoom" center="150,450" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
+				<control type="image">
+					<left>-12</left>
+					<top>265</top>
+					<width>340</width>
+					<height>340</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+					<left>-12</left>
+					<top>265</top>
+					<width>340</width>
+					<height>340</height>
+					<texture>thumbs/diffuse.png</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<left>248</left>
+					<top>285</top>
+					<width>60</width>
+					<height>60</height>
+					<texture>$VAR[OverlayVar]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="ShiftExtras">
+		<control type="group">
+			<visible>Control.IsVisible(57)</visible>
 			<control type="scrollbar" id="60">
 				<animation effect="slide" time="0" start="0,0" end="0,15" condition="Container.Content(addons) + !Window.IsActive(videos) + !Window.IsActive(pictures)">Conditional</animation>
 				<left>0</left>
@@ -215,7 +309,7 @@
 				<orientation>horizontal</orientation>
 			</control>
 			<control type="textbox">
-				<visible>Skin.HasSetting(Enable.ShiftPlot)</visible>
+				<visible>Skin.HasSetting(Enable.ShiftPlot) + Window.IsActive(videos)</visible>
 				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
 				<top>775</top>
 				<left>160</left>
@@ -229,100 +323,8 @@
 				<include>ShowCaseInfoPanelButtonsValues</include>
 				<label>[COLOR $VAR[ColorHighlightVar]]$INFO[ListItem.Tagline,, ][/COLOR]$INFO[ListItem.Plot]</label>
 			</control>
-		</control>
-	</include>
-	<include name="AlbumShift">
-		<control type="group">
-			<include>ViewAnimation</include>
-			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
-			<control type="fixedlist" id="57">
-				<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftDescription)">Conditional</animation>
-				<left>-120</left>
-				<top>275</top>
-				<width>2100</width>
-				<height>750</height>
-				<onup>SetProperty(MediaMenu,True,home)</onup>
-				<onup>SetFocus(9050)</onup>
-				<onleft>57</onleft>
-				<onright>57</onright>
-				<ondown>60</ondown>
-				<orientation>horizontal</orientation>
-				<viewtype label="31079">BigWrap</viewtype>
-				<pagecontrol>60</pagecontrol>
-				<scrolltime tween="quadratic">400</scrolltime>
-				<focusposition>1</focusposition>
-				<itemlayout width="315" height="750">
-					<control type="image">
-						<left>-12</left>
-						<top>265</top>
-						<width>340</width>
-						<height>340</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<bordersize>20</bordersize>
-					</control>
-					<control type="image">
-						<left>-12</left>
-						<top>265</top>
-						<width>340</width>
-						<height>340</height>
-						<texture>thumbs/diffuse.png</texture>
-						<bordersize>20</bordersize>
-					</control>
-					<control type="image">
-						<left>248</left>
-						<top>285</top>
-						<width>60</width>
-						<height>60</height>
-						<texture>$VAR[OverlayVar]</texture>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-					</control>
-				</itemlayout>
-				<focusedlayout width="315" height="750">
-					<control type="group">
-						<animation effect="zoom" center="150,450" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
-						<animation effect="zoom" center="150,450" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
-						<control type="image">
-							<left>-12</left>
-							<top>265</top>
-							<width>340</width>
-							<height>340</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<left>-12</left>
-							<top>265</top>
-							<width>340</width>
-							<height>340</height>
-							<texture>thumbs/diffuse.png</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<left>248</left>
-							<top>285</top>
-							<width>60</width>
-							<height>60</height>
-							<texture>$VAR[OverlayVar]</texture>
-							<aspectratio align="center" aligny="top">keep</aspectratio>
-						</control>
-					</control>
-				</focusedlayout>
-			</control>
-			<control type="scrollbar" id="60">
-				<left>0</left>
-				<top>1051</top>
-				<width>FullScreenWidth</width>
-				<height>14</height>
-				<onup>57</onup>
-				<ondown>noop</ondown>
-				<orientation>horizontal</orientation>
-			</control>
 			<control type="textbox">
-				<visible>Skin.HasSetting(Enable.ShiftDescription)</visible>
+				<visible>Skin.HasSetting(Enable.ShiftDescription) + !Window.IsActive(videos) + !Container.Content(addons)</visible>
 				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
 				<top>775</top>
 				<left>160</left>
