@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<include name="ShiftFixedList">
-		<include>ViewAnimation</include>
-		<visible>!Window.IsActive(addoninformation)</visible>
-		<control type="fixedlist" id="57">
-			<include condition="Window.IsActive(videos)">Contents57VideoList</include>
-			<include condition="!Window.IsActive(videos)">Contents57AlbumList</include>
+		<control type="group">
+			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
+			<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
+			<control type="fixedlist" id="57">
+				<include condition="Window.IsActive(videos)">Contents57VideoList</include>
+				<include condition="!Window.IsActive(videos)">Contents57AlbumList</include>
+			</control>
+			<include>ShiftExtras</include>
 		</control>
-		<include>ShiftExtras</include>
 	</include>
 	<include name="ShiftWrapList">
-		<include>ViewAnimation</include>
-		<visible>!Window.IsActive(addoninformation)</visible>
-		<control type="wraplist" id="57">
-			<include condition="Window.IsActive(videos)">Contents57VideoList</include>
-			<include condition="!Window.IsActive(videos)">Contents57AlbumList</include>
+		<control type="group">
+			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
+			<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
+			<control type="wraplist" id="57">
+				<include condition="Window.IsActive(videos)">Contents57VideoList</include>
+				<include condition="!Window.IsActive(videos)">Contents57AlbumList</include>
+			</control>
 		</control>
 		<include>ShiftExtras</include>
 	</include>
@@ -298,6 +302,7 @@
 	<include name="ShiftExtras">
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
+			<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 			<control type="scrollbar" id="60">
 				<animation effect="slide" time="0" start="0,0" end="0,15" condition="Container.Content(addons) + !Window.IsActive(videos) + !Window.IsActive(pictures)">Conditional</animation>
 				<left>0</left>
