@@ -170,6 +170,11 @@ id      | description
                 <include>FullscreenDimensions</include>
                 <texture background="true">special://skin/backgrounds/default_bg.jpg</texture>
             </control>
+            <!--<control type="image">
+                <include>FullscreenDimensions</include>
+                <texture>background.png</texture>
+                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+            </control>-->
             <!-- ** Required ** Do not change <id> or <type> -->
             <control type="group" id="9051">
                 <!-- Blank Image with artist label -->
@@ -238,7 +243,7 @@ id      | description
                 <control type="image" id="220">
                     <width>1470</width>
                     <height>900</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
+                    <texture>background.png</texture>
                     <visible>false</visible>
                 </control>
                 <control type="list" id="145">
@@ -349,8 +354,8 @@ id      | description
                     <width>591</width>
                     <height>1080</height>
                     <!--<aspectratio scalediffuse="false">keep</aspectratio>-->
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="list" id="120">
                     <description>Artist List</description>
@@ -450,12 +455,26 @@ id      | description
                 <animation effect="fade" start="100" end="0" time="0" condition="Control.HasFocus(122) | ControlGroup(9004).HasFocus">WindowClose</animation>
                 <animation effect="slide" end="450,0" time="300" tween="quadratic" easing="out" condition="Control.HasFocus(122) | ControlGroup(9004).HasFocus">conditional</animation>
                 <visible>Control.HasFocus(122) | Control.HasFocus(122) | Control.HasFocus(123)</visible>
+                <control type="image">
+                    <left>63</left>
+                    <top>36</top>
+                    <width>344</width>
+                    <height>344</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,332" time="300" tween="cubic" easing="inout" condition="Container(122).Row(2)">Conditional</animation>
+                    <animation effect="slide" end="0,332" time="300" tween="cubic" easing="inout" condition="Container(122).Row(2) | Container(122).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="332,0" time="300" tween="cubic" easing="inout" condition="Container(122).Column(3)">Conditional</animation>
+                    <animation effect="slide" end="332,0" time="300" tween="cubic" easing="inout" condition="Container(122).Column(3) | Container(122).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="332,0" time="300" tween="cubic" easing="inout" condition="Container(122).Column(3) | Container(122).Column(2) | Container(122).Column(1)">Conditional</animation>
+                </control>
                 <control type="panel" id="122">
                     <description>Album List</description>
-                    <left>98</left>
-                    <top>60</top>
-                    <width>1280</width>
-                    <height>960</height>
+                    <left>69</left>
+                    <top>42</top>
+                    <width>1328</width>
+                    <height>996</height>
                     <onleft>9003</onleft>
                     <onright>122</onright>
                     <onup>122</onup>
@@ -463,42 +482,67 @@ id      | description
                     <viewtype label="Album List">list</viewtype>
                     <pagecontrol>1221</pagecontrol>
                     <scrolltime>200</scrolltime>
-                    <itemlayout width="320" height="320">
+                    <itemlayout width="332" height="332">
                         <control type="image">
+                            <top>6</top>
+                            <left>6</left>
                             <width>320</width>
                             <height>320</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
                             <info>ListItem.Art(thumb)</info>
                         </control>
 						<control type="image">
+                            <top>6</top>
+                            <left>6</left>
 							<width>320</width>
 							<height>320</height>
 							<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
-							<fadetime>300</fadetime>
 						</control>
                         <control type="label">
-                            <top>270</top>
+                            <left>6</left>
+                            <top>272</top>
                             <width>320</width>
                             <height>50</height>
                             <align>left</align>
                             <aligny>center</aligny>
-							<textoffsetx>4</textoffsetx>
+							<textoffsetx>8</textoffsetx>
                             <textcolor>maintext</textcolor>
                             <info>ListItem.Label</info>
                         </control>
                     </itemlayout>
-                    <focusedlayout width="320" height="320">
+                    <focusedlayout width="332" height="332">
 						<control type="group">
-							<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+                            <include>PanelFocusedItemZoom</include>
 							<control type="image">
+                                <top>6</top>
+                                <left>6</left>
 								<width>320</width>
 								<height>320</height>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<info>ListItem.Art(thumb)</info>
-								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
 							</control>
+                            <control type="group">
+                                <animation center="auto" condition="Control.HasFocus(122)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                <animation center="auto" condition="Control.HasFocus(122)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                <control type="image">
+                                    <top>6</top>
+                                    <left>6</left>
+                                    <width>320</width>
+                                    <height>320</height>
+                                    <texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+                                </control>
+                                <control type="label">
+                                    <top>272</top>
+                                    <left>6</left>
+                                    <width>320</width>
+                                    <height>50</height>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <textoffsetx>8</textoffsetx>
+                                    <textcolor>maintext</textcolor>
+                                    <info>ListItem.Label</info>
+                                </control>
+                            </control>
 						</control>
                     </focusedlayout>
                 </control>
@@ -528,7 +572,7 @@ id      | description
                     <top>57</top>
                     <width>1260</width>
                     <height>960</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
+                    <texture>background.png</texture>
                     <visible>false</visible>
                 </control>
                 <control type="label">
@@ -543,12 +587,26 @@ id      | description
                     <label>$ADDON[script.cdartmanager 32111]</label>
                     <visible>false</visible>
                 </control>
+                <control type="image">
+                    <left>63</left>
+                    <top>36</top>
+                    <width>344</width>
+                    <height>344</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,332" time="300" tween="cubic" easing="inout" condition="Container(404).Row(2)">Conditional</animation>
+                    <animation effect="slide" end="0,332" time="300" tween="cubic" easing="inout" condition="Container(404).Row(2) | Container(404).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="332,0" time="300" tween="cubic" easing="inout" condition="Container(404).Column(3)">Conditional</animation>
+                    <animation effect="slide" end="332,0" time="300" tween="cubic" easing="inout" condition="Container(404).Column(3) | Container(404).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="332,0" time="300" tween="cubic" easing="inout" condition="Container(404).Column(3) | Container(404).Column(2) | Container(404).Column(1)">Conditional</animation>
+                </control>
                 <control type="panel" id="404">
                     <description>Album List</description>
-                    <left>98</left>
-                    <top>60</top>
-                    <width>1280</width>
-                    <height>960</height>
+                    <left>69</left>
+                    <top>42</top>
+                    <width>1328</width>
+                    <height>996</height>
                     <onleft>9000</onleft>
                     <onright>404</onright>
                     <onup>404</onup>
@@ -556,33 +614,44 @@ id      | description
                     <viewtype label="Album List">list</viewtype>
                     <pagecontrol>4041</pagecontrol>
                     <scrolltime>200</scrolltime>
-                    <itemlayout width="320" height="320">
+                    <itemlayout width="332" height="332">
                         <control type="image">
+                            <top>6</top>
+                            <left>6</left>
                             <width>320</width>
                             <height>320</height>
                             <aspectratio scalediffuse="false">keep</aspectratio>
                             <info>ListItem.Art(thumb)</info>
                         </control>
 						<control type="image">
+                            <top>6</top>
+                            <left>6</left>
 							<width>320</width>
 							<height>320</height>
 							<texture>thumbs/diffuse.png</texture>
-							<fadetime>300</fadetime>
 						</control>
                     </itemlayout>
-                    <focusedlayout width="320" height="320">
+                    <focusedlayout width="332" height="332">
 						<control type="group">
-							<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+                            <include>PanelFocusedItemZoom</include>
 							<control type="image">
+                                <top>6</top>
+                                <left>6</left>
 								<width>320</width>
 								<height>320</height>
 								<info>ListItem.Art(thumb)</info>
 								<aspectratio scalediffuse="false">keep</aspectratio>
 								<visible>Control.HasFocus(404)</visible>
-								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
 							</control>
+                            <control type="image">
+                                <animation center="auto" condition="Control.HasFocus(404)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                <animation center="auto" condition="Control.HasFocus(404)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                <top>6</top>
+                                <left>6</left>
+                                <width>320</width>
+                                <height>320</height>
+                                <texture>thumbs/diffuse.png</texture>
+                            </control>
 						</control>
                     </focusedlayout>
                 </control>
@@ -605,12 +674,26 @@ id      | description
                 <animation effect="fade" start="100" end="0" time="0" condition="Control.HasFocus(199) | ControlGroup(9023).HasFocus">WindowClose</animation>
                 <animation effect="slide" end="450,0" time="300" tween="quadratic" easing="out" condition="Control.HasFocus(199) | ControlGroup(9023).HasFocus">conditional</animation>
                 <visible>Control.HasFocus(199)</visible>
+                <control type="image">
+                    <left>63</left>
+                    <top>36</top>
+                    <width>344</width>
+                    <height>344</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,332" time="300" tween="cubic" easing="inout" condition="Container(199).Row(2)">Conditional</animation>
+                    <animation effect="slide" end="0,332" time="300" tween="cubic" easing="inout" condition="Container(199).Row(2) | Container(199).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="332,0" time="300" tween="cubic" easing="inout" condition="Container(199).Column(3)">Conditional</animation>
+                    <animation effect="slide" end="332,0" time="300" tween="cubic" easing="inout" condition="Container(199).Column(3) | Container(199).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="332,0" time="300" tween="cubic" easing="inout" condition="Container(199).Column(3) | Container(199).Column(2) | Container(199).Column(1)">Conditional</animation>
+                </control>
                 <control type="panel" id="199">
                     <description>Artist Thumbs List</description>
-                    <left>98</left>
-                    <top>60</top>
-                    <width>1280</width>
-                    <height>960</height>
+                    <left>69</left>
+                    <top>42</top>
+                    <width>1328</width>
+                    <height>996</height>
                     <onleft>9003</onleft>
                     <onright>199</onright>
                     <onup>199</onup>
@@ -620,31 +703,42 @@ id      | description
                     <viewtype label="Artist Thumb List">list</viewtype>
                     <pagecontrol>1991</pagecontrol>
                     <scrolltime>200</scrolltime>
-                    <itemlayout width="320" height="320">
+                    <itemlayout width="332" height="332">
                         <control type="image">
+                            <top>6</top>
+                            <left>6</left>
                             <width>320</width>
                             <height>320</height>
                             <info>ListItem.Art(thumb)</info>
                         </control>
 						<control type="image">
+                            <top>6</top>
+                            <left>6</left>
 							<width>320</width>
 							<height>320</height>
 							<texture>thumbs/diffuse.png</texture>
-							<fadetime>300</fadetime>
 						</control>
                     </itemlayout>
-                    <focusedlayout width="320" height="320">
+                    <focusedlayout width="332" height="332">
 						<control type="group">
-							<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+							<include>PanelFocusedItemZoom</include>
 							<control type="image">
+                                <top>6</top>
+                                <left>6</left>
 								<width>320</width>
 								<height>320</height>
 								<info>ListItem.Art(thumb)</info>
 								<visible>Control.HasFocus(199)</visible>
-								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
 							</control>
+                            <control type="image">
+                                <animation center="auto" condition="Control.HasFocus(199)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                <animation center="auto" condition="Control.HasFocus(199)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                <top>6</top>
+                                <left>6</left>
+                                <width>320</width>
+                                <height>320</height>
+                                <texture>thumbs/diffuse.png</texture>
+                            </control>
 						</control>
                     </focusedlayout>
                 </control>
@@ -667,12 +761,25 @@ id      | description
                 <animation effect="fade" start="100" end="0" time="0" condition="Control.HasFocus(202) | ControlGroup(9037).HasFocus">WindowClose</animation>
                 <animation effect="slide" end="450,0" time="300" tween="quadratic" easing="out" condition="Control.HasFocus(202) | ControlGroup(9037).HasFocus">conditional</animation>
                 <visible>Control.HasFocus(202)</visible>
+                <control type="image">
+                    <left>347</left>
+                    <top>154</top>
+                    <width>782</width>
+                    <height>164</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,152" time="300" tween="cubic" easing="inout" condition="Container(202).Row(4)">Conditional</animation>
+                    <animation effect="slide" end="0,152" time="300" tween="cubic" easing="inout" condition="Container(202).Row(4) | Container(202).Row(3)">Conditional</animation>
+                    <animation effect="slide" end="0,152" time="300" tween="cubic" easing="inout" condition="Container(202).Row(4) | Container(202).Row(3) | Container(202).Row(2)">Conditional</animation>
+                    <animation effect="slide" end="0,152" time="300" tween="cubic" easing="inout" condition="Container(202).Row(4) | Container(202).Row(3) | Container(202).Row(2) | Container(202).Row(1)">Conditional</animation>
+                </control>
                 <control type="panel" id="202">
                     <description>Music Banner List</description>
-                    <left>359</left>
-                    <top>120</top>
-                    <width>758</width>
-                    <height>840</height>
+                    <left>353</left>
+                    <top>160</top>
+                    <width>770</width>
+                    <height>760</height>
                     <onleft>9003</onleft>
                     <onright>202</onright>
                     <onup>202</onup>
@@ -682,27 +789,44 @@ id      | description
                     <viewtype label="Music Banner List">list</viewtype>
                     <pagecontrol>2021</pagecontrol>
                     <scrolltime>200</scrolltime>
-                    <itemlayout width="758" height="140">
+                    <itemlayout width="770" height="152">
                         <control type="image">
+                            <top>6</top>
+                            <left>6</left>
                             <width>758</width>
                             <height>140</height>
                             <info>ListItem.Art(thumb)</info>
                             <aspectratio align="center" aligny="center">scale</aspectratio>
                         </control>
+                        <control type="image">
+                            <top>6</top>
+                            <left>6</left>
+                            <width>758</width>
+                            <height>140</height>
+                            <texture>thumbs/diffuse.png</texture>
+                        </control>
                     </itemlayout>
-                    <focusedlayout width="758" height="140">
+                    <focusedlayout width="770" height="152">
 						<control type="group">
-							<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+                            <include>PanelFocusedItemZoom</include>
 							<control type="image">
+                                <top>6</top>
+                                <left>6</left>
 								<width>758</width>
 								<height>140</height>
 								<info>ListItem.Art(thumb)</info>
 								<aspectratio align="center" aligny="center">scale</aspectratio>
 								<visible>Control.HasFocus(202)</visible>
-								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
 							</control>
+                            <control type="image">
+                                <animation center="auto" condition="Control.HasFocus(202)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                <animation center="auto" condition="Control.HasFocus(202)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                <top>6</top>
+                                <left>6</left>
+                                <width>758</width>
+                                <height>140</height>
+                                <texture>thumbs/diffuse.png</texture>
+                            </control>
 						</control>
                     </focusedlayout>
                 </control>
@@ -725,12 +849,25 @@ id      | description
                 <animation effect="fade" start="100" end="0" time="0" condition="Control.HasFocus(167) | ControlGroup(9024).HasFocus">WindowClose</animation>
                 <animation effect="slide" end="450,0" time="300" tween="quadratic" easing="out" condition="Control.HasFocus(167) | ControlGroup(9024).HasFocus">conditional</animation>
                 <visible>Control.HasFocus(167)</visible>
+                <control type="image">
+                    <left>120</left>
+                    <top>46</top>
+                    <width>624</width>
+                    <height>256</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="612,0" time="300" tween="cubic" easing="inout" condition="Container(167).Column(1)">Conditional</animation>
+                    <animation effect="slide" end="0,244" time="300" tween="cubic" easing="inout" condition="Container(167).Row(3)">Conditional</animation>
+                    <animation effect="slide" end="0,244" time="300" tween="cubic" easing="inout" condition="Container(167).Row(3) | Container(167).Row(2)">Conditional</animation>
+                    <animation effect="slide" end="0,244" time="300" tween="cubic" easing="inout" condition="Container(167).Row(3) | Container(167).Row(2) | Container(167).Row(1)">Conditional</animation>
+                </control>
                 <control type="panel" id="167">
                     <description>ClearLOGO List</description>
-                    <left>138</left>
-                    <top>76</top>
-                    <width>1200</width>
-                    <height>928</height>
+                    <left>126</left>
+                    <top>52</top>
+                    <width>1224</width>
+                    <height>976</height>
                     <onleft>9003</onleft>
                     <onright>167</onright>
                     <onup>167</onup>
@@ -740,43 +877,68 @@ id      | description
                     <viewtype label="ClearLOGO List">list</viewtype>
                     <pagecontrol>1671</pagecontrol>
                     <scrolltime>200</scrolltime>
-                    <itemlayout width="600" height="232">
+                    <itemlayout width="612" height="244">
                         <control type="image">
+                            <top>6</top>
+                            <left>6</left>
                             <width>600</width>
                             <height>232</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
                             <info>ListItem.Art(thumb)</info>
                         </control>
 						<control type="image">
+                            <top>6</top>
+                            <left>6</left>
 							<width>600</width>
 							<height>232</height>
 							<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
-							<fadetime>300</fadetime>
 						</control>
                         <control type="label">
-							<top>182</top>
+							<top>186</top>
+                            <left>6</left>
                             <width>600</width>
                             <height>50</height>
                             <aligny>center</aligny>
                             <align>left</align>
-							<textoffsetx>4</textoffsetx>
+							<textoffsetx>8</textoffsetx>
                             <textcolor>maintext</textcolor>
                             <info>ListItem.Label</info>
                         </control>
                     </itemlayout>
-                    <focusedlayout width="600" height="232">
+                    <focusedlayout width="612" height="244">
 						<control type="group">
-							<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+                            <include>PanelFocusedItemZoom</include>
 							<control type="image">
+                                <top>6</top>
+                                <left>6</left>
 								<width>600</width>
 								<height>232</height>
 								<info>ListItem.Art(thumb)</info>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<visible>Control.HasFocus(167)</visible>
-								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
 							</control>
+                            <control type="group">
+                                <animation center="auto" condition="Control.HasFocus(167)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                <animation center="auto" condition="Control.HasFocus(167)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                <control type="image">
+                                    <top>6</top>
+                                    <left>6</left>
+                                    <width>600</width>
+                                    <height>232</height>
+                                    <texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+                                </control>
+                                <control type="label">
+                                    <top>186</top>
+                                    <left>6</left>
+                                    <width>600</width>
+                                    <height>50</height>
+                                    <aligny>center</aligny>
+                                    <align>left</align>
+                                    <textoffsetx>8</textoffsetx>
+                                    <textcolor>maintext</textcolor>
+                                    <info>ListItem.Label</info>
+                                </control>
+                            </control>
 						</control>
                     </focusedlayout>
                 </control>
@@ -799,12 +961,25 @@ id      | description
                 <animation effect="fade" start="100" end="0" time="0" condition="Control.HasFocus(160) | ControlGroup(9010).HasFocus">WindowClose</animation>
                 <animation effect="slide" end="450,0" time="300" tween="quadratic" easing="out" condition="Control.HasFocus(160) | ControlGroup(9010).HasFocus">conditional</animation>
                 <visible>Control.HasFocus(160)</visible>
+                <control type="image">
+                    <left>75</left>
+                    <top>137</top>
+                    <width>450</width>
+                    <height>274</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="438,0" time="300" tween="cubic" easing="inout" condition="Container(160).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="438,0" time="300" tween="cubic" easing="inout" condition="Container(160).Column(2) | Container(160).Column(1)">Conditional</animation>
+                    <animation effect="slide" end="0,262" time="300" tween="cubic" easing="inout" condition="Container(160).Row(2)">Conditional</animation>
+                    <animation effect="slide" end="0,262" time="300" tween="cubic" easing="inout" condition="Container(160).Row(2) | Container(160).Row(1)">Conditional</animation>
+                </control>
                 <control type="panel" id="160">
                     <description>Fanart List</description>
-                    <left>98</left>
-                    <top>161</top>
-                    <width>1280</width>
-                    <height>750</height>
+                    <left>81</left>
+                    <top>143</top>
+                    <width>1314</width>
+                    <height>786</height>
                     <onleft>9003</onleft>
                     <onright>160</onright>
                     <onup>160</onup>
@@ -813,33 +988,44 @@ id      | description
                     <viewtype label="Fanart List">list</viewtype>
                     <pagecontrol>1601</pagecontrol>
                     <scrolltime>200</scrolltime>
-                    <itemlayout width="426" height="250">
+                    <itemlayout width="438" height="262">
                         <control type="image">
+                            <top>6</top>
+                            <left>6</left>
                             <width>426</width>
                             <height>250</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
                             <info>ListItem.Art(thumb)</info>
                         </control>
 						<control type="image">
+                            <top>6</top>
+                            <left>6</left>
 							<width>426</width>
 							<height>250</height>
 							<texture>thumbs/diffuse.png</texture>
-							<fadetime>300</fadetime>
 						</control>
                     </itemlayout>
-                    <focusedlayout width="426" height="250">
+                    <focusedlayout width="438" height="262">
 						<control type="group">
-							<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" reversible="false">Focus</animation>
+                            <include>PanelFocusedItemZoom</include>
 							<control type="image">
+                                <top>6</top>
+                                <left>6</left>
 								<width>426</width>
 								<height>250</height>
 								<info>ListItem.Art(thumb)</info>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<visible>Control.HasFocus(160)</visible>
-								<fadetime>300</fadetime>
-								<bordertexture colordiffuse="$VAR[ColorHighlightVar]" border="9">thumbs/thumbnail_focused.png</bordertexture>
-								<bordersize>8</bordersize>
 							</control>
+                            <control type="image">
+                                <animation center="auto" condition="Control.HasFocus(160)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                <animation center="auto" condition="Control.HasFocus(160)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                <top>6</top>
+                                <left>6</left>
+                                <width>426</width>
+                                <height>250</height>
+                                <texture>thumbs/diffuse.png</texture>
+                            </control>
 						</control>
                     </focusedlayout>
                 </control>
@@ -869,7 +1055,7 @@ id      | description
                     <!--
                     <aspectratio scalediffuse="false">keep</aspectratio>
                     -->
-                    <texture border="12">cdart/dialog_context.png</texture>
+                    <texture>background.png</texture>
                 </control>
                 <control type="list" id="161">
                     <description>MBID Select List</description>
@@ -976,8 +1162,8 @@ id      | description
                     <top>0</top>
                     <width>800</width>
                     <height>1080</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="list" id="140">
                     <description>Local cdART List</description>
@@ -1161,8 +1347,8 @@ id      | description
                     <top>-30</top>
                     <width>570</width>
                     <height>330</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-					<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>ControlGroup(9032).HasFocus</visible>
                 </control>
                 <control type="label" id="156">
@@ -1252,8 +1438,8 @@ id      | description
                     <top>0</top>
                     <width>900</width>
                     <height>150</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-					<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="label" id="400">
                     <left>8</left>
@@ -1324,8 +1510,8 @@ id      | description
                     <top>-15</top>
                     <width>480</width>
                     <height>180</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="button" id="135">
                     <!-- Backup cdART -->
@@ -1384,8 +1570,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-21</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="button" id="147">
                     <!-- Select Album -->
@@ -1444,8 +1630,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-23</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="button" id="126">
                     <!-- Select Artist -->
@@ -1506,8 +1692,8 @@ id      | description
                     <top>-23</top>
                     <width>460</width>
                     <height>242</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="123">
                     <!-- Change MBID -->
@@ -1612,8 +1798,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-23</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="button" id="138">
                     <!-- Select Artist -->
@@ -1674,8 +1860,8 @@ id      | description
                     <top>-23</top>
                     <width>460</width>
                     <height>240</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="button" id="113">
                     <!-- Change MBID -->
@@ -1771,8 +1957,8 @@ id      | description
                     <top>-23</top>
                     <width>460</width>
                     <height>364</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="188">
                     <!-- Edit By Artist -->
@@ -1922,8 +2108,8 @@ id      | description
                     <width>460</width>
                     <height>363</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="130">
                     <!-- cdART Backup -->
@@ -2095,8 +2281,8 @@ id      | description
                     <top>-15</top>
                     <width>400</width>
                     <height>180</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="button" id="105">
                     <!-- Search Artists -->
@@ -2155,8 +2341,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="button" id="150">
                     <!-- Search Artists -->
@@ -2215,8 +2401,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2224,8 +2410,8 @@ id      | description
 					<top>-15</top>
                     <width>400</width>
                     <height>120</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="197">
@@ -2286,8 +2472,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2295,8 +2481,8 @@ id      | description
 					<top>-15</top>
                     <width>400</width>
                     <height>120</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="195">
@@ -2357,8 +2543,8 @@ id      | description
                     <width>415</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="193">
                     <!-- Search Artists -->
@@ -2443,8 +2629,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2452,8 +2638,8 @@ id      | description
 					<top>-15</top>
                     <width>400</width>
                     <height>120</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="205">
@@ -2514,8 +2700,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2523,8 +2709,8 @@ id      | description
                     <width>400</width>
                     <height>120</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="207">
@@ -2585,8 +2771,8 @@ id      | description
                     <width>415</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="200">
                     <!-- Search Artists -->
@@ -2671,8 +2857,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2680,8 +2866,8 @@ id      | description
 					<top>-15</top>
                     <width>400</width>
                     <height>120</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="184">
@@ -2742,8 +2928,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2751,8 +2937,8 @@ id      | description
 					<top>-15</top>
                     <width>400</width>
                     <height>120</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="186">
@@ -2813,8 +2999,8 @@ id      | description
                     <width>415</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="168">
                     <!-- Search Artists -->
@@ -2899,8 +3085,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2908,8 +3094,8 @@ id      | description
 					<top>-15</top>
                     <width>400</width>
                     <height>120</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="180">
@@ -2970,8 +3156,8 @@ id      | description
                     <width>400</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
@@ -2979,8 +3165,8 @@ id      | description
 					<top>-15</top>
                     <width>400</width>
                     <height>120</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                     <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="182">
@@ -3042,8 +3228,8 @@ id      | description
                     <width>415</width>
                     <height>180</height>
                     <top>-15</top>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="radiobutton" id="170">
                     <!-- Search Artists -->
@@ -3124,8 +3310,8 @@ id      | description
                     <top>-495</top>
                     <width>450</width>
                     <height>1080</height>
-                    <texture border="12">cdart/dialog_context.png</texture>
-                    <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                    <texture>background.png</texture>
+                    <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
                 <control type="image" id="200">
                     <!-- script Icon -->
