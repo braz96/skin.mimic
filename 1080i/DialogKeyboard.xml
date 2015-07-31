@@ -451,9 +451,9 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>System.HasAddon(script.extendedinfo) + !Skin.HasSetting(Disable.AutoComplete)</visible>
+				<visible>System.HasAddon(script.extendedinfo) + !Skin.HasSetting(Disable.AutoComplete) + !IsEmpty(Control.GetLabel(312).index(1))</visible>
 				<top>563</top>
-				<animation effect="fade" start="100" end="0" time="300" condition="IsEmpty(Container(5000).ListItem.Label)">conditional</animation>
+				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
 				<include name="DialogBackgroundCommons">
 					<param name="DialogBackgroundWidth" value="1320" />
 					<param name="DialogBackgroundHeight" value="220" />
@@ -489,12 +489,6 @@
 						</control>
 					</itemlayout>
 					<focusedlayout height="80" width="315">
-						<!--<control type="image">
-							<width>320</width>
-							<height>80</height>
-							<texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-							<visible>!Control.HasFocus(5000)</visible>
-						</control>-->
 						<control type="image">
 							<top>5</top>
 							<width>305</width>
