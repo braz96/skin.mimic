@@ -173,11 +173,12 @@
 				<animation effect="slide" start="0,0" end="45,0" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(58)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-10" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(500)">Conditional</animation>
 				<animation effect="slide" tween="cubic" time="400" start="0,806" end="0,0">VisibleChange</animation>
-				<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftPlot) + Control.IsVisible(57)">Conditional</animation>
+				<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftPlot) + Control.IsVisible(57) + !Container.Content(sets)">Conditional</animation>
 				<control type="group">
 					<left>90</left>
 					<top>965</top>
 					<visible>![Control.IsVisible(56) | Container.Content(files)]</visible>
+					<visible>![Control.IsVisible(500) + Container.Content(sets)]</visible>
 					<include>VisibleFadeEffect</include>
 					<control type="label">
 						<left>0</left>
@@ -266,6 +267,7 @@
 				</control>
 				<control type="group">
 					<animation effect="slide" start="0,0" end="-90,0" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(58)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-45,0" time="0" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
 					<left>1477</left>
 					<top>972</top>
 					<width>500</width>
