@@ -18,7 +18,7 @@
 			<control type="list" id="50">
 				<left>82</left>
 				<top>10</top>
-				<width>821</width>
+				<width>850</width>
 				<height>840</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
@@ -28,7 +28,7 @@
 				<viewtype label="535">list</viewtype>
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="120" width="821">
+				<itemlayout height="120" width="850">
 					<control type="label">
 						<width>128</width>
 						<height>120</height>
@@ -42,11 +42,25 @@
 					<control type="label">
 						<left>130</left>
 						<top>0</top>
+						<width>30</width>
+						<height>70</height>
+						<font>IconSmall</font>
+						<textcolor>maintext</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label></label>
+						<visible>ListItem.IsRecording</visible>
+					</control>
+					<control type="label">
+						<animation effect="slide" time="0" tween="sine" easing="inout" start="0" end="40" condition="ListItem.IsRecording">Conditional</animation>
+						<left>130</left>
+						<top>0</top>
 						<width>530</width>
 						<height>70</height>
 						<font>font30</font>
 						<textcolor>maintext</textcolor>
-						<selectedcolor>maintext</selectedcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -74,31 +88,17 @@
 						<info>ListItem.Progress</info>
 					</control>
 					<control type="image">
-						<left>681</left>
+						<left>684</left>
 						<top>8</top>
-						<width>105</width>
+						<width>157</width>
 						<height>105</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<animation effect="slide" start="0" end="-20" time="100" tween="sine" easing="in" condition="ListItem.IsRecording">Conditional</animation>
-					</control>
-					<control type="label">
-						<left>708</left>
-						<top>45</top>
-						<width>120</width>
-						<height>30</height>
-						<font>IconSmall</font>
-						<textoffsetx>15</textoffsetx>
-						<textcolor>maintext</textcolor>
-						<align>right</align>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label></label>
-						<visible>ListItem.IsRecording</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout height="120" width="821">
+				<focusedlayout height="120" width="850">
 					<control type="image">
-						<width>821</width>
+						<width>850</width>
 						<height>120</height>
 						<texture>listselect_fo.png</texture>
 						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
@@ -117,6 +117,20 @@
 					<control type="label">
 						<left>130</left>
 						<top>0</top>
+						<width>30</width>
+						<height>70</height>
+						<font>IconSmall</font>
+						<textcolor>maintext</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label></label>
+						<visible>ListItem.IsRecording</visible>
+					</control>
+					<control type="label">
+						<animation effect="slide" time="0" tween="sine" easing="inout" start="0" end="40" condition="ListItem.IsRecording">Conditional</animation>
+						<left>130</left>
+						<top>0</top>
 						<width>530</width>
 						<height>70</height>
 						<font>font30</font>
@@ -124,7 +138,6 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
 					<control type="label">
 						<left>130</left>
@@ -136,7 +149,6 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Title]</label>
-						<animation effect="fade" start="100" end="30" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
 					<control type="progress">
 						<description>Progressbar</description>
@@ -149,25 +161,12 @@
 						<info>ListItem.Progress</info>
 					</control>
 					<control type="image">
-						<left>681</left>
+						<left>684</left>
 						<top>8</top>
-						<width>105</width>
+						<width>157</width>
 						<height>105</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<animation effect="slide" start="0" end="-20" time="100" tween="sine" easing="in" condition="ListItem.IsRecording">Conditional</animation>
-					</control>
-					<control type="label">
-						<left>708</left>
-						<top>45</top>
-						<width>120</width>
-						<height>30</height>
-						<font>IconSmall</font>
-						<textoffsetx>15</textoffsetx>
-						<align>right</align>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label></label>
-						<visible>ListItem.IsRecording</visible>
 					</control>
 				</focusedlayout>
 			</control>
