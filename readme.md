@@ -18,6 +18,7 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 - Added Shift view for episodes.
 - Added Trailer button to context menu for movies.
 - New default main menu.
+- Added skin setting to change text color.
 
 ***
 **2.2.0**
