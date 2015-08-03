@@ -47,7 +47,7 @@
                             <width>1380</width>
                             <label>[B]$INFO[ListItem.Label][/B]</label>
                             <font>font16_title</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<aligny>top</aligny>
                         </control>
                         <control type="label">
@@ -76,7 +76,7 @@
                             <height>108</height>
                             <label>$VAR[VideoPlotVar]</label>
 							<font>font14_textbox2</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<visible>!Container.Content(artists)</visible>
                         </control>
 						<control type="textbox">
@@ -85,7 +85,7 @@
                             <height>108</height>
                             <label>$VAR[MusicPlotVar]</label>
 							<font>font14_textbox2</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<visible>Container.Content(artists)</visible>
                         </control>
                         <control type="image">
@@ -110,7 +110,7 @@
                                 <label>[B]$INFO[ListItem.Label][/B]</label>
                                 <font>font16_title</font>
 								<aligny>top</aligny>
-								<textcolor>maintext</textcolor>
+								<textcolor>$VAR[ColorTextVar]</textcolor>
                             </control>
                             <control type="label">
                                 <top>50</top>
@@ -138,7 +138,7 @@
                                 <width>1380</width>
                                 <height>108</height>
                                 <label>$VAR[VideoPlotVar]</label>
-								<textcolor>maintext</textcolor>
+								<textcolor>$VAR[ColorTextVar]</textcolor>
 								<font>font14_textbox2</font>
 								<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(60)</autoscroll>
                             </control>
@@ -148,7 +148,7 @@
 								<height>108</height>
 								<label>$VAR[MusicPlotVar]</label>
 								<font>font14_textbox2</font>
-								<textcolor>maintext</textcolor>
+								<textcolor>$VAR[ColorTextVar]</textcolor>
 								<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(60)</autoscroll>
 								<visible>Container.Content(artists)</visible>
 							</control>
@@ -157,7 +157,7 @@
                                 <top>16</top>
                                 <width>192</width>
                                 <height>33</height>
-                                <texture colordiffuse="maintext" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+                                <texture colordiffuse="$VAR[ColorTextVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
                                 <aspectratio align="right">keep</aspectratio>
                                 <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)]</visible>
                             </control>

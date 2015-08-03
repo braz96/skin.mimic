@@ -31,7 +31,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$VAR[StudioIconVar]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 						</control>
 						<control type="image">
 							<visible>substring(Container.FolderPath,plugin.video)</visible>
@@ -49,7 +49,7 @@
 							<width>105</width>
 							<height>105</height>
 							<font>font35_title</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -61,7 +61,7 @@
 							<width>790</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -86,7 +86,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>StringCompare(ListItem.Label2,ListItem.Rating) | StringCompare(ListItem.Label2,ListItem.Year)</visible>
 						</control>
 						<control type="label">
@@ -94,7 +94,7 @@
 							<height>116</height>
 							<font>font30</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -106,7 +106,7 @@
 							<height>116</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -118,7 +118,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
 					<focusedlayout height="120" width="1150" condition="Container.Content(movies)">
@@ -140,7 +140,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$VAR[StudioIconVar]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 						</control>
 						<control type="image">
 							<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409]) + substring(Container.FolderPath,plugin.video)</visible>
@@ -158,8 +158,8 @@
 							<width>105</width>
 							<height>105</height>
 							<font>font35_title</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Top250]</label>
@@ -169,8 +169,8 @@
 							<width>790</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -182,8 +182,8 @@
 							<width>790</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Year,, • ]$VAR[VideoListLabel2Var]</label>
@@ -196,7 +196,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 							<visible>StringCompare(ListItem.Label2,ListItem.Rating) | StringCompare(ListItem.Label2,ListItem.Year)</visible>
 						</control>
@@ -205,8 +205,8 @@
 							<height>116</height>
 							<font>font30</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -218,8 +218,8 @@
 							<height>116</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -231,7 +231,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
 					<itemlayout height="120" width="1150" condition="Container.Content(episodes)">
@@ -242,7 +242,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -260,7 +260,7 @@
 							<width>790</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -285,7 +285,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
 						</control>
 						<control type="label">
@@ -293,7 +293,7 @@
 							<height>116</height>
 							<font>font30</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -305,7 +305,7 @@
 							<height>116</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -317,7 +317,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
 					<focusedlayout height="120" width="1150" condition="Container.Content(episodes)">
@@ -338,7 +338,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -356,8 +356,8 @@
 							<width>790</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -369,8 +369,8 @@
 							<width>790</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$VAR[VideoListLabel2Var]</label>
@@ -383,7 +383,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
 						</control>
@@ -392,8 +392,8 @@
 							<height>116</height>
 							<font>font30</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -405,8 +405,8 @@
 							<height>116</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -418,7 +418,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
 					<itemlayout height="120" width="1150" condition="Container.Content(tvshows)">
@@ -430,7 +430,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$VAR[StudioIconVar]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 						</control>
 						<control type="image">
 							<visible>substring(Container.FolderPath,plugin.video)</visible>
@@ -447,7 +447,7 @@
 							<width>790</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -470,7 +470,7 @@
 							<height>116</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -481,7 +481,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
 					<focusedlayout height="120" width="1150" condition="Container.Content(tvshows)">
@@ -503,7 +503,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$VAR[StudioIconVar]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 						</control>
 						<control type="image">
 							<visible>substring(Container.FolderPath,plugin.video)</visible>
@@ -520,8 +520,8 @@
 							<width>790</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -533,8 +533,8 @@
 							<width>790</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$VAR[VideoListLabel2Var]</label>
@@ -545,8 +545,8 @@
 							<height>116</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -557,7 +557,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
 					<itemlayout height="120" width="1150" condition="Container.Content(seasons)">
@@ -577,7 +577,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="label">
@@ -585,7 +585,7 @@
 							<width>960</width>
 							<height>120</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -596,7 +596,7 @@
 							<height>116</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
@@ -607,7 +607,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
 					<focusedlayout height="120" width="1150" condition="Container.Content(seasons)">
@@ -644,8 +644,8 @@
 							<width>960</width>
 							<height>120</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -656,8 +656,8 @@
 							<height>116</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -668,7 +668,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
 					<itemlayout height="120" width="1150" condition="Container.Content(addons)">
@@ -679,7 +679,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -696,7 +696,7 @@
 							<width>905</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -709,7 +709,7 @@
 							<width>905</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -745,7 +745,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -762,8 +762,8 @@
 							<width>905</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -776,8 +776,8 @@
 							<width>905</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(Addon.Summary)]</label>
@@ -789,8 +789,8 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -804,7 +804,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left) + !Container.Content(studios)</visible>
 						</control>
 						<control type="image">
@@ -814,7 +814,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$INFO[ListItem.Label,flags/studios/,.png]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left) + Container.Content(studios)</visible>
 						</control>
 						<control type="image">
@@ -833,7 +833,7 @@
 							<width>960</width>
 							<height>120</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -856,7 +856,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
 					<focusedlayout height="120" width="1150" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(addons) | Container.Content(seasons)]">
@@ -877,7 +877,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left) + !Container.Content(studios)</visible>
 						</control>
 						<control type="image">
@@ -887,7 +887,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture fallback="flags/studios/default-studio.png">$INFO[ListItem.Label,flags/studios/,.png]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left) + Container.Content(studios)</visible>
 						</control>
 						<control type="image">
@@ -906,8 +906,8 @@
 							<width>960</width>
 							<height>120</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -919,8 +919,8 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -931,7 +931,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
 				</control>
@@ -979,7 +979,7 @@
 					<width>560</width>
 					<height>275</height>
 					<font>font14_textbox5</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
@@ -1068,7 +1068,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>!Container.Content(songs) + SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1086,7 +1086,7 @@
 							<width>105</width>
 							<height>105</height>
 							<font>font45caps_title</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -1098,7 +1098,7 @@
 							<width>985</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -1123,7 +1123,7 @@
 							<height>70</height>
 							<font>font30</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label fallback="• • • •">$VAR[MusicListLabel4Var]</label>
@@ -1176,7 +1176,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>!Container.Content(songs) + SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1194,8 +1194,8 @@
 							<width>105</width>
 							<height>105</height>
 							<font>font45caps_title</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 							<label>[B]$INFO[ListItem.Tracknumber][/B]</label>
@@ -1206,8 +1206,8 @@
 							<width>985</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$VAR[MusicListLabel3Var]</label>
@@ -1220,8 +1220,8 @@
 							<width>810</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Artist]</label>
@@ -1233,8 +1233,8 @@
 							<height>70</height>
 							<font>font30</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label fallback="• • • •">$VAR[MusicListLabel4Var]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -1247,7 +1247,7 @@
 							<height>70</height>
 							<aspectratio>keep</aspectratio>
 							<colordiffuse>$VAR[StarRatingDiffuseVar]</colordiffuse>
-							<texture colordiffuse="maintext" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
 							<visible>!IsEmpty(ListItem.Title)</visible>
 						</control>
 					</focusedlayout>
@@ -1259,7 +1259,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1276,7 +1276,7 @@
 							<width>905</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -1301,7 +1301,7 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -1323,7 +1323,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1340,8 +1340,8 @@
 							<width>905</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -1354,8 +1354,8 @@
 							<width>905</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(Addon.Summary)]</label>
@@ -1367,8 +1367,8 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -1382,7 +1382,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1400,7 +1400,7 @@
 							<width>1005</width>
 							<height>120</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -1412,7 +1412,7 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -1434,7 +1434,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1452,8 +1452,8 @@
 							<width>1005</width>
 							<height>120</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -1465,8 +1465,8 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -1511,7 +1511,7 @@
 					<width>560</width>
 					<height>275</height>
 					<font>font14_textbox5</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
@@ -1520,7 +1520,7 @@
 					<width>560</width>
 					<height>30</height>
 					<font>font14</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Genre]</label>
 				</control>
 				<control type="label">
@@ -1528,7 +1528,7 @@
 					<width>560</width>
 					<height>30</height>
 					<font>font14</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 				</control>
 				<control type="label">
@@ -1536,7 +1536,7 @@
 					<width>560</width>
 					<height>30</height>
 					<font>font14</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Album]</label>
 				</control>
 				<control type="label">
@@ -1544,7 +1544,7 @@
 					<width>560</width>
 					<height>30</height>
 					<font>font14</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Year]</label>
 				</control>
 				<control type="textbox">
@@ -1563,7 +1563,7 @@
 				<top>885</top>
 				<width>198</width>
 				<include>MediaFlagVars</include>
-				<texture colordiffuse="maintext">$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
+				<texture colordiffuse="$VAR[ColorTextVar]">$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
 			</control>
 		</control>
 	</include>
@@ -1596,7 +1596,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1614,7 +1614,7 @@
 							<width>985</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -1640,7 +1640,7 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -1664,7 +1664,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1682,8 +1682,8 @@
 							<width>985</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -1696,8 +1696,8 @@
 							<width>985</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(Addon.Summary)]</label>
@@ -1710,8 +1710,8 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -1748,7 +1748,7 @@
 					<width>560</width>
 					<height>275</height>
 					<font>font14_textbox5</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
@@ -1784,7 +1784,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1802,7 +1802,7 @@
 							<width>985</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -1828,7 +1828,7 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -1852,7 +1852,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1870,8 +1870,8 @@
 							<width>985</width>
 							<height>70</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -1884,8 +1884,8 @@
 							<width>985</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(Addon.Summary)]</label>
@@ -1898,8 +1898,8 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -1913,7 +1913,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -1933,7 +1933,7 @@
 							<aspectratio>keep</aspectratio>
 							<texture background="true">DefaultFolder.png</texture>
 							<fadetime>IconCrossfadeTime</fadetime>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>ListItem.IsFolder + Container.HasFiles</visible>
 						</control>
 						<control type="label">
@@ -1942,7 +1942,7 @@
 							<width>1005</width>
 							<height>120</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -1955,7 +1955,7 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -1979,7 +1979,7 @@
 							<height>105</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>SubString(ListItem.Icon,Default,left)</visible>
 						</control>
 						<control type="image">
@@ -2007,8 +2007,8 @@
 							<width>1005</width>
 							<height>120</height>
 							<font>font30</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -2021,8 +2021,8 @@
 							<height>120</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -2072,7 +2072,7 @@
 					<width>560</width>
 					<height>275</height>
 					<font>font14_textbox5</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
@@ -2104,7 +2104,7 @@
 							<width>895</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -2117,7 +2117,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
 						</control>
 						<control type="label">
@@ -2126,7 +2126,7 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -2137,7 +2137,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
 					<focusedlayout height="60" width="1150" condition="!Container.Content(addons)">
@@ -2154,8 +2154,8 @@
 							<width>895</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -2168,7 +2168,7 @@
 							<height>28</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<colordiffuse>maintext</colordiffuse>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 							<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
 						</control>
@@ -2178,8 +2178,8 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -2190,7 +2190,7 @@
 							<width>64</width>
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="maintext" fallback="overlays/list/">$VAR[ListItem.Overlay]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]" fallback="overlays/list/">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
 					<itemlayout height="60" width="1150" condition="Container.Content(addons)">
@@ -2199,7 +2199,7 @@
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -2211,7 +2211,7 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -2231,8 +2231,8 @@
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -2244,8 +2244,8 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -2294,7 +2294,7 @@
 					<width>560</width>
 					<height>275</height>
 					<font>font14_textbox5</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
@@ -2361,7 +2361,7 @@
 							<width>830</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -2383,7 +2383,7 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -2403,8 +2403,8 @@
 							<width>830</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -2416,7 +2416,7 @@
 							<width>180</width>
 							<height>50</height>
 							<aspectratio align="right">keep</aspectratio>
-							<texture colordiffuse="maintext" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+							<texture colordiffuse="$VAR[ColorTextVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
 							<visible>!IsEmpty(ListItem.Title) + Container.Content(songs)</visible>
 						</control>
 						<control type="label">
@@ -2425,8 +2425,8 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -2438,7 +2438,7 @@
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -2450,7 +2450,7 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -2470,8 +2470,8 @@
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -2483,8 +2483,8 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -2520,7 +2520,7 @@
 					<width>560</width>
 					<height>30</height>
 					<font>font14</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Year]$INFO[ListItem.Genre, • ]</label>
 				</control>
 				<control type="label">
@@ -2528,7 +2528,7 @@
 					<width>560</width>
 					<height>30</height>
 					<font>font14</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 				</control>
 				<control type="label">
@@ -2536,7 +2536,7 @@
 					<width>560</width>
 					<height>30</height>
 					<font>font14</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Album]</label>
 				</control>
 				<control type="label">
@@ -2544,7 +2544,7 @@
 					<width>560</width>
 					<height>30</height>
 					<font>font14</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Year]</label>
 				</control>
 				<control type="textbox">
@@ -2561,7 +2561,7 @@
 					<width>560</width>
 					<height>275</height>
 					<font>font14_textbox5</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
@@ -2572,7 +2572,7 @@
 				<top>885</top>
 				<width>198</width>
 				<include>MediaFlagVars</include>
-				<texture colordiffuse="maintext">$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
+				<texture colordiffuse="$VAR[ColorTextVar]">$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
 			</control>
 		</control>
 	</include>
@@ -2602,7 +2602,7 @@
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -2614,7 +2614,7 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -2634,8 +2634,8 @@
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -2647,8 +2647,8 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -2707,7 +2707,7 @@
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
@@ -2719,7 +2719,7 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -2739,8 +2739,8 @@
 							<width>1080</width>
 							<height>60</height>
 							<font>font15</font>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -2752,8 +2752,8 @@
 							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
-							<textcolor>maintext</textcolor>
-							<selectedcolor>maintext</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
@@ -2790,7 +2790,7 @@
 					<width>560</width>
 					<height>275</height>
 					<font>font14_textbox5</font>
-					<textcolor>maintext</textcolor>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
