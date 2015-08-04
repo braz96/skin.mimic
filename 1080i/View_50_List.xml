@@ -950,7 +950,7 @@
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !substring(Container.FolderPath,plugin.video)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !substring(Container.FolderPath,plugin.video) + !substring(Container.FolderPath,plugin.program.advanced.launcher)</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
 					<width>560</width>
@@ -995,7 +995,7 @@
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video) | Window.IsActive(videoplaylist)] + !IsEmpty(ListItem.Art(thumb))</visible>
+				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video) | substring(Container.FolderPath,plugin.program.advanced.launcher) | Window.IsActive(videoplaylist)] + !IsEmpty(ListItem.Art(thumb))</visible>
 				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist)">Conditional</animation>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
