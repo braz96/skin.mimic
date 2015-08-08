@@ -453,11 +453,14 @@
 			<control type="group">
 				<visible>System.HasAddon(script.extendedinfo) + !Skin.HasSetting(Disable.AutoComplete) + !IsEmpty(Control.GetLabel(312).index(1)) + !Window.IsVisible(1130)</visible>
 				<top>563</top>
-				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
-				<include name="DialogBackgroundCommons">
-					<param name="DialogBackgroundWidth" value="1320" />
-					<param name="DialogBackgroundHeight" value="220" />
-				</include>
+				<control type="group">
+					<animation effect="fade" time="300" tween="cubic" start="0" end="100" reversible="false" condition="!IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
+					<animation effect="fade" time="150" tween="cubic" start="100" end="0" reversible="false" condition="IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
+					<include name="DialogBackgroundCommons">
+						<param name="DialogBackgroundWidth" value="1320" />
+						<param name="DialogBackgroundHeight" value="220" />
+					</include>
+				</control>
 				<control type="panel" id="5000">
 					<left>35</left>
 					<top>30</top>
