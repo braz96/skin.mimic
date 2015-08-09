@@ -32,14 +32,14 @@
 				<onleft>202</onleft>
 				<onright>202</onright>
 				<control type="button" id="700">
-					<textoffsety>60</textoffsety>
 					<texturefocus>osd/buttons/OSDPlaylist.png</texturefocus>
 					<texturenofocus>osd/buttons/OSDPlaylist2.png</texturenofocus>
 					<label>-</label>
 					<width>100</width>
 					<height>64</height>
 					<font>-</font>
-					<onclick>ActivateWindow(MusicPlaylist)</onclick>
+					<onclick>Close</onclick>
+					<onclick>ActivateWindow(musicplaylist)</onclick>
 					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 				</control>
 				<control type="button" id="500">
@@ -60,6 +60,7 @@
 					<font>-</font>
 					<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
 					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<visible>Visualisation.Enabled</visible>
 				</control>
 				<control type="button" id="705">
 					<texturefocus>osd/buttons/OSDVideo.png</texturefocus>
@@ -68,6 +69,25 @@
 					<height>64</height>
 					<font>-</font>
 					<onclick>ActivateWindow(122)</onclick>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<visible>Visualisation.Enabled</visible>
+				</control>
+				<control type="button" id="709">
+					<texturefocus>osd/buttons/OSDChannelDown.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDChannelDown2.png</texturenofocus>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>DecreaseRating</onclick>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+				</control>
+				<control type="button" id="701">
+					<texturefocus>osd/buttons/OSDChannelUp.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDChannelUp2.png</texturenofocus>
+					<width>100</width>
+					<height>64</height>
+					<font>-</font>
+					<onclick>IncreaseRating</onclick>
 					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 				</control>
 				<control type="button" id="600">
