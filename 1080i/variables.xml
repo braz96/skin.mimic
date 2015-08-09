@@ -263,15 +263,17 @@
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	<variable name="SeekLabelVar">
+		<value condition="Player.Paused + !Player.Caching">$LOCALIZE[112]</value>
 		<value condition="Player.Playing + !Player.Seeking + !Player.DisplayAfterSeek | [Player.Paused + !Player.Caching]">$INFO[System.Time]$INFO[Player.FinishTime, - ,]</value>
 		<value condition="[Player.Paused + Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek">$INFO[Player.CacheLevel,$LOCALIZE[15107] ,%]</value>
-		<value condition="!IsEmpty(Player.SeekStepSize) + ![player.forwarding | player.rewinding]">$LOCALIZE[31046][COLOR $VAR[ColorHighlightVar]] $INFO[Player.SeekStepSize][/COLOR]</value>
+		<value condition="!IsEmpty(Player.SeekStepSize) + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[31046][COLOR $VAR[ColorHighlightVar]] $INFO[Player.SeekStepSize][/COLOR]</value>
 		<value condition="Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[31046] [COLOR $VAR[ColorHighlightVar]]$INFO[Player.SeekOffset][/COLOR]</value>
 		<value condition="!Player.DisplayAfterSeek + Player.Seeking">$LOCALIZE[31046]</value>
 	</variable>
 	<variable name="MusicSeekLabelVar">
-		<value condition="Player.Playing + !Player.Seeking + !Player.DisplayAfterSeek | [Player.Paused + !Player.Caching]">$INFO[System.Time]</value>
-		<value condition="!IsEmpty(Player.SeekStepSize) + ![player.forwarding | player.rewinding]">$LOCALIZE[31046][COLOR $VAR[ColorHighlightVar]] $INFO[Player.SeekStepSize][/COLOR]</value>
+		<value condition="Player.Playing + !Player.Seeking + !Player.DisplayAfterSeek">$INFO[System.Time]</value>
+		<value condition="Player.Paused + !Player.Caching">$LOCALIZE[112]</value>
+		<value condition="!IsEmpty(Player.SeekStepSize) + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[31046][COLOR $VAR[ColorHighlightVar]] $INFO[Player.SeekStepSize][/COLOR]</value>
 		<value condition="Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[31046] [COLOR $VAR[ColorHighlightVar]]$INFO[Player.SeekOffset][/COLOR]</value>
 		<value condition="!Player.DisplayAfterSeek + Player.Seeking">$LOCALIZE[31046]</value>
 	</variable>
