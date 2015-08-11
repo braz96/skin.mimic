@@ -203,6 +203,37 @@
 						<label>$VAR[FloorSubLabelVar]</label>
 						<textoffsetx>30</textoffsetx>
 					</control>
+					<control type="group">
+						<visible>Control.IsVisible(57)</visible>
+						<left>30</left>
+						<top>90</top>
+						<control type="textbox">
+							<visible>Skin.HasSetting(Enable.ShiftPlot) + Window.IsActive(videos)</visible>
+							<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
+							<width>1633</width>
+							<height>220</height>
+							<font>font14_textbox4</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<align>left</align>
+							<aligny>top</aligny>
+							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+							<include>ShowCaseInfoPanelButtonsValues</include>
+							<label>$VAR[VideoPlotVar]</label>
+						</control>
+						<control type="textbox">
+							<visible>Skin.HasSetting(Enable.ShiftDescription) + !Window.IsActive(videos) + !Container.Content(addons)</visible>
+							<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
+							<width>1633</width>
+							<height>220</height>
+							<font>font14_textbox4</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<align>left</align>
+							<aligny>top</aligny>
+							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+							<include>ShowCaseInfoPanelButtonsValues</include>
+							<label>$VAR[MusicPlotVar]</label>
+						</control>
+					</control>
 				</control>
 				<control type="group">
 					<animation effect="slide" start="0,0" end="-75,0" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(58)">Conditional</animation>

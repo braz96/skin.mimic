@@ -24,6 +24,7 @@
         <control type="group">
             <animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
             <animation effect="slide" tween="cubic" time="720" start="0,0" end="0,1080">WindowClose</animation>
+            <!--<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftPlot)">Conditional</animation>-->
             <control type="fixedlist" id="500">
                 <left>-140</left>
                 <top>275</top>
@@ -40,8 +41,8 @@
                 <preloaditems>2</preloaditems>
                 <scrolltime tween="quadratic">400</scrolltime>
                 <focusposition>1</focusposition>
-                <movement>4</movement>
-                <animation effect="slide" start="0" end="315" time="400" tween="quadratic" easing="out" reversible="true" condition="Control.HasFocus(500) + Container(500).Position(0)">Conditional</animation>
+                <!--<movement>4</movement>-->
+                <!--<animation effect="slide" start="0" end="315" time="400" tween="quadratic" easing="out" reversible="true" condition="Control.HasFocus(500) + Container(500).Position(0)">Conditional</animation>-->
                 <itemlayout width="315" height="750">
                     <control type="image">
                         <left>-12</left>
@@ -50,6 +51,14 @@
                         <height>490</height>
                         <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture background="true">$INFO[ListItem.Art(poster)]</texture>
+                        <bordersize>20</bordersize>
+                    </control>
+                    <control type="image">
+                        <left>-12</left>
+                        <top>100</top>
+                        <width>340</width>
+                        <height>490</height>
+                        <texture>thumbs/diffuse.png</texture>
                         <bordersize>20</bordersize>
                     </control>
                     <control type="image">
@@ -76,6 +85,16 @@
                             <bordersize>20</bordersize>
                         </control>
                         <control type="image">
+                            <animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                            <animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                            <left>-12</left>
+                            <top>100</top>
+                            <width>340</width>
+                            <height>490</height>
+                            <texture>thumbs/diffuse.png</texture>
+                            <bordersize>20</bordersize>
+                        </control>
+                        <control type="image">
                             <left>248</left>
                             <top>120</top>
                             <width>60</width>
@@ -86,17 +105,6 @@
                         </control>
                     </control>
                 </focusedlayout>
-            </control>
-            <control type="scrollbar" id="60">
-                <left>0</left>
-                <top>1066</top>
-                <width>FullScreenWidth</width>
-                <height>14</height>
-                <onup>500</onup>
-                <ondown>noop</ondown>
-                <onleft>700</onleft>
-                <onright>600</onright>
-                <orientation>horizontal</orientation>
             </control>
             <control type="image">
                 <left>50</left>
@@ -164,6 +172,19 @@
                             <label fallback="16018">$INFO[Window.Property(Filter_Label)]</label>
                         </control>
                     </control>
+                    <!--<control type="textbox">
+                        <visible>Skin.HasSetting(Enable.ShiftPlot)</visible>
+                        <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
+                        <width>1633</width>
+                        <height>220</height>
+                        <font>font14_textbox4</font>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+                        <include>ShowCaseInfoPanelButtonsValues</include>
+                        <label>$INFO[Window.Property(movie.Plot)]</label>
+                    </control>-->
                 </control>
                 <control type="image">
                     <left>1530</left>
@@ -173,6 +194,21 @@
                     <aspectratio>keep</aspectratio>
                     <texture>addons/tmdb.png</texture>
                 </control>
+            </control>
+        </control>
+        <control type="group">
+            <animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
+            <animation effect="slide" tween="cubic" time="720" start="0,0" end="0,1080">WindowClose</animation>
+            <control type="scrollbar" id="60">
+                <left>0</left>
+                <top>1066</top>
+                <width>FullScreenWidth</width>
+                <height>14</height>
+                <onup>500</onup>
+                <ondown>noop</ondown>
+                <onleft>700</onleft>
+                <onright>600</onright>
+                <orientation>horizontal</orientation>
             </control>
         </control>
         <control type="group">
@@ -311,6 +347,12 @@
                     <textwidth>352</textwidth>
                     <include>ButtonCommonValues</include>
                 </control>
+                <!--<control type="radiobutton" id="1805">
+                    <label>31140</label>
+                    <include>ButtonCommonValues</include>
+                    <onclick>Skin.ToggleSetting(Enable.ShiftPlot)</onclick>
+                    <selected>Skin.HasSetting(Enable.ShiftPlot)</selected>
+                </control>-->
                 <control type="button" id="201">
                     <description>Filter Heading</description>
 					<textwidth>352</textwidth>
