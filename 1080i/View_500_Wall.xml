@@ -202,7 +202,7 @@
 				<onup>60</onup>
 			</control>
 			<control type="group">
-				<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
+				<visible>Container.Content(sets)</visible>
 				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 				<control type="button">
 					<top>890</top>
@@ -217,6 +217,116 @@
 					<texturenofocus>-</texturenofocus>
 					<enable>no</enable>
 					<disabledcolor>$VAR[ColorTextVar]</disabledcolor>
+				</control>
+			</control>
+			<control type="group">
+				<left>90</left>
+				<top>900</top>
+				<visible>![Container.Content(files) | Container.Content(sets)]</visible>
+				<include>VisibleFadeEffect</include>
+				<control type="label">
+					<width>1150</width>
+					<height>42</height>
+					<align>left</align>
+					<font>font16_title</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<scroll>true</scroll>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<textoffsetx>30</textoffsetx>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>45</top>
+					<width>1100</width>
+					<height>30</height>
+					<align>left</align>
+					<font>font13_title</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<label>$VAR[FloorSubLabelVar]</label>
+					<textoffsetx>30</textoffsetx>
+				</control>
+			</control>
+			<control type="group">
+				<left>1444</left>
+				<top>890</top>
+				<width>1840</width>
+				<height>90</height>
+				<orientation>horizontal</orientation>
+				<include>VisibleFadeEffect</include>
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<control type="image" id="800012">
+					<left>32</left>
+					<width>198</width>
+					<include>MediaFlagVars</include>
+					<bordersize>2</bordersize>
+					<texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+					<visible>!IsEmpty(Control.GetLabel(800012))</visible>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<width>198</width>
+					<height>90</height>
+					<align>center</align>
+					<label>$INFO[ListItem.Studio]</label>
+					<font>font10</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+					<visible>IsEmpty(Control.GetLabel(800012))</visible>
+				</control>
+				<control type="image">
+					<left>230</left>
+					<include>MediaFlagVars</include>
+					<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>1336</left>
+				<top>890</top>
+				<width>1840</width>
+				<height>90</height>
+				<include>VisibleFadeEffect</include>
+				<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(files)]</visible>
+				<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+				<control type="image">
+					<include>MediaFlagVars</include>
+					<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<left>160</left>
+					<include>MediaFlagVars</include>
+					<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<left>328</left>
+					<include>MediaFlagVars</include>
+					<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
+					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<left>1477</left>
+				<top>972</top>
+				<width>500</width>
+				<height>150</height>
+				<include>VisibleFadeEffect</include>
+				<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+				<control type="image">
+					<height>50</height>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<texture>imdb.png</texture>
+					<aspectratio align="left" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>15</left>
+					<top>3</top>
+					<width>200</width>
+					<height>42</height>
+					<font>font13</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<label>[B][UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#][/B]</label>
+					<align>left</align>
 				</control>
 			</control>
 		</control>
@@ -349,6 +459,64 @@
 				<ondown>60</ondown>
 				<onup>60</onup>
 			</control>
+			<control type="group">
+				<left>95</left>
+				<top>940</top>
+				<control type="label">
+					<left>0</left>
+					<top>0</top>
+					<width>1300</width>
+					<height>42</height>
+					<align>left</align>
+					<font>font16_title</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<scroll>true</scroll>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<textoffsety>-2</textoffsety>
+					<textoffsetx>30</textoffsetx>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>45</top>
+					<width>1300</width>
+					<height>30</height>
+					<align>left</align>
+					<font>font13_title</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<label>$VAR[FloorLabel2Var]</label>
+					<textoffsetx>30</textoffsetx>
+				</control>
+			</control>
+			<control type="grouplist">
+				<left>0</left>
+				<top>935</top>
+				<width>1840</width>
+				<height>90</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<itemgap>0</itemgap>
+				<orientation>horizontal</orientation>
+				<visible>Container.Content(albums)</visible>
+				<control type="image">
+					<width>198</width>
+					<include>MediaFlagVars</include>
+					<texture>$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
+				</control>
+				<control type="image">
+					<width>198</width>
+					<include>MediaFlagVars</include>
+					<texture fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+				</control>
+				<control type="label">
+					<width>198</width>
+					<height>90</height>
+					<align>center</align>
+					<label fallback="• • • •">$INFO[ListItem.Year,[B],[/B]]</label>
+					<font>font35_title</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+			</control>
 		</control>
 	</include>
 	<!-- Picture Wall -->
@@ -472,6 +640,28 @@
 				<ondown>60</ondown>
 				<onup>60</onup>
 			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(PictureInfo.Disabled) + !Container.Content(addons)</visible>
+				<control type="group">
+					<left>90</left>
+					<top>900</top>
+					<include>VisibleFadeEffect</include>
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>1150</width>
+						<height>42</height>
+						<aligny>top</aligny>
+						<align>left</align>
+						<font>font16_title</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<scroll>true</scroll>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<textoffsety>-2</textoffsety>
+						<textoffsetx>30</textoffsetx>
+					</control>
+				</control>
+			</control>
 		</control>
 	</include>
 	<!-- Addon Wall -->
@@ -580,6 +770,35 @@
 				<onright>SetFocus(9050)</onright>
 				<ondown>60</ondown>
 				<onup>60</onup>
+			</control>
+			<control type="group">
+				<top>919</top>
+				<left>176</left>
+				<control type="group">
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>1520</width>
+						<height>42</height>
+						<align>left</align>
+						<font>font16_title</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<scroll>true</scroll>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<textoffsetx>30</textoffsetx>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>45</top>
+						<width>1520</width>
+						<height>30</height>
+						<align>left</align>
+						<font>font13_title</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+						<textoffsetx>30</textoffsetx>
+					</control>
+				</control>
 			</control>
 		</control>
 	</include>

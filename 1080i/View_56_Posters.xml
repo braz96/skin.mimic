@@ -1165,6 +1165,89 @@
 				<visible allowhiddenfocus="true">Control.HasFocus(8401)</visible>
 				<animation effect="fade" time="160">Hidden</animation>
 			</control>
+			<control type="group">
+				<left>1500</left>
+				<top>920</top>
+				<width>1840</width>
+				<height>90</height>
+				<orientation>horizontal</orientation>
+				<include>VisibleFadeEffect</include>
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<control type="image" id="800012">
+					<left>32</left>
+					<width>198</width>
+					<include>MediaFlagVars</include>
+					<bordersize>2</bordersize>
+					<texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+					<visible>!IsEmpty(Control.GetLabel(800012))</visible>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<width>198</width>
+					<height>90</height>
+					<align>center</align>
+					<label>$INFO[ListItem.Studio]</label>
+					<font>font10</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+					<visible>IsEmpty(Control.GetLabel(800012))</visible>
+				</control>
+				<control type="image">
+					<left>230</left>
+					<include>MediaFlagVars</include>
+					<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>1410</left>
+				<top>930</top>
+				<width>1840</width>
+				<height>90</height>
+				<include>VisibleFadeEffect</include>
+				<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(files)]</visible>
+				<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+				<control type="image">
+					<include>MediaFlagVars</include>
+					<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<left>160</left>
+					<include>MediaFlagVars</include>
+					<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<left>328</left>
+					<include>MediaFlagVars</include>
+					<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
+					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<left>1520</left>
+				<top>940</top>
+				<width>500</width>
+				<height>150</height>
+				<include>VisibleFadeEffect</include>
+				<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+				<control type="image">
+					<height>50</height>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<texture>imdb.png</texture>
+					<aspectratio align="left" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>15</left>
+					<top>3</top>
+					<width>200</width>
+					<height>42</height>
+					<font>font13</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<label>[B][UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#][/B]</label>
+					<align>left</align>
+				</control>
+			</control>
 		</control>
 	</include>
 </includes>

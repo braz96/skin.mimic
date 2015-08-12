@@ -247,6 +247,64 @@
 				<ondown>54</ondown>
 				<orientation>horizontal</orientation>
 			</control>
+			<control type="group">
+				<control type="group">
+					<left>410</left>
+					<top>980</top>
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>1100</width>
+						<height>42</height>
+						<aligny>top</aligny>
+						<align>center</align>
+						<font>font16_title</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<scroll>true</scroll>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<textoffsety>-2</textoffsety>
+						<textoffsetx>30</textoffsetx>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>45</top>
+						<width>1100</width>
+						<height>30</height>
+						<align>center</align>
+						<font>font13_title</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>$VAR[FloorLabel2Var]</label>
+						<textoffsetx>30</textoffsetx>
+					</control>
+				</control>
+				<control type="group">
+					<left>0</left>
+					<top>980</top>
+					<width>FullScreenWidth</width>
+					<align>center</align>
+					<visible>Container.Content(albums)</visible>
+					<control type="group">
+						<left>120</left>
+						<control type="label">
+							<left>-10</left>
+							<width>155</width>
+							<height>90</height>
+							<align>center</align>
+							<label>[B]$INFO[ListItem.Year][/B]</label>
+							<font>font35_title</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<wrapmultiline>true</wrapmultiline>
+						</control>
+					</control>
+					<control type="image">
+						<left>1600</left>
+						<width>200</width>
+						<fadetime>50</fadetime>
+						<include>MediaFlagVars</include>
+						<texture fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+					</control>
+				</control>
+			</control>
 		</control>
 	</include>
 	<include name="contents54list">
@@ -570,12 +628,9 @@
 	<include name="ShowCaseMusicInfoPanel">
 		<visible>!StringCompare(ListItem.Label,..)</visible>
 		<control type="group" id="12001">
-			<animation effect="slide" start="0,0" end="0,20" time="100" tween="cubic" condition="Container.Content(albums) + Control.IsVisible(54)">Conditional</animation>
 			<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">VisibleChange</animation>
 			<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">WindowOpen</animation>
 			<animation effect="slide" end="0,-1200" start="0,0" time="720" tween="cubic">WindowClose</animation>
-			<animation effect="slide" start="0,0" end="0,20" time="720" tween="cubic" condition="Control.IsVisible(52)">Conditional</animation>
-			<top>0</top>
 			<control type="group">
 				<include>SettingsFadeEffect</include>
 				<control type="grouplist">

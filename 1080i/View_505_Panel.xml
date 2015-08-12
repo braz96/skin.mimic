@@ -2,117 +2,120 @@
 <includes>
     <!--PORTRAIT-->
     <include name="View_505_Panel">
-		<include>ViewAnimation</include>
         <control type="group">
-            <visible>IntegerGreaterThan(Container(505).NumItems,0)</visible>
-            <animation effect="fade" time="320" delay="300">Visible</animation>
-            <control type="image">
+            <visible>Control.IsVisible(505)</visible>
+    		<include>ViewAnimation</include>
+            <control type="group">
+                <visible>IntegerGreaterThan(Container(505).NumItems,0)</visible>
+                <animation effect="fade" time="320" delay="300">Visible</animation>
+                <control type="image">
+                    <left>83</left>
+                    <top>255</top>
+                    <width>555</width>
+                    <height>725</height>
+                    <visible>Control.HasFocus(505)</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Container(505).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Container(505).Column(2) | Container(505).Column(1)">Conditional</animation>
+                </control>
+            </control>
+            <control type="panel" id="505">
+                <viewtype label="31059">wrap</viewtype>
                 <left>83</left>
                 <top>255</top>
-                <width>555</width>
-                <height>725</height>
-                <visible>Control.HasFocus(505)</visible>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Container(505).Column(2)">Conditional</animation>
-                <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Container(505).Column(2) | Container(505).Column(1)">Conditional</animation>
+                <width>1800</width>
+                <height>843</height>
+                <onup>SetProperty(MediaMenu,True,home)</onup>
+    			<onup>SetFocus(9050)</onup>
+                <ondown>60</ondown>
+                <onleft>505</onleft>
+                <onright>505</onright>
+                <pagecontrol>60</pagecontrol>
+                <orientation>horizontal</orientation>
+                <itemlayout width="600" height="725">
+                    <control type="label">
+                        <top>327</top>
+                        <left>15</left>
+                        <width>525</width>
+                        <height>30</height>
+                        <label>[B]$INFO[ListItem.Label][/B]</label>
+    					<font>font16_title</font>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                    </control>
+                    <control type="textbox">
+    					<visible>!Container.Content(artists)</visible>
+                        <top>370</top>
+                        <left>15</left>
+                        <width>525</width>
+                        <align>left</align>
+                        <height>345</height>
+                        <label>$VAR[VideoPlotVar]</label>
+    					<font>font14_textbox</font>
+    					<textcolor>$VAR[ColorTextVar]</textcolor>
+                    </control>
+    				<control type="textbox">
+    					<visible>Container.Content(artists)</visible>
+                        <top>370</top>
+                        <left>15</left>
+                        <width>525</width>
+                        <align>left</align>
+                        <height>345</height>
+                        <label>$INFO[ListItem.Property(Artist_Description)]</label>
+    					<font>font14_textbox</font>
+    					<textcolor>$VAR[ColorTextVar]</textcolor>
+                    </control>
+    				<include>viewPanelTextbox-ContainerCommons</include>
+                </itemlayout>
+                <focusedlayout width="600" height="725">
+                    <control type="label">
+                        <top>327</top>
+                        <left>15</left>
+                        <width>525</width>
+                        <height>30</height>
+                        <label>[B]$INFO[ListItem.Label][/B]</label>
+    					<font>font16_title</font>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                    </control>
+                    <control type="textbox">
+    					<visible>!Container.Content(artists)</visible>
+                        <top>370</top>
+                        <left>15</left>
+                        <width>525</width>
+                        <align>left</align>
+                        <height>345</height>
+                        <label>$VAR[VideoPlotVar]</label>
+    					<font>font14_textbox</font>
+    					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(61)</autoscroll>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                    </control>
+    				<control type="textbox">
+    					<visible>Container.Content(artists)</visible>
+                        <top>370</top>
+                        <left>15</left>
+                        <width>525</width>
+                        <align>left</align>
+                        <height>345</height>
+                        <label>$INFO[ListItem.Property(Artist_Description)]</label>
+    					<font>font14_textbox</font>
+    					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(61)</autoscroll>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                    </control>
+    				<include>viewPanelTextbox-ContainerCommons</include>
+                </focusedlayout>
+            </control>
+            <control type="scrollbar" id="60">
+                <visible>Control.IsVisible(505)</visible>
+                <left>0</left>
+                <top>1051</top>
+                <width>FullScreenWidth</width>
+                <height>14</height>
+                <onup>505</onup>
+                <ondown>505</ondown>
+                <orientation>horizontal</orientation>
             </control>
         </control>
-        <control type="panel" id="505">
-            <viewtype label="31059">wrap</viewtype>
-            <left>83</left>
-            <top>255</top>
-            <width>1800</width>
-            <height>843</height>
-            <onup>SetProperty(MediaMenu,True,home)</onup>
-			<onup>SetFocus(9050)</onup>
-            <ondown>60</ondown>
-            <onleft>505</onleft>
-            <onright>505</onright>
-            <pagecontrol>60</pagecontrol>
-            <orientation>horizontal</orientation>
-            <itemlayout width="600" height="725">
-                <control type="label">
-                    <top>327</top>
-                    <left>15</left>
-                    <width>525</width>
-                    <height>30</height>
-                    <label>[B]$INFO[ListItem.Label][/B]</label>
-					<font>font16_title</font>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                </control>
-                <control type="textbox">
-					<visible>!Container.Content(artists)</visible>
-                    <top>370</top>
-                    <left>15</left>
-                    <width>525</width>
-                    <align>left</align>
-                    <height>345</height>
-                    <label>$VAR[VideoPlotVar]</label>
-					<font>font14_textbox</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-                </control>
-				<control type="textbox">
-					<visible>Container.Content(artists)</visible>
-                    <top>370</top>
-                    <left>15</left>
-                    <width>525</width>
-                    <align>left</align>
-                    <height>345</height>
-                    <label>$INFO[ListItem.Property(Artist_Description)]</label>
-					<font>font14_textbox</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-                </control>
-				<include>viewPanelTextbox-ContainerCommons</include>
-            </itemlayout>
-            <focusedlayout width="600" height="725">
-                <control type="label">
-                    <top>327</top>
-                    <left>15</left>
-                    <width>525</width>
-                    <height>30</height>
-                    <label>[B]$INFO[ListItem.Label][/B]</label>
-					<font>font16_title</font>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                </control>
-                <control type="textbox">
-					<visible>!Container.Content(artists)</visible>
-                    <top>370</top>
-                    <left>15</left>
-                    <width>525</width>
-                    <align>left</align>
-                    <height>345</height>
-                    <label>$VAR[VideoPlotVar]</label>
-					<font>font14_textbox</font>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(61)</autoscroll>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                </control>
-				<control type="textbox">
-					<visible>Container.Content(artists)</visible>
-                    <top>370</top>
-                    <left>15</left>
-                    <width>525</width>
-                    <align>left</align>
-                    <height>345</height>
-                    <label>$INFO[ListItem.Property(Artist_Description)]</label>
-					<font>font14_textbox</font>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(61)</autoscroll>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                </control>
-				<include>viewPanelTextbox-ContainerCommons</include>
-            </focusedlayout>
-        </control>
-		<control type="scrollbar" id="60">
-			<visible>Control.IsVisible(505)</visible>
-			<left>0</left>
-			<top>1051</top>
-			<width>FullScreenWidth</width>
-			<height>14</height>
-			<onup>505</onup>
-			<ondown>505</ondown>
-			<orientation>horizontal</orientation>
-		</control>
     </include>
     <include name="viewPanelTextbox-ContainerCommons">
         <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos)</visible>

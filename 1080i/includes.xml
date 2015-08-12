@@ -656,45 +656,6 @@
 			<content>plugin://service.library.data.provider?type=playliststats&amp;id=$INFO[Container(9000).ListItem.Property(Path)]</content>
 		</control>
 	</include>
-	<include name="AddonsFloorLabels">
-		<control type="group">
-			<visible>Container.Content(addons) + [Control.IsVisible(520) | Control.IsVisible(57)]</visible>
-			<visible>!Window.IsActive(addoninformation)</visible>
-			<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
-			<include>Window_OpenClose_Animation</include>
-			<top>919</top>
-			<left>176</left>
-			<control type="group">
-				<animation effect="slide" start="0,0" end="-46,6" time="720" tween="cubic" easing="inout" condition="Control.IsVisible(57)">Conditional</animation>
-				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
-				<control type="group">
-					<control type="label">
-						<left>0</left>
-						<top>0</top>
-						<width>1520</width>
-						<height>42</height>
-						<align>left</align>
-						<font>font16_title</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<scroll>true</scroll>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<textoffsetx>30</textoffsetx>
-					</control>
-					<control type="label">
-						<left>0</left>
-						<top>45</top>
-						<width>1520</width>
-						<height>30</height>
-						<align>left</align>
-						<font>font13_title</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-						<textoffsetx>30</textoffsetx>
-					</control>
-				</control>
-			</control>
-		</control>
-	</include>
 	<include name="DialogBackgroundCommons">
 		<control type="image">
 			<description>background image</description>

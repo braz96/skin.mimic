@@ -339,15 +339,111 @@
 				<ondown>53</ondown>
 				<orientation>horizontal</orientation>
 			</control>
+			<control type="group">
+				<control type="grouplist">
+					<left>300</left>
+					<top>980</top>
+					<width>1320</width>
+					<height>42</height>
+					<align>center</align>
+					<itemgap>18</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width>auto</width>
+						<height>42</height>
+						<aligny>top</aligny>
+						<align>center</align>
+						<font>font16_title</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<scroll>true</scroll>
+						<label>[B]$VAR[FloorLabelVar][/B]</label>
+						<textoffsety>-2</textoffsety>
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<control type="image">
+						<width>42</width>
+						<height>46.5</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$VAR[ColorTextVar]">$VAR[UnFocusHDIndicator]</texture>
+						<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>300</left>
+					<top>980</top>
+					<control type="label">
+						<left>0</left>
+						<top>45</top>
+						<width>1320</width>
+						<height>30</height>
+						<align>center</align>
+						<font>font13_title</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>$VAR[FloorSubLabelVar]</label>
+						<textoffsetx>30</textoffsetx>
+					</control>
+				</control>
+				<control type="group">
+					<left>0</left>
+					<top>980</top>
+					<width>FullScreenWidth</width>
+					<align>center</align>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !substring(Container.FolderPath,plugin.video)</visible>
+					<control type="group">
+						<left>120</left>
+						<control type="image" id="800011">
+							<include>MediaFlagVars</include>
+							<bordersize>2</bordersize>
+							<texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+						</control>
+						<control type="label">
+							<left>-10</left>
+							<width>155</width>
+							<height>90</height>
+							<align>center</align>
+							<label>$INFO[ListItem.Studio]</label>
+							<font>font10</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<wrapmultiline>true</wrapmultiline>
+							<visible>IsEmpty(Control.GetLabel(800011))</visible>
+						</control>
+					</control>
+					<control type="image">
+						<left>1675</left>
+						<include>MediaFlagVars</include>
+						<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
+					</control>
+				</control>
+				<control type="group">
+					<left>0</left>
+					<top>980</top>
+					<width>FullScreenWidth</width>
+					<align>center</align>
+					<visible>Container.Content(musicvideos)</visible>
+					<control type="image">
+						<left>120</left>
+						<include>MediaFlagVars</include>
+						<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+					</control>
+					<control type="image">
+						<left>1675</left>
+						<include>MediaFlagVars</include>
+						<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
+						<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+					</control>
+				</control>
+			</control>
 		</control>
 	</include>
 	<include name="ShowCaseInfoPanel">
 		<visible>!Container.Content(sets) + !StringCompare(ListItem.Label,..)</visible>
 		<control type="group" id="12000">
-			<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">VisibleChange</animation>
+			<visible>Control.IsVisible(53)</visible>
+			<!--<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">VisibleChange</animation>-->
 			<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">WindowOpen</animation>
 			<animation effect="slide" end="0,-1200" start="0,0" time="720" tween="cubic">WindowClose</animation>
-			<animation effect="slide" start="0,0" end="0,20" time="720" tween="cubic" condition="Control.IsVisible(52)">Conditional</animation>
+			<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic" delay="500">Visible</animation>
+			<animation effect="slide" end="0,-1200" start="0,0" time="720" tween="cubic">Hidden</animation>
 			<top>0</top>
 			<control type="group">
 				<include>SettingsFadeEffect</include>
