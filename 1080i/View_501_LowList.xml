@@ -152,11 +152,24 @@
 							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 					</control>
-					<control type="image">
+					<control type="image" id="800016">
 						<left>339</left>
 						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+						<visible>!IsEmpty(Control.GetLabel(800016))</visible>
+					</control>
+					<control type="label">
+						<left>339</left>
+						<width>135</width>
+						<height>90</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Studio]</label>
+						<font>font10</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<wrapmultiline>true</wrapmultiline>
+						<visible>IsEmpty(Control.GetLabel(800016))</visible>
 					</control>
 					<control type="image">
 						<left>506</left>
