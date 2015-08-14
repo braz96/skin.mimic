@@ -948,7 +948,7 @@
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !substring(Container.FolderPath,plugin.video) + !substring(Container.FolderPath,plugin.program.advanced.launcher)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !substring(Container.FolderPath,plugin.video)</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
 					<width>560</width>
@@ -993,7 +993,7 @@
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video) | substring(Container.FolderPath,plugin.program.advanced.launcher) | Window.IsActive(videoplaylist)] + !IsEmpty(ListItem.Art(thumb))</visible>
+				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video) | Window.IsActive(videoplaylist)] + !IsEmpty(ListItem.Art(thumb))</visible>
 				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist)">Conditional</animation>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
@@ -1733,7 +1733,7 @@
 				<top>120</top>
 				<itemgap>10</itemgap>
 				<control type="image">
-					<visible>!IsEmpty(ListItem.Art(thumb)) + !SubString(ListItem.Art(thumb),Default)</visible>
+					<visible>!IsEmpty(ListItem.Art(thumb)) + !SubString(ListItem.Art(thumb),Default) + !substring(Container.FolderPath,plugin.program.advanced.launcher)</visible>
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
@@ -1749,6 +1749,20 @@
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				</control>
+			</control>
+			<control type="group">
+				<left>1276</left>
+				<top>120</top>
+				<visible>substring(Container.FolderPath,plugin.program.advanced.launcher) + !IsEmpty(ListItem.Art(thumb))</visible>
+				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist)">Conditional</animation>
+				<include>VisibleFadeEffect</include>
+				<control type="image">
+					<width>560</width>
+					<height>840</height>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 			</control>
 		</control>
