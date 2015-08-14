@@ -40,7 +40,8 @@
 				<onright>ClearProperty(MediaMenu,Home)</onright>
 				<onright>Control.SetFocus(50)</onright>
 				<onup>9011</onup>
-				<ondown>9012</ondown>
+				<ondown condition="Control.IsVisible(9012)">9012</ondown>
+				<ondown condition="!Control.IsVisible(9012)">9011</ondown>
 				<itemlayout width="400" height="60">
 					<control type="label">
 						<left>15</left>
@@ -72,7 +73,13 @@
 						<description>List</description>
 						<label>535</label>
 						<onclick>Container.SetViewMode(50)</onclick>
-						<visible>!Window.IsActive(tvguide)</visible>
+						<visible>![Window.IsActive(tvguide) | Window.IsActive(favourites)]</visible>
+					</item>
+					<item>
+						<description>List</description>
+						<label>535</label>
+						<onclick condition="Skin.HasSetting(Enable.FavView)">Skin.ToggleSetting(Enable.FavView)</onclick>
+						<visible>Window.IsActive(favourites)</visible>
 					</item>
 					<item>
 						<description>EPG Timeline</description>
@@ -114,6 +121,13 @@
 						<label>31086</label>
 						<onclick>Container.SetViewMode(520)</onclick>
 						<visible>[Container.Content(addons) + Container(520).HasFiles] | [Window.IsActive(pictures) + Container(510).HasFiles + Container.Content(addons)]</visible>
+						<visible>!Skin.HasSetting(Disable.IconView)</visible>
+					</item>
+					<item>
+						<description>Icon</description>
+						<label>31086</label>
+						<onclick condition="!Skin.HasSetting(Enable.FavView)">Skin.ToggleSetting(Enable.FavView)</onclick>
+						<visible>Window.IsActive(favourites)</visible>
 						<visible>!Skin.HasSetting(Disable.IconView)</visible>
 					</item>
 					<item>
@@ -224,7 +238,7 @@
 				</content>
 			</control>
 			<control type="button" id="9012">
-				<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
+				<visible>![Skin.HasSetting(KioskMode.Enabled) | Window.IsActive(favourites)]</visible>
 				<top>1020</top>
 				<width>400</width>
 				<align>center</align>
