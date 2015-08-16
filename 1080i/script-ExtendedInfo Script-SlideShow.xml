@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">10001</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <fadetime>500</fadetime>
+            <texture>black.png</texture>
+            <animation effect="fade" start="0" end="100" time="300" tween="sine">WindowOpen</animation>
+            <animation effect="fade" end="100" time="200" tween="sine">WindowClose</animation>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <fadetime>500</fadetime>
+            <texture>background.png</texture>
+            <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+            <animation effect="fade" start="0" end="100" time="300" tween="sine">WindowOpen</animation>
+            <animation effect="fade" end="100" time="200" tween="sine">WindowClose</animation>
+        </control>
+        <control type="group">
+            <top>492</top>
+            <left>912</left>
+            <control type="image">
+                <description>Busy animation</description>
+                <visible>!Container(10001).OnScrollPrevious + !Container(10001).OnScrollNext</visible>
+                <width>96</width>
+                <height>96</height>
+                <texture>android/spinner_48_inner_holo.png</texture>
+                <aspectratio>keep</aspectratio>
+                <animation effect="rotate" start="0" end="360" center="auto" time="2000" loop="true" condition="true">conditional</animation>
+                <animation effect="fade" time="320" delay="400">Visible</animation>
+            </control>
+            <control type="image">
+                <description>Busy animation</description>
+                <visible>!Container(10001).OnScrollPrevious + !Container(10001).OnScrollNext</visible>
+                <width>96</width>
+                <height>96</height>
+                <texture>android/spinner_48_outer_holo.png</texture>
+                <aspectratio>keep</aspectratio>
+                <animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">conditional</animation>
+                <animation effect="fade" time="320" delay="400">Visible</animation>
+            </control>
+        </control>
+        <control type="list" id="10001">
+            <left>-90</left>
+            <top>0</top>
+            <width>2100</width>
+            <height>1080</height>
+            <onleft>10001</onleft>
+            <onright>10001</onright>
+            <ondown>9001</ondown>
+            <animation effect="fade" start="0" end="100" time="300" tween="sine">WindowOpen</animation>
+            <animation effect="fade" end="100" time="200" tween="sine">WindowClose</animation>
+            <scrolltime tween="sine">400</scrolltime>
+            <orientation>Horizontal</orientation>
+            <itemlayout height="1080" width="1920">
+                <control type="image">
+                    <left>90</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>1080</height>
+                    <aspectratio>keep</aspectratio>
+                    <fadetime>200</fadetime>
+                    <texture>$INFO[ListItem.Property(Original)]</texture>
+                </control>
+            </itemlayout>
+            <focusedlayout height="1080" width="1920">
+                <control type="image">
+                    <left>90</left>
+                    <top>0</top>
+                    <width>1920</width>
+                    <height>1080</height>
+                    <aspectratio>keep</aspectratio>
+                    <fadetime>200</fadetime>
+                    <texture>$INFO[ListItem.Property(Original)]</texture>
+                </control>
+            </focusedlayout>
+        </control>
+    </controls>
+</window>
