@@ -14,6 +14,7 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 ***
 **2.2.2**
 - Added a sidebar option to wrap the ShowCase view. It is now a fixed list by default.
+- Added ability to seek by clicking progress bars.
 
 ***
 **2.2.1**
