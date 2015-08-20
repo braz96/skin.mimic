@@ -8,6 +8,18 @@
 	<onload condition="VideoPlayer.Content(livetv)">SetFocus(808)</onload>
 	<onload condition="!VideoPlayer.Content(livetv)">SetFocus(602)</onload>
 	<controls>
+		<control type="slider">
+			<description>Seek Slider</description>
+			<left>30</left>
+			<top>1014</top>
+			<width>1860</width>
+			<height>37</height>
+			<texturesliderbar>-</texturesliderbar>
+			<textureslidernib>-</textureslidernib>
+			<textureslidernibfocus>-</textureslidernibfocus>
+			<action>seek</action>
+			<visible>!VideoPlayer.Content(LiveTV)</visible>
+		</control>
 		<control type="group">
 			<animation effect="slide" end="0,-238" time="240" tween="quadratic" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)">Conditional</animation>
 			<animation effect="slide" start="0,-238" end="0,0" time="240" tween="quadratic">WindowOpen</animation>
