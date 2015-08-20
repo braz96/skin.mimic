@@ -92,7 +92,7 @@
 							<visible>Container.OnNext</visible>
 							<animation effect="rotatey" center="608" end="-55" time="200" reversible="false" tween="quadratic">Hidden</animation>
 							<control type="image">
-								<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-1Var]</texture>
+								<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem-1Var]</texture>
 								<include>MovieShowcaseThumb</include>
 							</control>
 							<control type="image">
@@ -191,7 +191,7 @@
 							<visible>Container.OnPrevious</visible>
 							<animation effect="rotatey" center="1223" end="55" time="200" reversible="false" tween="quadratic">Hidden</animation>
 							<control type="image">
-								<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem1Var]</texture>
+								<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem1Var]</texture>
 								<include>MovieShowcaseThumb</include>
 							</control>
 							<control type="image">
@@ -288,7 +288,7 @@
 					</control>
 				</control>
 			</control>
-			<control type="wraplist" id="53">
+			<control type="list" id="53">
 				<include>contents53list</include>
 			</control>
 			<control type="scrollbar" id="60">
@@ -529,246 +529,290 @@
 		<width>60</width>
 		<height>60</height>
 		<fadetime>0</fadetime>
-		<!--<bordersize>20</bordersize>-->
 	</include>
 	<include name="MovieShowCaseItem-7">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-7Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-7Var]</texture>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(-7).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem-7Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-7Var]</texture>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem-6">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-6Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-6Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
-			<width>121</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(-6).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem-6Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-6Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
+				<width>121</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem-5">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-5Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-5Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
-			<width>131</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(-5).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem-5Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-5Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
+				<width>131</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem-4">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-4Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-4Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
-			<width>145</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(-4).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem-4Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-4Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
+				<width>145</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem-3">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-3Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-3Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
-			<width>160</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(-3).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem-3Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-3Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
+				<width>160</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem-2">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-2Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-2Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
-			<width>179</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(-2).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem-2Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-2Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
+				<width>179</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem-1">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-1Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<include>WatchedOverlayShowCase</include>
-			<texture>$VAR[IconOverlay-1Var]</texture>
-		</control>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-1Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
-			<width>180</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(-1).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem-1Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<include>WatchedOverlayShowCase</include>
+				<texture>$VAR[IconOverlay-1Var]</texture>
+			</control>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem-1Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="left">scale</aspectratio>
+				<width>180</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem0">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem0Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<control type="image">
-			<animation center="auto" easing="inout" effect="fade" condition="![Control.HasFocus(60) | ControlGroup(9050).HasFocus(0)]" delay="100" end="0" start="100" time="300" tween="sine">Conditional</animation>
-			<left>-4</left>
-			<top>-16</top>
-			<width>304</width>
-			<height>436</height>
-			<align>center</align>
-			<bordersize>20</bordersize>
-			<texture>thumbs/diffuse.png</texture>
-		</control>
-		<control type="image">
-			<include>WatchedOverlayShowCase</include>
-			<texture>$VAR[IconOverlay0Var]</texture>
-		</control>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem0Var]</texture>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(0).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem0Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<control type="image">
+				<animation center="auto" easing="inout" effect="fade" condition="![Control.HasFocus(60) | ControlGroup(9050).HasFocus(0)]" delay="100" end="0" start="100" time="300" tween="sine">Conditional</animation>
+				<left>-4</left>
+				<top>-16</top>
+				<width>304</width>
+				<height>436</height>
+				<align>center</align>
+				<bordersize>20</bordersize>
+				<texture>thumbs/diffuse.png</texture>
+			</control>
+			<control type="image">
+				<include>WatchedOverlayShowCase</include>
+				<texture>$VAR[IconOverlay0Var]</texture>
+			</control>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem0Var]</texture>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem1">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem1Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<include>WatchedOverlayShowCase</include>
-			<texture>$VAR[IconOverlay1Var]</texture>
-		</control>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem1Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
-			<left>86</left>
-			<width>192</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(1).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem1Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<include>WatchedOverlayShowCase</include>
+				<texture>$VAR[IconOverlay1Var]</texture>
+			</control>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem1Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
+				<left>86</left>
+				<width>192</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem2">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem2Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<include>WatchedOverlayShowCase</include>
-			<texture>$VAR[IconOverlay2Var]</texture>
-		</control>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem2Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
-			<left>102</left>
-			<width>177</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(2).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem2Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<include>WatchedOverlayShowCase</include>
+				<texture>$VAR[IconOverlay2Var]</texture>
+			</control>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem2Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
+				<left>102</left>
+				<width>177</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem3">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem3Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<include>WatchedOverlayShowCase</include>
-			<texture>$VAR[IconOverlay3Var]</texture>
-		</control>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem3Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
-			<left>121</left>
-			<width>158</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(3).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem3Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<include>WatchedOverlayShowCase</include>
+				<texture>$VAR[IconOverlay3Var]</texture>
+			</control>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem3Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
+				<left>121</left>
+				<width>158</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem4">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem4Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<include>WatchedOverlayShowCase</include>
-			<texture>$VAR[IconOverlay4Var]</texture>
-		</control>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem4Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
-			<left>136</left>
-			<width>142</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(4).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem4Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<include>WatchedOverlayShowCase</include>
+				<texture>$VAR[IconOverlay4Var]</texture>
+			</control>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem4Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
+				<left>136</left>
+				<width>142</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem5">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem5Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<include>WatchedOverlayShowCase</include>
-			<texture>$VAR[IconOverlay5Var]</texture>
-		</control>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem5Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
-			<left>146</left>
-			<width>133</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(5).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem5Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<include>WatchedOverlayShowCase</include>
+				<texture>$VAR[IconOverlay5Var]</texture>
+			</control>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem5Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
+				<left>146</left>
+				<width>133</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem6">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem6Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<include>WatchedOverlayShowCase</include>
-			<texture>$VAR[IconOverlay6Var]</texture>
-		</control>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem6Var]</texture>
-			<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
-			<left>158</left>
-			<width>122</width>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(6).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem6Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<include>WatchedOverlayShowCase</include>
+				<texture>$VAR[IconOverlay6Var]</texture>
+			</control>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem6Var]</texture>
+				<aspectratio scalediffuse="false" aligny="top" align="right">scale</aspectratio>
+				<left>158</left>
+				<width>122</width>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<include name="MovieShowCaseItem7">
-		<control type="image">
-			<texture background="true" diffuse="thumbs/thumb_mask.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem7Var]</texture>
-			<include>MovieShowcaseThumb</include>
-		</control>
-		<include>MovieShowCaseDiffuse</include>
-		<control type="image">
-			<include>WatchedOverlayShowCase</include>
-			<texture>$VAR[IconOverlay7Var]</texture>
-		</control>
-		<control type="image">
-			<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem7Var]</texture>
-			<include>MovieShowcaseThumbReflection</include>
+		<control type="group">
+			<visible>!IsEmpty(Container(53).ListItemNoWrap(7).FolderPath) | Skin.HasSetting(Enable.ShowcaseWrap)</visible>
+			<control type="image">
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ShowcaseItem7Var]</texture>
+				<include>MovieShowcaseThumb</include>
+			</control>
+			<include>MovieShowCaseDiffuse</include>
+			<control type="image">
+				<include>WatchedOverlayShowCase</include>
+				<texture>$VAR[IconOverlay7Var]</texture>
+			</control>
+			<control type="image">
+				<texture background="true" flipy="true" diffuse="thumbs/thumb_diffuse.png" fallback="DefaultFallback.png">$VAR[ShowcaseItem7Var]</texture>
+				<include>MovieShowcaseThumbReflection</include>
+			</control>
 		</control>
 	</include>
 	<variable name="ShowcaseItem-7Var">
