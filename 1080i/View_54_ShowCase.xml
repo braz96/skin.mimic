@@ -616,13 +616,13 @@
 		<value>$INFO[ListItem(6).Icon]</value>
 	</variable>
 	<include name="ShowCaseMusicInfoPanel">
-		<visible>!StringCompare(ListItem.Label,..) + !Skin.HasSetting(Disable.ShowcaseInfopanel)</visible>
-		<control type="group" id="12001">
-			<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">VisibleChange</animation>
-			<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">WindowOpen</animation>
-			<animation effect="slide" end="0,-1200" start="0,0" time="720" tween="cubic">WindowClose</animation>
+		<visible>!Skin.HasSetting(Disable.ShowcaseInfopanel) + !StringCompare(ListItem.Label,..)</visible>
+		<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">Visible</animation>
+		<animation effect="slide" start="0,0" end="0,-1200" time="100" tween="cubic">Hidden</animation>
+		<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">WindowOpen</animation>
+		<animation effect="slide" end="0,-1200" start="0,0" time="720" tween="cubic">WindowClose</animation>
+		<control type="group" id="12001">	
 			<control type="group">
-				<include>SettingsFadeEffect</include>
 				<control type="grouplist">
 					<left>137</left>
 					<top>167</top>
