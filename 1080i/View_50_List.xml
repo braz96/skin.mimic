@@ -993,7 +993,7 @@
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video) | Window.IsActive(videoplaylist)] + !IsEmpty(ListItem.Art(thumb))</visible>
+				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | [substring(Container.FolderPath,plugin.video) + !Container.Content(episodes)] | Window.IsActive(videoplaylist)] + !IsEmpty(ListItem.Art(thumb))</visible>
 				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist)">Conditional</animation>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
