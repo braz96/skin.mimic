@@ -575,6 +575,13 @@
 	</variable>
 	<variable name="ExtraFanartVar">
 		<value condition="Skin.HasSetting(Enable.Extrafanart) + !IsEmpty(ListItem.Art(extrafanart1))">$INFO[Control.GetLabel(4410)]</value>
+		<value condition="Skin.HasSetting(Enable.Landscapeart) + !IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
 		<value>$INFO[ListItem.Art(fanart)]</value>
+	</variable>
+	<variable name="LandscapeArtVar">
+		<value condition="!IsEmpty(ListItem.Art(landscape)) + !Container.Content(episodes)">$INFO[ListItem.Art(landscape)]</value>
+		<value condition="!IsEmpty(ListItem.Art(fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!IsEmpty(ListItem.Thumb) + Container.Content(episodes)">$INFO[ListItem.Thumb]</value>
+		<value>thumbs/diffuse.png</value>
 	</variable>
 </includes>

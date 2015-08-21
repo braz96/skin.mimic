@@ -168,7 +168,16 @@
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.ToggleSetting(Enable.Extrafanart)</onclick>
 			<selected>Skin.HasSetting(Enable.Extrafanart)</selected>
-			<visible>System.HasAddon(script.toolbox) + Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(506)] + !Container.Content(sets)</visible>
+			<visible>System.HasAddon(script.toolbox) + Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(506)] + !Container.Content(sets) + !Container.Content(seasons)</visible>
+			<enable>!Skin.HasSetting(Enable.Landscapeart)</enable>
+		</control>
+		<control type="radiobutton" id="1808">
+			<label>31152</label>
+			<include>ButtonCommonValues</include>
+			<onclick>Skin.ToggleSetting(Enable.Landscapeart)</onclick>
+			<selected>Skin.HasSetting(Enable.Landscapeart)</selected>
+			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(506) | Control.IsVisible(57)] + !Container.Content(sets) + !Container.Content(seasons)</visible>
+			<enable>!Skin.HasSetting(Enable.Extrafanart)</enable>
 		</control>
 		<control type="radiobutton" id="1805">
 			<label>31140</label>

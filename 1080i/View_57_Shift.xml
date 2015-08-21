@@ -16,7 +16,7 @@
 	<include name="Contents57VideoList">
 		<left>-120</left>
 		<top>275</top>
-		<width>2100</width>
+		<width>2200</width>
 		<height>750</height>
 		<onup>SetProperty(MediaMenu,True,home)</onup>
 		<onup>SetFocus(9050)</onup>
@@ -29,7 +29,7 @@
 		<preloaditems>2</preloaditems>
 		<scrolltime tween="quadratic">400</scrolltime>
 		<focusposition>1</focusposition>
-		<itemlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons) + !Container.Content(episodes)">
+		<itemlayout width="315" height="750" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !Skin.HasSetting(Enable.Landscapeart)">
 			<control type="image">
 				<left>-12</left>
 				<top>100</top>
@@ -56,7 +56,7 @@
 				<aspectratio align="right" aligny="top">keep</aspectratio>
 			</control>
 		</itemlayout>
-		<focusedlayout width="315" height="750" condition="!Container.Content(musicvideos) + !Container.Content(addons) + !Container.Content(episodes)">
+		<focusedlayout width="315" height="750" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !Skin.HasSetting(Enable.Landscapeart)">
 			<control type="group">
 				<animation effect="zoom" center="auto" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
 				<animation effect="zoom" center="auto" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
@@ -151,26 +151,35 @@
 				</control>
 			</control>
 		</focusedlayout>
-		<itemlayout width="500" height="750" condition="Container.Content(episodes)">
+		<itemlayout width="588" height="750" condition="Container.Content(episodes) | [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.Landscapeart)]">
 			<control type="image">
-				<left>-170</left>
+				<left>-237</left>
 				<top>240</top>
-				<width>525</width>
+				<width>610</width>
 				<height>360</height>
 				<aspectratio scalediffuse="false">scale</aspectratio>
-				<texture background="true">$INFO[ListItem.Thumb]</texture>
+				<texture background="true">$VAR[LandscapeArtVar]</texture>
 				<bordersize>20</bordersize>
 			</control>
 			<control type="image">
-				<left>-170</left>
+				<visible>[Container.Content(movies) | Container.Content(tvshows)] + IsEmpty(ListItem.Art(landscape))</visible>
+				<top>440</top>
+                <left>-237</left>
+                <width>610</width>
+                <height>120</height>
+                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                <aspectratio align="center" aligny="bottom">keep</aspectratio>
+            </control>
+			<control type="image">
+				<left>-237</left>
 				<top>240</top>
-				<width>525</width>
+				<width>610</width>
 				<height>360</height>
 				<texture>thumbs/diffuse.png</texture>
 				<bordersize>20</bordersize>
 			</control>
 			<control type="image">
-				<left>275</left>
+				<left>293</left>
 				<top>260</top>
 				<width>60</width>
 				<height>60</height>
@@ -178,31 +187,40 @@
 				<aspectratio align="center" aligny="top">keep</aspectratio>
 			</control>
 		</itemlayout>
-		<focusedlayout width="500" height="750" condition="Container.Content(episodes)">
+		<focusedlayout width="588" height="750" condition="Container.Content(episodes) | [[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.Landscapeart)]">
 			<control type="group">
 				<animation effect="zoom" center="80,426" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
 				<animation effect="zoom" center="80,426" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
 				<control type="image">
-					<left>-170</left>
+					<left>-237</left>
 					<top>240</top>
-					<width>525</width>
+					<width>610</width>
 					<height>360</height>
 					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
+					<texture background="true">$VAR[LandscapeArtVar]</texture>
 					<bordersize>20</bordersize>
 				</control>
 				<control type="image">
+					<visible>[Container.Content(movies) | Container.Content(tvshows)] + IsEmpty(ListItem.Art(landscape))</visible>
+					<top>440</top>
+	                <left>-237</left>
+	                <width>610</width>
+	                <height>120</height>
+	                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+	                <aspectratio align="center" aligny="bottom">keep</aspectratio>
+	            </control>
+				<control type="image">
 					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					<left>-170</left>
+					<left>-237</left>
 					<top>240</top>
-					<width>525</width>
+					<width>610</width>
 					<height>360</height>
 					<texture>thumbs/diffuse.png</texture>
 					<bordersize>20</bordersize>
 				</control>
 				<control type="image">
-					<left>275</left>
+					<left>293</left>
 					<top>260</top>
 					<width>60</width>
 					<height>60</height>

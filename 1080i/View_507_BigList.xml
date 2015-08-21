@@ -191,25 +191,11 @@
                 <effect type="zoom" time="150" start="95" end="100" center="251,147" />
                 <effect type="zoom" time="150" start="105" end="100" delay="150" center="251,147" />
             </animation>
-			<control type="image">
-                <width>346</width>
-                <height>195</height>
-                <texture>background.png</texture>
-                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-            </control>
             <control type="image">
                 <width>346</width>
                 <height>195</height>
-                <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
+                <texture background="true">$VAR[LandscapeArtVar]</texture>
                 <aspectratio>scale</aspectratio>
-				<visible>![Container.Content(episodes) | Container.Content(musicvideos)]</visible>
-            </control>
-			<control type="image">
-                <width>346</width>
-                <height>195</height>
-                <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(thumb)]</texture>
-                <aspectratio>scale</aspectratio>
-				<visible>Container.Content(episodes) | Container.Content(musicvideos)</visible>
             </control>
 			<control type="image">
 				<left>286</left>
@@ -224,7 +210,7 @@
                 <height>98</height>
                 <aspectratio align="center" aligny="bottom">keep</aspectratio>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-				<visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos)]</visible>
+				<visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos)] + IsEmpty(ListItem.Art(landscape))</visible>
             </control>
         </control>
     </include>
