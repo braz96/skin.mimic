@@ -11,7 +11,7 @@
 		<control type="image">
 			<description>Normal Default Background Image</description>
 			<include>FullscreenDimensions</include>
-			<texture>special://skin/backgrounds/default_login.jpg</texture>
+			<texture>special://skin/backgrounds/default_bg.jpg</texture>
 		</control>
 		<control type="image">
 			<description>Normal Default Background Image</description>
@@ -20,20 +20,22 @@
 			<colordiffuse>background</colordiffuse>
 		</control>
 		<control type="group">
-			<control type="label">
-				<left>442</left>
-				<top>150</top>
-				<width>1035</width>
-				<height>60</height>
-				<font>font15</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$LOCALIZE[31421]</label>
-			</control>
+			<control type="image">
+                <visible>Control.HasFocus(52)</visible>
+                <left>442</left>
+                <top>160</top>
+                <width>1035</width>
+                <height>150</height>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="50">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(52).Row(3)">Conditional</animation>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(52).Row(3) | Container(52).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(52).Row(3) | Container(52).Row(2) | Container(52).Row(1)">Conditional</animation>
+            </control>
 			<control type="list" id="52">
 				<left>442</left>
-				<top>255</top>
+				<top>160</top>
 				<width>1035</width>
 				<height>600</height>
 				<onleft>20</onleft>
@@ -48,7 +50,8 @@
 						<left>15</left>
 						<top>15</top>
 						<width>120</width>
-						<height>112</height>
+						<height>120</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
@@ -63,7 +66,7 @@
 					</control>
 					<control type="label">
 						<left>165</left>
-						<top>75</top>
+						<top>80</top>
 						<width>870</width>
 						<height>38</height>
 						<font>font13</font>
@@ -73,20 +76,11 @@
 				</itemlayout>
 				<focusedlayout height="150" width="870">
 					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>1035</width>
-						<height>142</height>
-						<texture>listselect_fo.png</texture> 
-						<colordiffuse>highlight</colordiffuse>
-						<visible>Control.HasFocus(52)</visible>
-						<include>VisibleFadeEffect</include>
-					</control>
-					<control type="image">
 						<left>15</left>
 						<top>15</top>
 						<width>120</width>
-						<height>112</height>
+						<height>120</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
@@ -99,7 +93,7 @@
 					</control>
 					<control type="label">
 						<left>165</left>
-						<top>75</top>
+						<top>80</top>
 						<width>870</width>
 						<height>38</height>
 						<font>font13</font>
@@ -107,10 +101,16 @@
 					</control>
 				</focusedlayout>
 			</control>
+			<control type="image">
+				<top>920</top>
+				<width>FullScreenWidth</width>
+				<height>160</height>
+				<texture>thumbs\diffuse.png</texture>
+			</control>
 			<control type="button" id="20">
 				<description>Power push button</description>
-				<left>1582</left>
-				<top>905</top>
+				<left>1745</left>
+				<top>937</top>
 				<width>128</width>
 				<height>128</height>
 				<label>-</label>
@@ -126,12 +126,12 @@
 			</control>
 			<control type="image">
 				<description>LOGO</description>
-				<left>102</left>
-				<top>928</top>
-				<width>356</width>
-				<height>120</height>
+				<left>65</left>
+				<top>952</top>
+				<width>340</width>
+				<height>97</height>
 				<aspectratio align="left">keep</aspectratio>
-				<texture>mimic-logo.png</texture>
+				<texture>logo.png</texture>
 				<colordiffuse>highlight</colordiffuse>
 			</control>
 		</control>
