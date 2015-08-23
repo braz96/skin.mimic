@@ -59,7 +59,7 @@
 			<param name="CloseIconDialogClose2" value="noop" />
 			<param name="ClearMediaMenu" value="ClearProperty(MediaMenu,Home)" />
 			<param name="CloseIconSetFocus" value="SetFocus(50)" />
-			<param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + !Window.IsActive(1118) + !Window.IsActive(1129)" />
+			<param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + !Window.IsActive(1118) + !Window.IsActive(1129) + !Window.IsActive(1133)" />
 		</include>
 		<control type="image">
 			<description>LOGO</description>
@@ -119,7 +119,7 @@
 		<onback>50</onback>
 		<itemgap>0</itemgap>
 		<include condition="Skin.HasSetting(KioskMode.Enabled)">KioskModeButton</include>
-		<visible>IsEmpty(Window(home).Property(viewtypeselect))</visible>
+		<visible>IsEmpty(Window(home).Property(viewtypeselect)) + !Window.IsVisible(1133)</visible>
 		<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
 		<control type="label" id="200">
 			<width>400</width>
@@ -149,6 +149,12 @@
 			<altlabel>31050</altlabel>
 			<usealttexture>Container.SortDirection(Ascending)</usealttexture>
 		</control>
+		<control type="button" id="1804">
+			<label>$VAR[ExtraFanartLabelVar,$LOCALIZE[31152]: ]</label>
+			<include>ButtonCommonValues</include>
+			<onclick>ActivateWindow(1133)</onclick>
+			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(506)] + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons)</visible>
+		</control>
 		<control type="radiobutton" id="1803">
 			<label>31117</label>
 			<include>ButtonCommonValues</include>
@@ -163,21 +169,12 @@
 			<visible>Control.IsVisible(53) | Control.IsVisible(54)</visible>
 			<selected>!Skin.HasSetting(Disable.ShowcaseInfopanel)</selected>
 		</control>
-		<control type="radiobutton" id="1804">
-			<label>31118</label>
-			<include>ButtonCommonValues</include>
-			<onclick>Skin.ToggleSetting(Enable.Extrafanart)</onclick>
-			<selected>Skin.HasSetting(Enable.Extrafanart)</selected>
-			<visible>System.HasAddon(script.toolbox) + Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(506)] + !Container.Content(sets) + !Container.Content(seasons)</visible>
-			<enable>!Skin.HasSetting(Enable.Landscapeart)</enable>
-		</control>
 		<control type="radiobutton" id="1808">
-			<label>31152</label>
+			<label>31154</label>
 			<include>ButtonCommonValues</include>
-			<onclick>Skin.ToggleSetting(Enable.Landscapeart)</onclick>
-			<selected>Skin.HasSetting(Enable.Landscapeart)</selected>
-			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(506) | Control.IsVisible(57)] + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons)</visible>
-			<enable>!Skin.HasSetting(Enable.Extrafanart)</enable>
+			<onclick>Skin.ToggleSetting(Enable.ShiftLandscape)</onclick>
+			<selected>Skin.HasSetting(Enable.ShiftLandscape)</selected>
+			<visible>Window.IsActive(videos) + Control.IsVisible(57) + !Container.Content(sets) + !Container.Content(addons)</visible>
 		</control>
 		<control type="radiobutton" id="1805">
 			<label>31140</label>

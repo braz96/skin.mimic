@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1133">
+    <defaultcontrol always="true">90500</defaultcontrol>
+    <coordinates>
+        <posx>0</posx>
+        <posy>0</posy>
+        <system>1</system>
+    </coordinates>
+    <controls>
+		<include name="SideBladeCloseIcon">
+            <param name="CloseIconDialogClose" value="Dialog.Close(1133)" />
+            <param name="CloseIconDialogClose2" value="noop" />
+            <param name="ClearMediaMenu" value="ClearProperty(MediaMenu,Home)" />
+            <param name="CloseIconSetFocus" value="SetFocus(50)" />
+            <param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + Window.IsActive(1133)" />
+        </include>
+		<control type="group">
+			<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="-440,0" time="160" tween="quadratic" easing="out">WindowClose</animation>
+			<control type="label">
+				<top>115</top>
+				<width>400</width>
+				<height>52</height>
+				<textoffsetx>15</textoffsetx>
+				<font>font13_title</font>
+				<label>31153</label>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			</control>
+			<control type="list" id="90500">
+				<!-- viewtype selection-->
+				<top>167</top>
+				<width>400</width>
+				<height>840</height>
+				<orientation>vertical</orientation>
+				<onright>Dialog.Close(1133)</onright>
+				<onright>ClearProperty(MediaMenu,Home)</onright>
+				<onright>Control.SetFocus(50)</onright>
+				<onup>90500</onup>
+				<ondown>90500</ondown>
+				<itemlayout width="400" height="60">
+					<control type="label">
+						<left>15</left>
+						<width>400</width>
+						<height>60</height>
+						<font>font13</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="400" height="60">
+					<control type="image">
+						<width>400</width>
+						<height>60</height>
+						<texture>listselect_fo.png</texture>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+						<visible>Control.HasFocus(90500)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<width>400</width>
+						<height>60</height>
+						<font>font13</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<description>Fanart</description>
+						<label>20445</label>
+						<onclick>Skin.Reset(Enable.Extra.Fanart)</onclick>
+						<onclick>Skin.Reset(Enable.Landscape.Art)</onclick>
+					</item>
+					<item>
+						<description>Extra fanart</description>
+						<label>31118</label>
+						<onclick>Skin.SetBool(Enable.Extra.Fanart)</onclick>
+						<onclick>Skin.Reset(Enable.Landscape.Art)</onclick>
+						<visible>System.HasAddon(script.toolbox)</visible>
+					</item>
+					<item>
+						<description>Landscape</description>
+						<label>31100</label>
+						<onclick>Skin.SetBool(Enable.Landscape.Art)</onclick>
+						<onclick>Skin.Reset(Enable.Extra.Fanart)</onclick>
+					</item>
+				</content>
+			</control>
+		</control>
+    </controls>
+</window>
