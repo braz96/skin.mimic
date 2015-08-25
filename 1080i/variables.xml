@@ -578,7 +578,12 @@
 		<value condition="Skin.HasSetting(Enable.Landscape.Art) + !IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
 		<value>$INFO[ListItem.Art(fanart)]</value>
 	</variable>
-	<variable name="ExtraFanartLabelVar">
+	<variable name="ArtLabelVar">
+		<value condition="[[Skin.HasSetting(Enable.WallLandscape) + Control.IsVisible(500)] | [Skin.HasSetting(Enable.ShiftLandscape) + Control.IsVisible(57)] | [Skin.HasSetting(Enable.WallLandscape) + Control.IsVisible(509)]] + !IsEmpty(ListItem.Art(landscape))">$LOCALIZE[31100]</value>
+		<value condition="Skin.HasSetting(InfoWall.Banners) + Control.IsVisible(51)">$LOCALIZE[31085]</value>
+		<value>$LOCALIZE[31016]</value>
+	</variable>
+	<variable name="Art2LabelVar">
 		<value condition="Skin.HasSetting(Enable.Extra.Fanart) + !IsEmpty(ListItem.Art(extrafanart1))">$LOCALIZE[31118]</value>
 		<value condition="Skin.HasSetting(Enable.Landscape.Art) + !IsEmpty(ListItem.Art(landscape))">$LOCALIZE[31100]</value>
 		<value>$LOCALIZE[20445]</value>

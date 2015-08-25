@@ -7,7 +7,7 @@
 			<include>ViewAnimation</include>
 			<top>-15</top>
 			<control type="image">
-            	<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + Control.HasFocus(509)</visible>
+            	<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + Control.HasFocus(509) + !Skin.HasSetting(Enable.WallLandscape)</visible>
                 <left>14</left>
                 <top>15</top>
                 <width>247</width>
@@ -24,6 +24,22 @@
                 <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3)">Conditional</animation>
                 <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3) | Container(509).Column(2)">Conditional</animation>
                 <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3) | Container(509).Column(2) | Container(509).Column(1)">Conditional</animation>
+            </control>
+            <control type="image">
+            	<visible>[Container.Content(movies) | Container.Content(tvshows)] + Control.HasFocus(509) + Skin.HasSetting(Enable.WallLandscape)</visible>
+                <left>50</left>
+                <top>14</top>
+                <width>464</width>
+                <height>272</height>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="200">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3)">Conditional</animation>
+                <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3) | Container(509).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3) | Container(509).Row(2) | Container(509).Row(1)">Conditional</animation>
+                <animation effect="slide" end="452,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(3)">Conditional</animation>
+                <animation effect="slide" end="452,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(3) | Container(509).Column(2)">Conditional</animation>
+                <animation effect="slide" end="452,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(3) | Container(509).Column(2) | Container(509).Column(1)">Conditional</animation>
             </control>
             <control type="image">
             	<visible>[Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)] + Control.HasFocus(509)</visible>
@@ -60,7 +76,7 @@
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">400</scrolltime>
 				<focusposition>1</focusposition>
-				<itemlayout width="235" height="346" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)">
+				<itemlayout width="235" height="346" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.WallLandscape)">
 					<control type="group">
 						<top>1</top>
 						<height>1038</height>
@@ -71,7 +87,6 @@
 							<height>334</height>
 							<aspectratio scalediffuse="false">scale</aspectratio>
 							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
-							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
 							<top>6</top>
@@ -90,7 +105,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="235" height="346" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)">
+				<focusedlayout width="235" height="346" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.WallLandscape)">
 					<control type="group">
 						<animation type="Focus">
 				            <effect type="zoom" time="150" start="95" end="100" center="117,174" />
@@ -125,6 +140,86 @@
 						</control>
 					</control>
 				</focusedlayout>
+				<itemlayout width="452" height="260" condition="[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.WallLandscape)">
+					<control type="group">
+						<left>36</left>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>440</width>
+							<height>248</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true">$VAR[LandscapeArtVar]</texture>
+						</control>
+						<control type="image">
+							<visible>IsEmpty(ListItem.Art(landscape))</visible>
+							<top>135</top>
+			                <left>6</left>
+			                <width>440</width>
+			                <height>110</height>
+			                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+			                <aspectratio align="center" aligny="bottom">keep</aspectratio>
+			            </control>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>440</width>
+							<height>248</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="image">
+							<left>386</left>
+							<top>6</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="452" height="260" ondition="[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.WallLandscape)">
+					<control type="group">
+						<animation type="Focus">
+				            <effect type="zoom" time="150" start="95" end="100" center="242,130" />
+				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="242,130" />
+				        </animation>
+				        <left>36</left>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>440</width>
+							<height>248</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true">$VAR[LandscapeArtVar]</texture>
+						</control>
+						<control type="image">
+							<visible>IsEmpty(ListItem.Art(landscape))</visible>
+							<top>135</top>
+			                <left>6</left>
+			                <width>440</width>
+			                <height>110</height>
+			                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+			                <aspectratio align="center" aligny="bottom">keep</aspectratio>
+			            </control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(509)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(509)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>440</width>
+							<height>248</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="image">
+							<left>386</left>
+							<top>6</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
 				<itemlayout width="260" height="260" condition="Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)">
 					<control type="group">
 						<width>1820</width>
@@ -136,7 +231,6 @@
 							<height>248</height>
 							<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
 							<texture background="true">$VAR[MusicThumbVar]</texture>
-							<fadetime>300</fadetime>
 						</control>
 						<control type="image">
 							<top>6</top>

@@ -7,7 +7,7 @@
 			<include>ViewAnimation</include>
 			<top>-105</top>
 			<control type="image">
-				<visible>Control.HasFocus(51) + !Skin.HasSetting(InfoWall.LargeIcons)</visible>
+				<visible>Control.HasFocus(51) + !Skin.HasSetting(InfoWall.LargeIcons) + !Skin.HasSetting(InfoWall.Banners)</visible>
                 <left>82</left>
                 <top>167</top>
                 <width>219</width>
@@ -35,11 +35,26 @@
                 <animation effect="slide" end="308,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(2)">Conditional</animation>
                 <animation effect="slide" end="308,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(2) | Container(51).Column(1)">Conditional</animation>
             </control>
+            <control type="image">
+				<visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.Banners)</visible>
+                <left>132</left>
+                <top>167</top>
+                <width>948</width>
+                <height>195</height>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="50">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(51).Row(4)">Conditional</animation>
+                <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(51).Row(4) | Container(51).Row(3)">Conditional</animation>
+                <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(51).Row(4) | Container(51).Row(3) | Container(51).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(51).Row(4) | Container(51).Row(3) | Container(51).Row(2) | Container(51).Row(1)">Conditional</animation>
+            </control>
 			<control type="panel" id="51">
+				<animation effect="slide" time="0" start="0" end="50" condition="Skin.HasSetting(InfoWall.Banners)">Conditional</animation>
 				<left>88</left>
 				<top>173</top>
 				<width>1035</width>
-				<height>912</height>
+				<height>915</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<onright>60</onright>
@@ -49,7 +64,7 @@
 				<preloaditems>2</preloaditems>
 				<viewtype label="31021">icons</viewtype>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="304" width="207" condition="!Skin.HasSetting(InfoWall.LargeIcons)">
+				<itemlayout height="304" width="207" condition="!Skin.HasSetting(InfoWall.LargeIcons) + !Skin.HasSetting(InfoWall.Banners)">
 					<control type="image">
 						<top>6</top>
 						<left>6</left>
@@ -74,7 +89,7 @@
 						<aspectratio align="center" aligny="top">keep</aspectratio>
 					</control>
 				</itemlayout>
-				<focusedlayout height="304" width="207" condition="!Skin.HasSetting(InfoWall.LargeIcons)">
+				<focusedlayout height="304" width="207" condition="!Skin.HasSetting(InfoWall.LargeIcons) + !Skin.HasSetting(InfoWall.Banners">
 					<control type="group">
 						<include>PanelFocusedItemZoom</include>
 						<control type="image">
@@ -163,6 +178,133 @@
 						</control>
 					</control>
 				</focusedlayout>
+				<itemlayout width="936" height="183" condition="Skin.HasSetting(InfoWall.Banners)">
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>924</width>
+						<height>171</height>
+						<aspectratio align="center" aligny="center">scale</aspectratio>
+						<texture background="true">$VAR[BannerThumb]</texture>
+						<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
+					</control>
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>924</width>
+						<height>171</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<visible>IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
+					</control>
+                    <control type="group">
+						<visible>IsEmpty(ListItem.Art(banner))</visible>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>924</width>
+							<height>171</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<fadetime>300</fadetime>
+						</control>
+						<control type="image">
+							<top>16</top>
+							<left>15</left>
+							<width>450</width>
+							<height>151</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+							<fadetime>300</fadetime>
+						</control>
+					</control>
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>924</width>
+						<height>171</height>
+						<texture>thumbs/diffuse.png</texture>
+					</control>
+					<control type="image">
+						<left>870</left>
+						<top>6</top>
+						<width>60</width>
+						<height>60</height>
+						<texture>$VAR[OverlayVar]</texture>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
+					</control>
+				</itemlayout>
+				<focusedlayout width="936" height="183" condition="Skin.HasSetting(InfoWall.Banners)">
+                    <control type="group">
+                        <include>PanelFocusedItemZoom</include>
+						<control type="group">
+							<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>924</width>
+								<height>171</height>
+								<aspectratio align="center" aligny="center">scale</aspectratio>
+								<texture background="true">$VAR[BannerThumb]</texture>
+							</control>
+						</control>
+						<control type="group">
+							<visible>IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>924</width>
+								<height>171</height>
+								<texture>background.png</texture>
+								<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+							</control>
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>924</width>
+								<height>171</height>
+								<aspectratio align="center" aligny="center">keep</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+						</control>
+                        <control type="group">
+							<visible>IsEmpty(ListItem.Art(banner))</visible>
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>924</width>
+								<height>171</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<top>16</top>
+								<left>15</left>
+								<width>450</width>
+								<height>151</height>
+								<aspectratio>keep</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+							</control>
+						</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(506)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(506)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>924</width>
+							<height>171</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+                        <control type="image">
+							<left>870</left>
+							<top>6</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+                    </control>
+				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
 				<left>1906</left>
@@ -176,6 +318,7 @@
 			</control>
 			<control type="grouplist">
 				<animation effect="slide" time="300" tween="sine" easing="inout" end="-55" condition="Skin.HasSetting(InfoWall.LargeIcons)">Conditional</animation>
+				<animation effect="slide" time="300" tween="sine" easing="inout" start="0" end="-50" condition="Skin.HasSetting(InfoWall.Banners)">Conditional</animation>
 				<top>179</top>
 				<left>1157</left>
 				<itemgap>15</itemgap>

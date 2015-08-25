@@ -22,7 +22,6 @@
 	<include file="View_502_Episode.xml" />
 	<include file="View_504_Gallery.xml" />
 	<include file="View_505_Panel.xml" />
-	<include file="View_506_BannerInfo.xml" />
 	<include file="View_507_BigList.xml" />
 	<include file="View_508_SongList.xml" />
 	<include file="View_450_Favorites.xml" />
@@ -150,31 +149,31 @@
 			<usealttexture>Container.SortDirection(Ascending)</usealttexture>
 		</control>
 		<control type="button" id="1804">
-			<label>$VAR[ExtraFanartLabelVar,$LOCALIZE[31152]: ]</label>
+			<label>$VAR[ArtLabelVar,$LOCALIZE[31152]: ]</label>
 			<include>ButtonCommonValues</include>
 			<onclick>ActivateWindow(1133)</onclick>
-			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(506)] + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons)</visible>
+			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(51) | Control.IsVisible(509)] + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons)</visible>
+		</control>
+		<control type="button" id="1808">
+			<label>$VAR[Art2LabelVar,$LOCALIZE[31152] 2: ]</label>
+			<include>ButtonCommonValues</include>
+			<onclick>Skin.SetBool(Art2Customizer)</onclick>
+			<onclick>ActivateWindow(1133)</onclick>
+			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53)] + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons)</visible>
 		</control>
 		<control type="radiobutton" id="1803">
 			<label>31117</label>
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.ToggleSetting(InfoWall.LargeIcons)</onclick>
-			<visible>Window.IsActive(videolibrary) + Control.IsVisible(51)</visible>
+			<visible>Window.IsActive(videolibrary) + Control.IsVisible(51) + !Skin.HasSetting(InfoWall.Banners)</visible>
 			<selected>Skin.HasSetting(InfoWall.LargeIcons)</selected>
 		</control>
 		<control type="radiobutton" id="1806">
 			<label>31104</label>
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.ToggleSetting(Disable.ShowcaseInfopanel)</onclick>
-			<visible>Control.IsVisible(53) | Control.IsVisible(54)</visible>
+			<visible>[Control.IsVisible(53) | Control.IsVisible(54)] + !Container.Content(sets)</visible>
 			<selected>!Skin.HasSetting(Disable.ShowcaseInfopanel)</selected>
-		</control>
-		<control type="radiobutton" id="1808">
-			<label>31154</label>
-			<include>ButtonCommonValues</include>
-			<onclick>Skin.ToggleSetting(Enable.ShiftLandscape)</onclick>
-			<selected>Skin.HasSetting(Enable.ShiftLandscape)</selected>
-			<visible>Window.IsActive(videos) + Control.IsVisible(57) + !Container.Content(sets) + !Container.Content(addons)</visible>
 		</control>
 		<control type="radiobutton" id="1805">
 			<label>31140</label>
