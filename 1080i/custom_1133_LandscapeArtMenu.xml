@@ -78,14 +78,14 @@
 						<onclick>Skin.SetBool(Enable.Extra.Fanart)</onclick>
 						<onclick>Skin.Reset(Enable.Landscape.Art)</onclick>
 						<visible>System.HasAddon(script.toolbox)</visible>
-						<visible>[StringCompare(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)] | StringCompare(Container.Viewmode,$LOCALIZE[31077]) | StringCompare(Container.Viewmode,$LOCALIZE[31085])</visible>
+						<visible>[StringCompare(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)] | StringCompare(Container.Viewmode,$LOCALIZE[31077])</visible>
 					</item>
 					<item>
 						<description>Landscape</description>
 						<label>31100</label>
 						<onclick>Skin.SetBool(Enable.Landscape.Art)</onclick>
 						<onclick>Skin.Reset(Enable.Extra.Fanart)</onclick>
-						<visible>[StringCompare(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)] | StringCompare(Container.Viewmode,$LOCALIZE[31077]) | StringCompare(Container.Viewmode,$LOCALIZE[31085])</visible>
+						<visible>[StringCompare(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)] | StringCompare(Container.Viewmode,$LOCALIZE[31077])</visible>
 					</item>
 					<item>
 						<description>Poster</description>
@@ -127,12 +127,21 @@
 						<description>Poster</description>
 						<label>31016</label>
 						<onclick>Skin.Reset(Enable.WallLandscape)</onclick>
+						<onclick>Skin.Reset(Enable.WallBanner)</onclick>
 						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31078])</visible>
 					</item>
 					<item>
 						<description>Landscape</description>
 						<label>31100</label>
+						<onclick>Skin.Reset(Enable.WallBanner)</onclick>
 						<onclick>Skin.SetBool(Enable.WallLandscape)</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31078]) + !Container.Content(seasons)</visible>
+					</item>
+					<item>
+						<description>Banner</description>
+						<label>31085</label>
+						<onclick>Skin.Reset(Enable.WallLandscape)</onclick>
+						<onclick>Skin.SetBool(Enable.WallBanner)</onclick>
 						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31078])</visible>
 					</item>
 				</content>

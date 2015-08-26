@@ -29,7 +29,7 @@
 		<preloaditems>2</preloaditems>
 		<scrolltime tween="quadratic">400</scrolltime>
 		<focusposition>1</focusposition>
-		<itemlayout width="315" height="750" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !Skin.HasSetting(Enable.ShiftLandscape)">
+		<itemlayout width="315" height="750" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !Skin.HasSetting(Enable.ShiftLandscape)] | Container.Content(seasons)">
 			<control type="image">
 				<left>-12</left>
 				<top>100</top>
@@ -56,7 +56,7 @@
 				<aspectratio align="right" aligny="top">keep</aspectratio>
 			</control>
 		</itemlayout>
-		<focusedlayout width="315" height="750" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !Skin.HasSetting(Enable.ShiftLandscape)">
+		<focusedlayout width="315" height="750" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !Skin.HasSetting(Enable.ShiftLandscape)] | Container.Content(seasons)">
 			<control type="group">
 				<animation effect="zoom" center="auto" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
 				<animation effect="zoom" center="auto" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
