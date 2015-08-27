@@ -50,7 +50,6 @@
                 <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(51).Row(4) | Container(51).Row(3) | Container(51).Row(2) | Container(51).Row(1)">Conditional</animation>
             </control>
 			<control type="panel" id="51">
-				<animation effect="slide" time="0" start="0" end="50" condition="Skin.HasSetting(InfoWall.Banners)">Conditional</animation>
 				<left>88</left>
 				<top>173</top>
 				<width>1035</width>
@@ -150,7 +149,10 @@
 				<focusedlayout height="456" width="308" condition="Skin.HasSetting(InfoWall.LargeIcons)">
 					<control type="group">
 						<left>55</left>
-						<include>PanelFocusedItemZoom</include>
+						<animation type="Focus">
+				            <effect type="zoom" time="150" start="95" end="100" center="178,225" />
+				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="178,225" />
+				        </animation>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
@@ -179,64 +181,71 @@
 					</control>
 				</focusedlayout>
 				<itemlayout width="936" height="183" condition="Skin.HasSetting(InfoWall.Banners)">
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>924</width>
-						<height>171</height>
-						<aspectratio align="center" aligny="center">scale</aspectratio>
-						<texture background="true">$VAR[BannerThumb]</texture>
-						<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
-					</control>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>924</width>
-						<height>171</height>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<visible>IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
-					</control>
-                    <control type="group">
-						<visible>IsEmpty(ListItem.Art(banner))</visible>
+					<control type="group">
+						<left>50</left>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
 							<width>924</width>
 							<height>171</height>
-							<aspectratio>scale</aspectratio>
-							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-							<fadetime>300</fadetime>
+							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<texture background="true">$VAR[BannerThumb]</texture>
+							<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
 						</control>
 						<control type="image">
-							<top>16</top>
-							<left>15</left>
-							<width>450</width>
-							<height>151</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-							<fadetime>300</fadetime>
+							<top>6</top>
+							<left>6</left>
+							<width>924</width>
+							<height>171</height>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<visible>IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
 						</control>
-					</control>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>924</width>
-						<height>171</height>
-						<texture>thumbs/diffuse.png</texture>
-					</control>
-					<control type="image">
-						<left>870</left>
-						<top>6</top>
-						<width>60</width>
-						<height>60</height>
-						<texture>$VAR[OverlayVar]</texture>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
+	                    <control type="group">
+							<visible>IsEmpty(ListItem.Art(banner))</visible>
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>924</width>
+								<height>171</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+								<fadetime>300</fadetime>
+							</control>
+							<control type="image">
+								<top>16</top>
+								<left>15</left>
+								<width>450</width>
+								<height>151</height>
+								<aspectratio>keep</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+								<fadetime>300</fadetime>
+							</control>
+						</control>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>924</width>
+							<height>171</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="image">
+							<left>870</left>
+							<top>6</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
 					</control>
 				</itemlayout>
 				<focusedlayout width="936" height="183" condition="Skin.HasSetting(InfoWall.Banners)">
                     <control type="group">
-                        <include>PanelFocusedItemZoom</include>
+                    	<left>50</left>
+                        <animation type="Focus">
+				            <effect type="zoom" time="150" start="95" end="100" center="490,89" />
+				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="490,89" />
+				        </animation>
 						<control type="group">
 							<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
 							<control type="image">
@@ -287,8 +296,8 @@
 							</control>
 						</control>
 						<control type="image">
-							<animation center="auto" condition="Control.HasFocus(506)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(506)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 							<top>6</top>
 							<left>6</left>
 							<width>924</width>

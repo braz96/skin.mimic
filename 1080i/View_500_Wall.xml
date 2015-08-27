@@ -9,7 +9,7 @@
                 <visible>IntegerGreaterThan(Container(500).NumItems,0)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
                 <control type="image">
-                	<visible>[[[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.WallLandscape)] | Container.Content(seasons) | Container.Content(sets)] + Control.HasFocus(500)</visible>
+                	<visible>[[[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.IconLandscape)] | Container.Content(seasons) | Container.Content(sets)] + Control.HasFocus(500)</visible>
                     <left>107</left>
                     <top>165</top>
                     <width>254</width>
@@ -26,7 +26,7 @@
                     <animation effect="slide" end="242,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(6) | Container(500).Column(5) | Container(500).Column(4) | Container(500).Column(3) | Container(500).Column(2) | Container(500).Column(1)">Conditional</animation>
                 </control>
                 <control type="image">
-                	<visible>[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.WallLandscape) + Control.HasFocus(500)</visible>
+                	<visible>[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.IconLandscape) + Control.HasFocus(500)</visible>
                     <left>128</left>
                     <top>165</top>
                     <width>425</width>
@@ -56,7 +56,6 @@
                 </control>
             </control>
 			<control type="panel" id="500">
-				<animation effect="slide" time="0" start="0" end="22" condition="Skin.HasSetting(Enable.WallLandscape) + ![Container.Content(sets) | Container.Content(Seasons)]">Conditional</animation>
 				<left>112</left>
 				<top>171</top>
 				<width>1696</width>
@@ -69,7 +68,7 @@
 				<pagecontrol>60</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.WallLandscape)] | Container.Content(seasons) | Container.Content(sets)">
+				<itemlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.IconLandscape)] | Container.Content(seasons) | Container.Content(sets)">
 					<control type="group">
 						<left>1</left>
 						<control type="image">
@@ -97,7 +96,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.WallLandscape)] | Container.Content(seasons) | Container.Content(sets)">
+				<focusedlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.IconLandscape)] | Container.Content(seasons) | Container.Content(sets)">
 					<control type="group">
 						<left>1</left>
 						<include>PanelFocusedItemZoom</include>
@@ -128,8 +127,9 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout height="238" width="413" condition="[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.WallLandscape)">
+				<itemlayout height="238" width="413" condition="[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.IconLandscape)">
 					<control type="group">
+						<left>22</left>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
@@ -164,9 +164,13 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="238" width="413" condition="[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.WallLandscape)">
+				<focusedlayout height="238" width="413" condition="[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.IconLandscape)">
 					<control type="group">
-						<include>PanelFocusedItemZoom</include>
+						<left>22</left>
+						<animation type="Focus">
+				            <effect type="zoom" time="150" start="95" end="100" center="215,116" />
+				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="215,116" />
+				        </animation>
 						<control type="image">
 							<left>6</left>
 							<top>6</top>
@@ -311,7 +315,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<animation effect="slide" time="0" start="0" end="20" condition="Skin.HasSetting(Enable.WallLandscape)">Conditional</animation>
+				<animation effect="slide" time="0" start="0" end="20" condition="Skin.HasSetting(Enable.IconLandscape)">Conditional</animation>
 				<left>90</left>
 				<top>900</top>
 				<visible>![Container.Content(files) | Container.Content(sets)]</visible>
