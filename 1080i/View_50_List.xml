@@ -22,7 +22,7 @@
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="120" width="1150" condition="Container.Content(movies)">
+					<itemlayout height="120" width="1150" condition="Container.Content(movies) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409]) + !substring(Container.FolderPath,plugin.video)</visible>
 							<left>15</left>
@@ -121,7 +121,7 @@
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="Container.Content(movies)">
+					<focusedlayout height="120" width="1150" condition="Container.Content(movies) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -234,7 +234,7 @@
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
-					<itemlayout height="120" width="1150" condition="Container.Content(episodes)">
+					<itemlayout height="120" width="1150" condition="Container.Content(episodes) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -320,7 +320,7 @@
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="Container.Content(episodes)">
+					<focusedlayout height="120" width="1150" condition="Container.Content(episodes) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -421,7 +421,7 @@
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
-					<itemlayout height="120" width="1150" condition="Container.Content(tvshows)">
+					<itemlayout height="120" width="1150" condition="Container.Content(tvshows) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<visible>!substring(Container.FolderPath,plugin.video)</visible>
 							<left>15</left>
@@ -484,7 +484,7 @@
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="Container.Content(tvshows)">
+					<focusedlayout height="120" width="1150" condition="Container.Content(tvshows) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -560,7 +560,7 @@
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
-					<itemlayout height="120" width="1150" condition="Container.Content(seasons)">
+					<itemlayout height="120" width="1150" condition="Container.Content(seasons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -610,7 +610,7 @@
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="Container.Content(seasons)">
+					<focusedlayout height="120" width="1150" condition="Container.Content(seasons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -671,7 +671,7 @@
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</focusedlayout>
-					<itemlayout height="120" width="1150" condition="Container.Content(addons)">
+					<itemlayout height="120" width="1150" condition="Container.Content(addons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -727,7 +727,7 @@
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="Container.Content(addons)">
+					<focusedlayout height="120" width="1150" condition="Container.Content(addons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -796,7 +796,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 					</focusedlayout>
-					<itemlayout height="120" width="1150" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(addons) | Container.Content(seasons)]">
+					<itemlayout height="120" width="1150" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(addons) | Container.Content(seasons) | Skin.HasSetting(Enable.SlimList)]">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -858,7 +858,7 @@
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(addons) | Container.Content(seasons)]">
+					<focusedlayout height="120" width="1150" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(addons) | Container.Content(seasons) | Skin.HasSetting(Enable.SlimList)]">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -930,6 +930,159 @@
 							<height>64</height>
 							<aspectratio>keep</aspectratio>
 							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+						</control>
+					</focusedlayout>
+					<itemlayout height="60" width="1150" condition="!Container.Content(addons) + Skin.HasSetting(Enable.SlimList)">
+						<control type="label">
+							<left>20</left>
+							<width>895</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="image">
+							<left>960</left>
+							<top>17</top>
+							<width>42</width>
+							<height>28</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$VAR[UnFocusHDIndicator]</texture>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
+						</control>
+						<control type="label">
+							<left>10</left>
+							<width>1060</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="image">
+							<left>1081</left>
+							<top>0</top>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60" width="1150" condition="!Container.Content(addons) + Skin.HasSetting(Enable.SlimList)">
+						<control type="image">
+							<width>1150</width>
+							<height>60</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(50)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>895</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+						<control type="image">
+							<left>960</left>
+							<top>17</top>
+							<width>42</width>
+							<height>28</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$VAR[UnFocusHDIndicator]</texture>
+							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+							<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
+						</control>
+						<control type="label">
+							<left>10</left>
+							<width>1060</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+						<control type="image">
+							<left>1081</left>
+							<top>0</top>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]" fallback="overlays/list/">$VAR[ListItem.Overlay]</texture>
+						</control>
+					</focusedlayout>
+					<itemlayout height="60" width="1150" condition="Container.Content(addons) + Skin.HasSetting(Enable.SlimList)">
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60" width="1150" condition="Container.Content(addons) + Skin.HasSetting(Enable.SlimList)">
+						<control type="image">
+							<width>1150</width>
+							<height>60</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(50)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 					</focusedlayout>
 				</control>
@@ -1058,7 +1211,7 @@
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="120" width="1150" condition="Container.Content(albums) | Container.Content(songs)">
+					<itemlayout height="120" width="1150" condition="[Container.Content(albums) | Container.Content(songs)] + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -1158,7 +1311,7 @@
 							<visible>!IsEmpty(ListItem.Title) + [ListItem.IsPlaying | ListItem.IsSelected]</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="Container.Content(albums) | Container.Content(songs)">
+					<focusedlayout height="120" width="1150" condition="[Container.Content(albums) | Container.Content(songs)] + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<width>1150</width>
 							<height>120</height>
@@ -1249,7 +1402,7 @@
 							<visible>!IsEmpty(ListItem.Title)</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout height="120" width="1150" condition="Container.Content(addons)">
+					<itemlayout height="120" width="1150" condition="Container.Content(addons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -1305,7 +1458,7 @@
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="Container.Content(addons)">
+					<focusedlayout height="120" width="1150" condition="Container.Content(addons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<width>1150</width>
 							<height>120</height>
@@ -1372,7 +1525,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 					</focusedlayout>
-					<itemlayout height="120" width="1150" condition="![Container.Content(albums) | Container.Content(songs) | Container.Content(addons)]">
+					<itemlayout height="120" width="1150" condition="![Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | Skin.HasSetting(Enable.SlimList)]">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -1416,7 +1569,7 @@
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="![Container.Content(albums) | Container.Content(songs) |  Container.Content(addons)]">
+					<focusedlayout height="120" width="1150" condition="![Container.Content(albums) | Container.Content(songs) |  Container.Content(addons) | Skin.HasSetting(Enable.SlimList)]">
 						<control type="image">
 							<width>1150</width>
 							<height>120</height>
@@ -1461,6 +1614,141 @@
 							<left>60</left>
 							<width>1005</width>
 							<height>120</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+					</focusedlayout>
+					<itemlayout height="60" width="1150" condition="[Container.Content(albums) | Container.Content(songs)] + Skin.HasSetting(Enable.SlimList)">
+						<control type="label">
+							<left>20</left>
+							<width>830</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="image">
+							<left>860</left>
+							<top>6</top>
+							<width>180</width>
+							<height>50</height>
+							<aspectratio align="right">keep</aspectratio>
+							<texture fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>!IsEmpty(ListItem.Title) + Container.Content(songs)</visible>
+						</control>
+						<control type="label">
+							<left>230</left>
+							<width>900</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60" width="1150" condition="[Container.Content(albums) | Container.Content(songs)] + Skin.HasSetting(Enable.SlimList)">
+						<control type="image">
+							<width>1150</width>
+							<height>60</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(50)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>	
+						<control type="label">
+							<left>20</left>
+							<width>830</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+						<control type="image">
+							<left>860</left>
+							<top>6</top>
+							<width>180</width>
+							<height>50</height>
+							<aspectratio align="right">keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+							<visible>!IsEmpty(ListItem.Title) + Container.Content(songs)</visible>
+						</control>
+						<control type="label">
+							<left>230</left>
+							<width>900</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+					</focusedlayout>
+					<itemlayout height="60" width="1150" condition="![Container.Content(albums) | Container.Content(songs)] + Skin.HasSetting(Enable.SlimList)">
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60" width="1150" condition="![Container.Content(albums) | Container.Content(songs)] + Skin.HasSetting(Enable.SlimList)">
+						<control type="image">
+							<width>1150</width>
+							<height>60</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(50)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -1586,7 +1874,7 @@
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="120" width="1150">
+					<itemlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -1644,7 +1932,7 @@
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150">
+					<focusedlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -1706,6 +1994,64 @@
 							<top>0</top>
 							<width>1060</width>
 							<height>120</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+					</focusedlayout>
+					<itemlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList)">
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList)">
+						<control type="image">
+							<width>1150</width>
+							<height>60</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(50)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
 							<font>font15</font>
 							<align>right</align>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -1788,7 +2134,7 @@
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="120" width="1150" condition="Container.Content(addons)">
+					<itemlayout height="120" width="1150" condition="Container.Content(addons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -1846,7 +2192,7 @@
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="Container.Content(addons)">
+					<focusedlayout height="120" width="1150" condition="Container.Content(addons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -1917,7 +2263,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 					</focusedlayout>
-					<itemlayout height="120" width="1150" condition="!Container.Content(addons)">
+					<itemlayout height="120" width="1150" condition="!Container.Content(addons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>15</left>
 							<top>8</top>
@@ -1973,7 +2319,7 @@
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="!Container.Content(addons)">
+					<focusedlayout height="120" width="1150" condition="!Container.Content(addons) + !Skin.HasSetting(Enable.SlimList)">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -2040,6 +2386,64 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 					</focusedlayout>
+					<itemlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList)">
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList)">
+						<control type="image">
+							<width>1150</width>
+							<height>60</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(50)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>1080</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+					</focusedlayout>
 				</control>
 				<control type="scrollbar" id="60">
 					<left>1816</left>
@@ -2080,724 +2484,6 @@
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
-					<description>Description</description>
-					<width>560</width>
-					<height>275</height>
-					<font>font14_textbox5</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Property(Addon.Description)]</label>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				</control>
-			</control>
-		</control>
-	</include>
-	<!-- Slim VideoList-->
-	<include name="SlimVideoList">
-		<control type="group">
-			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
-			<include>ViewAnimation</include>
-			<control type="group">
-				<control type="list" id="50">
-					<left>90</left>
-					<top>105</top>
-					<width>1150</width>
-					<height>840</height>
-					<onleft>SetProperty(MediaMenu,True,home)</onleft>
-					<onleft>SetFocus(9050)</onleft>
-					<onright>60</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<viewtype label="535">list</viewtype>
-					<pagecontrol>60</pagecontrol>
-					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="60" width="1150" condition="!Container.Content(addons)">
-						<control type="label">
-							<left>20</left>
-							<width>895</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="image">
-							<left>960</left>
-							<top>17</top>
-							<width>42</width>
-							<height>28</height>
-							<aspectratio>keep</aspectratio>
-							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
-						</control>
-						<control type="label">
-							<left>10</left>
-							<width>1060</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-						<control type="image">
-							<left>1081</left>
-							<top>0</top>
-							<width>64</width>
-							<height>64</height>
-							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
-						</control>
-					</itemlayout>
-					<focusedlayout height="60" width="1150" condition="!Container.Content(addons)">
-						<control type="image">
-							<width>1150</width>
-							<height>60</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>Control.HasFocus(50)</visible>
-							<include>VisibleFadeEffect</include>
-						</control>
-						<control type="label">
-							<left>20</left>
-							<width>895</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-						<control type="image">
-							<left>960</left>
-							<top>17</top>
-							<width>42</width>
-							<height>28</height>
-							<aspectratio>keep</aspectratio>
-							<texture>$VAR[UnFocusHDIndicator]</texture>
-							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-							<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-							<visible>StringCompare(ListItem.Label2,ListItem.Rating)</visible>
-						</control>
-						<control type="label">
-							<left>10</left>
-							<width>1060</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-						<control type="image">
-							<left>1081</left>
-							<top>0</top>
-							<width>64</width>
-							<height>64</height>
-							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[ColorTextVar]" fallback="overlays/list/">$VAR[ListItem.Overlay]</texture>
-						</control>
-					</focusedlayout>
-					<itemlayout height="60" width="1150" condition="Container.Content(addons)">
-						<control type="label">
-							<left>20</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>50</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="60" width="1150" condition="Container.Content(addons)">
-						<control type="image">
-							<width>1150</width>
-							<height>60</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>Control.HasFocus(50)</visible>
-							<include>VisibleFadeEffect</include>
-						</control>
-						<control type="label">
-							<left>20</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-						<control type="label">
-							<left>50</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-					</focusedlayout>
-				</control>
-				<control type="scrollbar" id="60">
-					<left>1906</left>
-					<top>30</top>
-					<width>14</width>
-					<height>1035</height>
-					<onup>60</onup>
-					<ondown>60</ondown>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<orientation>vertical</orientation>
-				</control>
-			</control>
-			<control type="group">
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !IsEmpty(ListItem.Art(thumb))</visible>
-				<left>1276</left>
-				<top>105</top>
-				<control type="image">
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$VAR[PosterThumb]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-			</control>
-			<control type="grouplist">
-				<visible>Container.Content(addons)</visible>
-				<left>1276</left>
-				<top>105</top>
-				<itemgap>15</itemgap>
-				<control type="image">
-					<width>560</width>
-					<height>560</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-				<control type="textbox">
-					<visible>Container.Content(addons)</visible>
-					<width>560</width>
-					<height>275</height>
-					<font>font14_textbox5</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Property(Addon.Description)]</label>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				</control>
-			</control>
-			<control type="group">
-				<visible>[![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(episodes) | Container.Content(addons)] + Container.HasFiles] | Container.Content(actors) | Container.Content(files)</visible>
-				<left>1276</left>
-				<top>105</top>
-				<control type="image">
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$VAR[PosterThumb]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-			</control>
-			<control type="group">
-				<left>1276</left>
-				<top>105</top>
-				<visible>Container.Content(episodes)</visible>
-				<include>VisibleFadeEffect</include>
-				<control type="image">
-					<width>560</width>
-					<height>342</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-				<control type="textbox" id="70">
-					<label>$VAR[VideoPlotVar]</label>
-					<top>360</top>
-					<width>540</width>
-					<height>458</height>
-					<font>font15_textbox</font>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<include>ShowCaseInfoPanelButtonsValues</include>
-				</control>
-			</control>
-		</control>
-	</include>
-	<!-- Slim MusicList-->
-	<include name="SlimMusicList">
-		<control type="group">
-			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
-			<include>ViewAnimation</include>
-			<animation effect="slide" end="0,15" start="0,0" condition="Container.Content(files) | Container.Content(addons)">Conditional</animation>
-			<control type="group">
-				<control type="list" id="50">
-					<left>90</left>
-					<top>105</top>
-					<width>1150</width>
-					<height>840</height>
-					<onleft>SetProperty(MediaMenu,True,home)</onleft>
-					<onleft>SetFocus(9050)</onleft>
-					<onright>60</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<viewtype label="535">list</viewtype>
-					<pagecontrol>60</pagecontrol>
-					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="60" width="1150" condition="Container.Content(albums) | Container.Content(songs)">
-						<control type="label">
-							<left>20</left>
-							<width>830</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="image">
-							<left>860</left>
-							<top>6</top>
-							<width>180</width>
-							<height>50</height>
-							<aspectratio align="right">keep</aspectratio>
-							<texture fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>!IsEmpty(ListItem.Title) + Container.Content(songs)</visible>
-						</control>
-						<control type="label">
-							<left>230</left>
-							<width>900</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="60" width="1150" condition="Container.Content(albums) | Container.Content(songs)">
-						<control type="image">
-							<width>1150</width>
-							<height>60</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>Control.HasFocus(50)</visible>
-							<include>VisibleFadeEffect</include>
-						</control>	
-						<control type="label">
-							<left>20</left>
-							<width>830</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-						<control type="image">
-							<left>860</left>
-							<top>6</top>
-							<width>180</width>
-							<height>50</height>
-							<aspectratio align="right">keep</aspectratio>
-							<texture colordiffuse="$VAR[ColorTextVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
-							<visible>!IsEmpty(ListItem.Title) + Container.Content(songs)</visible>
-						</control>
-						<control type="label">
-							<left>230</left>
-							<width>900</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-					</focusedlayout>
-					<itemlayout height="60" width="1150" condition="![Container.Content(albums) | Container.Content(songs)]">
-						<control type="label">
-							<left>20</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>50</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="60" width="1150" condition="![Container.Content(albums) | Container.Content(songs)]">
-						<control type="image">
-							<width>1150</width>
-							<height>60</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>Control.HasFocus(50)</visible>
-							<include>VisibleFadeEffect</include>
-						</control>
-						<control type="label">
-							<left>20</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-						<control type="label">
-							<left>50</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-					</focusedlayout>
-				</control>
-				<control type="scrollbar" id="60">
-					<left>1906</left>
-					<top>30</top>
-					<width>14</width>
-					<height>1035</height>
-					<onup>60</onup>
-					<ondown>60</ondown>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<orientation>vertical</orientation>
-				</control>
-			</control>
-			<control type="grouplist">
-				<left>1276</left>
-				<top>105</top>
-				<itemgap>15</itemgap>
-				<control type="image">
-					<width>560</width>
-					<height>560</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(files) | Container.Content(addons)] + !IsEmpty(ListItem.Art(thumb))</visible>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-				<control type="label">
-					<visible>Container.Content(albums)</visible>
-					<width>560</width>
-					<height>30</height>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Year]$INFO[ListItem.Genre, • ]</label>
-				</control>
-				<control type="label">
-					<visible>Container.Content(artists)</visible>
-					<width>560</width>
-					<height>30</height>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Property(Artist_Genre)]</label>
-				</control>
-				<control type="label">
-					<visible>Container.Content(songs)</visible>
-					<width>560</width>
-					<height>30</height>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Album]</label>
-				</control>
-				<control type="label">
-					<visible>Container.Content(songs)</visible>
-					<width>560</width>
-					<height>30</height>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Year]</label>
-				</control>
-				<control type="textbox">
-					<visible>Container.Content(artists) | Container.Content(albums)</visible>
-					<label>$VAR[MusicPlotVar]</label>
-					<width>560</width>
-					<height>220</height>
-					<font>font14_textbox</font>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<include>ShowCaseInfoPanelButtonsValues</include>
-				</control>
-				<control type="textbox">
-					<visible>Container.Content(addons)</visible>
-					<width>560</width>
-					<height>275</height>
-					<font>font14_textbox5</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Property(Addon.Description)]</label>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				</control>
-			</control>
-			<control type="image">
-				<visible>Container.Content(songs) | Container.Content(files)</visible>
-				<left>1670</left>
-				<top>885</top>
-				<width>198</width>
-				<include>MediaFlagVars</include>
-				<texture colordiffuse="$VAR[ColorTextVar]">$INFO[ListItem.FileExtension,flags/audio/,.png]</texture>
-			</control>
-		</control>
-	</include>
-	<!-- Slim List-->
-	<include name="SlimList">
-		<control type="group">
-			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
-			<include>ViewAnimation</include>
-			<control type="group">
-				<control type="list" id="50">
-					<left>90</left>
-					<top>120</top>
-					<width>1150</width>
-					<height>840</height>
-					<onleft>SetProperty(MediaMenu,True,home)</onleft>
-					<onleft>SetFocus(9050)</onleft>
-					<onright>60</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<viewtype label="535">list</viewtype>
-					<pagecontrol>60</pagecontrol>
-					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<animation effect="slide" end="0,-15" start="0,0" condition="Window.IsActive(pictures)">Conditional</animation>
-					<itemlayout height="60" width="1150">
-						<control type="label">
-							<left>20</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>50</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="60" width="1150">
-						<control type="image">
-							<width>1150</width>
-							<height>60</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>Control.HasFocus(50)</visible>
-							<include>VisibleFadeEffect</include>
-						</control>
-						<control type="label">
-							<left>20</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-						<control type="label">
-							<left>50</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-					</focusedlayout>
-				</control>
-				<control type="scrollbar" id="60">
-					<left>1906</left>
-					<top>45</top>
-					<width>14</width>
-					<height>1035</height>
-					<onup>60</onup>
-					<ondown>60</ondown>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<orientation>vertical</orientation>
-					<animation effect="slide" end="0,-15" start="0,0" condition="Window.IsActive(pictures)">Conditional</animation>
-				</control>
-			</control>
-			<control type="group">
-				<left>1276</left>
-				<top>120</top>
-				<control type="image">
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-					<animation effect="slide" end="0,-15" start="0,0" condition="Window.IsActive(pictures)">Conditional</animation>
-				</control>
-			</control>
-		</control>
-	</include>
-	<!-- Slim AddonList-->
-	<include name="AddonSlimList">
-		<control type="group">
-			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
-			<include>ViewAnimation</include>
-			<control type="group">
-				<control type="list" id="50">
-					<left>90</left>
-					<top>120</top>
-					<width>1150</width>
-					<height>840</height>
-					<onleft>SetProperty(MediaMenu,True,home)</onleft>
-					<onleft>SetFocus(9050)</onleft>
-					<onright>60</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<viewtype label="535">list</viewtype>
-					<pagecontrol>60</pagecontrol>
-					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="60" width="1150">
-						<control type="label">
-							<left>20</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>50</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="60" width="1150">
-						<control type="image">
-							<width>1150</width>
-							<height>60</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>Control.HasFocus(50)</visible>
-							<include>VisibleFadeEffect</include>
-						</control>
-						<control type="label">
-							<left>20</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-						<control type="label">
-							<left>50</left>
-							<width>1080</width>
-							<height>60</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
-						</control>
-					</focusedlayout>
-				</control>
-				<control type="scrollbar" id="60">
-					<left>1906</left>
-					<top>45</top>
-					<width>14</width>
-					<height>1035</height>
-					<onup>60</onup>
-					<ondown>60</ondown>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<orientation>vertical</orientation>
-				</control>
-			</control>
-			<control type="grouplist">
-				<left>1276</left>
-				<top>120</top>
-				<itemgap>10</itemgap>
-				<control type="image">
-					<visible>!ListItem.IsFolder</visible>
-					<width>560</width>
-					<height>560</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture fallback="DefaultFallbackAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-				<control type="textbox">
-					<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
 					<description>Description</description>
 					<width>560</width>
 					<height>275</height>
