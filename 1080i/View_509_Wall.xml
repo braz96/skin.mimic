@@ -43,22 +43,19 @@
             </control>
             <control type="image">
             	<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + Control.HasFocus(509) + Skin.HasSetting(Enable.WallBanner)</visible>
-                <left>15</left>
-                <top>14</top>
-                <width>638</width>
-                <height>142</height>
+                <left>72</left>
+                <top>15</top>
+                <width>894</width>
+                <height>185</height>
                 <animation effect="fade" time="320" delay="200">Visible</animation>
                 <animation effect="fade" time="200">Hidden</animation>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="0,130" time="300" tween="cubic" easing="inout" condition="Container(509).Row(7)">Conditional</animation>
-                <animation effect="slide" end="0,130" time="300" tween="cubic" easing="inout" condition="Container(509).Row(7) | Container(509).Row(6)">Conditional</animation>
-                <animation effect="slide" end="0,130" time="300" tween="cubic" easing="inout" condition="Container(509).Row(7) | Container(509).Row(6) | Container(509).Row(5)">Conditional</animation>
-                <animation effect="slide" end="0,130" time="300" tween="cubic" easing="inout" condition="Container(509).Row(7) | Container(509).Row(6) | Container(509).Row(5) | Container(509).Row(4)">Conditional</animation>
-                <animation effect="slide" end="0,130" time="300" tween="cubic" easing="inout" condition="Container(509).Row(7) | Container(509).Row(6) | Container(509).Row(5) | Container(509).Row(4) | Container(509).Row(3)">Conditional</animation>
-                <animation effect="slide" end="0,130" time="300" tween="cubic" easing="inout" condition="Container(509).Row(7) | Container(509).Row(6) | Container(509).Row(5) | Container(509).Row(4) | Container(509).Row(3) | Container(509).Row(2)">Conditional</animation>
-                <animation effect="slide" end="0,130" time="300" tween="cubic" easing="inout" condition="Container(509).Row(7) | Container(509).Row(6) | Container(509).Row(5) | Container(509).Row(4) | Container(509).Row(3) | Container(509).Row(2) | Container(509).Row(1)">Conditional</animation>
-                <animation effect="slide" end="626,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(2)">Conditional</animation>
-                <animation effect="slide" end="626,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(2) | Container(509).Column(1)">Conditional</animation>
+                <animation effect="slide" end="0,173" time="300" tween="cubic" easing="inout" condition="Container(509).Row(5)">Conditional</animation>
+                <animation effect="slide" end="0,173" time="300" tween="cubic" easing="inout" condition="Container(509).Row(5) | Container(509).Row(4)">Conditional</animation>
+                <animation effect="slide" end="0,173" time="300" tween="cubic" easing="inout" condition="Container(509).Row(5) | Container(509).Row(4) | Container(509).Row(3)">Conditional</animation>
+                <animation effect="slide" end="0,173" time="300" tween="cubic" easing="inout" condition="Container(509).Row(5) | Container(509).Row(4) | Container(509).Row(3) | Container(509).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,173" time="300" tween="cubic" easing="inout" condition="Container(509).Row(5) | Container(509).Row(4) | Container(509).Row(3) | Container(509).Row(2) | Container(509).Row(1)">Conditional</animation>
+                <animation effect="slide" end="882,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(1)">Conditional</animation>
             </control>
             <control type="image">
             	<visible>[Container.Content(artists) | Container.Content(albums) | Window.IsActive(pictures)] + Control.HasFocus(509)</visible>
@@ -239,22 +236,24 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout height="130" width="626" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(Enable.WallBanner)">
+				<itemlayout height="173" width="882" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(Enable.WallBanner)">
 					<control type="group">
-						<left>1</left>
+						<top>1</top>
+						<left>58</left>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
-							<width>614</width>
-							<height>118</height>
+							<width>870</width>
+							<height>161</height>
+							<aspectratio>scale</aspectratio>
 							<texture background="true">$VAR[BannerThumb]</texture>
 							<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
 						</control>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
-							<width>614</width>
-							<height>118</height>
+							<width>870</width>
+							<height>161</height>
 							<aspectratio align="center" aligny="center">keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
 							<visible>IsEmpty(ListItem.Art(banner)) + IsEmpty(ListItem.Art(fanart))</visible>
@@ -264,8 +263,8 @@
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
-								<width>614</width>
-								<height>118</height>
+								<width>870</width>
+								<height>161</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
 							</control>
@@ -281,13 +280,13 @@
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
-							<width>614</width>
-							<height>118</height>
+							<width>870</width>
+							<height>161</height>
 							<texture>thumbs/diffuse.png</texture>
 						</control>
 						<control type="image">
 							<top>6</top>
-							<left>560</left>
+							<left>816</left>
 							<width>60</width>
 							<height>60</height>
 							<texture>$VAR[OverlayVar]</texture>
@@ -295,17 +294,19 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="130" width="614" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(Enable.WallBanner)">
+				<focusedlayout height="173" width="882" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(Enable.WallBanner)">
 					<control type="group">
-						<left>1</left>
+						<top>1</top>
+						<left>58</left>
 						<include>PanelFocusedItemZoom</include>
 						<control type="group">
 							<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
-								<width>614</width>
-								<height>118</height>
+								<width>870</width>
+								<height>161</height>
+								<aspectratio>scale</aspectratio>
 								<texture background="true">$VAR[BannerThumb]</texture>
 							</control>
 						</control>
@@ -314,8 +315,8 @@
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
-								<width>614</width>
-								<height>118</height>
+								<width>870</width>
+								<height>161</height>
 								<aspectratio>keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 							</control>
@@ -325,8 +326,8 @@
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
-								<width>614</width>
-								<height>118</height>
+								<width>870</width>
+								<height>161</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
 							</control>
@@ -344,13 +345,13 @@
 							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 							<top>6</top>
 							<left>6</left>
-							<width>614</width>
-							<height>118</height>
+							<width>870</width>
+							<height>161</height>
 							<texture>thumbs/diffuse.png</texture>
 						</control>
 						<control type="image">
 							<top>6</top>
-							<left>560</left>
+							<left>816</left>
 							<width>60</width>
 							<height>60</height>
 							<texture>$VAR[OverlayVar]</texture>
