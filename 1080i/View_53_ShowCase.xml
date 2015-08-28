@@ -374,24 +374,6 @@
 						<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
 					</control>
 				</control>
-				<control type="group">
-					<left>0</left>
-					<top>980</top>
-					<width>FullScreenWidth</width>
-					<align>center</align>
-					<visible>Container.Content(musicvideos)</visible>
-					<control type="image">
-						<left>120</left>
-						<include>MediaFlagVars</include>
-						<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
-					</control>
-					<control type="image">
-						<left>1675</left>
-						<include>MediaFlagVars</include>
-						<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
-						<visible>!IsEmpty(ListItem.VideoCodec)</visible>
-					</control>
-				</control>
 			</control>
 		</control>
 	</include>
@@ -442,7 +424,7 @@
 					</control>
 				</control>
 				<control type="textbox">
-					<visible>!Container.Content(musicvideos) + !substring(Container.FolderPath,plugin.video)</visible>
+					<visible>!substring(Container.FolderPath,plugin.video)</visible>
 					<label>$VAR[VideoPlotVar]</label>
 					<top>347</top>
 					<left>127</left>

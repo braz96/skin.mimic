@@ -9,7 +9,7 @@
                 <visible>IntegerGreaterThan(Container(500).NumItems,0)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
                 <control type="image">
-                	<visible>[[Container.Content(sets) | Container.Content(musicvideos)] | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]] + Control.HasFocus(500) </visible>
+                	<visible>[Container.Content(sets) | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]] + Control.HasFocus(500) </visible>
                     <left>107</left>
                     <top>165</top>
                     <width>254</width>
@@ -55,7 +55,7 @@
                     <animation effect="slide" end="909,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(1)">Conditional</animation>
                 </control>
                 <control type="image">
-                	<visible>[Container.Content(files) | Container.Content(episodes) | Container.Content(musicvideos)] + Control.HasFocus(500)</visible>
+                	<visible>[Container.Content(files) | Container.Content(episodes)] + Control.HasFocus(500)</visible>
                     <left>106</left>
                     <top>165</top>
                     <width>436</width>
@@ -67,6 +67,21 @@
                     <animation effect="slide" end="424,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3)">Conditional</animation>
                     <animation effect="slide" end="424,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3) | Container(500).Column(2)">Conditional</animation>
                     <animation effect="slide" end="424,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3) | Container(500).Column(2) | Container(500).Column(1)">Conditional</animation>
+                </control>
+                <control type="image">
+                	<visible>Container.Content(musicvideos) + Control.HasFocus(500)</visible>
+                    <left>62</left>
+                    <top>165</top>
+                    <width>369</width>
+                    <height>369</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,357" time="300" tween="cubic" easing="inout" condition="Container(500).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="357,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(4)">Conditional</animation>
+                    <animation effect="slide" end="357,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(4) | Container(500).Column(3)">Conditional</animation>
+                    <animation effect="slide" end="357,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(4) | Container(500).Column(3) | Container(500).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="357,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(4) | Container(500).Column(3) | Container(500).Column(2) | Container(500).Column(1)">Conditional</animation>
                 </control>
             </control>
 			<control type="panel" id="500">
@@ -83,7 +98,7 @@
 				<preloaditems>2</preloaditems>
 				<viewtype label="31086">Icon</viewtype>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]">
+				<itemlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]">
 					<control type="group">
 						<left>62</left>
 						<control type="image">
@@ -111,7 +126,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]">
+				<focusedlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]">
 					<control type="group">
 						<left>62</left>
 						<include>PanelFocusedItemZoom</include>
@@ -395,43 +410,47 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout height="357" width="424" condition="Container.Content(files) | Container.Content(episodes) | Container.Content(musicvideos)">
-					<control type="image">
-						<left>6</left>
-						<top>6</top>
-						<width>412</width>
-						<height>345</height>
-						<aspectratio>scale</aspectratio>
-						<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					</control>
-					<control type="image">
-						<left>6</left>
-						<top>6</top>
-						<width>412</width>
-						<height>345</height>
-						<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
-					</control>
-					<control type="label">
-						<left>6</left>
-						<top>304</top>
-						<width>412</width>
-						<height>40</height>
-						<align>center</align>
-						<textoffsetx>10</textoffsetx>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<info>ListItem.Label</info>
-					</control>
-					<control type="image">
-						<left>358</left>
-						<top>6</top>
-						<width>60</width>
-						<height>60</height>
-						<texture>$VAR[OverlayVar]</texture>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
+				<itemlayout height="357" width="424" condition="Container.Content(files) | Container.Content(episodes)">
+					<control type="group">
+						<left>61</left>
+						<control type="image">
+							<left>6</left>
+							<top>6</top>
+							<width>412</width>
+							<height>345</height>
+							<aspectratio>scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="image">
+							<left>6</left>
+							<top>6</top>
+							<width>412</width>
+							<height>345</height>
+							<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+						</control>
+						<control type="label">
+							<left>6</left>
+							<top>304</top>
+							<width>412</width>
+							<height>40</height>
+							<align>center</align>
+							<textoffsetx>10</textoffsetx>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<info>ListItem.Label</info>
+						</control>
+						<control type="image">
+							<left>358</left>
+							<top>6</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="357" width="424" condition="Container.Content(files) | Container.Content(episodes) | Container.Content(musicvideos)">
+				<focusedlayout height="357" width="424" condition="Container.Content(files) | Container.Content(episodes)">
 					<control type="group">
+						<left>61</left>
 						<include>PanelFocusedItemZoom</include>
 						<control type="image">
 							<left>6</left>
@@ -455,6 +474,87 @@
 								<left>6</left>
 								<top>304</top>
 								<width>412</width>
+								<height>40</height>
+								<align>center</align>
+								<textoffsetx>10</textoffsetx>
+								<textcolor>$VAR[ColorTextVar]</textcolor>
+								<info>ListItem.Label</info>
+							</control>
+						</control>
+						<control type="image">
+							<left>358</left>
+							<top>6</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+				<itemlayout height="357" width="357" condition="Container.Content(musicvideos)">
+					<control type="group">
+						<left>17</left>
+						<control type="image">
+							<left>6</left>
+							<top>6</top>
+							<width>345</width>
+							<height>345</height>
+							<aspectratio>scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="image">
+							<left>6</left>
+							<top>6</top>
+							<width>345</width>
+							<height>345</height>
+							<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+						</control>
+						<control type="label">
+							<left>6</left>
+							<top>304</top>
+							<width>345</width>
+							<height>40</height>
+							<align>center</align>
+							<textoffsetx>10</textoffsetx>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<info>ListItem.Label</info>
+						</control>
+						<control type="image">
+							<left>358</left>
+							<top>6</top>
+							<width>60</width>
+							<height>60</height>
+							<texture>$VAR[OverlayVar]</texture>
+							<aspectratio align="center" aligny="top">keep</aspectratio>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="357" width="357" condition="Container.Content(musicvideos)">
+					<control type="group">
+						<left>17</left>
+						<include>PanelFocusedItemZoom</include>
+						<control type="image">
+							<left>6</left>
+							<top>6</top>
+							<width>345</width>
+							<height>345</height>
+							<aspectratio>scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="group">
+							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<control type="image">
+								<left>6</left>
+								<top>6</top>
+								<width>345</width>
+								<height>345</height>
+								<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+							</control>
+							<control type="label">
+								<left>6</left>
+								<top>304</top>
+								<width>345</width>
 								<height>40</height>
 								<align>center</align>
 								<textoffsetx>10</textoffsetx>
@@ -504,6 +604,7 @@
 			<control type="group">
 				<animation effect="slide" time="0" start="0" end="20" condition="[Skin.HasSetting(Enable.IconLandscape) | Skin.HasSetting(Enable.IconLogo)] + !Container.Content(seasons)">Conditional</animation>
 				<animation effect="slide" time="0" start="0" end="-60" condition="Skin.HasSetting(Enable.IconBanner)">Conditional</animation>
+				<animation effect="slide" time="0" start="0" end="-45" condition="Container.Content(musicvideos)">Conditional</animation>
 				<left>90</left>
 				<top>900</top>
 				<visible>![Container.Content(files) | Container.Content(sets)]</visible>
@@ -565,6 +666,7 @@
 				</control>
 			</control>
 			<control type="group">
+				<animation effect="slide" time="0" start="0" end="60" condition="Container.Content(musicvideos)">Conditional</animation>
 				<left>1336</left>
 				<top>890</top>
 				<width>1840</width>
