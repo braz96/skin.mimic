@@ -1115,14 +1115,22 @@
 				<left>1276</left>
 				<top>105</top>
 				<itemgap>15</itemgap>
-				<visible>Container.Content(addons)</visible>
+				<visible>Container.Content(addons) | Container.Content(musicvideos)</visible>
 				<control type="image">
-					<visible>!IsEmpty(ListItem.Property(Addon.Description)) + !IsEmpty(ListItem.Art(thumb))</visible>
+					<visible>[!IsEmpty(ListItem.Property(Addon.Description)) | Container.Content(musicvideos)] + !IsEmpty(ListItem.Art(thumb))</visible>
 					<width>560</width>
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
+				</control>
+				<control type="label">
+					<visible>Container.Content(musicvideos)</visible>
+					<width>560</width>
+					<height>30</height>
+					<font>font14</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<label>$INFO[ListItem.Genre]</label>
 				</control>
 				<control type="textbox">
 					<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
@@ -1134,8 +1142,18 @@
 					<label>$INFO[ListItem.Property(Addon.Description)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
+				<control type="textbox">
+					<visible>Container.Content(musicvideos)</visible>
+					<description>Description</description>
+					<width>560</width>
+					<height>220</height>
+					<font>font14_textbox4</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<label>$INFO[ListItem.Plot]</label>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				</control>
 				<control type="image">
-					<visible>IsEmpty(ListItem.Property(Addon.Description))</visible>
+					<visible>IsEmpty(ListItem.Property(Addon.Description)) + !Container.Content(musicvideos)</visible>
 					<width>560</width>
 					<height>840</height>
 					<aspectratio align="center" aligny="top">keep</aspectratio>
@@ -1146,7 +1164,7 @@
 			<control type="group">
 				<left>1276</left>
 				<top>105</top>
-				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | Container.Content(musicvideos) | [substring(Container.FolderPath,plugin.video) + !Container.Content(episodes)] | Window.IsActive(videoplaylist)] + !IsEmpty(ListItem.Art(thumb))</visible>
+				<visible>[Container.Content(files) | Container.Content(actors) | Container.Content(artists) | [substring(Container.FolderPath,plugin.video) + !Container.Content(episodes)] | Window.IsActive(videoplaylist)] + !IsEmpty(ListItem.Art(thumb))</visible>
 				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist)">Conditional</animation>
 				<include>VisibleFadeEffect</include>
 				<control type="image">
@@ -1771,6 +1789,16 @@
 					<orientation>vertical</orientation>
 				</control>
 			</control>
+			<control type="image">
+				<left>1276</left>
+				<top>105</top>
+				<width>560</width>
+				<height>840</height>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+				<visible>Container.Content(actors) + !IsEmpty(ListItem.Art(thumb))</visible>
+				<fadetime>IconCrossfadeTime</fadetime>
+			</control>
 			<control type="grouplist">
 				<left>1276</left>
 				<top>105</top>
@@ -1780,15 +1808,7 @@
 					<height>560</height>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | Container.Content(files)] + !IsEmpty(ListItem.Art(thumb))</visible>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-				<control type="image">
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<visible>Container.Content(musicvideos)</visible>
+					<visible>[Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | Container.Content(files) | Container.Content(musicvideos)] + !IsEmpty(ListItem.Art(thumb))</visible>
 					<fadetime>IconCrossfadeTime</fadetime>
 				</control>
 				<control type="textbox">
@@ -1802,7 +1822,7 @@
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
 				<control type="label">
-					<visible>Container.Content(albums)</visible>
+					<visible>Container.Content(albums) | Container.Content(musicvideos)</visible>
 					<width>560</width>
 					<height>30</height>
 					<font>font14</font>
@@ -1836,6 +1856,15 @@
 				<control type="textbox">
 					<visible>Container.Content(artists) | Container.Content(albums)</visible>
 					<label>$VAR[MusicPlotVar]</label>
+					<width>560</width>
+					<height>220</height>
+					<font>font14_textbox4</font>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					<include>ShowCaseInfoPanelButtonsValues</include>
+				</control>
+				<control type="textbox">
+					<visible>Container.Content(musicvideos)</visible>
+					<label>$INFO[ListItem.Plot]</label>
 					<width>560</width>
 					<height>220</height>
 					<font>font14_textbox4</font>
