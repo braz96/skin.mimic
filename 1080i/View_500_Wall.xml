@@ -9,7 +9,6 @@
                 <visible>IntegerGreaterThan(Container(500).NumItems,0)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
                 <control type="image">
-                	<!--<visible>[[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | Container.Content(sets)] + Control.HasFocus(500)</visible>-->
                 	<visible>[[Container.Content(sets) | Container.Content(musicvideos)] | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]] + Control.HasFocus(500) </visible>
                     <left>107</left>
                     <top>165</top>
@@ -861,26 +860,17 @@
 							<height>50</height>
 							<texture>black.png</texture>
 							<colordiffuse>bbffffff</colordiffuse>
-							<fadetime>300</fadetime>
 						</control>
 						<control type="label">
 							<left>6</left>
-							<top>301</top>
+							<top>311</top>
 							<width>412</width>
-							<height>40</height>
+							<height>28</height>
 							<align>center</align>
 							<textoffsetx>10</textoffsetx>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<info>ListItem.Label</info>
 						</control>
-					</control>
-					<control type="image">
-						<left>364</left>
-						<top>6</top>
-						<width>60</width>
-						<height>60</height>
-						<texture>$VAR[OverlayVar]</texture>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
 					</control>
 				</itemlayout>
 				<focusedlayout height="357" width="424">
@@ -894,22 +884,37 @@
 							<aspectratio>scale</aspectratio>
 							<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
-						<control type="image">
+						<control type="group">
 							<animation center="auto" condition="Control.HasFocus(510)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 							<animation center="auto" condition="Control.HasFocus(510)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<left>6</left>
-							<top>6</top>
-							<width>412</width>
-							<height>345</height>
-							<texture>thumbs/diffuse.png</texture>
-						</control>
-						<control type="image">
-							<left>364</left>
-							<top>6</top>
-							<width>60</width>
-							<height>60</height>
-							<texture>$VAR[OverlayVar]</texture>
-							<aspectratio align="center" aligny="top">keep</aspectratio>
+							<control type="image">
+								<left>6</left>
+								<top>6</top>
+								<width>412</width>
+								<height>345</height>
+								<texture>thumbs/diffuse.png</texture>
+							</control>
+							<control type="group">
+								<visible>!Skin.HasSetting(PictureInfo.Disabled)</visible>
+								<control type="image">
+									<left>6</left>
+									<top>301</top>
+									<width>412</width>
+									<height>50</height>
+									<texture>black.png</texture>
+									<colordiffuse>bbffffff</colordiffuse>
+								</control>
+								<control type="label">
+									<left>6</left>
+									<top>311</top>
+									<width>412</width>
+									<height>28</height>
+									<align>center</align>
+									<textoffsetx>10</textoffsetx>
+									<textcolor>$VAR[ColorTextVar]</textcolor>
+									<info>ListItem.Label</info>
+								</control>
+							</control>
 						</control>
 					</control>
 				</focusedlayout>
