@@ -9,7 +9,8 @@
                 <visible>IntegerGreaterThan(Container(500).NumItems,0)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
                 <control type="image">
-                	<visible>[[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner)] | Container.Content(sets)] + Control.HasFocus(500)</visible>
+                	<!--<visible>[[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | Container.Content(sets)] + Control.HasFocus(500)</visible>-->
+                	<visible>[[Container.Content(sets) | Container.Content(musicvideos)] | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]] + Control.HasFocus(500) </visible>
                     <left>107</left>
                     <top>165</top>
                     <width>254</width>
@@ -26,7 +27,7 @@
                     <animation effect="slide" end="242,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(6) | Container(500).Column(5) | Container(500).Column(4) | Container(500).Column(3) | Container(500).Column(2) | Container(500).Column(1)">Conditional</animation>
                 </control>
                 <control type="image">
-                	<visible>[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.IconLandscape) + Control.HasFocus(500)</visible>
+                	<visible>[Container.Content(movies) | Container.Content(tvshows)] + [Skin.HasSetting(Enable.IconLandscape) | Skin.HasSetting(Enable.IconLogo)] + Control.HasFocus(500)</visible>
                     <left>128</left>
                     <top>165</top>
                     <width>425</width>
@@ -83,7 +84,7 @@
 				<preloaditems>2</preloaditems>
 				<viewtype label="31086">Icon</viewtype>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner)] | Container.Content(sets)">
+				<itemlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]">
 					<control type="group">
 						<left>62</left>
 						<control type="image">
@@ -111,7 +112,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner)] | Container.Content(sets)">
+				<focusedlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]">
 					<control type="group">
 						<left>62</left>
 						<include>PanelFocusedItemZoom</include>
@@ -142,26 +143,53 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout height="238" width="413" condition="[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.IconBanner) + Skin.HasSetting(Enable.IconLandscape)">
+				<itemlayout height="238" width="413" condition="[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.IconBanner) + [Skin.HasSetting(Enable.IconLandscape) | Skin.HasSetting(Enable.IconLogo)]">
 					<control type="group">
 						<left>83</left>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>401</width>
-							<height>226</height>
-							<aspectratio>scale</aspectratio>
-							<texture background="true">$VAR[LandscapeArtVar]</texture>
-						</control>
-						<control type="image">
-							<visible>IsEmpty(ListItem.Art(landscape))</visible>
-							<top>120</top>
-			                <left>6</left>
-			                <width>401</width>
-			                <height>90</height>
-			                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-			                <aspectratio align="center" aligny="bottom">keep</aspectratio>
-			            </control>
+						<control type="group">
+							<visible>Skin.HasSetting(Enable.IconLandscape)</visible>
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>401</width>
+								<height>226</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$VAR[LandscapeArtVar]</texture>
+							</control>
+							<control type="image">
+								<visible>IsEmpty(ListItem.Art(landscape))</visible>
+								<top>120</top>
+				                <left>6</left>
+				                <width>401</width>
+				                <height>90</height>
+				                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				                <aspectratio align="center" aligny="bottom">keep</aspectratio>
+				            </control>
+				        </control>
+				        <control type="group">
+				        	<visible>Skin.HasSetting(Enable.IconLogo)</visible>
+				        	<control type="image">
+								<top>6</top>
+				                <left>16</left>
+				                <width>381</width>
+				                <height>226</height>
+				                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				                <aspectratio align="center" aligny="center">keep</aspectratio>
+				            </control>
+				            <control type="group">
+								<visible>IsEmpty(ListItem.Art(clearlogo))</visible>
+								<control type="textbox">
+									<left>16</left>
+									<top>6</top>
+									<width>381</width>
+									<height>226</height>
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>font16</font>
+									<label>$VAR[FloorLabelVar]</label>
+								</control>
+							</control>
+				        </control>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
@@ -170,6 +198,7 @@
 							<texture>thumbs/diffuse.png</texture>
 						</control>
 						<control type="image">
+							<visible>Skin.HasSetting(Enable.IconLandscape)</visible>
 							<left>347</left>
 							<top>6</top>
 							<width>60</width>
@@ -179,30 +208,57 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="238" width="413" condition="[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.IconBanner) + Skin.HasSetting(Enable.IconLandscape)">
+				<focusedlayout height="238" width="413" condition="[Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(Enable.IconBanner) + [Skin.HasSetting(Enable.IconLandscape) | Skin.HasSetting(Enable.IconLogo)]">
 					<control type="group">
 						<left>83</left>
 						<animation type="Focus">
 				            <effect type="zoom" time="150" start="95" end="100" center="215,116" />
 				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="215,116" />
 				        </animation>
-						<control type="image">
-							<left>6</left>
-							<top>6</top>
-							<width>401</width>
-							<height>226</height>
-							<aspectratio>scale</aspectratio>
-							<texture background="true">$VAR[LandscapeArtVar]</texture>
-						</control>
-						<control type="image">
-							<visible>IsEmpty(ListItem.Art(landscape))</visible>
-							<top>120</top>
-			                <left>6</left>
-			                <width>401</width>
-			                <height>90</height>
-			                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-			                <aspectratio align="center" aligny="bottom">keep</aspectratio>
-			            </control>
+				        <control type="group">
+				        	<visible>Skin.HasSetting(Enable.IconLandscape)</visible>
+							<control type="image">
+								<left>6</left>
+								<top>6</top>
+								<width>401</width>
+								<height>226</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$VAR[LandscapeArtVar]</texture>
+							</control>
+							<control type="image">
+								<visible>IsEmpty(ListItem.Art(landscape))</visible>
+								<top>120</top>
+				                <left>6</left>
+				                <width>401</width>
+				                <height>90</height>
+				                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				                <aspectratio align="center" aligny="bottom">keep</aspectratio>
+				            </control>
+				        </control>
+				        <control type="group">
+				        	<visible>Skin.HasSetting(Enable.IconLogo)</visible>
+				        	<control type="image">
+								<top>6</top>
+				                <left>16</left>
+				                <width>381</width>
+				                <height>226</height>
+				                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				                <aspectratio align="center" aligny="center">keep</aspectratio>
+				            </control>
+				            <control type="group">
+								<visible>IsEmpty(ListItem.Art(clearlogo))</visible>
+								<control type="textbox">
+									<left>16</left>
+									<top>6</top>
+									<width>381</width>
+									<height>226</height>
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>font16</font>
+									<label>$VAR[FloorLabelVar]</label>
+								</control>
+							</control>
+				        </control>
 						<control type="image">
 							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
@@ -213,6 +269,7 @@
 							<texture>thumbs/diffuse.png</texture>
 						</control>
 						<control type="image">
+							<visible>Skin.HasSetting(Enable.IconLandscape)</visible>
 							<left>347</left>
 							<top>6</top>
 							<width>60</width>
@@ -446,7 +503,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<animation effect="slide" time="0" start="0" end="20" condition="Skin.HasSetting(Enable.IconLandscape)">Conditional</animation>
+				<animation effect="slide" time="0" start="0" end="20" condition="[Skin.HasSetting(Enable.IconLandscape) | Skin.HasSetting(Enable.IconLogo)] + !Container.Content(seasons)">Conditional</animation>
 				<animation effect="slide" time="0" start="0" end="-60" condition="Skin.HasSetting(Enable.IconBanner)">Conditional</animation>
 				<left>90</left>
 				<top>900</top>

@@ -7,7 +7,7 @@
 			<include>ViewAnimation</include>
 			<top>-15</top>
 			<control type="image">
-            	<visible>[[Container.Content(sets) | Container.Content(musicvideos)] | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.WallLandscape) + !Skin.HasSetting(Enable.WallBanner)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLandscape)]] + Control.HasFocus(509) </visible>
+            	<visible>[[Container.Content(sets) | Container.Content(musicvideos)] | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.WallLandscape) + !Skin.HasSetting(Enable.WallBanner) + !Skin.HasSetting(Enable.WallLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLogo)]] + Control.HasFocus(509) </visible>
                 <left>14</left>
                 <top>15</top>
                 <width>247</width>
@@ -26,7 +26,7 @@
                 <animation effect="slide" end="235,0" time="300" tween="cubic" easing="inout" condition="Container(509).Column(7) | Container(509).Column(6) | Container(509).Column(5) | Container(509).Column(4) | Container(509).Column(3) | Container(509).Column(2) | Container(509).Column(1)">Conditional</animation>
             </control>
             <control type="image">
-            	<visible>[Container.Content(movies) | Container.Content(tvshows)] + Control.HasFocus(509) + Skin.HasSetting(Enable.WallLandscape)</visible>
+            	<visible>[Container.Content(movies) | Container.Content(tvshows)] + Control.HasFocus(509) + [Skin.HasSetting(Enable.WallLandscape) | Skin.HasSetting(Enable.WallLogo)]</visible>
                 <left>50</left>
                 <top>14</top>
                 <width>464</width>
@@ -92,7 +92,7 @@
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">400</scrolltime>
 				<focusposition>1</focusposition>
-				<itemlayout width="235" height="346" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.WallLandscape) + !Skin.HasSetting(Enable.WallBanner)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLandscape)]">
+				<itemlayout width="235" height="346" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.WallLandscape) + !Skin.HasSetting(Enable.WallBanner) + !Skin.HasSetting(Enable.WallLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLogo)]">
 					<control type="group">
 						<top>1</top>
 						<height>1038</height>
@@ -121,7 +121,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="235" height="346" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.WallLandscape) + !Skin.HasSetting(Enable.WallBanner)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLandscape)]">
+				<focusedlayout width="235" height="346" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(musicvideos)] + !Skin.HasSetting(Enable.WallLandscape) + !Skin.HasSetting(Enable.WallBanner) + !Skin.HasSetting(Enable.WallLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLogo)]">
 					<control type="group">
 						<animation type="Focus">
 				            <effect type="zoom" time="150" start="95" end="100" center="117,174" />
@@ -156,26 +156,53 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout width="452" height="260" condition="[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.WallLandscape)">
+				<itemlayout width="452" height="260" condition="[Container.Content(movies) | Container.Content(tvshows)] + [Skin.HasSetting(Enable.WallLandscape) | Skin.HasSetting(Enable.WallLogo)]">
 					<control type="group">
 						<left>36</left>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>440</width>
-							<height>248</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture background="true">$VAR[LandscapeArtVar]</texture>
-						</control>
-						<control type="image">
-							<visible>IsEmpty(ListItem.Art(landscape))</visible>
-							<top>135</top>
-			                <left>6</left>
-			                <width>440</width>
-			                <height>110</height>
-			                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-			                <aspectratio align="center" aligny="bottom">keep</aspectratio>
-			            </control>
+						<control type="group">
+							<visible>Skin.HasSetting(Enable.WallLandscape)</visible>
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>440</width>
+								<height>248</height>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture background="true">$VAR[LandscapeArtVar]</texture>
+							</control>
+							<control type="image">
+								<visible>IsEmpty(ListItem.Art(landscape))</visible>
+								<top>135</top>
+				                <left>6</left>
+				                <width>440</width>
+				                <height>110</height>
+				                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				                <aspectratio align="center" aligny="bottom">keep</aspectratio>
+				            </control>
+				        </control>
+				        <control type="group">
+				        	<visible>Skin.HasSetting(Enable.WallLogo)</visible>
+				        	<control type="image">
+								<top>6</top>
+				                <left>16</left>
+				                <width>420</width>
+				                <height>248</height>
+				                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				                <aspectratio align="center" aligny="center">keep</aspectratio>
+				            </control>
+				            <control type="group">
+								<visible>IsEmpty(ListItem.Art(clearlogo))</visible>
+								<control type="textbox">
+									<left>16</left>
+									<top>6</top>
+									<width>420</width>
+									<height>248</height>
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>font16</font>
+									<label>$VAR[FloorLabelVar]</label>
+								</control>
+							</control>
+				        </control>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
@@ -184,6 +211,7 @@
 							<texture>thumbs/diffuse.png</texture>
 						</control>
 						<control type="image">
+							<visible>Skin.HasSetting(Enable.WallLandscape)</visible>
 							<left>386</left>
 							<top>6</top>
 							<width>60</width>
@@ -193,30 +221,57 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="452" height="260" condition="[Container.Content(movies) | Container.Content(tvshows)] + Skin.HasSetting(Enable.WallLandscape)">
+				<focusedlayout width="452" height="260" condition="[Container.Content(movies) | Container.Content(tvshows)] + [Skin.HasSetting(Enable.WallLandscape) | Skin.HasSetting(Enable.WallLogo)]">
 					<control type="group">
 						<animation type="Focus">
 				            <effect type="zoom" time="150" start="95" end="100" center="242,130" />
 				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="242,130" />
 				        </animation>
 				        <left>36</left>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>440</width>
-							<height>248</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture background="true">$VAR[LandscapeArtVar]</texture>
-						</control>
-						<control type="image">
-							<visible>IsEmpty(ListItem.Art(landscape))</visible>
-							<top>135</top>
-			                <left>6</left>
-			                <width>440</width>
-			                <height>110</height>
-			                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-			                <aspectratio align="center" aligny="bottom">keep</aspectratio>
-			            </control>
+				        <control type="group">
+				        	<visible>Skin.HasSetting(Enable.WallLandscape)</visible>
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>440</width>
+								<height>248</height>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture background="true">$VAR[LandscapeArtVar]</texture>
+							</control>
+							<control type="image">
+								<visible>IsEmpty(ListItem.Art(landscape))</visible>
+								<top>135</top>
+				                <left>6</left>
+				                <width>440</width>
+				                <height>110</height>
+				                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				                <aspectratio align="center" aligny="bottom">keep</aspectratio>
+				            </control>
+				        </control>
+				        <control type="group">
+				        	<visible>Skin.HasSetting(Enable.WallLogo)</visible>
+				        	<control type="image">
+								<top>6</top>
+				                <left>16</left>
+				                <width>420</width>
+				                <height>248</height>
+				                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				                <aspectratio align="center" aligny="center">keep</aspectratio>
+				            </control>
+				            <control type="group">
+								<visible>IsEmpty(ListItem.Art(clearlogo))</visible>
+								<control type="textbox">
+									<left>16</left>
+									<top>6</top>
+									<width>420</width>
+									<height>248</height>
+									<align>center</align>
+									<aligny>center</aligny>
+									<font>font16</font>
+									<label>$VAR[FloorLabelVar]</label>
+								</control>
+							</control>
+				        </control>
 						<control type="image">
 							<animation center="auto" condition="Control.HasFocus(509)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 							<animation center="auto" condition="Control.HasFocus(509)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
@@ -227,6 +282,7 @@
 							<texture>thumbs/diffuse.png</texture>
 						</control>
 						<control type="image">
+							<visible>Skin.HasSetting(Enable.WallLandscape)</visible>
 							<left>386</left>
 							<top>6</top>
 							<width>60</width>

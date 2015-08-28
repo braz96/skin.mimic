@@ -92,21 +92,32 @@
 						<label>31016</label>
 						<onclick>Skin.Reset(Enable.IconLandscape)</onclick>
 						<onclick>Skin.Reset(Enable.IconBanner)</onclick>
+						<onclick>Skin.Reset(Enable.IconLogo)</onclick>
 						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31086])</visible>
 					</item>
 					<item>
 						<description>Icon - Landscape</description>
 						<label>31100</label>
 						<onclick>Skin.Reset(Enable.IconBanner)</onclick>
+						<onclick>Skin.Reset(Enable.IconLogo)</onclick>
 						<onclick>Skin.SetBool(Enable.IconLandscape)</onclick>
-						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31086])</visible>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31086]) + !Container.Content(seasons)</visible>
 					</item>
 					<item>
 						<description>Icon - Banner</description>
 						<label>31085</label>
 						<onclick>Skin.Reset(Enable.IconLandscape)</onclick>
+						<onclick>Skin.Reset(Enable.IconLogo)</onclick>
 						<onclick>Skin.SetBool(Enable.IconBanner)</onclick>
 						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31086])</visible>
+					</item>
+					<item>
+						<description>Icon - Logo</description>
+						<label>31088</label>
+						<onclick>Skin.Reset(Enable.IconLandscape)</onclick>
+						<onclick>Skin.Reset(Enable.IconBanner)</onclick>
+						<onclick>Skin.SetBool(Enable.IconLogo)</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31086]) + !Container.Content(seasons)</visible>
 					</item>
 					<item>
 						<description>Shift - Poster</description>
@@ -137,12 +148,14 @@
 						<label>31016</label>
 						<onclick>Skin.Reset(Enable.WallLandscape)</onclick>
 						<onclick>Skin.Reset(Enable.WallBanner)</onclick>
+						<onclick>Skin.Reset(Enable.WallLogo)</onclick>
 						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31078])</visible>
 					</item>
 					<item>
 						<description>Wall - Landscape</description>
 						<label>31100</label>
 						<onclick>Skin.Reset(Enable.WallBanner)</onclick>
+						<onclick>Skin.Reset(Enable.WallLogo)</onclick>
 						<onclick>Skin.SetBool(Enable.WallLandscape)</onclick>
 						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31078]) + !Container.Content(seasons)</visible>
 					</item>
@@ -150,8 +163,17 @@
 						<description>Wall - Banner</description>
 						<label>31085</label>
 						<onclick>Skin.Reset(Enable.WallLandscape)</onclick>
+						<onclick>Skin.Reset(Enable.WallLogo)</onclick>
 						<onclick>Skin.SetBool(Enable.WallBanner)</onclick>
 						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31078])</visible>
+					</item>
+					<item>
+						<description>Wall - Logo</description>
+						<label>31088</label>
+						<onclick>Skin.Reset(Enable.WallLandscape)</onclick>
+						<onclick>Skin.Reset(Enable.WallBanner)</onclick>
+						<onclick>Skin.SetBool(Enable.WallLogo)</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31078]) + !Container.Content(seasons)</visible>
 					</item>
 				</content>
 			</control>
