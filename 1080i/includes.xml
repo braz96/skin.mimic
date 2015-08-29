@@ -131,7 +131,8 @@
 			<aligny>center</aligny>
 		</control>
 		<control type="button" id="1802">
-			<label>$INFO[Container.Viewmode,$LOCALIZE[31906]: ]</label>
+			<label>$LOCALIZE[31906]</label>
+			<label2>$INFO[Container.Viewmode]</label2>
 			<include>ButtonCommonValues</include>
 			<onclick>SetProperty(viewtypeselect,1,home)</onclick>
 			<onclick>ActivateWindow(1118)</onclick>
@@ -141,6 +142,7 @@
 			<description>Sort by button</description>
 			<include>ButtonCommonValues</include>
 			<label>103</label>
+			<visible>false</visible>
 		</control>
 		<control type="togglebutton" id="4">
 			<description>Sort asc</description>
@@ -148,15 +150,34 @@
 			<label>31051</label>
 			<altlabel>31050</altlabel>
 			<usealttexture>Container.SortDirection(Ascending)</usealttexture>
+			<visible>false</visible>
+		</control>
+		<control type="button" id="1800">
+			<description>Sort by button</description>
+			<include>ButtonCommonValues</include>
+			<label>31155</label>
+			<label2>$INFO[Container.SortMethod]</label2>
+			<onclick>Container.NextSortMethod</onclick>
+			<enable>Control.IsEnabled(3)</enable>
+		</control>
+		<control type="button" id="1801">
+			<description>Sort direction</description>
+			<include>ButtonCommonValues</include>
+			<label>31156</label>
+			<label2>$VAR[SortDirection]</label2>
+			<onclick>Container.SortDirection</onclick>
+			<enable>Control.IsEnabled(4)</enable>
 		</control>
 		<control type="button" id="1804">
-			<label>$VAR[ArtLabelVar,$LOCALIZE[31152]: ]</label>
+			<label>$LOCALIZE[31152]</label>
+			<label2>$VAR[ArtLabelVar]</label2>
 			<include>ButtonCommonValues</include>
 			<onclick>ActivateWindow(1133)</onclick>
 			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(500) | [Control.IsVisible(57) + !Container.Content(seasons)] | Control.IsVisible(51) | Control.IsVisible(509)] + !Container.Content(episodes) + !Container.Content(sets) + !Container.Content(addons) + !Container.Content(musicvideos)</visible>
 		</control>
 		<control type="button" id="1808">
-			<label>$VAR[Art2LabelVar,$LOCALIZE[31152] 2: ]</label>
+			<label>$LOCALIZE[31152] 2</label>
+			<label2>$VAR[Art2LabelVar]</label2>
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.SetBool(Art2Customizer)</onclick>
 			<onclick>ActivateWindow(1133)</onclick>
