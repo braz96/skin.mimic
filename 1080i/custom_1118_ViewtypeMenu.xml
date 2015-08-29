@@ -103,32 +103,31 @@
 						<visible>!Skin.HasSetting(Disable.NextView)</visible>
 					</item>
 					<item>
-						<description>Icon</description>
+						<description>Wall</description>
 						<label>31086</label>
 						<onclick>Container.SetViewMode(500)</onclick>
-						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Container.Content(artists) + !Window.IsActive(videos)] | [Container.Content(albums) + !Window.IsActive(videos)] | [Container.Content(files) + Container(500).HasFiles]</visible>
+						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | [Container.Content(artists) + !Window.IsActive(videos)] | [Container.Content(albums) + !Window.IsActive(videos)] | [Container.Content(files) + Container(500).HasFiles + !Window.IsActive(musicfiles)]</visible>
 						<visible>!Skin.HasSetting(Disable.IconView)</visible>
 					</item>
 					<item>
-						<description>Icon</description>
+						<description>Wall</description>
 						<label>31086</label>
 						<onclick>Container.SetViewMode(510)</onclick>
 						<visible>Window.IsActive(pictures) + Container(510).HasFiles + !Container.Content(addons)</visible>
 						<visible>!Skin.HasSetting(Disable.IconView)</visible>
 					</item>
 					<item>
-						<description>Icon</description>
+						<description>Wall</description>
 						<label>31086</label>
 						<onclick>Container.SetViewMode(520)</onclick>
 						<visible>[Container.Content(addons) + Container(520).HasFiles] | [Window.IsActive(pictures) + Container(510).HasFiles + Container.Content(addons)]</visible>
 						<visible>!Skin.HasSetting(Disable.IconView)</visible>
 					</item>
 					<item>
-						<description>Icon</description>
+						<description>Wall</description>
 						<label>31086</label>
 						<onclick condition="!Skin.HasSetting(Enable.FavView)">Skin.ToggleSetting(Enable.FavView)</onclick>
 						<visible>Window.IsActive(favourites)</visible>
-						<visible>!Skin.HasSetting(Disable.IconView)</visible>
 					</item>
 					<item>
 						<description>InfoWall</description>
@@ -231,7 +230,7 @@
 				</content>
 			</control>
 			<control type="button" id="9012">
-				<visible>![Skin.HasSetting(KioskMode.Enabled) | Window.IsActive(favourites)]</visible>
+				<visible>![Skin.HasSetting(KioskMode.Enabled) | Window.IsActive(favourites)] + !StringCompare(Container(9011).NumItems,1)</visible>
 				<top>1020</top>
 				<width>400</width>
 				<align>center</align>
