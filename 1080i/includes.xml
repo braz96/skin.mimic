@@ -46,6 +46,13 @@
 			<texturenofocus border="12">dialog_context.png</texturenofocus>
  			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 		</control>
+		<control type="button" id="9051">
+			<include>HiddenObject</include>
+			<onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
+			<onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9050)</onfocus>
+			<onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
+			<onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(50)</onfocus>
+		</control>
 		<control type="button">
 			<left>420</left>
 			<width>30</width>
@@ -216,7 +223,7 @@
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.ToggleSetting(Enable.SlimList)</onclick>
 			<selected>Skin.HasSetting(Enable.SlimList)</selected>
-			<visible>Control.IsVisible(50) + !Window.IsActive(eventlog)</visible>
+			<visible>Control.IsVisible(50) + ![Window.IsActive(eventlog) | Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(radiochannels) | Window.IsActive(radiorecordings) | Window.IsActive(radiotimers) | Window.IsActive(radiosearch)]</visible>
 		</control>
 	</include>
 	<include name="PVRMediaMenu">
