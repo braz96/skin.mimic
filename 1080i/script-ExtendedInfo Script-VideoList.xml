@@ -32,7 +32,7 @@
         <control type="group">
             <animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
             <animation effect="slide" tween="cubic" time="720" start="0,0" end="0,1080">WindowClose</animation>
-            <!--<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftPlot)">Conditional</animation>-->
+            <animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftPlot)">Conditional</animation>
             <control type="fixedlist" id="500">
                 <left>-140</left>
                 <top>275</top>
@@ -180,9 +180,11 @@
                             <label fallback="16018">$INFO[Window.Property(Filter_Label)]</label>
                         </control>
                     </control>
-                    <!--<control type="textbox">
+                    <control type="textbox">
                         <visible>Skin.HasSetting(Enable.ShiftPlot)</visible>
                         <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
+                        <top>95</top>
+                        <left>65</left>
                         <width>1633</width>
                         <height>220</height>
                         <font>font14_textbox4</font>
@@ -191,8 +193,8 @@
                         <aligny>top</aligny>
                         <autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
                         <include>ShowCaseInfoPanelButtonsValues</include>
-                        <label>$INFO[Window.Property(movie.Plot)]</label>
-                    </control>-->
+                        <label>$INFO[Container(500).ListItem.Plot]</label>
+                    </control>
                 </control>
                 <control type="image">
                     <left>1530</left>
@@ -357,12 +359,12 @@
                     <textwidth>352</textwidth>
                     <include>ButtonCommonValues</include>
                 </control>
-                <!--<control type="radiobutton" id="1805">
+                <control type="radiobutton" id="1805">
                     <label>31140</label>
                     <include>ButtonCommonValues</include>
                     <onclick>Skin.ToggleSetting(Enable.ShiftPlot)</onclick>
                     <selected>Skin.HasSetting(Enable.ShiftPlot)</selected>
-                </control>-->
+                </control>
                 <control type="button" id="201">
                     <description>Filter Heading</description>
 					<textwidth>352</textwidth>
