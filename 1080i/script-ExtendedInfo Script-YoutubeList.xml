@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
     <defaultcontrol always="true">500</defaultcontrol>
+    <menucontrol>9053</menucontrol>
     <onload>ClearProperty(MediaMenu,Home)</onload>
     <controls>
+        <control type="button" id="9053">
+            <include>HiddenObject</include>
+            <onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
+            <onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9000)</onfocus>
+            <onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
+            <onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(500)</onfocus>
+        </control>
         <control type="group">
             <control type="image">
                 <texture>black.png</texture>
@@ -289,21 +297,25 @@
                     <aligny>center</aligny>
                 </control>     
                 <control type="button" id="5007">
-                    <label>$INFO[Window.Property(Type),$LOCALIZE[467]: ]</label>
+                    <label>$LOCALIZE[467]</label>
+                    <label2>$INFO[Window.Property(Type)]</label2>
                     <width>400</width>
                     <textoffsetx>15</textoffsetx>
                     <aligny>center</aligny>
                     <font>font13</font>
                 </control>
                 <control type="button" id="5001">
-                    <label>$INFO[Window.Property(Sort_Label),$ADDON[script.extendedinfo 32104]: ]</label>
+                    <label>$ADDON[script.extendedinfo 32104]</label>
+                    <label2>$INFO[Window.Property(Sort_Label)]</label2>
                     <width>400</width>
                     <textoffsetx>15</textoffsetx>
                     <aligny>center</aligny>
                     <font>font13</font>
                 </control>
                 <control type="button" id="5004">
-                    <label>$ADDON[script.extendedinfo 32128]: $INFO[Window.Property(Order_Label)]</label>
+                    <label>$ADDON[script.extendedinfo 32128]</label>
+                    <label2>$INFO[Window.Property(Order_Label)]</label2>
+                    <width>400</width>
                     <textoffsetx>15</textoffsetx>
                     <aligny>center</aligny>
                     <font>font13</font>
@@ -369,7 +381,7 @@
                     <disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
                 </control>
                 <control type="button" id="6000">
-                    <label>$LOCALIZE[19140]</label>
+                    <label>$LOCALIZE[137]</label>
                     <textoffsetx>15</textoffsetx>
                     <aligny>center</aligny>
                     <font>font13</font>
