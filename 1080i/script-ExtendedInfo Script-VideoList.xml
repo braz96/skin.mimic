@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="true">500</defaultcontrol>
-    <menucontrol>9051</menucontrol>
+    <menucontrol>9052</menucontrol>
     <onload>ClearProperty(MediaMenu,Home)</onload>
     <controls>
+        <control type="button" id="9052">
+            <include>HiddenObject</include>
+            <onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
+            <onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9000)</onfocus>
+            <onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
+            <onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(500)</onfocus>
+        </control>
 		<control type="group">
             <control type="image">
                 <texture>black.png</texture>
@@ -338,13 +345,15 @@
                 </control>
                 <control type="button" id="5001">
                     <description>Sort by:</description>
-                    <label>$INFO[Window.Property(Sort_Label),$LOCALIZE[581]: ,]</label>
+                    <label>$LOCALIZE[581]</label>
+                    <label2>$INFO[Window.Property(Sort_Label)]</label2>
                     <textwidth>352</textwidth>
                     <include>ButtonCommonValues</include>
                 </control>
                 <control type="button" id="5004">
                     <description>Order by:</description>
-                    <label>$INFO[Window.Property(Order_Label),$LOCALIZE[21429]: ,]</label>
+                    <label>$LOCALIZE[21429]</label>
+                    <label2>$INFO[Window.Property(Order_Label)]</label2>
                     <textwidth>352</textwidth>
                     <include>ButtonCommonValues</include>
                 </control>
@@ -365,7 +374,8 @@
 				</control>
                 <control type="button" id="5007">
                     <description>Type</description>
-                    <label>$INFO[Window.Property(Type),$LOCALIZE[146] ,]</label>
+                    <label>$LOCALIZE[467]</label>
+                    <label2>$INFO[Window.Property(Type)]</label2>
                     <textwidth>352</textwidth>
                     <include>ButtonCommonValues</include>
                 </control>
