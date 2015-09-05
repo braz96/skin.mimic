@@ -507,7 +507,15 @@
 							<top>6</top>
 							<width>345</width>
 							<height>345</height>
-							<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="image">
+							<left>6</left>
+							<top>301</top>
+							<width>345</width>
+							<height>50</height>
+							<texture>black.png</texture>
+							<colordiffuse>bbffffff</colordiffuse>
 						</control>
 						<control type="label">
 							<left>6</left>
@@ -541,26 +549,32 @@
 							<aspectratio>scale</aspectratio>
 							<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
-						<control type="group">
-							<!--<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>-->
-							<control type="image">
-								<left>6</left>
-								<top>6</top>
-								<width>345</width>
-								<height>345</height>
-								<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
-							</control>
-							<control type="label">
-								<left>6</left>
-								<top>304</top>
-								<width>345</width>
-								<height>40</height>
-								<align>center</align>
-								<textoffsetx>10</textoffsetx>
-								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<label>$INFO[ListItem.Label]</label>
-							</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<left>6</left>
+							<top>6</top>
+							<width>345</width>
+							<height>345</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<control type="image">
+							<left>6</left>
+							<top>301</top>
+							<width>345</width>
+							<height>50</height>
+							<texture>black.png</texture>
+							<colordiffuse>bbffffff</colordiffuse>
+						</control>
+						<control type="label">
+							<left>6</left>
+							<top>304</top>
+							<width>345</width>
+							<height>40</height>
+							<align>center</align>
+							<textoffsetx>10</textoffsetx>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
 							<left>291</left>
@@ -763,7 +777,6 @@
 						<texture background="true">$VAR[MusicThumbVar]</texture>
 					</control>
 					<control type="image">
-						<visible>Container.Content(albums)</visible>
 						<top>6</top>
 						<left>6</left>
 						<width>268</width>
@@ -773,11 +786,12 @@
 					<control type="group">
 						<visible>Container.Content(artists)</visible>
 						<control type="image">
-							<top>6</top>
+							<top>224</top>
 							<left>6</left>
 							<width>268</width>
-							<height>268</height>
-							<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+							<height>50</height>
+							<texture>black.png</texture>
+							<colordiffuse>bbffffff</colordiffuse>
 						</control>
 						<control type="label">
 							<left>6</left>
@@ -802,19 +816,26 @@
 							<aspectratio>scale</aspectratio>
 							<texture fallback="blank.png" background="true">$VAR[MusicThumbVar]</texture>
 						</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>268</width>
+							<height>268</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
 						<control type="group">
-							<!--<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>-->
+							<visible>Container.Content(artists)</visible>
 							<control type="image">
-								<visible>Container.Content(artists)</visible>
-								<top>6</top>
+								<top>224</top>
 								<left>6</left>
 								<width>268</width>
-								<height>268</height>
-								<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+								<height>50</height>
+								<texture>black.png</texture>
+								<colordiffuse>bbffffff</colordiffuse>
 							</control>
 							<control type="label">
-								<visible>Container.Content(artists)</visible>
 								<left>6</left>
 								<top>234</top>
 								<width>268</width>
@@ -823,14 +844,6 @@
 								<textoffsetx>4</textoffsetx>
 								<textcolor>$VAR[ColorTextVar]</textcolor>
 								<info>ListItem.Label</info>
-							</control>
-							<control type="image">
-								<visible>Container.Content(albums)</visible>
-								<top>6</top>
-								<left>6</left>
-								<width>268</width>
-								<height>268</height>
-								<texture>thumbs/diffuse.png</texture>
 							</control>
 						</control>
 					</control>
@@ -1157,8 +1170,8 @@
 				<top>45</top>
 				<width>14</width>
 				<height>1035</height>
-				<onleft>500</onleft>
-				<onright>500</onright>
+				<onleft>520</onleft>
+				<onright>520</onright>
 				<ondown>60</ondown>
 				<onup>60</onup>
 			</control>
