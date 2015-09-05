@@ -127,22 +127,39 @@
                     <effect type="zoom" time="150" start="95" end="100" center="278,163" />
                     <effect type="zoom" time="150" start="105" end="100" delay="150" center="278,163" />
                 </animation>
+                <control type="group">
+                    <visible>![Skin.HasSetting(Enable.PanelFanart) | Skin.HasSetting(Enable.PanelLogo)]</visible>
+                    <control type="image">
+                        <width>525</width>
+                        <height>296</height>
+                        <texture background="true">$VAR[LandscapeArtVar]</texture>
+                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                    </control>
+                    <control type="image">
+    					<visible>[Container.Content(movies) | Container.Content(tvshows)] + IsEmpty(ListItem.Art(landscape))</visible>
+                        <left>75</left>
+                        <width>375</width>
+                        <height>278</height>
+                        <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                        <aspectratio align="center" aligny="bottom">keep</aspectratio>
+                    </control>
+                </control>
                 <control type="image">
+                    <visible>Skin.HasSetting(Enable.PanelFanart)</visible>
                     <width>525</width>
                     <height>296</height>
-                    <texture background="true">$VAR[LandscapeArtVar]</texture>
+                    <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
                     <aspectratio align="center" aligny="center">scale</aspectratio>
                 </control>
                 <control type="image">
-					<visible>[Container.Content(movies) | Container.Content(tvshows)] + IsEmpty(ListItem.Art(landscape))</visible>
-                    <left>75</left>
-                    <width>375</width>
-                    <height>278</height>
+                    <visible>Skin.HasSetting(Enable.PanelLogo)</visible>
+                    <width>525</width>
+                    <height>296</height>
                     <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                    <aspectratio align="center" aligny="bottom">keep</aspectratio>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
                 </control>
 				<control type="image">
-					<visible>!Container.Content(artists)</visible>
+					<visible>![Container.Content(artists) | Skin.HasSetting(Enable.PanelLogo)]</visible>
 					<left>465</left>
 					<top>0</top>
 					<width>60</width>

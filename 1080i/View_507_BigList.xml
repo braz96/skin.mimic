@@ -425,12 +425,21 @@
                 <effect type="zoom" time="150" start="105" end="100" delay="150" center="191,115" />
             </animation>
             <control type="image">
+                <visible>!Skin.HasSetting(Enable.BigListLogo)</visible>
                 <width>346</width>
                 <height>195</height>
                 <texture background="true">$VAR[LandscapeArtVar]</texture>
                 <aspectratio>scale</aspectratio>
             </control>
+            <control type="image">
+                <visible>Skin.HasSetting(Enable.BigListLogo)</visible>
+                <width>346</width>
+                <height>195</height>
+                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                <aspectratio>keep</aspectratio>
+            </control>
 			<control type="image">
+                <visible>!Skin.HasSetting(Enable.BigListLogo)</visible>
 				<left>286</left>
 				<width>60</width>
 				<height>60</height>
@@ -443,7 +452,7 @@
                 <height>98</height>
                 <aspectratio align="center" aligny="bottom">keep</aspectratio>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-				<visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos)] + IsEmpty(ListItem.Art(landscape))</visible>
+				<visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos) | Skin.HasSetting(Enable.BigListLogo)] + IsEmpty(ListItem.Art(landscape))</visible>
             </control>
         </control>
     </include>
