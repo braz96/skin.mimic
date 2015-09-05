@@ -1005,14 +1005,23 @@
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture background="true">$VAR[PosterVar]</texture>
 			</control>
-			<control type="image">
+			<control type="group">
 				<visible>Container.Content(musicvideos)</visible>
-				<top>369</top>
+				<top>30</top>
 				<left>30</left>
-				<width>681</width>
-				<height>681</height>
-				<aspectratio align="center" aligny="center">scale</aspectratio>
-				<texture background="true">$VAR[PosterVar]</texture>
+				<control type="image">
+					<width>680</width>
+					<height>340</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">$INFO[Skin.String(MusicLibraryPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
+				</control>
+				<control type="image">
+					<top>339</top>
+					<width>681</width>
+					<height>681</height>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture background="true">$VAR[PosterVar]</texture>
+				</control>
 			</control>
 		</control>
 	</controls>
