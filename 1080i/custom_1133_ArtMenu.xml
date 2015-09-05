@@ -123,13 +123,25 @@
 						<description>Shift - Poster</description>
 						<label>31016</label>
 						<onclick>Skin.Reset(Enable.ShiftLandscape)</onclick>
-						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31079])</visible>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(videolibrary)</visible>
 					</item>
 					<item>
 						<description>Shift - Landscape</description>
 						<label>31100</label>
 						<onclick>Skin.SetBool(Enable.ShiftLandscape)</onclick>
-						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31079])</visible>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(videolibrary)</visible>
+					</item>
+					<item>
+						<description>Shift - Thumbnail</description>
+						<label>21371</label>
+						<onclick>Skin.Reset(Enable.ShiftFanart)</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(musiclibrary)</visible>
+					</item>
+					<item>
+						<description>Shift - Fanart</description>
+						<label>20445</label>
+						<onclick>Skin.SetBool(Enable.ShiftFanart)</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(musiclibrary)</visible>
 					</item>
 					<item>
 						<description>InfoWall - Poster</description>
@@ -174,6 +186,31 @@
 						<onclick>Skin.Reset(Enable.WallBanner)</onclick>
 						<onclick>Skin.SetBool(Enable.WallLogo)</onclick>
 						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31078]) + !Container.Content(seasons)</visible>
+					</item>
+					<item>
+						<description>BigList - Landscape</description>
+						<label>31100</label>
+						<onclick>Skin.Reset(Enable.BigListPoster)</onclick>
+						<onclick>Skin.Reset(Enable.BigListThumb)</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					</item>
+					<item>
+						<description>BigList - Poster</description>
+						<label>31016</label>
+						<onclick>Skin.SetBool(Enable.BigListPoster)</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					</item>
+					<item>
+						<description>BigList - Fanart</description>
+						<label>20445</label>
+						<onclick>Skin.Reset(Enable.BigListThumb)</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31052]) + Container.Content(artists)</visible>
+					</item>
+					<item>
+						<description>BigList - Thumb</description>
+						<label>21371</label>
+						<onclick>Skin.SetBool(Enable.BigListThumb)</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(artists) | Container.Content(albums)]</visible>
 					</item>
 				</content>
 			</control>
