@@ -27,15 +27,14 @@
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
 			<control type="button" id="90202">
-				<description>Cinema Experience button</description>
+				<description>Cinema Vision button</description>
 				<width>510</width>
 				<textwidth>425</textwidth>
 				<textoffsetx>45</textoffsetx>
 				<texturefocus border="12">button_bg.png</texturefocus>
 				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-				<visible>System.HasAddon(script.cinema.experience)</visible>
-				<visible>Container.Content(movies) + !SubString(Window(10025).Property(CinemaExperienceRunning),True)</visible>
+				<visible>System.HasAddon(script.cinemavision) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="button" id="90203">
 				<description>Artwork downloader button</description>
@@ -191,16 +190,15 @@
 			<itemgap>0</itemgap>
 			<align>center</align>
 			<control type="button" id="90302">
-				<description>Cinema Experience button</description>
+				<description>Cinema Vision button</description>
 				<texturefocus>listselect_fo.png</texturefocus>
 				<texturenofocus>-</texturenofocus>
 				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+				<label>$INFO[System.AddonTitle(script.cinemavision)]</label>
 				<onclick>Dialog.Close(1119)</onclick>
 				<onclick>Dialog.Close(MovieInformation)</onclick>
-				<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-				<label>$INFO[System.AddonTitle(script.cinema.experience)]</label>
-				<visible>System.HasAddon(script.cinema.experience)</visible>
-				<visible>Container.Content(movies) + !SubString(Window(10025).Property(CinemaExperienceRunning),True)</visible>
+     			<onclick>RunScript(script.cinemavision,experience)</onclick>
+    			<visible>System.HasAddon(script.cinemavision) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="button" id="90303">
 				<description>Artwork downloader button</description>
