@@ -332,7 +332,7 @@
 				<height>100</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
-				<visible>VideoPlayer.Content(livetv)</visible>
+				<visible>VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)</visible>
 			</control>
 			<control type="image">
 				<description>avatar</description>
@@ -352,7 +352,7 @@
 				<height>100</height>
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
-				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv)]</visible>
+				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</visible>
 			</control>
 			<control type="fadelabel">
 				<description>Line 1 Label</description>
@@ -399,6 +399,21 @@
 				<label>$INFO[Player.Title]</label>
 				<visible>VideoPlayer.Content(livetv)</visible>
 			</control>
+			<control type="fadelabel">
+				<description>Line 1 Label</description>
+				<left>155</left>
+				<top>28</top>
+				<width>612</width>
+				<height>50</height>
+				<font>font15_title</font>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[Player.Title]</label>
+				<visible>VideoPlayer.Content(musicvideos)</visible>
+			</control>
 			<control type="label">
 				<description>Line 1 Label</description>
 				<left>232</left>
@@ -413,7 +428,7 @@
 				<pauseatend>2000</pauseatend>
 				<wrapmultiline>true</wrapmultiline>
 				<label>$INFO[Player.Title]</label>
-				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv)]</visible>
+				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</visible>
 			</control>
 			<control type="fadelabel">
 				<description>Line 2 Label</description>
@@ -459,6 +474,21 @@
 				<pauseatend>2000</pauseatend>
 				<label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ]</label>
 				<visible>VideoPlayer.Content(movies)</visible>
+			</control>
+			<control type="fadelabel">
+				<description>Line 2 Label</description>
+				<left>155</left>
+				<top>92</top>
+				<width>612</width>
+				<height>30</height>
+				<font>font15</font>
+				<textcolor>$VAR[ColorTextVar]</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<scrollout>false</scrollout>
+				<pauseatend>2000</pauseatend>
+				<label>$INFO[VideoPlayer.Artist]</label>
+				<visible>VideoPlayer.Content(musicvideos)</visible>
 			</control>
 		</control>
 	</include>
