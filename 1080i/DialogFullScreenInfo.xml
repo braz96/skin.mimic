@@ -219,7 +219,7 @@
 			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>
 			<top>795</top>
-			<visible>![VideoPlayer.Content(livetv) | VideoPlayer.Content(movies) | VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)]</visible>
+			<visible>![VideoPlayer.Content(livetv) | VideoPlayer.Content(movies) | VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)]</visible>
 			<visible>!Window.IsActive(videoosd)</visible>
 			<control type="image">
 				<left>0</left>
@@ -308,7 +308,7 @@
 			<animation effect="slide" start="0,290" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,290" end="0,0" time="200">VisibleChange</animation>
 			<top>780</top>
-			<visible>VideoPlayer.Content(livetv)</visible>
+			<visible>VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)</visible>
 			<visible>!Window.IsActive(videoosd)</visible>
 			<control type="image">
 				<left>0</left>
@@ -334,36 +334,54 @@
 				<scroll>true</scroll>
 				<font>font16_title</font>
 				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<label>[B]$INFO[VideoPlayer.Title][/B]</label>
+				<label>[B]$INFO[VideoPlayer.Artist,, - ]$INFO[VideoPlayer.Title][/B]</label>
 			</control>
-			<control type="label">
-				<left>300</left>
-				<top>72</top>
-				<width>1585</width>
-				<height>40</height>
-				<font>font14_title</font>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				<label>$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</label>
+			<control type="group">
+				<visible>VideoPlayer.Content(livetv)</visible>
+				<control type="label">
+					<left>300</left>
+					<top>72</top>
+					<width>1585</width>
+					<height>40</height>
+					<font>font14_title</font>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
+					<label>$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</label>
+				</control>
+				<control type="label">
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<left>300</left>
+					<top>120</top>
+					<width>1585</width>
+					<height>40</height>
+					<font>font14</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>300</left>
+					<top>170</top>
+					<width>1585</width>
+					<height>40</height>
+					<font>font14</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[19031]: [/COLOR]$INFO[VideoPlayer.NextTitle] $INFO[VideoPlayer.NextStartTime,(, - ]$INFO[VideoPlayer.NextEndTime,,)]</label>
+					<scroll>true</scroll>
+				</control>
 			</control>
-			<control type="label">
-				<label>$INFO[VideoPlayer.Plot]</label>
+			<control type="group">
+				<visible>VideoPlayer.Content(musicvideos)</visible>
 				<left>300</left>
-				<top>120</top>
-				<width>1585</width>
-				<height>40</height>
-				<font>font14</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<scroll>true</scroll>
-			</control>
-			<control type="label">
-				<left>300</left>
-				<top>170</top>
-				<width>1585</width>
-				<height>40</height>
-				<font>font14</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[19031]: [/COLOR]$INFO[VideoPlayer.NextTitle] $INFO[VideoPlayer.NextStartTime,(, - ]$INFO[VideoPlayer.NextEndTime,,)]</label>
-				<scroll>true</scroll>
+				<control type="textbox">
+					<top>90</top>
+					<width>1600</width>
+					<height>108</height>
+					<font>font14_textbox2</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<align>left</align>
+					<aligny>top</aligny>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					<label>[COLOR $VAR[ColorHighlightVar]]$INFO[VideoPlayer.Tagline,, ][/COLOR]$INFO[VideoPlayer.Plot]</label>
+				</control>
 			</control>
 			<control type="progress">
 				<left>300</left>
