@@ -178,7 +178,7 @@
 			<label2>$VAR[ArtLabelVar]</label2>
 			<include>ButtonCommonValues</include>
 			<onclick>ActivateWindow(1133)</onclick>
-			<visible>[Window.IsActive(videolibrary) + [Control.IsVisible(500) | [Control.IsVisible(57) + !Container.Content(seasons)] | Control.IsVisible(51) | Control.IsVisible(509) | Control.IsVisible(505)] + !Container.Content(episodes) + !Container.Content(sets) + !Container.Content(addons) + !Container.Content(musicvideos) + !Container.Content(files)] | [Control.IsVisible(507) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists)]] | [Window.IsActive(musiclibrary) + Control.IsVisible(57)]</visible>
+			<visible>[Window.IsActive(videolibrary) + [Control.IsVisible(500) | [Control.IsVisible(57) + !Container.Content(seasons) + !Container.Content(addons)] | Control.IsVisible(51) | Control.IsVisible(509) | Control.IsVisible(505)] + !Container.Content(episodes) + !Container.Content(sets) + !Container.Content(addons) + !Container.Content(musicvideos) + !Container.Content(files)] | [Control.IsVisible(507) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists)]] | [Window.IsActive(musiclibrary) + Control.IsVisible(57) + !Container.Content(addons)]</visible>
 		</control>
 		<control type="button" id="1808">
 			<label>$LOCALIZE[31152] 2</label>
@@ -324,6 +324,10 @@
 					<label>19184</label>
 					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
 				</control>
+				<include name="MenuPlayerControls">
+					<param name="PlayerControlsOnUp" value="7" />
+					<param name="PlayerControlsOnDown" value="1802" />
+				</include>
 			</control>
 		</control>
 	</include>
@@ -455,6 +459,102 @@
 						<onclick>Control.SetFocus(9000)</onclick>
 					</item>
 				</content>
+			</control>
+		</control>
+	</include>
+	<include name="MenuPlayerControls">
+		<control type="group" id="1810">
+			<visible>Player.HasMedia + Control.IsVisible(9050)</visible>
+			<control type="label" id="6049">
+				<top>5</top>
+				<width>400</width>
+				<height>52</height>
+				<textoffsetx>15</textoffsetx>
+				<font>font13_title</font>
+				<label>Player Controls</label>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+				<aligny>center</aligny>
+			</control>
+			<control type="grouplist" id="6050">
+				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
+				<top>70</top>
+				<left>9</left>
+				<height>48</height>
+				<width>400</width>
+				<align>center</align>
+				<itemgap>-10</itemgap>
+				<scrolltime tween="sine">200</scrolltime>
+				<orientation>horizontal</orientation>
+				<onup>$PARAM[PlayerControlsOnUp]</onup>
+				<ondown>$PARAM[PlayerControlsOnDown]</ondown>
+				<onleft>6050</onleft>
+				<onright>6050</onright>
+				<onback>ClearProperty(MediaMenu,Home)</onback>
+				<onback>50</onback>
+				<control type="button" id="6051">
+					<texturefocus>osd/buttons/OSDPrevTrack.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDPrevTrack2.png</texturenofocus>
+					<label>-</label>
+					<width>75</width>
+					<height>48</height>
+					<font>-</font>
+					<onclick>PlayerControl(Previous)</onclick>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+				</control>
+				<control type="button" id="6052">
+					<texturefocus>osd/buttons/OSDRewind.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDRewind2.png</texturenofocus>
+					<label>-</label>
+					<width>75</width>
+					<height>48</height>
+					<font>-</font>
+					<onclick>PlayerControl(Rewind)</onclick>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+				</control>
+				<control type="togglebutton" id="6053">
+					<texturefocus>osd/buttons/OSDPause.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDPause2.png</texturenofocus>
+					<alttexturefocus>osd/buttons/OSDPlay.png</alttexturefocus>
+					<alttexturenofocus>osd/buttons/OSDPlay2.png</alttexturenofocus>
+					<label>-</label>
+					<altlabel>208</altlabel>
+					<width>75</width>
+					<height>48</height>
+					<font>-</font>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<onclick>PlayerControl(Play)</onclick>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+				</control>
+				<control type="button" id="6054">
+					<texturefocus>osd/buttons/OSDStop.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDStop2.png</texturenofocus>
+					<label>-</label>
+					<width>75</width>
+					<height>48</height>
+					<font>-</font>
+					<onclick>PlayerControl(Stop)</onclick>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+				</control>
+				<control type="button" id="6055">
+					<texturefocus>osd/buttons/OSDForward.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDForward2.png</texturenofocus>
+					<label>-</label>
+					<width>75</width>
+					<height>48</height>
+					<font>-</font>
+					<onclick>PlayerControl(Forward)</onclick>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+				</control>
+				<control type="button" id="6056">
+					<texturefocus>osd/buttons/OSDNextTrack.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDNextTrack2.png</texturenofocus>
+					<label>-</label>
+					<width>75</width>
+					<height>48</height>
+					<font>-</font>
+					<onclick>PlayerControl(Next)</onclick>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+				</control>
 			</control>
 		</control>
 	</include>
@@ -734,88 +834,4 @@
 			<scrollspeed>20</scrollspeed>
 		</control>
 	</include>
-	<!--<include name="MenuPlayerControls">
-		<control type="grouplist" id="6050">
-			<visible>Player.HasMedia + Control.IsVisible(9050)</visible>
-			<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-			<top>1010</top>
-			<left>9</left>
-			<height>48</height>
-			<width>400</width>
-			<align>center</align>
-			<itemgap>-10</itemgap>
-			<scrolltime tween="sine">200</scrolltime>
-			<orientation>horizontal</orientation>
-			<onup>9050</onup>
-			<ondown>1802</ondown>
-			<onleft>6050</onleft>
-			<onright>6050</onright>
-			<onback>ClearProperty(MediaMenu,Home)</onback>
-			<onback>50</onback>
-			<control type="button" id="600">
-				<texturefocus>osd/buttons/OSDPrevTrack.png</texturefocus>
-				<texturenofocus>osd/buttons/OSDPrevTrack2.png</texturenofocus>
-				<label>-</label>
-				<width>75</width>
-				<height>48</height>
-				<font>-</font>
-				<onclick>PlayerControl(Previous)</onclick>
-				<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-			</control>
-			<control type="button" id="601">
-				<texturefocus>osd/buttons/OSDRewind.png</texturefocus>
-				<texturenofocus>osd/buttons/OSDRewind2.png</texturenofocus>
-				<label>-</label>
-				<width>75</width>
-				<height>48</height>
-				<font>-</font>
-				<onclick>PlayerControl(Rewind)</onclick>
-				<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-			</control>
-			<control type="togglebutton" id="602">
-				<texturefocus>osd/buttons/OSDPause.png</texturefocus>
-				<texturenofocus>osd/buttons/OSDPause2.png</texturenofocus>
-				<alttexturefocus>osd/buttons/OSDPlay.png</alttexturefocus>
-				<alttexturenofocus>osd/buttons/OSDPlay2.png</alttexturenofocus>
-				<label>-</label>
-				<altlabel>208</altlabel>
-				<width>75</width>
-				<height>48</height>
-				<font>-</font>
-				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-				<onclick>PlayerControl(Play)</onclick>
-				<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-			</control>
-			<control type="button" id="603">
-				<texturefocus>osd/buttons/OSDStop.png</texturefocus>
-				<texturenofocus>osd/buttons/OSDStop2.png</texturenofocus>
-				<label>-</label>
-				<width>75</width>
-				<height>48</height>
-				<font>-</font>
-				<onclick>PlayerControl(Stop)</onclick>
-				<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-			</control>
-			<control type="button" id="604">
-				<texturefocus>osd/buttons/OSDForward.png</texturefocus>
-				<texturenofocus>osd/buttons/OSDForward2.png</texturenofocus>
-				<label>-</label>
-				<width>75</width>
-				<height>48</height>
-				<font>-</font>
-				<onclick>PlayerControl(Forward)</onclick>
-				<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-			</control>
-			<control type="button" id="605">
-				<texturefocus>osd/buttons/OSDNextTrack.png</texturefocus>
-				<texturenofocus>osd/buttons/OSDNextTrack2.png</texturenofocus>
-				<label>-</label>
-				<width>75</width>
-				<height>48</height>
-				<font>-</font>
-				<onclick>PlayerControl(Next)</onclick>
-				<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-			</control>
-		</control>
-	</include>-->
 </includes>
