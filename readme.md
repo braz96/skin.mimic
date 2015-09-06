@@ -14,6 +14,8 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 ***
 **3.0.0**
 - Updated Mimic for Kodi 16 Jarvis.
+- Continued adding additional artwork options to several views.
+- Added player controls to the side menu.
 
 ***
 **2.3.0**
