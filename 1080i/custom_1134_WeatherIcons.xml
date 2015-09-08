@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1134" type="dialog">
+	<defaultcontrol always="true">90100</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<left>564</left>
+		<top>230</top>
+	</coordinates>
+	<include>dialogeffect</include>
+	<controls>
+		<include name="DialogBackgroundCommons">
+            <param name="DialogBackgroundWidth" value="792" />
+            <param name="DialogBackgroundHeight" value="620" />
+            <param name="DialogHeaderLabel" value="$LOCALIZE[31158]" />
+            <param name="DialogHeaderId" value="1" />
+        </include>
+		<control type="list" id="90100">
+			<left>32</left>
+			<top>88</top>
+			<width>730</width>
+			<height>500</height>
+			<onup>90100</onup>
+			<ondown>90100</ondown>
+			<onleft>90100</onleft>
+			<onright>60</onright>
+			<pagecontrol>60</pagecontrol>
+			<scrolltime tween="quadratic" easing="out">200</scrolltime>
+			<itemlayout height="100" width="730">
+				<control type="label">
+					<left>100</left>
+					<width>560</width>
+					<height>100</height>
+					<textoffsetx>15</textoffsetx>
+					<font>font14</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(default.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.default)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(3d-coloured.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.3d-coloured)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(3d-white.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.3d-white)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(coloured.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.coloured)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(flat.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.flat)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(grey.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.grey)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(outline.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.outline)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(transparent.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.transparent)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(white.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.white)</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<top>10</top>
+					<width>80</width>
+					<height>80</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout height="100" width="730">
+				<control type="image">
+					<width>729</width>
+					<height>100</height>
+					<texture>listselect_fo.png</texture>
+					<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+					<visible>Control.HasFocus(90100)</visible>
+					<include>VisibleFadeEffect</include>
+				</control>
+				<control type="label">
+					<left>100</left>
+					<width>560</width>
+					<height>100</height>
+					<textoffsetx>15</textoffsetx>
+					<font>font14</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<scroll>true</scroll>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(90100)">Conditional</animation>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(default.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.default)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(3d-coloured.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.3d-coloured)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(3d-white.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.3d-white)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(coloured.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.coloured)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(flat.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.flat)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(grey.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.grey)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(outline.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.outline)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(transparent.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.transparent)</visible>
+				</control>
+				<control type="label">
+					<include>WeatherIconCommons</include>
+					<label>$INFO[ListItem.Property(white.selected)]</label>
+					<visible>Skin.HasSetting(Enable.Weather.white)</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<top>10</top>
+					<width>80</width>
+					<height>80</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+				</control>
+			</focusedlayout>
+			<content>
+				<item>
+					<label>$INFO[System.AddonTitle(resource.images.weathericons.default)]</label>
+					<icon>$INFO[System.AddonIcon(resource.images.weathericons.default)]</icon>
+					<property name="default.selected">✓</property>
+					<onclick>Skin.Reset(Enable.Weather.3d-coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-white)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.flat)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.grey)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.outline)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.transparent)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.white)</onclick>
+					<onclick>Skin.SetBool(Enable.Weather.default)</onclick>
+					<visible>System.HasAddon(resource.images.weathericons.default)</visible>
+				</item>
+				<item>
+					<label>$INFO[System.AddonTitle(resource.images.weathericons.3d-coloured)]</label>
+					<icon>$INFO[System.AddonIcon(resource.images.weathericons.3d-coloured)]</icon>
+					<property name="3d-coloured.selected">✓</property>
+					<onclick>Skin.Reset(Enable.Weather.default)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-white)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.flat)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.grey)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.outline)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.transparent)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.white)</onclick>
+					<onclick>Skin.SetBool(Enable.Weather.3d-coloured)</onclick>
+					<visible>System.HasAddon(resource.images.weathericons.3d-coloured)</visible>
+				</item>
+				<item>
+					<label>$INFO[System.AddonTitle(resource.images.weathericons.3d-white)]</label>
+					<icon>$INFO[System.AddonIcon(resource.images.weathericons.3d-white)]</icon>
+					<property name="3d-white.selected">✓</property>
+					<onclick>Skin.Reset(Enable.Weather.default)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.flat)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.grey)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.outline)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.transparent)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.white)</onclick>
+					<onclick>Skin.SetBool(Enable.Weather.3d-white)</onclick>
+					<visible>System.HasAddon(resource.images.weathericons.3d-white)</visible>
+				</item>
+				<item>
+					<label>$INFO[System.AddonTitle(resource.images.weathericons.coloured)]</label>
+					<icon>$INFO[System.AddonIcon(resource.images.weathericons.coloured)]</icon>
+					<property name="coloured.selected">✓</property>
+					<onclick>Skin.Reset(Enable.Weather.default)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-white)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.flat)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.grey)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.outline)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.transparent)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.white)</onclick>
+					<onclick>Skin.SetBool(Enable.Weather.coloured)</onclick>
+					<visible>System.HasAddon(resource.images.weathericons.coloured)</visible>
+				</item>
+				<item>
+					<label>$INFO[System.AddonTitle(resource.images.weathericons.flat)]</label>
+					<icon>$INFO[System.AddonIcon(resource.images.weathericons.flat)]</icon>
+					<property name="flat.selected">✓</property>
+					<onclick>Skin.Reset(Enable.Weather.default)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-white)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.grey)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.outline)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.transparent)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.white)</onclick>
+					<onclick>Skin.SetBool(Enable.Weather.flat)</onclick>
+					<visible>System.HasAddon(resource.images.weathericons.flat)</visible>
+				</item>
+				<item>
+					<label>$INFO[System.AddonTitle(resource.images.weathericons.grey)]</label>
+					<icon>$INFO[System.AddonIcon(resource.images.weathericons.grey)]</icon>
+					<property name="grey.selected">✓</property>
+					<onclick>Skin.Reset(Enable.Weather.default)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-white)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.flat)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.outline)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.transparent)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.white)</onclick>
+					<onclick>Skin.SetBool(Enable.Weather.grey)</onclick>
+					<visible>System.HasAddon(resource.images.weathericons.grey)</visible>
+				</item>
+				<item>
+					<label>$INFO[System.AddonTitle(resource.images.weathericons.outline)]</label>
+					<icon>$INFO[System.AddonIcon(resource.images.weathericons.outline)]</icon>
+					<property name="outline.selected">✓</property>
+					<onclick>Skin.Reset(Enable.Weather.default)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-white)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.flat)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.grey)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.transparent)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.white)</onclick>
+					<onclick>Skin.SetBool(Enable.Weather.outline)</onclick>
+					<visible>System.HasAddon(resource.images.weathericons.outline)</visible>
+				</item>
+				<item>
+					<label>$INFO[System.AddonTitle(resource.images.weathericons.transparent)]</label>
+					<icon>$INFO[System.AddonIcon(resource.images.weathericons.transparent)]</icon>
+					<property name="transparent.selected">✓</property>
+					<onclick>Skin.Reset(Enable.Weather.default)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-white)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.flat)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.grey)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.outline)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.white)</onclick>
+					<onclick>Skin.SetBool(Enable.Weather.transparent)</onclick>
+					<visible>System.HasAddon(resource.images.weathericons.transparent)</visible>
+				</item>
+				<item>
+					<label>$INFO[System.AddonTitle(resource.images.weathericons.white)]</label>
+					<icon>$INFO[System.AddonIcon(resource.images.weathericons.white)]</icon>
+					<property name="white.selected">✓</property>
+					<onclick>Skin.Reset(Enable.Weather.default)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.3d-white)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.coloured)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.flat)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.grey)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.outline)</onclick>
+					<onclick>Skin.Reset(Enable.Weather.transparent)</onclick>
+					<onclick>Skin.SetBool(Enable.Weather.white)</onclick>
+					<visible>System.HasAddon(resource.images.weathericons.white)</visible>
+				</item>
+			</content>
+		</control>
+		<control type="scrollbar" id="60">
+			<left>764</left>
+			<top>88</top>
+			<height>500</height>
+			<width>8</width>
+			<onleft>90100</onleft>
+			<onright>90100</onright>
+			<ondown>60</ondown>
+			<onup>60</onup>
+		</control>
+	</controls>
+</window>
