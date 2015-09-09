@@ -2055,6 +2055,8 @@
 			<left>-440</left>
 			<include>SideBladeLeft</include>
 			<control type="grouplist" id="9050">
+				<visible>!Window.IsVisible(1134)</visible>
+				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
 				<left>0</left>
 				<top>115</top>
 				<width>400</width>
@@ -2082,18 +2084,19 @@
 					<font>-</font>
 					<include>ButtonCommonValues</include>
 				</control>
+				<control type="button" id="210">
+					<description>Select weather icons</description>
+					<include>ButtonCommonValues</include>
+					<label>536</label>
+					<label2>$VAR[WeatherIconLabelVar]</label2>
+					<onclick>ActivateWindow(1134)</onclick>
+				</control>
 				<control type="radiobutton" id="209">
 					<description>View Toggle</description>
 					<include>ButtonCommonValues</include>
 					<label>31507</label>
 					<onclick>Skin.ToggleSetting(Enable.BasicWeatherView)</onclick>
 					<selected>Skin.HasSetting(Enable.BasicWeatherView)</selected>
-				</control>
-				<control type="button" id="210">
-					<description>Select weather icons</description>
-					<include>ButtonCommonValues</include>
-					<label>31158</label>
-					<onclick>ActivateWindow(1134)</onclick>
 				</control>
 				<control type="label" id="203">
 					<width>400</width>
@@ -2156,6 +2159,8 @@
 				</include>
 			</control>
 			<control type="group">
+				<visible>!Window.IsVisible(1134)</visible>
+				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
 				<left>0</left>
 				<top>167</top>
 				<control type="label" id="201">
