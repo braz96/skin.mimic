@@ -449,68 +449,7 @@
 					</control>
 				</control>
 			</control>
-			<control type="group">
-				<visible>System.HasAddon(script.extendedinfo) + !Skin.HasSetting(Disable.AutoComplete) + !IsEmpty(Control.GetLabel(312).index(1)) + !Window.IsVisible(1130) + !System.HasHiddenInput + !Control.IsVisible(313)</visible>
-				<top>563</top>
-				<control type="group">
-					<animation effect="fade" time="300" tween="cubic" start="0" end="100" reversible="false" condition="!IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
-					<animation effect="fade" time="150" tween="cubic" start="100" end="0" reversible="false" condition="IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
-					<include name="DialogBackgroundCommons">
-						<param name="DialogBackgroundWidth" value="1320" />
-						<param name="DialogBackgroundHeight" value="220" />
-					</include>
-				</control>
-				<control type="panel" id="5000">
-					<left>35</left>
-					<top>30</top>
-					<width>1280</width>
-					<height>160</height>
-					<onleft>5000</onleft>
-					<onright>5000</onright>
-					<onup>4000</onup>
-					<ondown>4000</ondown>
-					<onback>noop</onback>
-					<orientation>vertical</orientation>
-					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="80" width="315">
-						<control type="image">
-							<top>5</top>
-							<width>305</width>
-							<height>70</height>
-							<texture colordiffuse="shadow">topbar.png</texture>
-						</control>
-						<control type="label">
-							<top>5</top>
-							<width>305</width>
-							<height>70</height>
-							<align>center</align>
-							<textcolor>grey</textcolor>
-							<textoffsetx>5</textoffsetx>
-							<font>font14</font>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="80" width="315">
-						<control type="image">
-							<top>5</top>
-							<width>305</width>
-							<height>70</height>
-							<texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-							<visible>Control.HasFocus(5000)</visible>
-						</control>
-						<control type="label">
-							<top>5</top>
-							<width>305</width>
-							<height>70</height>
-							<align>center</align>
-							<textoffsetx>5</textoffsetx>
-							<font>font14</font>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</focusedlayout>
-					<content>plugin://script.extendedinfo?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=8</content>
-				</control>
-			</control>
+			<include condition="System.HasAddon(script.extendedinfo) + !Skin.HasSetting(Disable.AutoComplete) + !System.HasHiddenInput">ExtendedInfoAutoComplete</include>
 			<control type="group">
 				<visible>Control.IsVisible(313) + !IsEmpty(Control.GetLabel(313))</visible>
 				<top>563</top>
