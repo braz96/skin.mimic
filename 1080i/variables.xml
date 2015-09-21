@@ -369,29 +369,25 @@
 		<value condition="Skin.HasSetting(Enable.HomeTopMenu)">$LOCALIZE[31071]</value>
 		<value condition="Skin.HasSetting(Enable.HomeVerticalMenu)">$LOCALIZE[31072]</value>
 	</variable>
-	<variable name="WidgetListContent">
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),2)">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),5)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window.Property(randomepisodes)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),6)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),7)">plugin://service.library.data.provider?type=randomsongs&amp;reload=$INFO[Window.Property(randomsongs)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),8)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),9)">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),10)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window.Property(recommendedalbums)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),20)">plugin://script.extendedinfo?info=trendingmovies</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),21)">plugin://script.extendedinfo?info=trendingshows</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),22)">plugin://script.extendedinfo?info=toprentals</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),23)">plugin://script.extendedinfo?info=topartists</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),24)">plugin://script.extendedinfo?info=dailybabes</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),25)">$INFO[Skin.String(CustomWidget1Path.List)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),26)">$INFO[Skin.String(CustomWidget2Path.List)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),27)">$INFO[Skin.String(CustomWidget3Path.List)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),28)">$INFO[Skin.String(CustomWidget4Path.List)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),29)">$INFO[Skin.String(CustomWidget5Path.List)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),30)">$INFO[Skin.String(CustomWidget6Path.List)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),31)">$INFO[Skin.String(CustomWidget7Path.List)]</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(Widget),32)">$INFO[Skin.String(CustomWidget8Path.List)]</value>
-		<value condition="!IsEmpty(Container(9000).ListItem.Property(Widget))">$INFO[Container(9000).ListItem.Property(Widget)]</value>
+
+	<variable name="widgetLine1">
+		<value condition="!IsEmpty(Container(8000).ListItem.Episode)">$INFO[Container(8000).ListItem.Season,,x]$INFO[Container(8000).ListItem.Episode,,. ]$INFO[Container(8000).ListItem.Title]</value>
+		<value condition="!IsEmpty(Container(8000).ListItem.Title)">$INFO[Container(8000).ListItem.Title]</value>
+		<value>$INFO[Container(8000).ListItem.Label]</value>
 	</variable>
+	<variable name="widgetLine2">
+		<value condition="!IsEmpty(Container(8000).ListItem.Episode)">• $INFO[Container(8000).ListItem.TvShowTitle]$INFO[Container(8000).ListItem.Premiered, • ]</value>
+		<value condition="!IsEmpty(Container(8000).ListItem.Artist)">• $INFO[Container(8000).ListItem.Artist]$INFO[Container(8000).ListItem.Year, • ]</value>
+		<value condition="!IsEmpty(Container(8000).ListItem.Year)">• $INFO[Container(8000).ListItem.Year]</value>
+		<value condition="!IsEmpty(Container(8000).ListItem.Label2">• $INFO[Container(8000).ListItem.Label2]</value>
+	</variable>
+	<variable name="widgetLine3">
+		<value condition="!IsEmpty(Container(8000).ListItem.Episode)">$INFO[Container(8000).ListItem.TvShowTitle]$INFO[Container(8000).ListItem.Premiered, • ]</value>
+		<value condition="!IsEmpty(Container(8000).ListItem.Artist)">$INFO[Container(8000).ListItem.Artist]$INFO[Container(8000).ListItem.Year, • ]</value>
+		<value condition="!IsEmpty(Container(8000).ListItem.Year)">$INFO[Container(8000).ListItem.Year]</value>
+		<value>$INFO[Container(8000).ListItem.Label2]</value>
+	</variable>
+
 	<variable name="InfoLineLabelVar">
 		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),1)">$LOCALIZE[31097]</value>
 		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),2)">$LOCALIZE[31098]</value>

@@ -4,7 +4,7 @@
 		<control type="group" id="9003">
 			<include>VisibleFadeEffect</include>
 			<control type="group">
-				<visible>!IsEmpty(Container(9000).ListItem.Property(Widget)) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
+				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
 				<animation effect="fade" start="0" end="100" delay="200" time="300" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="300" condition="[[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] | Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious] + Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
@@ -43,8 +43,8 @@
 						<font>font15_title</font>
 						<align>right</align>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<label>$INFO[Container(9000).ListItem.Property(WidgetLabel)]</label>
-						<visible>!StringCompare(Container(9000).ListItem.Property(WidgetType),3) + !Container(8000).IsUpdating + !Container(9000).OnNext + !Container(9000).OnPrevious</visible>
+						<label>$INFO[Container(9000).ListItem.Property(widgetName)]</label>
+						<visible>!Container(8000).IsUpdating + !Container(9000).OnNext + !Container(9000).OnPrevious</visible>
 					</control>
 					<control type="group">
 						<visible>Container(8000).IsUpdating</visible>
@@ -68,8 +68,8 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) |  StringCompare(Container(9000).ListItem.Property(WidgetType),5)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left) + Control.HasFocus(8000)</visible>
-						<visible>![Container(8000).OnNext | Container(8000).OnPrevious]</visible>
+						<visible>![Container(8000).OnNext | Container(8000).OnPrevious] + !StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
+						<visible>[StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),movies)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)</visible>
 						<animation effect="fade" start="0" end="100" delay="800" time="250" reversible="false">Visible</animation>
 						<top>825</top>
 						<left>349</left>
@@ -78,54 +78,21 @@
 							<height>50</height>
 							<font>font16_title</font>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>$INFO[Container(8000).ListItem.Title]$INFO[Container(8000).ListItem.Year, • ]</label>
-							<visible>IsEmpty(Container(8000).ListItem.Episode)</visible>
+							<label>$VAR[widgetLine1] $VAR[widgetLine2]</label>
 						</control>
+					</control>
+					<control type="group">
+						<visible>![Container(8000).OnNext | Container(8000).OnPrevious] + !StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
+						<visible>![[StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),movies)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)]</visible>
+						<animation effect="fade" start="0" end="100" delay="800" time="250" reversible="false">Visible</animation>
+						<top>825</top>
+						<left>527</left>
 						<control type="label">
 							<width>1750</width>
 							<height>50</height>
 							<font>font16_title</font>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>$INFO[Container(8000).ListItem.TvShowTitle]$INFO[Container(8000).ListItem.Season, • ,x]$INFO[Container(8000).ListItem.Episode,,. ]$INFO[Container(8000).ListItem.Title]$INFO[Container(8000).ListItem.Premiered, • ]</label>
-							<visible>!IsEmpty(Container(8000).ListItem.Episode)</visible>
-						</control>						
-					</control>
-					<control type="group">
-						<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)] + Control.HasFocus(8000)</visible>
-						<visible>![Container(8000).OnNext | Container(8000).OnPrevious]</visible>
-						<animation effect="fade" start="0" end="100" delay="800" time="250" reversible="false">Visible</animation>
-						<top>825</top>
-						<left>527</left>
-						<control type="label">
-							<width>1363</width>
-							<height>50</height>
-							<font>font16_title</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>$INFO[Container(8000).ListItem.Artist]$INFO[Container(8000).ListItem.Title, • ]$INFO[Container(8000).ListItem.Year, • ]</label>
-							<visible>!IsEmpty(Container(8000).ListItem.Artist)</visible>
-						</control>
-						<control type="label">
-							<width>1363</width>
-							<height>50</height>
-							<font>font16_title</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>$INFO[Container(8000).ListItem.Label]</label>
-							<visible>IsEmpty(Container(8000).ListItem.Artist)</visible>
-						</control>
-					</control>
-					<control type="group">
-						<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),6) + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left) + Control.HasFocus(8000)</visible>
-						<visible>![Container(8000).OnNext | Container(8000).OnPrevious]</visible>
-						<animation effect="fade" start="0" end="100" delay="800" time="250" reversible="false">Visible</animation>
-						<top>825</top>
-						<left>782</left>
-						<control type="label">
-							<width>1120</width>
-							<height>50</height>
-							<font>font16_title</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>$INFO[Container(8000).ListItem.Title]</label>
-							<scroll>true</scroll>
+							<label>$VAR[widgetLine1] $VAR[widgetLine2]</label>
 						</control>
 					</control>
 				</control>
@@ -134,7 +101,7 @@
 	</include>
 	<include name="HomePanelWidgets">
 		<control type="group" id="9003">
-			<visible>!IsEmpty(Container(9000).ListItem.Property(Widget))</visible>
+			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath))</visible>
 			<control type="group">
 				<animation effect="slide" start="0" end="-700" time="300" reversible="false" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="slide" end="0" start="-700" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
@@ -208,98 +175,27 @@
 						<font>font15_title</font>
 						<align>center</align>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<label>$INFO[Container(9000).ListItem.Property(WidgetLabel)]</label>
-						<visible>!StringCompare(Container(9000).ListItem.Property(WidgetType),3)</visible>
+						<label>$INFO[Container(9000).ListItem.Property(widgetName)]</label>
 					</control>
 					<control type="group">
-						<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),1) |  StringCompare(Container(9000).ListItem.Property(WidgetType),5)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)</visible>
 						<top>917</top>
 						<left>2680</left>
-						<control type="group">
-							<control type="label">
-								<width>621</width>
-								<height>45</height>
-								<font>font16_title</font>
-								<scroll>true</scroll>
-								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<label>$INFO[Container(8000).ListItem.Title]</label>
-								<visible>IsEmpty(Container(8000).ListItem.Episode)</visible>
-							</control>
-							<control type="label">
-								<top>45</top>
-								<width>621</width>
-								<height>45</height>
-								<font>font15</font>
-								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<label>$INFO[Container(8000).ListItem.Year]</label>
-								<visible>IsEmpty(Container(8000).ListItem.Episode)</visible>
-							</control>
-						</control>
-						<control type="group">
-							<control type="label">
-								<width>621</width>
-								<height>50</height>
-								<font>font16_title</font>
-								<scroll>true</scroll>
-								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<label>$INFO[Container(8000).ListItem.Season,,x]$INFO[Container(8000).ListItem.Episode,,. ]$INFO[Container(8000).ListItem.Title]</label>
-								<visible>!IsEmpty(Container(8000).ListItem.Episode)</visible>
-							</control>
-							<control type="label">
-								<top>45</top>
-								<width>621</width>
-								<height>50</height>
-								<font>font15</font>
-								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<label>$INFO[Container(8000).ListItem.TvShowTitle]$INFO[Container(8000).ListItem.Premiered, • ]</label>
-								<visible>!IsEmpty(Container(8000).ListItem.Episode)</visible>
-							</control>
-						</control>					
-					</control>
-					<control type="group">
-						<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),6) + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)</visible>
-						<top>910</top>
-						<left>2680</left>
-						<control type="textbox">
-							<width>621</width>
-							<height>110</height>
-							<aligny>top</aligny>
-							<font>font16_title</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>$INFO[Container(8000).ListItem.Title]</label>
-							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-						</control>
-					</control>
-					<control type="group">
-						<visible>[StringCompare(Container(9000).ListItem.Property(WidgetType),2) | SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)]</visible>
-						<top>917</top>
-						<left>2680</left>
-						<control type="group">
-							<visible>!IsEmpty(Container(8000).ListItem.Artist)</visible>
-							<control type="label">
-								<width>621</width>
-								<height>45</height>
-								<font>font16_title</font>
-								<scroll>true</scroll>
-								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<label>$INFO[Container(8000).ListItem.Title]</label>
-							</control>
-							<control type="label">
-								<top>45</top>
-								<width>621</width>
-								<height>45</height>
-								<font>font15</font>
-								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<label>$INFO[Container(8000).ListItem.Artist]$INFO[Container(8000).ListItem.Year, • ]</label>
-							</control>
-						</control>
+						<visible>!StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 						<control type="label">
 							<width>621</width>
 							<height>45</height>
 							<font>font16_title</font>
+							<scroll>true</scroll>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>$INFO[Container(8000).ListItem.Label]</label>
-							<visible>IsEmpty(Container(8000).ListItem.Artist)</visible>
+							<label>$VAR[widgetLine1]</label>
+						</control>
+						<control type="label">
+							<top>45</top>
+							<width>621</width>
+							<height>45</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<label>$VAR[widgetLine3]</label>
 						</control>
 					</control>
 				</control>
