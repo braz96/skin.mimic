@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window type="dialog" id="1121">
+<window type="dialog" id="1134">
 	<defaultcontrol always="true">211</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<coordinates>
@@ -150,20 +150,19 @@
 					<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
 					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
 				</control>
-				
-				<!--control type="button" id="90016">
-					To be replaced with skinshortcuts functionality
-					<description>Infoline Button</description>
+
+				<control type="button" id="500">
+					<description>Choose infoline</description>
 					<width>1316</width>
 					<height>90</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31053]</label>
-					<label2>$VAR[InfoLineLabelVar]</label2>
-					<onfocus>Skin.Reset(ItemToEdit.InfoLine)</onfocus>
-					<onclick>SetProperty(Mimic.InfoLine,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.InfoLine],home)</onclick>
-					<onclick>ActivateWindow(1125)</onclick>
-				</control-->
+					<label2>$INFO[Container(211).ListItem.Property(InfoLine)]</label2>
+					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<onclick>SetProperty(chooseProperty,InfoLine)</onclick>
+					<onclick>SendClick(404)</onclick>
+				</control>
 
 				<control type="button" id="303">
 					<description>Move up</description>
@@ -208,6 +207,16 @@
 				<ondown>60</ondown>
 				<onup>60</onup>
 			</control>
+		</control>
+
+		<!-- 404, for setting custom property -->
+		<control type="button" id="404">
+			<visible>False</visible>
+			<left>-100000</left>
+			<top>-100000</top>
+			<width>1</width>
+			<height>1</height>
+			<onclick>noop</onclick>
 		</control>
 	</controls>
 </window>
