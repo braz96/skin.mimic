@@ -183,7 +183,7 @@
 	
 	<include name="WidgetPanelContent">
 		<control type="image">
-			<visible>[StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),movies)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left) + Control.HasFocus(8000)</visible>
+			<visible>!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + Control.HasFocus(8000)</visible>
             <left>2674</left>
             <top>292</top>
             <width>219</width>
@@ -196,7 +196,7 @@
             <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2) | Container(8000).Column(1)">Conditional</animation>
         </control>
         <control type="image">
-        	<visible>![[StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),movies)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)] + Control.HasFocus(8000)</visible>
+        	<visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + Control.HasFocus(8000)</visible>
             <left>2681</left>
             <top>292</top>
             <width>316</width>
@@ -207,6 +207,19 @@
             <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(1)">Conditional</animation>
             <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2)">Conditional</animation>
             <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2) | Container(8000).Column(1)">Conditional</animation>
+        </control>
+        <control type="image">
+        	<visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + Control.HasFocus(8000)</visible>
+            <left>2674</left>
+            <top>292</top>
+            <width>322</width>
+            <height>215</height>
+            <animation effect="fade" time="320" delay="200">Visible</animation>
+            <animation effect="fade" time="200">Hidden</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+            <animation effect="slide" end="310,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(1)">Conditional</animation>
+            <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(2)">Conditional</animation>
+            <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(2) | Container(8000).Row(1)">Conditional</animation>
         </control>
 		<control type="panel" id="8000">
 			<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious | Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml)">Conditional</animation>
@@ -226,8 +239,8 @@
 			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath))</visible>
 			<autoscroll time="10000" delay="10000" repeat="10000">[Control.IsVisible(9003) + !Control.HasFocus(8000)] + !Skin.HasSetting(Disable.WidgetAutoScroll)</autoscroll>
 
-			<!-- TV Shows & Movies -->
-			<itemlayout height="304" width="207" condition="[StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),movies)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+			<!-- Poster -->
+			<itemlayout height="304" width="207" condition="!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
 				<control type="image">
 					<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
 					<top>6</top>
@@ -257,7 +270,7 @@
 					<fadetime>300</fadetime>
 				</control>
 			</itemlayout>
-			<focusedlayout height="304" width="207" condition="[StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),movies)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+			<focusedlayout height="304" width="207" condition="!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
 				<control type="group">
 					<include>PanelFocusedItemZoom</include>
 					<control type="image">
@@ -290,8 +303,8 @@
 				</control>
 			</focusedlayout>
 
-			<!-- Others -->
-			<itemlayout height="304" width="304">
+			<!-- Square -->
+			<itemlayout height="304" width="304" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])">
 				<control type="group">
 					<left>7</left>
 					<control type="image">
@@ -312,7 +325,7 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="298" width="298">
+			<focusedlayout height="298" width="298" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])">
 				<control type="group">
 					<include>PanelFocusedItemZoom</include>
                     <left>7</left>
@@ -333,6 +346,46 @@
 						<height>292</height>
 						<texture>thumbs/diffuse.png</texture>
 					</control>
+				</control>
+			</focusedlayout>
+
+			<!-- Landscape -->
+			<itemlayout height="203" width="310" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
+				<control type="image">
+					<top>6</top>
+					<left>6</left>
+					<width>298</width>
+					<height>191</height>
+					<aspectratio aligny="center" align="center">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<fadetime>400</fadetime>
+				</control>
+				<control type="image">
+					<top>6</top>
+					<left>6</left>
+					<width>298</width>
+					<height>191</height>
+					<texture>thumbs/diffuse.png</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout height="203" width="310" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
+				<include>PanelFocusedItemZoom</include>
+				<control type="image">
+					<top>6</top>
+					<left>6</left>
+					<width>298</width>
+					<height>191</height>
+					<aspectratio aligny="center" align="center">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="image">
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+					<top>6</top>
+					<left>6</left>
+					<width>298</width>
+					<height>191</height>
+					<texture>thumbs/diffuse.png</texture>
 				</control>
 			</focusedlayout>
 
