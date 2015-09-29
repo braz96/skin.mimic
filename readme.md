@@ -12,6 +12,10 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 
 
 ***
+**3.1.0**
+- BobCratchett updated Mimic to the latest skinshortcuts features. Thanks!
+
+***
 **3.0.0**
 - Updated Mimic for Kodi 16 Jarvis.
 - Continued adding additional artwork options to several views.
