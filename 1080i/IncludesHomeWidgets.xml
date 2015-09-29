@@ -118,7 +118,7 @@
 	</include>
 	<include name="HomePanelWidgets">
 		<control type="group" id="9003">
-			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath))</visible>
+			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath)) | StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 			<control type="group">
 				<animation effect="slide" start="0" end="-700" time="300" reversible="false" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="slide" end="0" start="-700" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
@@ -157,7 +157,7 @@
 				</control>
 				<include>WidgetPanelContent</include>
 				<control type="image">
-		        	<visible>StringCompare(Container(9000).ListItem.Property(WidgetType),3) + Skin.HasSetting(Enable.HomeVerticalMenu) + Control.HasFocus(8000)</visible>
+		        	<visible>StringCompare(Container(9000).ListItem.Property(widget),weather) + Skin.HasSetting(Enable.HomeVerticalMenu) + Control.HasFocus(8000)</visible>
 		            <left>2691</left>
 		            <top>260</top>
 		            <width>300</width>
@@ -184,6 +184,7 @@
 					</include>
 				</control>
 				<control type="group">
+					<visible>!StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 					<control type="label">
 						<left>2680</left>
 						<top>244</top>
@@ -197,7 +198,6 @@
 					<control type="group">
 						<top>917</top>
 						<left>2680</left>
-						<visible>!StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 						<control type="label">
 							<width>621</width>
 							<height>45</height>
