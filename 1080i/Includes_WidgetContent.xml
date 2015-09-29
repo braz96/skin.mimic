@@ -32,8 +32,8 @@
 		<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath))</visible>
 		<autoscroll time="10000" delay="10000" repeat="10000">[Control.IsVisible(9003) + !Control.HasFocus(8000)] + !Skin.HasSetting(Disable.WidgetAutoScroll)</autoscroll>
 		
-		<!-- TV Shows & Movies -->
-		<itemlayout height="320" width="220" condition="[StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),movies)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+		<!-- Poster -->
+		<itemlayout height="320" width="220" condition="!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
 			<control type="image">
 				<visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
 				<top>30</top>
@@ -60,7 +60,7 @@
 				<texture>thumbs/diffuse.png</texture>
 			</control>
 		</itemlayout>
-		<focusedlayout height="320" width="220" condition="[StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),movies)] + !SubString(Container(9000).ListItem.Property(Widget),addons://sources/,left)">
+		<focusedlayout height="320" width="220" condition="!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
 			<control type="group">
 				<animation center="190,180" easing="inout" effect="zoom" end="136" start="100" time="300" tween="sine">Focus</animation>
 				<animation center="190,180" easing="inout" effect="zoom" end="100" start="136" time="300" tween="sine">UnFocus</animation>
@@ -94,8 +94,8 @@
 			</control>
 		</focusedlayout>
 
-		<!-- Others -->
-		<itemlayout height="300" width="330">
+		<!-- Square -->
+		<itemlayout height="300" width="330" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])">
 			<control type="image">
 				<top>30</top>
 				<left>148</left>
@@ -112,7 +112,7 @@
 				<texture>thumbs/diffuse.png</texture>
 			</control>
 		</itemlayout>
-		<focusedlayout height="300" width="330">
+		<focusedlayout height="300" width="330" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])">
 			<control type="group">
 				<animation center="298,180" easing="inout" effect="zoom" end="136" start="100" time="300" tween="sine">Focus</animation>
 				<animation center="298,180" easing="inout" effect="zoom" end="100" start="136" time="300" tween="sine">UnFocus</animation>
@@ -128,6 +128,48 @@
 					<top>30</top>
 					<left>148</left>
 					<width>300</width>
+					<height>300</height>
+					<texture>thumbs/diffuse.png</texture>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+				</control>
+			</control>
+		</focusedlayout>
+
+		<!-- Landscape -->
+		<itemlayout height="300" width="563" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
+			<control type="image">
+				<top>30</top>
+				<left>130</left>
+				<width>533</width>
+				<height>300</height>
+				<aspectratio aligny="center" align="center">scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+			</control>
+			<control type="image">
+				<top>30</top>
+				<left>130</left>
+				<width>533</width>
+				<height>300</height>
+				<texture>thumbs/diffuse.png</texture>
+			</control>
+		</itemlayout>
+		<focusedlayout height="300" width="563" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
+			<control type="group">
+				<animation center="396,180" easing="inout" effect="zoom" end="136" start="100" time="300" tween="sine">Focus</animation>
+				<animation center="396,180" easing="inout" effect="zoom" end="100" start="136" time="300" tween="sine">UnFocus</animation>
+				<control type="image">
+					<top>30</top>
+					<left>130</left>
+					<width>533</width>
+					<height>300</height>
+					<aspectratio aligny="center" align="center">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+				</control>
+				<control type="image">
+					<top>30</top>
+					<left>130</left>
+					<width>533</width>
 					<height>300</height>
 					<texture>thumbs/diffuse.png</texture>
 					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
