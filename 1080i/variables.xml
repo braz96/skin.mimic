@@ -577,6 +577,12 @@
 		<value condition="Skin.HasSetting(Enable.Landscape.Art) + !IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
 		<value>$INFO[ListItem.Art(fanart)]</value>
 	</variable>
+	<variable name="LandscapeImage">
+        <value condition="!IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+        <value condition="!IsEmpty(ListItem.Art(fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+        <value>$INFO[ListItem.Icon]</value>
+    </variable>
 	<variable name="ArtLabelVar">
 		<value condition="[Control.IsVisible(57) + Skin.HasSetting(Enable.ShiftLandscape) + Window.IsActive(videolibrary)] | [Control.IsVisible(500) + Skin.HasSetting(Enable.IconLandscape)] | [Control.IsVisible(505) + !Skin.HasSetting(Enable.PanelFanart) + !Skin.HasSetting(Enable.PanelLogo)] | [Control.IsVisible(507) + !Skin.HasSetting(Enable.BigListPoster) + !Skin.HasSetting(Enable.BigListLogo) + !Skin.HasSetting(Enable.BigListFanart) + !Window.IsActive(musiclibrary)] | [Control.IsVisible(509) + Skin.HasSetting(Enable.WallLandscape)]">$LOCALIZE[31100]</value>
 		<value condition="[Control.IsVisible(51) + Skin.HasSetting(InfoWall.Banners)] | [Control.IsVisible(500) + Skin.HasSetting(Enable.IconBanner)] | [Control.IsVisible(509) + Skin.HasSetting(Enable.WallBanner)]">$LOCALIZE[31085]</value>
