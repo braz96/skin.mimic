@@ -66,7 +66,7 @@
 			<param name="CloseIconSetFocus" value="SetFocus(50)" />
 			<param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + !Window.IsActive(1118) + !Window.IsActive(1129) + !Window.IsActive(1133)" />
 		</include>
-		<control type="image">
+		<!--<control type="image">
 			<description>LOGO</description>
 			<left>0</left>
 			<top>25</top>
@@ -75,7 +75,7 @@
 			<aspectratio>keep</aspectratio>
 			<texture>logo.png</texture>
 			<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-		</control>
+		</control>-->
 	</include>
 	<include name="SideBladeCloseIcon">
 		<control type="button" id="8999">
@@ -110,7 +110,7 @@
 	</include>
 	<include name="MediaMenuTop">
 		<left>0</left>
-		<top>115</top>
+		<top>10</top>
 		<width>400</width>
 		<height>1080</height>
 		<onleft>9050</onleft>
@@ -222,6 +222,13 @@
 			<onclick>Skin.ToggleSetting(Enable.SlimList)</onclick>
 			<selected>Skin.HasSetting(Enable.SlimList)</selected>
 			<visible>Control.IsVisible(50) + ![Window.IsActive(eventlog) | Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(radiochannels) | Window.IsActive(radiorecordings) | Window.IsActive(radiotimers) | Window.IsActive(radiosearch)]</visible>
+		</control>
+		<control type="button" id="1811">
+			<label>31926</label>
+			<include>ButtonCommonValues</include>
+			<onclick condition="Player.HasVideo">ActivateWindow(fullscreenvideo)</onclick>
+			<onclick condition="Player.HasAudio">ActivateWindow(visualisation)</onclick>
+			<visible>Player.HasMedia</visible>
 		</control>
 	</include>
 	<include name="PVRMediaMenu">
@@ -336,7 +343,7 @@
 			<left>-440</left>
 			<include>SideBladeLeft</include>
 			<control type="label">
-				<top>115</top>
+				<top>10</top>
 				<height>60</height>
 				<textoffsetx>15</textoffsetx>
 				<font>font13_title</font>
@@ -345,7 +352,7 @@
 			</control>
 			<control type="list" id="9050">
 				<left>0</left>
-				<top>175</top>
+				<top>65</top>
 				<width>400</width>
 				<height>1080</height>
 				<onleft>9050</onleft>
