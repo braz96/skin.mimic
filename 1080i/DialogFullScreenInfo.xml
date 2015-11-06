@@ -88,7 +88,8 @@
 			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>
 			<top>680</top>
-			<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)</visible>
+			<!--<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)</visible>-->
+			<visible>![VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</visible>
 			<visible>!Window.IsActive(videoosd)</visible>
 			<control type="image">
 				<left>0</left>
@@ -118,7 +119,7 @@
 					<aligny>top</aligny>
 					<label>[B]$VAR[PlayerTitleLabelVar][/B]</label>
 					<visible>!VideoPlayer.Content(episodes)</visible>
-					<scroll>true</scroll>
+					<scroll>false</scroll>
 				</control>
 				<control type="label">
 					<width>1350</width>
@@ -129,7 +130,7 @@
 					<aligny>top</aligny>
 					<label>[B]$INFO[VideoPlayer.Season,,X]$INFO[VideoPlayer.Episode,,. ]$VAR[PlayerTitleLabelVar][/B]</label>
 					<visible>VideoPlayer.Content(episodes)</visible>
-					<scroll>true</scroll>
+					<scroll>false</scroll>
 				</control>
 				<control type="label">
 					<width>1600</width>
@@ -215,7 +216,7 @@
 				<texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[Player.StarRating]</texture>
 			</control>
 		</control>
-		<control type="group">
+		<!--<control type="group">
 			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>
 			<top>795</top>
@@ -303,7 +304,7 @@
 				<aligny>center</aligny>
 				<label>$VAR[SeekLabelVar]</label>
 			</control>
-		</control>
+		</control>-->
 		<control type="group">
 			<animation effect="slide" start="0,290" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,290" end="0,0" time="200">VisibleChange</animation>
@@ -331,7 +332,7 @@
 				<top>25</top>
 				<width>1585</width>
 				<height>40</height>
-				<scroll>true</scroll>
+				<scroll>false</scroll>
 				<font>font16_title</font>
 				<textcolor>$VAR[ColorTextVar]</textcolor>
 				<label>[B]$INFO[VideoPlayer.Artist,, - ]$INFO[VideoPlayer.Title][/B]</label>
