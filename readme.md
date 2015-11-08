@@ -14,6 +14,7 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 ***
 **3.1.0**
 - BobCratchett updated Mimic to the latest skinshortcuts features. Thanks!
+- Updated language files from Transifex.
 
 ***
 **3.0.0**
