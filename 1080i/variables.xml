@@ -62,7 +62,6 @@
 	</variable>
 	<variable name="OverlayVar">
 		<value condition="Container.ListItem.IsResumable + IsEmpty(Window(Home).Property(Overlay.Resumable))">overlays/showcase/resumable.png</value>
-		<value condition="StringCompare(Window(Home).Property(Overlay.Path),overlays/showcase/3/)">$INFO[ListItem.Overlay,overlays/showcase/3/]</value>
 		<value condition="StringCompare(Window(Home).Property(Overlay.Path),overlays/showcase/2/)">$INFO[ListItem.Overlay,overlays/showcase/2/]</value>
 		<value condition="StringCompare(Window(Home).Property(Overlay.Path),overlays/showcase/1/)">$INFO[ListItem.Overlay,overlays/showcase/1/]</value>
 		<value>$INFO[ListItem.Overlay,overlays/showcase/]</value>
@@ -385,35 +384,6 @@
 		<value condition="!IsEmpty(Container(8000).ListItem.Year)">$INFO[Container(8000).ListItem.Year]</value>
 		<value>$INFO[Container(8000).ListItem.Label2]</value>
 	</variable>
-
-	<!--<variable name="InfoLineLabelVar">
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),1)">$LOCALIZE[31097]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),2)">$LOCALIZE[31098]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),3)">$LOCALIZE[31099]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),4)">$LOCALIZE[31058]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),5)">$LOCALIZE[20088]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),6)">$LOCALIZE[31061]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),7)">$LOCALIZE[31082]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),8)">$LOCALIZE[130]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),9)">$LOCALIZE[31130]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),10)">$LOCALIZE[31131]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(InfoLine),11)">$LOCALIZE[31132]</value>
-	</variable>-->
-	<variable name="BackgroundLabel2Var">
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),1)">$LOCALIZE[31062]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),2)">$LOCALIZE[31063]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),3)">$LOCALIZE[31064]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),4)">$LOCALIZE[31065]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),5)">$LOCALIZE[31066]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),6)">$LOCALIZE[31084]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),7)">$LOCALIZE[31028]: $LOCALIZE[31029]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),8)">$LOCALIZE[31028]: $LOCALIZE[31030]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),9)">$LOCALIZE[31028]: $LOCALIZE[31035]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Art(thumb),10)">$LOCALIZE[31028]: $LOCALIZE[31036]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(BGType),4) | StringCompare(Container(90000).ListItem.Property(BGType),5)">$INFO[Container(90000).ListItem.Art(thumb),$LOCALIZE[31028]: ]</value>
-		<value condition="StringCompare(Container(90000).ListItem.Property(BGType),7)">$INFO[Container(90000).ListItem.Art(thumb),$LOCALIZE[20012]: ]</value>
-		<value>$INFO[Container(90000).ListItem.Art(thumb)]</value>
-	</variable>
 	<variable name="RatingFlagVar">
 		<value condition="SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)">flags/mpaa/G.png</value>
 		<value condition="SubString(ListItem.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
@@ -507,12 +477,6 @@
 	<variable name="VideoSubLabelVar">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[20360]: $INFO[ListItem.Property(TotalEpisodes)][COLOR $VAR[ColorHighlightVar]]$INFO[ListItem.Property(UnWatchedEpisodes), (,[LOWERCASE] $LOCALIZE[16101][/LOWERCASE])][/COLOR]</value>
 		<value>$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
-	</variable>
-	<variable name="WidgetListTargetVar">
-		<value condition="StringCompare(Container(9000).ListItem.Property(WidgetType),1)">video</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(WidgetType),2)">music</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(WidgetType),4)">programs</value>
-		<value condition="StringCompare(Container(9000).ListItem.Property(WidgetType),5)">pictures</value>
 	</variable>
 	<!--<variable name="AudioChannelVar">
 		<value condition="IntegerGreaterThan(VideoPlayer.AudioChannels,7)">7.1</value>
