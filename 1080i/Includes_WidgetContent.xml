@@ -12,6 +12,8 @@
 		</control>
 	</include>
 	<include name="WidgetListContent">
+		<oninfo condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(8000).ListItem.Label])</oninfo>
+        <oninfo condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(8000).ListItem.TvShowTitle])</oninfo>
 		<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 		<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious | Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)">Conditional</animation>
 		<animation effect="fade" start="0" end="100" time="200" reversible="false" condition="![Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious | Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]">Conditional</animation>
@@ -222,6 +224,8 @@
             <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(2) | Container(8000).Row(1)">Conditional</animation>
         </control>
 		<control type="panel" id="8000">
+			<oninfo condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(8000).ListItem.Label])</oninfo>
+        	<oninfo condition="StringCompare(Container(9000).ListItem.Property(widgetType),episodes)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(8000).ListItem.TvShowTitle])</oninfo>
 			<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious | Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml)">Conditional</animation>
 			<left>2680</left>
 			<top>298</top>
