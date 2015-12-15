@@ -12,6 +12,14 @@
 		</control>
 		<control type="group">
 			<visible>IsEmpty(ListItem.Art(clearlogo))</visible>
+      <control type="image">
+				<left>0</left>
+				<top>50</top>
+				<width>1920</width>
+				<height>100</height>
+				<texture>background.png</texture>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+			</control>
 			<control type="textbox">
 				<left>0</left>
 				<top>0</top>
@@ -55,7 +63,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(510) + !Window.IsActive(addoninformation)</visible>
 			<include>ViewAnimation</include>
-			<control type="fixedlist" id="510">
+			<control type="wraplist" id="510">
 				<include>contents510list</include>
 			</control>
 			<control type="scrollbar" id="60">
@@ -66,6 +74,14 @@
 				<onup>510</onup>
 				<ondown>510</ondown>
 				<orientation>horizontal</orientation>
+			</control>
+      <control type="image">
+				<left>1860</left>
+				<top>1005</top>
+				<width>60</width>
+				<height>60</height>
+				<texture flipy="true">$VAR[OverlayVar]</texture>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
 			</control>
 		</control>
 	</include>
