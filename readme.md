@@ -14,6 +14,8 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 ***
 **3.1.1**
 - Updated skin dependencies.
+- Added skin setting to set home background override slideshow.
+- Updated language files from Transifex.
 
 ***
 **3.1.0**
