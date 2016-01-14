@@ -6,20 +6,6 @@
 		<left>614</left>
 		<top>330</top>
 	</coordinates>
-	<onload condition="IsEmpty(Skin.String(Overlay.Toggle))">SetProperty(OverlayUnwatched,True,home)</onload>
-	<onload condition="IsEmpty(Skin.String(Overlay.Toggle))">ClearProperty(OverlayWatched,home)</onload>
-	<onload condition="StringCompare(Skin.String(Overlay.Toggle),1)">SetProperty(OverlayUnwatched,True,home)</onload>
-	<onload condition="StringCompare(Skin.String(Overlay.Toggle),1)">SetProperty(OverlayWatched,True,home)</onload>
-	<onload condition="StringCompare(Skin.String(Overlay.Toggle),2)">ClearProperty(OverlayUnwatched,home)</onload>
-	<onload condition="StringCompare(Skin.String(Overlay.Toggle),2)">SetProperty(OverlayWatched,True,home)</onload>
-	<onunload condition="Skin.HasSetting(Disable.Resumable)">SetProperty(Overlay.Resumable,True,home)</onunload>
-	<onunload condition="!Skin.HasSetting(Disable.Resumable)">ClearProperty(Overlay.Resumable,home)</onunload>
-	<onunload condition="!IsEmpty(Window(Home).Property(OverlayUnwatched)) + !IsEmpty(Window(Home).Property(OverlayWatched))">Skin.SetString(Overlay.Toggle,1)</onunload>
-	<onunload condition="!IsEmpty(Window(Home).Property(OverlayUnwatched)) + !IsEmpty(Window(Home).Property(OverlayWatched))">SetProperty(Overlay.Path,overlays/showcase/1/,home)</onunload>
-	<onunload condition="!IsEmpty(Window(Home).Property(OverlayUnwatched)) + IsEmpty(Window(Home).Property(OverlayWatched))">Skin.Reset(Overlay.Toggle)</onunload>
-	<onunload condition="!IsEmpty(Window(Home).Property(OverlayUnwatched)) + IsEmpty(Window(Home).Property(OverlayWatched))">SetProperty(Overlay.Path,overlays/showcase/,home)</onunload>
-	<onunload condition="IsEmpty(Window(Home).Property(OverlayUnwatched)) + !IsEmpty(Window(Home).Property(OverlayWatched))">Skin.SetString(Overlay.Toggle,2)</onunload>
-	<onunload condition="IsEmpty(Window(Home).Property(OverlayUnwatched)) + !IsEmpty(Window(Home).Property(OverlayWatched))">SetProperty(Overlay.Path,overlays/showcase/2/,home)</onunload>
 	<include>dialogeffect</include>
 	<controls>
 		<include name="DialogBackgroundCommons">
@@ -110,45 +96,45 @@
 			<content>
 				<item>
 					<label>$LOCALIZE[13404]</label>
-					<icon>overlays/showcase/resumable.png</icon>
-					<onclick>Skin.SetBool(Disable.Resumable)</onclick>
-					<property name="Radio">$LOCALIZE[16041]</property>
-					<visible>!Skin.HasSetting(Disable.Resumable)</visible>
+					<icon>overlays/OverlayResumable.png</icon>
+					<onclick>Skin.SetBool(Overlay.Resumable)</onclick>
+					<property name="Radio">$LOCALIZE[16039]</property>
+					<visible>!Skin.HasSetting(Overlay.Resumable)</visible>
 				</item>
 				<item>
 					<label>$LOCALIZE[13404]</label>
-					<icon>overlays/showcase/resumable.png</icon>
-					<onclick>Skin.Reset(Disable.Resumable)</onclick>
-					<property name="Radio">$LOCALIZE[16039]</property>
-					<visible>Skin.HasSetting(Disable.Resumable)</visible>
+					<icon>overlays/OverlayResumable.png</icon>
+					<onclick>Skin.Reset(Overlay.Resumable)</onclick>
+					<property name="Radio">$LOCALIZE[16041]</property>
+					<visible>Skin.HasSetting(Overlay.Resumable)</visible>
 				</item>
 				<item>
 					<label>$LOCALIZE[16102]</label>
-					<icon>overlays/showcase/1/OverlayWatched.png</icon>
-					<onclick>ClearProperty(OverlayWatched,Home)</onclick>
-					<property name="Radio">$LOCALIZE[16041]</property>
-					<visible>!IsEmpty(Window(Home).Property(OverlayWatched))</visible>
+					<icon>overlays/OverlayWatched.png</icon>
+					<onclick>Skin.SetBool(Overlay.Watched)</onclick>
+					<property name="Radio">$LOCALIZE[16039]</property>
+					<visible>!Skin.HasSetting(Overlay.Watched)</visible>
 				</item>
 				<item>
 					<label>$LOCALIZE[16102]</label>
-					<icon>overlays/showcase/1/OverlayWatched.png</icon>
-					<onclick>SetProperty(OverlayWatched,True,home)</onclick>
-					<property name="Radio">$LOCALIZE[16039]</property>
-					<visible>IsEmpty(Window(Home).Property(OverlayWatched))</visible>
-				</item>
-				<item>
-					<label>$LOCALIZE[16101]</label>
-					<icon>overlays/showcase/1/OverlayUnwatched.png</icon>
-					<onclick>ClearProperty(OverlayUnwatched,Home)</onclick>
+					<icon>overlays/OverlayWatched.png</icon>
+					<onclick>Skin.Reset(Overlay.Watched)</onclick>
 					<property name="Radio">$LOCALIZE[16041]</property>
-					<visible>!IsEmpty(Window(Home).Property(OverlayUnwatched))</visible>
+					<visible>Skin.HasSetting(Overlay.Watched)</visible>
 				</item>
 				<item>
 					<label>$LOCALIZE[16101]</label>
-					<icon>overlays/showcase/1/OverlayUnwatched.png</icon>
-					<onclick>SetProperty(OverlayUnwatched,True,home)</onclick>
+					<icon>overlays/OverlayUnwatched.png</icon>
+					<onclick>Skin.SetBool(Overlay.Unwatched)</onclick>
 					<property name="Radio">$LOCALIZE[16039]</property>
-					<visible>IsEmpty(Window(Home).Property(OverlayUnwatched))</visible>
+					<visible>!Skin.HasSetting(Overlay.Unwatched)</visible>
+				</item>
+				<item>
+					<label>$LOCALIZE[16101]</label>
+					<icon>overlays/OverlayUnwatched.png</icon>
+					<onclick>Skin.Reset(Overlay.Unwatched)</onclick>
+					<property name="Radio">$LOCALIZE[16041]</property>
+					<visible>Skin.HasSetting(Overlay.Unwatched)</visible>
 				</item>
 			</content>
 		</control>
