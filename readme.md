@@ -12,6 +12,11 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 
 
 ***
+**3.2.0**
+- Reconfigured overlay icons.
+- Changed keyboard autocomplete to use plugin.program.autocomplete.
+
+***
 **3.1.1**
 - Updated skin dependencies.
 - Added skin setting to set home background override slideshow.
