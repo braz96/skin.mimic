@@ -15,6 +15,7 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 **3.2.0**
 - Reconfigured overlay icons.
 - Changed keyboard autocomplete to use plugin.program.autocomplete.
+- Added status of add-ons in skin settings.
 
 ***
 **3.1.1**
