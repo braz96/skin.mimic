@@ -17,6 +17,8 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 - Changed keyboard autocomplete to use plugin.program.autocomplete.
 - Added status of add-ons in skin settings.
 - Reconfigured color customizer to use skin.helper.service.
+- Added support for weather fanart image resource addons.
+- Reconfigured music viz background options, added support for script.colorbox.
 
 ***
 **3.1.1**
