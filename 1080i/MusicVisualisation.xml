@@ -10,69 +10,99 @@
 			<include>FullscreenDimensions</include>
 			<visible>Player.HasAudio + ![StringCompare(Visualisation.Name,waveform) | StringCompare(Visualisation.Name,opengl spectrum) | StringCompare(Visualisation.Name,directx spectrum)]</visible>
 		</control>
-		<control type="group">
-			<visible>!StringCompare(Skin.String(Viz.Background),1)</visible>
-			<visible>!Skin.HasSetting(HideVisualizationFanart)</visible>
-			<include>SettingsFadeEffect</include>
-			<control type="multiimage" id="90300">
-				<description>Fanart image</description>
-				<include>FullscreenDimensions</include>
-				<fadetime>2000</fadetime>
-				<imagepath background="true">$VAR[VizBackgroundVar]</imagepath>
-				<animation effect="fade" start="100" end="20" time="0" condition="![StringCompare(Visualisation.Name,waveform) | StringCompare(Visualisation.Name,opengl spectrum) | StringCompare(Visualisation.Name,directx spectrum) | IsEmpty(Visualisation.Name)] + !Skin.HasSetting(HideVisualizationFanart)">Conditional</animation>
-				<animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
-				<animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
-			</control>
-		</control>
-		<control type="group">
-			<visible>StringCompare(Skin.String(Viz.Background),1)</visible>
-			<include>SettingsFadeEffect</include>
-			<control type="panel" id="9032">
-				<left>0</left>
-				<top>0</top>
-				<width>FullScreenWidth</width>
-				<height>1080</height>
-				<viewtype label="$LOCALIZE[31291]">icons</viewtype>
-				<onleft>9032</onleft>
-				<onright>9032</onright>
-				<onup>9032</onup>
-				<ondown>9032</ondown>
-				<movement>6</movement>
-				<pagecontrol>60</pagecontrol>
-				<scrolltime tween="cubic" easing="inout">600</scrolltime>
-				<orientation>vertical</orientation>
-				<preloaditems>2</preloaditems>
-				<itemlayout height="192" width="192">
-					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>192</width>
-						<height>192</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<fadetime>400</fadetime>
-					</control>
-				</itemlayout>
-				<focusedlayout height="192" width="192">
-					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>192</width>
-						<height>192</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<fadetime>400</fadetime>
-					</control>
-				</focusedlayout>
-				<content>special://skin/extras/playlists/albumwall.xsp</content>
-			</control>
-		</control>
-		<control type="visualisation" id="2">
-			<!-- FIX ME Music Visualization needs to have an id of 2 in this window to be able to lock or change preset -->
-			<description>visualisation</description>
-			<include>FullscreenDimensions</include>
-			<visible>Player.HasAudio + [StringCompare(Visualisation.Name,waveform) | StringCompare(Visualisation.Name,opengl spectrum) | StringCompare(Visualisation.Name,directx spectrum)]</visible>
-		</control>
+		<control type="image">
+            <aspectratio>scale</aspectratio>
+            <include>FullscreenDimensions</include>
+            <texture background="true">$INFO[Player.Art(fanart)]</texture>
+            <visible>StringCompare(Skin.String(musicvis.background),fanart) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(HideVisualizationFanart) + Visualisation.Enabled">Conditional</animation>
+            <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+            <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+        </control>
+        <control type="image">
+            <aspectratio>scale</aspectratio>
+            <include>FullscreenDimensions</include>
+            <texture background="true">$INFO[Window(home).Property(ImageFilter1)]</texture>
+            <visible>StringCompare(Skin.String(musicvis.background),bluralbum) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(HideVisualizationFanart) + Visualisation.Enabled">Conditional</animation>
+            <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+            <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+        </control>
+        <control type="image">
+            <aspectratio>scale</aspectratio>
+            <include>FullscreenDimensions</include>
+            <texture background="true">$INFO[Window(home).Property(ImageFilterfa2)]</texture>
+            <visible>StringCompare(Skin.String(musicvis.background),pixelfanart) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(HideVisualizationFanart) + Visualisation.Enabled">Conditional</animation>
+            <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+            <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+        </control>
+        <control type="image">
+            <aspectratio>scale</aspectratio>
+            <include>FullscreenDimensions</include>
+            <texture background="true">$INFO[Window(home).Property(ImageFilterfa3)]</texture>
+            <visible>StringCompare(Skin.String(musicvis.background),posterizefanart) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(HideVisualizationFanart) + Visualisation.Enabled">Conditional</animation>
+            <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+            <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+        </control>
+        <control type="multiimage">
+            <aspectratio>scale</aspectratio>
+            <include>FullscreenDimensions</include>
+            <timeperimage>10000</timeperimage>
+            <randomize>true</randomize>
+            <fadetime>600</fadetime>
+            <loop>yes</loop>
+            <imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+            <visible>System.HasAddon(script.artistslideshow) + StringCompare(Skin.String(musicvis.background),artistslideshow) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+            <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(HideVisualizationFanart) + Visualisation.Enabled">Conditional</animation>
+            <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+            <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="!Skin.HasSetting(Disable.AnimateFanart)">Conditional</animation>
+        </control>
+        <control type="group">
+            <visible>StringCompare(Skin.String(musicvis.background),albumwall) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+            <control type="panel" id="9032">
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>1080</height>
+                <viewtype label="Wall">icons</viewtype>
+                <onleft>9032</onleft>
+                <onright>9032</onright>
+                <onup>9032</onup>
+                <ondown>9032</ondown>
+                <movement>6</movement>
+                <pagecontrol>60</pagecontrol>
+                <scrolltime tween="cubic" easing="inout">600</scrolltime>
+                <orientation>vertical</orientation>
+                <preloaditems>2</preloaditems>
+                <itemlayout height="192" width="192">
+                    <control type="image">
+                        <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(HideVisualizationFanart) + Visualisation.Enabled">Conditional</animation>
+                        <left>0</left>
+                        <top>0</top>
+                        <width>192</width>
+                        <height>192</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <fadetime>400</fadetime>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="192" width="192">
+                    <control type="image">
+                        <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(HideVisualizationFanart) + Visualisation.Enabled">Conditional</animation>
+                        <left>0</left>
+                        <top>0</top>
+                        <width>192</width>
+                        <height>192</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <fadetime>400</fadetime>
+                    </control>
+                </focusedlayout>
+                <content>special://skin/extras/playlists/AlbumWall.xsp</content>
+            </control>
+        </control>
 		<!-- media infos -->
 		<control type="fadelabel">
 			<left>0</left>

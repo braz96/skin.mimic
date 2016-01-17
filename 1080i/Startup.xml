@@ -2,10 +2,10 @@
 <window>
 	<defaultcontrol always="true">10</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
-	<onload condition="System.HasAddon(script.toolbox)">RunScript(script.toolbox,daemon=True,radius=30)</onload>
+	<onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,info=firstrun)</onload>
+    <onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,daemon=True,pixels=10,bits=1,radius=30)</onload>
 	<onload condition="System.HasAddon(script.skin.info.service)">RunScript(script.skin.info.service)</onload>
 	<onload condition="!System.HasAddon(script.tv.show.next.aired)">Skin.SetBool(Disable.NextAired)</onload>
-	<!--<onload condition="IsEmpty(Skin.String(WeatherFanartDir))">Skin.SetString(WeatherFanartDir,http://aeon-nox-background-packs.googlecode.com/svn/trunk/weather-fanart/default/)</onload>-->
 	<onload condition="!Skin.HasSetting(Enable.HomeTopMenu) + !Skin.HasSetting(Enable.HomeVerticalMenu)">Skin.SetBool(Enable.HomeDefault)</onload>
 	<controls>
 		<control type="button" id="10">

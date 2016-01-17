@@ -30,15 +30,30 @@
 				<description>Background Button</description>
 				<width>1078</width>
 				<height>60</height>
-				<label>$LOCALIZE[31102]:</label>
+				<label>$LOCALIZE[31102]</label>
 				<label2>$VAR[VizBackgroundLabelVar]</label2>
-				<onclick>$VAR[VizBackgroundClickVar]</onclick>
+                <onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
+                <onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(musicvis.background))</onclick>
+                <onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20445])</onclick>
+                <onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(musicvis.background,fanart))</onclick>
+                <onclick condition="System.HasAddon(script.artistslideshow)">SetProperty(Dialog.3.Label,$INFO[System.AddonTitle(script.artistslideshow)])</onclick>
+                <onclick condition="System.HasAddon(script.artistslideshow)">SetProperty(Dialog.3.BuiltIn,Skin.SetString(musicvis.background,artistslideshow))</onclick>
+                <onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31068])</onclick>
+                <onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(musicvis.background,albumwall))</onclick>
+                <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.5.Label,$LOCALIZE[31310])</onclick>
+                <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.5.BuiltIn,Skin.SetString(musicvis.background,bluralbum))</onclick>
+                <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.6.Label,$LOCALIZE[31168])</onclick>
+                <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.6.BuiltIn,Skin.SetString(musicvis.background,pixelfanart))</onclick>
+                <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.7.Label,$LOCALIZE[31169])</onclick>
+                <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.7.BuiltIn,Skin.SetString(musicvis.background,posterizefanart))</onclick>
+                <onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31167])</onclick>
 			</control>
 			<control type="radiobutton" id="90205">
 				<width>1078</width>
 				<label>31905</label>
 				<onclick>Skin.ToggleSetting(Disable.AnimateFanart)</onclick>
 				<selected>!Skin.HasSetting(Disable.AnimateFanart)</selected>
+				<enable>!StringCompare(Skin.String(musicvis.background),albumwall)</enable>
 			</control>
 			<control type="radiobutton" id="90202">
 				<description>Background Button</description>
