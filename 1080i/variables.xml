@@ -7,7 +7,7 @@
 		<value condition="StringCompare(Container(9033).ListItem.Art(thumb),3)">$INFO[Window(Home).Property(script.grab.fanart.Video.FanArt)]</value>
 		<value condition="StringCompare(Container(9033).ListItem.Art(thumb),4)">$INFO[Window(Home).Property(script.grab.fanart.Music.FanArt)]</value>
 		<value condition="StringCompare(Container(9033).ListItem.Art(thumb),5)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
-		<value condition="StringCompare(Container(9033).ListItem.Art(thumb),6)">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
+		<!--<value condition="StringCompare(Container(9033).ListItem.Art(thumb),6)">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>-->
 		<value condition="!IsEmpty(Container(9033).ListItem.Art(thumb))">$INFO[Container(9033).ListItem.Art(thumb)]</value>
 		<value condition="!IsEmpty(Skin.String(CustomBackground))">$INFO[Skin.String(CustomBackground)]</value>
 		<value>$INFO[Window(home).Property(fakelabel)]</value>
@@ -26,7 +26,7 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(background),allFanart)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
 
 		<!-- Weather background -->
-		<value condition="StringCompare(Container(9000).ListItem.Property(background),weatherBackground)">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(background),weatherBackground)">$INFO[Skin.String(weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanartExtension]</value>
 
 		<!-- Playlist background -->
 		<value condition="SubString(Container(9000).ListItem.Property(background),s:playlist,Left)">$INFO[Container(9034).ListItem.Art(fanart)]</value>
