@@ -46,7 +46,7 @@
 							<font>font15_bold</font>
 							<textoffsetx>20</textoffsetx>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
@@ -57,7 +57,7 @@
 							<font>font15</font>
 							<textoffsetx>20</textoffsetx>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -70,8 +70,8 @@
 							<height>90</height>
 							<font>font15_bold</font>
 							<textoffsetx>20</textoffsetx>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
@@ -81,8 +81,8 @@
 							<height>90</height>
 							<font>font15</font>
 							<textoffsetx>20</textoffsetx>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
@@ -101,12 +101,14 @@
 						<include>VisibleFadeEffect</include>
 					</control>
 					<control type="group">
+						<visible>!StringCompare(System.Date(ddd),ListItem.Property(day))</visible>
 						<control type="label">
 							<width>356</width>
 							<height>90</height>
 							<font>font15_bold</font>
 							<textoffsetx>20</textoffsetx>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
@@ -116,7 +118,33 @@
 							<height>90</height>
 							<font>font15</font>
 							<textoffsetx>20</textoffsetx>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>right</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</control>
+					<control type="group">
+						<visible>StringCompare(System.Date(ddd),ListItem.Property(day))</visible>
+						<control type="label">
+							<width>356</width>
+							<height>90</height>
+							<font>font15_bold</font>
+							<textoffsetx>20</textoffsetx>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<top>0</top>
+							<width>356</width>
+							<height>90</height>
+							<font>font15</font>
+							<textoffsetx>20</textoffsetx>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label2]</label>
