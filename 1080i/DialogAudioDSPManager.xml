@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+    <defaultcontrol>9000</defaultcontrol>
+    <include>dialogeffect</include>
+    <allowoverlay>no</allowoverlay>
+    <coordinates>
+        <left>60</left>
+        <top>60</top>
+    </coordinates>
+    <controls>
+
+        <include name="DialogBackgroundCommons">
+            <param name="DialogBackgroundWidth" value="1800" />
+            <param name="DialogBackgroundHeight" value="960" />
+            <param name="DialogHeaderLabel" value="$LOCALIZE[15020]" />
+            <param name="DialogHeaderId" value="" />
+        </include>
+        <control type="group">
+            <animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
+            <!--<centerleft>50%</centerleft>
+            <posy>0</posy>-->
+            <width>1800</width>
+            <height>960</height>
+        
+            <control type="group">
+                <control type="list" id="9000">
+                    <description>processing mode selection list</description>
+                    <left>30</left>
+                    <top>100</top>
+                    <width>1800</width>
+                    <height>69</height>
+                    <onup>9001</onup>
+                    <ondown>200</ondown>
+                    <onleft>9000</onleft>
+                    <onright>9000</onright>
+                    <orientation>horizontal</orientation>
+                    <scrolltime tween="sine" easing="out">200</scrolltime>
+                    <itemlayout width="352" height="69">
+                        <!--<control type="image">
+                            <right>20</right>
+                            <texture colordiffuse="Black12" border="8">common/box.png</texture>
+                        </control>-->
+                        <control type="label">
+                            <right>20</right>
+                            <font>font13</font>
+                            <textoffsetx>25</textoffsetx>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="352" height="69">
+                        <control type="image">
+                            <animation effect="fade" time="0" tween="" easing="" start="100" end="60">Unfocus</animation>
+                            <right>20</right>
+                            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                        </control>
+                        <control type="label">
+                            <right>20</right>
+                            <font>font13</font>
+                            <textcolor>$VAR[ColorTextVar]</textcolor>
+                            <textoffsetx>25</textoffsetx>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </focusedlayout>
+                    <content>
+                        <item id="91">
+                            <label>1. $LOCALIZE[15057]</label>
+                            <label2>$LOCALIZE[15114]</label2>
+                            <visible>true</visible>
+                            <onclick>noop</onclick>
+                            <property name="currentMode">InputResampling</property>
+                        </item>
+                        <item id="92">
+                            <label>2. $LOCALIZE[15058]</label>
+                            <label2>$LOCALIZE[15113]</label2>
+                            <visible>true</visible>
+                            <onclick>noop</onclick>
+                            <property name="currentMode">Preprocessing</property>
+                        </item>
+                        <item id="93">
+                            <label>3. $LOCALIZE[15059]</label>
+                            <label2>$LOCALIZE[15115]</label2>
+                            <visible>true</visible>
+                            <onclick>noop</onclick>
+                            <property name="currentMode">Masterprocessing</property>
+                        </item>
+                        <item id="94">
+                            <label>4. $LOCALIZE[15060]</label>
+                            <label2>$LOCALIZE[15117]</label2>
+                            <visible>true</visible>
+                            <onclick>noop</onclick>
+                            <property name="currentMode">Postprocessing</property>
+                        </item>
+                        <item id="95">
+                            <label>5. $LOCALIZE[15061]</label>
+                            <label2>$LOCALIZE[15116]</label2>
+                            <visible>true</visible>
+                            <onclick>noop</onclick>
+                            <property name="currentMode">OutputResampling</property>
+                        </item>
+                    </content>
+                </control>
+            </control>
+            <control type="label">
+                <left>30</left>
+                <top>250</top>
+                <width>800</width>
+                <height>40</height>
+                <label>$LOCALIZE[15050] ($INFO[Container(20).NumItems])</label>
+            </control>
+            <control type="label">
+                <left>910</left>
+                <top>250</top>
+                <width>800</width>
+                <height>40</height>
+                <label>$LOCALIZE[15051] ($INFO[Container(21).NumItems])</label>
+            </control>
+            <control type="group" id="200">
+                <description>available- and active mode lists</description>
+                <left>30</left>
+                <top>296</top>
+                <width>1880</width>
+                <height>552</height>
+                <ondown>9001</ondown>
+                <onup>9000</onup>
+                <control type="group">
+                    <description>available modes group</description>
+                    <width>860</width>
+                    
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture colordiffuse="33000000">background.png</texture>
+                    </control>
+                    <control type="panel" id="20">
+                        <description>available modes list</description>
+                        <width>860</width>
+                        <height>552</height>
+                        <onup>9000</onup>
+                        <ondown>9001</ondown>
+                        <onright>21</onright>
+                        <scrolltime>200</scrolltime>
+                        <pagecontrol>60</pagecontrol>
+                        <itemlayout height="138" width="860">
+                            <control type="image">
+                                <top>10</top>
+                                <left>10</left>
+                                <width>118</width>
+                                <height>118</height>
+                                <texture>$INFO[ListItem.Property(Icon)]</texture>
+                                <aspectratio aligny="center" align="left">keep</aspectratio>
+                                <visible>!StringCompare(ListItem.Property(Icon),"")</visible>
+                            </control>
+                            <control type="image">
+                                <top>10</top>
+                                <left>10</left>
+                                <width>118</width>
+                                <height>118</height>
+                                <texture>DefaultAddonAudioDSP.png</texture>
+                                <aspectratio aligny="center" align="left">keep</aspectratio>
+                                <visible>StringCompare(ListItem.Property(Icon),"")</visible>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <top>10</top>
+                                <right>10</right>
+                                <height>60</height>
+                                <font>font15</font>
+                                <label>$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <top>70</top>
+                                <right>10</right>
+                                <height>60</height>
+                                <font>font13</font>
+                                <label>$INFO[ListItem.Property(Description)]</label>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout height="138" width="860">
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                            </control>
+                            <control type="image">
+                                <top>10</top>
+                                <left>10</left>
+                                <width>118</width>
+                                <height>118</height>
+                                <texture>$INFO[ListItem.Property(Icon)]</texture>
+                                <aspectratio aligny="center" align="left">keep</aspectratio>
+                                <visible>!StringCompare(ListItem.Property(Icon),"")</visible>
+                            </control>
+                            <control type="image">
+                                <top>10</top>
+                                <left>10</left>
+                                <width>118</width>
+                                <height>118</height>
+                                <texture>DefaultAddonAudioDSP.png</texture>
+                                <aspectratio aligny="center" align="left">keep</aspectratio>
+                                <visible>StringCompare(ListItem.Property(Icon),"")</visible>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <top>10</top>
+                                <right>10</right>
+                                <height>60</height>
+                                <font>font15</font>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <label>$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <top>70</top>
+                                <right>10</right>
+                                <height>60</height>
+                                <font>font13</font>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <label>$INFO[ListItem.Property(Description)]</label>
+                            </control>
+                        </focusedlayout>
+                    </control>
+                </control>
+                <control type="group">
+                    <left>880</left>
+                    <width>860</width>
+                    <height>552</height>
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture colordiffuse="33000000">background.png</texture>
+                    </control>
+                    
+                    <control type="panel" id="21">
+                        <description>active modes list</description>
+                        <width>860</width>
+                        <height>552</height>
+                        <onup>9000</onup>
+                        <ondown>9001</ondown>
+                        <onleft>20</onleft>
+                        <scrolltime>200</scrolltime>
+                        <pagecontrol>61</pagecontrol>
+                        <itemlayout height="138" width="860">
+                            <control type="image">
+                                <top>10</top>
+                                <left>10</left>
+                                <width>118</width>
+                                <height>118</height>
+                                <texture>$INFO[ListItem.Property(Icon)]</texture>
+                                <aspectratio aligny="center" align="left">keep</aspectratio>
+                                <visible>!StringCompare(ListItem.Property(Icon),"")</visible>
+                            </control>
+                            <control type="image">
+                                <top>10</top>
+                                <left>10</left>
+                                <width>118</width>
+                                <height>118</height>
+                                <texture>DefaultAddonAudioDSP.png</texture>
+                                <aspectratio aligny="center" align="left">keep</aspectratio>
+                                <visible>StringCompare(ListItem.Property(Icon),"")</visible>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <top>10</top>
+                                <right>10</right>
+                                <height>60</height>
+                                <font>font15</font>
+                                <label>$INFO[ListItem.Property(Number)].  $INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <top>70</top>
+                                <right>10</right>
+                                <height>60</height>
+                                <font>font13</font>
+                                <label>$INFO[ListItem.Property(Description)]</label>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout height="138" width="860">
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                            </control>
+                            <control type="image">
+                                <top>10</top>
+                                <left>10</left>
+                                <width>118</width>
+                                <height>118</height>
+                                <texture>$INFO[ListItem.Property(Icon)]</texture>
+                                <aspectratio aligny="center" align="left">keep</aspectratio>
+                                <visible>!StringCompare(ListItem.Property(Icon),"")</visible>
+                            </control>
+                            <control type="image">
+                                <top>10</top>
+                                <left>10</left>
+                                <width>118</width>
+                                <height>118</height>
+                                <texture>DefaultAddonAudioDSP.png</texture>
+                                <aspectratio aligny="center" align="left">keep</aspectratio>
+                                <visible>StringCompare(ListItem.Property(Icon),"")</visible>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <top>10</top>
+                                <right>10</right>
+                                <height>60</height>
+                                <font>font15</font>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <label>$INFO[ListItem.Property(Number)].  $INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <top>70</top>
+                                <right>10</right>
+                                <height>60</height>
+                                <font>font13</font>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <label>$INFO[ListItem.Property(Description)]</label>
+                            </control>
+                        </focusedlayout>
+                    </control>
+                </control>
+            </control>
+            <control type="group" id="9001">
+                <width>100%</width>
+                <left>30</left>
+                <top>868</top>
+                <height>69</height>
+                <control type="radiobutton" id="22">
+                    <description>Default RadioButton</description>
+                    <align>left</align>
+                    <width>566</width>
+                    <onup>200</onup>
+                    <ondown>9000</ondown>
+                    <onleft>24</onleft>
+                    <onright>23</onright>
+                    <label>15064</label>
+                    <font>font15_title</font>
+                    <textcolor>$VAR[ColorTextVar]</textcolor>
+                    <radioposx>575</radioposx>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
+                </control>
+                <control type="button" id="23">
+                    <description>Apply changes button</description>
+                    <align>center</align>
+                    <left>587</left>
+                    <width>566</width>
+                    <onup>200</onup>
+                    <ondown>9000</ondown>
+                    <onleft>22</onleft>
+                    <onright>24</onright>
+                    <label>14070</label>
+                    <font>font15_title</font>
+                    <textcolor>$VAR[ColorTextVar]</textcolor>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
+                </control>
+                <control type="button" id="24">
+                    <description>Clear active modes button</description>
+                    <align>center</align>
+                    <left>1174</left>
+                    <width>566</width>
+                    <onup>200</onup>
+                    <ondown>9000</ondown>
+                    <onleft>23</onleft>
+                    <onright>22</onright>
+                    <label>15066</label>
+                    <font>font15_title</font>
+                    <textcolor>$VAR[ColorTextVar]</textcolor>
+                    <texturefocus colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texturefocus>
+                </control>
+            </control>
+        </control>
+
+        <!-- Info Box -->
+        <control type="group">
+            <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
+            <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
+            <control type="label">
+                <top>185</top>
+                <left>30</left>
+                <right>0</right>
+                <height>32</height>
+                <font>font13</font>
+                <textcolor>disabled</textcolor>
+                <label>$INFO[Container(9000).ListItem.Label2]</label>
+                <scroll>true</scroll>
+                <wrapmultiline>false</wrapmultiline>
+            </control>
+        </control>
+
+        
+        
+    </controls>
+</window>
