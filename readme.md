@@ -19,6 +19,7 @@ More screenshots available here: http://imgur.com/a/RH3ln#0
 - Reconfigured color customizer to use skin.helper.service.
 - Added support for weather fanart image resource addons.
 - Reconfigured music viz background options, added support for script.colorbox.
+- Skinned the Audio DSP Manager and Audio DSP Settings dialogs.
 
 ***
 **3.1.1**
