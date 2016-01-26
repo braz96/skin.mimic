@@ -950,8 +950,7 @@
 						<description>Play Trailer</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>20410</label>
-						<enable>!IsEmpty(ListItem.Trailer)</enable>
-						<visible>Container.Content(movies) + !System.HasAddon(script.extendedinfo)</visible>
+						<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
 					</control>
 					<control type="button" id="204">
 						<description>YouTube</description>
@@ -959,7 +958,7 @@
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>[Container.Content(movies) | Container.Content(tvshows)] + System.HasAddon(script.extendedinfo)</visible>
+						<visible>[Container.Content(movies) | Container.Content(tvshows)] + IsEmpty(ListItem.Trailer)</visible>
 					</control>
 					<control type="button" id="10">
 						<description>Get Thumb</description>
