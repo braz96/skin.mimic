@@ -19,7 +19,7 @@
 		<animation effect="fade" start="0" end="100" time="200" reversible="false" condition="![Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious | Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]">Conditional</animation>
 		<animation effect="slide" time="200" tween="sine" easing="inout" end="0,700" start="0">WindowClose</animation>
 		<left>0</left>
-		<top>484</top>
+		<top>554</top>
 		<width>FullScreenWidth</width>
 		<height>360</height>
 		<onup>9000</onup>
@@ -43,7 +43,7 @@
 				<width>200</width>
 				<height>300</height>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
-				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+				<texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(thumb)]</texture>
 			</control>
 			<control type="image">
 				<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
@@ -52,7 +52,7 @@
 				<width>200</width>
 				<height>300</height>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
-				<texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+				<texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(tvshow.poster)]</texture>
 			</control>
 			<control type="image">
 				<top>30</top>
@@ -73,7 +73,7 @@
 					<width>200</width>
 					<height>300</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(thumb)]</texture>
 				</control>
 				<control type="image">
 					<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
@@ -82,7 +82,7 @@
 					<width>200</width>
 					<height>300</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+					<texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(tvshow.poster)]</texture>
 				</control>
 				<control type="image">
 					<top>30</top>
@@ -104,7 +104,7 @@
 				<width>300</width>
 				<height>300</height>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
-				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+				<texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(thumb)]</texture>
 			</control>
 			<control type="image">
 				<top>30</top>
@@ -124,7 +124,7 @@
 					<width>300</width>
 					<height>300</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(thumb)]</texture>
 				</control>
 				<control type="image">
 					<top>30</top>
@@ -146,7 +146,7 @@
 				<width>533</width>
 				<height>300</height>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
-				<texture background="true">$VAR[LandscapeImage]</texture>
+				<texture background="true" fallback="DefaultFallback.png">$VAR[LandscapeArtVar]</texture>
 			</control>
 			<control type="image">
 				<top>30</top>
@@ -166,7 +166,7 @@
 					<width>533</width>
 					<height>300</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$VAR[LandscapeImage]</texture>
+					<texture background="true" fallback="DefaultFallback.png">$VAR[LandscapeArtVar]</texture>
 				</control>
 				<control type="image">
 					<top>30</top>
@@ -252,7 +252,7 @@
 					<width>195</width>
 					<height>292</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>400</fadetime>
 				</control>
 				<control type="image">
@@ -262,7 +262,7 @@
 					<width>195</width>
 					<height>292</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+					<texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(tvshow.poster)]</texture>
 					<fadetime>400</fadetime>
 				</control>
 				<control type="image">
@@ -284,7 +284,7 @@
 						<width>195</width>
 						<height>292</height>
 						<aspectratio aligny="center" align="center">scale</aspectratio>
-						<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
 					<control type="image">
 						<visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
@@ -293,7 +293,7 @@
 						<width>195</width>
 						<height>292</height>
 						<aspectratio aligny="center" align="center">scale</aspectratio>
-						<texture fallback="$INFO[ListItem.Icon]" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+						<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
 					</control>
 					<control type="image">
 						<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -317,7 +317,7 @@
 						<width>292</width>
 						<height>292</height>
 						<aspectratio aligny="center" align="center">scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
 						<fadetime>400</fadetime>
 					</control>
 					<control type="image">
@@ -339,7 +339,7 @@
 						<width>292</width>
 						<height>292</height>
 						<aspectratio aligny="center" align="center">scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="image">
 						<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -361,7 +361,7 @@
 					<width>298</width>
 					<height>191</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Icon]</texture>
 					<fadetime>400</fadetime>
 				</control>
 				<control type="image">
@@ -380,7 +380,7 @@
 					<width>298</width>
 					<height>191</height>
 					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="image">
 					<animation center="auto" condition="Control.HasFocus(8000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>

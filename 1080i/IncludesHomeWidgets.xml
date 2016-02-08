@@ -12,6 +12,7 @@
 				<animation effect="fade" tween="cubic" time="300" start="100" end="0" reversible="false">WindowClose</animation>
 				<animation effect="fade" tween="cubic" time="600" delay="500" start="0" end="100" reversible="false">Visible</animation>
 				<animation effect="fade" tween="cubic" time="300" start="100" end="0" reversible="false">Hidden</animation>
+				<animation effect="slide" time="0" start="0,0" end="0,-70" condition="system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
 				<include condition="Skin.HasSetting(HorizontalListNav)">WidgetListFixed</include>
 				<include condition="!Skin.HasSetting(HorizontalListNav)">WidgetListWrapped</include>
 				<control type="group">
@@ -19,7 +20,7 @@
 					<animation effect="slide" time="0" tween="" easing="" start="0" end="160" condition="Skin.HasSetting(Enable.BasicWeatherView)">Conditional</animation>
 					<include name="WeatherWidgetCommons">
 						<param name="WeatherPositionLeft" value="0" />
-						<param name="WeatherPositionTop" value="480" />
+						<param name="WeatherPositionTop" value="550" />
 						<param name="WeatherPanelWidth" value="1920" />
 						<param name="WeatherPanelHeight" value="335" />
 						<param name="WeatherItemWidth" value="320" />
@@ -37,7 +38,7 @@
 						<animation effect="fade" time="0" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]" start="100" end="0">Hidden</animation>
 						<animation effect="slide" time="200" tween="sine" easing="inout" end="0,700" start="0">WindowClose</animation>
 						<left>950</left>
-						<top>454</top>
+						<top>524</top>
 						<width>920</width>
 						<height>40</height>
 						<font>font15_title</font>
@@ -46,34 +47,24 @@
 						<label>$INFO[Container(9000).ListItem.Property(widgetName)]</label>
 						<visible>!Container(8000).IsUpdating + !Container(9000).OnNext + !Container(9000).OnPrevious + !StringCompare(Container(9000).ListItem.Property(widgetName),weather)</visible>
 					</control>
-					<control type="group">
+					<control type="image">
 						<visible>Container(8000).IsUpdating</visible>
-						<top>616</top>
-						<left>912</left>
-						<control type="image">
-							<description>Busy animation</description>
-							<width>96</width>
-							<height>96</height>
-							<texture>android/spinner_48_inner_holo.png</texture>
-							<aspectratio>keep</aspectratio>
-							<animation effect="rotate" start="0" end="360" center="auto" time="2000" loop="true" condition="true">conditional</animation>
-						</control>
-						<control type="image">
-							<description>Busy animation</description>
-							<width>96</width>
-							<height>96</height>
-							<texture>android/spinner_48_outer_holo.png</texture>
-							<aspectratio>keep</aspectratio>
-							<animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">conditional</animation>
-						</control>
-					</control>
+		                <description>Busy animation</description>
+		                <top>710</top>
+		                <left>930</left>
+		                <width>60</width>
+		                <height>60</height>
+		                <texture colordiffuse="$VAR[ColorTextVar]" fallback="special://skin/extras/spinners/Sun.png">$INFO[Skin.String(busyloader)]</texture>
+		                <aspectratio>keep</aspectratio>
+		                <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
+		            </control>
 					<control type="group">
 						<visible>Control.HasFocus(8000) + !Container(8000).OnNext + !Container(8000).OnPrevious + !StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 						<animation effect="fade" start="0" end="100" delay="800" time="250" reversible="false">Visible</animation>
 						<animation effect="slide" time="200" tween="sine" easing="inout" end="0,700" start="0">WindowClose</animation>
 						<control type="group">
 							<visible>!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])</visible>
-							<top>825</top>
+							<top>895</top>
 							<left>349</left>
 							<control type="label">
 								<width>1551</width>
@@ -85,7 +76,7 @@
 						</control>
 						<control type="group">
 							<visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])</visible>
-							<top>825</top>
+							<top>895</top>
 							<left>527</left>
 							<control type="label">
 								<width>1373</width>
@@ -97,7 +88,7 @@
 						</control>
 						<control type="group">
 							<visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])</visible>
-							<top>825</top>
+							<top>895</top>
 							<left>782</left>
 							<control type="label">
 								<width>1118</width>
@@ -116,6 +107,7 @@
 		<control type="group" id="9003">
 			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath)) | StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 			<control type="group">
+				<top>0</top>
 				<animation effect="slide" start="0" end="-700" time="300" reversible="false" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="slide" end="0" start="-700" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="slide" tween="cubic" easing="out" time="300" start="0" end="-700" reversible="false">WindowOpen</animation>
@@ -130,27 +122,17 @@
 					<texture border="12">dialog_context.png</texture>
 					<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 				</control>
-				<control type="group">
+				<control type="image">
 					<visible>Container(8000).IsUpdating</visible>
-					<top>554</top>
-					<left>2942</left>
-					<control type="image">
-						<description>Busy animation</description>
-						<width>96</width>
-						<height>96</height>
-						<texture>android/spinner_48_inner_holo.png</texture>
-						<aspectratio>keep</aspectratio>
-						<animation effect="rotate" start="0" end="360" center="auto" time="2000" loop="true" condition="true">conditional</animation>
-					</control>
-					<control type="image">
-						<description>Busy animation</description>
-						<width>96</width>
-						<height>96</height>
-						<texture>android/spinner_48_outer_holo.png</texture>
-						<aspectratio>keep</aspectratio>
-						<animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">conditional</animation>
-					</control>
-				</control>
+	                <description>Busy animation</description>
+	                <top>572</top>
+	                <left>2960</left>
+	                <width>60</width>
+	                <height>60</height>
+	                <texture colordiffuse="$VAR[ColorTextVar]" fallback="special://skin/extras/spinners/Sun.png">$INFO[Skin.String(busyloader)]</texture>
+	                <aspectratio>keep</aspectratio>
+	                <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
+	            </control>
 				<include>WidgetPanelContent</include>
 				<control type="image">
 		        	<visible>StringCompare(Container(9000).ListItem.Property(widget),weather) + Skin.HasSetting(Enable.HomeVerticalMenu) + Control.HasFocus(8000)</visible>
@@ -220,185 +202,73 @@
 		<control type="group">
 			<visible>Player.HasVideo + !Window.IsVisible(extendedprogressdialog)</visible>
 			<include>Animation_DialogPopup</include>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,77" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,-45" condition="Skin.HasSetting(Enable.HomeVerticalMenu)">Conditional</animation>
+			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 			<left>1090</left>
-			<top>75</top>
+			<top>32</top>
 			<control type="image">
 				<description>background image</description>
 				<left>0</left>
 				<top>0</top>
 				<width>800</width>
-				<height>166</height>
+				<height>140</height>
 				<texture border="12">dialog_context.png</texture>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
 			<control type="image">
 				<description>avatar</description>
-				<left>33</left>
-				<top>33</top>
-				<width>100</width>
-				<height>100</height>
+				<left>30</left>
+				<top>30</top>
+				<width>80</width>
+				<height>80</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
-				<visible>VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)</visible>
+				<visible>VideoPlayer.Content(livetv)</visible>
 			</control>
 			<control type="image">
 				<description>avatar</description>
-				<left>33</left>
-				<top>33</top>
-				<width>67</width>
-				<height>100</height>
+				<left>30</left>
+				<top>30</top>
+				<width>80</width>
+				<height>80</height>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+				<visible>VideoPlayer.Content(musicvideos)</visible>
+			</control>
+			<control type="image">
+				<description>avatar</description>
+				<left>30</left>
+				<top>30</top>
+				<width>54</width>
+				<height>80</height>
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
 				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
 			</control>
 			<control type="image">
 				<description>avatar</description>
-				<left>33</left>
-				<top>33</top>
-				<width>177</width>
-				<height>100</height>
+				<left>30</left>
+				<top>30</top>
+				<width>142</width>
+				<height>80</height>
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
 				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</visible>
 			</control>
-			<control type="fadelabel">
-				<description>Line 1 Label</description>
-				<left>122</left>
-				<top>28</top>
-				<width>645</width>
-				<height>50</height>
-				<font>font15_title</font>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[Player.Title]</label>
-				<visible>VideoPlayer.Content(movies)</visible>
-			</control>
-			<control type="fadelabel">
-				<description>Line 1 Label</description>
-				<left>122</left>
-				<top>28</top>
-				<width>645</width>
-				<height>50</height>
-				<font>font15_title</font>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,X,. ]$INFO[Player.Title]</label>
-				<visible>VideoPlayer.Content(episodes)</visible>
-			</control>
-			<control type="fadelabel">
-				<description>Line 1 Label</description>
-				<left>155</left>
-				<top>28</top>
-				<width>612</width>
-				<height>50</height>
-				<font>font15_title</font>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[Player.Title]</label>
-				<visible>VideoPlayer.Content(livetv)</visible>
-			</control>
-			<control type="fadelabel">
-				<description>Line 1 Label</description>
-				<left>155</left>
-				<top>28</top>
-				<width>612</width>
-				<height>50</height>
-				<font>font15_title</font>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[Player.Title]</label>
-				<visible>VideoPlayer.Content(musicvideos)</visible>
-			</control>
-			<control type="label">
-				<description>Line 1 Label</description>
-				<left>232</left>
-				<top>40</top>
-				<width>535</width>
-				<height>82</height>
-				<font>font15_title</font>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<wrapmultiline>true</wrapmultiline>
-				<label>$INFO[Player.Title]</label>
-				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</visible>
-			</control>
-			<control type="fadelabel">
-				<description>Line 2 Label</description>
-				<left>155</left>
-				<top>92</top>
-				<width>612</width>
-				<height>30</height>
-				<font>font15</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</label>
-				<visible>VideoPlayer.Content(livetv)</visible>
-			</control>
-			<control type="fadelabel">
-				<description>Line 2 Label</description>
-				<left>122</left>
-				<top>92</top>
-				<width>645</width>
-				<height>30</height>
-				<font>font15</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[VideoPlayer.Premiered,, • ]$INFO[VideoPlayer.TvShowTitle]</label>
-				<visible>VideoPlayer.Content(episodes)</visible>
-			</control>
-			<control type="fadelabel">
-				<description>Line 2 Label</description>
-				<left>122</left>
-				<top>92</top>
-				<width>645</width>
-				<height>30</height>
-				<font>font15</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ]</label>
-				<visible>VideoPlayer.Content(movies)</visible>
-			</control>
-			<control type="fadelabel">
-				<description>Line 2 Label</description>
-				<left>155</left>
-				<top>92</top>
-				<width>612</width>
-				<height>30</height>
-				<font>font15</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[VideoPlayer.Artist]</label>
-				<visible>VideoPlayer.Content(musicvideos)</visible>
-			</control>
+			<include name="NowPlayingWidgetLabels" condition="VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)">
+				<param name="NowPlayingLeft" value="130" />
+				<param name="NowPlayingWidth" value="640" />
+				<param name="NowPlayingAlign" value="left" />
+			</include>
+			<include name="NowPlayingWidgetLabels" condition="VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)">
+				<param name="NowPlayingLeft" value="105" />
+				<param name="NowPlayingWidth" value="665" />
+				<param name="NowPlayingAlign" value="left" />
+			</include>
+			<include name="NowPlayingWidgetLabels" condition="![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]">
+				<param name="NowPlayingLeft" value="192" />
+				<param name="NowPlayingWidth" value="603" />
+				<param name="NowPlayingAlign" value="left" />
+			</include>
 		</control>
 	</include>
 	<include name="NowPlayingMusicWidget">
@@ -406,56 +276,32 @@
 		<control type="group">
 			<visible>Player.HasAudio + !Window.IsVisible(extendedprogressdialog)</visible>
 			<include>Animation_DialogPopup</include>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,77" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,-45" condition="Skin.HasSetting(Enable.HomeVerticalMenu)">Conditional</animation>
+			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 			<left>1090</left>
-			<top>75</top>
+			<top>32</top>
 			<control type="image">
 				<description>background image</description>
 				<left>0</left>
 				<top>0</top>
 				<width>800</width>
-				<height>166</height>
+				<height>140</height>
 				<texture border="12">dialog_context.png</texture>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
 			<control type="image">
 				<description>avatar</description>
-				<left>33</left>
-				<top>33</top>
-				<width>100</width>
-				<height>100</height>
+				<left>30</left>
+				<top>30</top>
+				<width>80</width>
+				<height>80</height>
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture fallback="DefaultAlbumCover.png">$INFO[Player.Art(thumb)]</texture>
 			</control>
-			<control type="fadelabel">
-				<description>Line 1 Label</description>
-				<left>155</left>
-				<top>28</top>
-				<width>606</width>
-				<height>50</height>
-				<font>font15_title</font>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[MusicPlayer.TrackNumber,,. ]$INFO[Player.Title]</label>
-			</control>
-			<control type="fadelabel">
-				<description>Line 2 Label</description>
-				<left>155</left>
-				<top>92</top>
-				<width>606</width>
-				<height>30</height>
-				<font>font15</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<scrollout>false</scrollout>
-				<pauseatend>2000</pauseatend>
-				<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]</label>
-			</control>
+			<include name="NowPlayingWidgetLabels">
+				<param name="NowPlayingLeft" value="130" />
+				<param name="NowPlayingWidth" value="640" />
+				<param name="NowPlayingAlign" value="left" />
+			</include>
 		</control>
 	</include>
 	<include name="RSSFeedWidget">
@@ -464,7 +310,6 @@
 			<animation effect="slide" start="1920,0" end="0,0" delay="300" time="240" condition="!Window.Previous(startup)">WindowOpen</animation>
 			<animation effect="slide" start="1920,0" end="0,0" delay="800" time="480" condition="Window.Previous(startup)">WindowOpen</animation>
 			<animation effect="slide" start="1920" end="0" time="240">VisibleChange</animation>
-			<animation effect="fade" start="100" end="0" time="200" condition="Control.HasFocus(9010)">Conditional</animation>
 			<top>980</top>
 			<control type="group">
 				<control type="label">
@@ -489,6 +334,36 @@
 					<headlinecolor>$VAR[ColorTextVar]</headlinecolor>
 				</control>
 			</control>
+		</control>
+	</include>
+	<include name="NowPlayingWidgetLabels">
+		<control type="fadelabel">
+			<description>Line 1 Label</description>
+			<left>$PARAM[NowPlayingLeft]</left>
+			<top>27</top>
+			<width>$PARAM[NowPlayingWidth]</width>
+			<height>45</height>
+			<font>font28_title</font>
+			<textcolor>$VAR[ColorTextVar]</textcolor>
+			<align>$PARAM[NowPlayingAlign]</align>
+			<aligny>center</aligny>
+			<scrollout>false</scrollout>
+			<pauseatend>2000</pauseatend>
+			<label>$VAR[TopbarFadeLabel1]</label>
+		</control>
+		<control type="fadelabel">
+			<description>Line 2 Label</description>
+			<left>$PARAM[NowPlayingLeft]</left>
+			<top>69</top>
+			<width>$PARAM[NowPlayingWidth]</width>
+			<height>45</height>
+			<font>topbar</font>
+			<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			<align>$PARAM[NowPlayingAlign]</align>
+			<aligny>center</aligny>
+			<scrollout>false</scrollout>
+			<pauseatend>2000</pauseatend>
+			<label>$VAR[TopbarFadeLabel2]</label>
 		</control>
 	</include>
 </includes>

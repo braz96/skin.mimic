@@ -3,6 +3,7 @@
 	<!-- Main Menu Includes -->
 	<include name="MainMenuList">
 		<control type="image">
+			<visible>!Control.HasFocus(9010)</visible>
             <left>0</left>
             <top>0</top>
             <width>384</width>
@@ -14,14 +15,50 @@
             <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
             <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
-		<control type="fixedlist" id="9000">
-			<include>MainMenuListContent</include>
+        <control type="image">
+        	<visible>Control.HasFocus(9010)</visible>
+            <left>0</left>
+            <top>0</top>
+            <width>384</width>
+            <height>120</height>
+            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9010)">Conditional</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3) | Container(9010).Position(2)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3) | Container(9010).Position(2) | Container(9010).Position(1)">Conditional</animation>
+        </control>
+		<control type="list" id="9000">
+			<animation type="Conditional" condition="!Control.HasFocus(9010)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
+            </animation>
+            <animation effect="fade" end="0" start="100" time="150" condition="Control.HasFocus(9010)" reversible="false">Conditional</animation>
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentTop">
+				<param name="MainMenuTopWidth" value="1536" />
+			</include>
+			<include condition="Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentTop">
+				<param name="MainMenuTopWidth" value="1920" />
+			</include>
 		</control>
-	</include>
-	<include name="MainMenuOriginal">
-		<control type="wraplist" id="9000">
-			<include>MainMenuOriginalContent</include>
+		<control type="group" id="9001">
+			<animation type="Conditional" condition="!Control.HasFocus(9000) + !Control.HasFocus(8000)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
+            </animation>
+            <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010)" reversible="false">Conditional</animation>
+			<control type="list" id="9010">
+				<include condition="!Skin.HasSetting(Disable.WeatherClockDate)" name="SubMenuListDefault">
+					<param name="SubMenuWidth" value="1536" />
+				</include>
+				<include condition="Skin.HasSetting(Disable.WeatherClockDate)" name="SubMenuListDefault">
+					<param name="SubMenuWidth" value="1920" />
+				</include>
+			</control>
 		</control>
+		<include name="MenuClockWeather">
+			<param name="MenuClockLeft" value="1536" />
+			<param name="MenuClockTop" value="10" />
+			<param name="MenuClockAlign" value="right" />
+		</include>
 	</include>
 	<include name="MainMenuListTop">
 		<control type="image">
@@ -37,51 +74,18 @@
             <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
 		<control type="list" id="9000">
-			<include condition="!Skin.HasSetting(Disable.Topbarinfo)" name="MainMenuListContentTop">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentTop">
 				<param name="MainMenuTopWidth" value="1536" />
 			</include>
-			<include condition="Skin.HasSetting(Disable.Topbarinfo)" name="MainMenuListContentTop">
+			<include condition="Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentTop">
 				<param name="MainMenuTopWidth" value="1920" />
 			</include>
 		</control>
-		<control type="group">
-			<visible>!Skin.HasSetting(Disable.Topbarinfo)</visible>
-			<left>1536</left>
-			<top>8</top>
-			<control type="grouplist">
-				<top>0</top>
-				<left>15</left>
-				<width>354</width>
-				<height>45</height>
-				<align>right</align>
-				<orientation>Horizontal</orientation>
-				<control type="label" id="1">
-					<width>auto</width>
-					<height>45</height>
-					<label>$INFO[Weather.Temperature,,  •  ]</label>
-					<font>topbar</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin)</visible>
-				</control>
-				<control type="label" id="2">
-					<width>auto</width>
-					<height>45</height>
-					<label>$INFO[System.Time]</label>
-					<font>topbar</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-			</control>
-			<control type="label">
-				<top>50</top>
-				<width>384</width>
-				<height>45</height>
-				<label>[COLOR $VAR[ColorTextVar]]$INFO[System.Date(ddd)], $INFO[System.Date(mmm d)], $INFO[System.Date(yyyy)][/COLOR]</label>
-				<font>topbar</font>
-				<align>right</align>
-				<textoffsetx>15</textoffsetx>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-			</control>
-		</control>
+		<include name="MenuClockWeather">
+			<param name="MenuClockLeft" value="1536" />
+			<param name="MenuClockTop" value="5" />
+			<param name="MenuClockAlign" value="right" />
+		</include>
 	</include>
 	<include name="MainMenuListVertical">
 		<control type="image">
@@ -101,51 +105,18 @@
             <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
 		<control type="list" id="9000">
-			<include condition="!Skin.HasSetting(Disable.Topbarinfo)" name="MainMenuListContentVertical">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentVertical">
 				<param name="MainMenuVerticalHeight" value="960" />
 			</include>
-			<include condition="Skin.HasSetting(Disable.Topbarinfo)" name="MainMenuListContentVertical">
+			<include condition="Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentVertical">
 				<param name="MainMenuVerticalHeight" value="1080" />
 			</include>
 		</control>
-		<control type="group">
-			<visible>!Skin.HasSetting(Disable.Topbarinfo)</visible>
-			<left>5</left>
-			<top>970</top>
-			<control type="grouplist">
-				<top>0</top>
-				<left>15</left>
-				<width>354</width>
-				<height>45</height>
-				<align>left</align>
-				<orientation>Horizontal</orientation>
-				<control type="label" id="1">
-					<width>auto</width>
-					<height>45</height>
-					<label>$INFO[Weather.Temperature,,  •  ]</label>
-					<font>topbar</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin)</visible>
-				</control>
-				<control type="label" id="2">
-					<width>auto</width>
-					<height>45</height>
-					<label>$INFO[System.Time]</label>
-					<font>topbar</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-			</control>
-			<control type="label">
-				<top>50</top>
-				<width>384</width>
-				<height>45</height>
-				<label>[COLOR $VAR[ColorTextVar]]$INFO[System.Date(ddd)], $INFO[System.Date(mmm d)], $INFO[System.Date(yyyy)][/COLOR]</label>
-				<font>topbar</font>
-				<align>left</align>
-				<textoffsetx>15</textoffsetx>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-			</control>
-		</control>
+		<include name="MenuClockWeather">
+			<param name="MenuClockLeft" value="5" />
+			<param name="MenuClockTop" value="970" />
+			<param name="MenuClockAlign" value="left" />
+		</include>
 	</include>
 	<include name="MainMenuListContent">
 		<animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">conditional</animation>
@@ -193,65 +164,6 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
-			</control>
-		</focusedlayout>
-		<content>
-			<include>skinshortcuts-mainmenu</include>
-		</content>
-	</include>
-	<include name="MainMenuOriginalContent">
-		<animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">conditional</animation>
-		<left>0</left>
-		<top>0</top>
-		<width>FullScreenWidth</width>
-		<height>120</height>
-		<onup condition="!IsEmpty(Container(9000).ListItem.Property(widget))">8000</onup>
-		<ondown>9010</ondown>
-		<movement>1</movement>
-		<pagecontrol>-</pagecontrol>
-		<scrolltime tween="sine" easing="inout">300</scrolltime>
-		<focusposition>1</focusposition>
-		<orientation>Horizontal</orientation>
-		<itemlayout height="120" width="590">
-			<control type="group">
-				<animation effect="zoom" time="0" tween="sine" easing="inout" start="70" end="70" center="auto" condition="true">Conditional</animation>
-				<control type="label">
-					<width>590</width>
-					<height>120</height>
-					<top>-4</top>
-					<font>font_MainMenu_fo</font>
-					<textcolor>$VAR[ColorMenuVar]</textcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-			</control>
-		</itemlayout>
-		<focusedlayout height="120" width="740">
-			<control type="image">
-				<animation effect="fade" start="0" end="80" time="100" delay="1000">Focus</animation>
-				<animation effect="fade" start="80" end="0" time="0">UnFocus</animation>
-				<top>1</top>
-				<left>709</left>
-				<width>30</width>
-				<height>30</height>
-				<texture>WidgetIndicator.png</texture>
-				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
-			</control>
-			<control type="group">
-				<animation effect="zoom" time="150" tween="sine" easing="inout" start="70" end="100" center="auto" condition="Container(9000).OnScrollNext | Container(9000).OnScrollPrevious">Focus</animation>
-				<animation effect="zoom" time="150" tween="sine" easing="inout" start="100" end="70" center="auto" condition="Control.HasFocus(9000)">UnFocus</animation>
-				<control type="label">
-					<width>740</width>
-					<height>120</height>
-					<top>-4</top>
-					<font>font_MainMenu_fo</font>
-					<textcolor>$VAR[ColorMenuVar]</textcolor>
-					<selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
 			</control>
 		</focusedlayout>
 		<content>
@@ -398,7 +310,7 @@
 				<height>$PARAM[SubmenuHeight]</height>
 				<texture>listselect_fo.png</texture>
 				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<visible>ControlGroup(9001).HasFocus()</visible>
+				<visible>ControlGroup(9001).HasFocus() + !Skin.HasSetting(Enable.HomeDefault)</visible>
 			</control>
 			<control type="group">
 				<visible>Control.HasFocus(9010)</visible>
@@ -430,5 +342,65 @@
 		<content>
 			<include>skinshortcuts-submenu</include>
 		</content>
+	</include>
+	<include name="SubMenuListDefault">
+		<animation effect="fade" start="100" end="50" time="300" condition="!ControlGroup(9001).HasFocus()">conditional</animation>
+		<include>VisibleFadeEffect</include>
+		<left>0</left>
+		<top>0</top>
+		<width>$PARAM[SubMenuWidth]</width>
+		<height>120</height>
+		<onup>9000</onup>
+		<ondown>9000</ondown>
+		<pagecontrol>-</pagecontrol>
+		<scrolltime tween="quadratic" easing="out">300</scrolltime>
+		<focusposition>0</focusposition>
+		<movement>1</movement>
+		<orientation>Horizontal</orientation>
+		<include name="SubmenuListContent">
+			<param name="SubmenuHeight" value="120" />
+			<param name="SubmenuAlign" value="center" />
+			<param name="SubmenuTextOffset" value="0" />
+		</include>
+	</include>
+	<include name="MenuClockWeather">
+		<control type="group">
+			<visible>!Skin.HasSetting(Disable.WeatherClockDate)</visible>
+			<left>$PARAM[MenuClockLeft]</left>
+			<top>$PARAM[MenuClockTop]</top>
+			<control type="grouplist">
+				<top>8</top>
+				<left>15</left>
+				<width>354</width>
+				<height>45</height>
+				<align>$PARAM[MenuClockAlign]</align>
+				<orientation>Horizontal</orientation>
+				<control type="label" id="1">
+					<width>auto</width>
+					<height>45</height>
+					<label>$INFO[Weather.Temperature,, • ]</label>
+					<font>font28_title</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin) + !substring(Weather.Temperature,$LOCALIZE[503])</visible>
+				</control>
+				<control type="label" id="2">
+					<width>auto</width>
+					<height>45</height>
+					<label>$INFO[System.Time]</label>
+					<font>font28_title</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+				</control>
+			</control>
+			<control type="label">
+				<top>55</top>
+				<width>384</width>
+				<height>45</height>
+				<label>$INFO[System.Date(ddd)], $INFO[System.Date(mmm d)], $INFO[System.Date(yyyy)]</label>
+				<font>topbar</font>
+				<align>$PARAM[MenuClockAlign]</align>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			</control>
+		</control>
 	</include>
 </includes>

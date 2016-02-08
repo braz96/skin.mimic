@@ -6,18 +6,20 @@
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<views>50,51,54,57,59,500,501,504,507,508,505,509,520</views>
+	<views>50,52,51,54,57,59,500,501,504,507,508,505,509,520</views>
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
-			<top>-30</top>
+			<top>-10</top>
 			<include>ShowCaseMusicInfoPanel</include>
 		</control>
 		<control type="group">
-			<include>Window_OpenClose_Animation</include>
-			<include>MusicList</include>
+			<!--<include>Animation.Common</include>-->
+			<include>View_50_List</include>
 			<!-- view id = 50 -->
+			<include>View_52_Thumbnail</include>
+			<!-- view id = 52 -->
 			<include>MusicInfoWall</include>
 			<!-- view id = 51 -->
 			<include>View_54_ShowCase</include>
@@ -43,9 +45,7 @@
 			<include>View_509_Wall</include>
 			<!-- view id = 509 -->
 		</control>
-		<include>ScrollOffsetLabel</include>
 		<include>Topbar</include>
-		<include>Bottombar</include>
 		<control type="group">
 			<left>-440</left>
 			<include>SideBladeLeft</include>
@@ -118,14 +118,23 @@
 					<usealttexture>library.isscanningmusic</usealttexture>
 				</control>
 				<control type="button" id="612">
+					<label>31926</label>
+					<include>ButtonCommonValues</include>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick condition="Player.HasVideo">ActivateWindow(fullscreenvideo)</onclick>
+					<onclick condition="Player.HasAudio">ActivateWindow(visualisation)</onclick>
+					<visible>Player.HasMedia</visible>
+				</control>
+				<control type="button" id="613">
 					<description>Go to playlist</description>
 					<include>ButtonCommonValues</include>
 					<label>13350</label>
-					<onclick>ActivateWindow(musicplaylist)</onclick>
-					<visible>!StringCompare(Playlist.Length(music),0)</visible>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
+					<onclick condition="Player.HasVideo">ActivateWindow(videoplaylist)</onclick>
+					<visible>Player.HasMedia</visible>
 				</control>
 				<include name="MenuPlayerControls">
-					<param name="PlayerControlsOnUp" value="612" />
 					<param name="PlayerControlsOnDown" value="1802" />
 				</include>
 			</control>

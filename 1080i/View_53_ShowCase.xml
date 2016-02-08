@@ -3,9 +3,9 @@
 	<include name="View_53_ShowCase">
 		<control type="group">
 			<visible>Control.IsVisible(53)</visible>
-			<top>-60</top>
+			<top>-40</top>
 			<left>0</left>
-			<include>ViewAnimation</include>
+			<include>Animation.Common</include>
 			<control type="group">
 				<camera x="960" y="810" />
 				<control type="group" id="6001">
@@ -307,33 +307,25 @@
 				<itemlayout height="525" width="260" />
 				<focusedlayout height="525" width="260" />
 			</control>
-			<control type="scrollbar" id="60">
-				<top>1111</top>
-				<width>FullScreenWidth</width>
-				<height>14</height>
-				<onup>53</onup>
-				<ondown>53</ondown>
-				<orientation>horizontal</orientation>
-			</control>
 			<control type="group">
 				<control type="grouplist">
 					<left>300</left>
-					<top>980</top>
+					<top>985</top>
 					<width>1320</width>
-					<height>42</height>
+					<height>45</height>
 					<align>center</align>
 					<itemgap>18</itemgap>
 					<orientation>horizontal</orientation>
 					<control type="label">
 						<width>auto</width>
-						<height>42</height>
-						<aligny>top</aligny>
+						<height>45</height>
+						<aligny>center</aligny>
 						<align>center</align>
-						<font>font16_title</font>
+						<font>font28_title</font>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
 						<scroll>true</scroll>
-						<label>[B]$VAR[FloorLabelVar][/B]</label>
-						<textoffsety>-2</textoffsety>
+						<label>$VAR[FloorLabelVar]</label>
+						<!--<textoffsety>-2</textoffsety>-->
 						<textoffsetx>0</textoffsetx>
 					</control>
 					<control type="image">
@@ -346,62 +338,33 @@
 				</control>
 				<control type="group">
 					<left>300</left>
-					<top>980</top>
+					<top>1030</top>
 					<control type="label">
 						<left>0</left>
-						<top>45</top>
+						<top>0</top>
 						<width>1320</width>
 						<height>30</height>
 						<align>center</align>
 						<font>font13_title</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<label>$VAR[FloorSubLabelVar]</label>
 						<textoffsetx>30</textoffsetx>
 					</control>
 				</control>
-				<control type="group">
-					<left>0</left>
-					<top>980</top>
-					<width>FullScreenWidth</width>
-					<align>center</align>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !substring(Container.FolderPath,plugin.video)</visible>
-					<control type="group">
-						<left>120</left>
-						<control type="image" id="800011">
-							<include>MediaFlagVars</include>
-							<bordersize>2</bordersize>
-							<texture>resource://resource.images.studios.white/$INFO[ListItem.Studio,,.png]</texture>
-						</control>
-						<control type="label">
-							<left>-10</left>
-							<width>155</width>
-							<height>90</height>
-							<align>center</align>
-							<label>$INFO[ListItem.Studio]</label>
-							<font>font10</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<wrapmultiline>true</wrapmultiline>
-							<visible>IsEmpty(Control.GetLabel(800011))</visible>
-						</control>
-					</control>
-					<control type="image">
-						<left>1675</left>
-						<include>MediaFlagVars</include>
-						<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
-					</control>
-				</control>
 			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(53) + !Window.IsActive(addoninformation)</visible>
+			<top>-15</top>
+			<include>Scrollbar_Horizontal</include>
 		</control>
 	</include>
 	<include name="ShowCaseInfoPanel">
 		<visible>!Skin.HasSetting(Disable.ShowcaseInfopanel) + !Container.Content(sets) + !StringCompare(ListItem.Label,..)</visible>
-		<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">Visible</animation>
-		<animation effect="slide" start="0,0" end="0,-1200" time="100" tween="cubic">Hidden</animation>
-		<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">WindowOpen</animation>
-		<animation effect="slide" end="0,-1200" start="0,0" time="720" tween="cubic">WindowClose</animation>
+		<include>Animation.Common</include>
 		<control type="group" id="12000">
 			<visible>Control.IsVisible(53)</visible>
-			<top>0</top>
+			<top>30</top>
 			<control type="group">
 				<control type="grouplist">
 					<visible>!substring(Container.FolderPath,plugin.video)</visible>

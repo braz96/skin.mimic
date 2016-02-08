@@ -4,7 +4,7 @@
 	<include name="VideoEpisode">
 		<control type="group">
 			<visible>Control.IsVisible(502) + !Window.IsActive(addoninformation)</visible>
-			<include>ViewAnimation</include>
+			<include>Animation.Common</include>
 			<control type="group">
 				<left>0</left>
 				<top>-15</top>
@@ -98,7 +98,7 @@
 							<align>right</align>
 							<textoffsetx>10</textoffsetx>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>$VAR[VideoListLabel2Var]</label>
+							<label>$VAR[ListSubLabelVar]</label>
 							<font>font14</font>
 						</control>
 						<control type="label">
@@ -110,8 +110,7 @@
 							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>[B]$INFO[ListItem.Label][/B]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(502)">Conditional</animation>
+							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="textbox">
 							<label>$VAR[VideoPlotVar]</label>
@@ -123,7 +122,6 @@
 							<textcolor>$VAR[ColorTextVar]</textcolor>
 							<font>font15_textbox</font>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(502)">Conditional</animation>
 						</control>
 						<control type="image">
 							<left>1750</left>
@@ -135,18 +133,12 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<control type="scrollbar" id="60">
-					<left>1906</left>
-					<top>45</top>
-					<width>14</width>
-					<height>1035</height>
-					<onup>60</onup>
-					<ondown>60</ondown>
-					<onleft>502</onleft>
-					<onright>502</onright>
-					<orientation>vertical</orientation>
-				</control>
 			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(502) + !Window.IsActive(addoninformation)</visible>
+			<top>-15</top>
+			<include>Scrollbar_Vertical</include>
 		</control>
 	</include>
 </includes>

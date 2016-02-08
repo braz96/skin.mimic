@@ -6,15 +6,15 @@
         <!--content detail-->
         <control type="group">
             <visible>Control.IsVisible(504)</visible>
-            <include>ViewAnimation</include>
+            <include>Animation.Common</include>
             <!--flags-->
 			<control type="label">
 				<visible>![Window.IsActive(pictures) + Skin.HasSetting(PictureInfo.Disabled)]</visible>
 				<left>383</left>
                 <top>760</top>
-				<label>[B]$INFO[ListItem.Label][/B]</label>
+				<label>$INFO[ListItem.Label]</label>
 				<width>1225</width>
-				<font>font16_title</font>
+				<font>font28_title</font>
 				<textcolor>$VAR[ColorTextVar]</textcolor>
 			</control>
 			<control type="label">
@@ -24,7 +24,7 @@
 				<height>30</height>
 				<align>left</align>
 				<font>font13_title</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				<label>$VAR[FloorSubLabelVar]</label>
 				<visible>![Container.Content(artists) | Window.IsActive(pictures)]</visible>
 			</control>
@@ -35,13 +35,14 @@
 				<height>30</height>
 				<align>left</align>
 				<font>font13_title</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 				<visible>Container.Content(artists)</visible>
 			</control>
             <!--strip top-->
             <control type="image">
             	<visible>Control.HasFocus(504)</visible>
+                <include>FocusedBackgroundFade</include>
             	<top>203</top>
             	<left>370</left>
                 <width>1179</width>
@@ -61,7 +62,7 @@
                 <scrolltime tween="sine" easing="inout">400</scrolltime>
                 <onup>SetProperty(MediaMenu,True,home)</onup>
 				<onup>SetFocus(9050)</onup>
-				<pagecontrol>61</pagecontrol>
+				<pagecontrol>60</pagecontrol>
                 <focusposition>1</focusposition>
                 <orientation>horizontal</orientation>
                 <itemlayout width="1167" height="650">
@@ -179,16 +180,11 @@
 				<texture background="true">$INFO[Skin.String(MusicLibraryPath)]$INFO[Container(504).ListItem.Artist,,/logo.png]</texture>
 				<visible>Container.Content(artists)</visible>
 			</control>
-			<control type="scrollbar" id="61">
-				<visible>Control.IsVisible(504)</visible>
-				<left>0</left>
-				<top>1051</top>
-				<width>FullScreenWidth</width>
-				<height>14</height>
-				<onup>505</onup>
-				<ondown>505</ondown>
-				<orientation>horizontal</orientation>
-			</control>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(504)</visible>
+            <top>-15</top>
+            <include>Scrollbar_Horizontal</include>
         </control>
     </include>
 </includes>

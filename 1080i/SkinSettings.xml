@@ -10,8 +10,8 @@
 		<include>CommonBackground</include>
 		<control type="group">
 			<left>0</left>
-			<top>128</top>
-			<include>Window_OpenClose_Animation</include>
+			<top>180</top>
+			<include>Animation.Common</include>
 			<control type="list" id="9000">
 				<left>82</left>
 				<top>0</top>
@@ -156,16 +156,6 @@
 						<label>31911</label>
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
 					</control>
-					<control type="button" id="101">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31143</label>
-						<label2>$VAR[MenuItemsVar]</label2>
-						<onclick>Skin.ToggleSetting(OriginalMenu)</onclick>
-						<enable>Skin.HasSetting(Enable.HomeDefault)</enable>
-					</control>
 					<control type="radiobutton" id="102">
 						<width>1316</width>
 						<height>90</height>
@@ -190,8 +180,8 @@
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31002</label>
-						<onclick>Skin.ToggleSetting(Disable.Topbarinfo)</onclick>
-						<selected>!Skin.HasSetting(Disable.Topbarinfo)</selected>
+						<onclick>Skin.ToggleSetting(Disable.WeatherClockDate)</onclick>
+						<selected>!Skin.HasSetting(Disable.WeatherClockDate)</selected>
 					</control>
 					<control type="radiobutton" id="106">
 						<width>1316</width>
@@ -520,6 +510,16 @@
 						<onclick>Skin.SetFile(Startup_Playlist_Path,,special://MusicPlaylists/)</onclick>
 						<enable>Skin.HasSetting(Use_Startup_Playlist)</enable>
 					</control>
+					<control type="button" id="308">
+						<description>Busy Loader Image</description>
+                        <width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+                        <label>31130</label>
+                        <label2>$INFO[Skin.String(busyloader)]</label2>
+                        <onclick>Skin.SetImage(busyloader,special://skin/extras/spinners)</onclick>
+                    </control>
 					<control type="radiobutton" id="305">
 						<width>1316</width>
 						<height>90</height>
@@ -778,20 +778,20 @@
 					</control>
 				</control>
 			</control>
-			<control type="scrollbar" id="60">
-				<visible>!Window.IsActive(script-skinshortcuts.xml)</visible>
-				<left>1906</left>
-				<top>-83</top>
-				<width>14</width>
-				<height>1035</height>
-				<onleft>9010</onleft>
-				<onright>9000</onright>
-				<ondown>60</ondown>
-				<onup>60</onup>
-			</control>
+		</control>
+		<control type="scrollbar" id="60">
+			<visible allowhiddenfocus="true">!Control.HasFocus(9000) + !Window.IsActive(script-skinshortcuts.xml)</visible>
+			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<left>1908</left>
+			<top>0</top>
+			<width>12</width>
+			<height>1080</height>
+			<onleft>9010</onleft>
+			<onright>9000</onright>
+			<ondown>60</ondown>
+			<onup>60</onup>
 		</control>
 		<include>Topbar</include>
-		<include>Bottombar</include>
 		<include>SettingsMediaMenu</include>
 	</controls>
 </window>

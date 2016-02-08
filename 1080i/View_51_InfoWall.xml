@@ -4,16 +4,15 @@
 	<include name="VideoInfoWall">
 		<control type="group">
 			<visible>Control.IsVisible(51) + !Window.IsActive(addoninformation)</visible>
-			<include>ViewAnimation</include>
+			<include>Animation.Common</include>
 			<top>-105</top>
 			<control type="image">
 				<visible>Control.HasFocus(51) + !Skin.HasSetting(InfoWall.LargeIcons) + !Skin.HasSetting(InfoWall.Banners)</visible>
                 <left>82</left>
-                <top>167</top>
+                <top>217</top>
                 <width>219</width>
                 <height>316</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="50">Hidden</animation>
+                <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                 <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="Container(51).Row(2)">Conditional</animation>
                 <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="Container(51).Row(2) | Container(51).Row(1)">Conditional</animation>
@@ -25,11 +24,10 @@
             <control type="image">
 				<visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.LargeIcons)</visible>
                 <left>137</left>
-                <top>167</top>
+                <top>217</top>
                 <width>320</width>
                 <height>468</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="50">Hidden</animation>
+                <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                 <animation effect="slide" end="0,456" time="300" tween="cubic" easing="inout" condition="Container(51).Row(1)">Conditional</animation>
                 <animation effect="slide" end="308,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(2)">Conditional</animation>
@@ -38,11 +36,10 @@
             <control type="image">
 				<visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.Banners)</visible>
                 <left>132</left>
-                <top>167</top>
+                <top>217</top>
                 <width>948</width>
                 <height>195</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="50">Hidden</animation>
+                <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                 <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(51).Row(4)">Conditional</animation>
                 <animation effect="slide" end="0,183" time="300" tween="cubic" easing="inout" condition="Container(51).Row(4) | Container(51).Row(3)">Conditional</animation>
@@ -51,7 +48,7 @@
             </control>
 			<control type="panel" id="51">
 				<left>88</left>
-				<top>173</top>
+				<top>223</top>
 				<width>1035</width>
 				<height>915</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
@@ -315,20 +312,10 @@
                     </control>
 				</focusedlayout>
 			</control>
-			<control type="scrollbar" id="60">
-				<left>1906</left>
-				<top>135</top>
-				<width>14</width>
-				<height>1035</height>
-				<onright>51</onright>
-				<onleft>51</onleft>
-				<ondown>60</ondown>
-				<onup>60</onup>
-			</control>
 			<control type="grouplist">
 				<animation effect="slide" time="300" tween="sine" easing="inout" end="-55" condition="Skin.HasSetting(InfoWall.LargeIcons)">Conditional</animation>
 				<animation effect="slide" time="300" tween="sine" easing="inout" start="0" end="-50" condition="Skin.HasSetting(InfoWall.Banners)">Conditional</animation>
-				<top>179</top>
+				<top>228</top>
 				<left>1157</left>
 				<itemgap>15</itemgap>
 				<control type="multiimage">
@@ -340,18 +327,20 @@
 				</control>
 				<control type="label">
 					<width>680</width>
-					<height>40</height>
-					<font>font16_title</font>
+					<height>35</height>
+					<font>font28_title</font>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<scroll>true</scroll>
-					<label>[B]$VAR[FloorLabelVar][/B]</label>
+					<aligny>bottom</aligny>
+					<label>$VAR[FloorLabelVar]</label>
 				</control>
 				<control type="label">
 					<label>$INFO[ListItem.Genre]</label>
 					<width>680</width>
-					<height>34</height>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<height>42</height>
+					<font>font13_title</font>
+					<aligny>top</aligny>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<visible>!IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label">
@@ -371,21 +360,25 @@
 				</control>
 			</control>
 		</control>
+		<control type="group">
+			<visible>Control.IsVisible(51) + !Window.IsActive(addoninformation)</visible>
+			<top>-15</top>
+			<include>Scrollbar_Vertical</include>
+		</control>
 	</include>
 	<!-- Music InfoWall -->
 	<include name="MusicInfoWall">
 		<control type="group">
 			<visible>Control.IsVisible(51) + !Window.IsActive(addoninformation)</visible>
-			<include>ViewAnimation</include>
-			<top>-105</top>
+			<include>Animation.Common</include>
+			<top>0</top>
 			<control type="image">
 				<visible>Control.HasFocus(51)</visible>
                 <left>149</left>
-                <top>173</top>
+                <top>115</top>
                 <width>312</width>
                 <height>312</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="50">Hidden</animation>
+                <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                 <animation effect="slide" end="0,300" time="300" tween="cubic" easing="inout" condition="Container(51).Row(2)">Conditional</animation>
                 <animation effect="slide" end="0,300" time="300" tween="cubic" easing="inout" condition="Container(51).Row(2) | Container(51).Row(1)">Conditional</animation>
@@ -394,7 +387,7 @@
             </control>
 			<control type="panel" id="51">
 				<left>155</left>
-				<top>179</top>
+				<top>121</top>
 				<width>900</width>
 				<height>900</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
@@ -490,18 +483,8 @@
 					</control>
 				</focusedlayout>
 			</control>
-			<control type="scrollbar" id="60">
-				<left>1906</left>
-				<top>135</top>
-				<width>14</width>
-				<height>1035</height>
-				<onright>50</onright>
-				<onleft>50</onleft>
-				<ondown>60</ondown>
-				<onup>60</onup>
-			</control>
 			<control type="grouplist">
-				<top>185</top>
+				<top>127</top>
 				<left>1090</left>
 				<itemgap>15</itemgap>
 				<control type="image">
@@ -513,18 +496,20 @@
 				</control>
 				<control type="label">
 					<width>680</width>
-					<height>40</height>
-					<font>font16_title</font>
+					<height>35</height>
+					<font>font28_title</font>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<aligny>bottom</aligny>
 					<scroll>true</scroll>
-					<label>[B]$VAR[FloorLabelVar][/B]</label>
+					<label>$VAR[FloorLabelVar]</label>
 				</control>
 				<control type="label">
 					<label>$INFO[ListItem.Artist]</label>
 					<width>680</width>
-					<height>34</height>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<height>42</height>
+					<aligny>top</aligny>
+					<font>font13_title</font>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<visible>Container.Content(albums)</visible>
 				</control>
 				<control type="label">
@@ -538,9 +523,10 @@
 				<control type="label">
 					<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 					<width>680</width>
-					<height>34</height>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<height>42</height>
+					<font>font13_title</font>
+					<aligny>top</aligny>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<visible>Container.Content(artists)</visible>
 				</control>
 				<control type="label">
@@ -560,6 +546,11 @@
 					<include>ShowCaseInfoPanelButtonsValues</include>
 				</control>
 			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(51) + !Window.IsActive(addoninformation)</visible>
+			<top>-15</top>
+			<include>Scrollbar_Vertical</include>
 		</control>
 	</include>
 </includes>

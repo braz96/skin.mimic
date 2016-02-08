@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="View_52_Thumbnail">
+		<control type="group">
+			<visible>Control.IsVisible(52) + !Window.IsActive(addoninformation)</visible>
+			<include>Animation.Common</include>
+			<control type="group">
+                <visible>IntegerGreaterThan(Container(52).NumItems,0)</visible>
+                <animation effect="fade" time="320" delay="300">Visible</animation>
+                <control type="image">
+                    <visible>Control.HasFocus(52)</visible>
+                    <left>95</left>
+                    <top>190</top>
+                    <width>330</width>
+                    <height>370</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Container(52).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Container(52).Column(4)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Container(52).Column(4) | Container(52).Column(3)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Container(52).Column(4) | Container(52).Column(3) | Container(52).Column(2)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Container(52).Column(4) | Container(52).Column(3) | Container(52).Column(2) | Container(52).Column(1)">Conditional</animation>
+                </control>
+            </control>
+			<control type="panel" id="52">
+				<top>180</top>
+                <left>85</left>
+                <width>1750</width>
+                <height>780</height>
+				<onup>52</onup>
+                <ondown>52</ondown>
+				<onleft>SetProperty(MediaMenu,True,home)</onleft>
+				<onleft>SetFocus(9050)</onleft>
+				<onright>60</onright>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="21371">list</viewtype>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<orientation>vertical</orientation>
+				<itemlayout height="390" width="350">
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <texture colordiffuse="33ffffff">background.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>20</left>
+                        <right>20</right>
+                        <top>327</top>
+                        <height>50</height>
+                        <aligny>center</aligny>
+                        <font>font13</font>
+                        <label>$INFO[ListItem.Label]</label>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                        <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture colordiffuse="55000000">background.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                        <texture background="true" fallback="DefaultFolder.png">$VAR[ThumbViewImage]</texture>
+                        <visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs) + !Container.Content(addons)</visible>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        <texture fallback="DefaultAudio.png" background="true">$VAR[ThumbViewImage]</texture>
+                        <visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs)</visible>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        <texture fallback="DefaultAddon.png" background="true">$VAR[ThumbViewImage]</texture>
+                        <visible>Container.Content(addons)</visible>
+                    </control>
+
+                </itemlayout>
+                <focusedlayout height="390" width="350">
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <texture colordiffuse="33ffffff">background.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>20</left>
+                        <right>20</right>
+                        <top>327</top>
+                        <height>50</height>
+                        <aligny>center</aligny>
+                        <font>font13</font>
+                        <label>$INFO[ListItem.Label]</label>
+                        <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture colordiffuse="55000000">background.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                        <texture background="true" fallback="DefaultFolder.png">$VAR[ThumbViewImage]</texture>
+                        <visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs) + !Container.Content(addons)</visible>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        <texture fallback="DefaultAudio.png" background="true">$VAR[ThumbViewImage]</texture>
+                        <visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs)</visible>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        <texture fallback="DefaultAddon.png" background="true">$VAR[ThumbViewImage]</texture>
+                        <visible>Container.Content(addons)</visible>
+                    </control>
+                </focusedlayout>
+			</control>
+		</control>
+        <control type="group">
+            <animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsVisible(programs) | Window.IsVisible(addonbrowser)">Conditional</animation>
+            <visible>Control.IsVisible(52) + !Window.IsActive(addoninformation)</visible>
+            <top>-15</top>
+            <include>Scrollbar_Vertical</include>
+        </control>
+	</include>
+</includes>

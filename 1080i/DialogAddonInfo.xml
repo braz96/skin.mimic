@@ -3,13 +3,20 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<controls>
 		<control type="group">
-			<include>WindowASViewAnimation</include>
+			<animation type="WindowOpen" reversible="false">
+	            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+	            <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+	        </animation>
+	        <animation type="WindowClose" reversible="false">
+	            <effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
+	            <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+	        </animation>
 			<left>0</left>
-			<top>128</top>
+			<top>180</top>
 			<control type="group">
 				<control type="image">
 					<left>82</left>
-					<top>32</top>
+					<top>0</top>
 					<width>356</width>
 					<height>356</height>
 					<aspectratio>keep</aspectratio>
@@ -83,7 +90,7 @@
 					<include>SettingsFadeEffect</include>
 					<control type="grouplist">
 						<left>32</left>
-						<top>32</top>
+						<top>0</top>
 						<width>658</width>
 						<itemgap>10</itemgap>
 						<control type="button">
@@ -97,7 +104,7 @@
 					</control>
 					<control type="grouplist">
 						<left>690</left>
-						<top>32</top>
+						<top>0</top>
 						<itemgap>10</itemgap>
 						<width>658</width>
 						<usecontrolcoords>true</usecontrolcoords>
@@ -135,16 +142,6 @@
 							<visible>!IsEmpty(ListItem.Property(Addon.Disclaimer))</visible>
 						</control>
 					</control>
-					<control type="scrollbar" id="60">
-						<left>1416</left>
-						<top>-83</top>
-						<width>14</width>
-						<height>1037</height>
-						<onleft>9000</onleft>
-						<onright>9000</onright>
-						<ondown>60</ondown>
-						<onup>60</onup>
-					</control>
 				</control>
 			</control>
 			<control type="group">
@@ -181,5 +178,6 @@
 				</control>
 			</control>
 		</control>
+		<include>Scrollbar_Vertical</include>
 	</controls>
 </window>

@@ -30,12 +30,18 @@
 			</control>
 		</control>
         <control type="group">
-            <animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
-            <animation effect="slide" tween="cubic" time="720" start="0,0" end="0,1080">WindowClose</animation>
-            <animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftPlot)">Conditional</animation>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+                <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
+                <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+            </animation>
+            <animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-170" condition="Skin.HasSetting(Enable.ShiftPlot)">Conditional</animation>
             <control type="fixedlist" id="500">
                 <left>-140</left>
-                <top>275</top>
+                <top>305</top>
                 <width>2100</width>
                 <height>750</height>
                 <onup condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onup>
@@ -49,8 +55,6 @@
                 <preloaditems>2</preloaditems>
                 <scrolltime tween="quadratic">400</scrolltime>
                 <focusposition>1</focusposition>
-                <!--<movement>4</movement>-->
-                <!--<animation effect="slide" start="0" end="315" time="400" tween="quadratic" easing="out" reversible="true" condition="Control.HasFocus(500) + Container(500).Position(0)">Conditional</animation>-->
                 <itemlayout width="315" height="750">
                     <control type="image">
                         <left>-12</left>
@@ -114,14 +118,13 @@
                     </control>
                 </focusedlayout>
             </control>
-            <control type="image">
+            <!--<control type="image">
                 <left>50</left>
                 <top>581</top>
                 <width>29</width>
                 <height>58</height>
                 <texture flipx="true" colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
                 <visible>Control.HasFocus(500) + Container(500).Position(0) + !IsEmpty(Window.Property(ArrowUp))</visible>
-                <animation effect="fade" start="60" end="100" time="800" condition="true">Conditional</animation>
             </control>
             <control type="image">
                 <left>1841</left>
@@ -130,8 +133,7 @@
                 <height>58</height>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
                 <visible>Control.HasFocus(500) + Container(500).Position(5) + !IsEmpty(Window.Property(ArrowDown))</visible>
-                <animation effect="fade" start="60" end="100" time="800" condition="true">Conditional</animation>
-            </control>
+            </control>-->
             <control type="button" id="600">
                 <include>HiddenObject</include>
                 <onfocus>SetFocus(500)</onfocus>
@@ -143,24 +145,23 @@
             <control type="group">
                 <control type="group">
                     <left>70</left>
-                    <top>910</top>
+                    <top>950</top>
                     <include>VisibleFadeEffect</include>
                     <control type="label">
                         <left>35</left>
                         <top>0</top>
                         <width>1150</width>
                         <height>42</height>
-                        <aligny>top</aligny>
                         <align>left</align>
-                        <font>font16_title</font>
+                        <font>font28_title</font>
                         <scroll>true</scroll>
-                        <label>[B]$INFO[Container(500).ListItem.Label]$INFO[Container(500).ListItem.Property(User_Rating),[COLOR $VAR[ColorHighlightVar]]  |  ,[/COLOR]][/B]</label>
+                        <label>$INFO[Container(500).ListItem.Label]$INFO[Container(500).ListItem.Property(User_Rating),[COLOR $VAR[ColorHighlightVar]]  |  ,[/COLOR]]</label>
                         <textoffsety>-2</textoffsety>
                         <textoffsetx>30</textoffsetx>
                     </control>
                     <control type="grouplist">
                         <left>65</left>
-                        <top>50</top>
+                        <top>45</top>
                         <width>1100</width>
                         <height>30</height>
                         <align>left</align>
@@ -172,22 +173,24 @@
                             <align>left</align>
                             <font>font13_title</font>
                             <label>$ADDON[script.extendedinfo 32023]:</label>
+                            <textcolor>$VAR[ColorHighlightVar]</textcolor>
                         </control>
                         <control type="label">
                             <width>auto</width>
                             <height>30</height>
                             <font>font13_title</font>
                             <label fallback="16018">$INFO[Window.Property(Filter_Label)]</label>
+                            <textcolor>$VAR[ColorHighlightVar]</textcolor>
                         </control>
                     </control>
                     <control type="textbox">
                         <visible>Skin.HasSetting(Enable.ShiftPlot)</visible>
                         <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
-                        <top>95</top>
+                        <top>90</top>
                         <left>65</left>
                         <width>1633</width>
-                        <height>220</height>
-                        <font>font14_textbox4</font>
+                        <height>160</height>
+                        <font>font14_textbox3</font>
                         <textcolor>$VAR[ColorTextVar]</textcolor>
                         <align>left</align>
                         <aligny>top</aligny>
@@ -198,7 +201,7 @@
                 </control>
                 <control type="image">
                     <left>1530</left>
-                    <top>935</top>
+                    <top>900</top>
                     <width>280</width>
                     <height>59</height>
                     <aspectratio>keep</aspectratio>
@@ -207,13 +210,13 @@
             </control>
         </control>
         <control type="group">
-            <animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
-            <animation effect="slide" tween="cubic" time="720" start="0,0" end="0,1080">WindowClose</animation>
             <control type="scrollbar" id="60">
+                <visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
+                <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
                 <left>0</left>
-                <top>1066</top>
+                <top>1068</top>
                 <width>FullScreenWidth</width>
-                <height>14</height>
+                <height>12</height>
                 <onup>500</onup>
                 <ondown>noop</ondown>
                 <onleft>700</onleft>
@@ -221,66 +224,7 @@
                 <orientation>horizontal</orientation>
             </control>
         </control>
-        <control type="group">
-			<animation effect="slide" start="0,-90" end="0,0" time="480" delay="800" condition="true">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480" condition="true">WindowClose</animation>
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>FullScreenWidth</width>
-				<height>45</height>
-				<texture>topbar.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="group">
-				<top>-2</top>
-                <control type="group">
-                    <animation effect="slide" time="400" tween="" easing="" start="0" end="35" condition="Control.IsVisible(1996)">Conditional</animation>
-                    <control type="image" id="1996">
-                        <visible>![Window.IsActive(settings) | Window.IsActive(addoninformation) | Skin.HasSetting(KioskMode.Enabled)]</visible>
-                        <top>8</top>
-                        <left>-27</left>
-                        <width>32</width>
-                        <height>32</height>
-                        <texture>arrow.png</texture>
-                        <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-                    </control>
-    				<control type="label">
-    					<width>900</width>
-    					<height>45</height>
-    					<font>topbar</font>
-    					<textoffsetx>15</textoffsetx>
-    					<textcolor>$VAR[ColorTextVar]</textcolor>
-    					<align>left</align>
-    					<aligny>center</aligny>
-    					<label>$INFO[Control.GetLabel(5001)]</label>
-    				</control>
-                </control>
-				<control type="label">
-					<left>0</left>
-					<width>FullScreenWidth</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$INFO[System.Time]</label>
-				</control>
-				<control type="label">
-					<left>1020</left>
-					<width>900</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>right</align>
-					<aligny>center</aligny>
-					<label>$INFO[Window.Property(TotalItems),, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Window.Property(CurrentPage)]$INFO[Window.Property(TotalPages),/][/COLOR]</label>
-				</control>
-			</control>
-		</control>
-        <include>Bottombar</include>
+        <include>Topbar</include>
         <control type="group">
             <animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
             <animation effect="slide" start="0,0" end="440,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9000)">Conditional</animation>

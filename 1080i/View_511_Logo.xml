@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- Logo -->
+	<include name="LandscapeLogoLayout">
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>150</height>
+			<aspectratio align="center" aligny="center">keep</aspectratio>
+			<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+		</control>
+		<control type="group">
+			<visible>IsEmpty(ListItem.Art(clearlogo))</visible>
+			<control type="textbox">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>150</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font16</font>
+				<label>$VAR[FloorLabelVar]</label>
+			</control>
+		</control>
+	</include>
+	<include name="View_511_Logo">
+		<control type="group">
+			<visible>Control.IsVisible(511) + !Window.IsActive(addoninformation)</visible>
+			<include>Animation.Common</include>
+			<control type="image">
+				<left>0</left>
+				<top>735</top>
+				<width>1920</width>
+				<height>345</height>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+				<texture>background.png</texture>
+			</control>
+			<control type="fixedlist" id="511">
+				<left>0</left>
+				<top>830</top>
+				<width>1920</width>
+				<height>150</height>
+				<onleft>511</onleft>
+				<onright>511</onright>
+				<onup>SetProperty(MediaMenu,True,home)</onup>
+				<onup>SetFocus(9050)</onup>
+				<!--<ondown>60</ondown>-->
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<focusposition>0</focusposition>
+				<viewtype label="Logo">list</viewtype>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<orientation>horizontal</orientation>
+				<itemlayout width="1920" height="150">
+					<include>LandscapeLogoLayout</include>
+				</itemlayout>
+				<focusedlayout width="1920" height="150">
+					<control type="group">
+						<animation effect="zoom" center="auto" start="100" end="150" time="480" tween="back" reversible="false">Focus</animation>
+						<animation effect="zoom" center="auto" start="150" end="100" time="160" tween="back" reversible="false">UnFocus</animation>
+						<include>LandscapeLogoLayout</include>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(511) + !Window.IsActive(addoninformation)</visible>
+			<top>-15</top>
+			<include>Scrollbar_Horizontal</include>
+		</control>
+	</include>
+</includes>

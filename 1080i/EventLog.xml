@@ -10,16 +10,15 @@
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
+			<include>Animation.Common</include>
 			<!-- view id = 50 -->
 			<control type="group">
 				<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
-				<include>ViewAnimation</include>
+				<include>Animation.Common</include>
 				<control type="group">
 					<control type="list" id="50">
 						<left>100</left>
-						<top>120</top>
+						<top>180</top>
 						<width>1720</width>
 						<height>840</height>
 						<onleft>SetProperty(MediaMenu,True,home)</onleft>
@@ -32,20 +31,20 @@
 						<scrolltime tween="quadratic" easing="out">200</scrolltime>
 						<itemlayout height="120" width="1720">
 							<control type="image">
-								<left>15</left>
-								<top>8</top>
-								<width>105</width>
-								<height>105</height>
+								<left>10</left>
+								<top>10</top>
+								<width>100</width>
+								<height>100</height>
 								<aspectratio>keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon,views/list/]</texture>
 								<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 								<visible>SubString(ListItem.Icon,Default,left)</visible>
 							</control>
 							<control type="image">
-								<left>15</left>
-								<top>8</top>
-								<width>105</width>
-								<height>105</height>
+								<left>10</left>
+								<top>10</top>
+								<width>100</width>
+								<height>100</height>
 								<aspectratio>keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<visible>!SubString(ListItem.Icon,Default,left)</visible>
@@ -57,7 +56,7 @@
 								<height>70</height>
 								<font>font30</font>
 								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 								<align>left</align>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Label]</label>
@@ -68,9 +67,9 @@
 								<top>50</top>
 								<width>1565</width>
 								<height>60</height>
-								<font>font15</font>
+								<font>font13</font>
 								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 								<align>left</align>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Property(Event.Description)]</label>
@@ -83,7 +82,7 @@
 								<font>font15</font>
 								<align>right</align>
 								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Label2]</label>
 							</control>
@@ -99,20 +98,20 @@
 								<include>VisibleFadeEffect</include>
 							</control>
 							<control type="image">
-								<left>15</left>
-								<top>8</top>
-								<width>105</width>
-								<height>105</height>
+								<left>10</left>
+								<top>10</top>
+								<width>100</width>
+								<height>100</height>
 								<aspectratio>keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon,views/list/]</texture>
 								<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 								<visible>SubString(ListItem.Icon,Default,left)</visible>
 							</control>
 							<control type="image">
-								<left>15</left>
-								<top>8</top>
-								<width>105</width>
-								<height>105</height>
+								<left>10</left>
+								<top>10</top>
+								<width>100</width>
+								<height>100</height>
 								<aspectratio>keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<visible>!SubString(ListItem.Icon,Default,left)</visible>
@@ -124,11 +123,10 @@
 								<height>70</height>
 								<font>font30</font>
 								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 								<align>left</align>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Label]</label>
-								<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 								<animation effect="slide" start="0,0" end="0,25" time="0" condition="IsEmpty(ListItem.Property(Event.Description))">Conditional</animation>
 							</control>
 							<control type="label">
@@ -136,13 +134,12 @@
 								<top>50</top>
 								<width>1565</width>
 								<height>60</height>
-								<font>font15</font>
+								<font>font13</font>
 								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 								<align>left</align>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Property(Event.Description)]</label>
-								<animation effect="fade" start="100" end="30" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 							</control>
 							<control type="label">
 								<left>60</left>
@@ -152,28 +149,20 @@
 								<font>font15</font>
 								<align>right</align>
 								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Label2]</label>
-								<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 							</control>
 						</focusedlayout>
-					</control>
-					<control type="scrollbar" id="60">
-						<left>1906</left>
-						<top>45</top>
-						<width>14</width>
-						<height>1035</height>
-						<onup>60</onup>
-						<ondown>60</ondown>
-						<onleft>50</onleft>
-						<onright>9002</onright>
-						<orientation>vertical</orientation>
 					</control>
 				</control>
 			</control>
 		</control>
-		<include>ScrollOffsetLabel</include>
+		<control type="group">
+			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
+			<top>0</top>
+			<include>Scrollbar_Vertical</include>
+		</control>
 		<include>Topbar</include>
 		<control type="group">
 			<left>-440</left>

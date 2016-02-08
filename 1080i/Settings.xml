@@ -5,89 +5,88 @@
     <controls>
         <include>CommonBackground</include>
         <include>Topbar</include>
-        <include>Bottombar</include>
         <control type="group">
-            <include>Window_OpenClose_Animation</include>
+            <include>Animation.Common</include>
             <control type="image">
                 <visible>Control.HasFocus(9000)</visible>
                 <left>145</left>
-                <top>95</top>
+                <top>175</top>
                 <width>810</width>
-                <height>141</height>
+                <height>120</height>
                 <animation effect="fade" time="320" delay="200">Visible</animation>
                 <animation effect="fade" time="50">Hidden</animation>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5)">Conditional</animation>
-                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4)">Conditional</animation>
-                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4) | Container(9000).Row(3)">Conditional</animation>
-                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4) | Container(9000).Row(3) | Container(9000).Row(2)">Conditional</animation>
-                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4) | Container(9000).Row(3) | Container(9000).Row(2) | Container(9000).Row(1)">Conditional</animation>
+                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5)">Conditional</animation>
+                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4)">Conditional</animation>
+                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4) | Container(9000).Row(3)">Conditional</animation>
+                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4) | Container(9000).Row(3) | Container(9000).Row(2)">Conditional</animation>
+                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="Container(9000).Row(5) | Container(9000).Row(4) | Container(9000).Row(3) | Container(9000).Row(2) | Container(9000).Row(1)">Conditional</animation>
                 <animation effect="slide" end="825,0" time="300" tween="cubic" easing="inout" condition="Container(9000).Column(1)">Conditional</animation>
             </control>
             <control type="panel" id="9000">
                 <left>145</left>
-                <top>95</top>
+                <top>175</top>
                 <width>1650</width>
                 <height>900</height>
                 <onleft>9000</onleft>
                 <onright>9000</onright>
                 <onup>9000</onup>
                 <ondown>9000</ondown>
-                <itemlayout width="825" height="150">
+                <itemlayout width="825" height="140">
                     <control type="image">
                         <left>10</left>
-                        <top>10</top>
-                        <width>120</width>
-                        <height>120</height>
+                        <top>7</top>
+                        <width>100</width>
+                        <height>100</height>
                         <info>ListItem.Icon</info>
                         <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
                     </control>
                     <control type="label">
                         <left>165</left>
-                        <top>15</top>
+                        <top>7</top>
                         <width>615</width>
                         <height>60</height>
-                        <font>font28_title</font>
+                        <font>font24_title</font>
                         <textcolor>$VAR[ColorTextVar]</textcolor>
                         <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                     <control type="label">
                         <left>165</left>
-                        <top>69</top>
+                        <top>55</top>
                         <width>620</width>
                         <height>51</height>
-                        <font>font15</font>
+                        <font>font14</font>
                         <textcolor>$VAR[ColorTextVar]</textcolor>
                         <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                         <label>$INFO[ListItem.Label2]</label>
                     </control>
                 </itemlayout>
-                <focusedlayout width="825" height="150">
+                <focusedlayout width="825" height="140">
                     <control type="image">
                         <left>10</left>
-                        <top>10</top>
-                        <width>120</width>
-                        <height>120</height>
+                        <top>7</top>
+                        <width>100</width>
+                        <height>100</height>
                         <info>ListItem.Icon</info>
                         <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
                     </control>
                     <control type="label">
                         <left>165</left>
-                        <top>15</top>
+                        <top>7</top>
                         <width>615</width>
                         <height>60</height>
-                        <font>font28_title</font>
+                        <font>font24_title</font>
                         <textcolor>$VAR[ColorTextVar]</textcolor>
                         <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                     <control type="label">
                         <left>165</left>
-                        <top>69</top>
+                        <top>55</top>
                         <width>620</width>
                         <height>51</height>
-                        <font>font15</font>
+                        <font>font14</font>
                         <textcolor>$VAR[ColorTextVar]</textcolor>
                         <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                         <label>$INFO[ListItem.Label2]</label>
@@ -113,7 +112,7 @@
                         <onclick>ActivateWindow(MyMusicSettings)</onclick>
                     </item>
                     <item id="4">
-                        <label>$LOCALIZE[20077]</label>
+                        <label>$LOCALIZE[166]</label>
                         <label2>$LOCALIZE[10000] • $LOCALIZE[31962] • $LOCALIZE[20445]</label2>
                         <icon>DefaultIconPlay.png</icon>
                         <onclick>ActivateWindow(skinsettings)</onclick>
@@ -125,7 +124,7 @@
                         <onclick>ActivateWindow(MyPicturesSettings)</onclick>
                     </item>
                     <item id="6">
-                        <label>$LOCALIZE[14036]</label>
+                        <label>$LOCALIZE[705]</label>
                         <label2>$LOCALIZE[20187] • $LOCALIZE[33101] • $LOCALIZE[1259]</label2>
                         <icon>DefaultAddonService.png</icon>
                         <onclick>ActivateWindow(ServiceSettings)</onclick>

@@ -4,7 +4,7 @@
     <include name="View_505_Panel">
         <control type="group">
             <visible>Control.IsVisible(505)</visible>
-    		<include>ViewAnimation</include>
+    		<include>Animation.Common</include>
             <control type="group">
                 <visible>IntegerGreaterThan(Container(505).NumItems,0)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
@@ -14,8 +14,7 @@
                     <width>555</width>
                     <height>725</height>
                     <visible>Control.HasFocus(505)</visible>
-                    <animation effect="fade" time="320" delay="200">Visible</animation>
-                    <animation effect="fade" time="200">Hidden</animation>
+                    <include>FocusedBackgroundFade</include>
                     <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                     <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Container(505).Column(2)">Conditional</animation>
                     <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Container(505).Column(2) | Container(505).Column(1)">Conditional</animation>
@@ -40,7 +39,7 @@
                         <left>15</left>
                         <width>525</width>
                         <height>30</height>
-                        <label>[B]$INFO[ListItem.Label][/B]</label>
+                        <label>$INFO[ListItem.Label]</label>
     					<font>font16_title</font>
                         <textcolor>$VAR[ColorTextVar]</textcolor>
                     </control>
@@ -74,7 +73,7 @@
                         <left>15</left>
                         <width>525</width>
                         <height>30</height>
-                        <label>[B]$INFO[ListItem.Label][/B]</label>
+                        <label>$INFO[ListItem.Label]</label>
     					<font>font16_title</font>
                         <textcolor>$VAR[ColorTextVar]</textcolor>
                     </control>
@@ -105,16 +104,11 @@
     				<include>viewPanelTextbox-ContainerCommons</include>
                 </focusedlayout>
             </control>
-            <control type="scrollbar" id="60">
-                <visible>Control.IsVisible(505)</visible>
-                <left>0</left>
-                <top>1051</top>
-                <width>FullScreenWidth</width>
-                <height>14</height>
-                <onup>505</onup>
-                <ondown>505</ondown>
-                <orientation>horizontal</orientation>
-            </control>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(505)</visible>
+            <top>-15</top>
+            <include>Scrollbar_Horizontal</include>
         </control>
     </include>
     <include name="viewPanelTextbox-ContainerCommons">

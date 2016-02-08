@@ -28,8 +28,8 @@
 					<width>320</width>
 					<include>MediaFlagVars</include>
 					<bordersize>2</bordersize>
-					<texture fallback="flags/studios/default-studio.png">$INFO[VideoPlayer.Studio,flags/studios/,.png]</texture>
-					<visible>!IsEmpty(Control.GetLabel(800011)) | IsEmpty(VideoPlayer.Studio)</visible>
+					<texture>resource://resource.images.studios.white/$INFO[VideoPlayer.Studio,,.png]</texture>
+					<visible>!IsEmpty(Control.GetLabel(800011))</visible>
 					<visible>!VideoPlayer.Content(livetv) + !VideoPlayer.Content(files)</visible>
 				</control>
 				<control type="label">
@@ -117,7 +117,7 @@
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<align>left</align>
 					<aligny>top</aligny>
-					<label>[B]$VAR[PlayerTitleLabelVar][/B]</label>
+					<label>$VAR[PlayerTitleLabelVar]</label>
 					<visible>!VideoPlayer.Content(episodes)</visible>
 					<scroll>false</scroll>
 				</control>
@@ -128,7 +128,7 @@
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<align>left</align>
 					<aligny>top</aligny>
-					<label>[B]$INFO[VideoPlayer.Season,,X]$INFO[VideoPlayer.Episode,,. ]$VAR[PlayerTitleLabelVar][/B]</label>
+					<label>$INFO[VideoPlayer.Season,,X]$INFO[VideoPlayer.Episode,,. ]$VAR[PlayerTitleLabelVar]</label>
 					<visible>VideoPlayer.Content(episodes)</visible>
 					<scroll>false</scroll>
 				</control>
@@ -216,95 +216,6 @@
 				<texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[Player.StarRating]</texture>
 			</control>
 		</control>
-		<!--<control type="group">
-			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
-			<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>
-			<top>795</top>
-			<visible>![VideoPlayer.Content(livetv) | VideoPlayer.Content(movies) | VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos)]</visible>
-			<visible>!Window.IsActive(videoosd)</visible>
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>FullScreenWidth</width>
-				<height>285</height>
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="image">
-				<left>30</left>
-				<top>30</top>
-				<width>340</width>
-				<height>227</height>
-				<aspectratio aligny="center" align="center">scale</aspectratio>
-				<texture fallback="DefaultMovies.png" background="true">$VAR[PlayerArtworkVar]</texture>
-			</control>
-			<control type="textbox">
-				<left>400</left>
-				<top>15</top>
-				<width>1295</width>
-				<height>227</height>
-				<font>font35_title</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>left</align>
-				<aligny>top</aligny>
-				<label>[B]$VAR[PlayerTitleLabelVar][/B]</label>
-			</control>
-			<control type="image">
-				<left>1740</left>
-				<top>10</top>
-				<width>198</width>
-				<include>MediaFlagVars</include>
-				<texture colordiffuse="$VAR[ColorTextVar]">$INFO[VideoPlayer.VideoCodec,flags/video/,.png]</texture>
-			</control>
-			<control type="progress">
-				<left>400</left>
-				<top>219</top>
-				<width>1490</width>
-				<height>37</height>
-				<info>Player.ProgressCache</info>
-			</control>
-			<control type="progress">
-				<left>400</left>
-				<top>219</top>
-				<width>1490</width>
-				<height>37</height>
-				<info>Player.Progress</info>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="label">
-				<top>218</top>
-				<left>415</left>
-				<width>900</width>
-				<height>35</height>
-				<font>font14_title</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
-				<label>$INFO[Player.Time]</label>
-			</control>
-			<control type="label">
-				<top>218</top>
-				<left>975</left>
-				<width>900</width>
-				<height>35</height>
-				<font>font14_title</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>right</align>
-				<aligny>center</aligny>
-				<label>$INFO[Player.Duration]</label>
-			</control>
-			<control type="label">
-				<top>218</top>
-				<left>400</left>
-				<width>1490</width>
-				<height>35</height>
-				<font>font14_title</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$VAR[SeekLabelVar]</label>
-			</control>
-		</control>-->
 		<control type="group">
 			<animation effect="slide" start="0,290" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,290" end="0,0" time="200">VisibleChange</animation>
@@ -335,7 +246,7 @@
 				<scroll>false</scroll>
 				<font>font16_title</font>
 				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<label>[B]$INFO[VideoPlayer.Artist,, - ]$INFO[VideoPlayer.Title][/B]</label>
+				<label>$INFO[VideoPlayer.Artist,, - ]$INFO[VideoPlayer.Title]</label>
 			</control>
 			<control type="group">
 				<visible>VideoPlayer.Content(livetv)</visible>

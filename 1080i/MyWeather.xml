@@ -10,7 +10,7 @@
 		<include>CommonBackground</include>
 		<control type="group">
 			<visible>!Skin.HasSetting(Enable.BasicWeatherView)</visible>
-			<include>Window_OpenClose_Animation</include>
+			<include>Animation.Common</include>
 			<top>90</top>
 			<control type="panel" id="9000">
 				<left>82</left>
@@ -56,7 +56,6 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<content>
@@ -124,8 +123,8 @@
 			<control type="scrollbar" id="60">
 				<left>0</left>
 				<top>-45</top>
-				<width>14</width>
-				<height>1035</height>
+				<width>12</width>
+				<height>1080</height>
 				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
 				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetFocus(9050)</onleft>
 				<onright>9000</onright>
@@ -145,7 +144,6 @@
 						<height>150</height>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture>$INFO[Window.Property(WeatherProviderLogo)]</texture>
-						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 					</control>
 					<control type="image">
 						<description>current weather icon</description>
@@ -1765,7 +1763,7 @@
 		</control>
 		<control type="group">
 			<visible>Skin.HasSetting(Enable.BasicWeatherView)</visible>
-			<include>Window_OpenClose_Animation</include>
+			<include>Animation.Common</include>
 			<control type="group">
 				<include>SettingsFadeEffect</include>
 				<left>137</left>
@@ -1779,14 +1777,13 @@
 					<height>100</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
 					<texture>$INFO[Window.Property(WeatherProviderLogo)]</texture>
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 				</control>
 				<control type="image">
 					<top>140</top>
 					<left>10</left>
 					<width>1625</width>
 					<height>340</height>
-					<texture>thumbs/diffuse.png</texture>
+					<texture colordiffuse="22ffffff">background.png</texture>
 				</control>
 				<control type="image">
 					<description>current weather icon</description>
@@ -1886,7 +1883,7 @@
 							<left>10</left>
 							<width>309</width>
 							<height>340</height>
-							<texture>thumbs/diffuse.png</texture>
+							<texture colordiffuse="22ffffff">background.png</texture>
 						</control>
 						<control type="group">
 							<top>15</top>
@@ -1938,7 +1935,7 @@
 							<left>10</left>
 							<width>309</width>
 							<height>340</height>
-							<texture>thumbs/diffuse.png</texture>
+							<texture colordiffuse="33ffffff">background.png</texture>
 						</control>
 						<control type="group">
 							<top>15</top>
@@ -2036,18 +2033,15 @@
 			</control>
 		</control>
 		<include>Topbar</include>
-		<include>Bottombar</include>
 		<control type="label">
-			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-			<left>1020</left>
-			<top>-2</top>
+			<left>100</left>
+			<top>60</top>
 			<width>900</width>
 			<height>45</height>
 			<font>topbar</font>
 			<textoffsetx>15</textoffsetx>
-			<textcolor>$VAR[ColorTextVar]</textcolor>
-			<align>right</align>
+			<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			<align>left</align>
 			<aligny>center</aligny>
 			<label>$INFO[Window.Property(Location)]</label>
 		</control>
@@ -2141,8 +2135,24 @@
 					<label>$INFO[Window.Property(Updated)]</label>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 				</control>
+				<control type="button" id="612">
+					<label>31926</label>
+					<include>ButtonCommonValues</include>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick condition="Player.HasVideo">ActivateWindow(fullscreenvideo)</onclick>
+					<onclick condition="Player.HasAudio">ActivateWindow(visualisation)</onclick>
+					<visible>Player.HasMedia</visible>
+				</control>
+				<control type="button" id="613">
+					<description>Go to playlist</description>
+					<include>ButtonCommonValues</include>
+					<label>13350</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
+					<onclick condition="Player.HasVideo">ActivateWindow(videoplaylist)</onclick>
+					<visible>Player.HasMedia</visible>
+				</control>
 				<include name="MenuPlayerControls">
-					<param name="PlayerControlsOnUp" value="208" />
 					<param name="PlayerControlsOnDown" value="3" />
 				</include>
 			</control>

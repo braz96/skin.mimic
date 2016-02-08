@@ -4,7 +4,7 @@
 	<include name="View_509_Wall">
 		<control type="group">
 			<visible>Control.IsVisible(509)</visible>
-			<include>ViewAnimation</include>
+			<include>Animation.Common</include>
 			<top>-15</top>
 			<control type="image">
             	<visible>[Container.Content(sets) | [[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(Enable.WallLandscape) + !Skin.HasSetting(Enable.WallBanner) + !Skin.HasSetting(Enable.WallLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.WallLogo)]] + Control.HasFocus(509)</visible>
@@ -12,8 +12,7 @@
                 <top>15</top>
                 <width>247</width>
                 <height>358</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
+                <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                 <animation effect="slide" end="0,346" time="300" tween="cubic" easing="inout" condition="Container(509).Row(2)">Conditional</animation>
                 <animation effect="slide" end="0,346" time="300" tween="cubic" easing="inout" condition="Container(509).Row(2) | Container(509).Row(1)">Conditional</animation>
@@ -31,8 +30,7 @@
                 <top>14</top>
                 <width>464</width>
                 <height>272</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
+                <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                 <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3)">Conditional</animation>
                 <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3) | Container(509).Row(2)">Conditional</animation>
@@ -47,8 +45,7 @@
                 <top>15</top>
                 <width>894</width>
                 <height>185</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
+                <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                 <animation effect="slide" end="0,173" time="300" tween="cubic" easing="inout" condition="Container(509).Row(5)">Conditional</animation>
                 <animation effect="slide" end="0,173" time="300" tween="cubic" easing="inout" condition="Container(509).Row(5) | Container(509).Row(4)">Conditional</animation>
@@ -63,8 +60,7 @@
                 <top>14</top>
                 <width>272</width>
                 <height>272</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
+                <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
                 <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3)">Conditional</animation>
                 <animation effect="slide" end="0,260" time="300" tween="cubic" easing="inout" condition="Container(509).Row(3) | Container(509).Row(2)">Conditional</animation>
@@ -507,18 +503,11 @@
 					</control>
 				</focusedlayout>
 			</control>
-			<control type="scrollbar" id="60">
-				<left>1906</left>
-				<top>0</top>
-				<width>14</width>
-				<height>1080</height>
-				<onup>60</onup>
-				<ondown>60</ondown>
-				<onleft>509</onleft>
-				<onright>SetProperty(MediaMenu,True,home)</onright>
-				<onright>SetFocus(9050)</onright>
-				<orientation>vertical</orientation>
-			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(509)</visible>
+			<top>-15</top>
+			<include>Scrollbar_Vertical</include>
 		</control>
 	</include>
 </includes>

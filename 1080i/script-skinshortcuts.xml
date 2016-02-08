@@ -9,17 +9,18 @@
 		<control type="group">
 			<visible>IsEmpty(Window.Property(additionalDialog))</visible>
 			<left>0</left>
-			<top>128</top>
+			<top>180</top>
+			<include>Animation.Common</include>
 			<control type="list" id="211">
 				<left>82</left>
 				<top>0</top>
 				<width>356</width>
 				<height>840</height>
-				<onleft>61</onleft>
+				<onleft>90001</onleft>
 				<onright>90001</onright>
 				<onup>211</onup>
 				<ondown>211</ondown>
-				<pagecontrol>61</pagecontrol>
+				<!--<pagecontrol>61</pagecontrol>-->
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
 				<itemlayout height="90" width="356">
 					<control type="label">
@@ -52,11 +53,10 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(211)">Conditional</animation>
 					</control>
 				</focusedlayout>
 			</control>
-			<control type="scrollbar" id="61">
+			<!--<control type="scrollbar" id="61">
 				<left>0</left>
 				<top>-83</top>
 				<width>14</width>
@@ -65,7 +65,7 @@
 				<onright>211</onright>
 				<ondown>61</ondown>
 				<onup>61</onup>
-			</control>
+			</control>-->
 			<control type="textbox">
 				<description>description area</description>
 				<left>552</left>
@@ -164,19 +164,6 @@
 					<onclick>SendClick(404)</onclick>
 				</control>
 
-				<control type="button" id="500">
-					<description>Choose infoline</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$LOCALIZE[31053]</label>
-					<label2>$INFO[Container(211).ListItem.Property(InfoLine)]</label2>
-					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
-					<onclick>SetProperty(chooseProperty,InfoLine)</onclick>
-					<onclick>SendClick(404)</onclick>
-				</control>
-
 				<control type="button" id="303">
 					<description>Move up</description>
 					<label>$LOCALIZE[31159]</label>
@@ -212,16 +199,18 @@
 
 
 			</control>
-			<control type="scrollbar" id="60">
-				<left>1906</left>
-				<top>-83</top>
-				<width>14</width>
-				<height>1035</height>
-				<onleft>90001</onleft>
-				<onright>211</onright>
-				<ondown>60</ondown>
-				<onup>60</onup>
-			</control>
+		</control>
+		<control type="scrollbar" id="60">
+			<visible allowhiddenfocus="true">[Control.HasFocus(60) | ControlGroup(90001).HasFocus] + IsEmpty(Window.Property(additionalDialog))</visible>
+			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<left>1908</left>
+			<top>0</top>
+			<width>12</width>
+			<height>1080</height>
+			<onleft>90001</onleft>
+			<onright>211</onright>
+			<ondown>60</ondown>
+			<onup>60</onup>
 		</control>
 
 		<!-- 404, for setting custom property -->

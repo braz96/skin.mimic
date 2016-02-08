@@ -6,7 +6,7 @@
         <control type="image">
             <include>FullscreenDimensions</include>
             <fadetime>500</fadetime>
-            <texture>black.png</texture>
+            <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[Skin.String(CustomBackground)]</texture>
             <animation effect="fade" start="0" end="100" time="300" tween="sine">WindowOpen</animation>
             <animation effect="fade" end="100" time="200" tween="sine">WindowClose</animation>
         </control>
@@ -18,29 +18,17 @@
             <animation effect="fade" start="0" end="100" time="300" tween="sine">WindowOpen</animation>
             <animation effect="fade" end="100" time="200" tween="sine">WindowClose</animation>
         </control>
-        <control type="group">
-            <top>492</top>
-            <left>912</left>
-            <control type="image">
-                <description>Busy animation</description>
-                <visible>!Container(10001).OnScrollPrevious + !Container(10001).OnScrollNext</visible>
-                <width>96</width>
-                <height>96</height>
-                <texture>android/spinner_48_inner_holo.png</texture>
-                <aspectratio>keep</aspectratio>
-                <animation effect="rotate" start="0" end="360" center="auto" time="2000" loop="true" condition="true">conditional</animation>
-                <animation effect="fade" time="320" delay="400">Visible</animation>
-            </control>
-            <control type="image">
-                <description>Busy animation</description>
-                <visible>!Container(10001).OnScrollPrevious + !Container(10001).OnScrollNext</visible>
-                <width>96</width>
-                <height>96</height>
-                <texture>android/spinner_48_outer_holo.png</texture>
-                <aspectratio>keep</aspectratio>
-                <animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">conditional</animation>
-                <animation effect="fade" time="320" delay="400">Visible</animation>
-            </control>
+        <control type="image">
+            <animation effect="fade" time="320" delay="400">Visible</animation>
+            <visible>!Container(10001).OnPrevious + !Container(10001).OnNext</visible>
+            <description>Busy animation</description>
+            <top>510</top>
+            <left>930</left>
+            <width>60</width>
+            <height>60</height>
+            <texture colordiffuse="$VAR[ColorTextVar]" fallback="special://skin/extras/spinners/Sun.png">$INFO[Skin.String(busyloader)]</texture>
+            <aspectratio>keep</aspectratio>
+            <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
         </control>
         <control type="list" id="10001">
             <left>-90</left>

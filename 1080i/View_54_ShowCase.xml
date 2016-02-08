@@ -4,7 +4,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(54) + !Window.IsActive(addoninformation)</visible>
 			<camera x="960" y="810" />
-			<include>ViewAnimation</include>
+			<include>Animation.Common</include>
 			<top>-50</top>
 			<control type="group" id="7007">
 				<top>580</top>
@@ -254,18 +254,19 @@
 				<itemlayout height="525" width="375" />
 				<focusedlayout height="525" width="375" />
 			</control>
-			<control type="scrollbar" id="60">
-				<left>0</left>
-				<top>1100</top>
-				<width>FullScreenWidth</width>
-				<height>14</height>
-				<onup>54</onup>
-				<ondown>54</ondown>
-				<orientation>horizontal</orientation>
-			</control>
+		</control>
+		<control type="scrollbar" id="60">
+			<visible>Control.IsVisible(54) + !Window.IsActive(addoninformation)</visible>
+			<left>0</left>
+			<top>1052</top>
+			<width>FullScreenWidth</width>
+			<height>12</height>
+			<onup>54</onup>
+			<ondown>54</ondown>
+			<orientation>horizontal</orientation>
 		</control>
 		<control type="group">
-			<include>ViewAnimation</include>
+			<include>Animation.Common</include>
 			<visible>Control.IsVisible(54)</visible>
 			<top>930</top>
 			<control type="group">
@@ -276,21 +277,21 @@
 					<height>42</height>
 					<aligny>top</aligny>
 					<align>center</align>
-					<font>font16_title</font>
+					<font>font28_title</font>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<scroll>true</scroll>
-					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<label>$INFO[ListItem.Label]</label>
 					<textoffsety>-2</textoffsety>
 					<textoffsetx>30</textoffsetx>
 				</control>
 				<control type="label">
 					<left>0</left>
-					<top>45</top>
+					<top>50</top>
 					<width>1100</width>
 					<height>30</height>
 					<align>center</align>
 					<font>font13_title</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<label>$VAR[FloorLabel2Var]</label>
 					<textoffsetx>30</textoffsetx>
 				</control>
@@ -614,10 +615,7 @@
 	</variable>
 	<include name="ShowCaseMusicInfoPanel">
 		<visible>!Skin.HasSetting(Disable.ShowcaseInfopanel) + !StringCompare(ListItem.Label,..)</visible>
-		<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">Visible</animation>
-		<animation effect="slide" start="0,0" end="0,-1200" time="100" tween="cubic">Hidden</animation>
-		<animation effect="slide" start="0,-1200" end="0,0" time="720" tween="cubic">WindowOpen</animation>
-		<animation effect="slide" end="0,-1200" start="0,0" time="720" tween="cubic">WindowClose</animation>
+		<include>Animation.Common</include>
 		<control type="group" id="12001">	
 			<control type="group">
 				<control type="grouplist">

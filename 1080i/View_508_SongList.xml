@@ -4,11 +4,12 @@
 	<include name="View_508_SongList">
 		<control type="group">
 			<visible>Control.IsVisible(508) + !Window.IsActive(addoninformation)</visible>
-			<include>ViewAnimation</include>
+			<include>Animation.Common</include>
+			<animation effect="slide" end="0,15" start="0,0" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
 			<control type="group">
 				<control type="fixedlist" id="508">
 					<left>310</left>
-					<top>50</top>
+					<top>80</top>
 					<width>1300</width>
 					<height>980</height>
 					<orientation>vertical</orientation>
@@ -36,7 +37,7 @@
 							<height>70</height>
 							<font>font30</font>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
@@ -44,6 +45,7 @@
 					</itemlayout>
 					<focusedlayout height="275" width="1300">
 						<control type="image">
+							<visible>Control.HasFocus(508)</visible>
 							<top>0</top>
 							<width>1300</width>
 							<height>275</height>
@@ -68,8 +70,7 @@
 							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
-							<label>[B]$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title][/B]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(508)">Conditional</animation>
+							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
 						</control>
 						<control type="label">
 							<left>275</left>
@@ -82,7 +83,6 @@
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Artist]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(508)">Conditional</animation>
 						</control>
 						<control type="label">
 							<left>275</left>
@@ -95,7 +95,6 @@
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Album] $INFO[ListItem.Year,[,]]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(508)">Conditional</animation>
 						</control>
 						<control type="label">
 							<left>275</left>
@@ -107,8 +106,7 @@
 							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
-							<label fallback="• • • •">$VAR[MusicListLabel4Var]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(508)">Conditional</animation>
+							<label fallback="• • • •">$INFO[ListItem.Duration]</label>
 						</control>
 						<control type="image">
 							<left>175</left>
@@ -127,18 +125,13 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<control type="scrollbar" id="60">
-					<left>1906</left>
-					<top>45</top>
-					<width>14</width>
-					<height>1035</height>
-					<onup>60</onup>
-					<ondown>60</ondown>
-					<onleft>508</onleft>
-					<onright>508</onright>
-					<orientation>vertical</orientation>
-				</control>
 			</control>
+		</control>
+		<control type="group">
+			<animation effect="slide" end="0,15" start="0,0" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
+			<visible>Control.IsVisible(508) + !Window.IsActive(addoninformation)</visible>
+			<top>-15</top>
+			<include>Scrollbar_Vertical</include>
 		</control>
 	</include>
 </includes>

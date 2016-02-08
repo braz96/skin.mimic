@@ -3,7 +3,7 @@
 	<include name="Video_56_Posters">
 		<control type="group">
 			<visible>Control.IsVisible(56)</visible>
-			<include>ViewAnimation</include>
+			<include>Animation.Common</include>
 			<control type="group">
 				<left>8</left>
 				<top>-45</top>
@@ -1102,15 +1102,6 @@
 					</control>
 				</control>
 			</control>
-			<control type="scrollbar" id="60">
-				<left>0</left>
-				<top>1051</top>
-				<width>FullScreenWidth</width>
-				<height>14</height>
-				<onup>57</onup>
-				<ondown>57</ondown>
-				<orientation>horizontal</orientation>
-			</control>
 			<control type="fixedlist" id="56">
 				<left>0</left>
 				<top>460</top>
@@ -1136,12 +1127,12 @@
 					<left>0</left>
 					<top>0</top>
 					<width>1150</width>
-					<height>42</height>
+					<height>45</height>
 					<align>left</align>
-					<font>font16_title</font>
+					<font>font28_title</font>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<scroll>true</scroll>
-					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<label>$INFO[ListItem.Label]</label>
 					<textoffsetx>30</textoffsetx>
 				</control>
 				<control type="label">
@@ -1151,12 +1142,12 @@
 					<height>30</height>
 					<align>left</align>
 					<font>font13_title</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<label>$VAR[FloorSubLabelVar]</label>
 					<textoffsetx>30</textoffsetx>
 				</control>
 			</control>
-			<control type="group">
+			<!--<control type="group">
 				<left>1500</left>
 				<top>920</top>
 				<width>1840</width>
@@ -1214,7 +1205,7 @@
 					<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
 					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
 				</control>
-			</control>
+			</control>-->
 			<control type="group">
 				<left>1520</left>
 				<top>940</top>
@@ -1229,16 +1220,21 @@
 					<aspectratio align="left" aligny="top">keep</aspectratio>
 				</control>
 				<control type="label">
-					<left>15</left>
-					<top>3</top>
+					<left>22</left>
+					<top>2</top>
 					<width>200</width>
 					<height>42</height>
 					<font>font13</font>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>[B][UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#][/B]</label>
+					<label>[UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#]</label>
 					<align>left</align>
 				</control>
 			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(56)</visible>
+			<top>-15</top>
+			<include>Scrollbar_Horizontal</include>
 		</control>
 	</include>
 </includes>

@@ -5,7 +5,8 @@
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
-			<top>890</top>
+			<animation effect="slide" time="0" start="0,0" end="0,-70" condition="system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
+			<top>960</top>
 			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
 			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
@@ -26,8 +27,9 @@
 				<height>120</height>
 				<texture>listselect_fo.png</texture>
 				<colordiffuse>55000000</colordiffuse>
+				<visible>!Skin.HasTheme(Light)</visible>
 			</control>
-			<control type="image">
+			<!--<control type="image">
 				<visible>Skin.HasSetting(OriginalMenu)</visible>
                 <left>590</left>
                 <top>0</top>
@@ -35,112 +37,10 @@
                 <height>120</height>
                 <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-            </control>
-			<include condition="!Skin.HasSetting(OriginalMenu)">MainMenuList</include>
-			<include condition="Skin.HasSetting(OriginalMenu)">MainMenuOriginal</include>
-			<control type="group" id="9001">
-				<animation effect="fade" start="100" end="0" time="200" condition="system.getbool(lookandfeel.enablerssfeeds) + !Control.HasFocus(9010)">Conditional</animation>
-				<control type="fixedlist" id="9010">
-					<animation effect="fade" start="100" end="50" time="300" condition="!ControlGroup(9001).HasFocus()">conditional</animation>
-					<include>VisibleFadeEffect</include>
-					<left>0</left>
-					<top>120</top>
-					<width>FullScreenWidth</width>
-					<height>70</height>
-					<onup>9000</onup>
-					<ondown>9000</ondown>
-					<pagecontrol>-</pagecontrol>
-					<scrolltime tween="quadratic" easing="out">300</scrolltime>
-					<focusposition>2</focusposition>
-					<movement>2</movement>
-					<orientation>Horizontal</orientation>
-					<include name="SubmenuListContent">
-						<param name="SubmenuHeight" value="70" />
-						<param name="SubmenuAlign" value="center" />
-						<param name="SubmenuTextOffset" value="0" />
-					</include>
-				</control>
-				<control type="button">
-					<left>5</left>
-					<top>141</top>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus flipx="true" colordiffuse="$VAR[ColorTextVar]">arrowright.png</texturefocus>
-					<texturenofocus flipx="true">arrowright.png</texturenofocus>
-					<visible>Container(9010).HasPrevious</visible>
-					<onclick>Control.Move(9010,-1)</onclick>
-				</control>
-				<control type="button">
-					<left>1885</left>
-					<top>141</top>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus colordiffuse="$VAR[ColorTextVar]">arrowright.png</texturefocus>
-					<texturenofocus>arrowright.png</texturenofocus>
-					<visible>Container(9010).HasNext</visible>
-					<onclick>Control.Move(9010,1)</onclick>
-				</control>
-			</control>			
+            </control>-->
+			<include>MainMenuList</include>		
 		</control>
 		<include condition="system.getbool(lookandfeel.enablerssfeeds)">RSSFeedWidget</include>
-		<control type="group">
-			<visible>![Skin.HasSetting(Disable.Topbarinfo) | Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
-			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">Visible</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480">Hidden</animation>
-			<control type="image">
-				<width>FullScreenWidth</width>
-				<height>45</height>
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="grouplist">
-				<left>0</left>
-				<top>-2</top>
-				<width>1905</width>
-				<height>45</height>
-				<align>right</align>
-				<aligny>center</aligny>
-				<orientation>horizontal</orientation>
-				<control type="label" id="9026">
-					<width>5</width>
-					<height>45</height>
-					<label>-</label>
-					<font>topbar</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-				<control type="label" id="9023">
-					<width>auto</width>
-					<height>45</height>
-					<label>$INFO[Weather.Temperature][COLOR $VAR[ColorTextVar]]  •  [/COLOR]</label>
-					<font>topbar</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-					<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin)</visible>
-				</control>
-				<control type="label" id="9025">
-					<width>auto</width>
-					<height>45</height>
-					<label>[COLOR $VAR[ColorTextVar]]$INFO[System.Date]  •  [/COLOR]$INFO[System.Time]</label>
-					<font>topbar</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-			</control>
-			<control type="group">
-				<include condition="System.HasAddon(service.library.data.provider)">PlayListStatsList</include>
-				<control type="label">
-					<left>15</left>
-					<top>-2</top>
-					<width>1250</width>
-					<height>45</height>
-					<scroll>true</scroll>
-					<label>$VAR[LibraryStatsVar]</label>
-					<aligny>center</aligny>
-					<font>topbar</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-			</control>
-		</control>
 		<include>HomeDefaultWidgets</include>
 	</include>
 	<include name="HomeTopMenu">
@@ -163,7 +63,10 @@
 				<texture background="true">background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 			</control>
-			<include>HomeDefaultWidgets</include>
+			<control type="group">
+				<top>-70</top>
+				<include>HomeDefaultWidgets</include>
+			</control>
 		</control>
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>

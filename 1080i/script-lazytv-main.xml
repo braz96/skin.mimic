@@ -21,8 +21,8 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(655)</visible>
-			<include>Window_OpenClose_Animation</include>
-			<top>-90</top>
+			<include>Animation.Common</include>
+			<top>-40</top>
 			<control type="image">
 				<visible>Control.HasFocus(655)</visible>
                 <left>82</left>
@@ -75,7 +75,7 @@
 							<left>6</left>
 							<width>195</width>
 							<height>292</height>
-							<texture>listselect_fo.png</texture>
+							<texture>topbar.png</texture>
 							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						</control>
 					</control>
@@ -106,21 +106,11 @@
 							<left>6</left>
 							<width>195</width>
 							<height>292</height>
-							<texture>listselect_fo.png</texture>
+							<texture>topbar.png</texture>
 							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						</control>
 					</control>
 				</focusedlayout>
-			</control>
-			<control type="scrollbar" id="60">
-				<left>1906</left>
-				<top>135</top>
-				<width>14</width>
-				<height>1035</height>
-				<onright>655</onright>
-				<onleft>655</onleft>
-				<ondown>60</ondown>
-				<onup>60</onup>
 			</control>
 			<control type="grouplist">
 				<top>179</top>
@@ -140,7 +130,7 @@
 					<font>font16_title</font>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<scroll>true</scroll>
-					<label>[B]$INFO[Container(655).ListItem.Season,,x]$INFO[Container(655).ListItem.Episode,,. ]$INFO[Container(655).ListItem.Label2][/B]</label>
+					<label>$INFO[Container(655).ListItem.Season,,x]$INFO[Container(655).ListItem.Episode,,. ]$INFO[Container(655).ListItem.Label2]</label>
 				</control>
 				<control type="label">
 					<label>$INFO[Container(655).ListItem.Label]</label>
@@ -167,51 +157,18 @@
 				</control>
 			</control>
 		</control>
-		<control type="group">
-			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-			<control type="image">
-				<width>FullScreenWidth</width>
-				<height>45</height>
-				<texture>topbar.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="group">
-				<top>-2</top>
-				<control type="label">
-					<width>900</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$INFO[System.AddonTitle(script.lazytv)]</label>
-				</control>
-				<control type="label">
-					<left>1040</left>
-					<width>880</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>right</align>
-					<aligny>center</aligny>
-					<label>$INFO[Container(655).NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(655).CurrentPage]$INFO[Container(655).NumPages,/][/COLOR]</label>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<width>FullScreenWidth</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$INFO[System.Time]</label>
-				</control>
-			</control>
+		<control type="scrollbar" id="60">
+			<visible allowhiddenfocus="true">Control.HasFocus(60) | Container(655).Scrolling</visible>
+			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<left>1908</left>
+			<top>0</top>
+			<width>12</width>
+			<height>1080</height>
+			<onright>655</onright>
+			<onleft>655</onleft>
+			<ondown>60</ondown>
+			<onup>60</onup>
 		</control>
-		<include>Bottombar</include>
+		<include>Topbar</include>
 	</controls>
 </window>

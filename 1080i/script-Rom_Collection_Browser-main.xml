@@ -23,9 +23,9 @@
         <control type="group" id="200">
             <control type="group">
                 <visible>Control.IsVisible(50)</visible>
-                <include>Window_OpenClose_Animation</include>
+                <include>Animation.Common</include>
                 <control type="group">
-                    <top>-35</top>
+                    <top>10</top>
                     <control type="list" id="50">
                         <left>90</left>
                         <top>155</top>
@@ -211,21 +211,10 @@
                             </control>
                         </focusedlayout>
                     </control>
-                    <control type="scrollbar" id="2201">
-                        <left>1906</left>
-                        <top>80</top>
-                        <width>14</width>
-                        <height>1035</height>
-                        <orientation>vertical</orientation>
-                        <onup>2201</onup>
-                        <ondown>2201</ondown>
-                        <onleft>50</onleft>
-                        <onright>9000</onright>
-                    </control>
                 </control>
                 <control type="group" id="40003">
                     <left>1276</left>
-                    <top>120</top>
+                    <top>165</top>
                     <include>VisibleFadeEffect</include>
                     <control type="image">
                         <width>560</width>
@@ -237,64 +226,18 @@
                 </control>
             </control>
         </control>
-        <control type="group">  
-            <animation effect="slide" start="0,-90" end="0,0" delay="1600" time="480">WindowOpen</animation>
-            <animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-            <control type="image">
-                <width>FullScreenWidth</width>
-                <height>45</height>
-                <texture>topbar.png</texture>
-                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-            </control>
-            <control type="group">
-                <top>-2</top>
-                <control type="group">
-                    <animation effect="slide" time="400" tween="" easing="" start="0" end="35" condition="Control.IsVisible(1996)">Conditional</animation>
-                    <control type="image" id="1996">
-                        <visible>![Skin.HasSetting(KioskMode.Enabled)]</visible>
-                        <top>8</top>
-                        <left>-27</left>
-                        <width>32</width>
-                        <height>32</height>
-                        <texture>arrow.png</texture>
-                        <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-                    </control>
-                    <control type="label">
-                        <width>900</width>
-                        <height>45</height>
-                        <font>topbar</font>
-                        <textoffsetx>15</textoffsetx>
-                        <textcolor>$VAR[ColorTextVar]</textcolor>
-                        <align>left</align>
-                        <aligny>center</aligny>
-                        <label>$INFO[System.AddonTitle(script.games.rom.collection.browser)]</label>
-                    </control>
-                </control>
-                <control type="label">
-                    <left>1040</left>
-                    <width>880</width>
-                    <height>45</height>
-                    <font>topbar</font>
-                    <textoffsetx>15</textoffsetx>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[Container.NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container.CurrentPage]$INFO[Container.NumPages,/][/COLOR]</label>
-                </control>
-                <control type="label">
-                    <left>0</left>
-                    <width>FullScreenWidth</width>
-                    <height>45</height>
-                    <font>topbar</font>
-                    <textoffsetx>15</textoffsetx>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[System.Time]</label>
-                </control>
-            </control>
+        <control type="scrollbar" id="2201">
+            <left>1908</left>
+            <top>0</top>
+            <width>12</width>
+            <height>1080</height>
+            <orientation>vertical</orientation>
+            <onup>2201</onup>
+            <ondown>2201</ondown>
+            <onleft>50</onleft>
+            <onright>9000</onright>
         </control>
-        <include>Bottombar</include>
+        <include>Topbar</include>
         <!-- Media Menu -->
         <control type="group" id="9000">
             <control type="group">

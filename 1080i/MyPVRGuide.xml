@@ -13,8 +13,8 @@
 			<description>TV Guide Timeline</description>
 			<visible>Control.IsVisible(10)</visible>
 			<include>VisibleFadeEffect</include>
-			<include>Window_OpenClose_Animation</include>
-			<top>78</top>
+			<include>Animation.Common</include>
+			<top>128</top>
 			<control type="image">
 				<top>58</top>
 				<left>520</left>
@@ -51,9 +51,9 @@
 						<height>30</height>
 						<font>font13</font>
 						<aligny>center</aligny>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
 						<textoffsetx>5</textoffsetx>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 						<align>left</align>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
@@ -66,8 +66,8 @@
 						<font>font15_title</font>
 						<align>center</align>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label>[B]$INFO[ListItem.ChannelNumber][/B]</label>
+						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+						<label>$INFO[ListItem.ChannelNumber]</label>
 					</control>
 					<control type="label">
 						<left>110</left>
@@ -75,7 +75,7 @@
 						<height>90</height>
 						<font>font15</font>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
 				</channellayout>
@@ -93,15 +93,15 @@
 						<height>90</height>
 						<font>font15_title</font>
 						<align>center</align>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label>[B]$INFO[ListItem.ChannelNumber][/B]</label>
+						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+						<label>$INFO[ListItem.ChannelNumber]</label>
 					</control>
 					<control type="label" id="1">
 						<left>110</left>
 						<width>236</width>
 						<height>90</height>
 						<font>font15</font>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
 				</focusedchannellayout>
@@ -121,7 +121,7 @@
 							<font>IconSmall</font>
 							<textoffsetx>15</textoffsetx>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label></label>
 							<visible>ListItem.HasTimer</visible>
 						</control>
@@ -132,7 +132,7 @@
 							<font>IconSmall</font>
 							<textoffsetx>15</textoffsetx>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label></label>
 							<visible>ListItem.IsRecording</visible>
 						</control>
@@ -143,7 +143,7 @@
 						<font>font15</font>
 						<textoffsetx>15</textoffsetx>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="slide" start="0,0" end="0,-20" time="100" tween="sine" easing="in" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
 					</control>
@@ -164,7 +164,7 @@
 							<height>30</height>
 							<font>IconSmall</font>
 							<textoffsetx>15</textoffsetx>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label></label>
 							<visible>ListItem.HasTimer</visible>
 						</control>
@@ -174,7 +174,7 @@
 							<height>30</height>
 							<font>IconSmall</font>
 							<textoffsetx>15</textoffsetx>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label></label>
 							<visible>ListItem.IsRecording</visible>
 						</control>
@@ -184,7 +184,7 @@
 						<height>90</height>
 						<font>font15</font>
 						<textoffsetx>15</textoffsetx>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="slide" start="0,0" end="0,-20" time="100" tween="sine" easing="in" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
 					</control>
@@ -192,9 +192,9 @@
 			</control>
 			<control type="image">
 				<left>82</left>
-				<top>712</top>
+				<top>714</top>
 				<width>356</width>
-				<height>235</height>
+				<height>180</height>
 				<aspectratio aligny="center" align="center">keep</aspectratio>
 				<texture>$INFO[Container(10).ListItem.Icon]</texture>
 			</control>
@@ -227,8 +227,8 @@
 					<left>15</left>
 					<top>105</top>
 					<width>1286</width>
-					<height>160</height>
-					<font>font14_textbox3</font>
+					<height>108</height>
+					<font>font14_textbox2</font>
 					<include>ShowCaseInfoPanelButtonsValues</include>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>
@@ -237,11 +237,11 @@
 		<control type="group">
 			<description>TV Guide Now</description>
 			<visible>Control.IsVisible(11)</visible>
-			<include>Window_OpenClose_Animation</include>
 			<include>VisibleFadeEffect</include>
 			<control type="group">
+				<include>Animation.Common</include>
 				<left>0</left>
-				<top>115</top>
+				<top>180</top>
 				<control type="list" id="11">
 					<left>82</left>
 					<top>0</top>
@@ -444,21 +444,11 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<control type="scrollbar" id="60">
-					<left>1906</left>
-					<top>-69</top>
-					<width>14</width>
-					<height>1035</height>
-					<orientation>vertical</orientation>
-					<onleft>11</onleft>
-					<onright>SetProperty(MediaMenu,True,home)</onright>
-					<onright>SetFocus(9050)</onright>
-				</control>
 				<control type="image">
 					<left>82</left>
-					<top>652</top>
+					<top>654</top>
 					<width>356</width>
-					<height>235</height>
+					<height>180</height>
 					<aspectratio aligny="center" align="center">keep</aspectratio>
 					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
@@ -491,22 +481,32 @@
 						<left>15</left>
 						<top>105</top>
 						<width>1286</width>
-						<height>160</height>
-						<font>font14_textbox3</font>
+						<height>108</height>
+						<font>font14_textbox2</font>
 						<include>ShowCaseInfoPanelButtonsValues</include>
 						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					</control>
 				</control>
 			</control>
+			<control type="scrollbar" id="60">
+				<left>1908</left>
+				<top>0</top>
+				<width>12</width>
+				<height>1080</height>
+				<orientation>vertical</orientation>
+				<onleft>11</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9050)</onright>
+			</control>
 		</control>
 		<control type="group">
 			<description>TV Guide Next</description>
 			<visible>Control.IsVisible(12)</visible>
-			<include>Window_OpenClose_Animation</include>
 			<include>VisibleFadeEffect</include>
 			<control type="group">
+				<include>Animation.Common</include>
 				<left>0</left>
-				<top>115</top>
+				<top>180</top>
 				<control type="list" id="12">
 					<left>82</left>
 					<top>0</top>
@@ -711,21 +711,11 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<control type="scrollbar" id="60">
-					<left>1906</left>
-					<top>-69</top>
-					<width>14</width>
-					<height>1035</height>
-					<orientation>vertical</orientation>
-					<onleft>12</onleft>
-					<onright>SetProperty(MediaMenu,True,home)</onright>
-					<onright>SetFocus(9050)</onright>
-				</control>
 				<control type="image">
 					<left>82</left>
-					<top>652</top>
+					<top>654</top>
 					<width>356</width>
-					<height>235</height>
+					<height>180</height>
 					<aspectratio aligny="center" align="center">keep</aspectratio>
 					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
@@ -759,17 +749,25 @@
 						<left>15</left>
 						<top>105</top>
 						<width>1286</width>
-						<height>160</height>
-						<font>font14_textbox3</font>
+						<height>108</height>
+						<font>font14_textbox2</font>
 						<include>ShowCaseInfoPanelButtonsValues</include>
 						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					</control>
 				</control>
 			</control>
+			<control type="scrollbar" id="60">
+				<left>1908</left>
+				<top>0</top>
+				<width>12</width>
+				<height>1080</height>
+				<orientation>vertical</orientation>
+				<onleft>12</onleft>
+				<onright>SetProperty(MediaMenu,True,home)</onright>
+				<onright>SetFocus(9050)</onright>
+			</control>
 		</control>
-		<include>ScrollOffsetLabel</include>
 		<include>Topbar</include>
-		<include>Bottombar</include>
 		<include>PVRMediaMenu</include>
 	</controls>
 </window>

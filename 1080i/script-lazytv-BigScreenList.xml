@@ -3,7 +3,6 @@
     <defaultcontrol>655</defaultcontrol>
     <visible>!System.ScreenSaverActive</visible>
     <controls>
-		<include>ViewAnimation</include>
         <control type="group">
             <control type="image">
                 <include>FullscreenDimensions</include>
@@ -23,30 +22,30 @@
             </control>
             <control type="group">
                 <visible>Control.IsVisible(655)</visible>
-                <include>Window_OpenClose_Animation</include>
+                <include>Animation.Common</include>
                 <!--container-->
                 <control type="group">
                     <visible>IntegerGreaterThan(Container(655).NumItems,0)</visible>
                     <control type="image">
-                        <left>60</left>
-                        <top>76</top>
-                        <width>1808</width>
-                        <height>230</height>
+                        <left>65</left>
+                        <top>150</top>
+                        <width>1798</width>
+                        <height>220</height>
                         <visible>Control.HasFocus(655)</visible>
                         <animation effect="fade" time="320" delay="200">Visible</animation>
                         <animation effect="fade" time="50">Hidden</animation>
                         <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                        <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(655).Row(3)">Conditional</animation>
-                        <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(655).Row(3) | Container(655).Row(2)">Conditional</animation>
-                        <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(655).Row(3) | Container(655).Row(2) | Container(655).Row(1)">Conditional</animation>
+                        <animation effect="slide" end="0,221" time="300" tween="cubic" easing="inout" condition="Container(655).Row(3)">Conditional</animation>
+                        <animation effect="slide" end="0,221" time="300" tween="cubic" easing="inout" condition="Container(655).Row(3) | Container(655).Row(2)">Conditional</animation>
+                        <animation effect="slide" end="0,221" time="300" tween="cubic" easing="inout" condition="Container(655).Row(3) | Container(655).Row(2) | Container(655).Row(1)">Conditional</animation>
                     </control>
                 </control>
                 <control type="panel" id="655">
                     <viewtype label="31052">list</viewtype>
                     <left>60</left>
-                    <top>82</top>
+                    <top>150</top>
                     <width>1808</width>
-                    <height>934</height>
+                    <height>884</height>
                     <onleft>655</onleft>
                     <onright>60</onright>
                     <onup>655</onup>
@@ -55,10 +54,10 @@
                     <preloaditems>2</preloaditems>
                     <orientation>vertical</orientation>
                     <!--landscape layout-->
-                    <itemlayout width="1808" height="231">
+                    <itemlayout width="1808" height="221">
                         <control type="group">
                             <left>18</left>
-                            <top>11</top>
+                            <top>12</top>
                             <control type="image">
                                 <width>346</width>
                                 <height>195</height>
@@ -75,7 +74,7 @@
                                 <visible>ListItem.IsSelected</visible>
                                 <width>346</width>
                                 <height>195</height>
-                                <texture>listselect_fo.png</texture>
+                                <texture>topbar.png</texture>
                                 <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
                             </control>
                         </control>
@@ -84,7 +83,7 @@
                             <top>6</top>
                             <control type="label">
                                 <width>1380</width>
-                                <label>[B]$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Label2][/B]</label>
+                                <label>$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Label2]</label>
                                 <font>font16_title</font>
     							<textcolor>$VAR[ColorTextVar]</textcolor>
                                 <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
@@ -109,10 +108,10 @@
                             </control>
                         </control>
                     </itemlayout>
-                    <focusedlayout width="1808" height="231">
+                    <focusedlayout width="1808" height="221">
                         <control type="group">
                             <left>18</left>
-                            <top>11</top>
+                            <top>12</top>
                             <animation type="Focus">
                                 <effect type="zoom" time="150" start="95" end="100" center="251,147" />
                                 <effect type="zoom" time="150" start="105" end="100" delay="150" center="251,147" />
@@ -133,7 +132,7 @@
                                 <visible>ListItem.IsSelected</visible>
                                 <width>346</width>
                                 <height>195</height>
-                                <texture>listselect_fo.png</texture>
+                                <texture>topbar.png</texture>
                                 <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
                             </control>
                         </control>
@@ -143,7 +142,7 @@
                             <control type="group">
                                 <control type="label">
                                     <width>1380</width>
-                                    <label>[B]$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Label2][/B]</label>
+                                    <label>$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Label2]</label>
                                     <font>font16_title</font>
     								<aligny>top</aligny>
     								<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -171,64 +170,21 @@
                         </control>
                     </focusedlayout>
                 </control>
-    			<control type="scrollbar" id="60">
-    				<left>1906</left>
-    				<top>45</top>
-    				<width>14</width>
-    				<height>1035</height>
-    				<onup>60</onup>
-    				<ondown>60</ondown>
-    				<onleft>655</onleft>
-    				<onright>655</onright>
-    				<orientation>vertical</orientation>
-    			</control>
             </control>
         </control>
-        <control type="group">
-            <animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-            <animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-            <control type="image">
-                <width>FullScreenWidth</width>
-                <height>45</height>
-                <texture>topbar.png</texture>
-                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-            </control>
-            <control type="group">
-                <top>-2</top>
-                <control type="label">
-                    <width>900</width>
-                    <height>45</height>
-                    <font>topbar</font>
-                    <textoffsetx>15</textoffsetx>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                    <align>left</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[System.AddonTitle(script.lazytv)]</label>
-                </control>
-                <control type="label">
-                    <left>1040</left>
-                    <width>880</width>
-                    <height>45</height>
-                    <font>topbar</font>
-                    <textoffsetx>15</textoffsetx>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[Container(655).NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(655).CurrentPage]$INFO[Container(655).NumPages,/][/COLOR]</label>
-                </control>
-                <control type="label">
-                    <left>0</left>
-                    <width>FullScreenWidth</width>
-                    <height>45</height>
-                    <font>topbar</font>
-                    <textoffsetx>15</textoffsetx>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <label>$INFO[System.Time]</label>
-                </control>
-            </control>
+        <control type="scrollbar" id="60">
+            <visible allowhiddenfocus="true">Control.HasFocus(60) | Container(655).Scrolling</visible>
+            <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+            <left>1908</left>
+            <top>0</top>
+            <width>12</width>
+            <height>1080</height>
+            <onup>60</onup>
+            <ondown>60</ondown>
+            <onleft>655</onleft>
+            <onright>655</onright>
+            <orientation>vertical</orientation>
         </control>
-        <include>Bottombar</include>
+        <include>Topbar</include>
     </controls>
 </window>

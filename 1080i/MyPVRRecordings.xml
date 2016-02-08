@@ -12,7 +12,8 @@
 			<description>Recordings group</description>
 			<visible>Control.IsVisible(50)</visible>
 			<include>VisibleFadeEffect</include>
-			<include>Window_OpenClose_Animation</include>
+			<include>Animation.Common</include>
+			<top>60</top>
 			<left>90</left>
 			<control type="list" id="50">
 				<top>120</top>
@@ -24,30 +25,26 @@
 				<onup>50</onup>
 				<ondown>50</ondown>
 				<viewtype label="535">list</viewtype>
-				<pagecontrol>72</pagecontrol>
+				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="quadratic">200</scrolltime>
 				<itemlayout height="120" width="1140">
 					<control type="image">
-						<left>15</left>
-						<top>8</top>
-						<width>105</width>
-						<height>105</height>
+						<left>10</left>
+						<top>10</top>
+						<width>100</width>
+						<height>100</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="IsEmpty(ListItem.Art(thumb))">Conditional</animation>
-						<fadetime>IconCrossfadeTime</fadetime>
 						<visible>!SubString(ListItem.Icon,Default,left)</visible>
 					</control>
 					<control type="image">
-						<left>15</left>
-						<top>8</top>
-						<width>105</width>
-						<height>105</height>
+						<left>10</left>
+						<top>10</top>
+						<width>100</width>
+						<height>100</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="IsEmpty(ListItem.Art(thumb))">Conditional</animation>
-						<fadetime>IconCrossfadeTime</fadetime>
 						<visible>SubString(ListItem.Icon,Default,left)</visible>
 					</control>
 					<control type="label">
@@ -95,24 +92,22 @@
 						<include>VisibleFadeEffect</include>
 					</control>
 					<control type="image">
-						<left>15</left>
-						<top>8</top>
-						<width>105</width>
-						<height>105</height>
+						<left>10</left>
+						<top>10</top>
+						<width>100</width>
+						<height>100</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<fadetime>IconCrossfadeTime</fadetime>
 						<visible>!SubString(ListItem.Icon,Default,left)</visible>
 					</control>
 					<control type="image">
-						<left>15</left>
-						<top>8</top>
-						<width>105</width>
-						<height>105</height>
+						<left>10</left>
+						<top>10</top>
+						<width>100</width>
+						<height>100</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-						<fadetime>IconCrossfadeTime</fadetime>
 						<visible>SubString(ListItem.Icon,Default,left)</visible>
 					</control>
 					<control type="label">
@@ -126,7 +121,6 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
 					<control type="label">
 						<left>100</left>
@@ -138,7 +132,6 @@
 						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
 					<control type="image">
 						<left>1076</left>
@@ -150,16 +143,6 @@
 						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 					</control>
 				</focusedlayout>
-			</control>
-			<control type="scrollbar" id="72">
-				<left>1816</left>
-				<top>45</top>
-				<width>14</width>
-				<height>1035</height>
-				<onleft>50</onleft>
-				<onright>SetProperty(MediaMenu,True,home)</onright>
-				<onright>SetFocus(9050)</onright>
-				<orientation>vertical</orientation>
 			</control>
 			<control type="grouplist">
 				<left>1176</left>
@@ -185,9 +168,18 @@
 				</control>
 			</control>
 		</control>
-		<include>ScrollOffsetLabel</include>
+		<control type="scrollbar" id="60">
+			<visible>Control.IsVisible(50)</visible>
+			<left>1906</left>
+			<top>0</top>
+			<width>12</width>
+			<height>1080</height>
+			<onleft>50</onleft>
+			<onright>SetProperty(MediaMenu,True,home)</onright>
+			<onright>SetFocus(9050)</onright>
+			<orientation>vertical</orientation>
+		</control>
 		<include>Topbar</include>
-		<include>Bottombar</include>
 		<include>PVRMediaMenu</include>
 	</controls>
 </window>

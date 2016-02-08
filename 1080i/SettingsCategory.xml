@@ -11,8 +11,8 @@
 		<include>CommonBackground</include>
 		<control type="group">
 			<left>0</left>
-			<top>128</top>
-			<include>Window_OpenClose_Animation</include>
+			<top>180</top>
+			<include>Animation.Common</include>
 			<control type="grouplist" id="3">
 				<description>button area</description>
 				<left>82</left>
@@ -60,16 +60,6 @@
 				<onright>60</onright>
 				<onup>5</onup>
 				<ondown>5</ondown>
-			</control>
-			<control type="scrollbar" id="60">
-				<left>1906</left>
-				<top>-83</top>
-				<width>14</width>
-				<height>1035</height>
-				<onleft>5</onleft>
-				<onright>3</onright>
-				<ondown>60</ondown>
-				<onup>60</onup>
 			</control>
 			<control type="button" id="20">
 				<description>Setting level button</description>
@@ -177,8 +167,19 @@
 			<font>-</font>
 			<visible>false</visible>
 		</control>
+		<control type="scrollbar" id="60">
+			<visible allowhiddenfocus="true">Control.HasFocus(60) | ControlGroup(5).HasFocus</visible>
+			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<left>1908</left>
+			<top>0</top>
+			<width>12</width>
+			<height>1080</height>
+			<onleft>5</onleft>
+			<onright>3</onright>
+			<ondown>60</ondown>
+			<onup>60</onup>
+		</control>
 		<include>Topbar</include>
-		<include>Bottombar</include>
 		<include>SettingsMediaMenu</include>
 	</controls>
 </window>

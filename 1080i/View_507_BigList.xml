@@ -4,31 +4,31 @@
     <include name="View_507_BigList">
         <control type="group">
             <visible>Control.IsVisible(507)</visible>
-    		<include>ViewAnimation</include>
+    		<include>Animation.Common</include>
             <control type="group">
                 <control type="group">
                     <visible>IntegerGreaterThan(Container(507).NumItems,0)</visible>
                     <control type="image">
-                        <left>60</left>
-                        <top>64</top>
-                        <width>1808</width>
-                        <height>231</height>
+                        <left>65</left>
+                        <top>130</top>
+                        <width>1798</width>
+                        <height>221</height>
                         <visible>Control.HasFocus(507)</visible>
                         <animation effect="fade" time="320" delay="200">Visible</animation>
                         <animation effect="fade" time="50">Hidden</animation>
                         <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                        <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(507).Row(3)">Conditional</animation>
-                        <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(507).Row(3) | Container(507).Row(2)">Conditional</animation>
-                        <animation effect="slide" end="0,231" time="300" tween="cubic" easing="inout" condition="Container(507).Row(3) | Container(507).Row(2) | Container(507).Row(1)">Conditional</animation>
+                        <animation effect="slide" end="0,221" time="300" tween="cubic" easing="inout" condition="Container(507).Row(3)">Conditional</animation>
+                        <animation effect="slide" end="0,221" time="300" tween="cubic" easing="inout" condition="Container(507).Row(3) | Container(507).Row(2)">Conditional</animation>
+                        <animation effect="slide" end="0,221" time="300" tween="cubic" easing="inout" condition="Container(507).Row(3) | Container(507).Row(2) | Container(507).Row(1)">Conditional</animation>
                     </control>
                 </control>
                 <!--container-->
                 <control type="panel" id="507">
                     <viewtype label="31052">list</viewtype>
                     <left>60</left>
-                    <top>64</top>
+                    <top>130</top>
                     <width>1808</width>
-                    <height>934</height>
+                    <height>884</height>
                     <onleft>SetProperty(MediaMenu,True,home)</onleft>
     				<onleft>SetFocus(9050)</onleft>
                     <onright>60</onright>
@@ -38,14 +38,14 @@
                     <preloaditems>2</preloaditems>
                     <orientation>vertical</orientation>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <itemlayout width="1808" height="231" condition="Container.Content(episodes) | ![Skin.HasSetting(Enable.BigListThumb) | Skin.HasSetting(Enable.BigListPoster) | Container.Content(albums)]">
+                    <itemlayout width="1808" height="221" condition="Container.Content(episodes) | ![Skin.HasSetting(Enable.BigListThumb) | Skin.HasSetting(Enable.BigListPoster) | Container.Content(albums)]">
                         <include>view_BigList-LandscapeCommons</include>
                         <control type="group">
                             <left>382</left>
-                            <top>11</top>
+                            <top>6</top>
                             <control type="label">
                                 <width>1380</width>
-                                <label>[B]$INFO[ListItem.Label][/B]</label>
+                                <label>$INFO[ListItem.Label]</label>
                                 <font>font16_title</font>
     							<textcolor>$VAR[ColorTextVar]</textcolor>
                                 <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
@@ -54,7 +54,7 @@
                             <control type="label">
                                 <top>50</top>
                                 <width>1380</width>
-                                <label>$VAR[VideoListLabel2Var]</label>
+                                <label>$VAR[ListSubLabelVar]</label>
                                 <aligny>top</aligny>
     							<font>font15</font>
     							<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -100,15 +100,15 @@
                             </control>
                         </control>
                     </itemlayout>
-                    <focusedlayout width="1808" height="231" condition="Container.Content(episodes) | ![Skin.HasSetting(Enable.BigListThumb) | Skin.HasSetting(Enable.BigListPoster) | Container.Content(albums)]">
+                    <focusedlayout width="1808" height="221" condition="Container.Content(episodes) | ![Skin.HasSetting(Enable.BigListThumb) | Skin.HasSetting(Enable.BigListPoster) | Container.Content(albums)]">
                         <include>view_BigList-LandscapeCommons</include>
                         <control type="group">
                             <left>382</left>
-                            <top>11</top>
+                            <top>6</top>
                             <control type="group">
                                 <control type="label">
                                     <width>1380</width>
-                                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                                    <label>$INFO[ListItem.Label]</label>
                                     <font>font16_title</font>
     								<aligny>top</aligny>
     								<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -117,7 +117,7 @@
                                 <control type="label">
                                     <top>50</top>
                                     <width>1380</width>
-                                    <label>$VAR[VideoListLabel2Var]</label>
+                                    <label>$VAR[ListSubLabelVar]</label>
                                     <aligny>top</aligny>
     								<font>font15</font>
     								<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -166,14 +166,14 @@
                             </control>
                         </control>
                     </focusedlayout>
-                    <itemlayout width="1808" height="231" condition="Skin.HasSetting(Enable.BigListPoster) + !Window.IsActive(musiclibrary) + !Container.Content(episodes)">
+                    <itemlayout width="1808" height="221" condition="Skin.HasSetting(Enable.BigListPoster) + !Window.IsActive(musiclibrary) + !Container.Content(episodes)">
                         <include>view_BigList-PosterCommons</include>
                         <control type="group">
                             <left>166</left>
-                            <top>11</top>
+                            <top>6</top>
                             <control type="label">
                                 <width>1596</width>
-                                <label>[B]$INFO[ListItem.Label][/B]</label>
+                                <label>$INFO[ListItem.Label]</label>
                                 <font>font16_title</font>
                                 <textcolor>$VAR[ColorTextVar]</textcolor>
                                 <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
@@ -182,11 +182,11 @@
                             <control type="label">
                                 <top>50</top>
                                 <width>1596</width>
-                                <label>$VAR[VideoListLabel2Var]</label>
+                                <label>$VAR[ListSubLabelVar]</label>
                                 <aligny>top</aligny>
                                 <font>font15</font>
-                                <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                                 <visible>!Container.Content(artists)</visible>
                             </control>
                             <control type="label">
@@ -195,8 +195,8 @@
                                 <label>$INFO[ListItem.Property(Artist_Genre)]</label>
                                 <aligny>top</aligny>
                                 <font>font15</font>
-                                <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                                 <visible>Container.Content(artists)</visible>
                             </control>
                             <control type="textbox">
@@ -222,21 +222,21 @@
                                 <top>16</top>
                                 <width>192</width>
                                 <height>33</height>
-                                <texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+                                <texture colordiffuse="$VAR[ColorTextVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
                                 <aspectratio align="right">keep</aspectratio>
                                 <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)]</visible>
                             </control>
                         </control>
                     </itemlayout>
-                    <focusedlayout width="1808" height="231" condition="Skin.HasSetting(Enable.BigListPoster) + !Window.IsActive(musiclibrary) + !Container.Content(episodes)">
+                    <focusedlayout width="1808" height="221" condition="Skin.HasSetting(Enable.BigListPoster) + !Window.IsActive(musiclibrary) + !Container.Content(episodes)">
                         <include>view_BigList-PosterCommons</include>
                         <control type="group">
                             <left>166</left>
-                            <top>11</top>
+                            <top>6</top>
                             <control type="group">
                                 <control type="label">
                                     <width>1596</width>
-                                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                                    <label>$INFO[ListItem.Label]</label>
                                     <font>font16_title</font>
                                     <aligny>top</aligny>
                                     <textcolor>$VAR[ColorTextVar]</textcolor>
@@ -245,11 +245,11 @@
                                 <control type="label">
                                     <top>50</top>
                                     <width>1596</width>
-                                    <label>$VAR[VideoListLabel2Var]</label>
+                                    <label>$VAR[ListSubLabelVar]</label>
                                     <aligny>top</aligny>
                                     <font>font15</font>
-                                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                    <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                                    <textcolor>$VAR[ColorTextVar]</textcolor>
+                                    <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                                     <visible>!Container.Content(artists)</visible>
                                 </control>
                                 <control type="label">
@@ -258,8 +258,8 @@
                                     <label>$INFO[ListItem.Property(Artist_Genre)]</label>
                                     <aligny>top</aligny>
                                     <font>font15</font>
-                                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                    <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                                    <textcolor>$VAR[ColorTextVar]</textcolor>
+                                    <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                                     <visible>Container.Content(artists)</visible>
                                 </control>
                                 <control type="textbox">
@@ -287,21 +287,21 @@
                                     <top>16</top>
                                     <width>192</width>
                                     <height>33</height>
-                                    <texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+                                    <texture colordiffuse="$VAR[ColorTextVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
                                     <aspectratio align="right">keep</aspectratio>
                                     <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | substring(Container.FolderPath,plugin.video)]</visible>
                                 </control>
                             </control>
                         </control>
                     </focusedlayout>
-                    <itemlayout width="1808" height="231" condition="[Container.Content(artists) + Skin.HasSetting(Enable.BigListThumb)] | Container.Content(albums)">
+                    <itemlayout width="1808" height="221" condition="[Container.Content(artists) + Skin.HasSetting(Enable.BigListThumb)] | Container.Content(albums)">
                         <include>view_BigList-ThumbCommons</include>
                         <control type="group">
                             <left>231</left>
-                            <top>11</top>
+                            <top>6</top>
                             <control type="label">
                                 <width>1531</width>
-                                <label>[B]$INFO[ListItem.Label][/B]</label>
+                                <label>$INFO[ListItem.Label]</label>
                                 <font>font16_title</font>
                                 <textcolor>$VAR[ColorTextVar]</textcolor>
                                 <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
@@ -314,19 +314,19 @@
                                 <label>$INFO[ListItem.Property(Artist_Genre)]</label>
                                 <aligny>top</aligny>
                                 <font>font15</font>
-                                <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                             </control>
                             <control type="label">
-                                    <visible>Container.Content(albums)</visible>
-                                    <top>50</top>
-                                    <width>1531</width>
-                                    <label>$INFO[ListItem.Year]$INFO[ListItem.Genre, • ]</label>
-                                    <aligny>top</aligny>
-                                    <font>font15</font>
-                                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                    <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-                                </control>
+                                <visible>Container.Content(albums)</visible>
+                                <top>50</top>
+                                <width>1531</width>
+                                <label>$INFO[ListItem.Year]$INFO[ListItem.Genre, • ]</label>
+                                <aligny>top</aligny>
+                                <font>font15</font>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                            </control>
                             <control type="textbox">
                                 <top>100</top>
                                 <width>1531</width>
@@ -340,21 +340,21 @@
                                 <top>16</top>
                                 <width>192</width>
                                 <height>33</height>
-                                <texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+                                <texture colordiffuse="$VAR[ColorTextVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
                                 <aspectratio align="right">keep</aspectratio>
                                 <visible>Container.Content(albums)</visible>
                             </control>
                         </control>
                     </itemlayout>
-                    <focusedlayout width="1808" height="231" condition="[Container.Content(artists) + Skin.HasSetting(Enable.BigListThumb)] | Container.Content(albums)">
+                    <focusedlayout width="1808" height="221" condition="[Container.Content(artists) + Skin.HasSetting(Enable.BigListThumb)] | Container.Content(albums)">
                         <include>view_BigList-ThumbCommons</include>
                         <control type="group">
                             <left>231</left>
-                            <top>11</top>
+                            <top>6</top>
                             <control type="group">
                                 <control type="label">
                                     <width>1531</width>
-                                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                                    <label>$INFO[ListItem.Label]</label>
                                     <font>font16_title</font>
                                     <aligny>top</aligny>
                                     <textcolor>$VAR[ColorTextVar]</textcolor>
@@ -367,8 +367,8 @@
                                     <label>$INFO[ListItem.Property(Artist_Genre)]</label>
                                     <aligny>top</aligny>
                                     <font>font15</font>
-                                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                    <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                                    <textcolor>$VAR[ColorTextVar]</textcolor>
+                                    <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                                 </control>
                                 <control type="label">
                                     <visible>Container.Content(albums)</visible>
@@ -377,8 +377,8 @@
                                     <label>$INFO[ListItem.Year]$INFO[ListItem.Genre, • ]</label>
                                     <aligny>top</aligny>
                                     <font>font15</font>
-                                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                    <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                                    <textcolor>$VAR[ColorTextVar]</textcolor>
+                                    <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                                 </control>
                                 <control type="textbox">
                                     <top>100</top>
@@ -394,7 +394,7 @@
                                     <top>16</top>
                                     <width>192</width>
                                     <height>33</height>
-                                    <texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+                                    <texture colordiffuse="$VAR[ColorTextVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
                                     <aspectratio align="right">keep</aspectratio>
                                     <visible>Container.Content(albums)</visible>
                                 </control>
@@ -402,24 +402,18 @@
                         </control>
                     </focusedlayout>
                 </control>
-    			<control type="scrollbar" id="60">
-    				<left>1906</left>
-    				<top>30</top>
-    				<width>14</width>
-    				<height>1035</height>
-    				<onup>60</onup>
-    				<ondown>60</ondown>
-    				<onleft>507</onleft>
-    				<onright>507</onright>
-    				<orientation>vertical</orientation>
-    			</control>
             </control>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(507)</visible>
+            <top>-15</top>
+            <include>Scrollbar_Vertical</include>
         </control>
     </include>
     <include name="view_BigList-LandscapeCommons">
         <control type="group">
             <left>18</left>
-            <top>18</top>
+            <top>13</top>
             <animation type="Focus">
                 <effect type="zoom" time="150" start="95" end="100" center="191,115" />
                 <effect type="zoom" time="150" start="105" end="100" delay="150" center="191,115" />
@@ -445,28 +439,35 @@
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                 <aspectratio>keep</aspectratio>
             </control>
-			<control type="image">
-                <visible>!Skin.HasSetting(Enable.BigListLogo)</visible>
-				<left>286</left>
-				<width>60</width>
-				<height>60</height>
-				<texture>$VAR[OverlayVar]</texture>
-				<aspectratio align="right" aligny="top">keep</aspectratio>
-			</control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <width>346</width>
+                <height>195</height>
+                <texture>thumbs/diffuse.png</texture>
+            </control>
             <control type="image">
                 <top>90</top>
                 <width>346</width>
                 <height>98</height>
                 <aspectratio align="center" aligny="bottom">keep</aspectratio>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-				<visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos) | Skin.HasSetting(Enable.BigListLogo) | Skin.HasSetting(Enable.BigListFanart)] + IsEmpty(ListItem.Art(landscape))</visible>
+                <visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos) | Skin.HasSetting(Enable.BigListLogo) | Skin.HasSetting(Enable.BigListFanart)] + IsEmpty(ListItem.Art(landscape))</visible>
+            </control>
+            <control type="image">
+                <visible>!Skin.HasSetting(Enable.BigListLogo)</visible>
+                <left>286</left>
+                <width>60</width>
+                <height>60</height>
+                <texture>$VAR[OverlayVar]</texture>
+                <aspectratio align="right" aligny="top">keep</aspectratio>
             </control>
         </control>
     </include>
     <include name="view_BigList-PosterCommons">
         <control type="group">
             <left>18</left>
-            <top>18</top>
+            <top>13</top>
             <animation type="Focus">
                 <effect type="zoom" time="150" start="95" end="100" center="83,115" />
                 <effect type="zoom" time="150" start="105" end="100" delay="150" center="83,115" />
@@ -476,6 +477,13 @@
                 <height>195</height>
                 <texture background="true">$VAR[PosterThumb]</texture>
                 <aspectratio>scale</aspectratio>
+            </control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <width>130</width>
+                <height>195</height>
+                <texture>thumbs/diffuse.png</texture>
             </control>
             <control type="image">
                 <left>70</left>
@@ -489,7 +497,7 @@
     <include name="view_BigList-ThumbCommons">
         <control type="group">
             <left>18</left>
-            <top>18</top>
+            <top>13</top>
             <animation type="Focus">
                 <effect type="zoom" time="150" start="95" end="100" center="115,115" />
                 <effect type="zoom" time="150" start="105" end="100" delay="150" center="115,115" />
@@ -499,6 +507,13 @@
                 <height>195</height>
                 <texture background="true">$VAR[MusicThumbVar]</texture>
                 <aspectratio>scale</aspectratio>
+            </control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <width>195</width>
+                <height>195</height>
+                <texture>thumbs/diffuse.png</texture>
             </control>
         </control>
     </include>

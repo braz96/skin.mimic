@@ -15,54 +15,6 @@
 			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 		</control>
 		<control type="group">
-			<visible>Control.IsVisible(100)</visible>
-			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-			<control type="image">
-				<width>FullScreenWidth</width>
-				<height>45</height>
-				<texture>topbar.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="group">
-				<animation effect="slide" time="400" tween="" easing="" start="0" end="35" condition="Control.IsVisible(1996)">Conditional</animation>
-				<top>-2</top>
-				<control type="image" id="1996">
-					<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
-					<top>8</top>
-					<left>-27</left>
-					<width>32</width>
-					<height>32</height>
-					<texture>arrow.png</texture>
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<animation effect="rotate" end="-90" center="auto" delay="240" time="640" condition="SubString(Container.Viewmode,$LOCALIZE[31016]) | SubString(Container.Viewmode,$LOCALIZE[31079]) | SubString(Container.Viewmode,$LOCALIZE[31077]) | SubString(Container.Viewmode,$LOCALIZE[20445]) | SubString(Container.Viewmode,$LOCALIZE[31054]) | SubString(Container.Viewmode,$LOCALIZE[31059])">Conditional</animation>
-				</control>
-				<control type="label">
-					<width>900</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$LOCALIZE[137]</label>
-				</control>
-			</control>
-			<control type="label">
-				<top>-2</top>
-				<width>FullScreenWidth</width>
-				<height>45</height>
-				<font>topbar</font>
-				<textoffsetx>15</textoffsetx>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$INFO[System.Time]</label>
-			</control>
-		</control>
-		<control type="group">
-			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
 			<width>105</width>
 			<height>30</height>
 			<left>1670</left>
@@ -100,17 +52,24 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(100)</visible>
-			<include>Window_OpenClose_Animation</include>
+			<animation type="WindowOpen" reversible="false">
+	            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+	            <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+	        </animation>
+	        <animation type="WindowClose" reversible="false">
+	            <effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
+	            <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+	        </animation>
 			<control type="list" id="9000">
 				<left>82</left>
-				<top>102</top>
+				<top>152</top>
 				<width>356</width>
 				<height>810</height>
-				<onleft>61</onleft>
+				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
+				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9050</onleft>
 				<onright>101</onright>
 				<onup>9000</onup>
 				<ondown>9000</ondown>
-				<pagecontrol>61</pagecontrol>
 				<scrolltime tween="quadratic">300</scrolltime>
 				<itemlayout height="90" width="356">
 					<control type="label">
@@ -208,45 +167,20 @@
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="11">
-						<visible>Control.IsVisible(198)</visible>
-						<label>$INFO[Control.GetLabel(198)]</label>
-						<onclick>SendClick(198)</onclick>
-						<icon>-</icon>
-					</item>
 				</content>
-			</control>
-			<control type="scrollbar" id="61">
-				<left>0</left>
-				<top>45</top>
-				<width>14</width>
-				<height>1035</height>
-				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
-				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">8</onleft>
-				<onright>9000</onright>
 			</control>
 		</control>
 		<control type="group" id="100">
+			<top>50</top>
 			<control type="group">
-				<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480">WindowOpen</animation>
-				<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-				<control type="label">
-					<left>1040</left>
-					<top>-2</top>
-					<width>880</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>right</align>
-					<aligny>center</aligny>
-					<label>$LOCALIZE[31961]: [COLOR $VAR[ColorHighlightVar]]$INFO[Window.Property(GlobalSearch.SearchString)][/COLOR]</label>
-					<scroll time="3000" delay="4000" repeat="5000">true</scroll>
-				</control>
-			</control>
-			<control type="group">
-				<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
-				<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
+				<animation type="WindowOpen" reversible="false">
+		            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+		            <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+		        </animation>
+		        <animation type="WindowClose" reversible="false">
+		            <effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
+		            <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+		        </animation>
 				<control type="label" id="190">
 					<include>HiddenObject</include>
 				</control>
@@ -626,7 +560,7 @@
 										<top>22</top>
 										<width>762</width>
 										<height>40</height>
-										<label>[B]$INFO[ListItem.Property(Season)]x$INFO[ListItem.Property(Episode)]. $INFO[ListItem.Label][/B]</label>
+										<label>$INFO[ListItem.Property(Season)]x$INFO[ListItem.Property(Episode)]. $INFO[ListItem.Label]</label>
 										<font>font16_title</font>
 										<textcolor>$VAR[ColorTextVar]</textcolor>
 									</control>
@@ -667,7 +601,7 @@
 										<top>22</top>
 										<width>762</width>
 										<height>40</height>
-										<label>[B]$INFO[ListItem.Property(Season)]x$INFO[ListItem.Property(Episode)]. $INFO[ListItem.Label][/B]</label>
+										<label>$INFO[ListItem.Property(Season)]x$INFO[ListItem.Property(Episode)]. $INFO[ListItem.Label]</label>
 										<font>font16_title</font>
 										<textcolor>$VAR[ColorTextVar]</textcolor>
 									</control>
@@ -935,18 +869,20 @@
 					</control>
 				</control>
 			</control>
-			<control type="scrollbar" id="60">
-				<left>1906</left>
-				<top>45</top>
-				<width>14</width>
-				<height>1035</height>
-				<onleft>111</onleft>
-				<onright>111</onright>
-				<onup>60</onup>
-				<ondown>60</ondown>
-			</control>
-			<include>Bottombar</include>
 		</control>
+		<control type="scrollbar" id="60">
+			<visible allowhiddenfocus="true">Control.HasFocus(60) | Container(111).Scrolling | Container(121).Scrolling | Container(131).Scrolling | Container(141).Scrolling | Container(151).Scrolling | Container(161).Scrolling | Container(171).Scrolling | Container(181).Scrolling | Container(221).Scrolling</visible>
+			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<left>1908</left>
+			<top>0</top>
+			<width>12</width>
+			<height>1080</height>
+			<onleft>101</onleft>
+			<onright>101</onright>
+			<onup>60</onup>
+			<ondown>60</ondown>
+		</control>
+		<include>Topbar</include>
 		<control type="group">
 			<left>-440</left>
 			<include>SideBladeLeft</include>
@@ -965,6 +901,17 @@
 					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<aligny>center</aligny>
 				</control>
+				<control type="button" id="999">
+					<description>Settings</description>
+					<textwidth>352</textwidth>
+					<onright>ClearProperty(MediaMenu,Home)</onright>
+					<onright>9000</onright>
+					<onback>ClearProperty(MediaMenu,Home)</onback>
+					<onclick>SendClick(198)</onclick>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<include>ButtonCommonValues</include>
+					<label>31184</label>
+				</control>
 				<control type="button" id="8">
 					<description>Settings</description>
 					<textwidth>352</textwidth>
@@ -972,14 +919,35 @@
 					<onright>9000</onright>
 					<onback>ClearProperty(MediaMenu,Home)</onback>
 					<onclick>Addon.OpenSettings(script.globalsearch)</onclick>
-					<onup>8</onup>
-					<ondown>8</ondown>
 					<include>ButtonCommonValues</include>
 					<label>5</label>
 				</control>
+				<control type="button" id="612">
+					<textwidth>352</textwidth>
+					<onright>ClearProperty(MediaMenu,Home)</onright>
+					<onright>9000</onright>
+					<onback>ClearProperty(MediaMenu,Home)</onback>
+					<label>31926</label>
+					<include>ButtonCommonValues</include>
+					<onclick>Close</onclick>
+					<onclick condition="Player.HasVideo">ActivateWindow(fullscreenvideo)</onclick>
+					<onclick condition="Player.HasAudio">ActivateWindow(visualisation)</onclick>
+					<visible>Player.HasMedia</visible>
+				</control>
+				<control type="button" id="613">
+					<textwidth>352</textwidth>
+					<onright>ClearProperty(MediaMenu,Home)</onright>
+					<onright>9000</onright>
+					<onback>ClearProperty(MediaMenu,Home)</onback>
+					<include>ButtonCommonValues</include>
+					<label>13350</label>
+					<onclick>Close</onclick>
+					<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
+					<onclick condition="Player.HasVideo">ActivateWindow(videoplaylist)</onclick>
+					<visible>Player.HasMedia</visible>
+				</control>
 				<include name="MenuPlayerControls">
-					<param name="PlayerControlsOnUp" value="8" />
-					<param name="PlayerControlsOnDown" value="8" />
+					<param name="PlayerControlsOnDown" value="999" />
 				</include>
 			</control>
 		</control>

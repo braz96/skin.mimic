@@ -4,224 +4,131 @@
 	<allowoverlay>no</allowoverlay>
 	<controls>
 		<control type="image">
-			<animation effect="fade" time="400" delay="800">WindowOpen</animation>
 			<include>FullscreenDimensions</include>
 			<texture>special://skin/backgrounds/default_bg.jpg</texture>
 			<fadetime>400</fadetime>
 		</control>
 		<control type="image">
-			<animation effect="fade" time="0" delay="800">WindowOpen</animation>
 			<include>FullscreenDimensions</include>
 			<texture>background.png</texture>
 			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 		</control>
 		<control type="group">
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" delay="800">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
 			<control type="group">
-				<control type="image">
-					<visible>!Skin.HasSetting(Enable.FavView)</visible>
-					<top>120</top>
-					<left>1276</left>
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[Container(450).ListItem.Icon]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
+				<include>Animation.Common</include>
 				<control type="group">
-	                <visible>Skin.HasSetting(Enable.FavView) + IntegerGreaterThan(Container(450).NumItems,0)</visible>
+	                <visible>IntegerGreaterThan(Container(450).NumItems,0)</visible>
 	                <animation effect="fade" time="320" delay="300">Visible</animation>
 	                <control type="image">
-	                	<visible>Control.HasFocus(450)</visible>
-	                    <left>114</left>
-	                    <top>114</top>
-	                    <width>432</width>
-	                    <height>432</height>
-	                    <animation effect="fade" time="320" delay="200">Visible</animation>
-	                    <animation effect="fade" time="200">Hidden</animation>
+	                    <visible>Control.HasFocus(450)</visible>
+	                    <left>95</left>
+	                    <top>190</top>
+	                    <width>330</width>
+	                    <height>370</height>
+	                    <include>FocusedBackgroundFade</include>
 	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-	                    <animation effect="slide" end="0,420" time="300" tween="cubic" easing="inout" condition="Container(450).Row(1)">Conditional</animation>
-	                    <animation effect="slide" end="420,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(3)">Conditional</animation>
-	                    <animation effect="slide" end="420,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(3) | Container(450).Column(2)">Conditional</animation>
-	                    <animation effect="slide" end="420,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(3) | Container(450).Column(2) | Container(450).Column(1)">Conditional</animation>
+	                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Container(450).Row(1)">Conditional</animation>
+	                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(4)">Conditional</animation>
+	                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(4) | Container(450).Column(3)">Conditional</animation>
+	                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(4) | Container(450).Column(3) | Container(450).Column(2)">Conditional</animation>
+	                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Container(450).Column(4) | Container(450).Column(3) | Container(450).Column(2) | Container(450).Column(1)">Conditional</animation>
 	                </control>
 	            </control>
 				<control type="panel" id="450">
-					<animation effect="slide" time="0" start="0,0" end="-30,20" condition="!Skin.HasSetting(Enable.FavView)">Conditional</animation>
-					<left>120</left>
-					<top>120</top>
-					<width>1680</width>
-					<height>840</height>
-					<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
-					<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9050</onleft>
-					<onright condition="Control.IsVisible(60)">60</onright>
-					<onright>450</onright>
+					<top>180</top>
+	                <left>85</left>
+	                <width>1750</width>
+	                <height>780</height>
 					<onup>450</onup>
-					<ondown>450</ondown>
+	                <ondown>450</ondown>
+					<onleft>SetProperty(MediaMenu,True,home)</onleft>
+					<onleft>SetFocus(9050)</onleft>
+					<onright>60</onright>
+					<preloaditems>2</preloaditems>
 					<pagecontrol>60</pagecontrol>
-					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.FavView)">
-						<control type="image">
-							<left>15</left>
-							<top>8</top>
-							<width>105</width>
-							<height>105</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-						</control>
-						<control type="label">
-							<left>135</left>
-							<top>0</top>
-							<width>960</width>
-							<height>120</height>
-							<font>font30</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>100</left>
-							<width>960</width>
-							<height>120</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.FavView)">
-						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>1150</width>
-							<height>120</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-							<visible>Control.HasFocus(450)</visible>
-							<include>VisibleFadeEffect</include>
-						</control>
-						<control type="image">
-							<left>15</left>
-							<top>8</top>
-							<width>105</width>
-							<height>105</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-						</control>
-						<control type="label">
-							<left>135</left>
-							<top>0</top>
-							<width>960</width>
-							<height>120</height>
-							<font>font30</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(450)">Conditional</animation>
-						</control>
-						<control type="label">
-							<left>100</left>
-							<width>960</width>
-							<height>120</height>
-							<font>font15</font>
-							<align>right</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(450)">Conditional</animation>
-						</control>
-					</focusedlayout>
-					<itemlayout height="420" width="420" condition="Skin.HasSetting(Enable.FavView)">
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>408</width>
-							<height>408</height>
-							<aspectratio aligny="top">scale</aspectratio>
-							<texture fallback="DefaultFallbackFavourite.png" background="true">$INFO[ListItem.Icon]</texture>
-						</control>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>408</width>
-							<height>408</height>
-							<texture>thumbs/diffuse.png</texture>
-						</control>
-						<control type="image">
-							<top>364</top>
-							<left>6</left>
-							<width>408</width>
-							<height>50</height>
-							<texture>black.png</texture>
-							<colordiffuse>bbffffff</colordiffuse>
-						</control>
-						<control type="label">
-							<top>371</top>
-							<textoffsetx>15</textoffsetx>
-							<width>408</width>
-							<height>30</height>
-							<align>center</align>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<info>ListItem.Label</info>
-							<scroll>true</scroll>
-						</control>
-					</itemlayout>
-					<focusedlayout height="420" width="420" condition="Skin.HasSetting(Enable.FavView)">
-						<control type="group">
-							<include>PanelFocusedItemZoom</include>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>408</width>
-								<height>408</height>
-								<aspectratio aligny="top">scale</aspectratio>
-								<texture fallback="DefaultFallbackFavourite.png" background="true">$INFO[ListItem.Icon]</texture>
-							</control>							
-							<control type="image">
-								<animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-								<animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-								<top>6</top>
-								<left>6</left>
-								<width>408</width>
-								<height>408</height>
-								<texture>thumbs/diffuse.png</texture>
-							</control>
-							<control type="image">
-								<top>364</top>
-								<left>6</left>
-								<width>408</width>
-								<height>50</height>
-								<texture>black.png</texture>
-								<colordiffuse>bbffffff</colordiffuse>
-							</control>
-							<control type="label">
-								<top>371</top>
-								<textoffsetx>15</textoffsetx>
-								<width>408</width>
-								<height>30</height>
-								<align>center</align>
-								<textcolor>$VAR[ColorTextVar]</textcolor>
-								<info>ListItem.Label</info>
-								<scroll>true</scroll>
-							</control>
-						</control>
-					</focusedlayout>
+					<viewtype label="21371">list</viewtype>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<orientation>vertical</orientation>
+					<itemlayout height="390" width="350">
+	                    <control type="image">
+	                        <left>10</left>
+	                        <top>10</top>
+	                        <right>10</right>
+	                        <bottom>10</bottom>
+	                        <texture colordiffuse="33ffffff">background.png</texture>
+	                    </control>
+	                    <control type="label">
+	                        <left>20</left>
+	                        <right>20</right>
+	                        <top>327</top>
+	                        <height>50</height>
+	                        <aligny>center</aligny>
+	                        <font>font13</font>
+	                        <label>$INFO[ListItem.Label]</label>
+	                        <textcolor>$VAR[ColorTextVar]</textcolor>
+	                        <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+	                    </control>
+	                    <control type="image">
+	                        <left>20</left>
+	                        <top>20</top>
+	                        <right>20</right>
+	                        <height>310</height>
+	                        <texture colordiffuse="55000000">background.png</texture>
+	                    </control>
+	                    <control type="image">
+	                        <left>20</left>
+	                        <top>20</top>
+	                        <right>20</right>
+	                        <height>310</height>
+	                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+	                        <texture background="true" fallback="DefaultIconFavourite.png">$INFO[ListItem.Icon]</texture>
+	                    </control>
+
+	                </itemlayout>
+	                <focusedlayout height="390" width="350">
+	                    <control type="image">
+	                        <left>10</left>
+	                        <top>10</top>
+	                        <right>10</right>
+	                        <bottom>10</bottom>
+	                        <texture colordiffuse="33ffffff">background.png</texture>
+	                    </control>
+	                    <control type="label">
+	                        <left>20</left>
+	                        <right>20</right>
+	                        <top>327</top>
+	                        <height>50</height>
+	                        <aligny>center</aligny>
+	                        <font>font13</font>
+	                        <label>$INFO[ListItem.Label]</label>
+	                        <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+	                        <textcolor>$VAR[ColorTextVar]</textcolor>
+	                    </control>
+	                    <control type="image">
+	                        <left>20</left>
+	                        <top>20</top>
+	                        <right>20</right>
+	                        <height>310</height>
+	                        <texture colordiffuse="55000000">background.png</texture>
+	                    </control>
+	                    <control type="image">
+	                        <left>20</left>
+	                        <top>20</top>
+	                        <right>20</right>
+	                        <height>310</height>
+	                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+	                        <texture background="true" fallback="DefaultIconFavourite.png">$INFO[ListItem.Icon]</texture>
+	                    </control>
+	                </focusedlayout>
 				</control>
 			</control>
 			<control type="scrollbar" id="60">
-				<left>1906</left>
-				<top>45</top>
-				<width>14</width>
-				<height>1035</height>
+				<visible allowhiddenfocus="true">Control.HasFocus(60) | Container(450).Scrolling</visible>
+				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+				<left>1908</left>
+				<top>0</top>
+				<width>12</width>
+				<height>1080</height>
 				<onup>60</onup>
 				<ondown>60</ondown>
 				<onleft>450</onleft>
@@ -229,90 +136,6 @@
 				<orientation>vertical</orientation>
 			</control>
 		</control>
-		<include>ScrollOffsetLabel</include>
-		<control type="group">	
-			<animation effect="slide" start="0,-90" end="0,0" delay="1600" time="480">WindowOpen</animation>
-			<animation effect="slide" end="0,-90" start="0,0" time="480">WindowClose</animation>
-			<control type="image">
-				<width>FullScreenWidth</width>
-				<height>45</height>
-				<texture>topbar.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="group">
-				<top>-2</top>
-				<control type="label">
-					<width>900</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$LOCALIZE[1036]</label>
-				</control>
-				<control type="label">
-					<left>1040</left>
-					<width>880</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>right</align>
-					<aligny>center</aligny>
-					<label>$INFO[Container(450).NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(450).CurrentPage]$INFO[Container(450).NumPages,/][/COLOR]</label>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<width>FullScreenWidth</width>
-					<height>45</height>
-					<font>topbar</font>
-					<textoffsetx>15</textoffsetx>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$INFO[System.Time]</label>
-				</control>
-			</control>
-		</control>
-		<include>Bottombar</include>
-		<control type="group">
-			<left>-440</left>
-			<include>SideBladeLeft</include>
-			<control type="grouplist" id="9050">
-				<visible>IsEmpty(Window(home).Property(viewtypeselect))</visible>
-				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-				<left>0</left>
-				<top>115</top>
-				<width>400</width>
-				<height>1080</height>
-				<itemgap>0</itemgap>
-				<control type="label" id="200">
-					<width>400</width>
-					<height>52</height>
-					<textoffsetx>15</textoffsetx>
-					<font>font13_title</font>
-					<label>31006</label>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-					<aligny>center</aligny>
-				</control>
-				<control type="button" id="201">
-					<onright>ClearProperty(MediaMenu,Home)</onright>
-					<onright>450</onright>
-					<onback>ClearProperty(MediaMenu,Home)</onback>
-					<onback>450</onback>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<label>$LOCALIZE[31906]</label>
-					<label2>$VAR[FavViewSettingVar]</label2>
-					<onclick>SetProperty(viewtypeselect,1,home)</onclick>
-					<onclick>ActivateWindow(1118)</onclick>
-				</control>
-				<include name="MenuPlayerControls">
-					<param name="PlayerControlsOnUp" value="201" />
-					<param name="PlayerControlsOnDown" value="201" />
-				</include>
-			</control>
-		</control>
+		<include>Topbar</include>
 	</controls>
 </window>
