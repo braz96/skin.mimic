@@ -152,15 +152,10 @@
                     <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                     <aspectratio align="center" aligny="center">keep</aspectratio>
                 </control>
-				<control type="image">
-					<visible>![Container.Content(artists) | Skin.HasSetting(Enable.PanelLogo)]</visible>
-					<left>465</left>
-					<top>0</top>
-					<width>60</width>
-					<height>60</height>
-					<texture>$VAR[OverlayVar]</texture>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-				</control>
+                <include name="OverlayIcons" condition="![Container.Content(artists) | Skin.HasSetting(Enable.PanelLogo)]">
+                    <param name="OverlayLeft" value="467" />
+                    <param name="OverlayTop" value="0" />
+                </include>
             </control>
         </control>
     </include>

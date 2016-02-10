@@ -454,14 +454,10 @@
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                 <visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos) | Skin.HasSetting(Enable.BigListLogo) | Skin.HasSetting(Enable.BigListFanart)] + IsEmpty(ListItem.Art(landscape))</visible>
             </control>
-            <control type="image">
-                <visible>!Skin.HasSetting(Enable.BigListLogo)</visible>
-                <left>286</left>
-                <width>60</width>
-                <height>60</height>
-                <texture>$VAR[OverlayVar]</texture>
-                <aspectratio align="right" aligny="top">keep</aspectratio>
-            </control>
+            <include name="OverlayIcons" condition="!Skin.HasSetting(Enable.BigListLogo)">
+                <param name="OverlayLeft" value="288" />
+                <param name="OverlayTop" value="0" />
+            </include>
         </control>
     </include>
     <include name="view_BigList-PosterCommons">
@@ -485,13 +481,10 @@
                 <height>195</height>
                 <texture>thumbs/diffuse.png</texture>
             </control>
-            <control type="image">
-                <left>70</left>
-                <width>60</width>
-                <height>60</height>
-                <texture>$VAR[OverlayVar]</texture>
-                <aspectratio align="right" aligny="top">keep</aspectratio>
-            </control>
+            <include name="OverlayIcons">
+                <param name="OverlayLeft" value="72" />
+                <param name="OverlayTop" value="0" />
+            </include>
         </control>
     </include>
     <include name="view_BigList-ThumbCommons">

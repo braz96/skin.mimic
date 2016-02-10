@@ -55,6 +55,9 @@
 		<value condition="StringCompare(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(Overlay.Unwatched)">overlays/OverlayUnwatched.png</value>
 		<value condition="StringCompare(ListItem.Overlay,OverlayWatched.png) + Skin.HasSetting(Overlay.Watched)">overlays/OverlayWatched.png</value>
 	</variable>
+	<variable name="OverlayBGVar">
+		<value condition="[Container.ListItem.IsResumable + Skin.HasSetting(Overlay.Resumable)] | [StringCompare(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(Overlay.Unwatched)] | [StringCompare(ListItem.Overlay,OverlayWatched.png) + Skin.HasSetting(Overlay.Watched)]">overlays/overlaybg.png</value>
+	</variable>
 	<variable name="ListItem.Overlay">
 		<value condition="ListItem.IsResumable">overlays/list/resumable.png</value>
 		<value>$INFO[ListItem.Overlay,overlays/list/]</value>
@@ -665,12 +668,7 @@
     </variable>
     <variable name="ThumbViewImage">
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
-        <value condition="Window.IsVisible(MyVideoNav.xml) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)]">$VAR[ThumbViewFanart]</value>
-        <value>$INFO[ListItem.Icon]</value>
-    </variable>
-    <variable name="ThumbViewFanart">
-        <value condition="!IsEmpty(ListItem.Art(fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(fanart)]</value>
-        <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+    	<value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="TopbarFadeLabel1">
