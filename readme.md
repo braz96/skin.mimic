@@ -13,7 +13,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 
 ***
 **3.3.0**
-Major redesign of main menu, header and views, including new icons and font.
+- Major redesign of main menu, header and views, including new icons and font.
 
 ***
 **3.2.0**
