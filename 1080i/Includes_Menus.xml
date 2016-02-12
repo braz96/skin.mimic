@@ -3,7 +3,7 @@
 	<!-- Main Menu Includes -->
 	<include name="MainMenuList">
 		<control type="image">
-			<visible>!Control.HasFocus(9010)</visible>
+			<visible>!Control.HasFocus(9010) | Skin.HasSetting(Disable.SubmenuSlide)</visible>
             <left>0</left>
             <top>0</top>
             <width>384</width>
@@ -16,7 +16,7 @@
             <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
         <control type="image">
-        	<visible>Control.HasFocus(9010)</visible>
+        	<visible>Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)</visible>
             <left>0</left>
             <top>0</top>
             <width>384</width>
@@ -28,11 +28,24 @@
             <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3) | Container(9010).Position(2)">Conditional</animation>
             <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3) | Container(9010).Position(2) | Container(9010).Position(1)">Conditional</animation>
         </control>
+        <control type="image">
+        	<visible>Control.HasFocus(9010) + Skin.HasSetting(Disable.SubmenuSlide)</visible>
+            <left>0</left>
+            <top>120</top>
+            <width>384</width>
+            <height>70</height>
+            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9010)">Conditional</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3) | Container(9010).Position(2)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3) | Container(9010).Position(2) | Container(9010).Position(1)">Conditional</animation>
+        </control>
 		<control type="list" id="9000">
-			<animation type="Conditional" condition="!Control.HasFocus(9010)" reversible="false">
+			<animation type="Conditional" condition="!Control.HasFocus(9010) | Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">
                 <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
             </animation>
-            <animation effect="fade" end="0" start="100" time="150" condition="Control.HasFocus(9010)" reversible="false">Conditional</animation>
+            <animation effect="fade" end="0" start="100" time="150" condition="Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">Conditional</animation>
 			<include condition="!Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentTop">
 				<param name="MainMenuTopWidth" value="1536" />
 			</include>
@@ -41,15 +54,16 @@
 			</include>
 		</control>
 		<control type="group" id="9001">
-			<animation type="Conditional" condition="!Control.HasFocus(9000) + !Control.HasFocus(8000)" reversible="false">
+			<animation type="Conditional" condition="[!Control.HasFocus(9000) + !Control.HasFocus(8000)] | Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">
                 <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
             </animation>
-            <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010)" reversible="false">Conditional</animation>
+            <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010) + [!Skin.HasSetting(Disable.SubmenuSlide) | system.getbool(lookandfeel.enablerssfeeds)]" reversible="false">Conditional</animation>
+            <animation effect="slide" time="0" start="0,0" end="0,95" condition="Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
 			<control type="list" id="9010">
-				<include condition="!Skin.HasSetting(Disable.WeatherClockDate)" name="SubMenuListDefault">
+				<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Disable.SubmenuSlide)" name="SubMenuListDefault">
 					<param name="SubMenuWidth" value="1536" />
 				</include>
-				<include condition="Skin.HasSetting(Disable.WeatherClockDate)" name="SubMenuListDefault">
+				<include condition="Skin.HasSetting(Disable.WeatherClockDate) | Skin.HasSetting(Disable.SubmenuSlide)" name="SubMenuListDefault">
 					<param name="SubMenuWidth" value="1920" />
 				</include>
 			</control>
