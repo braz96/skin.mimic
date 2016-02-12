@@ -261,6 +261,42 @@
 						<onclick>Skin.SetBool(Enable.PanelLogo)</onclick>
 						<visible>StringCompare(Container.Viewmode,$LOCALIZE[31059])</visible>
 					</item>
+					<item>
+						<description>Thumbnail - Poster</description>
+						<label>31016</label>
+						<onclick>Skin.Reset(Enable.ThumbnailFanart)</onclick>
+						<onclick>Skin.Reset(Enable.ThumbnailLandscape)</onclick>
+						<onclick>Skin.Reset(Enable.ThumbnailLogo)</onclick>
+						<onclick>ReloadSkin()</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
+					</item>
+					<item>
+						<description>Thumbnail - Fanart</description>
+						<label>20445</label>
+						<onclick>Skin.SetBool(Enable.ThumbnailFanart)</onclick>
+						<onclick>Skin.Reset(Enable.ThumbnailLandscape)</onclick>
+						<onclick>Skin.Reset(Enable.ThumbnailLogo)</onclick>
+						<onclick>ReloadSkin()</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
+					</item>
+					<item>
+						<description>Thumbnail - Landscape</description>
+						<label>31100</label>
+						<onclick>Skin.Reset(Enable.ThumbnailFanart)</onclick>
+						<onclick>Skin.SetBool(Enable.ThumbnailLandscape)</onclick>
+						<onclick>Skin.Reset(Enable.ThumbnailLogo)</onclick>
+						<onclick>ReloadSkin()</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					</item>
+					<item>
+						<description>Thumbnail - Logo</description>
+						<label>31088</label>
+						<onclick>Skin.Reset(Enable.ThumbnailFanart)</onclick>
+						<onclick>Skin.Reset(Enable.ThumbnailLandscape)</onclick>
+						<onclick>Skin.SetBool(Enable.ThumbnailLogo)</onclick>
+						<onclick>ReloadSkin()</onclick>
+						<visible>StringCompare(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					</item>
 				</content>
 			</control>
 		</control>
