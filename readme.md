@@ -12,6 +12,10 @@ More screenshots available here: http://imgur.com/a/LLSMM
 
 
 ***
+**3.3.1**
+- Fix submenu visibility on default home layout for touch/mouse users.
+
+***
 **3.3.0**
 - Major redesign of main menu, header and views, including new icons and font.
 
