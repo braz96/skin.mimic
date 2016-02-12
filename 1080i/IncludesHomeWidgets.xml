@@ -7,12 +7,11 @@
 				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
 				<animation effect="fade" start="0" end="100" delay="200" time="300" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="300" condition="[[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] | Container(8000).IsUpdating | Container(9000).OnNext | Container(9000).OnPrevious] + Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 				<animation effect="fade" tween="cubic" time="600" delay="500" start="0" end="100" reversible="false">WindowOpen</animation>
 				<animation effect="fade" tween="cubic" time="300" start="100" end="0" reversible="false">WindowClose</animation>
 				<animation effect="fade" tween="cubic" time="600" delay="500" start="0" end="100" reversible="false">Visible</animation>
 				<animation effect="fade" tween="cubic" time="300" start="100" end="0" reversible="false">Hidden</animation>
-				<animation effect="slide" time="0" start="0,0" end="0,-70" condition="system.getbool(lookandfeel.enablerssfeeds) | Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
+				<animation effect="slide" time="0" start="0,0" end="0,-70" condition="[system.getbool(lookandfeel.enablerssfeeds) | Skin.HasSetting(Disable.SubmenuSlide)] + !Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
 				<include condition="Skin.HasSetting(HorizontalListNav)">WidgetListFixed</include>
 				<include condition="!Skin.HasSetting(HorizontalListNav)">WidgetListWrapped</include>
 				<control type="group">

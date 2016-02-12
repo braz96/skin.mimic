@@ -115,7 +115,7 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Premiered]</value>
 		<value condition="Container.Content(albums) | Container.Content(songs)">$INFO[ListItem.Artist]</value>
 		<value condition="Window.IsActive(pictures)">$INFO[ListItem.PictureResolution]</value>
-		<value>$INFO[ListItem.Genre]</value>
+		<value condition="!Container.Content(genres)">$INFO[ListItem.Genre]</value>
 	</variable>
 	<variable name="PosterVar">
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
