@@ -11,11 +11,11 @@
 				<animation effect="fade" tween="cubic" time="300" start="100" end="0" reversible="false">WindowClose</animation>
 				<animation effect="fade" tween="cubic" time="600" delay="500" start="0" end="100" reversible="false">Visible</animation>
 				<animation effect="fade" tween="cubic" time="300" start="100" end="0" reversible="false">Hidden</animation>
-				<animation effect="slide" time="0" start="0,0" end="0,-70" condition="[system.getbool(lookandfeel.enablerssfeeds) | Skin.HasSetting(Disable.SubmenuSlide)] + !Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
+				<animation effect="slide" time="0" start="0,0" end="0,-70" condition="[system.getbool(lookandfeel.enablerssfeeds) | Skin.HasSetting(Disable.SubmenuSlide)] + !StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
 				<include condition="Skin.HasSetting(HorizontalListNav)">WidgetListFixed</include>
 				<include condition="!Skin.HasSetting(HorizontalListNav)">WidgetListWrapped</include>
 				<control type="group">
-					<animation effect="slide" time="0" start="0,0" end="0,195" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
+					<animation effect="slide" time="0" start="0,0" end="0,195" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
 					<animation effect="slide" time="0" tween="" easing="" start="0" end="160" condition="Skin.HasSetting(Enable.BasicWeatherView)">Conditional</animation>
 					<include name="WeatherWidgetCommons">
 						<param name="WeatherPositionLeft" value="0" />
@@ -31,7 +31,7 @@
 					</include>
 				</control>
 				<control type="group">
-					<animation effect="slide" time="0" start="0,0" end="0,190" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
+					<animation effect="slide" time="0" start="0,0" end="0,190" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
 					<control type="label">
 						<animation effect="fade" time="300" tween="cubic" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]" start="0" end="100">Visible</animation>
 						<animation effect="fade" time="0" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]" start="100" end="0">Hidden</animation>
@@ -134,7 +134,7 @@
 	            </control>
 				<include>WidgetPanelContent</include>
 				<control type="image">
-		        	<visible>StringCompare(Container(9000).ListItem.Property(widget),weather) + Skin.HasSetting(Enable.HomeVerticalMenu) + Control.HasFocus(8000)</visible>
+		        	<visible>StringCompare(Container(9000).ListItem.Property(widget),weather) + StringCompare(Skin.String(HomeLayout),3) + Control.HasFocus(8000)</visible>
 		            <left>2691</left>
 		            <top>260</top>
 		            <width>300</width>
@@ -201,7 +201,7 @@
 		<control type="group">
 			<visible>Player.HasVideo + !Window.IsVisible(extendedprogressdialog)</visible>
 			<include>Animation_DialogPopup</include>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
+			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
 			<left>1090</left>
 			<top>32</top>
 			<control type="image">
@@ -275,7 +275,7 @@
 		<control type="group">
 			<visible>Player.HasAudio + !Window.IsVisible(extendedprogressdialog)</visible>
 			<include>Animation_DialogPopup</include>
-			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopMenu)">Conditional</animation>
+			<animation effect="slide" time="0" tween="" easing="" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
 			<left>1090</left>
 			<top>32</top>
 			<control type="image">

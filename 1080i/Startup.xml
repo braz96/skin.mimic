@@ -6,7 +6,7 @@
     <onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,daemon=True,pixels=10,bits=1,radius=30)</onload>
 	<onload condition="System.HasAddon(script.skin.info.service)">RunScript(script.skin.info.service)</onload>
 	<onload condition="!System.HasAddon(script.tv.show.next.aired)">Skin.SetBool(Disable.NextAired)</onload>
-	<onload condition="!Skin.HasSetting(Enable.HomeTopMenu) + !Skin.HasSetting(Enable.HomeVerticalMenu)">Skin.SetBool(Enable.HomeDefault)</onload>
+	<onload condition="!StringCompare(Skin.String(HomeLayout),2) + !StringCompare(Skin.String(HomeLayout),3)">Skin.SetString(HomeLayout,1)</onload>
 	<controls>
 		<control type="button" id="10">
 			<description>trigger</description>

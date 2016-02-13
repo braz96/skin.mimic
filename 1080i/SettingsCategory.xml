@@ -5,7 +5,7 @@
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<onunload condition="!Skin.HasSetting(Enable.HomeTopMenu) + !Skin.HasSetting(Enable.HomeVerticalMenu)">Skin.SetBool(Enable.HomeDefault)</onunload>
+	<onunload condition="!StringCompare(Skin.String(HomeLayout),2) + !StringCompare(Skin.String(HomeLayout),3)">Skin.SetBool(Enable.HomeDefault)</onunload>
 	<allowoverlay>no</allowoverlay>
 	<controls>
 		<include>CommonBackground</include>

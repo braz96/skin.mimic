@@ -297,7 +297,7 @@
 				<height>$PARAM[SubmenuHeight]</height>
 				<texture>background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				<visible>!Skin.HasSetting(Enable.HomeDefault)</visible>
+				<visible>StringCompare(Skin.String(HomeLayout),2) | StringCompare(Skin.String(HomeLayout),3)</visible>
 			</control>
 			<control type="label">
 				<width>384</width>
@@ -317,14 +317,14 @@
 				<height>$PARAM[SubmenuHeight]</height>
 				<texture>background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				<visible>!Skin.HasSetting(Enable.HomeDefault)</visible>
+				<visible>StringCompare(Skin.String(HomeLayout),2) | StringCompare(Skin.String(HomeLayout),3)</visible>
 			</control>
 			<control type="image">
 				<width>384</width>
 				<height>$PARAM[SubmenuHeight]</height>
 				<texture>listselect_fo.png</texture>
 				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<visible>ControlGroup(9001).HasFocus() + !Skin.HasSetting(Enable.HomeDefault)</visible>
+				<visible>ControlGroup(9001).HasFocus() + [StringCompare(Skin.String(HomeLayout),2) | StringCompare(Skin.String(HomeLayout),3)]</visible>
 			</control>
 			<control type="group">
 				<visible>Control.HasFocus(9010)</visible>
