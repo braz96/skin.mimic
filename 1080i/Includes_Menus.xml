@@ -158,7 +158,7 @@
 			</control>
 		</itemlayout>
 		<focusedlayout height="120" width="384">
-			<control type="image">
+			<!--<control type="image">
 				<animation effect="fade" start="0" end="80" time="100" delay="1000">Focus</animation>
 				<animation effect="fade" start="80" end="0" time="0">UnFocus</animation>
 				<top>1</top>
@@ -167,7 +167,7 @@
 				<height>30</height>
 				<texture>WidgetIndicator.png</texture>
 				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
-			</control>
+			</control>-->
 			<control type="label">
 				<width>384</width>
 				<height>120</height>
@@ -208,7 +208,7 @@
 			</control>
 		</itemlayout>
 		<focusedlayout height="120" width="384">
-			<control type="image">
+			<!--<control type="image">
 				<animation effect="fade" start="0" end="80" time="100" delay="1000">Focus</animation>
 				<animation effect="fade" start="80" end="0" time="0">UnFocus</animation>
 				<top>1</top>
@@ -217,7 +217,7 @@
 				<height>30</height>
 				<texture>WidgetIndicator.png</texture>
 				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
-			</control>
+			</control>-->
 			<control type="label">
 				<width>384</width>
 				<height>120</height>
@@ -240,10 +240,10 @@
 		<top>0</top>
 		<width>434</width>
 		<height>$PARAM[MainMenuVerticalHeight]</height>
-		<onleft condition="!IsEmpty(Container(9000).ListItem.Property(widget))">8000</onleft>
+		<onright condition="!IsEmpty(Container(9000).ListItem.Property(widget))">8000</onright>
 		<ondown>9000</ondown>
 		<onup>9000</onup>
-		<onright>9010</onright>
+		<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
 		<pagecontrol>-</pagecontrol>
 		<scrolltime tween="quadratic" easing="out">300</scrolltime>
 		<orientation>Vertical</orientation>
@@ -258,10 +258,43 @@
 				<align>left</align>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>IsEmpty(ListItem.Property(isSubmenu))</visible>
+			</control>
+			<control type="image">
+				<width>434</width>
+				<height>120</height>
+				<texture>white.png</texture>
+				<colordiffuse>0affffff</colordiffuse>
+				<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+			</control>
+			<control type="label">
+				<width>434</width>
+				<height>120</height>
+				<top>-1</top>
+				<font>font_SubMenu</font>
+				<textoffsetx>20</textoffsetx>
+				<textcolor>$VAR[ColorMenuVar]</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+			</control>
+			<control type="label">
+				<left>390</left>
+				<width>30</width>
+				<height>110</height>
+				<label></label>
+				<font>IconTiny</font>
+				<align>right</align>
+				<aligny>center</aligny>
+				<textcolor>33ffffff</textcolor>
+				<visible>SubString(ListItem.Property(hasSubmenu),True)</visible>
+				<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+				<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
 			</control>
 		</itemlayout>
 		<focusedlayout height="120" width="434">
-			<control type="image">
+			<!--<control type="image">
 				<animation effect="fade" start="0" end="80" time="100" delay="1000">Focus</animation>
 				<animation effect="fade" start="80" end="0" time="0">UnFocus</animation>
 				<top>1</top>
@@ -271,22 +304,54 @@
 				<texture>WidgetIndicator.png</texture>
 				<animation effect="rotate" end="90" center="auto" time="0" condition="True">Conditional</animation>
 				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)</visible>
-			</control>
+			</control>-->
 			<control type="label">
 				<width>434</width>
 				<height>120</height>
 				<top>-4</top>
 				<font>font_AltMainMenu</font>
-				<textcolor>$VAR[ColorMenuVar]</textcolor>
 				<textoffsetx>20</textoffsetx>
-				<selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
+				<textcolor>$VAR[ColorMenuVar]</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>IsEmpty(ListItem.Property(isSubmenu))</visible>
+			</control>
+			<control type="image">
+				<width>434</width>
+				<height>120</height>
+				<texture>white.png</texture>
+				<colordiffuse>0affffff</colordiffuse>
+				<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+			</control>
+			<control type="label">
+				<width>434</width>
+				<height>120</height>
+				<top>-1</top>
+				<font>font_SubMenu</font>
+				<textoffsetx>20</textoffsetx>
+				<textcolor>$VAR[ColorMenuVar]</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+			</control>
+			<control type="label">
+				<left>390</left>
+				<width>30</width>
+				<height>110</height>
+				<label></label>
+				<font>IconTiny</font>
+				<align>right</align>
+				<aligny>center</aligny>
+				<textcolor>33ffffff</textcolor>
+				<visible>SubString(ListItem.Property(hasSubmenu),True)</visible>
+				<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+				<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
 			</control>
 		</focusedlayout>
 		<content>
-			<include>skinshortcuts-mainmenu</include>
+			<include>skinshortcuts-allmenus</include>
 		</content>
 	</include>
 	
