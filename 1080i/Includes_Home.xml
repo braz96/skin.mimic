@@ -3,6 +3,7 @@
 	<include name="HomeDefault">
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
+		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Disable.WeatherInMenu)">WeatherHomeWidget</include>
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
 			<animation effect="slide" time="0" start="0,0" end="0,-70" condition="system.getbool(lookandfeel.enablerssfeeds) | Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
@@ -37,6 +38,7 @@
 	<include name="HomeTopMenu">
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
+		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Disable.WeatherInMenu)">WeatherHomeWidget</include>
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
 			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
@@ -157,6 +159,7 @@
 	<include name="HomeVerticalMenu">
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
+		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Disable.WeatherInMenu)">WeatherHomeWidget</include>
 		<include>HomePanelWidgets</include>
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>

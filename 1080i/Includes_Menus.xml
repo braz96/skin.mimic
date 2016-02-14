@@ -46,10 +46,10 @@
                 <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
             </animation>
             <animation effect="fade" end="0" start="100" time="150" condition="Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">Conditional</animation>
-			<include condition="!Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentTop">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Disable.WeatherInMenu)" name="MainMenuListContentTop">
 				<param name="MainMenuTopWidth" value="1536" />
 			</include>
-			<include condition="Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentTop">
+			<include condition="Skin.HasSetting(Disable.WeatherClockDate) | Skin.HasSetting(Disable.WeatherInMenu)" name="MainMenuListContentTop">
 				<param name="MainMenuTopWidth" value="1920" />
 			</include>
 		</control>
@@ -88,10 +88,10 @@
             <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
 		<control type="list" id="9000">
-			<include condition="!Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentTop">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Disable.WeatherInMenu)" name="MainMenuListContentTop">
 				<param name="MainMenuTopWidth" value="1536" />
 			</include>
-			<include condition="Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentTop">
+			<include condition="Skin.HasSetting(Disable.WeatherClockDate) | Skin.HasSetting(Disable.WeatherInMenu)" name="MainMenuListContentTop">
 				<param name="MainMenuTopWidth" value="1920" />
 			</include>
 		</control>
@@ -119,10 +119,10 @@
             <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
 		<control type="list" id="9000">
-			<include condition="!Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentVertical">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Disable.WeatherInMenu)" name="MainMenuListContentVertical">
 				<param name="MainMenuVerticalHeight" value="960" />
 			</include>
-			<include condition="Skin.HasSetting(Disable.WeatherClockDate)" name="MainMenuListContentVertical">
+			<include condition="Skin.HasSetting(Disable.WeatherClockDate) | Skin.HasSetting(Disable.WeatherInMenu)" name="MainMenuListContentVertical">
 				<param name="MainMenuVerticalHeight" value="1080" />
 			</include>
 		</control>
@@ -444,7 +444,7 @@
 	</include>
 	<include name="MenuClockWeather">
 		<control type="group">
-			<visible>!Skin.HasSetting(Disable.WeatherClockDate)</visible>
+			<visible>!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Disable.WeatherInMenu)</visible>
 			<left>$PARAM[MenuClockLeft]</left>
 			<top>$PARAM[MenuClockTop]</top>
 			<control type="grouplist">
