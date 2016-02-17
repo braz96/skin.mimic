@@ -106,6 +106,7 @@
 						<label>$INFO[ListItem.Year]</label>
 						<font>font48</font>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<visible>!IsEmpty(ListItem.Year)</visible>
 					</control>
 					<control type="group">
 						<width>198</width>
@@ -143,7 +144,7 @@
 							<width>160</width>
 							<height>60</height>
 							<align>center</align>
-							<label>[B]$VAR[DurationVar][/B]</label>
+							<label>$VAR[DurationVar]</label>
 							<font>font48</font>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
@@ -166,7 +167,7 @@
 							<width>200</width>
 							<height>60</height>
 							<align>center</align>
-							<label>[B]$INFO[ListItem.Rating][/B]</label>
+							<label>$INFO[ListItem.Rating]</label>
 							<font>font48</font>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
@@ -181,6 +182,29 @@
 						</control>
 					</control>
 					<control type="group">
+						<visible>!IsEmpty(ListItem.UserRating)</visible>
+						<width>200</width>
+						<control type="label">
+							<left>0</left>
+							<top>2</top>
+							<width>200</width>
+							<height>60</height>
+							<align>center</align>
+							<label>$INFO[ListItem.UserRating]</label>
+							<font>font48</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+						</control>
+						<control type="label">
+							<top>52</top>
+							<width>200</width>
+							<height>30</height>
+							<align>center</align>
+							<label>[LOWERCASE]$LOCALIZE[38018][/LOWERCASE]</label>
+							<font>font12</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+						</control>
+					</control>
+					<control type="group">
 						<visible>!IsEmpty(ListItem.Top250)</visible>
 						<width>200</width>
 						<control type="label">
@@ -189,7 +213,7 @@
 							<width>200</width>
 							<height>60</height>
 							<align>center</align>
-							<label>[B]$INFO[ListItem.Top250,#][/B]</label>
+							<label>$INFO[ListItem.Top250,#]</label>
 							<font>font48</font>
 							<wrapmultiline>true</wrapmultiline>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -985,6 +1009,12 @@
 						<label>+</label>
 						<onclick>ActivateWindow(1119)</onclick>
 						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+					</control>
+					<control type="button" id="7">
+						<description>User ratings</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>38023</label>
+						<visible>False</visible>
 					</control>
 				</control>
 			</control>
