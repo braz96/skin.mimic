@@ -148,6 +148,16 @@
 						<label2>$INFO[Skin.String(HomeLayout.label)]</label2>
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HomeLayout,header=$LOCALIZE[31018])</onclick>
 					</control>
+					<control type="radiobutton" id="111">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- Center menus</label>
+						<onclick>Skin.ToggleSetting(Enable.CenteredMenu)</onclick>
+						<selected>Skin.HasSetting(Enable.CenteredMenu)</selected>
+						<visible>!StringCompare(Skin.String(HomeLayout),2) + !StringCompare(Skin.String(HomeLayout),3)</visible>
+					</control>
 					<control type="button" id="100">
 						<width>1316</width>
 						<height>90</height>
@@ -189,7 +199,7 @@
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31187</label>
-						<enable>!Skin.HasSetting(Disable.WeatherClockDate)</enable>
+						<enable>!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.CenteredMenu)</enable>
 						<onclick>Skin.ToggleSetting(Enable.WeatherInMenu)</onclick>
 						<selected>Skin.HasSetting(Enable.WeatherInMenu)</selected>
 					</control>

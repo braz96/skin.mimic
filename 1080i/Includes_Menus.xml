@@ -52,6 +52,7 @@
 			<include condition="Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)" name="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1920" />
 			</include>
+			<include condition="Skin.HasSetting(Enable.CenteredMenu)">MainMenuListCentered</include>
 		</control>
 		<control type="group" id="9001">
 			<animation type="Conditional" condition="[!Control.HasFocus(9000) + !Control.HasFocus(8000)] | Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">
@@ -73,6 +74,52 @@
 			<param name="MenuClockTop" value="10" />
 			<param name="MenuClockAlign" value="right" />
 		</include>
+	</include>
+	<include name="MainMenuListCentered">
+		<control type="image">
+			<visible>!Control.HasFocus(9010) | Skin.HasSetting(Disable.SubmenuSlide)</visible>
+            <left>768</left>
+            <top>0</top>
+            <width>384</width>
+            <height>120</height>
+            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+        </control>
+        <control type="image">
+			<visible>Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)</visible>
+            <left>768</left>
+            <top>0</top>
+            <width>384</width>
+            <height>120</height>
+            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9010)">Conditional</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+        </control>
+        <control type="image">
+        	<visible>Control.HasFocus(9010) + Skin.HasSetting(Disable.SubmenuSlide)</visible>
+            <left>768</left>
+            <top>120</top>
+            <width>384</width>
+            <height>70</height>
+            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9010)">Conditional</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+        </control>
+		<control type="wraplist" id="9000">
+			<animation type="Conditional" condition="!Control.HasFocus(9010) | Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
+            </animation>
+            <animation effect="fade" end="0" start="100" time="150" condition="Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">Conditional</animation>
+			<include>MainMenuListContentCentered</include>
+		</control>
+		<control type="group" id="9001">
+			<animation type="Conditional" condition="[!Control.HasFocus(9000) + !Control.HasFocus(8000)] | Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
+            </animation>
+            <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010) + [!Skin.HasSetting(Disable.SubmenuSlide) | system.getbool(lookandfeel.enablerssfeeds)]" reversible="false">Conditional</animation>
+            <animation effect="slide" time="0" start="0,0" end="0,95" condition="Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
+			<control type="wraplist" id="9010">
+				<include>SubMenuListCentered</include>
+			</control>
+		</control>
 	</include>
 	<include name="MainMenuListTop">
 		<control type="image">
@@ -138,6 +185,48 @@
 		<top>0</top>
 		<width>$PARAM[MainMenuTopWidth]</width>
 		<height>120</height>
+		<onup condition="!IsEmpty(Container(9000).ListItem.Property(widget))">8000</onup>
+		<ondown>9010</ondown>
+		<pagecontrol>-</pagecontrol>
+		<scrolltime tween="quadratic" easing="out">300</scrolltime>
+		<orientation>Horizontal</orientation>
+		<itemlayout height="120" width="384">
+			<control type="label">
+				<width>384</width>
+				<height>120</height>
+				<top>-4</top>
+				<font>font_AltMainMenu</font>
+				<textcolor>$VAR[ColorMenuVar]</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout height="120" width="384">
+			<control type="label">
+				<width>384</width>
+				<height>120</height>
+				<top>-4</top>
+				<font>font_AltMainMenu</font>
+				<textcolor>$VAR[ColorMenuVar]</textcolor>
+				<selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</focusedlayout>
+		<content>
+			<include>skinshortcuts-mainmenu</include>
+		</content>
+	</include>
+	<include name="MainMenuListContentCentered">
+		<animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">conditional</animation>
+		<left>0</left>
+		<top>0</top>
+		<width>1920</width>
+		<height>120</height>
+		<focusposition>2</focusposition>
+		<movement>1</movement>
 		<onup condition="!IsEmpty(Container(9000).ListItem.Property(widget))">8000</onup>
 		<ondown>9010</ondown>
 		<pagecontrol>-</pagecontrol>
@@ -372,6 +461,26 @@
 		<pagecontrol>-</pagecontrol>
 		<scrolltime tween="quadratic" easing="out">300</scrolltime>
 		<focusposition>0</focusposition>
+		<movement>1</movement>
+		<orientation>Horizontal</orientation>
+		<include name="SubmenuListContent">
+			<param name="SubmenuHeight" value="120" />
+			<param name="SubmenuAlign" value="center" />
+			<param name="SubmenuTextOffset" value="0" />
+		</include>
+	</include>
+	<include name="SubMenuListCentered">
+		<animation effect="fade" start="100" end="50" time="300" condition="!ControlGroup(9001).HasFocus()">conditional</animation>
+		<include>VisibleFadeEffect</include>
+		<left>0</left>
+		<top>0</top>
+		<width>1920</width>
+		<height>120</height>
+		<onup>9000</onup>
+		<ondown>9000</ondown>
+		<pagecontrol>-</pagecontrol>
+		<scrolltime tween="quadratic" easing="out">300</scrolltime>
+		<focusposition>2</focusposition>
 		<movement>1</movement>
 		<orientation>Horizontal</orientation>
 		<include name="SubmenuListContent">
