@@ -61,10 +61,10 @@
             <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010) + [!Skin.HasSetting(Disable.SubmenuSlide) | system.getbool(lookandfeel.enablerssfeeds)]" reversible="false">Conditional</animation>
             <animation effect="slide" time="0" start="0,0" end="0,95" condition="Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
 			<control type="list" id="9010">
-				<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.SubmenuSlide)" name="SubMenuListDefault">
+				<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Disable.SubmenuSlide) + Skin.HasSetting(Enable.WeatherInMenu)" name="SubMenuListDefault">
 					<param name="SubMenuWidth" value="1536" />
 				</include>
-				<include condition="Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.SubmenuSlide)" name="SubMenuListDefault">
+				<include condition="Skin.HasSetting(Disable.WeatherClockDate) | Skin.HasSetting(Disable.SubmenuSlide) | !Skin.HasSetting(Enable.WeatherInMenu)" name="SubMenuListDefault">
 					<param name="SubMenuWidth" value="1920" />
 				</include>
 			</control>
