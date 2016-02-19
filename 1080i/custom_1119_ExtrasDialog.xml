@@ -37,6 +37,17 @@
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
 			</control>
+			<control type="button" id="90206">
+				<description>Rating Update button</description>
+				<width>510</width>
+				<textwidth>425</textwidth>
+				<textoffsetx>45</textoffsetx>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+				<visible>System.HasAddon(script.ratingupdate)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+			</control>
 			<control type="button" id="90203">
 				<description>Artwork downloader button</description>
 				<width>510</width>
@@ -66,17 +77,6 @@
 				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 				<visible>System.HasAddon(script.libraryeditor)</visible>
-			</control>
-			<control type="button" id="90206">
-				<description>Rating Update button</description>
-				<width>510</width>
-				<textwidth>425</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_bg.png</texturefocus>
-				<texturenofocus border="12">button_bg.png</texturenofocus>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-				<visible>System.HasAddon(script.ratingupdate)</visible>
-				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 			</control>
 			<control type="button" id="90207">
 				<description>TvTunes button</description>
@@ -210,6 +210,17 @@
 				<label>$LOCALIZE[38023]</label>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
 			</control>
+			<control type="button" id="90306">
+				<description>Rating Update button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
+				<label>31067</label>
+				<visible>System.HasAddon(script.ratingupdate)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+			</control>
 			<control type="button" id="90303">
 				<description>Artwork downloader button</description>
 				<texturefocus>listselect_fo.png</texturefocus>
@@ -241,17 +252,6 @@
 				<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
 				<label>21435</label>
 				<visible>System.HasAddon(script.libraryeditor)</visible>
-			</control>
-			<control type="button" id="90306">
-				<description>Rating Update button</description>
-				<texturefocus>listselect_fo.png</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
-				<label>31067</label>
-				<visible>System.HasAddon(script.ratingupdate)</visible>
-				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 			</control>
 			<control type="button" id="90307">
 				<description>TvTunes button</description>

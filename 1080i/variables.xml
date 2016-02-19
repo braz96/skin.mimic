@@ -456,16 +456,16 @@
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[20360]: $INFO[ListItem.Property(TotalEpisodes)]$INFO[ListItem.Property(UnWatchedEpisodes), (,[LOWERCASE] $LOCALIZE[16101][/LOWERCASE])]</value>
 		<value>$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
 	</variable>
-	<!--<variable name="AudioChannelVar">
-		<value condition="IntegerGreaterThan(VideoPlayer.AudioChannels,7)">7.1</value>
-		<value condition="IntegerGreaterThan(VideoPlayer.AudioChannels,6)">6.1</value>
-		<value condition="IntegerGreaterThan(VideoPlayer.AudioChannels,5)">5.1</value>
-		<value condition="IntegerGreaterThan(VideoPlayer.AudioChannels,4)">5.0</value>
-		<value condition="IntegerGreaterThan(VideoPlayer.AudioChannels,3)">4.0</value>
-		<value condition="IntegerGreaterThan(VideoPlayer.AudioChannels,2)">2.1</value>
-		<value condition="IntegerGreaterThan(VideoPlayer.AudioChannels,1)">2.0</value>
-		<value condition="IntegerGreaterThan(VideoPlayer.AudioChannels,0)">1.0</value>
-	</variable>-->
+	<variable name="AudioChannelVar">
+		<value condition="IntegerGreaterThan(ListItem.AudioChannels,7)">7.1</value>
+		<value condition="IntegerGreaterThan(ListItem.AudioChannels,6)">6.1</value>
+		<value condition="IntegerGreaterThan(ListItem.AudioChannels,5)">5.1</value>
+		<value condition="IntegerGreaterThan(ListItem.AudioChannels,4)">5.0</value>
+		<value condition="IntegerGreaterThan(ListItem.AudioChannels,3)">4.0</value>
+		<value condition="IntegerGreaterThan(ListItem.AudioChannels,2)">2.1</value>
+		<value condition="IntegerGreaterThan(ListItem.AudioChannels,1)">2.0</value>
+		<value condition="IntegerGreaterThan(ListItem.AudioChannels,0)">1.0</value>
+	</variable>
 	<variable name="HomeNowPlayingThumbVar">
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)] + !IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 		<value condition="VideoPlayer.Content(episodes) + !IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
