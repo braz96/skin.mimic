@@ -38,134 +38,15 @@
 			</control>
 			<control type="group">
 				<left>1300</left>
-				<top>625</top>
+				<top>640</top>
 				<include>VisibleFadeEffect</include>
 				<control type="textbox" id="70">
 					<label>$VAR[VideoPlotVar]</label>
 					<width>585</width>
-					<height>340</height>
+					<height>390</height>
 					<font>font14_textbox</font>
 					<include>ShowCaseInfoPanelButtonsValues</include>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				</control>
-			</control>
-			<control type="group">
-				<visible>!Container.Content(addons)</visible>
-				<left>1267</left>
-				<top>965</top>
-				<width>1840</width>
-				<height>90</height>
-				<control type="image">
-					<left>15</left>
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<include>MediaFlagVars</include>
-					<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
-				<control type="image">
-					<left>173</left>
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<include>MediaFlagVars</include>
-					<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
-				<control type="image">
-					<left>330</left>
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<include>MediaFlagVars</include>
-					<texture>$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
-					<visible>!IsEmpty(ListItem.AudioChannels)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
-				<control type="image">
-					<left>497</left>
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<include>MediaFlagVars</include>
-					<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
-				<control type="group">
-					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
-					<include>VisibleFadeEffect</include>
-					<control type="group">
-						<top>-6</top>
-						<width>162.5</width>
-						<visible>!IsEmpty(ListItem.Property(TotalSeasons))</visible>
-						<control type="label">
-							<left>0</left>
-							<top>2</top>
-							<width>162.5</width>
-							<height>60</height>
-							<align>center</align>
-							<label>[B]$INFO[ListItem.Property(TotalSeasons)][/B]</label>
-							<font>font16</font>
-							<wrapmultiline>true</wrapmultiline>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-						</control>
-						<control type="label">
-							<top>52</top>
-							<width>162.5</width>
-							<height>30</height>
-							<align>center</align>
-							<label>[LOWERCASE]$VAR[OneOrMoreSeasonsVar][/LOWERCASE]</label>
-							<font>font12</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-						</control>
-					</control>
-					<control type="group">
-						<visible>!IsEmpty(ListItem.Property(TotalEpisodes))</visible>
-						<width>162.5</width>
-						<left>162.5</left>
-						<top>-6</top>
-						<control type="label">
-							<left>0</left>
-							<top>2</top>
-							<width>162.5</width>
-							<height>60</height>
-							<align>center</align>
-							<label>[B]$INFO[ListItem.Property(TotalEpisodes)][/B]</label>
-							<font>font16</font>
-							<wrapmultiline>true</wrapmultiline>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-						</control>
-						<control type="label">
-							<top>52</top>
-							<width>162.5</width>
-							<height>30</height>
-							<align>center</align>
-							<label>[LOWERCASE]$VAR[OneOrMoreEpisodesVar][/LOWERCASE]</label>
-							<font>font12</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-						</control>
-					</control>
-					<control type="image" id="800016">
-						<left>339</left>
-						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-						<include>MediaFlagVars</include>
-						<texture>resource://resource.images.studios.white/$INFO[ListItem.Studio,,.png]</texture>
-						<visible>!IsEmpty(Control.GetLabel(800016))</visible>
-					</control>
-					<control type="label">
-						<left>339</left>
-						<width>135</width>
-						<height>90</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Studio]</label>
-						<font>font10</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<wrapmultiline>true</wrapmultiline>
-						<visible>IsEmpty(Control.GetLabel(800016))</visible>
-					</control>
-					<control type="image">
-						<left>506</left>
-						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-						<include>MediaFlagVars</include>
-						<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
-					</control>
 				</control>
 			</control>
 			<control type="grouplist">
@@ -212,14 +93,14 @@
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="50">Hidden</animation>
                     <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4) | Container(501).Row(3)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4) | Container(501).Row(3) | Container(501).Row(2)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4) | Container(501).Row(3) | Container(501).Row(2) | Container(501).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="list" id="501">
+			<control type="panel" id="501">
 				<left>463</left>
 				<top>632</top>
 				<width>976</width>
@@ -707,14 +588,14 @@
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="50">Hidden</animation>
                     <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4) | Container(501).Row(3)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4) | Container(501).Row(3) | Container(501).Row(2)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4) | Container(501).Row(3) | Container(501).Row(2) | Container(501).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="list" id="501">
+			<control type="panel" id="501">
 				<left>463</left>
 				<top>632</top>
 				<width>976</width>
@@ -1026,14 +907,14 @@
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="50">Hidden</animation>
                     <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4) | Container(501).Row(3)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4) | Container(501).Row(3) | Container(501).Row(2)">Conditional</animation>
-                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Container(501).Row(5) | Container(501).Row(4) | Container(501).Row(3) | Container(501).Row(2) | Container(501).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(501).Row,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="list" id="501">
+			<control type="panel" id="501">
 				<left>463</left>
 				<top>648</top>
 				<width>976</width>

@@ -29,11 +29,11 @@
                 <animation effect="fade" time="320" delay="200">Visible</animation>
                 <animation effect="fade" time="50">Hidden</animation>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(52).Row(3)">Conditional</animation>
-                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(52).Row(3) | Container(52).Row(2)">Conditional</animation>
-                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Container(52).Row(3) | Container(52).Row(2) | Container(52).Row(1)">Conditional</animation>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(52).Row,2)">Conditional</animation>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(52).Row,1)">Conditional</animation>
+                <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(52).Row,0)">Conditional</animation>
             </control>
-			<control type="list" id="52">
+			<control type="panel" id="52">
 				<left>442</left>
 				<top>160</top>
 				<width>1035</width>
