@@ -50,66 +50,50 @@
                     <scroll>true</scroll>
                     <label>[B]$INFO[Window.Property(title)][/B]</label>
                 </control>
-				<control type="panel" id="300">
-					<left>-7</left>
-					<top>80</top>
-					<width>1166</width>
-					<height>408</height>
-					<onup>4002</onup>
-					<ondown>9000</ondown>
+				<control type="panel">
+					<left>5</left>
+					<top>110</top>
+					<width>1150</width>
+					<height>300</height>
 					<orientation>horizontal</orientation>
+					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="102" width="583">
+					<itemlayout height="50" width="1150">
 						<control type="label">
-							<top>50</top>
-							<width>583</width>
-							<height>40</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<textoffsetx>12</textoffsetx>
-						</control>
-						<control type="label">
-							<top>5</top>
-							<width>583</width>
-							<height>40</height>
+							<width>250</width>
+							<height>50</height>
 							<font>font15</font>
 							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
-							<textoffsetx>12</textoffsetx>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>1040</width>
+							<height>50</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="102" width="583">
-                        <control type="image">
-							<top>1</top>
-							<width>583</width>
-							<height>100</height>
-							<texture>listselect_fo.png</texture>
-							<visible>Control.HasFocus(300)</visible>
-							<include>VisibleFadeEffect</include>
-                            <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						</control>
+					<focusedlayout height="50" width="1150">
 						<control type="label">
-							<top>50</top>
-							<width>583</width>
-							<height>40</height>
+							<width>250</width>
+							<height>50</height>
 							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<textoffsetx>12</textoffsetx>
-						</control>
-						<control type="label">
-							<top>5</top>
-							<width>583</width>
-							<height>40</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
-							<textoffsetx>12</textoffsetx>
+						</control>
+						<control type="label">
+							<left>250</left>
+							<width>1040</width>
+							<height>50</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</focusedlayout>
 					<content>
@@ -159,6 +143,18 @@
 						</item>
 					</content>
 				</control>
+				<control type="scrollbar" id="61">
+					<visible allowhiddenfocus="true">Control.HasFocus(61)</visible>
+					<left>2</left>
+					<top>450</top>
+					<width>1145</width>
+					<height>8</height>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<onleft>61</onleft>
+					<onright>61</onright>
+					<orientation>horizontal</orientation>
+				</control>
 				<control type="textbox" id="800">
 					<description>Plot</description>
 					<left>5</left>
@@ -176,16 +172,14 @@
                     <visible>ControlGroup(9000).HasFocus(30)</visible>
 				</control>
 				<control type="scrollbar" id="60">
-					<left>1166</left>
-					<top>570</top>
-					<width>12</width>
-					<height>490</height>
-					<onup>60</onup>
-					<ondown>60</ondown>
+					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+					<left>1142</left>
+					<top>568</top>
+					<width>8</width>
+					<height>460</height>
 					<onleft>9000</onleft>
 					<onright>9000</onright>
 					<orientation>vertical</orientation>
-					<visible>Control.IsVisible(800)</visible>
 				</control>
 				<control type="group">
 	                <visible>IntegerGreaterThan(Container(150).NumItems,0)</visible>
@@ -1091,10 +1085,10 @@
 				<top>0</top>
                 <control type="grouplist" id="9000">
                     <left>3</left>
-                    <top>510</top>
+                    <top>490</top>
                     <width>1145</width>
                     <height>60</height>
-                    <itemgap>0</itemgap>
+                    <itemgap>10</itemgap>
                     <onleft>9000</onleft>
                     <onright>9000</onright>
                     <onup>300</onup>
@@ -1110,27 +1104,27 @@
                     <orientation>horizontal</orientation>
                     <control type="togglebutton" id="30">
                         <description>Biography</description>
-                        <width>229</width>
+                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
                         <label>21887</label>
                     </control>
                     <control type="button" id="32">
                         <description>Movies</description>
-                        <width>229</width>
+                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
                         <label>342</label>
                         <enable>IntegerGreaterThan(Container(150).NumItems,0)</enable>
                     </control>
                     <control type="button" id="34">
                         <description>TvShows</description>
-                        <width>229</width>
+                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
                         <label>36903</label>
                         <enable>IntegerGreaterThan(Container(250).NumItems,0)</enable>
                     </control>
                     <control type="togglebutton" id="36">
                         <description>Thumb/Fanart</description>
-                        <width>229</width>
+                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
                         <label>20445</label>
                         <altlabel>31016</altlabel>
@@ -1138,23 +1132,23 @@
                     </control>                    
                     <control type="button" id="38">
 						<description>YouTube</description>
-                        <width>229</width>
+                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>31070</label>
                         <enable>IntegerGreaterThan(Container(350).NumItems,0)</enable>
 					</control>
                     <control type="button" id="40">
 						<description>Movie Crew</description>
-                        <width>229</width>
+                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>$LOCALIZE[20338] $ADDON[script.extendedinfo 32115]</label>
                         <enable>IntegerGreaterThan(Container(550).NumItems,0)</enable>
 					</control>
                     <control type="button" id="42">
 						<description>Tv Show Crew</description>
-                        <width>229</width>
+                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
-						<label>$LOCALIZE[20364] $ADDON[script.extendedinfo 32115]</label>
+						<label>$LOCALIZE[36037] $ADDON[script.extendedinfo 32115]</label>
                         <enable>IntegerGreaterThan(Container(650).NumItems,0)</enable>
 					</control>
                 </control>
