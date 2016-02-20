@@ -12,6 +12,16 @@ More screenshots available here: http://imgur.com/a/LLSMM
 
 
 ***
+**3.4.0**
+- Added more art options for Thumbnail view.
+- Redesigned vertical menu.
+- Added alternative weather/time/date display on home screen.
+- Added user ratings for music/videos.
+- Redesigned information dialogs.
+- Added option for centered menus on default home layout.
+- Converted widgets to use templates so they don't have to reload.
+
+***
 **3.3.1**
 - Fix submenu visibility on default home layout for touch/mouse users.
 
