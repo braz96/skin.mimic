@@ -373,7 +373,7 @@
 							<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						</control>
 						<control type="image">
-							<visible>!Container.Content(tvshows)</visible>
+							<visible>!Container.Content(tvshows) + ![IsEmpty(ListItem.VideoResolution) + IsEmpty(ListItem.VideoCodec) + IsEmpty(ListItem.VideoAspect)]</visible>
 							<left>-20</left>
 							<top>9</top>
 							<width>80</width>
@@ -419,7 +419,7 @@
 							<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						</control>
 						<control type="image">
-							<visible>!Container.Content(tvshows)</visible>
+							<visible>!Container.Content(tvshows) + ![IsEmpty(ListItem.AudioCodec) + IsEmpty(ListItem.AudioChannels)]</visible>
 							<left>0</left>
 							<top>9</top>
 							<width>80</width>
@@ -941,6 +941,7 @@
 						<description>Cast</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>206</label>
+						<visible>IntegerGreaterThan(Container(50).NumItems,0)</visible>
 					</control>
 					<control type="button" id="11">
 						<description>Play Trailer</description>
