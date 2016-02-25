@@ -52,24 +52,7 @@
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
 				</control>
-				<control type="button" id="612">
-					<label>31926</label>
-					<include>ButtonCommonValues</include>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick condition="Player.HasVideo">ActivateWindow(fullscreenvideo)</onclick>
-					<onclick condition="Player.HasAudio">ActivateWindow(visualisation)</onclick>
-					<visible>Player.HasMedia</visible>
-				</control>
-				<control type="button" id="613">
-					<description>Go to playlist</description>
-					<include>ButtonCommonValues</include>
-					<label>13350</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
-					<onclick condition="Player.HasVideo">ActivateWindow(videoplaylist)</onclick>
-					<visible>Player.HasMedia</visible>
-					<enable>Player.HasAudio</enable>
-				</control>
+				<include>PlaylistButtons</include>
 				<include name="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="1802" />
 				</include>

@@ -315,25 +315,7 @@
 					<label>19184</label>
 					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
 				</control>
-				<control type="button" id="612">
-					<label>31926</label>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick condition="Player.HasVideo">ActivateWindow(fullscreenvideo)</onclick>
-					<onclick condition="Player.HasAudio">ActivateWindow(visualisation)</onclick>
-					<visible>Player.HasMedia</visible>
-				</control>
-				<control type="button" id="613">
-					<description>Go to playlist</description>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<label>13350</label>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
-					<onclick condition="Player.HasVideo">ActivateWindow(videoplaylist)</onclick>
-					<visible>Player.HasMedia</visible>
-				</control>
+				<include>PlaylistButtons</include>
 				<include name="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="1802" />
 				</include>
@@ -494,7 +476,7 @@
 				<itemgap>-10</itemgap>
 				<scrolltime tween="sine">200</scrolltime>
 				<orientation>horizontal</orientation>
-				<onup>613</onup>
+				<onup>614</onup>
 				<ondown>$PARAM[PlayerControlsOnDown]</ondown>
 				<onleft>6050</onleft>
 				<onright>6050</onright>
@@ -907,5 +889,33 @@
                 <aspectratio align="center" aligny="top">keep</aspectratio>
             </control>
         </control>
+    </include>
+    <include name="PlaylistButtons">
+    	<control type="button" id="612">
+			<label>31926</label>
+			<include>ButtonCommonValues</include>
+			<onclick>ClearProperty(MediaMenu,Home)</onclick>
+			<onclick condition="Player.HasVideo">ActivateWindow(fullscreenvideo)</onclick>
+			<onclick condition="Player.HasAudio">ActivateWindow(visualisation)</onclick>
+			<visible>Player.HasMedia</visible>
+		</control>
+		<control type="button" id="613">
+			<description>Go to playlist</description>
+			<include>ButtonCommonValues</include>
+			<label>31193</label>
+			<onclick>ClearProperty(MediaMenu,Home)</onclick>
+			<onclick>ActivateWindow(musicplaylist)</onclick>
+			<visible>!StringCompare(Playlist.Length(music),0)</visible>
+			<enable>!Window.IsActive(musicplaylist)</enable>
+		</control>
+		<control type="button" id="614">
+			<description>Go to playlist</description>
+			<include>ButtonCommonValues</include>
+			<label>31194</label>
+			<onclick>ClearProperty(MediaMenu,Home)</onclick>
+			<onclick>ActivateWindow(videoplaylist)</onclick>
+			<visible>!StringCompare(Playlist.Length(video),0)</visible>
+			<enable>!Window.IsActive(videoplaylist)</enable>
+		</control>
     </include>
 </includes>

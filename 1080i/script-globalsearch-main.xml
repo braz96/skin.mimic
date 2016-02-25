@@ -940,11 +940,21 @@
 					<onright>9000</onright>
 					<onback>ClearProperty(MediaMenu,Home)</onback>
 					<include>ButtonCommonValues</include>
-					<label>13350</label>
+					<label>31193</label>
 					<onclick>Close</onclick>
-					<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
-					<onclick condition="Player.HasVideo">ActivateWindow(videoplaylist)</onclick>
-					<visible>Player.HasMedia</visible>
+					<onclick>ActivateWindow(musicplaylist)</onclick>
+					<visible>!StringCompare(Playlist.Length(music),0)</visible>
+				</control>
+				<control type="button" id="614">
+					<textwidth>352</textwidth>
+					<onright>ClearProperty(MediaMenu,Home)</onright>
+					<onright>9000</onright>
+					<onback>ClearProperty(MediaMenu,Home)</onback>
+					<include>ButtonCommonValues</include>
+					<label>31194</label>
+					<onclick>Close</onclick>
+					<onclick>ActivateWindow(videoplaylist)</onclick>
+					<visible>!StringCompare(Playlist.Length(video),0)</visible>
 				</control>
 				<include name="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="999" />
