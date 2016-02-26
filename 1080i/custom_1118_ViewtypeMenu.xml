@@ -73,19 +73,13 @@
 						<description>List</description>
 						<label>535</label>
 						<onclick>Container.SetViewMode(50)</onclick>
-						<visible>![Window.IsActive(tvguide) | Window.IsActive(favourites)]</visible>
-					</item>
-					<item>
-						<description>List</description>
-						<label>535</label>
-						<onclick condition="Skin.HasSetting(Enable.FavView)">Skin.ToggleSetting(Enable.FavView)</onclick>
-						<visible>Window.IsActive(favourites)</visible>
+						<visible>!Window.IsActive(tvguide)</visible>
 					</item>
 					<item>
 						<description>Thumbnail</description>
 						<label>21371</label>
 						<onclick>Container.SetViewMode(52)</onclick>
-						<visible>!Skin.HasSetting(Disable.ThumbnailView) + ![Window.IsActive(tvguide) | Window.IsActive(favourites) | Window.IsActive(eventlog)]</visible>
+						<visible>!Skin.HasSetting(Disable.ThumbnailView) + ![Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(tvrecordings) | Window.IsActive(tvchannels) | Window.IsActive(eventlog)]</visible>
 					</item>
 					<item>
 						<description>EPG Timeline</description>
@@ -128,12 +122,6 @@
 						<onclick>Container.SetViewMode(520)</onclick>
 						<visible>[Container.Content(addons) + Container(520).HasFiles] | [Window.IsActive(pictures) + Container(510).HasFiles + Container.Content(addons)]</visible>
 						<visible>!Skin.HasSetting(Disable.IconView)</visible>
-					</item>
-					<item>
-						<description>Wall</description>
-						<label>31086</label>
-						<onclick condition="!Skin.HasSetting(Enable.FavView)">Skin.ToggleSetting(Enable.FavView)</onclick>
-						<visible>Window.IsActive(favourites)</visible>
 					</item>
 					<item>
 						<description>InfoWall</description>
@@ -236,7 +224,7 @@
 				</content>
 			</control>
 			<control type="button" id="9012">
-				<visible>![Skin.HasSetting(KioskMode.Enabled) | Window.IsActive(favourites)] + !StringCompare(Container(9011).NumItems,1)</visible>
+				<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 				<top>1020</top>
 				<width>400</width>
 				<align>center</align>
