@@ -19,7 +19,8 @@
 				<height>840</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050,7)</onleft>
-				<onright>9010</onright>
+				<onright condition="Container(9000).HasFocus(9)">60</onright>
+				<onright condition="!Container(9000).HasFocus(9)">9010</onright>
 				<onup>9000</onup>
 				<ondown>9000</ondown>
 				<pagecontrol>-</pagecontrol>
@@ -96,12 +97,12 @@
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<!--<item id="9">
-						<label>13000</label>
+					<item id="9">
+						<label>31195</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="10">
+					<!--<item id="10">
 						<label>10511</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
@@ -810,16 +811,64 @@
                         <onclick condition="!System.HasAddon(script.toolbox)">RunPlugin(plugin://script.toolbox)</onclick>
 					</control>
 				</control>
+				<control type="grouplist" id="9008">
+					<description>About control area</description>
+					<left>522</left>
+					<top>0</top>
+					<width>1316</width>
+					<height>840</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9009</onup>
+					<ondown>9008</ondown>
+					<usecontrolcoords>true</usecontrolcoords>
+					<visible>Container(9000).HasFocus(9)</visible>
+					<control type="label">
+						<width>1316</width>
+						<height>120</height>
+						<textoffsetx>30</textoffsetx>
+						<font>WeatherTemp</font>
+						<label>31196</label>
+					</control>
+					<control type="label">
+						<width>1316</width>
+						<height>45</height>
+						<textoffsetx>30</textoffsetx>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<font>font15</font>
+						<label>31197</label>
+					</control>
+					<control type="label">
+						<width>1316</width>
+						<height>45</height>
+						<textoffsetx>30</textoffsetx>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<font>font15</font>
+						<label>31198</label>
+					</control>
+					<control type="textbox">
+						<top>30</top>
+						<left>30</left>
+						<width>1286</width>
+						<height>600</height>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<font>font13</font>
+						<label>31199</label>
+					</control>
+				</control>
 			</control>
 		</control>
 		<control type="scrollbar" id="60">
-			<visible allowhiddenfocus="true">!Control.HasFocus(9000) + !Window.IsActive(script-skinshortcuts.xml)</visible>
+			<visible allowhiddenfocus="true">[!Control.HasFocus(9000) + !Window.IsActive(script-skinshortcuts.xml)] | Container(9000).HasFocus(9)</visible>
 			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
 			<left>1908</left>
 			<top>0</top>
 			<width>12</width>
 			<height>1080</height>
-			<onleft>9010</onleft>
+			<onleft condition="Container(9000).HasFocus(9)">9000</onleft>
+			<onleft condition="!Container(9000).HasFocus(9)">9010</onleft>
 			<onright>9000</onright>
 			<ondown>60</ondown>
 			<onup>60</onup>
