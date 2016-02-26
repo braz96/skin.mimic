@@ -21,6 +21,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added option for centered menus on default home layout.
 - Converted widgets to use templates so they don't have to reload.
 - Added about/credits screen in skin settings.
+- Redesigned the select dialog.
 
 ***
 **3.3.1**
