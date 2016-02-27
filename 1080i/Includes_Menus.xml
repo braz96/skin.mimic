@@ -2,19 +2,12 @@
 <includes>
 	<!-- Main Menu Includes -->
 	<include name="MainMenuList">
-		<control type="image">
-			<visible>!Control.HasFocus(9010) | Skin.HasSetting(Disable.SubmenuSlide)</visible>
-            <left>0</left>
-            <top>0</top>
-            <width>384</width>
-            <height>120</height>
-            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4)">Conditional</animation>
-            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3)">Conditional</animation>
-            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
-            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
-        </control>
+		<include condition="!Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuFocusBackground">
+			<param name="MainMenuBackgroundWidth" value="384" />
+		</include>
+		<include condition="Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuFocusBackground">
+			<param name="MainMenuBackgroundWidth" value="480" />
+		</include>
         <control type="image">
         	<visible>Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)</visible>
             <left>0</left>
@@ -46,11 +39,21 @@
                 <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
             </animation>
             <animation effect="fade" end="0" start="100" time="150" condition="Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">Conditional</animation>
-			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)" name="MainMenuListContent">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu) + !Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1536" />
+				<param name="MainMenuItemWidth" value="384" />
 			</include>
-			<include condition="Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)" name="MainMenuListContent">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu) + Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuListContent">
+				<param name="MainMenuTopWidth" value="1440" />
+				<param name="MainMenuItemWidth" value="480" />
+			</include>
+			<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)] + !Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1920" />
+				<param name="MainMenuItemWidth" value="384" />
+			</include>
+			<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)] + Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuListContent">
+				<param name="MainMenuTopWidth" value="1920" />
+				<param name="MainMenuItemWidth" value="480" />
 			</include>
 			<include condition="Skin.HasSetting(Enable.CenteredMenu)">MainMenuListCentered</include>
 		</control>
@@ -143,9 +146,11 @@
 		<control type="list" id="9000">
 			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)" name="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1536" />
+				<param name="MainMenuItemWidth" value="384" />
 			</include>
 			<include condition="Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)" name="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1920" />
+				<param name="MainMenuItemWidth" value="384" />
 			</include>
 		</control>
 		<include name="MenuClockWeather">
@@ -196,9 +201,9 @@
 		<pagecontrol>-</pagecontrol>
 		<scrolltime tween="quadratic" easing="out">300</scrolltime>
 		<orientation>Horizontal</orientation>
-		<itemlayout height="120" width="384">
+		<itemlayout height="120" width="$PARAM[MainMenuItemWidth]">
 			<control type="label">
-				<width>384</width>
+				<width>$PARAM[MainMenuItemWidth]</width>
 				<height>120</height>
 				<top>-4</top>
 				<font>font_MainMenu</font>
@@ -208,9 +213,9 @@
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
-		<focusedlayout height="120" width="384">
+		<focusedlayout height="120" width="$PARAM[MainMenuItemWidth]">
 			<control type="label">
-				<width>384</width>
+				<width>$PARAM[MainMenuItemWidth]</width>
 				<height>120</height>
 				<top>-4</top>
 				<font>font_MainMenu</font>
@@ -534,5 +539,20 @@
 				<textcolor>$VAR[ColorHighlightVar]</textcolor>
 			</control>
 		</control>
+	</include>
+	<include name="MainMenuFocusBackground">
+		<control type="image">
+			<visible>!Control.HasFocus(9010) | Skin.HasSetting(Disable.SubmenuSlide)</visible>
+            <left>0</left>
+            <top>0</top>
+            <width>$PARAM[MainMenuBackgroundWidth]</width>
+            <height>120</height>
+            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+            <animation effect="slide" end="$PARAM[MainMenuBackgroundWidth]" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4)">Conditional</animation>
+            <animation effect="slide" end="$PARAM[MainMenuBackgroundWidth]" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3)">Conditional</animation>
+            <animation effect="slide" end="$PARAM[MainMenuBackgroundWidth]" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
+            <animation effect="slide" end="$PARAM[MainMenuBackgroundWidth]" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
+        </control>
 	</include>
 </includes>
