@@ -89,13 +89,17 @@
             <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
         </control>
         <control type="image">
-			<visible>Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)</visible>
-            <left>768</left>
+        	<visible>Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)</visible>
+            <left>0</left>
             <top>0</top>
             <width>384</width>
             <height>120</height>
             <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9010)">Conditional</animation>
             <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3) | Container(9010).Position(2)">Conditional</animation>
+            <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Container(9010).Position(4) | Container(9010).Position(3) | Container(9010).Position(2) | Container(9010).Position(1)">Conditional</animation>
         </control>
         <control type="image">
         	<visible>Control.HasFocus(9010) + Skin.HasSetting(Disable.SubmenuSlide)</visible>
