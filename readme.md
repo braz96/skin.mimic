@@ -22,6 +22,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Converted widgets to use templates so they don't have to reload.
 - Added about/credits screen in skin settings.
 - Redesigned the select dialog.
+- Added an option for wider main menu items.
 
 ***
 **3.3.1**
