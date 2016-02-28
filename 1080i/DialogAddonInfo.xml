@@ -27,8 +27,8 @@
 					<top>392</top>
 					<width>356</width>
 					<height>480</height>
-					<onleft>60</onleft>
-					<onright>60</onright>
+					<onleft condition="Container(400).HasNext | Container(400).HasPrevious">60</onleft>
+					<onright condition="Container(400).HasNext | Container(400).HasPrevious">60</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
 					<itemgap>0</itemgap>
@@ -86,7 +86,6 @@
 			<control type="group">
 				<control type="group">
 					<left>490</left>
-					<visible>!Window.isVisible(AddonSettings)</visible>
 					<include>SettingsFadeEffect</include>
 					<control type="grouplist">
 						<left>32</left>
@@ -124,22 +123,11 @@
 						<control type="textbox" id="400">
 							<description>Description</description>
 							<width>1256</width>
-							<height>394</height>
+							<height>594</height>
 							<font>font15_textbox</font>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21821]: [/COLOR][CR]$INFO[ListItem.Property(Addon.Description)]</label>
+							<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21821]: [/COLOR][CR]$INFO[ListItem.Property(Addon.Description)][CR]$VAR[AddonDisclaimer]</label>
 							<pagecontrol>60</pagecontrol>
-						</control>
-						<control type="textbox">
-							<description>Disclaimer</description>
-							<top>30</top>
-							<width>1256</width>
-							<height>180</height>
-							<font>font15_textbox</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[24052]: [/COLOR][CR]$INFO[ListItem.Property(Addon.Disclaimer)]</label>
-							<autoscroll time="2000" delay="3000" repeat="5000">true</autoscroll>
-							<visible>!IsEmpty(ListItem.Property(Addon.Disclaimer))</visible>
 						</control>
 					</control>
 				</control>
