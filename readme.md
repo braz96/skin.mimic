@@ -23,6 +23,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added about/credits screen in skin settings.
 - Redesigned the select dialog.
 - Added an option for wider main menu items.
+- Replaced Thai font with Sawasdee.
 
 ***
 **3.3.1**
