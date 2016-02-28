@@ -7,166 +7,237 @@
         <include>Topbar</include>
         <control type="group">
             <include>Animation.Common</include>
-            <control type="image">
-                <visible>Control.HasFocus(9000)</visible>
-                <left>145</left>
-                <top>175</top>
-                <width>810</width>
-                <height>120</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="50">Hidden</animation>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Row,4)">Conditional</animation>
-                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Row,3)">Conditional</animation>
-                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Row,2)">Conditional</animation>
-                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Row,1)">Conditional</animation>
-                <animation effect="slide" end="0,140" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Row,0)">Conditional</animation>
-                <animation effect="slide" end="825,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Column,0)">Conditional</animation>
+            <control type="group">
+                <visible>IntegerGreaterThan(Container(9000).NumItems,0)</visible>
+                <animation effect="fade" time="320" delay="300">Visible</animation>
+                <control type="image">
+                    <visible>Control.HasFocus(9000)</visible>
+                    <left>95</left>
+                    <top>190</top>
+                    <width>330</width>
+                    <height>370</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Row,0)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Column,3)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(9000).Column,0)">Conditional</animation>
+                </control>
             </control>
             <control type="panel" id="9000">
-                <left>145</left>
-                <top>175</top>
-                <width>1650</width>
-                <height>900</height>
-                <onleft>9000</onleft>
-                <onright>9000</onright>
+                <top>180</top>
+                <left>85</left>
+                <width>1750</width>
+                <height>780</height>
                 <onup>9000</onup>
                 <ondown>9000</ondown>
-                <itemlayout width="825" height="140">
+                <onleft>9000</onleft>
+                <onright>60</onright>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="21371">list</viewtype>
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <orientation>vertical</orientation>
+                <itemlayout height="390" width="350">
                     <control type="image">
                         <left>10</left>
-                        <top>7</top>
-                        <width>100</width>
-                        <height>100</height>
-                        <info>ListItem.Icon</info>
-                        <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <texture colordiffuse="33ffffff">background.png</texture>
                     </control>
                     <control type="label">
-                        <left>165</left>
-                        <top>7</top>
-                        <width>615</width>
-                        <height>60</height>
-                        <font>font15_title</font>
-                        <textcolor>$VAR[ColorTextVar]</textcolor>
-                        <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                        <left>20</left>
+                        <right>20</right>
+                        <top>327</top>
+                        <height>50</height>
+                        <aligny>center</aligny>
+                        <font>font13</font>
                         <label>$INFO[ListItem.Label]</label>
-                    </control>
-                    <control type="label">
-                        <left>165</left>
-                        <top>55</top>
-                        <width>620</width>
-                        <height>51</height>
-                        <font>font14</font>
                         <textcolor>$VAR[ColorTextVar]</textcolor>
                         <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-                        <label>$INFO[ListItem.Label2]</label>
+                        <visible>![Window.IsActive(pictures) + Skin.HasSetting(PictureInfo.Disabled)]</visible>
                     </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture colordiffuse="55000000">background.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                        <texture background="true" fallback="DefaultFolder.png">$VAR[ThumbViewImage]</texture>
+                        <visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs) + !Container.Content(addons)</visible>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        <texture fallback="DefaultAudio.png" background="true">$VAR[ThumbViewImage]</texture>
+                        <visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs)</visible>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        <texture fallback="DefaultAddon.png" background="true">$VAR[ThumbViewImage]</texture>
+                        <visible>Container.Content(addons)</visible>
+                    </control>
+                    <control type="image">
+                        <top>20</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture>thumbs/diffuse.png</texture>
+                    </control>
+                    <include name="OverlayIcons">
+                        <param name="OverlayLeft" value="272" />
+                        <param name="OverlayTop" value="18" />
+                    </include>
+
                 </itemlayout>
-                <focusedlayout width="825" height="140">
+                <focusedlayout height="390" width="350">
                     <control type="image">
                         <left>10</left>
-                        <top>7</top>
-                        <width>100</width>
-                        <height>100</height>
-                        <info>ListItem.Icon</info>
-                        <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <texture colordiffuse="33ffffff">background.png</texture>
                     </control>
                     <control type="label">
-                        <left>165</left>
-                        <top>7</top>
-                        <width>615</width>
-                        <height>60</height>
-                        <font>font15_title</font>
-                        <textcolor>$VAR[ColorTextVar]</textcolor>
-                        <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                        <left>20</left>
+                        <right>20</right>
+                        <top>327</top>
+                        <height>50</height>
+                        <aligny>center</aligny>
+                        <font>font13</font>
                         <label>$INFO[ListItem.Label]</label>
-                    </control>
-                    <control type="label">
-                        <left>165</left>
-                        <top>55</top>
-                        <width>620</width>
-                        <height>51</height>
-                        <font>font14</font>
-                        <textcolor>$VAR[ColorTextVar]</textcolor>
                         <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-                        <label>$INFO[ListItem.Label2]</label>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                        <visible>![Window.IsActive(pictures) + Skin.HasSetting(PictureInfo.Disabled)]</visible>
                     </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture colordiffuse="55000000">background.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                        <texture background="true" fallback="DefaultFolder.png">$VAR[ThumbViewImage]</texture>
+                        <visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs) + !Container.Content(addons)</visible>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        <texture fallback="DefaultAudio.png" background="true">$VAR[ThumbViewImage]</texture>
+                        <visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs)</visible>
+                    </control>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                        <texture fallback="DefaultAddon.png" background="true">$VAR[ThumbViewImage]</texture>
+                        <visible>Container.Content(addons)</visible>
+                    </control>
+                    <control type="image">
+                        <animation center="auto" condition="Control.HasFocus(9000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                        <animation center="auto" condition="Control.HasFocus(9000)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                        <top>20</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture>thumbs/diffuse.png</texture>
+                    </control>
+                    <include name="OverlayIcons">
+                        <param name="OverlayLeft" value="272" />
+                        <param name="OverlayTop" value="18" />
+                    </include>
                 </focusedlayout>
                 <content>
+                    <item id="2">
+                        <label>$LOCALIZE[480]</label>
+                        <icon>DefaultAddonSkin.png</icon>
+                        <onclick>ActivateWindow(AppearanceSettings)</onclick>
+                    </item>
                     <item id="1">
                         <label>$LOCALIZE[157]</label>
                         <icon>DefaultVideo.png</icon>
                         <onclick>ActivateWindow(MyVideosSettings)</onclick>
-                        <label2>$LOCALIZE[14022] • $LOCALIZE[14086] • $LOCALIZE[24012] • $LOCALIZE[14087]</label2>
-                    </item>
-                    <item id="2">
-                        <label>$LOCALIZE[480]</label>
-                        <label2>$LOCALIZE[166] • $LOCALIZE[248] • $LOCALIZE[360]</label2>
-                        <icon>DefaultAddonSkin.png</icon>
-                        <onclick>ActivateWindow(AppearanceSettings)</onclick>
                     </item>
                     <item id="3">
                         <label>$LOCALIZE[2]</label>
-                        <label2>$LOCALIZE[14022] • $LOCALIZE[14086] • $LOCALIZE[620]</label2>
                         <icon>DefaultAudio.png</icon>
                         <onclick>ActivateWindow(MyMusicSettings)</onclick>
                     </item>
-                    <item id="4">
-                        <label>$LOCALIZE[166]</label>
-                        <label2>$LOCALIZE[10000] • $LOCALIZE[31962] • $LOCALIZE[20445]</label2>
-                        <icon>DefaultIconPlay.png</icon>
-                        <onclick>ActivateWindow(skinsettings)</onclick>
-                    </item>
-                    <item id="5">
-                        <label>$LOCALIZE[1]</label>
-                        <label2>$LOCALIZE[108] • $LOCALIZE[31963] • $LOCALIZE[31964]</label2>
-                        <icon>DefaultPicture.png</icon>
-                        <onclick>ActivateWindow(MyPicturesSettings)</onclick>
-                    </item>
-                    <item id="6">
-                        <label>$LOCALIZE[705]</label>
-                        <label2>$LOCALIZE[20187] • $LOCALIZE[33101] • $LOCALIZE[1259]</label2>
-                        <icon>DefaultAddonService.png</icon>
-                        <onclick>ActivateWindow(ServiceSettings)</onclick>
-                    </item>
                     <item id="7">
                         <label>$LOCALIZE[19020]</label>
-                        <label2>$LOCALIZE[19019] • $LOCALIZE[19069] • $LOCALIZE[14086] • $LOCALIZE[19043]</label2>
                         <icon>DefaultTVShows.png</icon>
                         <onclick>ActivateWindow(TVSettings)</onclick>
                     </item>
+                    <item id="5">
+                        <label>$LOCALIZE[1]</label>
+                        <icon>DefaultPicture.png</icon>
+                        <onclick>ActivateWindow(MyPicturesSettings)</onclick>
+                    </item>
+                    <item id="4">
+                        <label>$LOCALIZE[166]</label>
+                        <icon>DefaultIconPlay.png</icon>
+                        <onclick>ActivateWindow(skinsettings)</onclick>
+                    </item>
                     <item id="8">
                         <label>$LOCALIZE[13000]</label>
-                        <label2>$LOCALIZE[31965] • $LOCALIZE[14095] • $LOCALIZE[14094]</label2>
                         <icon>DefaultProgram.png</icon>
                         <onclick>ActivateWindow(SystemSettings)</onclick>
                     </item>
+                    <item id="6">
+                        <label>$LOCALIZE[705]</label>
+                        <icon>DefaultAddonService.png</icon>
+                        <onclick>ActivateWindow(ServiceSettings)</onclick>
+                    </item>
                     <item id="9">
                         <label>$LOCALIZE[24001]</label>
-                        <label2>$LOCALIZE[31966] • $LOCALIZE[24038] • $LOCALIZE[24020]</label2>
                         <icon>DefaultAddon.png</icon>
                         <onclick>ActivateWindow(AddonBrowser)</onclick>
                     </item>
-                    <item id="10">
-                        <label>$LOCALIZE[13200]</label>
-                        <label2>$LOCALIZE[20067] • $LOCALIZE[20096]</label2>
-                        <icon>DefaultActor.png</icon>
-                        <onclick>ActivateWindow(Profiles)</onclick>
-                    </item>
                     <item id="11">
                         <label>$LOCALIZE[8]</label>
-                        <label2>$LOCALIZE[396] • $LOCALIZE[24000]</label2>
                         <icon>DefaultAddonWeather.png</icon>
                         <onclick>ActivateWindow(MyWeatherSettings)</onclick>
                     </item>
+                    <item id="10">
+                        <label>$LOCALIZE[13200]</label>
+                        <icon>DefaultActor.png</icon>
+                        <onclick>ActivateWindow(Profiles)</onclick>
+                    </item>
                     <item id="12">
                         <label>$LOCALIZE[19033]</label>
-                        <label2>$LOCALIZE[154] • $LOCALIZE[705] • $LOCALIZE[157] • $LOCALIZE[13281]</label2>
                         <icon>DefaultHardDisk.png</icon>
                         <onclick>ActivateWindow(systeminfo)</onclick>
                     </item>
                 </content>
             </control>
         </control>
+        <include>Scrollbar_Vertical</include>
     </controls>
 </window>
