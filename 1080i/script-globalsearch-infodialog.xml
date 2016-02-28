@@ -1148,7 +1148,8 @@
 					<onleft>110</onleft>
 					<onright>190</onright>
 					<onup>110</onup>
-					<ondown>195</ondown>
+					<ondown condition="Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)">195</ondown>
+					<ondown condition="![Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)]">196</ondown>
 					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
@@ -1257,16 +1258,6 @@
 				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
 			</control>
-			<control type="scrollbar" id="195">
-				<left>1168</left>
-				<top>440</top>
-				<height>220</height>
-				<width>12</width>
-				<onleft>101</onleft>
-				<onright>190</onright>
-				<orientation>vertical</orientation>
-				<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
-			</control>
 			<control type="textbox">
 				<left>46</left>
 				<top>440</top>
@@ -1307,11 +1298,11 @@
 				<left>1168</left>
 				<top>440</top>
 				<height>275</height>
-				<width>12</width>
+				<width>10</width>
 				<onleft>101</onleft>
 				<onright>190</onright>
 				<orientation>vertical</orientation>
-				<visible>![Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)]</visible>
+				<visible allowhiddenfocus="true">Control.HasFocus(195)</visible>
 			</control>
 			<!-- right group -->
 			<control type="group" id="190">

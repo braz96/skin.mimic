@@ -159,10 +159,11 @@
 				</content>
 			</control>
 			<control type="scrollbar" id="60">
+				<visible allowhiddenfocus="true">Control.HasFocus(60) | Control.HasFocus(9002)</visible>
 				<left>772</left>
 				<top>88</top>
 				<height>540</height>
-				<width>8</width>
+				<width>10</width>
 				<onleft>9002</onleft>
 				<onright>9001</onright>
 				<ondown>60</ondown>
@@ -182,21 +183,25 @@
 			<control type="group">
 				<left>782</left>
 				<top>88</top>
+				<control type="image">
+					<top>0</top>
+					<width>310</width>
+					<height>310</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+				</control>
 				<control type="grouplist" id="9001">
+					<top>450</top>
 					<onup>9001</onup>
 					<onleft>9002</onleft>
 					<onright>9002</onright>
 					<ondown>9001</ondown>
-					<control type="image">
-						<width>310</width>
-						<height>332</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>
-					<control type="button" id="7">
+					<control type="togglebutton" id="7">
 						<description>User rating</description>
 						<width>310</width>
 						<label>38023</label>
+						<altlabel>$LOCALIZE[31204]</altlabel>
+ 						<usealttexture>!IsEmpty(ListItem.UserRating)</usealttexture>
 					</control>
 					<control type="button" id="12">
 						<description>Album Info button</description>

@@ -200,7 +200,8 @@
 			<ondown>90300</ondown>
 			<itemgap>0</itemgap>
 			<align>center</align>
-			<control type="button" id="90317">
+			<control type="togglebutton" id="90317">
+				<width>450</width>
 				<description>User ratings</description>
 				<texturefocus>listselect_fo.png</texturefocus>
 				<texturenofocus>-</texturenofocus>
@@ -208,6 +209,8 @@
 				<onclick>Dialog.Close(1119)</onclick>
 				<onclick>SendClick(7)</onclick>
 				<label>$LOCALIZE[38023]</label>
+				<altlabel>$LOCALIZE[31204]</altlabel>
+ 				<usealttexture>!IsEmpty(ListItem.UserRating)</usealttexture>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
 			</control>
 			<control type="button" id="90306">
