@@ -78,6 +78,7 @@
 		<value condition="!Window.IsActive(home)">$INFO[System.CurrentWindow]</value>
 	</variable>
 	<variable name="BreadcrumbsVar">
+		<value condition="Window.IsActive(script-The Big Picture-main.xml)">$INFO[Container(100).ListItem.Property(album_title)]</value>
 		<value condition="Window.IsActive(videos) + Container.Filtered">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]</value>
 		<value condition="Window.IsActive(videos)">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]</value>
 		<value condition="Window.IsActive(addoninformation) + !Window.IsActive(textviewer)">$VAR[BreadcrumbsFillerVar]$INFO[ListItem.Property(Addon.Name)]</value>
@@ -550,6 +551,7 @@
         <value>.jpg</value>
     </variable>
     <variable name="HeaderIcon">
+    	<value condition="Window.IsActive(script-The Big Picture-main.xml)">$INFO[System.AddonIcon(script.image.bigpictures)]</value>
         <value condition="Window.IsVisible(DialogMuteBug.xml)">DefaultIconMute.png</value>
         <value condition="Window.IsVisible(DialogFavourites.xml)">DefaultIconFavourite.png</value>
         <value condition="Player.HasAudio + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)]">DefaultMusicSongs.png</value>
@@ -594,6 +596,7 @@
         <value>DefaultArtist.png</value>
     </variable>
     <variable name="HeaderSubLabel">
+    	<value condition="Window.IsActive(script-The Big Picture-main.xml)">$INFO[Container(100).ListItem.Label]</value>
     	<value condition="[Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)] + Container(9000).HasFocus(1)">$INFO[Container(200).NumItems,, $LOCALIZE[31025]]</value>
     	<value condition="[Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)] + Container(9000).HasFocus(2)">$INFO[Container(201).NumItems,, $LOCALIZE[31025]]</value>
     	<value condition="[Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)] + Container(9000).HasFocus(3)">$INFO[Container(202).NumItems,, $LOCALIZE[31025]]</value>
