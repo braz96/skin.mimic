@@ -88,8 +88,20 @@
 						<font>font15</font>
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
-						<label fallback="$INFO[Window.Property(originaltitle)]">$INFO[Window.Property(tagline)]</label>
-					</control>                   
+						<label>$INFO[Window.Property(tagline)]</label>
+						<visible>!IsEmtpy(Window.Property(tagline))</visible>
+					</control>
+					<control type="label">
+						<width>1042</width>
+						<height>30</height>
+						<aligny>center</aligny>
+						<align>left</align>
+						<font>font15</font>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<scroll>true</scroll>
+						<label>$INFO[Window.Property(originaltitle)]</label>
+						<visible>IsEmtpy(Window.Property(tagline))</visible>
+					</control>
 				</control>
 				<control type="panel">
 					<left>5</left>

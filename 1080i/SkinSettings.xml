@@ -93,11 +93,6 @@
 						<icon>-</icon>
 					</item>
 					<item id="8">
-						<label>24001</label>
-						<onclick>noop</onclick>
-						<icon>-</icon>
-					</item>
-					<item id="9">
 						<label>31195</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
@@ -622,6 +617,14 @@
 					<onup>9004</onup>
 					<ondown>9004</ondown>
 					<visible>Container(9000).HasFocus(7)</visible>
+					<control type="button" id="406">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31223</label>
+						<onclick>ActivateWindow(1121)</onclick>
+					</control>
 					<control type="radiobutton" id="402">
 						<width>1316</width>
 						<height>90</height>
@@ -669,160 +672,6 @@
 						<visible>System.HasAddon(script.skin.helper.service)</visible>
 					</control>
 				</control>
-				<control type="grouplist" id="9007">
-					<description>Addons control area</description>
-					<left>522</left>
-					<top>0</top>
-					<width>1316</width>
-					<height>720</height>
-					<itemgap>0</itemgap>
-					<pagecontrol>60</pagecontrol>
-					<onleft>9000</onleft>
-					<onright>60</onright>
-					<onup>9007</onup>
-					<ondown>9007</ondown>
-					<visible>Container(9000).HasFocus(8)</visible>
-					<control type="button" id="700">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31170</label>
-                        <label2>$VAR[StatusArtistSlideshow]</label2>
-                        <onclick condition="System.HasAddon(script.artistslideshow)">Addon.OpenSettings(script.artistslideshow)</onclick>
-                        <onclick condition="!System.HasAddon(script.artistslideshow)">RunPlugin(plugin://script.artistslideshow)</onclick>
-					</control>
-					<control type="button" id="713">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31144</label>
-                        <label2>$VAR[StatusAutoCompletion]</label2>
-                        <onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
-                        <onclick condition="!System.HasAddon(plugin.program.autocompletion)">RunPlugin(plugin://plugin.program.autocompletion)</onclick>
-					</control>
-					<control type="button" id="701">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31171</label>
-                        <label2>$VAR[StatusColorbox]</label2>
-                        <onclick condition="System.HasAddon(script.colorbox)">Addon.OpenSettings(script.colorbox)</onclick>
-                        <onclick condition="!System.HasAddon(script.colorbox)">RunPlugin(plugin://script.colorbox)</onclick>
-					</control>
-					<control type="button" id="702">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31172</label>
-                        <label2>$VAR[StatusExtendedInfo]</label2>
-                        <onclick condition="System.HasAddon(script.extendedinfo)">Addon.OpenSettings(script.extendedinfo)</onclick>
-                        <onclick condition="!System.HasAddon(script.extendedinfo)">RunPlugin(plugin://script.extendedinfo)</onclick>
-					</control>
-					<control type="button" id="703">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31173</label>
-                        <label2>$VAR[StatusGlobalSearch]</label2>
-                        <onclick condition="System.HasAddon(script.globalsearch)">Addon.OpenSettings(script.globalsearch)</onclick>
-                        <onclick condition="!System.HasAddon(script.globalsearch)">RunPlugin(plugin://script.globalsearch)</onclick>
-					</control>
-					<control type="button" id="704">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31174</label>
-                        <label2>$VAR[StatusGrabFanart]</label2>
-                        <onclick condition="System.HasAddon(script.grab.fanart)">Addon.OpenSettings(script.grab.fanart)</onclick>
-                        <onclick condition="!System.HasAddon(script.grab.fanart)">RunPlugin(plugin://script.grab.fanart)</onclick>
-					</control>
-					<control type="button" id="705">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31175</label>
-                        <label2>$VAR[StatusImageResourceSelect]</label2>
-                        <onclick condition="System.HasAddon(script.grab.fanart)">Addon.OpenSettings(script.image.resource.select)</onclick>
-                        <onclick condition="!System.HasAddon(script.grab.fanart)">RunPlugin(plugin://script.image.resource.select)</onclick>
-					</control>
-					<control type="button" id="706">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31176</label>
-                        <label2>$VAR[StatusLibraryDataProvider]</label2>
-                        <onclick condition="System.HasAddon(service.library.data.provider)">Addon.OpenSettings(service.library.data.provider)</onclick>
-                        <onclick condition="!System.HasAddon(service.library.data.provider)">RunPlugin(plugin://service.library.data.provider)</onclick>
-					</control>
-					<control type="button" id="707">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31177</label>
-                        <label2>$VAR[StatusNextupNotification]</label2>
-                        <onclick condition="System.HasAddon(service.nextup.notification)">Addon.OpenSettings(service.nextup.notification)</onclick>
-                        <onclick condition="!System.HasAddon(service.nextup.notification)">RunPlugin(plugin://service.nextup.notification)</onclick>
-					</control>
-					<control type="button" id="708">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31178</label>
-                        <label2>$VAR[StatusRecordLabelFlags]</label2>
-                        <onclick condition="System.HasAddon(resource.images.recordlabels.white)">Addon.OpenSettings(resource.images.recordlabels.white)</onclick>
-                        <onclick condition="!System.HasAddon(resource.images.recordlabels.white)">RunPlugin(plugin://resource.images.recordlabels.white)</onclick>
-					</control>
-					<control type="button" id="709">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31179</label>
-                        <label2>$VAR[StatusSkinHelperService]</label2>
-                        <onclick condition="System.HasAddon(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
-                        <onclick condition="!System.HasAddon(script.skin.helper.service)">RunPlugin(plugin://script.skin.helper.service)</onclick>
-					</control>
-					<control type="button" id="710">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31180</label>
-                        <label2>$VAR[StatusSkinShortcuts]</label2>
-                        <onclick condition="System.HasAddon(script.skinshortcuts)">Addon.OpenSettings(script.skinshortcuts)</onclick>
-                        <onclick condition="!System.HasAddon(script.skinshortcuts)">RunPlugin(plugin://script.skinshortcuts)</onclick>
-					</control>
-					<control type="button" id="711">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31181</label>
-                        <label2>$VAR[StatusStudioFlags]</label2>
-                        <onclick condition="System.HasAddon(resource.images.studios.white)">Addon.OpenSettings(resource.images.studios.white)</onclick>
-                        <onclick condition="!System.HasAddon(resource.images.studios.white)">RunPlugin(plugin://resource.images.studios.white)</onclick>
-					</control>					
-					<control type="button" id="712">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31182</label>
-                        <label2>$VAR[StatusToolbox]</label2>
-                        <onclick condition="System.HasAddon(script.toolbox)">Addon.OpenSettings(script.toolbox)</onclick>
-                        <onclick condition="!System.HasAddon(script.toolbox)">RunPlugin(plugin://script.toolbox)</onclick>
-					</control>
-				</control>
 				<control type="grouplist" id="9008">
 					<description>About control area</description>
 					<left>522</left>
@@ -836,7 +685,7 @@
 					<onup>9009</onup>
 					<ondown>9008</ondown>
 					<usecontrolcoords>true</usecontrolcoords>
-					<visible>Container(9000).HasFocus(9)</visible>
+					<visible>Container(9000).HasFocus(8)</visible>
 					<control type="label">
 						<width>1316</width>
 						<height>120</height>

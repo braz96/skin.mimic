@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1121" type="dialog">
+	<defaultcontrol always="true">90600</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<left>353</left>
+		<top>180</top>
+	</coordinates>
+	<include>dialogeffect</include>
+	<controls>
+		<include name="DialogBackgroundCommons">
+            <param name="DialogBackgroundWidth" value="1214" />
+            <param name="DialogBackgroundHeight" value="720" />
+            <param name="DialogHeaderLabel" value="$LOCALIZE[31223]" />
+            <param name="DialogHeaderId" value="" />
+        </include>
+        <control type="group">
+            <visible>IntegerGreaterThan(Container(90600).NumItems,0)</visible>
+            <control type="image">
+                <left>32</left>
+                <top>88</top>
+                <width>1150</width>
+                <height>120</height>
+                <visible>Control.HasFocus(90600)</visible>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="50">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(90600).Row,5)">Conditional</animation>
+                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(90600).Row,4)">Conditional</animation>
+                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(90600).Row,3)">Conditional</animation>
+                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(90600).Row,2)">Conditional</animation>
+                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(90600).Row,1)">Conditional</animation>
+                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(90600).Row,0)">Conditional</animation>
+            </control>
+        </control>
+		<control type="panel" id="90600">
+			<left>32</left>
+			<top>88</top>
+			<width>1150</width>
+			<height>600</height>
+			<onleft>60</onleft>
+			<onright>60</onright>
+			<onup>90600</onup>
+			<ondown>90600</ondown>
+			<viewtype label="535">list</viewtype>
+			<pagecontrol>60</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<scrolltime tween="quadratic" easing="out">200</scrolltime>
+			<itemlayout height="120" width="1150">
+				<control type="image">
+					<left>10</left>
+					<top>10</top>
+					<width>100</width>
+					<height>100</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="label">
+					<left>135</left>
+					<top>3</top>
+					<width>790</width>
+					<height>70</height>
+					<font>font30</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<left>135</left>
+					<top>52</top>
+					<width>790</width>
+					<height>60</height>
+					<font>font13</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
+				<control type="label">
+					<left>60</left>
+					<width>1060</width>
+					<height>116</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+					<aligny>center</aligny>
+					<label>31165</label>
+					<visible>!IsEmpty(ListItem.Label2)</visible>
+				</control>
+				<control type="label">
+					<left>60</left>
+					<width>1060</width>
+					<height>116</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+					<aligny>center</aligny>
+					<label>31166</label>
+					<visible>IsEmpty(ListItem.Label2)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="120" width="1150">
+				<control type="image">
+					<left>10</left>
+					<top>10</top>
+					<width>100</width>
+					<height>100</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="label">
+					<top>3</top>
+					<left>135</left>
+					<width>790</width>
+					<height>70</height>
+					<font>font30</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<left>135</left>
+					<top>52</top>
+					<width>790</width>
+					<height>60</height>
+					<font>font13</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
+				<control type="label">
+					<left>60</left>
+					<width>1060</width>
+					<height>116</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+					<aligny>center</aligny>
+					<label>31165</label>
+					<visible>!IsEmpty(ListItem.Label2)</visible>
+				</control>
+				<control type="label">
+					<left>60</left>
+					<width>1060</width>
+					<height>116</height>
+					<font>font15</font>
+					<align>right</align>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+					<aligny>center</aligny>
+					<label>31166</label>
+					<visible>IsEmpty(ListItem.Label2)</visible>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="1">
+					<icon>$INFO[System.AddonIcon(script.artistslideshow)]</icon>
+					<label>31170</label>
+	                <label2>$INFO[System.AddonVersion(script.artistslideshow)]</label2>
+	                <onclick condition="System.HasAddon(script.artistslideshow)">Addon.OpenSettings(script.artistslideshow)</onclick>
+	                <onclick condition="!System.HasAddon(script.artistslideshow)">RunPlugin(plugin://script.artistslideshow)</onclick>
+	            </item>
+	            <item id="2">
+					<icon>$INFO[System.AddonIcon(plugin.program.autocompletion)]</icon>
+					<label>31144</label>
+                    <label2>$INFO[System.AddonVersion(plugin.program.autocompletion)]</label2>
+                    <onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
+                    <onclick condition="!System.HasAddon(plugin.program.autocompletion)">RunPlugin(plugin://plugin.program.autocompletion)</onclick>
+	            </item>
+	            <item id="3">
+					<icon>$INFO[System.AddonIcon(script.colorbox)]</icon>
+					<label>31171</label>
+                    <label2>$INFO[System.AddonVersion(script.colorbox)]</label2>
+                    <onclick condition="System.HasAddon(script.colorbox)">Addon.OpenSettings(script.colorbox)</onclick>
+                    <onclick condition="!System.HasAddon(script.colorbox)">RunPlugin(plugin://script.colorbox)</onclick>
+	            </item>
+	            <item id="4">
+					<icon>$INFO[System.AddonIcon(script.extendedinfo)]</icon>
+					<label>31172</label>
+                    <label2>$INFO[System.AddonVersion(script.extendedinfo)]</label2>
+                    <onclick condition="System.HasAddon(script.extendedinfo)">Addon.OpenSettings(script.extendedinfo)</onclick>
+                    <onclick condition="!System.HasAddon(script.extendedinfo)">RunPlugin(plugin://script.extendedinfo)</onclick>
+	            </item>
+	            <item id="5">
+					<icon>$INFO[System.AddonIcon(script.globalsearch)]</icon>
+					<label>31173</label>
+                    <label2>$INFO[System.AddonVersion(script.globalsearch)]</label2>
+                    <onclick condition="System.HasAddon(script.globalsearch)">Addon.OpenSettings(script.globalsearch)</onclick>
+                    <onclick condition="!System.HasAddon(script.globalsearch)">RunPlugin(plugin://script.globalsearch)</onclick>
+	            </item>
+	            <item id="6">
+					<icon>$INFO[System.AddonIcon(script.grab.fanart)]</icon>
+					<label>31174</label>
+                    <label2>$INFO[System.AddonVersion(script.grab.fanart)]</label2>
+                    <onclick condition="System.HasAddon(script.grab.fanart)">Addon.OpenSettings(script.grab.fanart)</onclick>
+                    <onclick condition="!System.HasAddon(script.grab.fanart)">RunPlugin(plugin://script.grab.fanart)</onclick>
+	            </item>
+	            <item id="7">
+					<icon>$INFO[System.AddonIcon(script.image.resource.select)]</icon>
+					<label>31175</label>
+                    <label2>$INFO[System.AddonVersion(script.image.resource.select)]</label2>
+                    <onclick condition="System.HasAddon(script.grab.fanart)">Addon.OpenSettings(script.image.resource.select)</onclick>
+                    <onclick condition="!System.HasAddon(script.grab.fanart)">RunPlugin(plugin://script.image.resource.select)</onclick>
+	            </item>
+	            <item id="8">
+					<icon>$INFO[System.AddonIcon(service.library.data.provider)]</icon>
+					<label>31176</label>
+                    <label2>$INFO[System.AddonVersion(service.library.data.provider)]</label2>
+                    <onclick condition="System.HasAddon(service.library.data.provider)">Addon.OpenSettings(service.library.data.provider)</onclick>
+                    <onclick condition="!System.HasAddon(service.library.data.provider)">RunPlugin(plugin://service.library.data.provider)</onclick>
+	            </item>
+	            <item id="9">
+					<icon>$INFO[System.AddonIcon(service.nextup.notification)]</icon>
+					<label>31177</label>
+                    <label2>$INFO[System.AddonVersion(service.nextup.notification)]</label2>
+                    <onclick condition="System.HasAddon(service.nextup.notification)">Addon.OpenSettings(service.nextup.notification)</onclick>
+                    <onclick condition="!System.HasAddon(service.nextup.notification)">RunPlugin(plugin://service.nextup.notification)</onclick>
+	            </item>
+	            <item id="10">
+					<icon>$INFO[System.AddonIcon(resource.images.recordlabels.white)]</icon>
+					<label>31178</label>
+                    <label2>$INFO[System.AddonVersion(resource.images.recordlabels.white)]</label2>
+                    <onclick condition="System.HasAddon(resource.images.recordlabels.white)">Addon.OpenSettings(resource.images.recordlabels.white)</onclick>
+                    <onclick condition="!System.HasAddon(resource.images.recordlabels.white)">RunPlugin(plugin://resource.images.recordlabels.white)</onclick>
+	            </item>
+	            <item id="11">
+					<icon>$INFO[System.AddonIcon(script.skin.helper.service)]</icon>
+					<label>31179</label>
+                    <label2>$INFO[System.AddonVersion(script.skin.helper.service)]</label2>
+                    <onclick condition="System.HasAddon(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
+                    <onclick condition="!System.HasAddon(script.skin.helper.service)">RunPlugin(plugin://script.skin.helper.service)</onclick>
+	            </item>
+	            <item id="12">
+					<icon>$INFO[System.AddonIcon(script.skinshortcuts)]</icon>
+					<label>31180</label>
+                    <label2>$INFO[System.AddonVersion(script.skinshortcuts)]</label2>
+                    <onclick condition="System.HasAddon(script.skinshortcuts)">Addon.OpenSettings(script.skinshortcuts)</onclick>
+                    <onclick condition="!System.HasAddon(script.skinshortcuts)">RunPlugin(plugin://script.skinshortcuts)</onclick>
+	            </item>
+	            <item id="13">
+					<icon>$INFO[System.AddonIcon(resource.images.studios.white)]</icon>
+					<label>31181</label>
+                    <label2>$INFO[System.AddonVersion(resource.images.studios.white)]</label2>
+                    <onclick condition="System.HasAddon(resource.images.studios.white)">Addon.OpenSettings(resource.images.studios.white)</onclick>
+                    <onclick condition="!System.HasAddon(resource.images.studios.white)">RunPlugin(plugin://resource.images.studios.white)</onclick>
+	            </item>
+	            <item id="14">
+					<icon>$INFO[System.AddonIcon(script.toolbox)]</icon>
+					<label>31182</label>
+                    <label2>$INFO[System.AddonVersion(script.toolbox)]</label2>
+                    <onclick condition="System.HasAddon(script.toolbox)">Addon.OpenSettings(script.toolbox)</onclick>
+                    <onclick condition="!System.HasAddon(script.toolbox)">RunPlugin(plugin://script.toolbox)</onclick>
+	            </item>
+			</content>
+		</control>
+	</controls>
+</window>
