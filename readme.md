@@ -24,6 +24,8 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Redesigned the select dialog.
 - Added an option for wider main menu items.
 - Replaced Thai font with Sawasdee.
+- Added a new dialog for supported addons.
+- Added a select dialog for actor info (credit to BigNoid).
 
 ***
 **3.3.1**
