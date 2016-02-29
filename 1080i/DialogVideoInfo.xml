@@ -4,6 +4,7 @@
 	<allowoverlay>no</allowoverlay>
 	<onload>SendClick(9000,5)</onload>
 	<controls>
+		<include condition="System.HasAddon(script.extendedinfo)">HiddenActorList</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Conditional</animation>
 			<animation effect="fade" time="300">WindowClose</animation>
@@ -300,7 +301,7 @@
 					<left>2</left>
 					<top>450</top>
 					<width>1145</width>
-					<height>8</height>
+					<height>10</height>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
 					<onleft>61</onleft>
@@ -323,13 +324,13 @@
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<visible>![Control.IsVisible(50) | Control.IsVisible(150)]</visible>
+					<visible>![[Control.IsVisible(50) + !System.HasAddon(script.extendedinfo)] | Control.IsVisible(90019) | Control.IsVisible(150)]</visible>
 				</control>
 				<control type="scrollbar" id="60">
 					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
-					<left>1142</left>
+					<left>1140</left>
 					<top>585</top>
-					<width>8</width>
+					<width>10</width>
 					<height>445</height>
 					<onleft>9000</onleft>
 					<onright>9000</onright>
@@ -471,98 +472,25 @@
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(3) | Container(50).Column(2) | Container(50).Column(1)">Conditional</animation>
 	                </control>
 	            </control>
-				<control type="panel" id="50">
-					<animation effect="fade" time="300" delay="0" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-					<visible>ControlGroup(9000).HasFocus(555)</visible>
-					<left>-3</left>
-					<top>577</top>
-					<width>1156</width>
-					<height>398</height>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<onup>9000</onup>
-					<!--<ondown condition="System.HasAddon(script.extendedinfo)">Dialog.Close(movieinformation)</ondown>-->
-					<ondown condition="System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).ListItem.Label])</ondown>
-					<viewtype label="">list</viewtype>
-					<scrolltime tween="quadratic" easing="out">300</scrolltime>
-					<orientation>horizontal</orientation>
-					<itemlayout height="398" width="289">
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>277</width>
-							<height>386</height>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
-							<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-						</control>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>277</width>
-							<height>386</height>
-							<texture>thumbs/diffuse.png</texture>
-						</control>
-						<control type="image">
-							<top>297</top>
-							<left>6</left>
-							<width>277</width>
-							<height>95</height>
-							<texture>black.png</texture>
-							<colordiffuse>bbffffff</colordiffuse>
-						</control>
-						<control type="textbox">
-							<left>16</left>
-							<top>299</top>
-							<width>257</width>
-							<height>90</height>
-							<font>font_Actor</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="398" width="289">
-						<control type="group">
-							<include>PanelFocusedItemZoom</include>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>277</width>
-								<height>386</height>
-								<aspectratio align="center" aligny="center">scale</aspectratio>
-								<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-							</control>
-							<control type="image">
-								<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-								<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-								<top>6</top>
-								<left>6</left>
-								<width>277</width>
-								<height>386</height>
-								<texture>thumbs/diffuse.png</texture>
-							</control>
-							<control type="image">
-								<top>297</top>
-								<left>6</left>
-								<width>277</width>
-								<height>95</height>
-								<texture>black.png</texture>
-								<colordiffuse>bbffffff</colordiffuse>
-							</control>
-							<control type="textbox">
-								<left>16</left>
-								<top>299</top>
-								<width>257</width>
-								<height>90</height>
-								<font>font_Actor</font>
-								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-								<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
-								<!--<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>-->
-								<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-							</control>
-						</control>
-					</focusedlayout>
-				</control>
+	            <control type="group">
+	                <visible>IntegerGreaterThan(Container(90019).NumItems,0)</visible>
+	                <animation effect="fade" time="320" delay="300">Visible</animation>
+	                <control type="image">
+	                	<visible>Control.HasFocus(90019)</visible>
+	                    <left>-9</left>
+	                    <top>571</top>
+	                    <width>301</width>
+	                    <height>410</height>
+	                    <animation effect="fade" time="320" delay="200">Visible</animation>
+	                    <animation effect="fade" time="200">Hidden</animation>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(90019).Column(3)">Conditional</animation>
+	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(90019).Column(3) | Container(90019).Column(2)">Conditional</animation>
+	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(90019).Column(3) | Container(90019).Column(2) | Container(90019).Column(1)">Conditional</animation>
+	                </control>
+	            </control>
+				<include condition="!System.HasAddon(script.extendedinfo)">DefaultActorList</include>
+				<include condition="System.HasAddon(script.extendedinfo)">ExtendedActorList</include>
 			</control>
 			<control type="group">
                 <visible>IntegerGreaterThan(Container(150).NumItems,0)</visible>
@@ -907,7 +835,21 @@
                 <align>right</align>
                 <aligny>top</aligny>
                 <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(50).CurrentPage]$INFO[Container(50).NumPages,/][/COLOR]</label>
-                <visible>IntegerGreaterThan(Container(50).NumItems,0) + ControlGroup(9000).HasFocus(555)</visible>
+                <visible>IntegerGreaterThan(Container(50).NumItems,0) + ControlGroup(9000).HasFocus(555) + !System.HasAddon(script.extendedinfo)</visible>
+                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
+            </control>
+            <control type="label">
+                <left>862</left>
+                <top>1012</top>
+                <width>300</width>
+                <height>40</height>
+                <font>font13_title</font>
+                <textoffsetx>15</textoffsetx>
+                <textcolor>$VAR[ColorTextVar]</textcolor>
+                <align>right</align>
+                <aligny>top</aligny>
+                <label>$INFO[Container(90019).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(90019).CurrentPage]$INFO[Container(90019).NumPages,/][/COLOR]</label>
+                <visible>IntegerGreaterThan(Container(90019).NumItems,0) + ControlGroup(9000).HasFocus(555) + System.HasAddon(script.extendedinfo)</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
             </control>
 			<control type="group">
@@ -922,7 +864,8 @@
 					<onright>9000</onright>
 					<align>left</align>
 					<ondown condition="Control.IsVisible(400) + [Container(400).HasNext | Container(400).HasPrevious]">60</ondown>
-					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<ondown condition="!System.HasAddon(script.extendedinfo) + Control.IsVisible(50)">50</ondown>
+					<ondown condition="System.HasAddon(script.extendedinfo) + Control.IsVisible(90019)">90019</ondown>
 					<ondown condition="Control.IsVisible(150)">150</ondown>
 					<orientation>horizontal</orientation>
 					<control type="togglebutton" id="8">
@@ -942,7 +885,7 @@
 						<description>Cast</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>206</label>
-						<visible>IntegerGreaterThan(Container(50).NumItems,0)</visible>
+						<!--<visible>IntegerGreaterThan(Container(50).NumItems,0)</visible>-->
 					</control>
 					<control type="button" id="11">
 						<description>Play Trailer</description>

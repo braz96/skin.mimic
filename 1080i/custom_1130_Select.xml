@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1130" type="dialog">
+	<defaultcontrol always="true">90100</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<left>457</left>
+		<top>240</top>
+	</coordinates>
+	<onunload condition="!IsEmpty(Window(movieinformation).Property(ActorID)) + !IsEmpty(Window(movieinformation).Property(DoAction))">SetFocus(50,$INFO[Window(movieinformation).Property(ActorID)])</onunload>
+	<onunload condition="!IsEmpty(Window(movieinformation).Property(ActorID)) + !IsEmpty(Window(movieinformation).Property(DoAction))">Action(select)</onunload>
+	<onunload condition="!IsEmpty(Window(movieinformation).Property(ActorID)) + !IsEmpty(Window(movieinformation).Property(DoAction))">SetFocus(50,-$INFO[Window(movieinformation).Property(ActorID)])</onunload>
+	<onunload condition="!IsEmpty(Window(movieinformation).Property(ActorID)) + !IsEmpty(Window(movieinformation).Property(DoAction))">SetFocus(90019)</onunload>
+	<onunload>ClearProperty(ActorID,movieinformation)</onunload>
+	<onunload>ClearProperty(ActorName,movieinformation)</onunload>
+	<onunload>ClearProperty(DoAction,movieinformation)</onunload>
+	<include>dialogeffect</include>
+	<controls>
+		<control type="group">
+			<include name="DialogBackgroundCommons">
+				<param name="DialogBackgroundWidth" value="1006" />
+				<param name="DialogBackgroundHeight" value="600" />
+				<param name="DialogHeaderLabel" value="$LOCALIZE[424]" />
+				<param name="DialogHeaderId" value="1" />
+			</include>
+			<control type="list" id="90100">
+				<left>32</left>
+				<top>88</top>
+				<width>942</width>
+				<height>480</height>
+				<onup>90100</onup>
+				<ondown>90100</ondown>
+				<onright>60</onright>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="quadratic" easing="out">200</scrolltime>
+				<itemlayout height="60" width="942">
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60" width="942">
+					<control type="image">
+						<width>942</width>
+						<height>60</height>
+						<texture>listselect_fo.png</texture>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+						<visible>Control.HasFocus(90100)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+						<scroll>true</scroll>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>31221</label>
+						<onclick>Dialog.Close(1130)</onclick>
+						<onclick>SetProperty(DoAction,True,movieinformation)</onclick>
+					</item>
+					<item>
+						<label>31222</label>
+						<onclick>Dialog.Close(1130)</onclick>
+						<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Window(movieinformation).Property(ActorName)])</onclick>
+						<onclick>ClearProperty(ActorID,movieinformation)</onclick>
+						<onclick>ClearProperty(ActorName,movieinformation)</onclick>
+					</item>
+				</content>
+			</control>
+		</control>
+	</controls>
+</window>

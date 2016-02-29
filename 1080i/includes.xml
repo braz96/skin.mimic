@@ -326,17 +326,9 @@
 		<control type="group">
 			<left>-440</left>
 			<include>SideBladeLeft</include>
-			<control type="label">
-				<top>10</top>
-				<height>60</height>
-				<textoffsetx>15</textoffsetx>
-				<font>font13_title</font>
-				<label>31015</label>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-			</control>
-			<control type="list" id="9050">
+			<control type="grouplist" id="9050">
 				<left>0</left>
-				<top>65</top>
+				<top>0</top>
 				<width>400</width>
 				<height>1080</height>
 				<onleft>9050</onleft>
@@ -351,105 +343,138 @@
 				<itemgap>0</itemgap>
 				<include condition="Skin.HasSetting(KioskMode.Enabled)">KioskModeButton</include>
 				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-				<itemlayout width="400" height="60">
-					<control type="label">
-						<left>15</left>
-						<width>400</width>
-						<height>60</height>
-						<font>font13</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout width="400" height="60">
-					<control type="image">
-						<width>400</width>
-						<height>60</height>
-						<texture>listselect_fo.png</texture>
-						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						<visible>Control.HasFocus(9050)</visible>
-						<include>VisibleFadeEffect</include>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<width>400</width>
-						<height>60</height>
-						<font>font13</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</focusedlayout>
-				<content>
-					<item id="1">
-						<label>157</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(MyVideosSettings)</onclick>
-						<onclick>Control.SetFocus(3)</onclick>
-					</item>
-					<item id="2">
-						<label>2</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(MyMusicSettings)</onclick>
-						<onclick>Control.SetFocus(3)</onclick>
-					</item>
-					<item id="3">
-						<label>1</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(MyPicturesSettings)</onclick>
-						<onclick>Control.SetFocus(3)</onclick>
-					</item>
-					<item id="4">
-						<label>19020</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(TVSettings)</onclick>
-						<onclick>Control.SetFocus(3)</onclick>
-					</item>
-					<item id="5">
-						<label>24001</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(AddonBrowser)</onclick>
-					</item>
-					<item id="6">
-						<label>8</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(MyWeatherSettings)</onclick>
-						<onclick>Control.SetFocus(3)</onclick>
-					</item>
-					<item id="7">
-						<label>480</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(AppearanceSettings)</onclick>
-						<onclick>Control.SetFocus(3)</onclick>
-					</item>
-					<item id="8">
-						<label>20077</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(skinsettings)</onclick>
-						<onclick>Control.SetFocus(9000)</onclick>
-					</item>
-					<item id="9">
-						<label>14036</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(ServiceSettings)</onclick>
-						<onclick>Control.SetFocus(3)</onclick>
-					</item>
-					<item id="10">
-						<label>13000</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(SystemSettings)</onclick>
-						<onclick>Control.SetFocus(3)</onclick>
-					</item>
-					<item id="11">
-						<label>13200</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(Profiles)</onclick>
-						<onclick>Control.SetFocus(2)</onclick>
-					</item>
-					<item id="12">
-						<label>19033</label>
-						<onclick>ClearProperty(MediaMenu,Home)</onclick>
-						<onclick>ReplaceWindow(systeminfo)</onclick>
-						<onclick>Control.SetFocus(9000)</onclick>
-					</item>
-				</content>
+				<control type="button" id="201">
+					<description>Heading</description>
+					<textwidth>352</textwidth>
+					<font>font13_title</font>
+					<include>ButtonCommonValues</include>
+					<label>Category</label>
+					<enable>no</enable>
+					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
+				</control>
+				<control type="button" id="202">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>480</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(AppearanceSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
+				</control>
+				<control type="button" id="203">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>157</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(MyVideosSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
+				</control>
+				<control type="button" id="204">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>2</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(MyMusicSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
+				</control>
+				<control type="button" id="205">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>19020</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(TVSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
+				</control>
+				<control type="button" id="206">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>1</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(MyPicturesSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
+				</control>
+				<control type="button" id="207">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>20077</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(skinsettings)</onclick>
+					<onclick>Control.SetFocus(9000)</onclick>
+				</control>
+				<control type="button" id="208">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>13000</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(SystemSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
+				</control>
+				<control type="button" id="209">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>705</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(ServiceSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
+				</control>
+				<control type="button" id="210">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>24001</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(addonbrowser)</onclick>
+				</control>
+				<control type="button" id="211">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>8</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(MyWeatherSettings)</onclick>
+					<onclick>Control.SetFocus(3)</onclick>
+				</control>
+				<control type="button" id="212">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>13200</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(Profiles)</onclick>
+					<onclick>Control.SetFocus(2)</onclick>
+				</control>
+				<control type="button" id="213">
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>19033</label>
+					<onclick>ClearProperty(MediaMenu,Home)</onclick>
+					<onclick>ReplaceWindow(systeminfo)</onclick>
+					<onclick>Control.SetFocus(9000)</onclick>
+				</control>
+				<control type="button" id="214">
+					<description>Heading</description>
+					<textwidth>352</textwidth>
+					<font>font13_title</font>
+					<include>ButtonCommonValues</include>
+					<label>Settings</label>
+					<enable>no</enable>
+					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
+					<visible>Window.IsActive(SettingsCategory.xml)</visible>
+				</control>
+				<control type="button" id="20">
+					<description>Settings level</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label></label>
+					<label2>31142</label2>
+					<onclick>SettingsLevelChange</onclick>
+					<visible>False</visible>
+				</control>
+				<control type="button" id="215">
+					<description>Settings level</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>Level</label>
+					<label2>$INFO[Control.GetLabel(20)]</label2>
+					<onclick>SettingsLevelChange</onclick>
+					<visible>Window.IsActive(SettingsCategory.xml)</visible>
+				</control>
 			</control>
 		</control>
 	</include>
@@ -843,14 +868,14 @@
 		<control type="scrollbar" id="60">
 			<visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
 			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-			<left>1908</left>
+			<left>1910</left>
 			<top>0</top>
-			<width>12</width>
+			<width>10</width>
 			<height>1080</height>
-			<onleft condition="!Window.IsActive(addoninformation)">50</onleft>
-			<onleft condition="Window.IsActive(addoninformation)">9000</onleft>
-			<onright condition="!Window.IsActive(addoninformation)">50</onright>
-			<onright condition="Window.IsActive(addoninformation)">9000</onright>
+			<onleft condition="![Window.IsActive(addoninformation) | Window.IsActive(settings)]">50</onleft>
+			<onleft condition="Window.IsActive(addoninformation) | Window.IsActive(settings)">9000</onleft>
+			<onright condition="![Window.IsActive(addoninformation) | Window.IsActive(settings)]">50</onright>
+			<onright condition="Window.IsActive(addoninformation) | Window.IsActive(settings)">9000</onright>
 			<ondown>60</ondown>
 			<onup>60</onup>
 		</control>
@@ -860,9 +885,9 @@
 			<visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
 			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
 	        <left>0</left>
-	        <top>1068</top>
+	        <top>1070</top>
 	        <width>FullScreenWidth</width>
-	        <height>12</height>
+	        <height>10</height>
 	        <onup>50</onup>
 	        <ondown>50</ondown>
 	        <onleft>60</onleft>
@@ -916,6 +941,334 @@
 			<onclick>ActivateWindow(videoplaylist)</onclick>
 			<visible>!StringCompare(Playlist.Length(video),0)</visible>
 			<enable>!Window.IsActive(videoplaylist)</enable>
+		</control>
+    </include>
+    <include name="HiddenActorList">
+		<control type="list" id="50">
+			<include>HiddenList</include>
+			<orientation>horizontal</orientation>
+		</control>
+	</include>
+    <include name="DefaultActorList">
+    	<control type="panel" id="50">
+			<animation effect="fade" time="300" delay="0" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<visible>ControlGroup(9000).HasFocus(555)</visible>
+			<left>-3</left>
+			<top>577</top>
+			<width>1156</width>
+			<height>398</height>
+			<onleft>50</onleft>
+			<onright>50</onright>
+			<onup>9000</onup>
+			<!--<ondown condition="System.HasAddon(script.extendedinfo)">Dialog.Close(movieinformation)</ondown>-->
+			<!--<ondown condition="System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).ListItem.Label])</ondown>-->
+			<viewtype label="">list</viewtype>
+			<scrolltime tween="quadratic" easing="out">300</scrolltime>
+			<orientation>horizontal</orientation>
+			<itemlayout height="398" width="289">
+				<control type="image">
+					<top>6</top>
+					<left>6</left>
+					<width>277</width>
+					<height>386</height>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+				</control>
+				<control type="image">
+					<top>6</top>
+					<left>6</left>
+					<width>277</width>
+					<height>386</height>
+					<texture>thumbs/diffuse.png</texture>
+				</control>
+				<control type="image">
+					<top>297</top>
+					<left>6</left>
+					<width>277</width>
+					<height>95</height>
+					<texture>black.png</texture>
+					<colordiffuse>bbffffff</colordiffuse>
+				</control>
+				<control type="textbox">
+					<left>16</left>
+					<top>299</top>
+					<width>257</width>
+					<height>90</height>
+					<font>font_Actor</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="398" width="289">
+				<control type="group">
+					<include>PanelFocusedItemZoom</include>
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>277</width>
+						<height>386</height>
+						<aspectratio align="center" aligny="center">scale</aspectratio>
+						<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+					<control type="image">
+						<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+						<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						<top>6</top>
+						<left>6</left>
+						<width>277</width>
+						<height>386</height>
+						<texture>thumbs/diffuse.png</texture>
+					</control>
+					<control type="image">
+						<top>297</top>
+						<left>6</left>
+						<width>277</width>
+						<height>95</height>
+						<texture>black.png</texture>
+						<colordiffuse>bbffffff</colordiffuse>
+					</control>
+					<control type="textbox">
+						<left>16</left>
+						<top>299</top>
+						<width>257</width>
+						<height>90</height>
+						<font>font_Actor</font>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
+						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					</control>
+				</control>
+			</focusedlayout>
+		</control>
+    </include>
+    <include name="ExtendedActorList">
+    	<control type="panel" id="90019">
+			<animation effect="fade" time="300" delay="0" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<visible>ControlGroup(9000).HasFocus(555)</visible>
+			<left>-3</left>
+			<top>577</top>
+			<onup>9000</onup>
+			<onleft>90019</onleft>
+			<onright>90019</onright>
+			<width>1156</width>
+			<height>398</height>
+			<pagecontrol>60</pagecontrol>
+			<viewtype label="">list</viewtype>
+			<scrolltime tween="quadratic" easing="out">300</scrolltime>
+			<orientation>horizontal</orientation>
+			<itemlayout height="398" width="289">
+				<control type="image">
+					<top>6</top>
+					<left>6</left>
+					<width>277</width>
+					<height>386</height>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="image">
+					<top>6</top>
+					<left>6</left>
+					<width>277</width>
+					<height>386</height>
+					<texture>thumbs/diffuse.png</texture>
+				</control>
+				<control type="image">
+					<top>297</top>
+					<left>6</left>
+					<width>277</width>
+					<height>95</height>
+					<texture>black.png</texture>
+					<colordiffuse>bbffffff</colordiffuse>
+				</control>
+				<control type="textbox">
+					<left>16</left>
+					<top>299</top>
+					<width>257</width>
+					<height>90</height>
+					<font>font_Actor</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="398" width="289">
+				<control type="group">
+					<include>PanelFocusedItemZoom</include>
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>277</width>
+						<height>386</height>
+						<aspectratio align="center" aligny="center">scale</aspectratio>
+						<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="image">
+						<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+						<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						<top>6</top>
+						<left>6</left>
+						<width>277</width>
+						<height>386</height>
+						<texture>thumbs/diffuse.png</texture>
+					</control>
+					<control type="image">
+						<top>297</top>
+						<left>6</left>
+						<width>277</width>
+						<height>95</height>
+						<texture>black.png</texture>
+						<colordiffuse>bbffffff</colordiffuse>
+					</control>
+					<control type="textbox">
+						<left>16</left>
+						<top>299</top>
+						<width>257</width>
+						<height>90</height>
+						<font>font_Actor</font>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
+						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					</control>
+				</control>
+			</focusedlayout>
+			<content>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(0).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(0).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(0).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,0)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(0).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(0).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(1).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(1).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(1).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,1)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(1).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(1).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(2).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(2).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(2).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,2)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(2).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(2).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(3).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(3).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(3).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,3)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(3).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(3).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(4).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(4).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(4).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,4)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(4).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(4).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(5).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(5).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(5).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,5)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(5).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(5).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(6).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(6).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(6).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,6)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(6).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(6).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(7).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(7).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(7).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,7)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(7).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(7).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(8).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(8).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(8).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,8)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(8).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(8).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(9).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(9).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(9).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,9)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(9).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(9).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(10).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(10).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(10).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,10)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(10).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(10).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(11).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(11).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(11).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,11)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(11).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(11).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(12).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(12).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(12).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,12)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(12).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(12).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(13).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(13).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(13).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,13)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(13).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(13).Label)</visible>
+				</item>
+				<item>
+					<label>$INFO[Container(50).ListItemAbsolute(14).Label]</label>
+					<label2>$INFO[Container(50).ListItemAbsolute(14).Label2]</label2>
+					<icon>$INFO[Container(50).ListItemAbsolute(14).Art(thumb)]</icon>
+					<onclick>SetProperty(ActorID,14)</onclick>
+					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(14).Label])</onclick>
+					<onclick>ActivateWindow(1130)</onclick>
+					<visible>!IsEmpty(Container(50).ListItemAbsolute(14).Label)</visible>
+				</item>
+			</content>
 		</control>
     </include>
 </includes>
