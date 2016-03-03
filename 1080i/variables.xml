@@ -93,6 +93,7 @@
 		<value condition="Window.IsActive(TVTimers) | Window.IsActive(RadioTimers)">$VAR[BreadcrumbsFillerVar,,$LOCALIZE[19040]]</value>
 		<value condition="Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)">$VAR[BreadcrumbsFillerVar,,$LOCALIZE[137]]</value>
 		<value condition="Window.IsActive(eventlog)">$LOCALIZE[14111]$INFO[Control.GetLabel(21), - ,]</value>
+		<value condition="Window.IsActive(home)">$LOCALIZE[10000]</value>
 		<value>$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]</value>
 	</variable>
 	<variable name="MusicOSDRepeatButtonVar">
@@ -301,9 +302,9 @@
 		<value condition="Control.HasFocus(110)">$LOCALIZE[31916]</value>
 		<value condition="Control.HasFocus(111)">$LOCALIZE[31192]</value>
 		<value condition="Control.HasFocus(112)">$LOCALIZE[31203]</value>
+		<value condition="Control.HasFocus(113)">$LOCALIZE[31230]</value>
 		<value condition="Control.HasFocus(200)">$LOCALIZE[31917]</value>
 		<value condition="Control.HasFocus(201)">$LOCALIZE[31932]</value>
-		<value condition="Control.HasFocus(202)">$LOCALIZE[31122]</value>
 		<value condition="Control.HasFocus(203)">$LOCALIZE[31944]</value>
 		<value condition="Control.HasFocus(303) | Control.HasFocus(304)">$LOCALIZE[31121]</value>
 		<value condition="Control.HasFocus(305)">$LOCALIZE[31938]</value>
@@ -593,6 +594,7 @@
         <value condition="Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(EventLog.xml) | Window.IsVisible(profiles)">DefaultIconSettings.png</value>
         <value condition="Window.IsVisible(FileManager.xml)">DefaultFile.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml)">DefaultMovies.png</value>
+        <value condition="Window.IsActive(home)">DefaultIconHome.png</value>
         <value>DefaultArtist.png</value>
     </variable>
     <variable name="HeaderSubLabel">
@@ -632,6 +634,7 @@
     	<value condition="Window.IsActive(pvrsettings)">$LOCALIZE[19020]</value>
     	<value condition="Window.IsActive(skinsettings)">$LOCALIZE[166]</value>
     	<value condition="Window.IsActive(settings)">$INFO[System.FriendlyName]</value>
+    	<value condition="Window.IsActive(home)">$VAR[LibraryStatsVar]</value>
     	<value>$INFO[Container.NumItems,, $LOCALIZE[31025]]</value>
     </variable>
     <variable name="ThumbViewImage">
@@ -657,4 +660,19 @@
     <variable name="AddonDisclaimer">
     	<value condition="!IsEmpty(ListItem.Property(Addon.Disclaimer))">[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[24052]: [/COLOR][CR]$INFO[ListItem.Property(Addon.Disclaimer)]</value>
     </variable>
+    <variable name="LibraryStatsVar">
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31097])">$LOCALIZE[20342]: $INFO[Window(Home).Property(Movies.Count)]  •  $LOCALIZE[16102]: $INFO[Window(Home).Property(Movies.Watched)]  •  $LOCALIZE[16101]: $INFO[Window(Home).Property(Movies.UnWatched)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31098])">$LOCALIZE[20343]: $INFO[Window(Home).Property(TVShows.Count)]  •  $LOCALIZE[20360]: $INFO[Window(Home).Property(Episodes.Count)]  •  $LOCALIZE[16101]: $INFO[Window(Home).Property(Episodes.UnWatched)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31099])">$LOCALIZE[133]: $INFO[Window(Home).Property(Music.ArtistsCount)]  •  $LOCALIZE[132]: $INFO[Window(Home).Property(Music.AlbumsCount)]  •  $LOCALIZE[134]: $INFO[Window(Home).Property(Music.SongsCount)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31058]) + PVR.IsRecording">$LOCALIZE[19158]: $INFO[PVR.NowRecordingDateTime]  •  $LOCALIZE[19029]: $INFO[PVR.NowRecordingTitle] ($INFO[PVR.NowRecordingChannel])</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31058]) + PVR.HasNonRecordingTimer">$LOCALIZE[19157]: $INFO[PVR.NextRecordingDateTime]  •  $LOCALIZE[19029]: $INFO[PVR.NextRecordingTitle] ($INFO[PVR.NextRecordingChannel])</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31058])">$LOCALIZE[19019]: $INFO[Pvr.BackendChannels]  •  $LOCALIZE[19163]: $INFO[Pvr.BackendRecordings]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[20088])">$INFO[Weather.Location]: $INFO[Weather.Conditions]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31061])">$LOCALIZE[20161] $LOCALIZE[24001]: $INFO[Window(Home).Property(SkinHelper.TotalAddons)]  •  $LOCALIZE[1036]: $INFO[Window(Home).Property(SkinHelper.TotalFavourites)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31082])">$LOCALIZE[20389]: $INFO[Window(Home).Property(MusicVideos.Count)]  •  $LOCALIZE[16102]: $INFO[Window(Home).Property(MusicVideos.Watched)]  •  $LOCALIZE[16101]: $INFO[Window(Home).Property(MusicVideos.UnWatched)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[130])">$LOCALIZE[31309] $INFO[System.memory(used.percent)]  •  $LOCALIZE[13271] $INFO[System.CPUUsage]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31130])">$LOCALIZE[20342]: $INFO[Window(Home).Property(PlaylistCount)]  •  $LOCALIZE[16102]: $INFO[Window(Home).Property(PlaylistWatched)]  •  $LOCALIZE[16101]: $INFO[Window(Home).Property(PlaylistUnWatched)]  •  $LOCALIZE[575]: $INFO[Window(Home).Property(PlaylistInProgress)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31131])">$LOCALIZE[20343]: $INFO[Window(Home).Property(PlaylistTVShowCount)]  •  $LOCALIZE[20360]: $INFO[Window(Home).Property(PlaylistEpisodes)]  •  $LOCALIZE[16101]: $INFO[Window(Home).Property(PlaylistEpisodesUnWatched)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31132])">$LOCALIZE[20389]: $INFO[Window(Home).Property(PlaylistCount)]  •  $LOCALIZE[16102]: $INFO[Window(Home).Property(PlaylistWatched)]  •  $LOCALIZE[16101]: $INFO[Window(Home).Property(PlaylistUnWatched)]  •  $LOCALIZE[575]: $INFO[Window(Home).Property(PlaylistInProgress)]</value>
+	</variable>
 </includes>

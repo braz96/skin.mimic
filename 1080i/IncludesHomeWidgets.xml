@@ -238,9 +238,9 @@
 	<include name="NowPlayingVideoWidget">
 		<!-- Video Info -->
 		<control type="group">
-			<visible>Player.HasVideo</visible>
+			<visible>Player.HasVideo + [!Skin.HasSetting(Enable.HomeTopbar) | !Skin.HasSetting(Disable.Videoinfo)]</visible>
 			<include>dialogeffect</include>
-			<animation effect="slide" time="0" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
+			<animation effect="slide" time="0" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2) | Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
 			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu)">Conditional</animation>
 			<left>1090</left>
@@ -314,9 +314,9 @@
 	<include name="NowPlayingMusicWidget">
 		<!-- Music Info -->
 		<control type="group">
-			<visible>Player.HasAudio</visible>
+			<visible>Player.HasAudio + [!Skin.HasSetting(Enable.HomeTopbar) | !Skin.HasSetting(Disable.Musicinfo)]</visible>
 			<include>dialogeffect</include>
-			<animation effect="slide" time="0" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
+			<animation effect="slide" time="0" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2) | Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
 			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu)">Conditional</animation>
 			<left>1090</left>
@@ -349,6 +349,7 @@
 	<include name="WeatherHomeWidget">
 		<control type="group">
 			<include>dialogeffect</include>
+			<visible>!Skin.HasSetting(Enable.HomeTopbar)</visible>
 			<animation effect="slide" time="0" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
 			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
 			<left>1090</left>
