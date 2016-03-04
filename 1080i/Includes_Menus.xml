@@ -181,14 +181,14 @@
             <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(8) | Container(9000).Position(7) | Container(9000).Position(6) | Container(9000).Position(5) | Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
 		<control type="list" id="9000">
-			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)" name="MainMenuListContentVertical">
+			<include condition="[!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)] | Skin.HasSetting(Enable.HomeTopbar)" name="MainMenuListContentVertical">
 				<param name="MainMenuVerticalHeight" value="960" />
 			</include>
-			<include condition="Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)" name="MainMenuListContentVertical">
+			<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)] + !Skin.HasSetting(Enable.HomeTopbar)" name="MainMenuListContentVertical">
 				<param name="MainMenuVerticalHeight" value="1080" />
 			</include>
 		</control>
-		<include name="MenuClockWeather">
+		<include condition="!Skin.HasSetting(Enable.HomeTopbar)" name="MenuClockWeather">
 			<param name="MenuClockLeft" value="5" />
 			<param name="MenuClockTop" value="970" />
 			<param name="MenuClockAlign" value="left" />

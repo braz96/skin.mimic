@@ -35,7 +35,6 @@
 		</control>
 		<include condition="system.getbool(lookandfeel.enablerssfeeds)">RSSFeedWidget</include>
 		<include>HomeDefaultWidgets</include>
-		<include condition="Skin.HasSetting(Enable.HomeTopbar)">Topbar</include>
 	</include>
 	<include name="HomeTopMenu">
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
@@ -213,6 +212,7 @@
 			</control>
 			<!-- Main Menu (Includes_Menus.xml) -->
 			<control type="group">
+				<animation effect="slide" time="0" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 				<control type="image">
 					<top>0</top>
 					<width>434</width>
@@ -227,8 +227,8 @@
 					<texture>listselect_fo.png</texture>
 					<colordiffuse>55000000</colordiffuse>
 				</control>
+				<include>MainMenuListVertical</include>
 			</control>
-			<include>MainMenuListVertical</include>
 		</control>
 	</include>
 </includes>
