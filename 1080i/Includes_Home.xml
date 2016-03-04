@@ -14,9 +14,9 @@
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
 			<!-- Main Menu (Includes_Home.xml) -->
 			<control type="image">
-				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="[Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Disable.WidgetPressUp) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="[Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 				<width>FullScreenWidth</width>
 				<height>700</height>
 				<texture background="true">background.png</texture>
@@ -48,9 +48,9 @@
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
 			<control type="image">
 				<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
-				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="[Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Disable.WidgetPressUp) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="[Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 				<top>1080</top>
 				<width>FullScreenWidth</width>
 				<height>700</height>
@@ -118,7 +118,7 @@
 			<include>MainMenuListTop</include>
 		</control>
 		<control type="group">
-			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)] + ![[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]]</visible>
+			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)] + ![[Control.IsVisible(8000) + Skin.HasSetting(Enable.PersistentWidgets)] | [Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)]]</visible>
 			<animation effect="slide" end="0,50" time="240">WindowClose</animation>
 			<animation effect="slide" start="0,50" end="0,0" delay="300" time="240" condition="!Window.Previous(startup)">WindowOpen</animation>
 			<animation effect="slide" start="0,50" end="0,0" delay="800" time="480" condition="Window.Previous(startup)">WindowOpen</animation>
@@ -158,17 +158,38 @@
 		</control>
 	</include>
 	<include name="HomeVerticalMenu">
-		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
-		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
-		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu)">WeatherHomeWidget</include>
-		<include>HomePanelWidgets</include>
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
 			<top>0</top>
-			<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">WindowOpen</animation>
+			<!--<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false">WindowClose</animation>
 			<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">Visible</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false">Hidden</animation>
+			<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false">Hidden</animation>-->
+			<!-- Main Menu (Includes_Menus.xml) -->
+			<control type="group">
+				<animation effect="slide" time="0" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
+				<control type="group">
+					<animation effect="slide" time="300" start="0" end="1486" tween="sine" easing="inout" reversible="false" condition="[Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+					<animation effect="slide" time="150" delay="200" start="1486" end="0" tween="sine" easing="inout" reversible="false" condition="![Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+					<animation effect="slide" time="0" delay="0" start="0" end="1486" tween="sine" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+					<left>-1486</left>
+					<control type="image">
+						<top>0</top>
+						<width>1920</width>
+						<height>1080</height>
+						<texture>background.png</texture>
+						<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+					</control>
+					<control type="image">
+						<top>0</top>
+						<width>1920</width>
+						<height>1080</height>
+						<texture>listselect_fo.png</texture>
+						<colordiffuse>55000000</colordiffuse>
+					</control>
+				</control>
+				<include>MainMenuListVertical</include>
+			</control>
 			<control type="group" id="9001">
 				<control type="group">
 					<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
@@ -210,25 +231,10 @@
 					</control>
 				</control>
 			</control>
-			<!-- Main Menu (Includes_Menus.xml) -->
-			<control type="group">
-				<animation effect="slide" time="0" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
-				<control type="image">
-					<top>0</top>
-					<width>434</width>
-					<height>1080</height>
-					<texture>background.png</texture>
-					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<top>0</top>
-					<width>434</width>
-					<height>1080</height>
-					<texture>listselect_fo.png</texture>
-					<colordiffuse>55000000</colordiffuse>
-				</control>
-				<include>MainMenuListVertical</include>
-			</control>
 		</control>
+		<include>HomePanelWidgets</include>
+		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
+		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
+		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu)">WeatherHomeWidget</include>
 	</include>
 </includes>

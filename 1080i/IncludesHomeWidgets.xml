@@ -5,8 +5,8 @@
 			<include>VisibleFadeEffect</include>
 			<control type="group">
 				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
-				<animation effect="fade" start="0" end="100" delay="200" time="300" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(9000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+				<animation effect="fade" start="0" end="100" delay="200" time="300" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Enable.PersistentWidgets)] | [Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Enable.PersistentWidgets)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] | [Control.HasFocus(9000) + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
 				<animation effect="fade" tween="cubic" time="600" delay="500" start="0" end="100" reversible="false">WindowOpen</animation>
 				<animation effect="fade" tween="cubic" time="300" start="100" end="0" reversible="false">WindowClose</animation>
 				<animation effect="fade" tween="cubic" time="600" delay="500" start="0" end="100" reversible="false">Visible</animation>
@@ -33,8 +33,8 @@
 				<control type="group">
 					<animation effect="slide" time="0" start="0,0" end="0,190" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
 					<control type="label">
-						<animation effect="fade" time="300" tween="cubic" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]" start="0" end="100">Visible</animation>
-						<animation effect="fade" time="0" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]" start="100" end="0">Hidden</animation>
+						<animation effect="fade" time="300" tween="cubic" condition="[Control.IsVisible(8000) + Skin.HasSetting(Enable.PersistentWidgets)] | [Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)]" start="0" end="100">Visible</animation>
+						<animation effect="fade" time="0" condition="[Control.IsVisible(8000) + Skin.HasSetting(Enable.PersistentWidgets)] | [Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)]" start="100" end="0">Hidden</animation>
 						<animation effect="slide" time="200" tween="sine" easing="inout" end="0,700" start="0">WindowClose</animation>
 						<left>950</left>
 						<top>524</top>
@@ -106,65 +106,60 @@
 		<control type="group" id="9003">
 			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath)) | StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 			<control type="group">
-				<top>0</top>
-				<animation effect="slide" start="0" end="-700" time="300" reversible="false" easing="out" condition="[Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
-				<animation effect="slide" end="0" start="-700" time="300" reversible="false" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
-				<animation effect="slide" tween="cubic" easing="out" time="300" start="0" end="-700" reversible="false">WindowOpen</animation>
-				<animation effect="slide" tween="cubic" easing="out" time="300" start="-700" end="0" reversible="false">WindowClose</animation>
-				<animation effect="slide" tween="cubic" easing="out" time="300" start="0" end="700" reversible="false" condition="Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)">Conditional</animation>
-				<animation effect="slide" tween="cubic" easing="out" time="300" start="700" end="0" reversible="false" condition="![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]">Conditional</animation>
-				<control type="image">
-					<top>217</top>
-					<left>2650</left>
-					<width>770</width>
-					<height>815</height>
-					<texture border="12">dialog_context.png</texture>
-					<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-				</control>
+				<top>234</top>
+				<animation effect="fade" start="0" end="100" time="300" easing="out" condition="Control.IsVisible(8000) + Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="200" easing="out" delay="400" condition="Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="0" condition="Control.HasFocus(9000) + !Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
 				<control type="image">
 					<visible>!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + !StringCompare(Container(9000).ListItem.Property(widget),weather) + Control.HasFocus(8000)</visible>
-		            <left>2674</left>
-		            <top>292</top>
+		            <left>554</left>
+		            <top>48</top>
 		            <width>219</width>
 		            <height>316</height>
 		            <animation effect="fade" time="320" delay="200">Visible</animation>
 		            <animation effect="fade" time="200">Hidden</animation>
 		            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-		            <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(1)">Conditional</animation>
-		            <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2)">Conditional</animation>
-		            <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2) | Container(8000).Column(1)">Conditional</animation>
+		            <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Row,0)">Conditional</animation>
+		            <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,4)">Conditional</animation>
+		            <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,3)">Conditional</animation>
+		            <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,2)">Conditional</animation>
+		            <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,1)">Conditional</animation>
+		            <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,0)">Conditional</animation>
 		        </control>
 		        <control type="image">
 		        	<visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + Control.HasFocus(8000)</visible>
-		            <left>2681</left>
-		            <top>292</top>
+		            <left>568</left>
+		            <top>48</top>
 		            <width>316</width>
 		            <height>316</height>
 		            <animation effect="fade" time="320" delay="200">Visible</animation>
 		            <animation effect="fade" time="200">Hidden</animation>
 		            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-		            <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(1)">Conditional</animation>
-		            <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2)">Conditional</animation>
-		            <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(2) | Container(8000).Column(1)">Conditional</animation>
+		            <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Row,0)">Conditional</animation>
+		            <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,2)">Conditional</animation>
+		            <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,1)">Conditional</animation>
+		            <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,0)">Conditional</animation>
 		        </control>
 		        <control type="image">
 		        	<visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + Control.HasFocus(8000)</visible>
-		            <left>2674</left>
-		            <top>292</top>
+		            <left>554</left>
+		            <top>48</top>
 		            <width>322</width>
 		            <height>215</height>
 		            <animation effect="fade" time="320" delay="200">Visible</animation>
 		            <animation effect="fade" time="200">Hidden</animation>
 		            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-		            <animation effect="slide" end="310,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(1)">Conditional</animation>
-		            <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(2)">Conditional</animation>
-		            <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(2) | Container(8000).Row(1)">Conditional</animation>
+		            <animation effect="slide" end="310,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,2)">Conditional</animation>
+		            <animation effect="slide" end="310,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,1)">Conditional</animation>
+		            <animation effect="slide" end="310,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Column,0)">Conditional</animation>
+		            <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Row,1)">Conditional</animation>
+		            <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8000).Row,0)">Conditional</animation>
 		        </control>
 				<control type="image">
 					<visible>Container(8000).IsUpdating</visible>
 	                <description>Busy animation</description>
-	                <top>572</top>
-	                <left>2960</left>
+	                <top>328</top>
+	                <left>1141</left>
 	                <width>60</width>
 	                <height>60</height>
 	                <texture colordiffuse="$VAR[ColorTextVar]" fallback="special://skin/extras/spinners/Sun.png">$INFO[Skin.String(busyloader)]</texture>
@@ -172,50 +167,86 @@
 	                <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
 	            </control>
 				<include>skinshortcuts-template-widget-panel</include>
-				<control type="image">
-		        	<visible>StringCompare(Container(9000).ListItem.Property(widget),weather) + StringCompare(Skin.String(HomeLayout),3) + Control.HasFocus(8000)</visible>
-		            <left>2691</left>
-		            <top>260</top>
-		            <width>300</width>
-		            <height>360</height>
-		            <animation effect="fade" time="320" delay="200">Visible</animation>
-		            <animation effect="fade" time="200">Hidden</animation>
-		            <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-		            <animation effect="slide" end="300,0" time="300" tween="cubic" easing="inout" condition="Container(8000).Column(1)">Conditional</animation>
-		            <animation effect="slide" end="0,370" time="300" tween="cubic" easing="inout" condition="Container(8000).Row(1)">Conditional</animation>
-		        </control>
 				<control type="group">
-					<animation effect="fade" start="100" end="0" time="0" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Disable.WidgetPressUp)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Disable.WidgetPressUp)]">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" condition="[!Control.IsVisible(8000) + Skin.HasSetting(Enable.PersistentWidgets)] | [!Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
+					<control type="group">
+						<visible>StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
+						<top>20</top>
+						<left>573</left>
+						<width>1216</width>
+						<control type="image">
+							<description>current weather icon</description>
+							<top>60</top>
+							<width>320</width>
+							<height>320</height>
+							<texture>$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</texture>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+						</control>
+						<control type="group">
+							<top>0</top>
+							<left>295</left>
+							<control type="label">
+								<description>current temp Value</description>
+								<width>270</width>
+								<height>345</height>
+								<font>WeatherTemp</font>
+								<align>right</align>
+								<label>$INFO[Window(weather).Property(Current.Temperature)]</label>
+								<textcolor>$VAR[ColorTextVar]</textcolor>
+							</control>
+							<control type="label">
+								<description>current temp Value Units</description>
+								<left>270</left>
+								<top>3</top>
+								<width>150</width>
+								<height>290</height>
+								<font>font16</font>
+								<label>$INFO[System.TemperatureUnits]</label>
+								<textcolor>$VAR[ColorTextVar]</textcolor>
+							</control>
+						</control>
+						<control type="label">
+							<description>current condition label</description>
+							<top>260</top>
+							<left>420</left>
+							<width>1316</width>
+							<height>60</height>
+							<label>$INFO[Window(weather).Property(Current.Condition)], $LOCALIZE[402] $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+							<font>font30</font>
+							<textoffsetx>15</textoffsetx>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+						</control>
+					</control>
 					<include name="WeatherWidgetCommons">
-						<param name="WeatherPositionLeft" value="2690" />
-						<param name="WeatherPositionTop" value="255" />
-						<param name="WeatherPanelWidth" value="608" />
-						<param name="WeatherPanelHeight" value="740" />
+						<param name="WeatherPositionLeft" value="573" />
+						<param name="WeatherPositionTop" value="400" />
+						<param name="WeatherPanelWidth" value="1216" />
+						<param name="WeatherPanelHeight" value="370" />
 						<param name="WeatherItemWidth" value="304" />
 						<param name="WeatherOrientation" value="Vertical" />
-						<param name="WeatherOnUp" value="8000" />
-						<param name="WeatherOnDown" value="8000" />
+						<param name="WeatherOnUp" value="9000" />
+						<param name="WeatherOnDown" value="9000" />
 						<param name="WeatherOnLeft" value="9000" />
-						<param name="WeatherOnRight" value="8000" />
+						<param name="WeatherOnRight" value="9000" />
 					</include>
 				</control>
 				<control type="group">
 					<visible>!StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 					<control type="label">
-						<left>2680</left>
-						<top>244</top>
-						<width>621</width>
+						<left>560</left>
+						<top>0</top>
+						<width>1242</width>
 						<height>40</height>
 						<font>font15_title</font>
-						<align>center</align>
+						<align>right</align>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
 						<label>$INFO[Container(9000).ListItem.Property(widgetName)]</label>
 					</control>
 					<control type="group">
-						<top>917</top>
-						<left>2680</left>
+						<top>673</top>
+						<left>560</left>
 						<control type="label">
-							<width>621</width>
+							<width>1242</width>
 							<height>45</height>
 							<font>font16_title</font>
 							<scroll>true</scroll>
@@ -224,7 +255,7 @@
 						</control>
 						<control type="label">
 							<top>45</top>
-							<width>621</width>
+							<width>1242</width>
 							<height>45</height>
 							<font>font15</font>
 							<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -242,7 +273,7 @@
 			<include>dialogeffect</include>
 			<animation effect="slide" time="0" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2) | Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="Window.IsActive(extendedprogressdialog) | Window.IsActive(busydialog)">Conditional</animation>
-			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu)">Conditional</animation>
+			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu) + !Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 			<left>1090</left>
 			<top>32</top>
 			<control type="image">
@@ -317,8 +348,8 @@
 			<visible>Player.HasAudio + [!Skin.HasSetting(Enable.HomeTopbar) | !Skin.HasSetting(Disable.Musicinfo)]</visible>
 			<include>dialogeffect</include>
 			<animation effect="slide" time="0" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2) | Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
-			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="[Window.IsActive(extendedprogressdialog) | Window.IsActive(busydialog)] + [!Skin.HasSetting(Enable.HomeTopbar) | StringCompare(Skin.String(HomeLayout),2)]">Conditional</animation>
-			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu)">Conditional</animation>
+			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="[Window.IsActive(extendedprogressdialog) | Window.IsActive(busydialog)]">Conditional</animation>
+			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu) + !Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 			<left>1090</left>
 			<top>32</top>
 			<control type="image">
