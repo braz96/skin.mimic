@@ -26,7 +26,7 @@
 			</control>
 		</control>
 		<control type="image">
-			<visible>[!Window.IsActive(home) | [Window.IsActive(home) + Skin.HasSetting(Enable.HomeFanartOverlay)]] + ![Window.IsVisible(script-globalsearch-main.xml)]</visible>
+			<visible>!Window.IsActive(home) + !Window.IsVisible(script-globalsearch-main.xml) | [Window.IsActive(home) + Skin.HasSetting(Enable.HomeFanartOverlay) + !StringCompare(Skin.String(HomeLayout),3)]</visible>
 			<visible>![Control.IsVisible(59) | Control.IsVisible(511) | [Control.IsVisible(501) + !Window.IsActive(addoninformation)]]</visible>
 			<include>FullscreenDimensions</include>
 			<texture>background.png</texture>

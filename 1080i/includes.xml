@@ -582,7 +582,7 @@
 		<control type="group">
 			<visible>!Control.IsVisible(509)</visible>
 			<control type="image">
-				<visible>Control.IsVisible(59) | Control.IsVisible(501) | Control.IsVisible(511) | [Window.IsActive(home) + Skin.HasSetting(Enable.HomeTopbar) + !Skin.HasSetting(Enable.HomeFanartOverlay)]</visible>
+				<visible>Control.IsVisible(59) | Control.IsVisible(501) | Control.IsVisible(511) | [Window.IsActive(home) + Skin.HasSetting(Enable.HomeTopbar) + [!Skin.HasSetting(Enable.HomeFanartOverlay) | StringCompare(Skin.String(HomeLayout),3)]]</visible>
 				<width>FullScreenWidth</width>
 				<height>120</height>
 				<texture>background.png</texture>

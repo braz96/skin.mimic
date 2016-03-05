@@ -14,9 +14,10 @@
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
 			<!-- Main Menu (Includes_Home.xml) -->
 			<control type="image">
-				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="[Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+				<visible>!Skin.HasSetting(Enable.HomeFanartOverlay)</visible>
+				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
+				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
+				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
 				<width>FullScreenWidth</width>
 				<height>700</height>
 				<texture background="true">background.png</texture>
@@ -102,6 +103,7 @@
 			<!-- Main Menu (Includes_Home.xml) -->
 			<control type="group">
 				<control type="image">
+					<visible>!Skin.HasSetting(Enable.HomeFanartOverlay)</visible>
 					<top>0</top>
 					<width>FullScreenWidth</width>
 					<height>120</height>
@@ -170,7 +172,7 @@
 			<control type="group">
 				<animation effect="slide" time="0" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 				<control type="group">
-					<animation effect="slide" time="300" start="0" end="1486" tween="sine" easing="inout" reversible="false" condition="[Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+					<animation effect="slide" time="300" start="0" end="1486" tween="sine" easing="inout" reversible="false" condition="[Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] | Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 					<animation effect="slide" time="150" delay="200" start="1486" end="0" tween="sine" easing="inout" reversible="false" condition="![Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 					<animation effect="slide" time="150" delay="200" start="0" end="-1486" tween="sine" easing="inout" condition="Control.HasFocus(9010) + Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
 					<animation effect="slide" time="0" delay="0" start="0" end="1486" tween="sine" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
