@@ -682,4 +682,8 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31132])">$LOCALIZE[20389]: $INFO[Window(Home).Property(PlaylistCount)]  •  $LOCALIZE[16102]: $INFO[Window(Home).Property(PlaylistWatched)]  •  $LOCALIZE[16101]: $INFO[Window(Home).Property(PlaylistUnWatched)]  •  $LOCALIZE[575]: $INFO[Window(Home).Property(PlaylistInProgress)]</value>
 		<value>$INFO[Container(9000).ListItem.Label]</value>
 	</variable>
+	<variable name="WidgetNameLabelVar">
+		<value condition="!StringCompare(Container(9000).ListItem.Property(widgetName),weather)">$INFO[Container(9000).ListItem.Property(widgetName)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetName),weather) + !Weather.IsFetched">$LOCALIZE[31909]</value>
+	</variable>
 </includes>
