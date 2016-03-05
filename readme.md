@@ -40,6 +40,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added a header for the home screen.
 - Redesigned widgets on the vertical layout.
 - Added an option to separate the main menu and submenu on the vertical layout.
+- Added an option for panel style widgets.
 
 ***
 **3.3.1**

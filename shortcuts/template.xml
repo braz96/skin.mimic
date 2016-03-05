@@ -24,7 +24,19 @@
 			</control>                
         </controls>
     </other>
-    <other include="widget-panel">
+    <other include="widget-defaultpanel">
+        <property name="content" tag="property" attribute="name|widgetPath" />
+        <property name="target" tag="property" attribute="name|widgetTarget" />
+
+        <controls>
+            <control type="panel" id="8000">
+                <skinshortcuts>visibility</skinshortcuts>
+                <include>WidgetDefaultPanelContent</include>
+                <content limit="25" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
+            </control>                
+        </controls>
+    </other>
+    <other include="widget-verticalpanel">
         <property name="content" tag="property" attribute="name|widgetPath" />
         <property name="target" tag="property" attribute="name|widgetTarget" />
 
