@@ -37,6 +37,9 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Replaced Thai font with Sawasdee.
 - Added a new dialog for supported addons.
 - Added a select dialog for actor info (credit to BigNoid).
+- Added a header for the home screen.
+- Redesigned widgets on the vertical layout.
+- Added an option to separate the main menu and submenu on the vertical layout.
 
 ***
 **3.3.1**
