@@ -46,6 +46,20 @@
 						<label>$INFO[Container(9000).ListItem.Property(widgetName)]</label>
 						<visible>!Container(8000).IsUpdating + !Container(9000).OnNext + !Container(9000).OnPrevious + !StringCompare(Container(9000).ListItem.Property(widgetName),weather)</visible>
 					</control>
+					<control type="label">
+						<animation effect="fade" time="300" tween="cubic" condition="[Control.IsVisible(8000) + Skin.HasSetting(Enable.PersistentWidgets)] | [Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)]" start="0" end="100">Visible</animation>
+						<animation effect="fade" time="0" condition="[Control.IsVisible(8000) + Skin.HasSetting(Enable.PersistentWidgets)] | [Control.HasFocus(8000) + !Skin.HasSetting(Enable.PersistentWidgets)]" start="100" end="0">Hidden</animation>
+						<animation effect="slide" time="200" tween="sine" easing="inout" end="0,700" start="0">WindowClose</animation>
+						<left>950</left>
+						<top>524</top>
+						<width>920</width>
+						<height>40</height>
+						<font>font15_title</font>
+						<align>right</align>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>$LOCALIZE[31909]</label>
+						<visible>!Container(8000).IsUpdating + !Container(9000).OnNext + !Container(9000).OnPrevious + StringCompare(Container(9000).ListItem.Property(widgetName),weather) + !Weather.IsFetched</visible>
+					</control>
 					<control type="image">
 						<visible>Container(8000).IsUpdating</visible>
 		                <description>Busy animation</description>
