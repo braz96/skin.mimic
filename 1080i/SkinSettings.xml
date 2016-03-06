@@ -67,6 +67,11 @@
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
+					<item id="2">
+						<label>31311</label>
+						<onclick>noop</onclick>
+						<icon>-</icon>
+					</item>
 					<item id="3">
 						<label>33069</label>
 						<onclick>noop</onclick>
@@ -97,11 +102,6 @@
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<!--<item id="10">
-						<label>10511</label>
-						<onclick>noop</onclick>
-						<icon>-</icon>
-					</item>-->
 				</content>
 			</control>
 			<control type="textbox">
@@ -194,6 +194,16 @@
 						<label>31911</label>
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
 					</control>
+					<control type="radiobutton" id="109">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31112</label>
+						<onclick>Skin.ToggleSetting(Disable.SubmenuSlide)</onclick>
+						<selected>Skin.HasSetting(Disable.SubmenuSlide)</selected>
+						<enable>!StringCompare(Skin.String(HomeLayout),3)</enable>
+					</control>
 					<control type="radiobutton" id="102">
 						<width>1316</width>
 						<height>90</height>
@@ -232,7 +242,30 @@
 						<onclick>Skin.ToggleSetting(Enable.WeatherInMenu)</onclick>
 						<selected>Skin.HasSetting(Enable.WeatherInMenu)</selected>
 					</control>
-					<control type="button" id="115">
+					<control type="radiobutton" id="106">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31101</label>
+						<onclick>Skin.ToggleSetting(Enable.HomeFanartOverlay)</onclick>
+						<selected>Skin.HasSetting(Enable.HomeFanartOverlay)</selected>
+					</control>
+				</control>
+				<control type="grouplist" id="9007">
+					<description>Widgets control area</description>
+					<left>522</left>
+					<top>0</top>
+					<width>1316</width>
+					<height>720</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9001</onup>
+					<ondown>9001</ondown>
+					<visible>Container(9000).HasFocus(2)</visible>
+					<control type="button" id="700">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
@@ -241,7 +274,7 @@
 						<label2>$VAR[WidgetStyleVar]</label2>
 						<onclick>Skin.ToggleSetting(WidgetStyle)</onclick>
 					</control>
-					<control type="button" id="110">
+					<control type="button" id="701">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
@@ -251,7 +284,7 @@
 						<onclick>Skin.ToggleSetting(HorizontalListNav)</onclick>
 						<enable>!Skin.HasSetting(WidgetStyle)</enable>
 					</control>
-					<control type="radiobutton" id="105">
+					<control type="radiobutton" id="702">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
@@ -260,7 +293,7 @@
 						<onclick>Skin.ToggleSetting(Enable.PersistentWidgets)</onclick>
 						<selected>Skin.HasSetting(Enable.PersistentWidgets)</selected>
 					</control>
-					<control type="radiobutton" id="107">
+					<control type="radiobutton" id="703">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
@@ -270,24 +303,14 @@
 						<onclick>Skin.ToggleSetting(Disable.WidgetAutoScroll)</onclick>
 						<selected>Skin.HasSetting(Disable.WidgetAutoScroll)</selected>
 					</control>
-					<control type="radiobutton" id="109">
+					<control type="radiobutton" id="704">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>31112</label>
-						<onclick>Skin.ToggleSetting(Disable.SubmenuSlide)</onclick>
-						<selected>Skin.HasSetting(Disable.SubmenuSlide)</selected>
-						<enable>!StringCompare(Skin.String(HomeLayout),3)</enable>
-					</control>
-					<control type="radiobutton" id="106">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31101</label>
-						<onclick>Skin.ToggleSetting(Enable.HomeFanartOverlay)</onclick>
-						<selected>Skin.HasSetting(Enable.HomeFanartOverlay)</selected>
+						<label>31236</label>
+						<onclick>Skin.ToggleSetting(Enable.WidgetLimit)</onclick>
+						<selected>Skin.HasSetting(Enable.WidgetLimit)</selected>
 					</control>
 				</control>
 				<control type="grouplist" id="9006">
