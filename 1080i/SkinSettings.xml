@@ -428,6 +428,34 @@
 						<label>31943</label>
 						<onclick>ActivateWindow(1127)</onclick>
 					</control>
+					<control type="button" id="204">
+						<description>Busy Loader Image</description>
+                        <width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+                        <label>31130</label>
+                        <label2>$INFO[Skin.String(busyloader)]</label2>
+                        <onclick>Skin.SetImage(busyloader,special://skin/extras/spinners)</onclick>
+                    </control>
+                    <control type="button" id="205">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>$LOCALIZE[31110]</label>
+						<label2>$INFO[Skin.String(MusicLibraryPath)]</label2>
+						<onclick>Skin.SetPath(MusicLibraryPath)</onclick>
+					</control>
+					<control type="button" id="206">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>- $LOCALIZE[10035]</label>
+						<onclick>Skin.Reset(MusicLibraryPath)</onclick>
+						<visible>!IsEmpty(Skin.String(MusicLibraryPath))</visible>
+					</control>
 				</control>
 				<control type="grouplist" id="9005">
 					<description>Colors control area</description>
@@ -584,16 +612,6 @@
 						<onclick>Skin.SetFile(Startup_Playlist_Path,,special://MusicPlaylists/)</onclick>
 						<enable>Skin.HasSetting(Use_Startup_Playlist)</enable>
 					</control>
-					<control type="button" id="308">
-						<description>Busy Loader Image</description>
-                        <width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-                        <label>31130</label>
-                        <label2>$INFO[Skin.String(busyloader)]</label2>
-                        <onclick>Skin.SetImage(busyloader,special://skin/extras/spinners)</onclick>
-                    </control>
 					<control type="radiobutton" id="305">
 						<width>1316</width>
 						<height>90</height>
@@ -630,24 +648,6 @@
 						<label>31120</label>
 						<onclick>RunScript(script.toolbox,info=extrafanarttvshow)</onclick>
 						<enable>System.HasAddon(script.toolbox)</enable>
-					</control>
-					<control type="button" id="310">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>$LOCALIZE[31110]</label>
-						<label2>$INFO[Skin.String(MusicLibraryPath)]</label2>
-						<onclick>Skin.SetPath(MusicLibraryPath)</onclick>
-					</control>
-					<control type="button" id="311">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>- $LOCALIZE[10035]</label>
-						<onclick>Skin.Reset(MusicLibraryPath)</onclick>
-						<visible>!IsEmpty(Skin.String(MusicLibraryPath))</visible>
 					</control>
 				</control>
 				<control type="grouplist" id="9004">
