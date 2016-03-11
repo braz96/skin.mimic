@@ -340,7 +340,7 @@
 	<include name="NowPlayingVideoWidget">
 		<!-- Video Info -->
 		<control type="group">
-			<visible>Player.HasVideo + [!Skin.HasSetting(Enable.HomeTopbar) | !Skin.HasSetting(Disable.Videoinfo)]</visible>
+			<visible>Player.HasVideo + !Skin.HasSetting(Enable.HomeTopbar) + !Skin.HasSetting(Disable.Videoinfo)</visible>
 			<include>dialogeffect</include>
 			<animation effect="slide" time="0" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2) | Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="Window.IsActive(extendedprogressdialog) | Window.IsActive(busydialog)">Conditional</animation>
@@ -416,7 +416,7 @@
 	<include name="NowPlayingMusicWidget">
 		<!-- Music Info -->
 		<control type="group">
-			<visible>Player.HasAudio + [!Skin.HasSetting(Enable.HomeTopbar) | !Skin.HasSetting(Disable.Musicinfo)]</visible>
+			<visible>Player.HasAudio + !Skin.HasSetting(Enable.HomeTopbar) + !Skin.HasSetting(Disable.Musicinfo)</visible>
 			<include>dialogeffect</include>
 			<animation effect="slide" time="0" start="0,0" end="0,120" condition="StringCompare(Skin.String(HomeLayout),2) | Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,140" condition="[Window.IsActive(extendedprogressdialog) | Window.IsActive(busydialog)]">Conditional</animation>

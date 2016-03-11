@@ -632,10 +632,10 @@
 	                    <aspectratio>keep</aspectratio>
 	                    <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
 	                </control>
-					<control type="label">
+					<control type="button">
 						<left>102</left>
 						<top>17</top>
-						<width>900</width>
+						<width>1715</width>
 						<height>45</height>
 						<font>font28_title</font>
 						<textoffsetx>15</textoffsetx>
@@ -643,11 +643,13 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$VAR[BreadcrumbsVar]</label>
+						<label2>$VAR[TopbarFadeLabel1]</label2>
+						<onclick>noop</onclick>
 					</control>
-					<control type="label">
+					<control type="button">
 						<left>102</left>
 						<top>59</top>
-						<width>900</width>
+						<width>1715</width>
 						<height>45</height>
 						<font>topbar</font>
 						<textoffsetx>15</textoffsetx>
@@ -655,16 +657,26 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$VAR[HeaderSubLabel]</label>
+						<label2>$VAR[TopbarFadeLabel2]</label2>
+						<onclick>noop</onclick>
 					</control>
 				</control>
 			</control>
+			<control type="image">
+				<description>avatar</description>
+				<left>1821</left>
+				<top>19</top>
+				<width>80</width>
+				<height>80</height>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<texture>$VAR[HomeNowPlayingThumbVar]</texture>
+			</control>
 		</control>
-		<control type="group">
+		<!--<control type="group">
 			<visible>!Control.IsVisible(509)</visible>
 			<left>1100</left>
 			<top>0</top>
 			<control type="group">
-				<visible>![Window.IsActive(home) + [!Skin.HasSetting(Disable.Musicinfo) | !Skin.HasSetting(Disable.Videoinfo)]]</visible>
 				<control type="image">
 					<description>avatar</description>
 					<left>721</left>
@@ -673,111 +685,9 @@
 					<height>80</height>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
-					<visible>VideoPlayer.Content(livetv)</visible>
-				</control>
-				<control type="image">
-					<description>avatar</description>
-					<left>749</left>
-					<top>19</top>
-					<width>54</width>
-					<height>80</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
-					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
-				</control>
-				<control type="image">
-					<description>avatar</description>
-					<left>659</left>
-					<top>19</top>
-					<width>142</width>
-					<height>80</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
-					<visible>Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</visible>
-				</control>
-				<control type="image">
-					<description>avatar</description>
-					<left>721</left>
-					<top>19</top>
-					<width>80</width>
-					<height>80</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture fallback="DefaultAlbumCover.png">$INFO[Player.Art(thumb)]</texture>
-					<visible>Player.HasAudio | VideoPlayer.Content(musicvideos)</visible>
-				</control>
-				<control type="group">
-					<animation effect="slide" time="0" start="0" end="25" condition="VideoPlayer.Content(episodes) | VideoPlayer.Content(movies)">Conditional</animation>
-					<animation effect="slide" time="0" start="0" end="-65" condition="Player.HasVideo + ![VideoPlayer.Content(episodes) | VideoPlayer.Content(movies)]">Conditional</animation>
-					<animation effect="slide" time="0" start="0" end="65" condition="VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)">Conditional</animation>
-					<control type="fadelabel">
-						<description>Line 1 Label</description>
-						<left>4</left>
-						<top>17</top>
-						<width>700</width>
-						<height>45</height>
-						<font>font28_title</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<align>right</align>
-						<aligny>center</aligny>
-						<scrollout>false</scrollout>
-						<pauseatend>2000</pauseatend>
-						<label>$VAR[TopbarFadeLabel1]</label>
-						<visible>Player.HasAudio | Player.HasVideo</visible>
-					</control>
-					<control type="fadelabel">
-						<description>Line 2 Label</description>
-						<left>4</left>
-						<top>59</top>
-						<width>700</width>
-						<height>45</height>
-						<font>topbar</font>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<align>right</align>
-						<aligny>center</aligny>
-						<scrollout>false</scrollout>
-						<pauseatend>2000</pauseatend>
-						<label>$VAR[TopbarFadeLabel2]</label>
-						<visible>Player.HasAudio | Player.HasVideo</visible>
-					</control>
 				</control>
 			</control>
-			<control type="group">
-				<visible>![Player.Playing | Player.HasAudio | Player.HasVideo] | [Window.IsActive(home) + [!Skin.HasSetting(Disable.Musicinfo) | !Skin.HasSetting(Disable.Videoinfo)]]</visible>
-				<control type="grouplist">
-					<top>17</top>
-					<left>199</left>
-					<width>600</width>
-					<height>45</height>
-					<align>right</align>
-					<orientation>Horizontal</orientation>
-					<control type="label" id="1701">
-						<width>auto</width>
-						<height>45</height>
-						<label>$INFO[Weather.Temperature,, • ]</label>
-						<font>font28_title</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin) + !substring(Weather.Temperature,$LOCALIZE[503])</visible>
-					</control>
-					<control type="label" id="1702">
-						<width>auto</width>
-						<height>45</height>
-						<label>$INFO[System.Time]</label>
-						<font>font28_title</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
-					</control>
-				</control>
-				<control type="label">
-					<left>199</left>
-					<top>59</top>
-					<width>600</width>
-					<height>45</height>
-					<align>right</align>
-					<label>$INFO[System.Date]</label>
-					<font>topbar</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-			</control>
-		</control>
+		</control>-->
 	</include>
 	<include name="DialogBackgroundCommons">
 		<control type="image">
