@@ -10,7 +10,7 @@
 				<top>-40</top>
 				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(programs) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)">Conditional</animation>
 				<control type="group">
-	                <visible>IntegerGreaterThan(Container(50).NumItems,0) + !Skin.HasSetting(Enable.SlimList)</visible>
+	                <visible>IntegerGreaterThan(Container(50).NumItems,0) + !Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)</visible>
 	                <control type="image">
 	                    <left>0</left>
 	                    <top>195</top>
@@ -29,7 +29,26 @@
 	                </control>
 	            </control>
 	            <control type="group">
-	                <visible>IntegerGreaterThan(Container(50).NumItems,0) + Skin.HasSetting(Enable.SlimList)</visible>
+	                <visible>IntegerGreaterThan(Container(50).NumItems,0) + !Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)</visible>
+	                <control type="image">
+	                    <left>0</left>
+	                    <top>195</top>
+	                    <width>1740</width>
+	                    <height>120</height>
+	                    <visible>Control.HasFocus(50)</visible>
+	                    <animation effect="fade" time="320" delay="200">Visible</animation>
+	                    <animation effect="fade" time="50">Hidden</animation>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,5)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,4)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,3)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,2)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,1)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,0)">Conditional</animation>
+	                </control>
+	            </control>
+	            <control type="group">
+	                <visible>IntegerGreaterThan(Container(50).NumItems,0) + Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)</visible>
 	                <control type="image">
 	                    <left>0</left>
 	                    <top>195</top>
@@ -54,10 +73,36 @@
 	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,0)">Conditional</animation>
 	                </control>
 	            </control>
+	            <control type="group">
+	                <visible>IntegerGreaterThan(Container(50).NumItems,0) + Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)</visible>
+	                <control type="image">
+	                    <left>0</left>
+	                    <top>195</top>
+	                    <width>1740</width>
+	                    <height>60</height>
+	                    <visible>Control.HasFocus(50)</visible>
+	                    <animation effect="fade" time="320" delay="200">Visible</animation>
+	                    <animation effect="fade" time="50">Hidden</animation>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,12)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,11)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,10)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,9)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,8)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,7)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,6)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,5)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,4)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,3)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,2)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,1)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,0)">Conditional</animation>
+	                </control>
+	            </control>
 				<control type="panel" id="50">
 					<left>0</left>
 					<top>195</top>
-					<width>1150</width>
+					<width>1740</width>
 					<height>840</height>
 					<onleft>SetProperty(MediaMenu,True,home)</onleft>
 					<onleft>SetFocus(9050)</onleft>
@@ -68,7 +113,7 @@
 					<pagecontrol>60</pagecontrol>
 					<preloaditems>2</preloaditems>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.SlimList)">
+					<itemlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
 						<control type="image">
 							<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
 							<left>10</left>
@@ -176,7 +221,7 @@
 							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.SlimList)">
+					<focusedlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
 						<control type="image">
 							<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
 							<left>10</left>
@@ -284,7 +329,223 @@
 							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList)">
+					<itemlayout height="120" width="1740" condition="!Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
+						<control type="image">
+							<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<font>font35_title</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Top250]</label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying</visible>
+							<left>135</left>
+							<top>5</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label></label>
+						</control>
+						<control type="label">
+							<left>135</left>
+							<top>3</top>
+							<width>1380</width>
+							<height>70</height>
+							<font>font30</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListMainLabelVar]</label>
+							<visible>!ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>170</left>
+							<top>3</top>
+							<width>1345</width>
+							<height>70</height>
+							<font>font30</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListMainLabelVar]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>135</left>
+							<top>52</top>
+							<width>1380</width>
+							<height>60</height>
+							<font>font13</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListSubLabelVar]</label>
+						</control>
+						<control type="label">
+							<left>60</left>
+							<width>1650</width>
+							<height>116</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<visible>Container.Content(addons) | Container.Content(songs)</visible>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<width>1640</width>
+							<height>116</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Rating]</label>
+							<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+						</control>
+						<control type="image">
+							<left>1666</left>
+							<top>28</top>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+							<visible>!IsEmpty(ListItem.Overlay)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="120" width="1740" condition="!Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
+						<control type="image">
+							<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<font>font35_title</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Top250]</label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying</visible>
+							<left>135</left>
+							<top>5</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label></label>
+						</control>
+						<control type="label">
+							<top>3</top>
+							<left>135</left>
+							<width>1380</width>
+							<height>70</height>
+							<font>font30</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListMainLabelVar]</label>
+							<visible>!ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<top>3</top>
+							<left>170</left>
+							<width>1345</width>
+							<height>70</height>
+							<font>font30</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListMainLabelVar]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>135</left>
+							<top>52</top>
+							<width>1380</width>
+							<height>60</height>
+							<font>font13</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$VAR[ListSubLabelVar]</label>
+						</control>
+						<control type="label">
+							<left>60</left>
+							<width>1650</width>
+							<height>116</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<visible>Container.Content(addons) | Container.Content(songs)</visible>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<width>1640</width>
+							<height>116</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Rating]</label>
+							<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+						</control>
+						<control type="image">
+							<left>1666</left>
+							<top>28</top>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+							<visible>!IsEmpty(ListItem.Overlay)</visible>
+						</control>
+					</focusedlayout>
+					<itemlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
 						<control type="label">
 							<visible>ListItem.IsPlaying</visible>
 							<left>20</left>
@@ -356,7 +617,7 @@
 							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList)">
+					<focusedlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
 						<control type="label">
 							<visible>ListItem.IsPlaying</visible>
 							<left>20</left>
@@ -428,125 +689,272 @@
 							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</focusedlayout>
+					<itemlayout height="60" width="1740" condition="Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
+						<control type="label">
+							<visible>ListItem.IsPlaying</visible>
+							<left>20</left>
+							<top>0</top>
+							<width>35</width>
+							<height>60</height>
+							<font>IconTiny</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label></label>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>1485</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>55</left>
+							<width>1450</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>60</left>
+							<width>1650</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<visible>Container.Content(addons) | Container.Content(songs)</visible>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<width>1640</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Rating]</label>
+							<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+						</control>
+						<control type="image">
+							<left>1671</left>
+							<top>0</top>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+							<visible>!IsEmpty(ListItem.Overlay)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60" width="1740" condition="Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
+						<control type="label">
+							<visible>ListItem.IsPlaying</visible>
+							<left>20</left>
+							<top>1</top>
+							<width>35</width>
+							<height>60</height>
+							<font>IconTiny</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label></label>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>1485</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>55</left>
+							<width>1850</width>
+							<height>60</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>60</left>
+							<width>1650</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+							<visible>Container.Content(addons) | Container.Content(songs)</visible>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<width>1640</width>
+							<height>60</height>
+							<font>font15</font>
+							<align>right</align>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Rating]</label>
+							<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+						</control>
+						<control type="image">
+							<left>1671</left>
+							<top>0</top>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+							<visible>!IsEmpty(ListItem.Overlay)</visible>
+						</control>
+					</focusedlayout>
 				</control>
 			</control>
 			<control type="group">
-				<left>1276</left>
-				<top>155</top>
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !substring(Container.FolderPath,plugin.video)</visible>
-				<include>VisibleFadeEffect</include>
-				<control type="image">
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$VAR[PosterThumb]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
+				<visible>!Skin.HasSetting(Enable.WideList)</visible>
+				<control type="group">
+					<left>1276</left>
+					<top>155</top>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !substring(Container.FolderPath,plugin.video) + !Skin.HasSetting(Enable.WideList)</visible>
+					<include>VisibleFadeEffect</include>
+					<control type="image">
+						<width>560</width>
+						<height>840</height>
+						<aspectratio align="center" aligny="center">scale</aspectratio>
+						<texture background="true">$VAR[PosterThumb]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>
 				</control>
-			</control>
-			<control type="grouplist">
-				<left>1276</left>
-				<top>155</top>
-				<itemgap>15</itemgap>
-				<visible>Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)</visible>
-				<animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsActive(programs) | Window.IsActive(addonbrowser)">Conditional</animation>
-				<control type="image">
-					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
-					<width>560</width>
-					<height>560</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
+				<control type="grouplist">
+					<left>1276</left>
+					<top>155</top>
+					<itemgap>15</itemgap>
+					<visible>Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)</visible>
+					<animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsActive(programs) | Window.IsActive(addonbrowser)">Conditional</animation>
+					<control type="image">
+						<visible>!IsEmpty(ListItem.Art(thumb))</visible>
+						<width>560</width>
+						<height>560</height>
+						<aspectratio align="center" aligny="center">scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>
+					<control type="label">
+						<visible>Container.Content(songs)</visible>
+						<width>560</width>
+						<height>30</height>
+						<font>font14</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>$INFO[ListItem.Album]</label>
+					</control>
+					<control type="label">
+						<visible>Container.Content(songs)</visible>
+						<width>560</width>
+						<height>30</height>
+						<font>font14</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>$INFO[ListItem.Year]</label>
+					</control>
+					<control type="textbox">
+						<visible>Container.Content(musicvideos)</visible>
+						<description>Description</description>
+						<width>560</width>
+						<height>220</height>
+						<font>font14_textbox4</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					</control>
+					<control type="textbox">
+						<visible>Container.Content(artists) | Container.Content(albums)</visible>
+						<label>$VAR[MusicPlotVar]</label>
+						<width>560</width>
+						<height>275</height>
+						<font>font14_textbox5</font>
+						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+						<include>ShowCaseInfoPanelButtonsValues</include>
+					</control>
+					<control type="textbox">
+						<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
+						<description>Description</description>
+						<width>560</width>
+						<height>275</height>
+						<font>font14_textbox5</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>$INFO[ListItem.Property(Addon.Description)]</label>
+						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					</control>
 				</control>
-				<control type="label">
-					<visible>Container.Content(songs)</visible>
-					<width>560</width>
-					<height>30</height>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Album]</label>
+				<control type="group">
+					<left>1276</left>
+					<top>155</top>
+					<visible>[Window.IsActive(pictures) | Container.Content(files) | Container.Content(actors) | [substring(Container.FolderPath,plugin.video) + !Container.Content(episodes)] | Window.IsActive(videoplaylist) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)] + !IsEmpty(ListItem.Art(thumb))</visible>
+					<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)">Conditional</animation>
+					<include>VisibleFadeEffect</include>
+					<control type="image">
+						<width>560</width>
+						<height>840</height>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>
 				</control>
-				<control type="label">
-					<visible>Container.Content(songs)</visible>
-					<width>560</width>
-					<height>30</height>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Year]</label>
-				</control>
-				<control type="textbox">
-					<visible>Container.Content(musicvideos)</visible>
-					<description>Description</description>
-					<width>560</width>
-					<height>220</height>
-					<font>font14_textbox4</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Plot]</label>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				</control>
-				<control type="textbox">
-					<visible>Container.Content(artists) | Container.Content(albums)</visible>
-					<label>$VAR[MusicPlotVar]</label>
-					<width>560</width>
-					<height>275</height>
-					<font>font14_textbox5</font>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<include>ShowCaseInfoPanelButtonsValues</include>
-				</control>
-				<control type="textbox">
-					<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
-					<description>Description</description>
-					<width>560</width>
-					<height>275</height>
-					<font>font14_textbox5</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Property(Addon.Description)]</label>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				</control>
-			</control>
-			<control type="group">
-				<left>1276</left>
-				<top>155</top>
-				<visible>[Window.IsActive(pictures) | Container.Content(files) | Container.Content(actors) | [substring(Container.FolderPath,plugin.video) + !Container.Content(episodes)] | Window.IsActive(videoplaylist) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)] + !IsEmpty(ListItem.Art(thumb))</visible>
-				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)">Conditional</animation>
-				<include>VisibleFadeEffect</include>
-				<control type="image">
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-			</control>
-			<control type="group">
-				<left>1276</left>
-				<top>155</top>
-				<visible>Container.Content(episodes)</visible>
-				<include>VisibleFadeEffect</include>
-				<control type="image">
-					<width>560</width>
-					<height>342</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-					<visible>!IsEmpty(ListItem.Plot)</visible>
-				</control>
-				<control type="image">
-					<width>560</width>
-					<height>840</height>
-					<aspectratio align="center" aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-					<visible>IsEmpty(ListItem.Plot)</visible>
-				</control>
-				<control type="textbox" id="70">
-					<label>$VAR[VideoPlotVar]</label>
-					<top>360</top>
-					<width>540</width>
-					<height>458</height>
-					<font>font15_textbox</font>
-					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<include>ShowCaseInfoPanelButtonsValues</include>
-					<visible>!IsEmpty(ListItem.Plot)</visible>
+				<control type="group">
+					<left>1276</left>
+					<top>155</top>
+					<visible>Container.Content(episodes)</visible>
+					<include>VisibleFadeEffect</include>
+					<control type="image">
+						<width>560</width>
+						<height>342</height>
+						<aspectratio align="center" aligny="center">scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<visible>!IsEmpty(ListItem.Plot)</visible>
+					</control>
+					<control type="image">
+						<width>560</width>
+						<height>840</height>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+						<visible>IsEmpty(ListItem.Plot)</visible>
+					</control>
+					<control type="textbox" id="70">
+						<label>$VAR[VideoPlotVar]</label>
+						<top>360</top>
+						<width>540</width>
+						<height>458</height>
+						<font>font15_textbox</font>
+						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+						<include>ShowCaseInfoPanelButtonsValues</include>
+						<visible>!IsEmpty(ListItem.Plot)</visible>
+					</control>
 				</control>
 			</control>
 		</control>
