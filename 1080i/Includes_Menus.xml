@@ -206,16 +206,15 @@
 			</include>
 		</control>
 		<control type="group" id="9001">
-			<animation type="Conditional" condition="[!Control.HasFocus(9000) + !Control.HasFocus(8000)] | Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">
+			<animation type="Conditional" condition="!Control.HasFocus(9000) + !Control.HasFocus(8000)" reversible="false">
                 <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
             </animation>
             <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010) + [!Skin.HasSetting(Disable.SubmenuSlide) | system.getbool(lookandfeel.enablerssfeeds)]" reversible="false">Conditional</animation>
-            <animation effect="slide" time="0" start="0,0" end="0,95" condition="Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
 			<control type="panel" id="9010">
-				<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Disable.SubmenuSlide) + Skin.HasSetting(Enable.WeatherInMenu) + !Skin.HasSetting(Enable.HomeTopbar)" name="SubMenuListVertical">
+				<include condition="[!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)] | Skin.HasSetting(Enable.HomeTopbar)" name="SubMenuListVertical">
 					<param name="SubMenuContainerHeight" value="960" />
 				</include>
-				<include condition="Skin.HasSetting(Disable.WeatherClockDate) | Skin.HasSetting(Disable.SubmenuSlide) | !Skin.HasSetting(Enable.WeatherInMenu) | Skin.HasSetting(Enable.HomeTopbar)" name="SubMenuListVertical">
+				<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)] + !Skin.HasSetting(Enable.HomeTopbar)" name="SubMenuListVertical">
 					<param name="SubMenuContainerHeight" value="1080" />
 				</include>
 			</control>
