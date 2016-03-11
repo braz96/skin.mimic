@@ -493,10 +493,10 @@
 		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),0)">1.0</value>
 	</variable>
 	<variable name="HomeNowPlayingThumbVar">
+		<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !IsEmpty(Window(weather).Property(Current.FanartCode))">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</value>
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)] + !IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 		<value condition="VideoPlayer.Content(episodes) + !IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 		<value condition="VideoPlayer.Content(livetv) + !IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
-		<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + !IsEmpty(Window(weather).Property(Current.FanartCode))">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</value>
 		<value condition="Player.Playing | Player.HasVideo | Player.HasAudio">$INFO[Player.Art(thumb)]</value>
 		<value>DefaultAddonNone.png</value>
 	</variable>
@@ -655,17 +655,17 @@
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="TopbarFadeLabel1">
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)">$INFO[Weather.Temperature,, • ]$INFO[System.Time]</value>
     	<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,X,. ]$INFO[Player.Title]</value>
-    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo]">$INFO[Weather.Temperature,, • ]$INFO[System.Time]</value>
     	<value>$INFO[Player.Title]</value>
     </variable>
     <variable name="TopbarFadeLabel2">
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)">$INFO[System.Date]</value>
     	<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</value>
     	<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Premiered,, • ]$INFO[VideoPlayer.TvShowTitle]</value>
     	<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ]</value>
     	<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]</value>
     	<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]</value>
-    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo]">$INFO[System.Date]</value>
     	<value>$INFO[Player.Time] / $INFO[Player.Duration]</value>
     </variable>
     <variable name="AddonDisclaimer">
