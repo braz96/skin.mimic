@@ -541,30 +541,12 @@
 				</focusedlayout>
 			</control>
 			<control type="group">
-				<visible>Container.Content(sets)</visible>
-				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
-				<control type="button">
-					<top>890</top>
-					<left>90</left>
-					<width>1740</width>
-					<height>90</height>
-					<font>font16_title</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<!--<label2>[B]$INFO[ListItem.Label2][/B]</label2>-->
-					<textoffsetx>30</textoffsetx>
-					<texturenofocus>-</texturenofocus>
-					<enable>no</enable>
-					<disabledcolor>$VAR[ColorTextVar]</disabledcolor>
-				</control>
-			</control>
-			<control type="group">
 				<animation effect="slide" time="0" start="0" end="20" condition="[Skin.HasSetting(Enable.IconLandscape) | Skin.HasSetting(Enable.IconLogo)] + !Container.Content(seasons)">Conditional</animation>
 				<animation effect="slide" time="0" start="0" end="-60" condition="Skin.HasSetting(Enable.IconBanner) + !Container.Content(episodes)">Conditional</animation>
 				<animation effect="slide" time="0" start="0" end="-48" condition="Container.Content(musicvideos)">Conditional</animation>
 				<left>90</left>
 				<top>900</top>
-				<visible>![Container.Content(sets) | StringCompare(Container.SortMethod,$LOCALIZE[13409])]</visible>
+				<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="label">
 					<width>1740</width>
@@ -577,6 +559,7 @@
 					<textoffsetx>30</textoffsetx>
 				</control>
 				<control type="label">
+					<visible>!Container.Content(sets)</visible>
 					<left>0</left>
 					<top>45</top>
 					<width>1740</width>
