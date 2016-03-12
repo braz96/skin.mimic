@@ -58,9 +58,6 @@
 			<include condition="Skin.HasSetting(Enable.CenteredMenu)">MainMenuListCentered</include>
 		</control>
 		<control type="group" id="9001">
-			<animation type="Conditional" condition="[!Control.HasFocus(9000) + !Control.HasFocus(8000)] | Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">
-                <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
-            </animation>
             <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010) + [!Skin.HasSetting(Disable.SubmenuSlide) | system.getbool(lookandfeel.enablerssfeeds)]" reversible="false">Conditional</animation>
             <animation effect="slide" time="0" start="0,0" end="0,95" condition="Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
 			<control type="panel" id="9010">
@@ -122,9 +119,6 @@
 			<include>MainMenuListContentCentered</include>
 		</control>
 		<control type="group" id="9001">
-			<animation type="Conditional" condition="[!Control.HasFocus(9000) + !Control.HasFocus(8000)] | Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">
-                <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
-            </animation>
             <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010) + [!Skin.HasSetting(Disable.SubmenuSlide) | system.getbool(lookandfeel.enablerssfeeds)]" reversible="false">Conditional</animation>
             <animation effect="slide" time="0" start="0,0" end="0,95" condition="Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
 			<control type="fixedlist" id="9010">
@@ -206,9 +200,6 @@
 			</include>
 		</control>
 		<control type="group" id="9001">
-			<animation type="Conditional" condition="!Control.HasFocus(9000) + !Control.HasFocus(8000)" reversible="false">
-                <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
-            </animation>
             <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010) + [!Skin.HasSetting(Disable.SubmenuSlide) | system.getbool(lookandfeel.enablerssfeeds)]" reversible="false">Conditional</animation>
 			<control type="panel" id="9010">
 				<include condition="[!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)] | Skin.HasSetting(Enable.HomeTopbar)" name="SubMenuListVertical">
@@ -231,7 +222,7 @@
 		<top>0</top>
 		<width>$PARAM[MainMenuTopWidth]</width>
 		<height>120</height>
-		<onup condition="!IsEmpty(Container(9000).ListItem.Property(widget))">8000</onup>
+		<onup condition="!IsEmpty(Container(9000).ListItem.Property(widget))">9003</onup>
 		<ondown>9010</ondown>
 		<pagecontrol>-</pagecontrol>
 		<scrolltime tween="quadratic" easing="out">300</scrolltime>
@@ -273,7 +264,7 @@
 		<height>120</height>
 		<focusposition>2</focusposition>
 		<movement>1</movement>
-		<onup condition="!IsEmpty(Container(9000).ListItem.Property(widget))">8000</onup>
+		<onup condition="!IsEmpty(Container(9000).ListItem.Property(widget))">9003</onup>
 		<ondown>9010</ondown>
 		<pagecontrol>-</pagecontrol>
 		<scrolltime tween="quadratic" easing="out">300</scrolltime>
@@ -311,12 +302,11 @@
 		<animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
 		<animation effect="fade" start="100" end="0" time="300" condition="Control.HasFocus(9010)">Conditional</animation>
 		<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="!Control.HasFocus(9010)">Conditional</animation>
-		<!--<animation effect="slide" start="0,0" end="-440,0" time="160" tween="quadratic" easing="out" condition="">Conditional</animation>-->
 		<left>0</left>
 		<top>0</top>
 		<width>434</width>
 		<height>$PARAM[MainMenuVerticalHeight]</height>
-		<onright condition="!IsEmpty(Container(9000).ListItem.Property(widget))">8000</onright>
+		<onright condition="!IsEmpty(Container(9000).ListItem.Property(widget))">9003</onright>
 		<onleft condition="Skin.HasSetting(Enable.SeparateMenus)">9010</onleft>
 		<ondown>9000</ondown>
 		<onup>9000</onup>
@@ -371,17 +361,6 @@
 			</control>
 		</itemlayout>
 		<focusedlayout height="120" width="434">
-			<!--<control type="image">
-				<animation effect="fade" start="0" end="80" time="100" delay="1000">Focus</animation>
-				<animation effect="fade" start="80" end="0" time="0">UnFocus</animation>
-				<top>1</top>
-				<left>1</left>
-				<width>30</width>
-				<height>30</height>
-				<texture>WidgetIndicator.png</texture>
-				<animation effect="rotate" end="90" center="auto" time="0" condition="True">Conditional</animation>
-				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + Control.HasFocus(9000) + !Skin.HasSetting(Enable.PersistentWidgets)</visible>
-			</control>-->
 			<control type="label">
 				<width>434</width>
 				<height>120</height>

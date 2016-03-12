@@ -2,7 +2,7 @@
 <includes>
 	<include name="CommonBackground">
 		<control type="group">
-			<include condition="Window.IsActive(home) | Window.IsActive(favourites)">HomeFanart</include>
+			<include condition="Window.IsActive(home)">HomeFanart</include>
 			<include condition="!Window.IsActive(home)">GlobalFanart</include>
 			<include condition="Window.IsActive(home)">LiveCasesBackground</include>
 			<include condition="Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">TVShowNextAiredBackground</include>
@@ -62,6 +62,16 @@
 			<description>Normal Default Background Image</description>
 			<include>FullscreenDimensions</include>
 			<imagepath fallback="special://skin/backgrounds/default_bg.jpg" background="true">$VAR[HomeBackgroundVar]</imagepath>
+		</control>
+	</include>
+	<include name="WidgetFanart">
+		<control type="multiimage">
+			<description>Widget Background Image</description>
+			<visible>$PARAM[Visible]</visible>
+			<fadetime>300</fadetime>
+			<animation effect="fade" time="200" tween="cubic">Visible</animation>
+			<include>FullscreenDimensions</include>
+			<imagepath background="true">$PARAM[imagePath]</imagepath>
 		</control>
 	</include>
 	<include name="TVShowNextAiredBackground">

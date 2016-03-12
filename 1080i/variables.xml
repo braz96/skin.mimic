@@ -13,8 +13,6 @@
 		<value>$INFO[Window(home).Property(fakelabel)]</value>
 	</variable>
 	<variable name="HomeBackgroundVar">
-		<!-- Widget background -->
-		<value condition="!IsEmpty(Container(8000).ListItem.Art(fanart)) + Control.HasFocus(8000)">$INFO[Container(8000).ListItem.Art(fanart)]</value>
 
 		<value condition="!IsEmpty(Skin.String(CustomHomeSlideshow))">$INFO[Skin.String(CustomHomeSlideshow)]</value>
 
@@ -351,23 +349,7 @@
 		<value condition="Skin.HasSetting(WidgetStyle)">$LOCALIZE[31059]</value>
 		<value>$LOCALIZE[31079]</value>
 	</variable>
-	<variable name="widgetLine1">
-		<value condition="!IsEmpty(Container(8000).ListItem.Episode)">$INFO[Container(8000).ListItem.Season,,x]$INFO[Container(8000).ListItem.Episode,,. ]$INFO[Container(8000).ListItem.Title]</value>
-		<value condition="!IsEmpty(Container(8000).ListItem.Title)">$INFO[Container(8000).ListItem.Title]</value>
-		<value>$INFO[Container(8000).ListItem.Label]</value>
-	</variable>
-	<variable name="widgetLine2">
-		<value condition="!IsEmpty(Container(8000).ListItem.Episode)">• $INFO[Container(8000).ListItem.TvShowTitle]$INFO[Container(8000).ListItem.Premiered, • ]</value>
-		<value condition="!IsEmpty(Container(8000).ListItem.Artist)">• $INFO[Container(8000).ListItem.Artist]$INFO[Container(8000).ListItem.Year, • ]</value>
-		<value condition="!IsEmpty(Container(8000).ListItem.Year)">• $INFO[Container(8000).ListItem.Year]</value>
-		<value condition="!IsEmpty(Container(8000).ListItem.Label2)">• $INFO[Container(8000).ListItem.Label2]</value>
-	</variable>
-	<variable name="widgetLine3">
-		<value condition="!IsEmpty(Container(8000).ListItem.Episode)">$INFO[Container(8000).ListItem.TvShowTitle]$INFO[Container(8000).ListItem.Premiered, • ]</value>
-		<value condition="!IsEmpty(Container(8000).ListItem.Artist)">$INFO[Container(8000).ListItem.Artist]$INFO[Container(8000).ListItem.Year, • ]</value>
-		<value condition="!IsEmpty(Container(8000).ListItem.Year)">$INFO[Container(8000).ListItem.Year]</value>
-		<value>$INFO[Container(8000).ListItem.Label2]</value>
-	</variable>
+	
 	<!--<variable name="RatingFlagVar">
 		<value condition="SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)">flags/mpaa/G.png</value>
 		<value condition="SubString(ListItem.mpaa,PG-13)">flags/mpaa/PG-13.png</value>

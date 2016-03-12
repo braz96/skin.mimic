@@ -275,6 +275,7 @@
 						<label>31233</label>
 						<label2>$VAR[WidgetStyleVar]</label2>
 						<onclick>Skin.ToggleSetting(WidgetStyle)</onclick>
+						<enable>!StringCompare(Skin.String(HomeLayout),3)</enable>
 					</control>
 					<control type="button" id="701">
 						<width>1316</width>
@@ -284,7 +285,7 @@
 						<label>- $LOCALIZE[31915]</label>
 						<label2>$VAR[HorizontalListNavVar]</label2>
 						<onclick>Skin.ToggleSetting(HorizontalListNav)</onclick>
-						<enable>!Skin.HasSetting(WidgetStyle)</enable>
+						<enable>!Skin.HasSetting(WidgetStyle) + !StringCompare(Skin.String(HomeLayout),3)</enable>
 					</control>
 					<control type="radiobutton" id="702">
 						<width>1316</width>
