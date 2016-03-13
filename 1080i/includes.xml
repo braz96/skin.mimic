@@ -1199,9 +1199,9 @@
     <include name="MediaFlags">
     	<control type="grouplist">
     		<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
-			<left>1370</left>
+			<left>1215</left>
 			<top>895</top>
-			<width>445</width>
+			<width>600</width>
 			<height>80</height>
 			<itemgap>20</itemgap>
 			<align>right</align>
@@ -1218,6 +1218,12 @@
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
 				<visible>!IsEmpty(ListItem.AudioCodec) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			</control>
+			<control type="image">
+				<height>80</height>
+				<include>MediaFlagVars</include>
+				<texture>$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
+				<visible>!IsEmpty(ListItem.AudioChannels) + StringCompare(Container.Viewmode,$LOCALIZE[31003]) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>

@@ -602,33 +602,33 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>1480</left>
-				<top>915</top>
-				<width>468</width>
-				<height>73</height>
-				<include>VisibleFadeEffect</include>
-				<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
-				<control type="image">
-					<height>50</height>
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<texture>imdb.png</texture>
-					<aspectratio align="left" aligny="top">keep</aspectratio>
-				</control>
-				<control type="label">
-					<left>22</left>
-					<top>2</top>
-					<width>200</width>
-					<height>42</height>
-					<font>font13</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>[UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#]</label>
-					<align>left</align>
-				</control>
-			</control>
-			<control type="group">
 				<animation effect="slide" time="0" start="0" end="-20" condition="[Skin.HasSetting(Enable.IconLandscape) | Skin.HasSetting(Enable.IconLogo)]">Conditional</animation>
 				<animation effect="slide" time="0" start="0" end="60" condition="Skin.HasSetting(Enable.IconBanner) + !Container.Content(episodes)">Conditional</animation>
 				<animation effect="slide" time="0" start="0" end="40" condition="Container.Content(musicvideos)">Conditional</animation>
+				<control type="group">
+					<left>1480</left>
+					<top>915</top>
+					<width>468</width>
+					<height>73</height>
+					<include>VisibleFadeEffect</include>
+					<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+					<control type="image">
+						<height>50</height>
+						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+						<texture>imdb.png</texture>
+						<aspectratio align="left" aligny="top">keep</aspectratio>
+					</control>
+					<control type="label">
+						<left>22</left>
+						<top>2</top>
+						<width>200</width>
+						<height>42</height>
+						<font>font13</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>[UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#]</label>
+						<align>left</align>
+					</control>
+				</control>
 				<include condition="Skin.HasSetting(Enable.MediaFlags)">MediaFlags</include>
 			</control>
 		</control>

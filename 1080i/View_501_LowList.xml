@@ -37,16 +37,32 @@
 				</control>
 			</control>
 			<control type="group">
+				<visible>!Container.Content(addons)</visible>
 				<left>1300</left>
 				<top>640</top>
 				<include>VisibleFadeEffect</include>
-				<control type="textbox" id="70">
+				<control type="textbox">
+					<visible>!Skin.HasSetting(Enable.MediaFlags)</visible>
 					<label>$VAR[VideoPlotVar]</label>
 					<width>585</width>
 					<height>390</height>
 					<font>font14_textbox</font>
 					<include>ShowCaseInfoPanelButtonsValues</include>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				</control>
+				<control type="textbox">
+					<animation effect="slide" time="0" start="0,0" end="0,-10" condition="true">Conditional</animation>
+					<visible>Skin.HasSetting(Enable.MediaFlags)</visible>
+					<label>$VAR[VideoPlotVar]</label>
+					<width>585</width>
+					<height>340</height>
+					<font>font14_textbox</font>
+					<include>ShowCaseInfoPanelButtonsValues</include>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				</control>
+				<control type="group">
+					<animation effect="slide" time="0" start="0,0" end="-1225,-565" condition="true">Conditional</animation>
+					<include condition="Skin.HasSetting(Enable.MediaFlags)">MediaFlags</include>
 				</control>
 			</control>
 			<control type="grouplist">
