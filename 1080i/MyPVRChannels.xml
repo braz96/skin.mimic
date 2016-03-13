@@ -16,10 +16,29 @@
 			<left>0</left>
 			<top>170</top>
 			<include>Animation.Common</include>
-			<control type="list" id="50">
+			<control type="group">
+                <visible>IntegerGreaterThan(Container(50).NumItems,0)</visible>
+                <control type="image">
+                    <left>82</left>
+                    <top>10</top>
+                    <width>890</width>
+                    <height>120</height>
+                    <visible>Control.HasFocus(50)</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="50">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,5)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,0)">Conditional</animation>
+                </control>
+            </control>
+			<control type="panel" id="50">
 				<left>82</left>
 				<top>10</top>
-				<width>850</width>
+				<width>890</width>
 				<height>840</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
@@ -29,10 +48,18 @@
 				<viewtype label="535">list</viewtype>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="120" width="850">
+				<itemlayout height="120" width="890">
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>170</width>
+						<height>100</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
 					<control type="label">
 						<visible>ListItem.IsPlaying</visible>
-						<left>15</left>
+						<left>200</left>
 						<top>1</top>
 						<width>35</width>
 						<height>60</height>
@@ -44,8 +71,7 @@
 						<label></label>
 					</control>
 					<control type="label">
-						<animation effect="slide" time="0" tween="sine" easing="inout" start="0" end="35" condition="ListItem.IsPlaying">Conditional</animation>
-						<left>15</left>
+						<left>840</left>
 						<top>-4</top>
 						<width>30</width>
 						<height>70</height>
@@ -59,10 +85,9 @@
 					</control>
 					<control type="label">
 						<animation effect="slide" time="0" tween="sine" easing="inout" start="0" end="35" condition="ListItem.IsPlaying">Conditional</animation>
-						<animation effect="slide" time="0" tween="sine" easing="inout" start="0" end="45" condition="ListItem.IsRecording">Conditional</animation>
-						<left>15</left>
+						<left>200</left>
 						<top>-5</top>
-						<width>660</width>
+						<width>670</width>
 						<height>70</height>
 						<font>font30</font>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -72,9 +97,9 @@
 						<label>$INFO[ListItem.ChannelNumber,,. ]$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<left>200</left>
 						<top>44</top>
-						<width>660</width>
+						<width>670</width>
 						<height>60</height>
 						<font>font13</font>
 						<textcolor>$VAR[ColorTextVar]</textcolor>
@@ -85,35 +110,35 @@
 					</control>
 					<control type="progress">
 						<description>Progressbar</description>
-						<left>15</left>
+						<left>200</left>
 						<top>102</top>
-						<width>660</width>
+						<width>670</width>
 						<height>8</height>
 						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 						<visible>ListItem.HasEpg</visible>
 						<info>ListItem.Progress</info>
 					</control>
-					<control type="image">
-						<left>690</left>
-						<top>10</top>
-						<width>150</width>
-						<height>100</height>
-						<aspectratio align="right" aligny="center">keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>
 				</itemlayout>
-				<focusedlayout height="120" width="850">
-					<control type="image">
-						<width>850</width>
+				<focusedlayout height="120" width="890">
+					<!--<control type="image">
+						<width>890</width>
 						<height>120</height>
 						<texture>listselect_fo.png</texture>
 						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(50)</visible>
 						<include>VisibleFadeEffect</include>
+					</control>-->
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<width>170</width>
+						<height>100</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
 						<visible>ListItem.IsPlaying</visible>
-						<left>15</left>
+						<left>200</left>
 						<top>1</top>
 						<width>35</width>
 						<height>60</height>
@@ -125,8 +150,7 @@
 						<label></label>
 					</control>
 					<control type="label">
-						<animation effect="slide" time="0" tween="sine" easing="inout" start="0" end="35" condition="ListItem.IsPlaying">Conditional</animation>
-						<left>15</left>
+						<left>840</left>
 						<top>-4</top>
 						<width>30</width>
 						<height>70</height>
@@ -140,10 +164,9 @@
 					</control>
 					<control type="label">
 						<animation effect="slide" time="0" tween="sine" easing="inout" start="0" end="35" condition="ListItem.IsPlaying">Conditional</animation>
-						<animation effect="slide" time="0" tween="sine" easing="inout" start="0" end="45" condition="ListItem.IsRecording">Conditional</animation>
-						<left>15</left>
+						<left>200</left>
 						<top>-5</top>
-						<width>660</width>
+						<width>670</width>
 						<height>70</height>
 						<font>font30</font>
 						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
@@ -152,9 +175,9 @@
 						<label>$INFO[ListItem.ChannelNumber,,. ]$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<left>200</left>
 						<top>44</top>
-						<width>660</width>
+						<width>670</width>
 						<height>60</height>
 						<font>font13</font>
 						<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
@@ -164,21 +187,13 @@
 					</control>
 					<control type="progress">
 						<description>Progressbar</description>
-						<left>15</left>
+						<left>200</left>
 						<top>102</top>
-						<width>660</width>
+						<width>670</width>
 						<height>8</height>
 						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 						<visible>ListItem.HasEpg</visible>
 						<info>ListItem.Progress</info>
-					</control>
-					<control type="image">
-						<left>690</left>
-						<top>10</top>
-						<width>150</width>
-						<height>100</height>
-						<aspectratio align="right" aligny="center">keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
 					</control>
 				</focusedlayout>
 			</control>
