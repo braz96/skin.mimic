@@ -1196,4 +1196,47 @@
 			</content>
 		</control>
     </include>
+    <include name="MediaFlags">
+    	<control type="grouplist">
+    		<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+			<left>1370</left>
+			<top>895</top>
+			<width>445</width>
+			<height>80</height>
+			<itemgap>20</itemgap>
+			<align>right</align>
+			<orientation>horizontal</orientation>
+			<include>VisibleFadeEffect</include>
+			<control type="image">
+				<height>80</height>
+				<include>MediaFlagVars</include>
+				<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+				<visible>!IsEmpty(ListItem.VideoResolution) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			</control>
+			<control type="image">
+				<height>80</height>
+				<include>MediaFlagVars</include>
+				<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+				<visible>!IsEmpty(ListItem.AudioCodec) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			</control>
+			<control type="image">
+				<height>80</height>
+				<include>MediaFlagVars</include>
+				<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
+				<visible>!IsEmpty(ListItem.VideoCodec) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			</control>
+			<control type="image">
+				<height>80</height>
+				<include>MediaFlagVars</include>
+				<texture>resource://resource.images.studios.white/$INFO[ListItem.Studio,,.png]</texture>
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+			</control>
+			<control type="image">
+				<height>80</height>
+				<include>MediaFlagVars</include>
+				<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+			</control>
+		</control>
+    </include>
 </includes>

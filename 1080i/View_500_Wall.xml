@@ -546,7 +546,7 @@
 				<animation effect="slide" time="0" start="0" end="-48" condition="Container.Content(musicvideos)">Conditional</animation>
 				<left>90</left>
 				<top>900</top>
-				<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+				<visible>!StringCompare(Container.SortMethod,$LOCALIZE[13409]) + !Skin.HasSetting(Enable.MediaFlags)</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="label">
 					<width>1740</width>
@@ -577,10 +577,10 @@
 				<animation effect="slide" time="0" start="0" end="-48" condition="Container.Content(musicvideos)">Conditional</animation>
 				<left>90</left>
 				<top>900</top>
-				<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+				<visible>StringCompare(Container.SortMethod,$LOCALIZE[13409]) | Skin.HasSetting(Enable.MediaFlags)</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="label">
-					<width>1300</width>
+					<width>1280</width>
 					<height>42</height>
 					<align>left</align>
 					<font>font28_title</font>
@@ -592,7 +592,7 @@
 				<control type="label">
 					<left>0</left>
 					<top>45</top>
-					<width>1300</width>
+					<width>1280</width>
 					<height>30</height>
 					<align>left</align>
 					<font>font13_title</font>
@@ -624,6 +624,12 @@
 					<label>[UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#]</label>
 					<align>left</align>
 				</control>
+			</control>
+			<control type="group">
+				<animation effect="slide" time="0" start="0" end="-20" condition="[Skin.HasSetting(Enable.IconLandscape) | Skin.HasSetting(Enable.IconLogo)]">Conditional</animation>
+				<animation effect="slide" time="0" start="0" end="60" condition="Skin.HasSetting(Enable.IconBanner) + !Container.Content(episodes)">Conditional</animation>
+				<animation effect="slide" time="0" start="0" end="40" condition="Container.Content(musicvideos)">Conditional</animation>
+				<include condition="Skin.HasSetting(Enable.MediaFlags)">MediaFlags</include>
 			</control>
 		</control>
 		<control type="group">
