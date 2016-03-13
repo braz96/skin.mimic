@@ -2,8 +2,10 @@
 <template>
     <propertyGroup name="widgetCommon">
         <property name="id" tag="mainmenuid" />
-        <property name="content" tag="property" attribute="name|widgetPath" />
+        <property name="path" tag="property" attribute="name|widgetPath" />
         <property name="target" tag="property" attribute="name|widgetTarget" />
+        <property name="path"></property>
+        <property name="target"></property>
     </propertyGroup>
 
     <other include="widget-fixed">
@@ -15,7 +17,7 @@
 				<include name="FixedWrapWidgetContent">
                     <param name="id">8011$SKINSHORTCUTS[id]</param>
                 </include>
-				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
+				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
 			</control>
             <include name="FixedWrapWidgetLabels">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
@@ -47,7 +49,7 @@
 				<include name="FixedWrapWidgetContent">
                     <param name="id">8011$SKINSHORTCUTS[id]</param>
                 </include>
-				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
+				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
 			</control>
             <include name="FixedWrapWidgetLabels">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
@@ -299,7 +301,7 @@
                         <texture>thumbs/diffuse.png</texture>
                     </control>
                 </focusedlayout>
-                <content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
+                <content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
             </control>
             <control type="group">
                 <animation effect="slide" time="0" start="0,0" end="0,190" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
@@ -570,7 +572,7 @@
                         <texture>thumbs/diffuse.png</texture>
                     </control>
                 </focusedlayout>
-				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
+				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
 			</control>
             <control type="group">
                 <visible>!StringCompare(Container(9000).ListItem.Property(widget),weather) + ![Control.HasFocus(9010) + !Skin.HasSetting(Enable.PersistentWidgets)]</visible>
