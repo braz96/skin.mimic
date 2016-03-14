@@ -146,6 +146,14 @@
 		<value condition="StringCompare(ListItem.Property(TotalEpisodes),1)">$LOCALIZE[20359]</value>
 		<value>$LOCALIZE[20360]</value>
 	</variable>
+	<variable name="OneOrMoreSeasonsExtVar">
+		<value condition="StringCompare(Window.Property(TotalSeasons),1)">$LOCALIZE[20373]</value>
+		<value>$LOCALIZE[33054]</value>
+	</variable>
+	<variable name="OneOrMoreEpisodesExtVar">
+		<value condition="StringCompare(Window.Property(TotalEpisodes),1)">$LOCALIZE[20359]</value>
+		<value>$LOCALIZE[20360]</value>
+	</variable>
 	<variable name="VideoInfoPlotVar">
 		<value condition="Skin.HasSetting(VideoInfoPlotToggle) + !IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
 		<value>$INFO[ListItem.Plot]</value>
@@ -445,7 +453,7 @@
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[20360]: $INFO[ListItem.Property(TotalEpisodes)]$INFO[ListItem.Property(UnWatchedEpisodes), (,[LOWERCASE] $LOCALIZE[16101][/LOWERCASE])]</value>
 		<value>$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
 	</variable>
-	<variable name="AudioChannelVar">
+	<!--<variable name="AudioChannelVar">
 		<value condition="IntegerGreaterThan(ListItem.AudioChannels,7)">7.1</value>
 		<value condition="IntegerGreaterThan(ListItem.AudioChannels,6)">6.1</value>
 		<value condition="IntegerGreaterThan(ListItem.AudioChannels,5)">5.1</value>
@@ -474,7 +482,7 @@
 		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),2)">2.1</value>
 		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),1)">2.0</value>
 		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),0)">1.0</value>
-	</variable>
+	</variable>-->
 	<variable name="HomeNowPlayingThumbVar">
 		<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !IsEmpty(Window(weather).Property(Current.FanartCode))">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</value>
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)] + !IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>

@@ -105,7 +105,7 @@
 				</control>
 				<control type="panel">
 					<left>5</left>
-					<top>130</top>
+					<top>120</top>
 					<width>1150</width>
 					<height>300</height>
 					<orientation>horizontal</orientation>
@@ -299,7 +299,7 @@
 				<control type="scrollbar" id="61">
 					<visible allowhiddenfocus="true">Control.HasFocus(61)</visible>
 					<left>2</left>
-					<top>450</top>
+					<top>430</top>
 					<width>1145</width>
 					<height>10</height>
 					<onup>9000</onup>
@@ -315,7 +315,7 @@
 				<control type="textbox" id="400">
 					<description>Plot</description>
 					<left>5</left>
-					<top>575</top>
+					<top>555</top>
 					<width>1120</width>
 					<height>395</height>
 					<font>font15_textbox</font>
@@ -329,129 +329,100 @@
 				<control type="scrollbar" id="60">
 					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
 					<left>1140</left>
-					<top>585</top>
+					<top>565</top>
 					<width>10</width>
-					<height>445</height>
+					<height>385</height>
 					<onleft>9000</onleft>
 					<onright>9000</onright>
 					<orientation>vertical</orientation>
 				</control>
 				<control type="group">
-					<left>0</left>
-					<top>992</top>
-					<visible>!Control.IsVisible(150) | Container.Content(tvshows)</visible>
-					<control type="grouplist">
-						<left>0</left>
-						<top>0</top>
-						<width>1188</width>
-						<height>40</height>
-						<align>left</align>
-						<itemgap>0</itemgap>
-						<orientation>horizontal</orientation>
-						<usecontrolcoords>true</usecontrolcoords>							
+					<visible>!Control.IsVisible(150) + !Control.IsVisible(90019)</visible>
+					<include>VisibleFadeEffect</include>
+					<include name="MediaFlags">
+						<param name="left" value="0" />
+						<param name="top" value="960" />
+						<param name="align" value="left" />
+						<param name="orientation" value="horizontal" />
+					</include>
+				</control>
+				<control type="group">
+					<visible>Container.Content(tvshows) + !Control.IsVisible(150) + !Control.IsVisible(90019)</visible>
+					<top>950</top>
+					<control type="group">
+						<visible>!IsEmpty(ListItem.Property(TotalSeasons))</visible>
+						<width>200</width>
 						<control type="label">
-							<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Property(TotalSeasons))</visible>
 							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[ListItem.Property(TotalSeasons)] $VAR[OneOrMoreSeasonsVar,,  •  ]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						</control>
-						<control type="label">
-							<visible>Container.Content(tvshows)</visible>
-							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[ListItem.Property(TotalEpisodes)] $VAR[OneOrMoreEpisodesVar,,  • ] $INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						</control>
-						<control type="image">
-							<visible>!Container.Content(tvshows) + ![IsEmpty(ListItem.VideoResolution) + IsEmpty(ListItem.VideoCodec) + IsEmpty(ListItem.VideoAspect)]</visible>
-							<left>-20</left>
-							<top>9</top>
-							<width>80</width>
-							<height>32</height>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
-							<texture>DefaultFlagVideo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<top>4</top>
+							<width>200</width>
+							<height>60</height>
+							<align>center</align>
+							<label>$INFO[ListItem.Property(TotalSeasons)]</label>
+							<font>font16</font>
+							<wrapmultiline>true</wrapmultiline>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 						<control type="label">
-							<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+							<top>52</top>
+							<width>200</width>
+							<height>30</height>
+							<align>center</align>
+							<label>[LOWERCASE]$VAR[OneOrMoreSeasonsVar][/LOWERCASE]</label>
+							<font>font12</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+						</control>
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+						<animation effect="slide" time="0" start="0" end="-200" condition="IsEmpty(ListItem.Property(TotalSeasons))">Conditional</animation>
+						<left>200</left>
+						<width>200</width>
+						<control type="label">
 							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[ListItem.VideoResolution]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<top>4</top>
+							<width>200</width>
+							<height>60</height>
+							<align>center</align>
+							<label>$INFO[ListItem.Property(TotalEpisodes)]</label>
+							<font>font16</font>
+							<wrapmultiline>true</wrapmultiline>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 						<control type="label">
-							<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+							<top>52</top>
+							<width>200</width>
+							<height>30</height>
+							<align>center</align>
+							<label>[LOWERCASE]$VAR[OneOrMoreEpisodesVar][/LOWERCASE]</label>
+							<font>font12</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+						</control>
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+						<animation effect="slide" time="0" start="0" end="-200" condition="IsEmpty(ListItem.Property(TotalSeasons))">Conditional</animation>
+						<left>400</left>
+						<width>200</width>
+						<control type="label">
 							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[ListItem.VideoCodec,  •  ]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<top>4</top>
+							<width>200</width>
+							<height>60</height>
+							<align>center</align>
+							<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+							<font>font16</font>
+							<wrapmultiline>true</wrapmultiline>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 						<control type="label">
-							<visible>!IsEmpty(ListItem.VideoAspect)</visible>
-							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[ListItem.VideoAspect,  •  ]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						</control>
-						<control type="image">
-							<visible>!Container.Content(tvshows) + ![IsEmpty(ListItem.AudioCodec) + IsEmpty(ListItem.AudioChannels)]</visible>
-							<left>0</left>
-							<top>9</top>
-							<width>80</width>
-							<height>32</height>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
-							<texture>DefaultFlagAudio.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						</control>
-						<control type="label">
-							<visible>!IsEmpty(ListItem.AudioCodec)</visible>
-							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[ListItem.AudioCodec]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						</control>
-						<control type="label">
-							<visible>!IsEmpty(ListItem.AudioChannels)</visible>
-							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$VAR[AudioChannelVar,  •  ]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<top>52</top>
+							<width>200</width>
+							<height>30</height>
+							<align>center</align>
+							<label>[LOWERCASE]$LOCALIZE[16101][/LOWERCASE]</label>
+							<font>font12</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 					</control>
 				</control>
@@ -461,9 +432,9 @@
 	                <control type="image">
 	                	<visible>Control.HasFocus(50)</visible>
 	                    <left>-9</left>
-	                    <top>571</top>
+	                    <top>551</top>
 	                    <width>301</width>
-	                    <height>410</height>
+	                    <height>430</height>
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
 	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
@@ -478,9 +449,9 @@
 	                <control type="image">
 	                	<visible>Control.HasFocus(90019)</visible>
 	                    <left>-9</left>
-	                    <top>571</top>
+	                    <top>551</top>
 	                    <width>301</width>
-	                    <height>410</height>
+	                    <height>430</height>
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
 	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
@@ -498,7 +469,7 @@
                 <control type="image">
                 	<visible>Control.HasFocus(150)</visible>
                     <left>-9</left>
-                    <top>591</top>
+                    <top>571</top>
                     <width>590</width>
                     <height>396</height>
                     <animation effect="fade" time="320" delay="200">Visible</animation>
@@ -511,7 +482,7 @@
                 <description>YouTube Videos</description>
                 <animation effect="fade" time="300" delay="0" tween="sine" easing="inout" start="0" end="100">Visible</animation>
                 <left>-3</left>
-				<top>597</top>
+				<top>577</top>
 				<width>1156</width>
 				<height>440</height>
 				<onleft>150</onleft>
@@ -608,7 +579,7 @@
                 <description>YouTube Videos</description>
                 <animation effect="fade" time="300" delay="0" tween="sine" easing="inout" start="0" end="100">Visible</animation>
                 <left>-3</left>
-				<top>597</top>
+				<top>577</top>
 				<width>1156</width>
 				<height>440</height>
 				<onleft>150</onleft>
@@ -705,7 +676,7 @@
                 <description>YouTube Videos</description>
                 <animation effect="fade" time="300" delay="0" tween="sine" easing="inout" start="0" end="100">Visible</animation>
                 <left>-3</left>
-				<top>597</top>
+				<top>577</top>
 				<width>1156</width>
 				<height>440</height>
 				<onleft>150</onleft>
@@ -854,7 +825,7 @@
             </control>
 			<control type="group">
 				<left>2</left>
-				<top>510</top>
+				<top>490</top>
 				<control type="grouplist" id="9000">
 					<width>1150</width>
 					<height>60</height>
@@ -885,7 +856,6 @@
 						<description>Cast</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>206</label>
-						<!--<visible>IntegerGreaterThan(Container(50).NumItems,0)</visible>-->
 					</control>
 					<control type="button" id="11">
 						<description>Play Trailer</description>
@@ -899,7 +869,7 @@
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + IsEmpty(ListItem.Trailer)</visible>
+						<visible>[Container.Content(movies) + IsEmpty(ListItem.Trailer)] | Container.Content(tvshows) | Container.Content(episodes)</visible>
 					</control>
 					<control type="button" id="10">
 						<description>Get Thumb</description>

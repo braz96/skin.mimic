@@ -46,7 +46,7 @@
 				<width>200</width>
 				<texturefocus>play.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[ColorTextVar]">play.png</texturenofocus>
-				<visible>!IsEmpty(Window.Property(DBID))</visible>
+				<visible>!IsEmpty(Window.Property(DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
 			</control>
 			<control type="image">
 				<top>-1000</top>
@@ -103,7 +103,7 @@
 						<visible>IsEmtpy(Window.Property(tagline))</visible>
 					</control>
 				</control>
-				<control type="panel">
+				<control type="panel" id="9900">
 					<left>5</left>
 					<top>120</top>
 					<width>1150</width>
@@ -293,103 +293,103 @@
 					<left>1140</left>
 					<top>565</top>
 					<width>10</width>
-					<height>465</height>
+					<height>385</height>
 					<onleft>9000</onleft>
 					<onright>9000</onright>
 					<orientation>vertical</orientation>
 				</control>
-				<control type="group">
+				<control type="grouplist">
+					<visible>!IsEmpty(Window.Property(DBID)) + ControlGroup(9000).HasFocus(205)</visible>
 					<left>0</left>
-					<top>992</top>
-					<visible>!IsEmpty(Window.Property(DBID)) + !ControlGroup(9000).HasFocus(208)</visible>
-					<control type="grouplist">
-						<left>0</left>
-						<top>0</top>
-						<width>1188</width>
-						<height>40</height>
-						<align>left</align>
-						<itemgap>0</itemgap>
-						<orientation>horizontal</orientation>
-						<usecontrolcoords>true</usecontrolcoords>							
-						<control type="image">
-							<visible>![IsEmpty(Window.Property(VideoResolution)) + IsEmpty(Window.Property(VideoCodec)) + IsEmpty(Window.Property(VideoAspect))]</visible>
-							<left>-20</left>
-							<top>9</top>
-							<width>80</width>
-							<height>32</height>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
-							<texture>DefaultFlagVideo.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+					<top>965</top>
+					<width>800</width>
+					<height>80</height>
+					<itemgap>20</itemgap>
+					<align>left</align>
+					<orientation>horizontal</orientation>
+					<include>VisibleFadeEffect</include>
+					<control type="image">
+						<height>80</height>
+						<include>MediaFlagVars</include>
+						<texture>$INFO[Window.Property(VideoResolution),flags/resolution/,.png]</texture>
+						<visible>!IsEmpty(Window.Property(VideoResolution))</visible>
+					</control>
+					<control type="image">
+						<height>80</height>
+						<include>MediaFlagVars</include>
+						<texture>$INFO[Window.Property(VideoCodec),flags/video/,.png]</texture>
+						<visible>!IsEmpty(Window.Property(VideoCodec))</visible>
+					</control>
+					<control type="image">
+						<height>80</height>
+						<include>MediaFlagVars</include>
+						<texture>$INFO[Window.Property(VideoAspect),flags/aspectratio/,.png]</texture>
+						<visible>!IsEmpty(Window.Property(VideoAspect))</visible>
+					</control>
+					<control type="image">
+						<height>80</height>
+						<include>MediaFlagVars</include>
+						<texture>$INFO[Window.Property(AudioCodec),flags/audio/,.png]</texture>
+						<visible>!IsEmpty(Window.Property(AudioCodec))</visible>
+					</control>
+					<control type="image">
+						<height>80</height>
+						<width>100</width>
+						<include>MediaFlagVars</include>
+						<texture>$INFO[Window.Property(AudioChannels),flags/channels/,.png]</texture>
+						<visible>!IsEmpty(Window.Property(AudioChannels))</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Container.Content(tvshows) + ControlGroup(9000).HasFocus(205)</visible>
+					<top>950</top>
+					<control type="group">
+						<visible>!IsEmpty(Window.Property(TotalSeasons))</visible>
+						<width>200</width>
+						<control type="label">
+							<left>0</left>
+							<top>4</top>
+							<width>200</width>
+							<height>60</height>
+							<align>center</align>
+							<label>$INFO[Window.Property(TotalSeasons)]</label>
+							<font>font16</font>
+							<wrapmultiline>true</wrapmultiline>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 						<control type="label">
-							<visible>!IsEmpty(Window.Property(VideoResolution))</visible>
+							<top>52</top>
+							<width>200</width>
+							<height>30</height>
+							<align>center</align>
+							<label>[LOWERCASE]$VAR[OneOrMoreSeasonsExtVar][/LOWERCASE]</label>
+							<font>font12</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
+						</control>
+					</control>
+					<control type="group">
+						<visible>!IsEmpty(Window.Property(TotalEpisodes))</visible>
+						<left>200</left>
+						<width>200</width>
+						<control type="label">
 							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[Window.Property(VideoResolution)]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<top>4</top>
+							<width>200</width>
+							<height>60</height>
+							<align>center</align>
+							<label>$INFO[Window.Property(TotalEpisodes)]</label>
+							<font>font16</font>
+							<wrapmultiline>true</wrapmultiline>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 						<control type="label">
-							<visible>!IsEmpty(Window.Property(VideoCodec))</visible>
-							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[Window.Property(VideoCodec),  •  ]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						</control>
-						<control type="label">
-							<visible>!IsEmpty(Window.Property(VideoAspect))</visible>
-							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[Window.Property(VideoAspect),  •  ]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						</control>
-						<control type="image">
-							<visible>![IsEmpty(Window.Property(AudioCodec)) + IsEmpty(Window.Property(AudioChannels))]</visible>
-							<left>0</left>
-							<top>9</top>
-							<width>80</width>
-							<height>32</height>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
-							<texture>DefaultFlagAudio.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						</control>
-						<control type="label">
-							<visible>!IsEmpty(Window.Property(AudioCodec))</visible>
-							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$INFO[Window.Property(AudioCodec)]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						</control>
-						<control type="label">
-							<visible>!IsEmpty(Window.Property(AudioChannels))</visible>
-							<left>0</left>
-							<top>0</top>
-							<width>auto</width>
-							<height>40</height>
-							<align>left</align>
-							<aligny>top</aligny>
-							<label>$VAR[AudioChannelExtendedInfoVar,  •  ]</label>
-							<font>font13_title</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<top>52</top>
+							<width>200</width>
+							<height>30</height>
+							<align>center</align>
+							<label>[LOWERCASE]$VAR[OneOrMoreEpisodesExtVar][/LOWERCASE]</label>
+							<font>font12</font>
+							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 					</control>
 				</control>
@@ -1146,7 +1146,7 @@
 					<itemgap>10</itemgap>
 					<onleft condition="Control.IsVisible(8)">8</onleft>
 					<onright>9000</onright>
-					<onup>61</onup>
+					<onup condition="Container(9900).HasNext | Container(9900).HasPrevious">61</onup>
 					<align>left</align>
 					<ondown condition="Control.IsVisible(800) + [Container(800).HasNext | Container(800).HasPrevious]">60</ondown>
                     <ondown condition="Control.IsVisible(250)">250</ondown>
