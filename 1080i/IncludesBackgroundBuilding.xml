@@ -73,6 +73,12 @@
 			<include>FullscreenDimensions</include>
 			<imagepath background="true">$PARAM[imagePath]</imagepath>
 		</control>
+		<control type="image">
+			<visible>$PARAM[Visible] + Skin.HasSetting(Enable.HomeFanartOverlay) + !StringCompare(Skin.String(HomeLayout),3)</visible>
+			<include>FullscreenDimensions</include>
+			<texture>background.png</texture>
+			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+		</control>
 	</include>
 	<include name="TVShowNextAiredBackground">
 		<control type="group">
