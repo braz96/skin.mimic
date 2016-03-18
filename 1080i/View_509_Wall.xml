@@ -478,10 +478,19 @@
 				</focusedlayout>
 			</control>
 		</control>
-		<control type="group">
-			<visible>Control.IsVisible(509)</visible>
+		<control type="scrollbar" id="60">
+			<visible allowhiddenfocus="true">Control.IsVisible(509) + [Control.HasFocus(60) | Container.Scrolling]</visible>
+			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<left>1910</left>
 			<top>-15</top>
-			<include>Scrollbar_Vertical</include>
+			<width>10</width>
+			<height>1080</height>
+			<onleft condition="![Window.IsActive(addoninformation) | Window.IsActive(settings)]">50</onleft>
+			<onleft condition="Window.IsActive(addoninformation) | Window.IsActive(settings)">9000</onleft>
+			<onright condition="![Window.IsActive(addoninformation) | Window.IsActive(settings)]">50</onright>
+			<onright condition="Window.IsActive(addoninformation) | Window.IsActive(settings)">9000</onright>
+			<ondown>60</ondown>
+			<onup>60</onup>
 		</control>
 	</include>
 </includes>

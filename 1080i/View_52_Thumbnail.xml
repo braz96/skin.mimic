@@ -3,6 +3,7 @@
 	<include name="View_52_Thumbnail">
 		<control type="group">
 			<visible>Control.IsVisible(52) + !Window.IsActive(addoninformation)</visible>
+            <animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsVisible(programs) | Window.IsVisible(addonbrowser)">Conditional</animation>
 			<include>Animation.Common</include>
 			<control type="group">
                 <visible>IntegerGreaterThan(Container(52).NumItems,0)</visible>
@@ -10,7 +11,7 @@
                 <control type="image">
                     <visible>Control.HasFocus(52)</visible>
                     <left>95</left>
-                    <top>190</top>
+                    <top>205</top>
                     <width>330</width>
                     <height>370</height>
                     <include>FocusedBackgroundFade</include>
@@ -23,7 +24,7 @@
                 </control>
             </control>
 			<control type="panel" id="52">
-				<top>180</top>
+				<top>195</top>
                 <left>85</left>
                 <width>1750</width>
                 <height>780</height>
