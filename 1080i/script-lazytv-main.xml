@@ -22,7 +22,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(655)</visible>
 			<include>Animation.Common</include>
-			<top>-40</top>
+			<top>-29</top>
 			<control type="image">
 				<visible>Control.HasFocus(655)</visible>
                 <left>82</left>
@@ -69,15 +69,25 @@
 							<height>292</height>
 							<texture>thumbs/diffuse.png</texture>
 						</control>
-						<control type="image">
-							<visible>ListItem.IsSelected</visible>
-							<top>6</top>
-							<left>6</left>
-							<width>195</width>
-							<height>292</height>
-							<texture>topbar.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						</control>
+						<control type="group">
+                            <visible>ListItem.IsSelected</visible>
+                            <left>140</left>
+                            <top>5</top>
+                            <control type="image">
+                                <width>60</width>
+                                <height>60</height>
+                                <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
+                                <aspectratio align="center" aligny="top">keep</aspectratio>
+                            </control>
+                            <control type="image">
+                                <top>16</top>
+                                <left>16</left>
+                                <width>28</width>
+                                <height>28</height>
+                                <texture colordiffuse="ffffffff">overlays/checkmark.png</texture>
+                                <aspectratio align="center" aligny="top">keep</aspectratio>
+                            </control>
+                        </control>
 					</control>
 				</itemlayout>
 				<focusedlayout height="304" width="207">
@@ -100,15 +110,25 @@
 							<height>292</height>
 							<texture>thumbs/diffuse.png</texture>
 						</control>
-						<control type="image">
-							<visible>ListItem.IsSelected</visible>
-							<top>6</top>
-							<left>6</left>
-							<width>195</width>
-							<height>292</height>
-							<texture>topbar.png</texture>
-							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						</control>
+						<control type="group">
+                            <visible>ListItem.IsSelected</visible>
+                            <left>140</left>
+                            <top>5</top>
+                            <control type="image">
+                                <width>60</width>
+                                <height>60</height>
+                                <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
+                                <aspectratio align="center" aligny="top">keep</aspectratio>
+                            </control>
+                            <control type="image">
+                                <top>16</top>
+                                <left>16</left>
+                                <width>28</width>
+                                <height>28</height>
+                                <texture colordiffuse="ffffffff">overlays/checkmark.png</texture>
+                                <aspectratio align="center" aligny="top">keep</aspectratio>
+                            </control>
+                        </control>
 					</control>
 				</focusedlayout>
 			</control>
@@ -161,9 +181,9 @@
 			<visible allowhiddenfocus="true">Control.HasFocus(60) | Container(655).Scrolling</visible>
 			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
 			<left>1910</left>
-			<top>0</top>
+			<top>120</top>
 			<width>10</width>
-			<height>1080</height>
+			<height>960</height>
 			<onright>655</onright>
 			<onleft>655</onleft>
 			<ondown>60</ondown>

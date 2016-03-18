@@ -28,7 +28,7 @@
                     <visible>IntegerGreaterThan(Container(655).NumItems,0)</visible>
                     <control type="image">
                         <left>65</left>
-                        <top>150</top>
+                        <top>160</top>
                         <width>1798</width>
                         <height>220</height>
                         <visible>Control.HasFocus(655)</visible>
@@ -43,7 +43,7 @@
                 <control type="panel" id="655">
                     <viewtype label="31052">list</viewtype>
                     <left>60</left>
-                    <top>150</top>
+                    <top>160</top>
                     <width>1808</width>
                     <height>884</height>
                     <onleft>655</onleft>
@@ -61,49 +61,62 @@
                             <control type="image">
                                 <width>346</width>
                                 <height>195</height>
-                                <texture>background.png</texture>
-                                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                            </control>
-                            <control type="image">
-                                <width>346</width>
-                                <height>195</height>
                                 <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
                                 <aspectratio>scale</aspectratio>
                             </control>
                             <control type="image">
-                                <visible>ListItem.IsSelected</visible>
                                 <width>346</width>
                                 <height>195</height>
-                                <texture>topbar.png</texture>
-                                <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                                <texture>thumbs/diffuse.png</texture>
+                            </control>
+                            <control type="group">
+                                <visible>ListItem.IsSelected</visible>
+                                <left>282</left>
+                                <top>3</top>
+                                <control type="image">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
+                                    <aspectratio align="center" aligny="top">keep</aspectratio>
+                                </control>
+                                <control type="image">
+                                    <top>16</top>
+                                    <left>16</left>
+                                    <width>28</width>
+                                    <height>28</height>
+                                    <texture colordiffuse="ffffffff">overlays/checkmark.png</texture>
+                                    <aspectratio align="center" aligny="top">keep</aspectratio>
+                                </control>
                             </control>
                         </control>
                         <control type="group">
                             <left>382</left>
-                            <top>6</top>
+                            <top>12</top>
                             <control type="label">
                                 <width>1380</width>
+                                <height>70</height>
                                 <label>$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Label2]</label>
-                                <font>font16_title</font>
+                                <font>font30</font>
     							<textcolor>$VAR[ColorTextVar]</textcolor>
                                 <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-    							<aligny>top</aligny>
+    							<aligny>center</aligny>
                             </control>
                             <control type="label">
-                                <top>50</top>
+                                <top>51</top>
                                 <width>1380</width>
+                                <height>60</height>
                                 <label>$INFO[ListItem.Label]</label>
-                                <aligny>top</aligny>
-    							<font>font15</font>
+                                <aligny>center</aligny>
+    							<font>font13</font>
     							<textcolor>$VAR[ColorTextVar]</textcolor>
     							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
                             </control>
                             <control type="textbox">
                                 <top>100</top>
                                 <width>1380</width>
-                                <height>108</height>
+                                <height>85</height>
                                 <label>$INFO[ListItem.Plot]</label>
-    							<font>font14_textbox2</font>
+    							<font>font13_textbox2</font>
     							<textcolor>$VAR[ColorTextVar]</textcolor>
                             </control>
                         </control>
@@ -119,53 +132,65 @@
                             <control type="image">
                                 <width>346</width>
                                 <height>195</height>
-                                <texture>background.png</texture>
-                                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                            </control>
-                            <control type="image">
-                                <width>346</width>
-                                <height>195</height>
                                 <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
                                 <aspectratio>scale</aspectratio>
                             </control>
                             <control type="image">
-                                <visible>ListItem.IsSelected</visible>
+                                <animation center="auto" condition="Control.HasFocus(655)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                <animation center="auto" condition="Control.HasFocus(655)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
                                 <width>346</width>
                                 <height>195</height>
-                                <texture>topbar.png</texture>
-                                <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                                <texture>thumbs/diffuse.png</texture>
+                            </control>
+                            <control type="group">
+                                <visible>ListItem.IsSelected</visible>
+                                <left>282</left>
+                                <top>3</top>
+                                <control type="image">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
+                                    <aspectratio align="center" aligny="top">keep</aspectratio>
+                                </control>
+                                <control type="image">
+                                    <top>16</top>
+                                    <left>16</left>
+                                    <width>28</width>
+                                    <height>28</height>
+                                    <texture colordiffuse="ffffffff">overlays/checkmark.png</texture>
+                                    <aspectratio align="center" aligny="top">keep</aspectratio>
+                                </control>
                             </control>
                         </control>
                         <control type="group">
                             <left>382</left>
-                            <top>6</top>
-                            <control type="group">
-                                <control type="label">
-                                    <width>1380</width>
-                                    <label>$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Label2]</label>
-                                    <font>font16_title</font>
-    								<aligny>top</aligny>
-    								<textcolor>$VAR[ColorTextVar]</textcolor>
-                                    <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-                                </control>
-                                <control type="label">
-                                    <top>50</top>
-                                    <width>1380</width>
-                                    <label>$INFO[ListItem.Label]</label>
-                                    <aligny>top</aligny>
-    								<font>font15</font>
-    								<textcolor>$VAR[ColorTextVar]</textcolor>
-                                    <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-                                </control>
-                                <control type="textbox">
-                                    <top>100</top>
-                                    <width>1380</width>
-                                    <height>108</height>
-                                    <label>$INFO[ListItem.Plot]</label>
-    								<textcolor>$VAR[ColorTextVar]</textcolor>
-    								<font>font14_textbox2</font>
-    								<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll) + !Control.HasFocus(60)</autoscroll>
-                                </control>
+                            <top>12</top>
+                            <control type="label">
+                                <width>1380</width>
+                                <height>70</height>
+                                <label>$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Label2]</label>
+                                <font>font30</font>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <top>51</top>
+                                <width>1380</width>
+                                <height>60</height>
+                                <label>$INFO[ListItem.Label]</label>
+                                <aligny>center</aligny>
+                                <font>font13</font>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
+                                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                            </control>
+                            <control type="textbox">
+                                <top>100</top>
+                                <width>1380</width>
+                                <height>85</height>
+                                <label>$INFO[ListItem.Plot]</label>
+                                <font>font13_textbox2</font>
+                                <textcolor>$VAR[ColorTextVar]</textcolor>
                             </control>
                         </control>
                     </focusedlayout>
@@ -176,9 +201,9 @@
             <visible allowhiddenfocus="true">Control.HasFocus(60) | Container(655).Scrolling</visible>
             <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
             <left>1910</left>
-            <top>0</top>
+            <top>120</top>
             <width>10</width>
-            <height>1080</height>
+            <height>960</height>
             <onup>60</onup>
             <ondown>60</ondown>
             <onleft>655</onleft>
