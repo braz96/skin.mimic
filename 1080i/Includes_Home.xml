@@ -5,7 +5,7 @@
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
 		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + [!Skin.HasSetting(Enable.WeatherInMenu) | Skin.HasSetting(Enable.CenteredMenu)]">WeatherHomeWidget</include>
 		<control type="group">
-			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
+			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 			<animation effect="slide" time="0" start="0,0" end="0,-70" condition="system.getbool(lookandfeel.enablerssfeeds) | Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
 			<top>960</top>
 			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
@@ -42,13 +42,13 @@
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
 		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu)">WeatherHomeWidget</include>
 		<control type="group">
-			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
+			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
 			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
 			<control type="image">
-				<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
+				<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
@@ -64,7 +64,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
+			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 			<top>0</top>
 			<animation effect="slide" tween="cubic" time="600" start="0,-820" end="0,0" reversible="false">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,-820" reversible="false">WindowClose</animation>
@@ -121,7 +121,7 @@
 			<include>MainMenuListTop</include>
 		</control>
 		<control type="group">
-			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)] + ![[ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)] | [ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)]]</visible>
+			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)] + ![[ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)] | [ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)]]</visible>
 			<animation effect="slide" end="0,50" time="240">WindowClose</animation>
 			<animation effect="slide" start="0,50" end="0,0" delay="300" time="240" condition="!Window.Previous(startup)">WindowOpen</animation>
 			<animation effect="slide" start="0,50" end="0,0" delay="800" time="480" condition="Window.Previous(startup)">WindowOpen</animation>
@@ -162,7 +162,7 @@
 	</include>
 	<include name="HomeVerticalMenu">
 		<control type="group">
-			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
+			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 			<top>0</top>
 			<!--<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false">WindowClose</animation>
@@ -196,7 +196,7 @@
 			</control>
 			<control type="group" id="9001">
 				<control type="group">
-					<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
+					<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 					<animation effect="slide" end="2500,0" time="240">WindowClose</animation>
 					<animation effect="slide" start="1920,0" end="0,0" delay="300" time="240" condition="!window.previous(startup)">WindowOpen</animation>
 					<animation effect="slide" start="1920" end="0" time="240">VisibleChange</animation>

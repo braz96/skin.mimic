@@ -623,7 +623,7 @@
 	                    <height>80</height>
 	                    <texture colordiffuse="$VAR[ColorTextVar]">$VAR[HeaderIcon]</texture>
 	                    <visible>![Container.Scrolling + stringcompare(Container.SortMethod,$LOCALIZE[369])]</visible>
-	                    <visible>!Window.IsVisible(DialogBusy.xml)</visible>
+	                    <visible>!Window.IsVisible(DialogBusy.xml) + [!Control.IsVisible(12345) | [!Skin.HasSetting(Enable.PersistentWidgets) + !ControlGroup(9003).HasFocus]]</visible>
 	                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 	                </control>
 	                <control type="label">
@@ -637,7 +637,7 @@
 	                    <label>$INFO[ListItem.SortLetter,[UPPERCASE],[/UPPERCASE]]</label>
 	                    <textcolor>$VAR[ColorTextVar]</textcolor>
 	                    <visible>Container.Scrolling + stringcompare(Container.SortMethod,$LOCALIZE[369])</visible>
-	                    <visible>!Window.IsVisible(DialogBusy.xml)</visible>
+	                    <visible>!Window.IsVisible(DialogBusy.xml) + !Control.IsVisible(12345)</visible>
 	                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 	                </control>
 	                <control type="image">

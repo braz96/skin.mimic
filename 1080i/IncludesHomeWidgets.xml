@@ -4,7 +4,7 @@
 		<control type="group" id="9003">
 			<include>VisibleFadeEffect</include>
 			<control type="group">
-				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(main.xml) | Window.IsVisible(BigScreenList.xml)]</visible>
+				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 				<animation effect="fade" start="0" end="100" delay="200" time="300" easing="out" condition="[ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)] | [ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="300" reversible="false" condition="[!ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] | [Control.HasFocus(9000) + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
 				<animation effect="fade" tween="cubic" time="600" delay="500" start="0" end="100" reversible="false">WindowOpen</animation>
@@ -49,7 +49,7 @@
 				<control type="group">
 					<control type="group">
 						<visible>StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
-						<top>10</top>
+						<top>-35</top>
 						<left>573</left>
 						<width>1216</width>
 						<control type="image">
@@ -97,7 +97,7 @@
 					</control>
 					<include name="WeatherWidgetCommons">
 						<param name="WeatherPositionLeft" value="573" />
-						<param name="WeatherPositionTop" value="390" />
+						<param name="WeatherPositionTop" value="345" />
 						<param name="WeatherPanelWidth" value="1216" />
 						<param name="WeatherPanelHeight" value="370" />
 						<param name="WeatherItemWidth" value="304" />

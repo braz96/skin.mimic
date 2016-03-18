@@ -16,7 +16,9 @@
     <other include="widget-fixed">
         <propertyGroup>widgetCommon</propertyGroup>
         <controls>
-            <include>skinshortcuts-template-busyanimation</include>
+            <include name="WidgetBusyAnimation">
+                <param name="id">8011$SKINSHORTCUTS[id]</param>
+            </include>
             <control type="fixedlist" id="8011$SKINSHORTCUTS[id]">
             	<skinshortcuts>visibility</skinshortcuts>
 				<include name="FixedWrapWidgetContent">
@@ -48,7 +50,9 @@
     <other include="widget-wrapped">
         <propertyGroup>widgetCommon</propertyGroup>
         <controls>
-            <include>skinshortcuts-template-busyanimation</include>
+            <include name="WidgetBusyAnimation">
+                <param name="id">8011$SKINSHORTCUTS[id]</param>
+            </include>
             <control type="wraplist" id="8011$SKINSHORTCUTS[id]">
             	<skinshortcuts>visibility</skinshortcuts>
 				<include name="FixedWrapWidgetContent">
@@ -80,6 +84,9 @@
     <other include="widget-defaultpanel">
         <propertyGroup>widgetCommon</propertyGroup>
         <controls>
+            <include name="WidgetBusyAnimation">
+                <param name="id">8011$SKINSHORTCUTS[id]</param>
+            </include>
             <control type="image">
                 <visible>!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + !StringCompare(Container(9000).ListItem.Property(widget),weather) + Control.HasFocus(8011$SKINSHORTCUTS[id]) + !Container(8011$SKINSHORTCUTS[id]).IsUpdating</visible>
                 <animation effect="slide" time="0" start="0,0" end="0,190" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
@@ -130,7 +137,6 @@
                 <animation effect="slide" end="466,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
                 <animation effect="slide" end="466,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
             </control>
-            <include>skinshortcuts-template-busyanimation</include>
             <control type="panel" id="8011$SKINSHORTCUTS[id]">
                 <skinshortcuts>visibility</skinshortcuts>
                 <oninfo condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(8011$SKINSHORTCUTS[id]).ListItem.Label])</oninfo>
@@ -361,8 +367,11 @@
     <other include="widget-verticalpanel">
         <propertyGroup>widgetCommon</propertyGroup>
         <controls>
+            <include name="WidgetBusyAnimation">
+                <param name="id">8011$SKINSHORTCUTS[id]</param>
+            </include>
             <control type="image">
-                <visible>!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + !StringCompare(Container(9000).ListItem.Property(widget),weather) + Control.HasFocus(8011$SKINSHORTCUTS[id])</visible>
+                <visible>!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + !StringCompare(Container(9000).ListItem.Property(widget),weather) + Control.HasFocus(8011$SKINSHORTCUTS[id]) + !Container(8011$SKINSHORTCUTS[id]).IsUpdating</visible>
                 <left>554</left>
                 <top>48</top>
                 <width>219</width>
@@ -378,7 +387,7 @@
                 <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
             </control>
             <control type="image">
-                <visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + Control.HasFocus(8011$SKINSHORTCUTS[id])</visible>
+                <visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + Control.HasFocus(8011$SKINSHORTCUTS[id]) + !Container(8011$SKINSHORTCUTS[id]).IsUpdating</visible>
                 <left>568</left>
                 <top>48</top>
                 <width>316</width>
@@ -392,7 +401,7 @@
                 <animation effect="slide" end="304,0" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
             </control>
             <control type="image">
-                <visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + Control.HasFocus(8011$SKINSHORTCUTS[id])</visible>
+                <visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + Control.HasFocus(8011$SKINSHORTCUTS[id]) + !Container(8011$SKINSHORTCUTS[id]).IsUpdating</visible>
                 <left>554</left>
                 <top>48</top>
                 <width>322</width>
@@ -406,7 +415,6 @@
                 <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).Row,1)">Conditional</animation>
                 <animation effect="slide" end="0,203" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).Row,0)">Conditional</animation>
             </control>
-            <include>skinshortcuts-template-busyanimation</include>
             <control type="panel" id="8011$SKINSHORTCUTS[id]">
             	<skinshortcuts>visibility</skinshortcuts>
 				<oninfo condition="StringCompare(Container(9000).ListItem.Property(widgetType),movies)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(8011$SKINSHORTCUTS[id]).ListItem.Label])</oninfo>
@@ -645,24 +653,6 @@
                 <param name="Visible">$SKINSHORTCUTS[visible]</param>
                 <param name="imagePath">$SKINSHORTCUTS[imagepath]</param>
             </include>
-        </controls>
-    </other>
-    <other include="busyanimation">
-        <property name="id" tag="mainmenuid" />
-        <controls>
-            <control type="image">
-                <visible>Control.IsVisible(8011$SKINSHORTCUTS[id]) + Container(8011$SKINSHORTCUTS[id]).IsUpdating + ![Control.HasFocus(9010) + !Skin.HasSetting(Enable.PersistentWidgets)]</visible>
-                <animation effect="slide" time="0" start="0,0" end="0,190" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
-                <animation effect="slide" time="0" start="0,0" end="221,-382" condition="StringCompare(Skin.String(HomeLayout),3)">Conditional</animation>
-                <description>Busy animation</description>
-                <top>710</top>
-                <left>930</left>
-                <width>60</width>
-                <height>60</height>
-                <texture colordiffuse="$VAR[ColorTextVar]" fallback="special://skin/extras/spinners/Sun.png">$INFO[Skin.String(busyloader)]</texture>
-                <aspectratio>keep</aspectratio>
-                <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
-            </control>
         </controls>
     </other>
 </template>
