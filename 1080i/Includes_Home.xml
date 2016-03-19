@@ -164,20 +164,16 @@
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 			<top>0</top>
-			<!--<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">Visible</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false">Hidden</animation>-->
 			<!-- Main Menu (Includes_Menus.xml) -->
 			<control type="group">
 				<animation effect="slide" time="0" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
 				<control type="group">
-					<left>-1486</left>
+					<left>-1446</left>
 					<control type="image">
-						<animation effect="slide" time="300" start="0" end="1486" tween="sine" easing="inout" reversible="false" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] | Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-						<animation effect="slide" time="150" delay="200" start="1486" end="0" tween="sine" easing="inout" reversible="false" condition="![[ControlGroup(9003).HasFocus | Control.HasFocus(9010)] + !Skin.HasSetting(Enable.PersistentWidgets) + ControlGroup(9003).IsVisible] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+						<animation effect="slide" time="300" start="0" end="1446" tween="sine" easing="inout" reversible="false" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] | Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+						<animation effect="slide" time="150" delay="200" start="1446" end="0" tween="sine" easing="inout" reversible="false" condition="![[ControlGroup(9003).HasFocus | Control.HasFocus(9010)] + !Skin.HasSetting(Enable.PersistentWidgets) + ControlGroup(9003).IsVisible] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 						<!--<animation effect="slide" time="150" delay="200" start="0" end="-1486" tween="sine" easing="inout" condition="Control.HasFocus(9010) + Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>-->
-						<animation effect="slide" time="0" delay="0" start="0" end="1486" tween="sine" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+						<animation effect="slide" time="0" delay="0" start="0" end="1446" tween="sine" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 						<top>0</top>
 						<width>1920</width>
 						<height>1080</height>
@@ -185,6 +181,10 @@
 						<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 					</control>
 					<control type="image">
+						<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">WindowOpen</animation>
+						<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false">WindowClose</animation>
+						<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false">Visible</animation>
+						<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false">Hidden</animation>
 						<top>0</top>
 						<width>1920</width>
 						<height>1080</height>
@@ -205,8 +205,8 @@
 					<control type="group">
 						<control type="image">
 							<top>42</top>
-							<left>434</left>
-							<width>1486</width>
+							<left>474</left>
+							<width>1446</width>
 							<height>50</height>
 							<texture>background.png</texture>
 							<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
@@ -222,10 +222,10 @@
 						</control>
 						<control type="rss">
 							<description>RSS feed</description>
-							<left>450</left>
+							<left>490</left>
 							<top>44</top>
 							<height>30</height>
-							<width>1415</width>
+							<width>1375</width>
 							<font>font13</font>
 							<urlset>1</urlset>
 							<textcolor>$VAR[ColorHighlightVar]</textcolor>
@@ -239,6 +239,7 @@
 		<control type="group" id="9003">
 			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath)) | StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 			<control type="group">
+				<include>Animation.Common</include>
 				<top>234</top>
 				<animation effect="fade" start="0" end="100" time="0" easing="out" condition="ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
 				<animation effect="fade" start="0" end="100" time="200" easing="out" delay="400" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] | Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>

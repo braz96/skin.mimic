@@ -26,8 +26,8 @@ More screenshots available here: http://imgur.com/a/LLSMM
 **3.4.1**
 - Added an option to limit the number of widget items.
 - Added an option for wide list when using List view.
-- Fix disappearing widgets issue.
 - Added an option for media flags in certain views.
+- Added an option for icons on the vertical menu and fixed animations.
 
 ***
 **3.4.0**
