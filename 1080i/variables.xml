@@ -452,7 +452,8 @@
 		<value condition="VideoPlayer.Content(livetv) + !IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[Player.Art(thumb)]</value>
 		<value condition="Player.Playing | Player.HasVideo | Player.HasAudio">$INFO[Player.Art(thumb)]</value>
-		<value>DefaultAddonNone.png</value>
+		<value condition="!IsEmpty(Weather.Plugin) + !Weather.IsFetched">DefaultAddonNone.png</value>
+		<value>DefaultIconClock.png</value>
 	</variable>
 	<variable name="ColorHighlightVar">
 		<value condition="Skin.HasSetting(ColorCustomizer.Enabled) + !IsEmpty(Skin.String(highlightcolor.name))">$INFO[Skin.String(highlightcolor.name)]</value>
@@ -612,7 +613,8 @@
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="TopbarFadeLabel1">
-    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)">$INFO[Weather.Temperature,, • ]$INFO[System.Time]</value>
+    	<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !IsEmpty(Weather.Plugin)">$INFO[Weather.Temperature,, • ]$INFO[System.Time]</value>
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo | !IsEmpty(Weather.Plugin)] | Window.IsActive(tvchannels)">$INFO[System.Time]</value>
     	<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,X,. ]$INFO[Player.Title]</value>
     	<value>$INFO[Player.Title]</value>
     </variable>
