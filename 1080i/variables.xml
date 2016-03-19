@@ -445,36 +445,6 @@
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[20360]: $INFO[ListItem.Property(TotalEpisodes)]$INFO[ListItem.Property(UnWatchedEpisodes), (,[LOWERCASE] $LOCALIZE[16101][/LOWERCASE])]</value>
 		<value>$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
 	</variable>
-	<!--<variable name="AudioChannelVar">
-		<value condition="IntegerGreaterThan(ListItem.AudioChannels,7)">7.1</value>
-		<value condition="IntegerGreaterThan(ListItem.AudioChannels,6)">6.1</value>
-		<value condition="IntegerGreaterThan(ListItem.AudioChannels,5)">5.1</value>
-		<value condition="IntegerGreaterThan(ListItem.AudioChannels,4)">5.0</value>
-		<value condition="IntegerGreaterThan(ListItem.AudioChannels,3)">4.0</value>
-		<value condition="IntegerGreaterThan(ListItem.AudioChannels,2)">2.1</value>
-		<value condition="IntegerGreaterThan(ListItem.AudioChannels,1)">2.0</value>
-		<value condition="IntegerGreaterThan(ListItem.AudioChannels,0)">1.0</value>
-	</variable>
-	<variable name="AudioChannelExtendedInfoVar">
-		<value condition="IntegerGreaterThan(Window.Property(AudioChannels),7)">7.1</value>
-		<value condition="IntegerGreaterThan(Window.Property(AudioChannels),6)">6.1</value>
-		<value condition="IntegerGreaterThan(Window.Property(AudioChannels),5)">5.1</value>
-		<value condition="IntegerGreaterThan(Window.Property(AudioChannels),4)">5.0</value>
-		<value condition="IntegerGreaterThan(Window.Property(AudioChannels),3)">4.0</value>
-		<value condition="IntegerGreaterThan(Window.Property(AudioChannels),2)">2.1</value>
-		<value condition="IntegerGreaterThan(Window.Property(AudioChannels),1)">2.0</value>
-		<value condition="IntegerGreaterThan(Window.Property(AudioChannels),0)">1.0</value>
-	</variable>
-	<variable name="AudioChannelSearchVar">
-		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),7)">7.1</value>
-		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),6)">6.1</value>
-		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),5)">5.1</value>
-		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),4)">5.0</value>
-		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),3)">4.0</value>
-		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),2)">2.1</value>
-		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),1)">2.0</value>
-		<value condition="IntegerGreaterThan(Container(100).ListItem.Property(AudioChannels),0)">1.0</value>
-	</variable>-->
 	<variable name="HomeNowPlayingThumbVar">
 		<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !IsEmpty(Window(weather).Property(Current.FanartCode))">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</value>
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)] + !IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
@@ -627,6 +597,8 @@
     	<value condition="Window.IsActive(pvrsettings)">$LOCALIZE[19020]</value>
     	<value condition="Window.IsActive(skinsettings)">$LOCALIZE[166]</value>
     	<value condition="Window.IsActive(settings)">$INFO[System.FriendlyName]</value>
+    	<value condition="Window.IsActive(home) + Window.IsVisible(virtualkeyboard)">$LOCALIZE[137]</value>
+    	<value condition="Window.IsActive(home) + Window.IsVisible(shutdownmenu)">$LOCALIZE[13005]</value>
     	<value condition="Window.IsActive(home)">$VAR[LibraryStatsVar]</value>
     	<value>$INFO[Container.NumItems,, $LOCALIZE[31025]]</value>
     </variable>

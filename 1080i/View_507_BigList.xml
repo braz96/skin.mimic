@@ -461,19 +461,19 @@
                 <aspectratio>keep</aspectratio>
             </control>
             <control type="image">
-                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-                <width>346</width>
-                <height>195</height>
-                <texture>thumbs/diffuse.png</texture>
-            </control>
-            <control type="image">
                 <top>90</top>
                 <width>346</width>
                 <height>98</height>
                 <aspectratio align="center" aligny="bottom">keep</aspectratio>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                 <visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos) | Skin.HasSetting(Enable.BigListLogo) | Skin.HasSetting(Enable.BigListFanart)] + IsEmpty(ListItem.Art(landscape))</visible>
+            </control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <width>346</width>
+                <height>195</height>
+                <texture>thumbs/diffuse.png</texture>
             </control>
             <include name="OverlayIcons" condition="!Skin.HasSetting(Enable.BigListLogo)">
                 <param name="OverlayLeft" value="288" />
