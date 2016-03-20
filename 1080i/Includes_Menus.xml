@@ -310,10 +310,10 @@
 		<width>474</width>
 		<height>$PARAM[MainMenuVerticalHeight]</height>
 		<onright condition="!IsEmpty(Container(9000).ListItem.Property(widget))">9003</onright>
-		<onleft condition="Skin.HasSetting(Enable.SeparateMenus)">9010</onleft>
+		<onleft condition="!Skin.HasSetting(Enable.CombineMenus)">9010</onleft>
 		<ondown>9000</ondown>
 		<onup>9000</onup>
-		<onback condition="!Skin.HasSetting(Enable.SeparateMenus)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
+		<onback condition="Skin.HasSetting(Enable.CombineMenus)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
 		<pagecontrol>-</pagecontrol>
 		<scrolltime tween="quadratic" easing="out">300</scrolltime>
 		<orientation>Vertical</orientation>
@@ -358,7 +358,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<textcolor>33ffffff</textcolor>
-				<visible>SubString(ListItem.Property(hasSubmenu),True) + !Skin.HasSetting(Enable.SeparateMenus)</visible>
+				<visible>SubString(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
 				<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 				<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
 			</control>
@@ -404,7 +404,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<textcolor>33ffffff</textcolor>
-				<visible>SubString(ListItem.Property(hasSubmenu),True) + !Skin.HasSetting(Enable.SeparateMenus)</visible>
+				<visible>SubString(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
 				<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 				<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
 			</control>
@@ -459,7 +459,7 @@
                 <align>right</align>
                 <aligny>center</aligny>
                 <textcolor>33ffffff</textcolor>
-                <visible>SubString(ListItem.Property(hasSubmenu),True) + !Skin.HasSetting(Enable.SeparateMenus)</visible>
+                <visible>SubString(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
                 <visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
                 <animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
             </control>
@@ -514,14 +514,14 @@
                 <align>right</align>
                 <aligny>center</aligny>
                 <textcolor>33ffffff</textcolor>
-                <visible>SubString(ListItem.Property(hasSubmenu),True) + !Skin.HasSetting(Enable.SeparateMenus)</visible>
+                <visible>SubString(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
                 <visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
                 <animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
             </control>
         </focusedlayout>
 		<content>
-			<include condition="!Skin.HasSetting(Enable.SeparateMenus)">skinshortcuts-allmenus</include>
-			<include condition="Skin.HasSetting(Enable.SeparateMenus)">skinshortcuts-mainmenu</include>
+			<include condition="Skin.HasSetting(Enable.CombineMenus)">skinshortcuts-allmenus</include>
+			<include condition="!Skin.HasSetting(Enable.CombineMenus)">skinshortcuts-mainmenu</include>
 		</content>
 	</include>
 	
@@ -532,7 +532,7 @@
 				<height>$PARAM[SubmenuItemHeight]</height>
 				<texture>background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				<visible>StringCompare(Skin.String(HomeLayout),2) | [StringCompare(Skin.String(HomeLayout),3) + !Skin.HasSetting(Enable.SeparateMenus)]</visible>
+				<visible>StringCompare(Skin.String(HomeLayout),2) | [StringCompare(Skin.String(HomeLayout),3) + Skin.HasSetting(Enable.CombineMenus)]</visible>
 			</control>
 			<control type="label">
 				<width>$PARAM[SubmenuItemWidth]</width>
@@ -552,7 +552,7 @@
 				<height>$PARAM[SubmenuItemHeight]</height>
 				<texture>background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				<visible>StringCompare(Skin.String(HomeLayout),2) | [StringCompare(Skin.String(HomeLayout),3) + !Skin.HasSetting(Enable.SeparateMenus)]</visible>
+				<visible>StringCompare(Skin.String(HomeLayout),2) | [StringCompare(Skin.String(HomeLayout),3) + Skin.HasSetting(Enable.CombineMenus)]</visible>
 			</control>
 			<control type="image">
 				<width>$PARAM[SubmenuItemWidth]</width>
