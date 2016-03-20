@@ -629,7 +629,7 @@
     	<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ]</value>
     	<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]</value>
     	<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Artist)">$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]</value>
-    	<value>$INFO[Player.Time] / $INFO[Player.Duration]</value>
+    	<value condition="!IsEmpty(Player.Title)">$INFO[Player.Time] / $INFO[Player.Duration]</value>
     </variable>
     <variable name="AddonDisclaimer">
     	<value condition="!IsEmpty(ListItem.Property(Addon.Disclaimer))">[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[24052]: [/COLOR][CR]$INFO[ListItem.Property(Addon.Disclaimer)]</value>
