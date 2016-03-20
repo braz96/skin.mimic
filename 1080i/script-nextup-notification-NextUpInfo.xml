@@ -1,121 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">3012</defaultcontrol>
-	<include>dialogeffect</include>
-    <coordinates>
-        <system>1</system>
-        <left>310</left>
-        <top>190</top>
-    </coordinates>
-	<controls>
-		<control type="group">
-			 <include name="DialogBackgroundCommons">
-                <param name="DialogBackgroundWidth" value="1300" />
-                <param name="DialogBackgroundHeight" value="700" />
-                <param name="DialogHeaderLabel" value="" />
-                <param name="DialogHeaderId" value="-" />
-            </include>
-            <control type="label">
-                <description>header label</description>
-                <visible>IntegerGreaterThan(Player.TimeRemaining(ss),59)</visible>
-                <top>25</top>
-                <width>1300</width>
-                <height>40</height>
-                <font>font15_title</font>
+    <defaultcontrol always="true">3013</defaultcontrol>
+    <controls>
+        <control type="label" id="3000"><visible>false</visible></control>
+        <control type="label" id="3002"><visible>false</visible></control>
+
+        <control type="group">
+            <include>Animation.Common</include>
+            <top>760</top>
+            <left>1390</left>
+            <width>480</width>
+            <height>270</height>
+
+            <control type="label" description="text">
+                <top>-64</top>
+                <left>0</left>
+                <right>20</right>
+                <height>64</height>
+                <aligny>center</aligny>
+                <font>font30</font>
                 <label>$ADDON[service.nextup.notification 30008]...</label>
-                <textoffsetx>30</textoffsetx>
-                <align>center</align>
                 <textcolor>$VAR[ColorTextVar]</textcolor>
+                <shadowcolor>ff000000</shadowcolor>
             </control>
-            <control type="label">
-                <description>header label</description>
-                <visible>!IntegerGreaterThan(Player.TimeRemaining(ss),59)</visible>
-                <top>25</top>
-                <width>1300</width>
-                <height>40</height>
-                <font>font15_title</font>
-                <label>$ADDON[service.nextup.notification 30008]... $INFO[Player.TimeRemaining(ss)]</label>
-                <textoffsetx>30</textoffsetx>
-                <align>center</align>
-                <textcolor>$VAR[ColorTextVar]</textcolor>
-            </control>
-            <control type="image" id="3009">
-                <description>Poster</description>
-                <left>30</left>
-                <top>90</top>
-                <width>333</width>
-                <height>500</height>
+
+            <control type="image" description="fanart">
+                <width>100%</width>
+                <height>100%</height>
                 <fadetime>350</fadetime>
                 <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture>$INFO[Player.Art(fanart)]</texture>
+            </control>
+
+            <control type="image" description="blackline">
+                <top>206</top>
+                <width>100%</width>
+                <height>64</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture colordiffuse="$VAR[ColorBackgroundVar]">background.png</texture>
+            </control>
+
+            <control type="image" description="blackline">
+                <top>85</top>
+                <left>190</left>
+                <height>100</height>
+                <width>100</width>
+                <aspectratio scalediffuse="false">keep</aspectratio>
+                <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
             </control>
             <control type="label">
-                <left>383</left>
-                <width>887</width>
-                <top>75</top>
-                <height>65</height>
-                <aligny>top</aligny>
-                <font>font28_title</font>
-                <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                <label>$INFO[Control.GetLabel(3002)] $INFO[Control.GetLabel(3000)]</label>
-            </control>
-            <control type="textbox" id="3001">
-                <description>Plot</description>
-                <left>383</left>
-                <top>140</top>
-                <height>455</height>
-                <width>887</width>
-                <font>font14_textbox</font>
+                <description>Remaining</description>
+                <top>103</top>
+                <left>208</left>
+                <height>64</height>
+                <width>64</width>
+                <font>font14</font>
+                <align>center</align>
+                <aligny>center</aligny>
                 <textcolor>$VAR[ColorTextVar]</textcolor>
-                <align>left</align>
-                <aligny>top</aligny>
-                <autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+                <label>[B]$INFO[Player.TimeRemaining(ss)][/B]</label>
             </control>
+
+
+            <control type="label" description="text">
+                <left>20</left>
+                <right>110</right>
+                <height>64</height>
+                <top>206</top>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <label>$INFO[Control.GetLabel(3002)]$INFO[Control.GetLabel(3000)]</label>
+                <textcolor>$VAR[ColorTextVar]</textcolor>
+            </control>
+
             <control type="button" id="3012">
-                <description>Watch Now</description>
-                <left>30</left>
-                <top>610</top>
-                <width>605</width>
+                <description>Play</description>
+                <left>376</left>
+                <top>214</top>
+                <width>48</width>
+                <height>48</height>
+                <label></label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <textoffsetx>0</textoffsetx>
                 <onleft>3013</onleft>
                 <onright>3013</onright>
-                <font>font15_title</font>
-                <align>center</align>
-                <label>$ADDON[service.nextup.notification 30006]</label>
+                <font>IconMedium</font>
+                <textcolor>$VAR[ColorTextVar]</textcolor>
             </control>
             <control type="button" id="3013">
                 <description>Cancel</description>
-                <left>665</left>
-                <top>610</top>
-                <width>605</width>
+                <left>424</left>
+                <top>214</top>
+                <width>48</width>
+                <height>48</height>
+                <label></label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <textoffsetx>0</textoffsetx>
                 <onleft>3012</onleft>
                 <onright>3012</onright>
-                <font>font15_title</font>
-                <align>center</align>
-                <label>222</label>
+                <font>IconMedium</font>
+                <textcolor>$VAR[ColorTextVar]</textcolor>
             </control>
-            <control type="image" id="3006">
-                <description>Clearart</description>
-                <visible>false</visible>
-            </control>
-            <control type="image" id="3010">
-                <description>Landscape</description>
-                <visible>false</visible>
-            </control>
-            <control type="label" id="3002">
-                <description>Episode/season info</description>
-                <visible>false</visible>
-            </control>
-            <control type="label" id="3000">
-                <description>Title</description>
-                <visible>false</visible>
-            </control>
-            <control type="label" id="3003">
-                <description>Rating</description>
-                <visible>false</visible>
-            </control>
-            <control type="label" id="3004">
-                <description>Year/runtime</description>
-                <visible>false</visible>
-            </control>
-		</control>
-	</controls>
+        </control>
+    </controls>
 </window>
