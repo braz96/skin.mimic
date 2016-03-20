@@ -711,10 +711,21 @@
         <property name="visible">Control.HasFocus(8011$SKINSHORTCUTS[id]) + !IsEmpty(Container(8011$SKINSHORTCUTS[id]).ListItem.Art(fanart))</property>
         <property name="imagepath">$INFO[Container(8011$SKINSHORTCUTS[id]).ListItem.Art(fanart)]</property>
         <controls>
+            <control type="group">
+                <visible>Player.HasAudio + !Skin.HasSetting(Disable.ShowBackgroundVis)</visible>
+                <control type="image">
+                    <include>FullscreenDimensions</include>
+                    <texture>black.png</texture>
+                </control>
+                <control type="visualisation">
+                    <include>FullscreenDimensions</include>
+                </control>
+            </control>
             <control type="multiimage">
                 <description>Widget Background Image</description>
                 <fadetime>300</fadetime>
                 <animation effect="fade" time="200" tween="cubic">Visible</animation>
+                <animation effect="fade" start="100" end="40" time="0" condition="Visualisation.Enabled + !Skin.HasSetting(Disable.ShowBackgroundVis)">Conditional</animation>
                 <include>FullscreenDimensions</include>
                 <imagepath background="true">$VAR[HomeFanartPath]</imagepath>
             </control>
