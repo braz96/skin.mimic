@@ -588,7 +588,7 @@
 				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]$PYTHON[$SKINSHORTCUTS[autoreload]]</content>
 			</control>
             <control type="group">
-                <visible>!StringCompare(Container(9000).ListItem.Property(widget),weather) + ![Control.HasFocus(9010) + !Skin.HasSetting(Enable.PersistentWidgets)]</visible>
+                <visible>!StringCompare(Container(9000).ListItem.Property(widget),weather) + ![Control.HasFocus(9010) + !Skin.HasSetting(Enable.PersistentWidgets)] + IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).NumItems,0)</visible>
                 <control type="label">
                     <animation effect="slide" time="0" tween="cubic" start="0" end="-10" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])">Conditional</animation>
                     <left>585</left>
