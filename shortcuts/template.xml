@@ -315,6 +315,7 @@
                 <content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]$PYTHON[$SKINSHORTCUTS[autoreload]]</content>
             </control>
             <control type="group">
+                <visible>IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).NumItems,0)</visible>
                 <animation effect="slide" time="0" start="0,0" end="0,190" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
                 <control type="label">
                     <animation effect="fade" time="300" tween="cubic" condition="[ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)] | [ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)]" start="0" end="100">Visible</animation>
@@ -328,7 +329,6 @@
                     <align>right</align>
                     <textcolor>$VAR[ColorTextVar]</textcolor>
                     <label>$VAR[WidgetNameLabelVar]</label>
-                    <visible>!Container(8011$SKINSHORTCUTS[id]).IsUpdating</visible>
                 </control>
                 <control type="group">
                     <visible>Control.HasFocus(8011$SKINSHORTCUTS[id]) + !StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
