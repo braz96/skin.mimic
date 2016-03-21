@@ -6,8 +6,27 @@
 	<onunload condition="StringCompare(Skin.String(HomeLayout),3)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<controls>
-		<include>CommonBackground</include>
-		<include>skinshortcuts-template-WidgetFanart</include>
+		<include>LiveCasesBackground</include>
+ 		<include>skinshortcuts-template-HomeFanart</include>            
+        <control type="visualisation">
+        	<visible>Player.HasAudio + !Skin.HasSetting(Disable.ShowBackgroundVis)</visible>
+            <include>FullscreenDimensions</include>
+        </control>
+        <control type="image">
+			<include>FullscreenDimensions</include>
+			<texture>black.png</texture>
+			<visible>Player.HasVideo + !Skin.HasSetting(Disable.ShowBackgroundVideo)</visible>
+		</control>
+ 		<control type="videowindow">
+            <include>FullscreenDimensions</include>
+            <visible>Player.HasVideo + !Skin.HasSetting(Disable.ShowBackgroundVideo)</visible>
+        </control>
+        <control type="image">
+            <visible>Skin.HasSetting(Enable.HomeFanartOverlay) + !StringCompare(Skin.String(HomeLayout),3)</visible>
+            <include>FullscreenDimensions</include>
+            <texture>background.png</texture>
+            <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+        </control>
 		<include condition="Skin.HasSetting(Enable.HomeTopbar) + !StringCompare(Skin.String(HomeLayout),2)">Topbar</include>
 		<include condition="!StringCompare(Skin.String(HomeLayout),2) + !StringCompare(Skin.String(HomeLayout),3)">HomeDefault</include>
 		<include condition="StringCompare(Skin.String(HomeLayout),2)">HomeTopMenu</include>
