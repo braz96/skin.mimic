@@ -1205,7 +1205,7 @@
     	<control type="grouplist">
 			<left>$PARAM[left]</left>
 			<top>$PARAM[top]</top>
-			<width>800</width>
+			<width>840</width>
 			<height>80</height>
 			<itemgap>20</itemgap>
 			<align>$PARAM[align]</align>
@@ -1241,6 +1241,13 @@
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
 				<visible>!IsEmpty(ListItem.AudioChannels) + ![Container.Content(tvshows) | Container.Content(seasons) | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56)]</visible>
+			</control>
+			<control type="image">
+				<height>80</height>
+				<width>100</width>
+				<include>MediaFlagVars</include>
+				<texture>flags/cc.png</texture>
+				<visible>!IsEmpty(ListItem.SubtitleLanguage) + ![Container.Content(tvshows) | Container.Content(seasons) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(57) | Control.IsVisible(56)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
