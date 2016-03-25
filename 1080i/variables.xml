@@ -615,6 +615,10 @@
     	<value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value>$INFO[ListItem.Icon]</value>
     </variable>
+    <variable name="ListIcon">
+    	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
+        <value>$INFO[ListItem.Icon]</value>
+    </variable>
     <variable name="TopbarFadeLabel1">
     	<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !IsEmpty(Weather.Plugin)">$INFO[Weather.Temperature,, • ]$INFO[System.Time]</value>
     	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo | !IsEmpty(Weather.Plugin)] | Window.IsActive(tvchannels)">$INFO[System.Time]</value>

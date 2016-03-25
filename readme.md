@@ -28,6 +28,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added an option for wide list when using List view.
 - Added an option for media flags in certain views.
 - Added an option for icons on the vertical menu and fixed animations.
+- Added a list view for the Settings window.
 
 ***
 **3.4.0**
