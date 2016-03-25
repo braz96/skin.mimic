@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template>
-    <propertyGroup name="widgetCommon">
+    <other include="widget-fixed">
         <property name="id" tag="mainmenuid" />
         <property name="path" tag="property" attribute="name|widgetPath" />
         <property name="target" tag="property" attribute="name|widgetTarget" />
         <property name="path"></property>
         <property name="target"></property>
-
-        <!-- Python snippets -->
-        <property name="autoreload">'' if path in 'script.extendedinfo?' else autoreloadStringAnd %( id ) if path in 'plugin' and path in '?' else autoreloadStringQuestion %( id ) if path in 'plugin' else ''</property>
-        <property name="autoreloadStringAnd">&amp;mimic=$INFO[Window.Property(refresh8011%s)]</property>
-        <property name="autoreloadStringQuestion">?mimic=$INFO[Window.Property(refresh8011%s)]</property>
-    </propertyGroup>
-
-    <other include="widget-fixed">
-        <propertyGroup>widgetCommon</propertyGroup>
         <controls>
             <include name="WidgetBusyAnimation">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
@@ -24,7 +15,7 @@
 				<include name="FixedWrapWidgetContent">
                     <param name="id">8011$SKINSHORTCUTS[id]</param>
                 </include>
-				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]$PYTHON[$SKINSHORTCUTS[autoreload]]</content>
+				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
 			</control>
             <include name="FixedWrapWidgetLabels">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
@@ -48,7 +39,11 @@
     </other>
 
     <other include="widget-wrapped">
-        <propertyGroup>widgetCommon</propertyGroup>
+        <property name="id" tag="mainmenuid" />
+        <property name="path" tag="property" attribute="name|widgetPath" />
+        <property name="target" tag="property" attribute="name|widgetTarget" />
+        <property name="path"></property>
+        <property name="target"></property>
         <controls>
             <include name="WidgetBusyAnimation">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
@@ -58,7 +53,7 @@
 				<include name="FixedWrapWidgetContent">
                     <param name="id">8011$SKINSHORTCUTS[id]</param>
                 </include>
-				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]$PYTHON[$SKINSHORTCUTS[autoreload]]</content>
+				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
 			</control>
             <include name="FixedWrapWidgetLabels">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
@@ -82,7 +77,11 @@
     </other>
 
     <other include="widget-defaultpanel">
-        <propertyGroup>widgetCommon</propertyGroup>
+        <property name="id" tag="mainmenuid" />
+        <property name="path" tag="property" attribute="name|widgetPath" />
+        <property name="target" tag="property" attribute="name|widgetTarget" />
+        <property name="path"></property>
+        <property name="target"></property>
         <controls>
             <include name="WidgetBusyAnimation">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
@@ -312,7 +311,7 @@
                         <texture>thumbs/diffuse.png</texture>
                     </control>
                 </focusedlayout>
-                <content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]$PYTHON[$SKINSHORTCUTS[autoreload]]</content>
+                <content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
             </control>
             <control type="group">
                 <visible>IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).NumItems,0)</visible>
@@ -365,7 +364,11 @@
     </other>
 
     <other include="widget-verticalpanel">
-        <propertyGroup>widgetCommon</propertyGroup>
+        <property name="id" tag="mainmenuid" />
+        <property name="path" tag="property" attribute="name|widgetPath" />
+        <property name="target" tag="property" attribute="name|widgetTarget" />
+        <property name="path"></property>
+        <property name="target"></property>
         <controls>
             <include name="WidgetBusyAnimation">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
@@ -585,7 +588,7 @@
                         <texture>thumbs/diffuse.png</texture>
                     </control>
                 </focusedlayout>
-				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]$PYTHON[$SKINSHORTCUTS[autoreload]]</content>
+				<content limit="$VAR[WidgetLimit]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
 			</control>
             <control type="group">
                 <visible>!StringCompare(Container(9000).ListItem.Property(widget),weather) + ![Control.HasFocus(9010) + !Skin.HasSetting(Enable.PersistentWidgets)] + IntegerGreaterThan(Container(8011$SKINSHORTCUTS[id]).NumItems,0)</visible>
