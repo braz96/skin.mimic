@@ -840,13 +840,31 @@
 				<top>165</top>
 				<control type="group">
 					<left>1276</left>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)] + !substring(Container.FolderPath,plugin.video) + !Skin.HasSetting(Enable.WideList)</visible>
-					<include>VisibleFadeEffect</include>
+					<visible>![Container.Content(episodes) | Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)] + SubString(ListItem.Icon,Default,left)</visible>
+					<animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsActive(programs) | Window.IsActive(addonbrowser)">Conditional</animation>
+					<control type="image">
+						<width>560</width>
+						<height>560</height>
+						<texture colordiffuse="33000000">listselect_fo.png</texture>
+					</control>
+					<control type="image">
+						<left>80</left>
+						<top>80</top>
+						<width>400</width>
+						<height>400</height>
+						<aspectratio align="center" aligny="center">scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>
+				</control>
+				<control type="group">
+					<left>1276</left>
+					<visible>![Container.Content(episodes) | Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)] + !SubString(ListItem.Icon,Default,left)</visible>
 					<control type="image">
 						<width>560</width>
 						<height>840</height>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
-						<texture background="true">$VAR[PosterThumb]</texture>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>
 				</control>
@@ -856,11 +874,10 @@
 					<visible>Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)</visible>
 					<animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsActive(programs) | Window.IsActive(addonbrowser)">Conditional</animation>
 					<control type="image">
-						<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 						<width>560</width>
 						<height>560</height>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>
 					<control type="label">
@@ -911,21 +928,19 @@
 				</control>
 				<control type="group">
 					<left>1276</left>
-					<visible>[Window.IsActive(pictures) | Container.Content(files) | Container.Content(actors) | [substring(Container.FolderPath,plugin.video) + !Container.Content(episodes)] | Window.IsActive(videoplaylist) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)] + !IsEmpty(ListItem.Art(thumb))</visible>
+					<visible>[Window.IsActive(pictures) | Container.Content(files) | Container.Content(actors) | [substring(Container.FolderPath,plugin.video) + !Container.Content(episodes)] | Window.IsActive(videoplaylist) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)]</visible>
 					<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)">Conditional</animation>
-					<include>VisibleFadeEffect</include>
 					<control type="image">
 						<width>560</width>
 						<height>840</height>
 						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>
 				</control>
 				<control type="group">
 					<left>1276</left>
 					<visible>Container.Content(episodes)</visible>
-					<include>VisibleFadeEffect</include>
 					<control type="image">
 						<width>560</width>
 						<height>342</height>
