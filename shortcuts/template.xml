@@ -709,24 +709,19 @@
             </variable>
         </variables>
     </other>
-    <other include="HomeFanart">
+    <other include="WidgetFanart">
         <property name="id" tag="mainmenuid" />
         <property name="visible">Control.HasFocus(8011$SKINSHORTCUTS[id]) + !IsEmpty(Container(8011$SKINSHORTCUTS[id]).ListItem.Art(fanart))</property>
         <property name="imagepath">$INFO[Container(8011$SKINSHORTCUTS[id]).ListItem.Art(fanart)]</property>
         <controls>
              <control type="multiimage">
+                <visible>$SKINSHORTCUTS[visible]</visible>
                 <description>Widget Background Image</description>
                 <fadetime>300</fadetime>
-                <animation effect="fade" time="200" tween="cubic">Visible</animation>
+                <include>VisibleFadeEffect</include>
                 <include>FullscreenDimensions</include>
-                <imagepath background="true">$VAR[HomeFanartPath]</imagepath>
+                <imagepath background="true">$SKINSHORTCUTS[imagepath]</imagepath>
             </control>
         </controls>
-        <variables>
-            <variable name="HomeFanartPath">
-                <value condition="Control.HasFocus(8011$SKINSHORTCUTS[id])">$SKINSHORTCUTS[imagepath]</value>
-                <value>$VAR[HomeBackgroundVar]</value>
-            </variable>
-        </variables>
     </other>
 </template>

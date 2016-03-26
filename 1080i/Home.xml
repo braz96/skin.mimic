@@ -7,7 +7,13 @@
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<controls>
 		<include>LiveCasesBackground</include>
- 		<include>skinshortcuts-template-HomeFanart</include>            
+ 		<control type="multiimage">
+            <fadetime>300</fadetime>
+            <animation effect="fade" time="200" tween="cubic">Visible</animation>
+            <include>FullscreenDimensions</include>
+            <imagepath background="true">$VAR[HomeBackgroundVar]</imagepath>
+        </control>
+        <include>skinshortcuts-template-WidgetFanart</include>
         <control type="visualisation">
         	<visible>Player.HasAudio + !Skin.HasSetting(Disable.ShowBackgroundVis)</visible>
             <include>FullscreenDimensions</include>
