@@ -161,7 +161,7 @@
 	</variable>
 	<variable name="VideoPlotVar">
 		<value condition="Container.Content(seasons)">$INFO[Container.ShowPlot]</value>
-		<value condition="!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot))">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
+		<value condition="Container.Content(sets) + !IsEmpty(Window(Home).Property(SkinHelper.MovieSet.Plot))">$INFO[Window(Home).Property(SkinHelper.MovieSet.Plot)]</value>
 		<value condition="!IsEmpty(ListItem.PlotOutline) + !Skin.HasSetting(VideoInfoPlotToggle)">$INFO[ListItem.PlotOutline]</value>
 		<value condition="System.GetBool(videolibrary.showunwatchedplots)">$INFO[ListItem.Plot]</value>
 		<value>$INFO[ListItem.Plot]</value>
@@ -676,5 +676,10 @@
 		<value condition="StringCompare(Control.GetLabel(5),$LOCALIZE[12396])">$LOCALIZE[16041]</value>
 		<value condition="StringCompare(Control.GetLabel(5),$LOCALIZE[12398])">$LOCALIZE[21337]</value>
 		<value condition="StringCompare(Control.GetLabel(5),$LOCALIZE[12397])">$LOCALIZE[31244]</value>
+	</variable>
+	<variable name="LowPanelLogoVar">
+		<value condition="Container.Content(sets)">$INFO[Window(Home).Property(SkinHelper.MovieSet.0.ClearLogo)]</value>
+		<value condition="Container.Content(seasons)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 </includes>
