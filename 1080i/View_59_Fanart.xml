@@ -9,7 +9,7 @@
 			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 		</control>
 		<control type="group">
-			<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+			<visible>[Container.Content(movies) | Container.Content(tvshows)] + ![Skin.HasSetting(Enable.FanartFanart) | Skin.HasSetting(Enable.FanartLandscape) | Skin.HasSetting(Enable.FanartLogo)]</visible>
 			<control type="image">
 				<left>30</left>
 				<top>30</top>
@@ -51,7 +51,69 @@
 				<font>font15_textbox3</font>
 				<aligny>top</aligny>
 				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				<!--<include>ShowCaseInfoPanelButtonsValues</include>-->
+				<label>$VAR[VideoPlotVar]</label>
+			</control>
+			<control type="image">
+				<left>1585</left>
+				<top>25</top>
+				<width>400</width>
+				<height>45</height>
+				<aspectratio>keep</aspectratio>
+				<texture colordiffuse="$VAR[ColorHighlightVar]" fallback="rating0.png">$INFO[ListItem.StarRating]</texture>
+			</control>
+		</control>
+		<control type="group">
+			<visible>[Container.Content(movies) | Container.Content(tvshows)] + [Skin.HasSetting(Enable.FanartFanart) | Skin.HasSetting(Enable.FanartLandscape) | Skin.HasSetting(Enable.FanartLogo)]</visible>
+			<control type="image">
+				<left>30</left>
+				<top>30</top>
+				<width>515</width>
+				<height>290</height>
+				<aspectratio aligny="center" align="center">keep</aspectratio>
+				<texture background="true">$VAR[FanartViewThumb]</texture>
+			</control>
+			<control type="image">
+				<left>30</left>
+				<top>160</top>
+				<width>515</width>
+				<height>140</height>
+				<aspectratio aligny="center" align="center">keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+				<visible>Skin.HasSetting(Enable.FanartLandscape) + IsEmpty(ListItem.Art(landscape))</visible>
+			</control>
+			<include name="OverlayIcons" condition="!Skin.HasSetting(Enable.FanartLogo)">
+                <param name="OverlayLeft" value="485" />
+                <param name="OverlayTop" value="30" />
+            </include>
+			<control type="label">
+				<top>15</top>
+				<left>575</left>
+				<width>915</width>
+				<height>70</height>
+				<font>font35_title</font>
+				<textcolor>$VAR[ColorTextVar]</textcolor>
+				<align>left</align>
+				<aligny>top</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<scroll>true</scroll>
+			</control>
+			<control type="label">
+				<top>77</top>
+				<left>575</left>
+				<width>1315</width>
+				<height>65</height>
+				<font>font28_title</font>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+				<label>$VAR[FloorSubLabelVar]</label>
+			</control>
+			<control type="textbox">
+				<top>140</top>
+				<left>575</left>
+				<width>1315</width>
+				<height>180</height>
+				<font>font15_textbox3</font>
+				<aligny>top</aligny>
+				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				<label>$VAR[VideoPlotVar]</label>
 			</control>
 			<control type="image">
