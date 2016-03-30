@@ -492,7 +492,7 @@
 				<orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
                 <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                <visible>Container.Content(movies) + ControlGroup(9000).HasFocus(204) + System.HasAddon(script.extendedinfo)</visible>
+                <visible>Container.Content(movies) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(557) | Control.HasFocus(150)] + System.HasAddon(script.extendedinfo)</visible>
                 <itemlayout height="440" width="578">
 					<control type="image">
 						<top>6</top>
@@ -589,7 +589,7 @@
 				<orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
                 <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                <visible>Container.Content(tvshows) + ControlGroup(9000).HasFocus(204) + System.HasAddon(script.extendedinfo)</visible>
+                <visible>Container.Content(tvshows) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(557) | Control.HasFocus(150)] + System.HasAddon(script.extendedinfo)</visible>
                 <itemlayout height="440" width="578">
 					<control type="image">
 						<top>6</top>
@@ -792,7 +792,7 @@
                 <align>right</align>
                 <aligny>top</aligny>
                 <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/][/COLOR]</label>
-                <visible>IntegerGreaterThan(Container(150).NumItems,0) + ControlGroup(9000).HasFocus(204)</visible>
+                <visible>IntegerGreaterThan(Container(150).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(557) | Control.HasFocus(150)]</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
             </control>
             <control type="label">
@@ -820,7 +820,7 @@
                 <align>right</align>
                 <aligny>top</aligny>
                 <label>$INFO[Container(90019).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(90019).CurrentPage]$INFO[Container(90019).NumPages,/][/COLOR]</label>
-                <visible>IntegerGreaterThan(Container(90019).NumItems,0) + ControlGroup(9000).HasFocus(555) + System.HasAddon(script.extendedinfo)</visible>
+                <visible>IntegerGreaterThan(Container(90019).NumItems,0) + [ControlGroup(9000).HasFocus(555) | Control.HasFocus(556) | Control.HasFocus(90019)] + System.HasAddon(script.extendedinfo)</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
             </control>
 			<control type="group">
@@ -907,6 +907,25 @@
 						<visible>False</visible>
 					</control>
 				</control>
+			</control>
+			<control type="button" id="556">
+				<description>fake button for mouse support</description>
+				<left>252</left>
+				<top>550</top>
+				<height>30</height>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
+				<include>ButtonInfoDialogsCommonValues</include>
+			</control>
+			<control type="button" id="557">
+				<description>fake button for mouse support</description>
+				<visible>Control.IsVisible(204)</visible>
+				<left>502</left>
+				<top>550</top>
+				<height>30</height>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
+				<include>ButtonInfoDialogsCommonValues</include>
 			</control>
 		</control>
 		<control type="group">
