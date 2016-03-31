@@ -530,7 +530,7 @@
 				<orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
                 <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                <visible>Container.Content(artists) + ControlGroup(9000).HasFocus(204) + System.HasAddon(script.extendedinfo)</visible>
+                <visible>Container.Content(artists) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(205) | Control.HasFocus(150)] + System.HasAddon(script.extendedinfo)</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 <itemlayout height="440" width="579">
 					<control type="image">
@@ -628,7 +628,7 @@
 				<orientation>horizontal</orientation>
                 <preloaditems>2</preloaditems>
                 <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                <visible>Container.Content(albums) + ControlGroup(9000).HasFocus(204) + System.HasAddon(script.extendedinfo)</visible>
+                <visible>Container.Content(albums) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(205) | Control.HasFocus(150)] + System.HasAddon(script.extendedinfo)</visible>
                 <itemlayout height="440" width="579">
 					<control type="image">
 						<top>6</top>
@@ -718,7 +718,7 @@
 				<height>440</height>
 				<align>center</align>
 				<aligny>center</aligny>
-            	<visible>ControlGroup(9000).HasFocus(204) + !IntegerGreaterThan(Container(150).NumItems,0)</visible>
+            	<visible>[ControlGroup(9000).HasFocus(204) | Control.HasFocus(205) | Control.HasFocus(150)] + !IntegerGreaterThan(Container(150).NumItems,0)</visible>
             	<label>31137</label>
             	<font>font16_title</font>
             	<animation effect="fade" time="400" tween="inout" easing="sine" start="0" end="100" delay="5000">Visible</animation>
@@ -734,7 +734,7 @@
                 <align>right</align>
                 <aligny>top</aligny>
                 <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/][/COLOR]</label>
-                <visible>IntegerGreaterThan(Container(150).NumItems,0) + ControlGroup(9000).HasFocus(204)</visible>
+                <visible>IntegerGreaterThan(Container(150).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(205) | Control.HasFocus(150)]</visible>
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="300">Visible</animation>
             </control>
 			<control type="group">
@@ -794,6 +794,16 @@
 						<onclick>ActivateWindow(1119)</onclick>
 						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 					</control>
+				</control>
+				<control type="button" id="205">
+					<description>fake button for mouse support</description>
+					<left>750</left>
+					<top>570</top>
+					<height>30</height>
+					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
+					<include>ButtonInfoDialogsCommonValues</include>
+					<visible>Control.IsEnabled(204)</visible>
 				</control>
 			</control>
 		</control>
