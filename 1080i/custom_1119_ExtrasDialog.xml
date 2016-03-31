@@ -110,26 +110,6 @@
 				<visible>System.HasAddon(script.videoextras)</visible>
 				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
 			</control>
-			<control type="button" id="90209">
-				<description>Search YouTube button</description>
-				<width>510</width>
-				<textwidth>425</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_bg.png</texturefocus>
-				<texturenofocus border="12">button_bg.png</texturenofocus>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-				<visible>System.HasAddon(plugin.video.youtube) + [Container.Content(albums) | Container.Content(songs)]</visible>
-			</control>
-			<control type="button" id="90210">
-				<description>Add album as startup playlist button</description>
-				<width>510</width>
-				<textwidth>425</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_bg.png</texturefocus>
-				<texturenofocus border="12">button_bg.png</texturenofocus>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-				<visible>System.HasAddon(script.playalbum) + Container.Content(albums)</visible>
-			</control>
 			<control type="button" id="90215">
 				<description>ExtendedInfo</description>
 				<width>510</width>
@@ -158,16 +138,6 @@
 				<texturefocus border="12">button_bg.png</texturefocus>
 				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="button" id="90212">
-				<description>Concerts in google maps addon</description>
-				<width>510</width>
-				<textwidth>425</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="12">button_bg.png</texturefocus>
-				<texturenofocus border="12">button_bg.png</texturenofocus>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-				<visible>Container.Content(artists) + System.HasAddon(script.maps.browser)</visible>
 			</control>
 			<control type="button" id="90213">
 				<description>No extra feautures button</description>
@@ -290,26 +260,6 @@
 				<visible>System.HasAddon(script.videoextras)</visible>
 				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
 			</control>
-			<control type="button" id="90309">
-				<description>Search YouTube button</description>
-				<texturefocus>listselect_fo.png</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<onclick>Dialog.Close(all,true)</onclick>
-				<onclick>ActivateWindow(videos,$ESCINFO[ListItem.Label,plugin://plugin.video.youtube/kodion/search/query/?q=],return)</onclick>
-				<label>$INFO[System.AddonTitle(plugin.video.youtube),$LOCALIZE[137] ]</label>
-				<visible>System.HasAddon(plugin.video.youtube) + [Container.Content(albums) | Container.Content(songs)]</visible>
-			</control>
-			<control type="button" id="90310">
-				<description>Add album as startup playlist button</description>
-				<texturefocus>listselect_fo.png</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<onclick>Dialog.Close(1119)</onclick>
-				<onclick>Skin.SetString(Startup_Playlist_Path,RunScript(script.playalbum,albumid=$INFO[ListItem.DBID]))</onclick>
-				<label>31089</label>
-				<visible>System.HasAddon(script.playalbum) + Container.Content(albums)</visible>
-			</control>
 			<control type="button" id="90316">
 				<description>Add to playlist</description>
 				<texturefocus>listselect_fo.png</texturefocus>
@@ -338,16 +288,6 @@
 				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 				<onclick>SetFocus(90400)</onclick>
 				<label>$LOCALIZE[31092]</label>
-			</control>
-			<control type="button" id="90312">
-				<description>Concerts in google maps addon</description>
-				<texturefocus>listselect_fo.png</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<onclick>RunScript(script.maps.browser,artist=$INFO[ListItem.Artist])</onclick>
-				<onclick>Dialog.Close(1119)</onclick>
-				<label>$LOCALIZE[31096]</label>
-				<visible>Container.Content(artists) + System.HasAddon(script.maps.browser)</visible>
 			</control>
 			<control type="button" id="90313">
 				<description>No extra feautures button</description>
