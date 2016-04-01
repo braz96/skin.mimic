@@ -678,8 +678,9 @@
 		<value condition="StringCompare(Control.GetLabel(5),$LOCALIZE[12397])">$LOCALIZE[31244]</value>
 	</variable>
 	<variable name="LowPanelLogoVar">
-		<value condition="Container.Content(sets)">$INFO[Window(Home).Property(SkinHelper.MovieSet.0.ClearLogo)]</value>
-		<value condition="Container.Content(seasons)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-		<value>$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="Container.Content(sets) + !IsEmpty(Window(Home).Property(SkinHelper.MovieSet.0.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.MovieSet.0.ClearLogo)]</value>
+		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+		<value>blank.png</value>
 	</variable>
 </includes>
