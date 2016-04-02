@@ -16,7 +16,26 @@
 				<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
 				<include>Animation.Common</include>
 				<control type="group">
-					<control type="list" id="50">
+					<control type="group">
+		                <visible>IntegerGreaterThan(Container(50).NumItems,0)</visible>
+		                <control type="image">
+		                    <left>100</left>
+		                    <top>180</top>
+		                    <width>1720</width>
+		                    <height>120</height>
+		                    <visible>Control.HasFocus(50)</visible>
+		                    <animation effect="fade" time="320" delay="200">Visible</animation>
+		                    <animation effect="fade" time="50">Hidden</animation>
+		                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+		                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,5)">Conditional</animation>
+		                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,4)">Conditional</animation>
+		                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,3)">Conditional</animation>
+		                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,2)">Conditional</animation>
+		                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,1)">Conditional</animation>
+		                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(50).Row,0)">Conditional</animation>
+		                </control>
+		            </control>
+					<control type="panel" id="50">
 						<left>100</left>
 						<top>180</top>
 						<width>1720</width>
@@ -88,15 +107,6 @@
 							</control>
 						</itemlayout>
 						<focusedlayout height="120" width="1720">
-							<control type="image">
-								<left>0</left>
-								<top>0</top>
-								<width>1720</width>
-								<height>120</height>
-								<texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-								<visible>Control.HasFocus(50)</visible>
-								<include>VisibleFadeEffect</include>
-							</control>
 							<control type="image">
 								<left>10</left>
 								<top>10</top>
