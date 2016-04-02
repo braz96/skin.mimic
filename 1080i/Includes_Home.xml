@@ -121,7 +121,7 @@
 			<include>MainMenuListTop</include>
 		</control>
 		<control type="group">
-			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)] + ![[ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)] | [ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)]]</visible>
+			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)] + ![[ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)] | ControlGroup(9003).HasFocus]</visible>
 			<animation effect="slide" end="0,50" time="240">WindowClose</animation>
 			<animation effect="slide" start="0,50" end="0,0" delay="300" time="240" condition="!Window.Previous(startup)">WindowOpen</animation>
 			<animation effect="slide" start="0,50" end="0,0" delay="800" time="480" condition="Window.Previous(startup)">WindowOpen</animation>
