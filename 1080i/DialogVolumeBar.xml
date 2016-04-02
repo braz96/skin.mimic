@@ -10,7 +10,6 @@
 			<animation effect="slide" start="0,-60" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,-60" time="200">WindowClose</animation>
 			<animation effect="slide" start="0,0" end="0,-60" time="200">Hidden</animation>
-			<visible>!Player.Muted</visible>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
@@ -29,8 +28,19 @@
 				<textoffsety>2</textoffsety>
 				<include>ButtonTopbarCommonvalues</include>
 				<usealttexture>Player.Passthrough</usealttexture>
+				<visible>!Player.Muted</visible>
 			</control>
-			<control type="progress">
+			<control type="label">
+				<left>12</left>
+				<top>2</top>
+				<label></label>
+				<onclick>Mute</onclick>
+				<aligny>top</aligny>
+				<textoffsety>2</textoffsety>
+				<include>ButtonTopbarCommonvalues</include>
+				<visible>Player.Muted</visible>
+			</control>
+			<control type="progress" id="1">
 				<left>65</left>
 				<top>4</top>
 				<width>256</width>
