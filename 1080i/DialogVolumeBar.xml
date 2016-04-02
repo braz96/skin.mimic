@@ -3,48 +3,51 @@
 	<defaultcontrol>1</defaultcontrol>
 	<coordinates>
 		<system>0</system>
-		<left>1100</left>
+		<left>785</left>
 	</coordinates>
-	<animation effect="slide" start="0,-60" end="0,0" time="200">WindowOpen</animation>
-	<animation effect="slide" start="0,0" end="0,-60" time="200">WindowClose</animation>
 	<controls>
-		<control type="image">
-			<left>0</left>
-			<top>0</top>
-			<width>350</width>
-			<height>70</height>
-			<texture flipy="true" border="12">button_border.png</texture>
-			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			<visible>[Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation) | Window.isActive(slideshow) | Window.IsActive(home) | Window.IsActive(weather)]</visible>
-		</control>
-		<control type="togglebutton" id="90025">
-			<left>12</left>
-			<top>2</top>
-			<label></label>
-			<altlabel></altlabel>
-			<onclick>Mute</onclick>
-			<aligny>top</aligny>
-			<textoffsety>2</textoffsety>
-			<include>ButtonTopbarCommonvalues</include>
-			<usealttexture>Player.Passthrough</usealttexture>
-		</control>
-		<control type="progress">
-			<left>65</left>
-			<top>4</top>
-			<width>256</width>
-			<height>37</height>
-			<info>Player.Volume</info>
-		</control>
-		<control type="label">
-			<description>Line 1 Label</description>
-			<top>-2</top>
-			<width>311</width>
-			<height>45</height>
-			<font>font13_title</font>
-			<textcolor>$VAR[ColorTextVar]</textcolor>
-			<align>right</align>
-			<aligny>center</aligny>
-			<label>$INFO[Player.Volume]</label>
+		<control type="group">
+			<animation effect="slide" start="0,-60" end="0,0" time="200">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,-60" time="200">WindowClose</animation>
+			<animation effect="slide" start="0,0" end="0,-60" time="200">Hidden</animation>
+			<visible>!Player.Muted</visible>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>350</width>
+				<height>70</height>
+				<texture flipy="true" border="12">button_border.png</texture>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+			</control>
+			<control type="togglebutton" id="90025">
+				<left>12</left>
+				<top>2</top>
+				<label></label>
+				<altlabel></altlabel>
+				<onclick>Mute</onclick>
+				<aligny>top</aligny>
+				<textoffsety>2</textoffsety>
+				<include>ButtonTopbarCommonvalues</include>
+				<usealttexture>Player.Passthrough</usealttexture>
+			</control>
+			<control type="progress">
+				<left>65</left>
+				<top>4</top>
+				<width>256</width>
+				<height>37</height>
+				<info>Player.Volume</info>
+			</control>
+			<control type="label">
+				<description>Line 1 Label</description>
+				<top>-2</top>
+				<width>311</width>
+				<height>45</height>
+				<font>font13_title</font>
+				<textcolor>$VAR[ColorTextVar]</textcolor>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Volume]</label>
+			</control>
 		</control>
 	</controls>
 </window>
