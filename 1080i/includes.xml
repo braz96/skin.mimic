@@ -1207,6 +1207,222 @@
 			</content>
 		</control>
     </include>
+    <include name="DefaultDiscography">
+    	<control type="panel" id="50">
+			<visible>ControlGroup(9000).HasFocus(208) | ControlGroup(9000).HasFocus(203)</visible>
+			<animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
+			<left>3</left>
+			<top>584</top>
+			<width>1146</width>
+			<height>444</height>
+			<onleft>50</onleft>
+			<onright>50</onright>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<viewtype label="">list</viewtype>
+			<scrolltime tween="quadratic" easing="out">200</scrolltime>
+			<orientation>horizontal</orientation>
+			<itemlayout height="74" width="573" condition="Container.Content(artists)">
+				<control type="label">
+					<width>573</width>
+					<height>74</height>
+					<font>font15</font>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="74" width="573" condition="Container.Content(artists)">
+				<control type="image">
+					<width>573</width>
+					<height>74</height>
+					<texture>listselect_fo.png</texture>
+					<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+					<visible>Control.HasFocus(50)</visible>
+					<include>VisibleFadeEffect</include>
+				</control>
+				<control type="label">
+					<width>573</width>
+					<height>74</height>
+					<font>font15</font>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
+				</control>
+			</focusedlayout>
+			<itemlayout height="74" width="573" condition="Container.Content(albums)">
+				<control type="label">
+					<width>573</width>
+					<height>74</height>
+					<font>font15</font>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="74" width="573" condition="Container.Content(albums)">
+				<control type="image">
+					<width>573</width>
+					<height>74</height>
+					<texture>listselect_fo.png</texture>
+					<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+					<visible>Control.HasFocus(50)</visible>
+					<include>VisibleFadeEffect</include>
+				</control>
+				<control type="label">
+					<width>573</width>
+					<height>74</height>
+					<font>font15</font>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+		</control>
+    </include>
+    <include name="ExtendedDiscography">
+    	<control type="group">
+            <visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
+            <control type="image">
+            	<visible>Control.HasFocus(50)</visible>
+                <left>-9</left>
+                <top>570</top>
+                <width>397</width>
+                <height>397</height>
+                <animation effect="fade" time="320" delay="0">Visible</animation>
+                <animation effect="fade" time="200">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <animation effect="slide" end="385,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(2)">Conditional</animation>
+                <animation effect="slide" end="385,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(2) | Container(50).Column(1)">Conditional</animation>
+            </control>
+        </control>
+		<control type="panel" id="50">
+			<visible>ControlGroup(9000).HasFocus(203)</visible>
+			<animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
+			<left>-3</left>
+			<top>576</top>
+			<width>1155</width>
+			<height>385</height>
+			<onleft>50</onleft>
+			<onright>50</onright>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<viewtype label="">list</viewtype>
+			<scrolltime tween="quadratic" easing="out">200</scrolltime>
+			<orientation>horizontal</orientation>
+			<itemlayout height="385" width="385">
+				<control type="image">
+					<top>6</top>
+					<left>6</left>
+					<width>373</width>
+					<height>373</height>
+					<aspectratio align="center" aligny="center">scale</aspectratio>
+					<texture fallback="DefaultMusicAlbums.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+				</control>
+				<control type="image">
+					<top>6</top>
+					<left>6</left>
+					<width>373</width>
+					<height>373</height>
+					<texture>thumbs/diffuse.png</texture>
+				</control>
+				<control type="image">
+					<top>289</top>
+					<left>6</left>
+					<width>373</width>
+					<height>90</height>
+					<texture>black.png</texture>
+					<colordiffuse>bbffffff</colordiffuse>
+				</control>
+				<control type="label">
+					<left>16</left>
+					<top>293</top>
+					<width>353</width>
+					<height>40</height>
+					<font>font_Actor</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<left>16</left>
+					<top>333</top>
+					<width>353</width>
+					<height>40</height>
+					<font>font_Actor</font>
+					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+					<label>$INFO[ListItem.Year]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="385" width="385">
+				<control type="group">
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>373</width>
+						<height>373</height>
+						<aspectratio align="center" aligny="center">scale</aspectratio>
+						<texture fallback="DefaultMusicAlbums.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+					<control type="image">
+						<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+						<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						<top>6</top>
+						<left>6</left>
+						<width>373</width>
+						<height>373</height>
+						<texture>thumbs/diffuse.png</texture>
+					</control>
+					<control type="image">
+						<top>289</top>
+						<left>6</left>
+						<width>373</width>
+						<height>90</height>
+						<texture>black.png</texture>
+						<colordiffuse>bbffffff</colordiffuse>
+					</control>
+					<control type="label">
+						<left>16</left>
+						<top>293</top>
+						<width>353</width>
+						<height>40</height>
+						<font>font_Actor</font>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>16</left>
+						<top>333</top>
+						<width>353</width>
+						<height>40</height>
+						<font>font_Actor</font>
+						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+						<label>$INFO[ListItem.Year]</label>
+					</control>
+				</control>
+			</focusedlayout>
+			<content target="music">plugin://script.extendedinfo?info=discography&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
+		</control>
+		<control type="label">
+            <left>862</left>
+            <top>992</top>
+            <width>300</width>
+            <height>40</height>
+            <font>font13_title</font>
+            <textoffsetx>15</textoffsetx>
+            <textcolor>$VAR[ColorTextVar]</textcolor>
+            <align>right</align>
+            <aligny>top</aligny>
+            <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(50).CurrentPage]$INFO[Container(50).NumPages,/][/COLOR]</label>
+            <visible>Control.IsVisible(50) + Integer.IsGreater(Container(50).NumItems,0) + !Control.IsVisible(150)</visible>
+            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+        </control>
+    </include>
     <include name="MediaFlags">
     	<control type="grouplist">
 			<left>$PARAM[left]</left>
