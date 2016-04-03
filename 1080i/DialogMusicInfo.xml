@@ -259,7 +259,7 @@
 					<label>$VAR[MusicInfoDescription]</label>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<pagecontrol>60</pagecontrol>
-					<visible>![Control.HasFocus(204) | Control.HasFocus(208) | Control.HasFocus(150) | Control.HasFocus(50)]</visible>
+					<visible>![Control.HasFocus(204) | Control.HasFocus(203) | Control.HasFocus(208) | Control.HasFocus(150) | Control.HasFocus(50)]</visible>
 				</control>
 				<control type="scrollbar" id="60">
 					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
@@ -287,7 +287,7 @@
 	                </control>
 	            </control>
 				<control type="panel" id="50">
-					<visible>Container.Content(artists) + System.HasAddon(script.extendedinfo) + !ControlGroup(9000).HasFocus(204)</visible>
+					<visible>System.HasAddon(script.extendedinfo) + ControlGroup(9000).HasFocus(203)</visible>
 					<animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
 					<left>-3</left>
 					<top>576</top>
@@ -300,7 +300,7 @@
 					<viewtype label="">list</viewtype>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<orientation>horizontal</orientation>
-					<itemlayout height="385" width="385" condition="Container.Content(artists)">
+					<itemlayout height="385" width="385">
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
@@ -345,7 +345,7 @@
 							<label>$INFO[ListItem.Year]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="385" width="385" condition="Container.Content(artists)">
+					<focusedlayout height="385" width="385">
 						<control type="group">
 							<control type="image">
 								<top>6</top>
@@ -646,6 +646,13 @@
 						<label>21887</label>
 						<altlabel>21821</altlabel>
 						<usealttexture>Container.Content(albums) | Container.Content(songs)</usealttexture>
+					</control>
+					<control type="button" id="203">
+						<description>Discography</description>
+						<width>221</width>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>21888</label>
+						<visible>Container.Content(artists)</visible>
 					</control>
 					<control type="button" id="208">
 						<description>Tracks</description>
