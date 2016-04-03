@@ -703,4 +703,20 @@
 		<value condition="Container.Content(albums)">plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.Artist] $ESCINFO[ListItem.Album] $LOCALIZE[558]</value>
 		<value condition="Container.Content(songs)">plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.Artist] $ESCINFO[ListItem.Title]</value>
 	</variable>
+	<variable name="StarRatingVar">
+		<value condition="String.IsEmpty(ListItem.Rating)">rating0.png</value>
+		<value condition="Integer.IsLessOrEqual(ListItem.Rating,2)">rating1.png</value>
+		<value condition="Integer.IsLessOrEqual(ListItem.Rating,4)">rating2.png</value>
+		<value condition="Integer.IsLessOrEqual(ListItem.Rating,6)">rating3.png</value>
+		<value condition="Integer.IsLessOrEqual(ListItem.Rating,8)">rating4.png</value>
+		<value condition="Integer.IsLessOrEqual(ListItem.Rating,10)">rating5.png</value>
+	</variable>
+	<!--<variable name="StarRatingPlayerVar">
+		<value condition="String.IsEmpty(MusicPlayer.Rating)">rating0.png</value>
+		<value condition="Integer.IsLessOrEqual(MusicPlayer.Rating,2)">rating1.png</value>
+		<value condition="Integer.IsLessOrEqual(MusicPlayer.Rating,4)">rating2.png</value>
+		<value condition="Integer.IsLessOrEqual(MusicPlayer.Rating,6)">rating3.png</value>
+		<value condition="Integer.IsLessOrEqual(MusicPlayer.Rating,8)">rating4.png</value>
+		<value condition="Integer.IsLessOrEqual(MusicPlayer.Rating,10)">rating5.png</value>
+	</variable>-->
 </includes>
