@@ -273,6 +273,14 @@
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
 				</control>
+				<control type="button" id="105">
+					<description>Timer Rules</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>19138</label>
+					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimerRules)</onclick>
+					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimerRules)</onclick>
+				</control>
 				<control type="button" id="103">
 					<description>Timers</description>
 					<label>19040</label>
@@ -326,6 +334,13 @@
 					<include>ButtonCommonValues</include>
 					<label>19184</label>
 					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
+				</control>
+				<control type="radiobutton" id="8">
+					<description>Hide disabled timers</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>19077</label>
+					<visible>Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
 				</control>
 				<include>PlaylistButtons</include>
 				<include name="MenuPlayerControls">
