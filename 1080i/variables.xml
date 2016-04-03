@@ -685,8 +685,10 @@
 		<value>DefaultFallback.png</value>
 	</variable>
 	<variable name="MusicInfoDescription">
-		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Description)]</value>
-		<value condition="Container.Content(albums) | Container.Content(songs)">$INFO[ListItem.Property(Album_Description)]</value>
+		<value condition="Container.Content(artists) + !String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
+		<value condition="[Container.Content(albums) | Container.Content(songs)] + !String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
+		<value condition="Container.Content(artists) + String.IsEmpty(ListItem.Property(Artist_Description))">$LOCALIZE[547]</value>
+		<value condition="[Container.Content(albums) | Container.Content(songs)] + String.IsEmpty(ListItem.Property(Album_Description))">$LOCALIZE[414]</value>
 	</variable>
 	<variable name="MusicInfoHeading">
 		<value condition="Container.Content(artists)">$INFO[ListItem.Artist]</value>
