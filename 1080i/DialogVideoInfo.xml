@@ -187,7 +187,7 @@
 							<visible>!IsEmpty(ListItem.UserRating)</visible>
 						</item>
 						<item>
-							<label>$INFO[ListItem.Rating] $VAR[RatingAndVotesVar,(,)]</label>
+							<label>$INFO[ListItem.RatingAndVotes]</label>
 							<label2>$LOCALIZE[563]:</label2>
 							<onclick>noop</onclick>
 							<visible>!IsEmpty(ListItem.Rating)</visible>
@@ -827,7 +827,7 @@
 				<left>2</left>
 				<top>490</top>
 				<control type="grouplist" id="9000">
-					<width>1150</width>
+					<width>1145</width>
 					<height>60</height>
 					<itemgap>10</itemgap>
 					<onup>61</onup>
@@ -841,6 +841,7 @@
 					<orientation>horizontal</orientation>
 					<control type="togglebutton" id="8">
 						<description>Play/browse to Show</description>
+						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>208</label>
 						<altlabel>1024</altlabel>
@@ -854,58 +855,62 @@
 					</control>
 					<control type="button" id="555">
 						<description>Cast</description>
+						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>206</label>
 					</control>
 					<control type="button" id="11">
 						<description>Play Trailer</description>
+						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>20410</label>
 						<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
 					</control>
 					<control type="button" id="204">
 						<description>YouTube</description>
+						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
 						<visible>[Container.Content(movies) + IsEmpty(ListItem.Trailer)] | Container.Content(tvshows) | Container.Content(episodes)</visible>
 					</control>
+					<control type="button" id="7">
+						<description>User ratings</description>
+						<width>221</width>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>38023</label>
+					</control>
 					<control type="button" id="10">
 						<description>Get Thumb</description>
+						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>13511</label>
 						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 					</control>
 					<control type="button" id="203">
 						<description>Spacer</description>
+						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<enable>False</enable>
 						<visible>[!Container.Content(movies) + !System.HasAddon(script.extendedinfo)] | Container.Content(musicvideos)</visible>
 					</control>
 					<control type="button" id="6">
 						<description>Refresh</description>
-						<font>IconMedium</font>
-						<width>68</width>
+						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
-						<label></label>
+						<label>184</label>
 						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 					</control>
 					<control type="button" id="207">
 						<description>Extras</description>
-						<font>IconMedium</font>
-						<width>68</width>
+						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
-						<label>+</label>
+						<label>22082</label>
 						<onclick>ActivateWindow(1119)</onclick>
 						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 					</control>
-					<control type="button" id="7">
-						<description>User ratings</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<label>38023</label>
-						<visible>False</visible>
-					</control>
+
 				</control>
 			</control>
 			<control type="button" id="556">

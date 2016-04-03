@@ -130,10 +130,6 @@
 		<value condition="SubString(ListItem.Label,* All Albums) | SubString(ListItem.Label,* All Songs)">$INFO[ListItem.Icon]</value>
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
-	<variable name="RatingAndVotesVar">
-		<value condition="IsEmpty(ListItem.Votes)">0 $LOCALIZE[20350]</value>
-		<value>$INFO[ListItem.Votes,, $LOCALIZE[20350]]</value>
-	</variable>
 	<variable name="DurationVar">
 		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Runtime))">$INFO[Window(Home).Property(NextAired.Runtime)]</value>
 		<value condition="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
