@@ -303,7 +303,7 @@
 			<animation effect="slide" end="0,-188" time="240" condition="Window.Next(home)">WindowClose</animation>
 			<animation effect="slide" start="0,-188" end="0,0" time="240">VisibleChange</animation>
 			<animation effect="slide" start="0,-188" end="0,0" time="400" condition="Window.Previous(home)">WindowOpen</animation>
-			<visible>!Window.IsActive(MusicOSD) + !Window.IsActive(1120) + !Player.ShowCodec + !Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
+			<visible>!Window.IsActive(MusicOSD) + !Window.IsActive(1120) + !Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
 			<visible>System.HasAddon(script.artistslideshow) + !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography))</visible>
 			<visible>[Player.ShowInfo + Skin.HasSetting(Enable.VizInfo)] | Skin.HasSetting(Enable.VizPersistent)</visible>
 			<top>0</top>
@@ -324,71 +324,6 @@
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21887]:[/COLOR] $INFO[Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)]</label>
 					<autoscroll time="3000" delay="10000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				</control>
-			</control>
-		</control>
-		<!-- codec & viz infos -->
-		<control type="group" id="0">
-			<animation effect="slide" start="0,-320" end="0,0" time="200">VisibleChange</animation>
-			<animation effect="fade" time="200">VisibleChange</animation>
-			<visible>Player.ShowCodec + ![Window.IsVisible(script-cu-lrclyrics-main.xml) | Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList)]</visible>
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>FullScreenWidth</width>
-				<height>310</height>
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="grouplist">
-				<left>30</left>
-				<top>0</top>
-				<width>FullScreenWidth</width>
-				<height>300</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<itemgap>10</itemgap>
-				<control type="label">
-					<description>row 1 label</description>
-					<width>1770</width>
-					<height>90</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<font>font14</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<label>$INFO[musicplayer.Codec,$LOCALIZE[21446]: ,]$INFO[musicplayer.Bitrate,  •  $LOCALIZE[623]: ,kbps]$INFO[musicplayer.bitspersample,  •  $LOCALIZE[612]: ,]$INFO[musicplayer.Samplerate,  •  $LOCALIZE[613]: ,kHz]$INFO[musicplayer.Channels,  •  $LOCALIZE[21444]: ]</label>
-				</control>
-				<control type="label">
-					<description>row 2 label</description>
-					<width>1770</width>
-					<height>90</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<font>font14</font>
-					<label>$INFO[Visualisation.Name,, [I][COLOR=orange]($LOCALIZE[20166])[/COLOR][/I]  •  ]fps: $INFO[System.FPS]</label>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<visible>Visualisation.Locked</visible>
-				</control>
-				<control type="label">
-					<description>row 3 label</description>
-					<width>1770</width>
-					<height>90</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<font>font14</font>
-					<label>$INFO[Visualisation.Name,,  •  ]fps: $INFO[System.FPS]</label>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<visible>!Visualisation.Locked</visible>
-				</control>
-				<control type="label">
-					<description>row 3 label</description>
-					<width>1770</width>
-					<height>90</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<font>font14</font>
-					<label>$INFO[Visualisation.Preset,$LOCALIZE[13388]: ]</label>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 				</control>
 			</control>
 		</control>
