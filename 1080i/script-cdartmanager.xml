@@ -178,7 +178,7 @@ id      | description
             <!-- ** Required ** Do not change <id> or <type> -->
             <control type="group" id="9051">
                 <!-- Blank Image with artist label -->
-                <visible>SubString(Window(10001).Property(artwork),fanart)|SubString(Window(10001).Property(artwork),cover)|SubString(Window(10001).Property(artwork),cdart)|SubString(Window(10001).Property(artwork),clearlogo)|SubString(Window(10001).Property(artwork),artistthumb)</visible>
+                <visible>String.Contains(Window(10001).Property(artwork),fanart)|String.Contains(Window(10001).Property(artwork),cover)|String.Contains(Window(10001).Property(artwork),cdart)|String.Contains(Window(10001).Property(artwork),clearlogo)|String.Contains(Window(10001).Property(artwork),artistthumb)</visible>
                 <control type="image" id="300">
                     <!-- Blank -->
                     <description>Blank Image</description>
@@ -187,7 +187,7 @@ id      | description
                     <width>390</width>
                     <height>390</height>
                     <aspectratio scalediffuse="false">keep</aspectratio>
-                    <visible>SubString(Window(10001).Property(artwork),fanart)|SubString(Window(10001).Property(artwork),cover)|SubString(Window(10001).Property(artwork),cdart)|SubString(Window(10001).Property(artwork),clearlogo)|SubString(Window(10001).Property(artwork),artistthumb) + !Control.HasFocus(120)</visible>
+                    <visible>String.Contains(Window(10001).Property(artwork),fanart)|String.Contains(Window(10001).Property(artwork),cover)|String.Contains(Window(10001).Property(artwork),cdart)|String.Contains(Window(10001).Property(artwork),clearlogo)|String.Contains(Window(10001).Property(artwork),artistthumb) + !Control.HasFocus(120)</visible>
                 </control>
                 <control type="label" id="204">
                     <description>Artist Label</description>
@@ -198,7 +198,7 @@ id      | description
                     <font>font16_title</font>
                     <wrapmultiline>false</wrapmultiline>
                     <textcolor>$VAR[ColorTextVar]</textcolor>
-                    <visible>SubString(Window(10001).Property(artwork),fanart)|SubString(Window(10001).Property(artwork),cover)|SubString(Window(10001).Property(artwork),cdart)|SubString(Window(10001).Property(artwork),clearlogo)|SubString(Window(10001).Property(artwork),artistthumb)| Control.HasFocus(145) + !Control.HasFocus(120) </visible>
+                    <visible>String.Contains(Window(10001).Property(artwork),fanart)|String.Contains(Window(10001).Property(artwork),cover)|String.Contains(Window(10001).Property(artwork),cdart)|String.Contains(Window(10001).Property(artwork),clearlogo)|String.Contains(Window(10001).Property(artwork),artistthumb)| Control.HasFocus(145) + !Control.HasFocus(120) </visible>
                     <align>left</align>
                     <aligny>bottom</aligny>
                     <label>557</label>
@@ -215,7 +215,7 @@ id      | description
                     <width>390</width>
                     <height>390</height>
                     <aspectratio scalediffuse="false">keep</aspectratio>
-                    <visible>SubString(Window(10001).Property(artwork),cdart) + Control.HasFocus(140)</visible>
+                    <visible>String.Contains(Window(10001).Property(artwork),cdart) + Control.HasFocus(140)</visible>
                 </control>
                 <control type="label" id="203">
                     <description>Local cdART</description>
@@ -225,7 +225,7 @@ id      | description
                     <height>60</height>
                     <font>font13</font>
                     <textcolor>$VAR[ColorTextVar]</textcolor>
-                    <visible>SubString(Window(10001).Property(artwork),cdart) + Control.HasFocus(140)</visible>
+                    <visible>String.Contains(Window(10001).Property(artwork),cdart) + Control.HasFocus(140)</visible>
                     <align>center</align>
                     <aligny>center</aligny>
                     <label>$ADDON[script.cdartmanager 32044]</label>
@@ -2373,7 +2373,7 @@ id      | description
                     <top>-15</top>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
                     <!-- Box image -->
@@ -2382,7 +2382,7 @@ id      | description
                     <height>120</height>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="197">
                     <!-- Album Artists -->
@@ -2425,7 +2425,7 @@ id      | description
                     <onright>9021</onright>
                     <onup>197</onup>
                     <ondown>197</ondown>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
             </control>
             <control type="group" id="9022">
@@ -2444,7 +2444,7 @@ id      | description
                     <top>-15</top>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
                     <!-- Box image -->
@@ -2453,7 +2453,7 @@ id      | description
                     <height>120</height>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="195">
                     <!-- Album Artists -->
@@ -2496,7 +2496,7 @@ id      | description
                     <onright>9023</onright>
                     <onup>195</onup>
                     <ondown>195</ondown>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
             </control>
             <control type="group" id="9020">
@@ -2593,7 +2593,7 @@ id      | description
                     <top>-15</top>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
                     <!-- Box image -->
@@ -2602,7 +2602,7 @@ id      | description
                     <height>120</height>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="205">
                     <!-- Album Artists -->
@@ -2645,7 +2645,7 @@ id      | description
                     <onright>9035</onright>
                     <onup>205</onup>
                     <ondown>205</ondown>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
             </control>
             <control type="group" id="9036">
@@ -2664,7 +2664,7 @@ id      | description
                     <top>-15</top>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
                     <!-- Box image -->
@@ -2673,7 +2673,7 @@ id      | description
                     <top>-15</top>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="207">
                     <!-- Album Artists -->
@@ -2716,7 +2716,7 @@ id      | description
                     <onright>9036</onright>
                     <onup>207</onup>
                     <ondown>207</ondown>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
             </control>
             <control type="group" id="9034">
@@ -2813,7 +2813,7 @@ id      | description
                     <top>-15</top>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
                     <!-- Box image -->
@@ -2822,7 +2822,7 @@ id      | description
                     <height>120</height>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="184">
                     <!-- Album Artists -->
@@ -2865,7 +2865,7 @@ id      | description
                     <onright>9017</onright>
                     <onup>184</onup>
                     <ondown>184</ondown>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
             </control>
             <control type="group" id="9018">
@@ -2884,7 +2884,7 @@ id      | description
                     <top>-15</top>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
                     <!-- Box image -->
@@ -2893,7 +2893,7 @@ id      | description
                     <height>120</height>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="186">
                     <!-- Album Artists -->
@@ -2936,7 +2936,7 @@ id      | description
                     <onright>9018</onright>
                     <onup>186</onup>
                     <ondown>186</ondown>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
             </control>
             <control type="group" id="9008">
@@ -3033,7 +3033,7 @@ id      | description
                     <top>-15</top>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
                     <!-- Box image -->
@@ -3042,7 +3042,7 @@ id      | description
                     <height>120</height>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="180">
                     <!-- Album Artists -->
@@ -3085,7 +3085,7 @@ id      | description
                     <onright>9015</onright>
                     <onup>180</onup>
                     <ondown>180</ondown>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
             </control>
             <control type="group" id="9016">
@@ -3104,7 +3104,7 @@ id      | description
                     <top>-15</top>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
                 <control type="image">
                     <!-- Box image -->
@@ -3113,7 +3113,7 @@ id      | description
                     <height>120</height>
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),False)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),False)</visible>
                 </control>
                 <control type="button" id="182">
                     <!-- Album Artists -->
@@ -3156,7 +3156,7 @@ id      | description
                     <onright>9016</onright>
                     <onup>182</onup>
                     <ondown>182</ondown>
-                    <visible>SubString(Window(10000).Property(cdart_manager_allartist),True)</visible>
+                    <visible>String.Contains(Window(10000).Property(cdart_manager_allartist),True)</visible>
                 </control>
             </control>
             <control type="group" id="9009">

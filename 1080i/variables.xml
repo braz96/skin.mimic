@@ -27,7 +27,7 @@
 		<value condition="StringCompare(Container(9000).ListItem.Property(background),weatherBackground)">$INFO[Skin.String(weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanartExtension]</value>
 
 		<!-- Playlist background -->
-		<value condition="SubString(Container(9000).ListItem.Property(background),s:playlist,Left)">$INFO[Container(9034).ListItem.Art(fanart)]</value>
+		<value condition="String.Contains(Container(9000).ListItem.Property(background),s:playlist)">$INFO[Container(9034).ListItem.Art(fanart)]</value>
 
 		<!-- Single or multi image -->
 		<value condition="!IsEmpty(Container(9000).ListItem.Property(background))">$INFO[Container(9000).ListItem.Property(background)]</value>
@@ -63,10 +63,10 @@
 	</variable>
 	<variable name="BreadcrumbsFillerVar">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[20343]</value>
-		<value condition="SubString(Container.FolderPath,videodb://recentlyadded,left)">$INFO[Window(home).Property(fakelabel)]</value>
+		<value condition="String.Contains(Container.FolderPath,videodb://recentlyadded)">$INFO[Window(home).Property(fakelabel)]</value>
 		<value condition="Container.Content(episodes) + !StringCompare(Container.FolderName,ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
-		<value condition="SubString(Container.FolderPath,videodb://tvshows/,left)">$LOCALIZE[20343]</value>
-		<value condition="SubString(Container.FolderPath,videodb://movies/,left)">$LOCALIZE[20342]</value>
+		<value condition="String.Contains(Container.FolderPath,videodb://tvshows/)">$LOCALIZE[20343]</value>
+		<value condition="String.Contains(Container.FolderPath,videodb://movies/)">$LOCALIZE[20342]</value>
 		<value condition="Window.IsActive(textviewer)">$INFO[Control.GetLabel(1)]</value>
 		<value condition="Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">$INFO[System.AddonTitle(script.tv.show.next.aired)]</value>
 		<value condition="Window.IsActive(tvchannels) | Window.IsActive(TVGuide) | Window.IsActive(TVRecordings) | Window.IsActive(TVTimers) | Window.IsActive(TVSearch)">$LOCALIZE[19020]</value>
@@ -127,7 +127,7 @@
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="MusicThumbVar">
-		<value condition="SubString(ListItem.Label,* All Albums) | SubString(ListItem.Label,* All Songs)">$INFO[ListItem.Icon]</value>
+		<value condition="String.Contains(ListItem.Label,* All Albums) | String.Contains(ListItem.Label,* All Songs)">$INFO[ListItem.Icon]</value>
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="DurationVar">
@@ -180,25 +180,25 @@
 		<value>$LOCALIZE[31044]</value>
 	</variable>
 	<variable name="SourceFlagVar">
-		<value condition="[SubString(ListItem.filename,PDTV) | SubString(ListItem.filename,sdtv) | SubString(ListItem.filename,sd tv)]">sdtv</value>
-		<value condition="[SubString(ListItem.Filename,hdtv) | SubString(ListItem.Filename,hd tv)]">hdtv</value>
-		<value condition="[SubString(ListItem.Filename,hddvd) | SubString(ListItem.Filename,hd-dvd)]">hddvd</value>
+		<value condition="[String.Contains(ListItem.filename,PDTV) | String.Contains(ListItem.filename,sdtv) | String.Contains(ListItem.filename,sd tv)]">sdtv</value>
+		<value condition="[String.Contains(ListItem.Filename,hdtv) | String.Contains(ListItem.Filename,hd tv)]">hdtv</value>
+		<value condition="[String.Contains(ListItem.Filename,hddvd) | String.Contains(ListItem.Filename,hd-dvd)]">hddvd</value>
 		<value condition="ListItem.IsStereoscopic">bluray3d</value>
-		<value condition="[SubString(ListItem.Filename,bluray) | SubString(ListItem.Filename,blu-ray) | SubString(ListItem.Filename,bdrip) | SubString(ListItem.Filename,brrip)]">bluray</value>
-		<value condition="SubString(ListItem.Filename,dvb)">dvb</value>
-		<value condition="SubString(ListItem.Filename,web-dl)">web-dl</value>
-		<value condition="SubString(ListItem.Filename,dvd) | StringCompare(ListItem.FileExtension,iso) | StringCompare(ListItem.FileExtension,ifo)">dvd</value>
+		<value condition="[String.Contains(ListItem.Filename,bluray) | String.Contains(ListItem.Filename,blu-ray) | String.Contains(ListItem.Filename,bdrip) | String.Contains(ListItem.Filename,brrip)]">bluray</value>
+		<value condition="String.Contains(ListItem.Filename,dvb)">dvb</value>
+		<value condition="String.Contains(ListItem.Filename,web-dl)">web-dl</value>
+		<value condition="String.Contains(ListItem.Filename,dvd) | StringCompare(ListItem.FileExtension,iso) | StringCompare(ListItem.FileExtension,ifo)">dvd</value>
 		<value>$INFO[ListItem.VideoCodec]</value>
 	</variable>
 	<variable name="VideoSourceFlagVar">
-		<value condition="[SubString(Player.Filenameandpath,PDTV) | SubString(Player.Filenameandpath,sdtv)]">sdtv</value>
-		<value condition="SubString(Player.Filenameandpath,hdtv)">hdtv</value>
-		<value condition="[SubString(Player.Filenameandpath,hddvd) | SubString(Player.Filenameandpath,hd-dvd)]">hddvd</value>
+		<value condition="[String.Contains(Player.Filenameandpath,PDTV) | String.Contains(Player.Filenameandpath,sdtv)]">sdtv</value>
+		<value condition="String.Contains(Player.Filenameandpath,hdtv)">hdtv</value>
+		<value condition="[String.Contains(Player.Filenameandpath,hddvd) | String.Contains(Player.Filenameandpath,hd-dvd)]">hddvd</value>
 		<value condition="VideoPlayer.IsStereoscopic">bluray3d</value>
-		<value condition="[SubString(Player.Filenameandpath,bluray) | SubString(Player.Filenameandpath,blu-ray) | SubString(Player.Filenameandpath,bdrip) | SubString(Player.Filenameandpath,brrip)]">bluray</value>
-		<value condition="SubString(Player.Filenameandpath,dvb)">dvb</value>
-		<value condition="SubString(Player.Filenameandpath,web-dl)">web-dl</value>
-		<value condition="SubString(Player.Filenameandpath,dvd) | SubString(Player.Filenameandpath,.iso,Right) | SubString(Player.Filenameandpath,.ifo,Right)">dvd</value>
+		<value condition="[String.Contains(Player.Filenameandpath,bluray) | String.Contains(Player.Filenameandpath,blu-ray) | String.Contains(Player.Filenameandpath,bdrip) | String.Contains(Player.Filenameandpath,brrip)]">bluray</value>
+		<value condition="String.Contains(Player.Filenameandpath,dvb)">dvb</value>
+		<value condition="String.Contains(Player.Filenameandpath,web-dl)">web-dl</value>
+		<value condition="String.Contains(Player.Filenameandpath,dvd) | String.Contains(Player.Filenameandpath,.iso,Right) | String.Contains(Player.Filenameandpath,.ifo,Right)">dvd</value>
 		<value>$INFO[VideoPlayer.VideoCodec]</value>
 	</variable>
 	<!-- InfoPanel -->
@@ -239,7 +239,7 @@
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="FloorLabelVar">
-		<value condition="Container.Content(episodes) + SubString(Container.FolderPath,/recentlyaddedepisodes)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
+		<value condition="Container.Content(episodes) + String.Contains(Container.FolderPath,/recentlyaddedepisodes)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="FloorSubLabelVar">
@@ -354,84 +354,84 @@
 	</variable>
 	
 	<variable name="RatingFlagVar">
-		<value condition="SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)">flags/mpaa/G.png</value>
-		<value condition="SubString(ListItem.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
-		<value condition="Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)">flags/mpaa/PG.png</value>
-		<value condition="SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | StringCompare(ListItem.mpaa,R)">flags/mpaa/R.png</value>
-		<value condition="SubString(ListItem.mpaa,US:NC-17)| SubString(ListItem.mpaa,USA:NC-17)| SubString(ListItem.mpaa,Rated NC-17)">flags/mpaa/NC-17.png</value>
-		<value condition="SubString(ListItem.mpaa,UK:U)">flags/mpaa/BBFC_U_Certificate_UK.png</value>
-		<value condition="SubString(ListItem.mpaa,UK:PG)">flags/mpaa/BBFC_PG_Certificate_UK.png</value>
-		<value condition="SubString(ListItem.mpaa,UK:12A)">flags/mpaa/BBFC_12A_Certificate_UK.png</value>
-		<value condition="SubString(ListItem.mpaa,UK:12)">flags/mpaa/BBFC_12_Certificate_UK.png</value>
-		<value condition="SubString(ListItem.mpaa,UK:15)">flags/mpaa/BBFC_15_Certificate_UK.png</value>
-		<value condition="SubString(ListItem.mpaa,UK:18)">flags/mpaa/BBFC_18_Certificate_UK.png</value>
-		<value condition="SubString(ListItem.mpaa,Germany:16) | SubString(ListItem.mpaa,ab 16) | StringCompare(ListItem.mpaa,16) | Substring(ListItem.mpaa,FSK 16) | SubString(ListItem.mpaa,Rated 16)">flags/mpaa/FSK-16.png</value>
-		<value condition="SubString(ListItem.mpaa,Germany:6)| SubString(ListItem.mpaa,ab 6) | StringCompare(ListItem.mpaa,6) | Substring(ListItem.mpaa,FSK 16) | SubString(ListItem.mpaa,Rated 6)">flags/mpaa/FSK-6.png</value>
-		<value condition="SubString(ListItem.mpaa,Germany:12) | SubString(ListItem.mpaa,ab 12) | StringCompare(ListItem.mpaa,12) | Substring(ListItem.mpaa,FSK 12) | SubString(ListItem.mpaa,Rated 12)">flags/mpaa/FSK-12.png</value>
-		<value condition="SubString(ListItem.mpaa,Germany:18) | SubString(ListItem.mpaa,ab 18) | StringCompare(ListItem.mpaa,18) | Substring(ListItem.mpaa,FSK 18) | SubString(ListItem.mpaa,Rated 18)">flags/mpaa/FSK-18.png</value>
-		<value condition="SubString(ListItem.mpaa,Germany)|SubString(ListItem.mpaa,FSK)| SubString(ListItem.mpaa,o.A)| SubString(ListItem.mpaa,Rated 0)">flags/mpaa/FSK-0.png</value>
-		<value condition="SubString(ListItem.mpaa,besorolás alatt)">flags/mpaa/HU_BA.png</value>
-		<value condition="SubString(ListItem.mpaa,korhatárra való tekintett nélkül megtekintetheto)">flags/mpaa/HU_KN.png</value>
-		<value condition="SubString(ListItem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">flags/mpaa/HU_12.png</value>
-		<value condition="SubString(ListItem.mpaa,16 éven aluliak számára nem ajánlott)">flags/mpaa/HU_16.png</value>
-		<value condition="SubString(ListItem.mpaa,18 éven aluliak számára nem ajánlott)">flags/mpaa/HU_18.png</value>
-		<value condition="substring(ListItem.mpaa,France:U) | Substring(ListItem.mpaa,partir de 3 ans) | Substring(ListItem.mpaa,partir de 6 ans)">flags/mpaa/csaU.png</value>
-		<value condition="substring(ListItem.mpaa,France:-10) | Substring(ListItem.mpaa,Interdit aux moins de 10 ans) | Substring(ListItem.mpaa,des propos ou des images peuvent heurter)">flags/mpaa/csa10.png</value>
-		<value condition="substring(ListItem.mpaa,France:-12) | Substring(ListItem.mpaa,Interdit aux moins de 12 ans)">flags/mpaa/csa12.png</value>
-		<value condition="substring(ListItem.mpaa,France:-16) | Substring(ListItem.mpaa,Interdit aux moins de 16 ans)">flags/mpaa/csa16.png</value>
-		<value condition="substring(ListItem.mpaa,France:-18) | Substring(ListItem.mpaa,Interdit aux moins de 18 ans)">flags/mpaa/csa18.png</value>
-		<value condition="substring(ListItem.mpaa,전체)">flags/mpaa/KR_Certificate_All.png</value>
-		<value condition="substring(ListItem.mpaa,12세)">flags/mpaa/KR_Certificate_12.png</value>
-		<value condition="substring(ListItem.mpaa,15세)">flags/mpaa/KR_Certificate_15.png</value>
-		<value condition="substring(ListItem.mpaa,불가)">flags/mpaa/KR_Certificate_18.png</value>
-		<value condition="substring(ListItem.mpaa,제한)">flags/mpaa/KR_Certificate_R.png</value>
-		<value condition="substring(ListItem.mpaa,Brazil:Livre) | substring(ListItem.mpaa,Livre)">flags/mpaa/MPAA_Brazil_Livre.png</value>
-		<value condition="substring(ListItem.mpaa,Brazil:10) | substring(ListItem.mpaa,10 anos)">flags/mpaa/MPAA_Brazil_10.png</value>
-		<value condition="substring(ListItem.mpaa,Brazil:12) | substring(ListItem.mpaa,12 anos)">flags/mpaa/MPAA_Brazil_12.png</value>
-		<value condition="substring(ListItem.mpaa,Brazil:14) | substring(ListItem.mpaa,14 anos)">flags/mpaa/MPAA_Brazil_14.png</value>
-		<value condition="substring(ListItem.mpaa,Brazil:16) | substring(ListItem.mpaa,16 anos)">flags/mpaa/MPAA_Brazil_16.png</value>
-		<value condition="substring(ListItem.mpaa,Brazil:18) | substring(ListItem.mpaa,18 anos)">flags/mpaa/MPAA_Brazil_18.png</value>
-		<value condition="substring(ListItem.mpaa,Australia:)">$INFO[ListItem.MPAA,flags/mpaa/australia_,.png]</value>
+		<value condition="String.Contains(ListItem.mpaa,US:G) | String.Contains(ListItem.mpaa,USA:G) | String.Contains(ListItem.mpaa,Rated G)">flags/mpaa/G.png</value>
+		<value condition="String.Contains(ListItem.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)">flags/mpaa/PG.png</value>
+		<value condition="String.Contains(ListItem.mpaa,US:R) | String.Contains(ListItem.mpaa,USA:R) | String.Contains(ListItem.mpaa,Rated R) | StringCompare(ListItem.mpaa,R)">flags/mpaa/R.png</value>
+		<value condition="String.Contains(ListItem.mpaa,US:NC-17)| String.Contains(ListItem.mpaa,USA:NC-17)| String.Contains(ListItem.mpaa,Rated NC-17)">flags/mpaa/NC-17.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:U)">flags/mpaa/BBFC_U_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:PG)">flags/mpaa/BBFC_PG_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:12A)">flags/mpaa/BBFC_12A_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:12)">flags/mpaa/BBFC_12_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:15)">flags/mpaa/BBFC_15_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,UK:18)">flags/mpaa/BBFC_18_Certificate_UK.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:16) | String.Contains(ListItem.mpaa,ab 16) | StringCompare(ListItem.mpaa,16) | String.Contains(ListItem.mpaa,FSK 16) | String.Contains(ListItem.mpaa,Rated 16)">flags/mpaa/FSK-16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:6)| String.Contains(ListItem.mpaa,ab 6) | StringCompare(ListItem.mpaa,6) | String.Contains(ListItem.mpaa,FSK 16) | String.Contains(ListItem.mpaa,Rated 6)">flags/mpaa/FSK-6.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:12) | String.Contains(ListItem.mpaa,ab 12) | StringCompare(ListItem.mpaa,12) | String.Contains(ListItem.mpaa,FSK 12) | String.Contains(ListItem.mpaa,Rated 12)">flags/mpaa/FSK-12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany:18) | String.Contains(ListItem.mpaa,ab 18) | StringCompare(ListItem.mpaa,18) | String.Contains(ListItem.mpaa,FSK 18) | String.Contains(ListItem.mpaa,Rated 18)">flags/mpaa/FSK-18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Germany)|String.Contains(ListItem.mpaa,FSK)| String.Contains(ListItem.mpaa,o.A)| String.Contains(ListItem.mpaa,Rated 0)">flags/mpaa/FSK-0.png</value>
+		<value condition="String.Contains(ListItem.mpaa,besorolás alatt)">flags/mpaa/HU_BA.png</value>
+		<value condition="String.Contains(ListItem.mpaa,korhatárra való tekintett nélkül megtekintetheto)">flags/mpaa/HU_KN.png</value>
+		<value condition="String.Contains(ListItem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">flags/mpaa/HU_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,16 éven aluliak számára nem ajánlott)">flags/mpaa/HU_16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,18 éven aluliak számára nem ajánlott)">flags/mpaa/HU_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:U) | String.Contains(ListItem.mpaa,partir de 3 ans) | String.Contains(ListItem.mpaa,partir de 6 ans)">flags/mpaa/csaU.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-10) | String.Contains(ListItem.mpaa,Interdit aux moins de 10 ans) | String.Contains(ListItem.mpaa,des propos ou des images peuvent heurter)">flags/mpaa/csa10.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-12) | String.Contains(ListItem.mpaa,Interdit aux moins de 12 ans)">flags/mpaa/csa12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-16) | String.Contains(ListItem.mpaa,Interdit aux moins de 16 ans)">flags/mpaa/csa16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,France:-18) | String.Contains(ListItem.mpaa,Interdit aux moins de 18 ans)">flags/mpaa/csa18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,전체)">flags/mpaa/KR_Certificate_All.png</value>
+		<value condition="String.Contains(ListItem.mpaa,12세)">flags/mpaa/KR_Certificate_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,15세)">flags/mpaa/KR_Certificate_15.png</value>
+		<value condition="String.Contains(ListItem.mpaa,불가)">flags/mpaa/KR_Certificate_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,제한)">flags/mpaa/KR_Certificate_R.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:Livre) | String.Contains(ListItem.mpaa,Livre)">flags/mpaa/MPAA_Brazil_Livre.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:10) | String.Contains(ListItem.mpaa,10 anos)">flags/mpaa/MPAA_Brazil_10.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:12) | String.Contains(ListItem.mpaa,12 anos)">flags/mpaa/MPAA_Brazil_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:14) | String.Contains(ListItem.mpaa,14 anos)">flags/mpaa/MPAA_Brazil_14.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:16) | String.Contains(ListItem.mpaa,16 anos)">flags/mpaa/MPAA_Brazil_16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:18) | String.Contains(ListItem.mpaa,18 anos)">flags/mpaa/MPAA_Brazil_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Australia:)">$INFO[ListItem.MPAA,flags/mpaa/australia_,.png]</value>
 		<value>$INFO[ListItem.MPAA,flags/mpaa/,.png]</value>
 	</variable>
 	<variable name="VideoRatingFlagVar">
-		<value condition="SubString(VideoPlayer.mpaa,US:G) | SubString(VideoPlayer.mpaa,USA:G) | SubString(VideoPlayer.mpaa,Rated G)">flags/mpaa/G.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
-		<value condition="Substring(VideoPlayer.mpaa,Rated PG) | StringCompare(VideoPlayer.Mpaa,PG)">flags/mpaa/PG.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,US:R) | SubString(VideoPlayer.mpaa,USA:R) | SubString(VideoPlayer.mpaa,Rated R) | StringCompare(VideoPlayer.mpaa,R)">flags/mpaa/R.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,US:NC-17)| SubString(VideoPlayer.mpaa,USA:NC-17)| SubString(VideoPlayer.mpaa,Rated NC-17)">flags/mpaa/NC-17.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,UK:U)">flags/mpaa/BBFC_U_Certificate_UK.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,UK:PG)">flags/mpaa/BBFC_PG_Certificate_UK.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,UK:12A)">flags/mpaa/BBFC_12A_Certificate_UK.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,UK:12)">flags/mpaa/BBFC_12_Certificate_UK.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,UK:15)">flags/mpaa/BBFC_15_Certificate_UK.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,UK:18)">flags/mpaa/BBFC_18_Certificate_UK.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,Germany:16) | SubString(VideoPlayer.mpaa,ab 16) | StringCompare(VideoPlayer.mpaa,16) | Substring(VideoPlayer.mpaa,FSK 16) | SubString(VideoPlayer.mpaa,Rated 16)">flags/mpaa/FSK-16.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,Germany:6)| SubString(VideoPlayer.mpaa,ab 6) | StringCompare(VideoPlayer.mpaa,6) | Substring(VideoPlayer.mpaa,FSK 16) | SubString(VideoPlayer.mpaa,Rated 6)">flags/mpaa/FSK-6.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,Germany:12) | SubString(VideoPlayer.mpaa,ab 12) | StringCompare(VideoPlayer.mpaa,12) | Substring(VideoPlayer.mpaa,FSK 12) | SubString(VideoPlayer.mpaa,Rated 12)">flags/mpaa/FSK-12.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,Germany:18) | SubString(VideoPlayer.mpaa,ab 18) | StringCompare(VideoPlayer.mpaa,18) | Substring(VideoPlayer.mpaa,FSK 18) | SubString(VideoPlayer.mpaa,Rated 18)">flags/mpaa/FSK-18.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,Germany)|SubString(VideoPlayer.mpaa,FSK)| SubString(VideoPlayer.mpaa,o.A)| SubString(VideoPlayer.mpaa,Rated 0)">flags/mpaa/FSK-0</value>
-		<value condition="SubString(VideoPlayer.mpaa,besorolás alatt)">flags/mpaa/HU_BA.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,korhatárra való tekintett nélkül megtekintetheto)">flags/mpaa/HU_KN.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">flags/mpaa/HU_12.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,16 éven aluliak számára nem ajánlott)">flags/mpaa/HU_16.png</value>
-		<value condition="SubString(VideoPlayer.mpaa,18 éven aluliak számára nem ajánlott)">flags/mpaa/HU_18.png</value>
-		<value condition="substring(VideoPlayer.mpaa,France:U) | Substring(VideoPlayer.mpaa,partir de 3 ans) | Substring(VideoPlayer.mpaa,partir de 6 ans)">flags/mpaa/csaU.png</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-10) | Substring(VideoPlayer.mpaa,Interdit aux moins de 10 ans) | Substring(VideoPlayer.mpaa,des propos ou des images peuvent heurter)">flags/mpaa/csa10.png</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-12) | Substring(VideoPlayer.mpaa,Interdit aux moins de 12 ans)">flags/mpaa/csa12.png</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-16) | Substring(VideoPlayer.mpaa,Interdit aux moins de 16 ans)">flags/mpaa/csa16.png</value>
-		<value condition="substring(VideoPlayer.mpaa,France:-18) | Substring(VideoPlayer.mpaa,Interdit aux moins de 18 ans)">flags/mpaa/csa18.png</value>
-		<value condition="substring(VideoPlayer.mpaa,전체)">flags/mpaa/KR_Certificate_All.png</value>
-		<value condition="substring(VideoPlayer.mpaa,12세)">flags/mpaa/KR_Certificate_12.png</value>
-		<value condition="substring(VideoPlayer.mpaa,15세)">flags/mpaa/KR_Certificate_15.png</value>
-		<value condition="substring(VideoPlayer.mpaa,불가)">flags/mpaa/KR_Certificate_18.png</value>
-		<value condition="substring(VideoPlayer.mpaa,제한)">flags/mpaa/KR_Certificate_R.png</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:Livre) | substring(VideoPlayer.mpaa,Livre)">flags/mpaa/MPAA_Brazil_Livre.png</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:10) | substring(VideoPlayer.mpaa,10 anos)">flags/mpaa/MPAA_Brazil_10.png</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:12) | substring(VideoPlayer.mpaa,12 anos)">flags/mpaa/MPAA_Brazil_12.png</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:14) | substring(VideoPlayer.mpaa,14 anos)">flags/mpaa/MPAA_Brazil_14.png</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:16) | substring(VideoPlayer.mpaa,16 anos)">flags/mpaa/MPAA_Brazil_16.png</value>
-		<value condition="substring(VideoPlayer.mpaa,Brazil:18) | substring(VideoPlayer.mpaa,18 anos)">flags/mpaa/MPAA_Brazil_18.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,US:G) | String.Contains(VideoPlayer.mpaa,USA:G) | String.Contains(VideoPlayer.mpaa,Rated G)">flags/mpaa/G.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,PG-13)">flags/mpaa/PG-13.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Rated PG) | StringCompare(VideoPlayer.Mpaa,PG)">flags/mpaa/PG.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,US:R) | String.Contains(VideoPlayer.mpaa,USA:R) | String.Contains(VideoPlayer.mpaa,Rated R) | StringCompare(VideoPlayer.mpaa,R)">flags/mpaa/R.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,US:NC-17)| String.Contains(VideoPlayer.mpaa,USA:NC-17)| String.Contains(VideoPlayer.mpaa,Rated NC-17)">flags/mpaa/NC-17.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,UK:U)">flags/mpaa/BBFC_U_Certificate_UK.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,UK:PG)">flags/mpaa/BBFC_PG_Certificate_UK.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,UK:12A)">flags/mpaa/BBFC_12A_Certificate_UK.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,UK:12)">flags/mpaa/BBFC_12_Certificate_UK.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,UK:15)">flags/mpaa/BBFC_15_Certificate_UK.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,UK:18)">flags/mpaa/BBFC_18_Certificate_UK.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Germany:16) | String.Contains(VideoPlayer.mpaa,ab 16) | StringCompare(VideoPlayer.mpaa,16) | String.Contains(VideoPlayer.mpaa,FSK 16) | String.Contains(VideoPlayer.mpaa,Rated 16)">flags/mpaa/FSK-16.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Germany:6)| String.Contains(VideoPlayer.mpaa,ab 6) | StringCompare(VideoPlayer.mpaa,6) | String.Contains(VideoPlayer.mpaa,FSK 16) | String.Contains(VideoPlayer.mpaa,Rated 6)">flags/mpaa/FSK-6.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Germany:12) | String.Contains(VideoPlayer.mpaa,ab 12) | StringCompare(VideoPlayer.mpaa,12) | String.Contains(VideoPlayer.mpaa,FSK 12) | String.Contains(VideoPlayer.mpaa,Rated 12)">flags/mpaa/FSK-12.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Germany:18) | String.Contains(VideoPlayer.mpaa,ab 18) | StringCompare(VideoPlayer.mpaa,18) | String.Contains(VideoPlayer.mpaa,FSK 18) | String.Contains(VideoPlayer.mpaa,Rated 18)">flags/mpaa/FSK-18.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Germany)|String.Contains(VideoPlayer.mpaa,FSK)| String.Contains(VideoPlayer.mpaa,o.A)| String.Contains(VideoPlayer.mpaa,Rated 0)">flags/mpaa/FSK-0</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,besorolás alatt)">flags/mpaa/HU_BA.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,korhatárra való tekintett nélkül megtekintetheto)">flags/mpaa/HU_KN.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">flags/mpaa/HU_12.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,16 éven aluliak számára nem ajánlott)">flags/mpaa/HU_16.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,18 éven aluliak számára nem ajánlott)">flags/mpaa/HU_18.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,France:U) | String.Contains(VideoPlayer.mpaa,partir de 3 ans) | String.Contains(VideoPlayer.mpaa,partir de 6 ans)">flags/mpaa/csaU.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,France:-10) | String.Contains(VideoPlayer.mpaa,Interdit aux moins de 10 ans) | String.Contains(VideoPlayer.mpaa,des propos ou des images peuvent heurter)">flags/mpaa/csa10.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,France:-12) | String.Contains(VideoPlayer.mpaa,Interdit aux moins de 12 ans)">flags/mpaa/csa12.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,France:-16) | String.Contains(VideoPlayer.mpaa,Interdit aux moins de 16 ans)">flags/mpaa/csa16.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,France:-18) | String.Contains(VideoPlayer.mpaa,Interdit aux moins de 18 ans)">flags/mpaa/csa18.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,전체)">flags/mpaa/KR_Certificate_All.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,12세)">flags/mpaa/KR_Certificate_12.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,15세)">flags/mpaa/KR_Certificate_15.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,불가)">flags/mpaa/KR_Certificate_18.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,제한)">flags/mpaa/KR_Certificate_R.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Brazil:Livre) | String.Contains(VideoPlayer.mpaa,Livre)">flags/mpaa/MPAA_Brazil_Livre.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Brazil:10) | String.Contains(VideoPlayer.mpaa,10 anos)">flags/mpaa/MPAA_Brazil_10.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Brazil:12) | String.Contains(VideoPlayer.mpaa,12 anos)">flags/mpaa/MPAA_Brazil_12.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Brazil:14) | String.Contains(VideoPlayer.mpaa,14 anos)">flags/mpaa/MPAA_Brazil_14.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Brazil:16) | String.Contains(VideoPlayer.mpaa,16 anos)">flags/mpaa/MPAA_Brazil_16.png</value>
+		<value condition="String.Contains(VideoPlayer.mpaa,Brazil:18) | String.Contains(VideoPlayer.mpaa,18 anos)">flags/mpaa/MPAA_Brazil_18.png</value>
 		<value>$INFO[VideoPlayer.MPAA,flags/mpaa/,.png]</value>
 	</variable>
 	<variable name="VizArtistInfoVar">
@@ -532,19 +532,19 @@
         <value condition="Window.IsVisible(script-ExtendedInfo Script-YoutubeList.xml)">YouTube.png</value>
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">DefaultAddonPVRClient.png</value>
         <value condition="Window.IsVisible(script-globalsearch-main.xml)">DefaultIconSearch.png</value>
-        <value condition="SubString(Container.FolderPath,sources://,Left)">DefaultFile.png</value>
+        <value condition="String.Contains(Container.FolderPath,sources://)">DefaultFile.png</value>
         <value condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">DefaultPlaylist.png</value>
-        <value condition="SubString(Container.FolderPath,special://videoplaylists/,Left)">DefaultPlaylist.png</value>
+        <value condition="String.Contains(Container.FolderPath,special://videoplaylists/)">DefaultPlaylist.png</value>
         <value condition="StringCompare(Container.FolderPath,special://profile/playlists/)">DefaultPlaylist.png</value>
         <value condition="StringCompare(Container.FolderPath,special://profile/playlists/video/)">DefaultPlaylist.png</value>
         <value condition="StringCompare(Container.FolderPath,special://profile/playlists/music/)">DefaultPlaylist.png</value>
         <value condition="StringCompare(Container.FolderPath,special://profile/playlists/mixed/)">DefaultPlaylist.png</value>
         <value condition="Window.IsVisible(MyMusicPlaylistEditor.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">DefaultMusicSongs.png</value>
-        <value condition="SubString(Container.FolderPath,library://video/movies/,Left)">DefaultMovies.png</value>
-        <value condition="SubString(Container.FolderPath,library://video/tvshows/,Left)">DefaultTVShows.png</value>
-        <value condition="SubString(Container.FolderPath,videodb://movies/,Left)">DefaultMovies.png</value>
-        <value condition="SubString(Container.FolderPath,videodb://tvshows/,Left)">DefaultTVShows.png</value>
-        <value condition="SubString(Container.FolderPath,plugin://,Left)">DefaultMovies.png</value>
+        <value condition="String.Contains(Container.FolderPath,library://video/movies/)">DefaultMovies.png</value>
+        <value condition="String.Contains(Container.FolderPath,library://video/tvshows/)">DefaultTVShows.png</value>
+        <value condition="String.Contains(Container.FolderPath,videodb://movies/)">DefaultMovies.png</value>
+        <value condition="String.Contains(Container.FolderPath,videodb://tvshows/)">DefaultTVShows.png</value>
+        <value condition="String.Contains(Container.FolderPath,plugin://)">DefaultMovies.png</value>
         <value condition="Container.Content(movies)">DefaultMovies.png</value>
         <value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Window.IsVisible(script-lazytv-BigScreenList.xml) | Window.IsVisible(script-lazytv-main.xml)">DefaultTVShows.png</value>
         <value condition="Container.Content(songs)">DefaultMusicSongs.png</value>
@@ -552,7 +552,7 @@
         <value condition="Container.Content(files)">DefaultFile.png</value>
         <value condition="Container.Content(plugins)">DefaultMovies.png</value>
         <value condition="Container.Content(addons)">DefaultAddon.png</value>
-        <value condition="SubString(Container.FolderPath,videodb://musicvideos/,Left)">DefaultMovies.png</value>
+        <value condition="String.Contains(Container.FolderPath,videodb://musicvideos/)">DefaultMovies.png</value>
         <value condition="Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)">DefaultAddonPVRClient.png</value>
         <value condition="Window.IsVisible(MyMusicPlaylistEditor.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">DefaultMusicSongs.png</value>
         <value condition="Window.IsVisible(MyPics.xml)">DefaultPicture.png</value>

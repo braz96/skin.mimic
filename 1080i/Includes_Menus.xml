@@ -358,7 +358,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<textcolor>33ffffff</textcolor>
-				<visible>SubString(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
+				<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
 				<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 				<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
 			</control>
@@ -404,7 +404,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<textcolor>33ffffff</textcolor>
-				<visible>SubString(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
+				<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
 				<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 				<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
 			</control>
@@ -459,7 +459,7 @@
                 <align>right</align>
                 <aligny>center</aligny>
                 <textcolor>33ffffff</textcolor>
-                <visible>SubString(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
+                <visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
                 <visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
                 <animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
             </control>
@@ -514,7 +514,7 @@
                 <align>right</align>
                 <aligny>center</aligny>
                 <textcolor>33ffffff</textcolor>
-                <visible>SubString(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
+                <visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
                 <visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
                 <animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
             </control>
@@ -675,7 +675,7 @@
 					<label>$INFO[Weather.Temperature,, • ]</label>
 					<font>font28_title</font>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin) + !substring(Weather.Temperature,$LOCALIZE[503])</visible>
+					<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin) + !String.Contains(Weather.Temperature,$LOCALIZE[503])</visible>
 				</control>
 				<control type="label" id="2">
 					<width>auto</width>
