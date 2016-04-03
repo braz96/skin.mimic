@@ -100,7 +100,7 @@
                                 <height>33</height>
                                 <texture colordiffuse="$VAR[ColorTextVar]">$VAR[StarRatingVar]</texture>
                                 <aspectratio align="right">keep</aspectratio>
-                                <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | String.Contains(Container.FolderPath,plugin.video)]</visible>
+                                <visible>![String.IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | String.Contains(Container.FolderPath,plugin.video)]</visible>
                             </control>
                         </control>
                     </itemlayout>
@@ -169,7 +169,7 @@
                                     <height>33</height>
                                     <texture colordiffuse="$VAR[ColorTextVar]">$VAR[StarRatingVar]</texture>
                                     <aspectratio align="right">keep</aspectratio>
-                                    <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | String.Contains(Container.FolderPath,plugin.video)]</visible>
+                                    <visible>![String.IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | String.Contains(Container.FolderPath,plugin.video)]</visible>
                                 </control>
                             </control>
                         </control>
@@ -235,7 +235,7 @@
                                 <height>33</height>
                                 <texture colordiffuse="$VAR[ColorTextVar]">$VAR[StarRatingVar]</texture>
                                 <aspectratio align="right">keep</aspectratio>
-                                <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | String.Contains(Container.FolderPath,plugin.video)]</visible>
+                                <visible>![String.IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | String.Contains(Container.FolderPath,plugin.video)]</visible>
                             </control>
                         </control>
                     </itemlayout>
@@ -303,7 +303,7 @@
                                     <height>33</height>
                                     <texture colordiffuse="$VAR[ColorTextVar]">$VAR[StarRatingVar]</texture>
                                     <aspectratio align="right">keep</aspectratio>
-                                    <visible>![IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | String.Contains(Container.FolderPath,plugin.video)]</visible>
+                                    <visible>![String.IsEmpty(ListItem.Title) | Container.Content(artists) | Container.Content(musicvideos) | String.Contains(Container.FolderPath,plugin.video)]</visible>
                                 </control>
                             </control>
                         </control>
@@ -466,7 +466,7 @@
                 <height>98</height>
                 <aspectratio align="center" aligny="bottom">keep</aspectratio>
                 <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-                <visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos) | Skin.HasSetting(Enable.BigListLogo) | Skin.HasSetting(Enable.BigListFanart)] + IsEmpty(ListItem.Art(landscape))</visible>
+                <visible>![Container.Content(episodes) | Container.Content(artists) | Container.Content(musicvideos) | Skin.HasSetting(Enable.BigListLogo) | Skin.HasSetting(Enable.BigListFanart)] + String.IsEmpty(ListItem.Art(landscape))</visible>
             </control>
             <control type="image">
                 <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>

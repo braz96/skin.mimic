@@ -7,10 +7,10 @@
     <controls>
         <control type="button" id="9053">
             <include>HiddenObject</include>
-            <onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
-            <onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9000)</onfocus>
-            <onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
-            <onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(500)</onfocus>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9000)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(500)</onfocus>
         </control>
         <control type="group">
             <control type="image">
@@ -169,7 +169,7 @@
         </control>
         <include>Topbar</include>
         <control type="group">
-            <animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
+            <animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="String.IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
             <animation effect="slide" start="0,0" end="440,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9000)">Conditional</animation>
             <left>-440</left>
             <control type="button">
@@ -198,7 +198,7 @@
             </include>
             <control type="grouplist" id="9000">
                 <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-                <visible>IsEmpty(Window(home).Property(t9search))</visible>
+                <visible>String.IsEmpty(Window(home).Property(t9search))</visible>
                 <left>0</left>
                 <top>10</top>
                 <width>400</width>

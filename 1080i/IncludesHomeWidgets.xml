@@ -4,7 +4,7 @@
 		<control type="group" id="9003">
 			<include>VisibleFadeEffect</include>
 			<control type="group">
-				<visible>!IsEmpty(Container(9000).ListItem.Property(widget)) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
+				<visible>!String.IsEmpty(Container(9000).ListItem.Property(widget)) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 				<animation effect="fade" start="0" end="100" delay="200" time="300" easing="out" condition="[ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)] | [ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="300" reversible="false" condition="[!ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] | [Control.HasFocus(9000) + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
 				<animation effect="fade" tween="cubic" time="600" delay="500" start="0" end="100" reversible="false">WindowOpen</animation>
@@ -192,7 +192,7 @@
 					<label>$INFO[Weather.Temperature, • ]</label>
 					<font>font28_title</font>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<visible>Weather.IsFetched + !IsEmpty(Weather.Plugin) + !String.Contains(Weather.Temperature,$LOCALIZE[503])</visible>
+					<visible>Weather.IsFetched + !String.IsEmpty(Weather.Plugin) + !String.Contains(Weather.Temperature,$LOCALIZE[503])</visible>
 				</control>
 			</control>
 			<control type="label">

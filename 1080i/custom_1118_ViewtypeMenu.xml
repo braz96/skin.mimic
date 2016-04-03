@@ -2,7 +2,7 @@
 <window type="dialog" id="1118">
     <defaultcontrol always="true">9011</defaultcontrol>
     <onunload>ClearProperty(viewtypeselect,home)</onunload>
-    <onload condition="IsEmpty(Window(home).Property(viewtypeselect))">Dialog.Close(1118)</onload>
+    <onload condition="String.IsEmpty(Window(home).Property(viewtypeselect))">Dialog.Close(1118)</onload>
     <coordinates>
         <posx>0</posx>
         <posy>0</posy>
@@ -34,7 +34,7 @@
 				<top>62</top>
 				<width>400</width>
 				<height>840</height>
-				<visible>!IsEmpty(Window(home).Property(viewtypeselect))</visible>
+				<visible>!String.IsEmpty(Window(home).Property(viewtypeselect))</visible>
 				<orientation>vertical</orientation>
 				<onright>Dialog.Close(1118)</onright>
 				<onright>ClearProperty(MediaMenu,Home)</onright>

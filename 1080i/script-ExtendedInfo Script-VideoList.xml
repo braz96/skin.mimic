@@ -7,10 +7,10 @@
     <controls>
         <control type="button" id="9052">
             <include>HiddenObject</include>
-            <onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
-            <onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9000)</onfocus>
-            <onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
-            <onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(500)</onfocus>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9000)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(500)</onfocus>
         </control>
 		<control type="group">
             <control type="image">
@@ -81,7 +81,7 @@
                         <height>60</height>
                         <texture>WidgetIndicator.png</texture>
                         <aspectratio align="center" aligny="top">keep</aspectratio>
-                        <visible>!IsEmpty(ListItem.Property(DBID))</visible>
+                        <visible>!String.IsEmpty(ListItem.Property(DBID))</visible>
                     </control>
                 </itemlayout>
                 <focusedlayout width="315" height="750" >
@@ -114,7 +114,7 @@
                             <height>60</height>
                             <texture>WidgetIndicator.png</texture>
                             <aspectratio align="center" aligny="top">keep</aspectratio>
-                            <visible>!IsEmpty(ListItem.Property(DBID))</visible>
+                            <visible>!String.IsEmpty(ListItem.Property(DBID))</visible>
                         </control>
                     </control>
                 </focusedlayout>
@@ -125,7 +125,7 @@
                 <width>29</width>
                 <height>58</height>
                 <texture flipx="true" colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
-                <visible>Control.HasFocus(500) + Container(500).Position(0) + !IsEmpty(Window.Property(ArrowUp))</visible>
+                <visible>Control.HasFocus(500) + Container(500).Position(0) + !String.IsEmpty(Window.Property(ArrowUp))</visible>
             </control>
             <control type="image">
                 <left>1841</left>
@@ -133,7 +133,7 @@
                 <width>29</width>
                 <height>58</height>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
-                <visible>Control.HasFocus(500) + Container(500).Position(5) + !IsEmpty(Window.Property(ArrowDown))</visible>
+                <visible>Control.HasFocus(500) + Container(500).Position(5) + !String.IsEmpty(Window.Property(ArrowDown))</visible>
             </control>-->
             <control type="button" id="600">
                 <include>HiddenObject</include>
@@ -227,7 +227,7 @@
         </control>
         <include>Topbar</include>
         <control type="group">
-            <animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
+            <animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="String.IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
             <animation effect="slide" start="0,0" end="440,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9000)">Conditional</animation>
             <left>-440</left>
             <control type="button">
@@ -252,11 +252,11 @@
                 <param name="CloseIconDialogClose2" value="noop" />
                 <param name="ClearMediaMenu" value="ClearProperty(MediaMenu,Home)" />
                 <param name="CloseIconSetFocus" value="SetFocus(500)" />
-                <param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + IsEmpty(Window(home).Property(t9search))" />
+                <param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + String.IsEmpty(Window(home).Property(t9search))" />
             </include>
             <control type="grouplist" id="9000">
                 <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-                <visible>IsEmpty(Window(home).Property(t9search))</visible>
+                <visible>String.IsEmpty(Window(home).Property(t9search))</visible>
                 <left>0</left>
                 <top>10</top>
                 <width>400</width>

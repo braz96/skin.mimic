@@ -33,7 +33,7 @@
 	<constant name="FullScreenWidth">1920</constant>
 	<!-- Media Menu -->
 	<include name="SideBladeLeft">
-		<animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
+		<animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="String.IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
 		<animation effect="slide" start="0,0" end="-440,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
 		<!--<top>44</top>-->
 		<control type="button">
@@ -47,10 +47,10 @@
 		</control>
 		<control type="button" id="9051">
 			<include>HiddenObject</include>
-			<onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
-			<onfocus condition="IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9050)</onfocus>
-			<onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
-			<onfocus condition="!IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(50)</onfocus>
+			<onfocus condition="String.IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
+			<onfocus condition="String.IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9050)</onfocus>
+			<onfocus condition="!String.IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
+			<onfocus condition="!String.IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(50)</onfocus>
 		</control>
 		<control type="button">
 			<left>420</left>
@@ -115,7 +115,7 @@
 		<onback>50</onback>
 		<itemgap>0</itemgap>
 		<include condition="Skin.HasSetting(KioskMode.Enabled)">KioskModeButton</include>
-		<visible>IsEmpty(Window(home).Property(viewtypeselect)) + !Window.IsVisible(1133)</visible>
+		<visible>String.IsEmpty(Window(home).Property(viewtypeselect)) + !Window.IsVisible(1133)</visible>
 		<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
 		<control type="label" id="200">
 			<width>400</width>
@@ -252,8 +252,8 @@
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
 				</control>
 				<control type="button" id="101">
 					<description>Guide</description>
@@ -261,8 +261,8 @@
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
 				</control>
 				<control type="button" id="102">
 					<description>Recordings</description>
@@ -270,8 +270,8 @@
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
 				</control>
 				<control type="button" id="103">
 					<description>Timers</description>
@@ -279,8 +279,8 @@
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimers)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimers)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
 				</control>
 				<control type="button" id="104">
 					<description>Search</description>
@@ -288,8 +288,8 @@
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 				</control>
 				<control type="button" id="201">
 					<description>View options</description>
@@ -722,11 +722,11 @@
 	</include>
 	<include name="AutoComplete">
 		<control type="group">
-			<visible>!IsEmpty(Control.GetLabel(312).index(1)) + !Control.IsVisible(313)</visible>
+			<visible>!String.IsEmpty(Control.GetLabel(312).index(1)) + !Control.IsVisible(313)</visible>
 			<top>563</top>
 			<control type="group">
-				<animation effect="fade" time="300" tween="cubic" start="0" end="100" reversible="false" condition="!IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
-				<animation effect="fade" time="150" tween="cubic" start="100" end="0" reversible="false" condition="IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
+				<animation effect="fade" time="300" tween="cubic" start="0" end="100" reversible="false" condition="!String.IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
+				<animation effect="fade" time="150" tween="cubic" start="100" end="0" reversible="false" condition="String.IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
 				<include name="DialogBackgroundCommons">
 					<param name="DialogBackgroundWidth" value="1320" />
 					<param name="DialogBackgroundHeight" value="220" />
@@ -1058,7 +1058,7 @@
 					<onclick>SetProperty(ActorID,0)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(0).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(0).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(0).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(1).Label]</label>
@@ -1067,7 +1067,7 @@
 					<onclick>SetProperty(ActorID,1)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(1).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(1).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(1).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(2).Label]</label>
@@ -1076,7 +1076,7 @@
 					<onclick>SetProperty(ActorID,2)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(2).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(2).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(2).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(3).Label]</label>
@@ -1085,7 +1085,7 @@
 					<onclick>SetProperty(ActorID,3)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(3).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(3).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(3).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(4).Label]</label>
@@ -1094,7 +1094,7 @@
 					<onclick>SetProperty(ActorID,4)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(4).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(4).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(4).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(5).Label]</label>
@@ -1103,7 +1103,7 @@
 					<onclick>SetProperty(ActorID,5)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(5).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(5).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(5).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(6).Label]</label>
@@ -1112,7 +1112,7 @@
 					<onclick>SetProperty(ActorID,6)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(6).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(6).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(6).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(7).Label]</label>
@@ -1121,7 +1121,7 @@
 					<onclick>SetProperty(ActorID,7)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(7).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(7).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(7).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(8).Label]</label>
@@ -1130,7 +1130,7 @@
 					<onclick>SetProperty(ActorID,8)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(8).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(8).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(8).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(9).Label]</label>
@@ -1139,7 +1139,7 @@
 					<onclick>SetProperty(ActorID,9)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(9).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(9).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(9).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(10).Label]</label>
@@ -1148,7 +1148,7 @@
 					<onclick>SetProperty(ActorID,10)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(10).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(10).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(10).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(11).Label]</label>
@@ -1157,7 +1157,7 @@
 					<onclick>SetProperty(ActorID,11)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(11).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(11).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(11).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(12).Label]</label>
@@ -1166,7 +1166,7 @@
 					<onclick>SetProperty(ActorID,12)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(12).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(12).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(12).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(13).Label]</label>
@@ -1175,7 +1175,7 @@
 					<onclick>SetProperty(ActorID,13)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(13).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(13).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(13).Label)</visible>
 				</item>
 				<item>
 					<label>$INFO[Container(50).ListItemAbsolute(14).Label]</label>
@@ -1184,7 +1184,7 @@
 					<onclick>SetProperty(ActorID,14)</onclick>
 					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(14).Label])</onclick>
 					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!IsEmpty(Container(50).ListItemAbsolute(14).Label)</visible>
+					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(14).Label)</visible>
 				</item>
 			</content>
 		</control>
@@ -1203,39 +1203,39 @@
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
-				<visible>!IsEmpty(ListItem.VideoResolution) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				<visible>!String.IsEmpty(ListItem.VideoResolution) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
-				<visible>!IsEmpty(ListItem.VideoCodec) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				<visible>!String.IsEmpty(ListItem.VideoCodec) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
-				<visible>!IsEmpty(ListItem.VideoAspect) + ![Container.Content(tvshows) | Container.Content(seasons) | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(501) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.VideoAspect) + ![Container.Content(tvshows) | Container.Content(seasons) | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(501) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
-				<visible>!IsEmpty(ListItem.AudioCodec) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				<visible>!String.IsEmpty(ListItem.AudioCodec) + ![Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<width>100</width>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
-				<visible>!IsEmpty(ListItem.AudioChannels) + ![Container.Content(tvshows) | Container.Content(seasons) | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.AudioChannels) + ![Container.Content(tvshows) | Container.Content(seasons) | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<width>100</width>
 				<include>MediaFlagVars</include>
 				<texture>flags/cc.png</texture>
-				<visible>!IsEmpty(ListItem.SubtitleLanguage) + ![Container.Content(tvshows) | Container.Content(seasons) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.SubtitleLanguage) + ![Container.Content(tvshows) | Container.Content(seasons) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>

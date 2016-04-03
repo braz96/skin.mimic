@@ -20,13 +20,13 @@
         <preloaditems>2</preloaditems>
         <scrolltime tween="sine" easing="out">240</scrolltime>
         <orientation>horizontal</orientation>
-        <visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath))</visible>
+        <visible>!String.IsEmpty(Container(9000).ListItem.Property(widgetPath))</visible>
         <autoscroll time="10000" delay="10000" repeat="10000">Control.IsVisible(9003) + !Control.HasFocus($PARAM[id]) + !Skin.HasSetting(Disable.WidgetAutoScroll)</autoscroll>
         
         <!-- Poster -->
         <itemlayout height="320" width="220" condition="!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
             <control type="image">
-                <visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                <visible>String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
                 <top>30</top>
                 <left>90</left>
                 <width>200</width>
@@ -35,7 +35,7 @@
                 <texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(thumb)]</texture>
             </control>
             <control type="image">
-                <visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                <visible>!String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
                 <top>30</top>
                 <left>90</left>
                 <width>200</width>
@@ -56,7 +56,7 @@
                 <animation center="190,180" easing="inout" effect="zoom" end="136" start="100" time="300" tween="sine">Focus</animation>
                 <animation center="190,180" easing="inout" effect="zoom" end="100" start="136" time="300" tween="sine">UnFocus</animation>
                 <control type="image">
-                    <visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                    <visible>String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
                     <top>30</top>
                     <left>90</left>
                     <width>200</width>
@@ -65,7 +65,7 @@
                     <texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(thumb)]</texture>
                 </control>
                 <control type="image">
-                    <visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                    <visible>!String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
                     <top>30</top>
                     <left>90</left>
                     <width>200</width>

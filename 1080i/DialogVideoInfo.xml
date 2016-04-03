@@ -11,7 +11,7 @@
 			<include>FullscreenDimensions</include>
 			<control type="image">
 				<texture>black.png</texture>
-				<visible>IsEmpty(ListItem.Art(fanart))</visible>
+				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
 			</control>
 			<control type="image">
 				<aspectratio align="center">scale</aspectratio>
@@ -56,7 +56,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Tagline]</label>
-						<visible>Container.Content(movies) + !IsEmpty(ListItem.Tagline)</visible>
+						<visible>Container.Content(movies) + !String.IsEmpty(ListItem.Tagline)</visible>
 					</control>
 					<control type="label">
 						<width>1135</width>
@@ -67,7 +67,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.OriginalTitle]</label>
-						<visible>Container.Content(movies) + IsEmpty(ListItem.Tagline)</visible>
+						<visible>Container.Content(movies) + String.IsEmpty(ListItem.Tagline)</visible>
 					</control>
 					<control type="label">
 						<width>1135</width>
@@ -78,7 +78,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[Window(Home).Property(NextAired.Status)]</label>
-						<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Status))</visible>
+						<visible>Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.Status))</visible>
 					</control>
 					<control type="label">
 						<width>1135</width>
@@ -89,7 +89,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.TvShowTitle]</label>
-						<visible>Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)</visible>
+						<visible>Container.Content(episodes) + !String.IsEmpty(ListItem.TvShowTitle)</visible>
 					</control>
 					<control type="label">
 						<width>1135</width>
@@ -100,7 +100,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Artist]</label>
-						<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)</visible>
+						<visible>Container.Content(musicvideos) + !String.IsEmpty(ListItem.Artist)</visible>
 					</control>
 				</control>
 				<control type="panel">
@@ -154,19 +154,19 @@
 							<label>$INFO[ListItem.Year]</label>
 							<label2>$LOCALIZE[345]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Year) + ![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+							<visible>!String.IsEmpty(ListItem.Year) + ![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Premiered]</label>
 							<label2>$LOCALIZE[20416]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Premiered) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+							<visible>!String.IsEmpty(ListItem.Premiered) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.mpaa]</label>
 							<label2>$LOCALIZE[31189]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.mpaa)</visible>
+							<visible>!String.IsEmpty(ListItem.mpaa)</visible>
 						</item>
 						<item>
 							<label>$VAR[DurationVar] [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]</label>
@@ -178,91 +178,91 @@
 							<label>$INFO[ListItem.Top250,#]</label>
 							<label2>$LOCALIZE[13409]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Top250)</visible>
+							<visible>!String.IsEmpty(ListItem.Top250)</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.UserRating]</label>
 							<label2>$LOCALIZE[38018]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.UserRating)</visible>
+							<visible>!String.IsEmpty(ListItem.UserRating)</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.RatingAndVotes]</label>
 							<label2>$LOCALIZE[563]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Rating)</visible>
+							<visible>!String.IsEmpty(ListItem.Rating)</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Genre]</label>
 							<label2>$LOCALIZE[515]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Genre)</visible>
+							<visible>!String.IsEmpty(ListItem.Genre)</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Studio]</label>
 							<label2>$LOCALIZE[572]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Studio)</visible>
+							<visible>!String.IsEmpty(ListItem.Studio)</visible>
 						</item>
 						<item>
 							<label>$INFO[Window(Home).Property(NextAired.NextNumber),, - ]$INFO[Window(Home).Property(NextAired.NextTitle)]</label>
 							<label2>$LOCALIZE[31010]:</label2>
 							<onclick>noop</onclick>
-							<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+							<visible>Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window(Home).Property(NextAired.LatestNumber),, - ]$INFO[Window(Home).Property(NextAired.LatestTitle)]</label>
 							<label2>$LOCALIZE[31011]:</label2>
 							<onclick>noop</onclick>
-							<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.LatestDate)) + IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+							<visible>Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.LatestDate)) + String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window(Home).Property(NextAired.NextDate),, | ]$INFO[Window(Home).Property(NextAired.AirTime)]</label>
 							<label2>$LOCALIZE[31012]:</label2>
 							<onclick>noop</onclick>
-							<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+							<visible>Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Director]</label>
 							<label2>$LOCALIZE[20339]:</label2>
 							<onclick>SendClick(2003,13)</onclick>
-							<visible>!IsEmpty(ListItem.Director)</visible>
+							<visible>!String.IsEmpty(ListItem.Director)</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Writer]</label>
 							<label2>$LOCALIZE[20417]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Writer)</visible>
+							<visible>!String.IsEmpty(ListItem.Writer)</visible>
 						</item>
 						<item>
 							<label>[UPPERCASE]$INFO[ListItem.Property(AudioLanguage.1)]$INFO[ListItem.Property(AudioLanguage.2),/]$INFO[ListItem.Property(AudioLanguage.3),/]$INFO[ListItem.Property(AudioLanguage.4),/]$INFO[ListItem.Property(AudioLanguage.5),/]$INFO[ListItem.Property(AudioLanguage.6),/]$INFO[ListItem.Property(AudioLanguage.7),/][/UPPERCASE]</label>
 							<label2>$LOCALIZE[292]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
+							<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
 						</item>
 						<item>
 							<label>[UPPERCASE]$INFO[ListItem.Property(SubtitleLanguage.1)]$INFO[ListItem.Property(SubtitleLanguage.2),/]$INFO[ListItem.Property(SubtitleLanguage.3),/]$INFO[ListItem.Property(SubtitleLanguage.4),/]$INFO[ListItem.Property(SubtitleLanguage.5),/]$INFO[ListItem.Property(SubtitleLanguage.6),/]$INFO[ListItem.Property(SubtitleLanguage.7),/][/UPPERCASE]</label>
 							<label2>$LOCALIZE[462]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+							<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Country]</label>
 							<label2>$LOCALIZE[574]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Country)</visible>
+							<visible>!String.IsEmpty(ListItem.Country)</visible>
 						</item>
 						<item>
 							<label>$INFO[Window(Home).Property(NextAired.Country)]</label>
 							<label2>$LOCALIZE[574]:</label2>
 							<onclick>noop</onclick>
-							<visible>Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Country))</visible>
+							<visible>Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.Country))</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.PlayCount]</label>
 							<label2>$LOCALIZE[567]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.PlayCount)</visible>
+							<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.PercentPlayed,,%]</label>
@@ -274,25 +274,25 @@
 							<label>$INFO[ListItem.LastPlayed]</label>
 							<label2 fallback="-">$LOCALIZE[568]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.LastPlayed)</visible>
+							<visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.DateAdded]</label>
 							<label2>$LOCALIZE[31190]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.DateAdded)</visible>
+							<visible>!String.IsEmpty(ListItem.DateAdded)</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Path]</label>
 							<label2>$LOCALIZE[573]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Path)</visible>
+							<visible>!String.IsEmpty(ListItem.Path)</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Filename]</label>
 							<label2>$LOCALIZE[21800]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(ListItem.Filename)</visible>
+							<visible>!String.IsEmpty(ListItem.Filename)</visible>
 						</item>
 					</content>
 				</control>
@@ -350,7 +350,7 @@
 					<visible>Container.Content(tvshows) + !Control.IsVisible(150) + !Control.IsVisible(90019)</visible>
 					<top>950</top>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.Property(TotalSeasons))</visible>
+						<visible>!String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
 						<width>200</width>
 						<control type="label">
 							<left>0</left>
@@ -374,8 +374,8 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.Property(TotalEpisodes))</visible>
-						<animation effect="slide" time="0" start="0" end="-200" condition="IsEmpty(ListItem.Property(TotalSeasons))">Conditional</animation>
+						<visible>!String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+						<animation effect="slide" time="0" start="0" end="-200" condition="String.IsEmpty(ListItem.Property(TotalSeasons))">Conditional</animation>
 						<left>200</left>
 						<width>200</width>
 						<control type="label">
@@ -400,8 +400,8 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
-						<animation effect="slide" time="0" start="0" end="-200" condition="IsEmpty(ListItem.Property(TotalSeasons))">Conditional</animation>
+						<visible>!String.IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+						<animation effect="slide" time="0" start="0" end="-200" condition="String.IsEmpty(ListItem.Property(TotalSeasons))">Conditional</animation>
 						<left>400</left>
 						<width>200</width>
 						<control type="label">
@@ -516,7 +516,7 @@
                         <height>95</height>
                         <texture>black.png</texture>
                         <colordiffuse>bbffffff</colordiffuse>
-						<visible>!IsEmpty(ListItem.Title)</visible>							
+						<visible>!String.IsEmpty(ListItem.Title)</visible>							
                     </control>						
 					<control type="textbox">
                         <left>16</left>
@@ -557,7 +557,7 @@
                             <height>95</height>
                             <texture>black.png</texture>
                             <colordiffuse>bbffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Title)</visible>							
+							<visible>!String.IsEmpty(ListItem.Title)</visible>							
                         </control>						
 						<control type="textbox">
                            <left>16</left>
@@ -613,7 +613,7 @@
                         <height>95</height>
                         <texture>black.png</texture>
                         <colordiffuse>bbffffff</colordiffuse>
-						<visible>!IsEmpty(ListItem.Title)</visible>							
+						<visible>!String.IsEmpty(ListItem.Title)</visible>							
                     </control>						
 					<control type="textbox">
                         <left>16</left>
@@ -654,7 +654,7 @@
                             <height>95</height>
                             <texture>black.png</texture>
                             <colordiffuse>bbffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Title)</visible>							
+							<visible>!String.IsEmpty(ListItem.Title)</visible>							
                         </control>						
 						<control type="textbox">
                            <left>16</left>
@@ -710,7 +710,7 @@
                         <height>95</height>
                         <texture>black.png</texture>
                         <colordiffuse>bbffffff</colordiffuse>
-						<visible>!IsEmpty(ListItem.Title)</visible>							
+						<visible>!String.IsEmpty(ListItem.Title)</visible>							
                     </control>						
 					<control type="textbox">
                         <left>16</left>
@@ -751,7 +751,7 @@
                             <height>95</height>
                             <texture>black.png</texture>
                             <colordiffuse>bbffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Title)</visible>							
+							<visible>!String.IsEmpty(ListItem.Title)</visible>							
                         </control>						
 						<control type="textbox">
                            <left>16</left>
@@ -864,7 +864,7 @@
 						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>20410</label>
-						<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
+						<visible>Container.Content(movies) + !String.IsEmpty(ListItem.Trailer)</visible>
 					</control>
 					<control type="button" id="204">
 						<description>YouTube</description>
@@ -873,7 +873,7 @@
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>[Container.Content(movies) + IsEmpty(ListItem.Trailer)] | Container.Content(tvshows) | Container.Content(episodes)</visible>
+						<visible>[Container.Content(movies) + String.IsEmpty(ListItem.Trailer)] | Container.Content(tvshows) | Container.Content(episodes)</visible>
 					</control>
 					<control type="button" id="7">
 						<description>User ratings</description>

@@ -11,7 +11,7 @@
 				<visible>Player.HasAudio</visible>
 				<visible>!Skin.HasSetting(Disable.ShowBackgroundVis)</visible>
 				<visible>!Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)</visible>
-				<visible>IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
+				<visible>String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
 			</control>
 			<control type="image">
 				<include>FullscreenDimensions</include>
@@ -56,7 +56,7 @@
 	</include>
 	<include name="TVShowNextAiredBackground">
 		<control type="group">
-			<visible>!IsEmpty(Window(home).Property(TVGuide.BackgroundFanart))</visible>
+			<visible>!String.IsEmpty(Window(home).Property(TVGuide.BackgroundFanart))</visible>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>

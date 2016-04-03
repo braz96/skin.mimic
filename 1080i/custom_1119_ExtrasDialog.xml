@@ -76,7 +76,7 @@
 				<texturenofocus border="12">button_bg.png</texturenofocus>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 				<visible>System.HasAddon(script.tvtunes)</visible>
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)] + String.IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
 			</control>
 			<control type="button" id="90202">
 				<description>Cinema Vision button</description>
@@ -211,7 +211,7 @@
 				<onclick>RunScript(script.tvtunes,mode=solo)</onclick>
 				<label>$INFO[System.AddonTitle(script.tvtunes)]</label>
 				<visible>System.HasAddon(script.tvtunes)</visible>
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)] + String.IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton"))</visible>
 			</control>
 			<control type="button" id="90302">
 				<description>Cinema Vision button</description>

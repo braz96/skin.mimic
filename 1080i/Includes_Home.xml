@@ -17,7 +17,7 @@
 				<visible>!Skin.HasSetting(Enable.HomeFanartOverlay)</visible>
 				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
 				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
-				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
+				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
 				<width>FullScreenWidth</width>
 				<height>700</height>
 				<texture background="true">background.png</texture>
@@ -51,7 +51,7 @@
 				<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 				<top>1080</top>
 				<width>FullScreenWidth</width>
 				<height>700</height>
@@ -172,9 +172,9 @@
 					<control type="image">
 						<animation effect="slide" time="300" start="0" end="1446" tween="sine" easing="inout" reversible="false" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] | Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 						<animation effect="slide" time="150" delay="200" start="1446" end="0" tween="sine" easing="inout" reversible="false" condition="![[ControlGroup(9003).HasFocus | Control.HasFocus(9010)] + !Skin.HasSetting(Enable.PersistentWidgets) + ControlGroup(9003).IsVisible] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-						<animation effect="slide" time="0" delay="0" start="0" end="1446" tween="sine" reversible="true" condition="!IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-						<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false" condition="!Skin.HasSetting(Enable.PersistentWidgets) | IsEmpty(Container(9000).ListItem.Property(widgetName))">WindowOpen</animation>
-						<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false" condition="!Skin.HasSetting(Enable.PersistentWidgets) | IsEmpty(Container(9000).ListItem.Property(widgetName))">WindowClose</animation>
+						<animation effect="slide" time="0" delay="0" start="0" end="1446" tween="sine" reversible="true" condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
+						<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false" condition="!Skin.HasSetting(Enable.PersistentWidgets) | String.IsEmpty(Container(9000).ListItem.Property(widgetName))">WindowOpen</animation>
+						<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false" condition="!Skin.HasSetting(Enable.PersistentWidgets) | String.IsEmpty(Container(9000).ListItem.Property(widgetName))">WindowClose</animation>
 						<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false" condition="!Skin.HasSetting(Enable.PersistentWidgets)">Visible</animation>
 						<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false" condition="!Skin.HasSetting(Enable.PersistentWidgets)">Hidden</animation>
 						<top>0</top>
@@ -237,7 +237,7 @@
 			</control>
 		</control>
 		<control type="group" id="9003">
-			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath)) | StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
+			<visible>!String.IsEmpty(Container(9000).ListItem.Property(widgetPath)) | StringCompare(Container(9000).ListItem.Property(widget),weather)</visible>
 			<control type="group">
 				<include>Animation.Common</include>
 				<top>234</top>

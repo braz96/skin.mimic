@@ -35,7 +35,7 @@
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture background="true">$INFO[Window.Property(set.thumb)]</texture>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
-                <visible>Integer.IsGreater(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208) + !IsEmpty(Window.Property(Set)) + !IsEmpty(Window.Property(set.thumb))</visible>
+                <visible>Integer.IsGreater(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208) + !String.IsEmpty(Window.Property(Set)) + !String.IsEmpty(Window.Property(set.thumb))</visible>
 			</control>
 			<control type="button" id="8">
 				<onleft>9000</onleft>
@@ -46,7 +46,7 @@
 				<width>200</width>
 				<texturefocus>play.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[ColorTextVar]">play.png</texturenofocus>
-				<visible>!IsEmpty(Window.Property(DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
+				<visible>!String.IsEmpty(Window.Property(DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
 			</control>
 			<control type="image">
 				<top>-1000</top>
@@ -154,109 +154,109 @@
 							<label>$INFO[Window.Property(year)]</label>
 							<label2>$LOCALIZE[345]:</label2>
                             <onclick>noop</onclick>
-                            <visible>!IsEmpty(Window.Property(year))</visible>
+                            <visible>!String.IsEmpty(Window.Property(year))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(releasedate)]</label>
 							<label2>$LOCALIZE[20416]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(releasedate))</visible>
+							<visible>!String.IsEmpty(Window.Property(releasedate))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(mpaa),$LOCALIZE[31191] ]</label>
 							<label2>$LOCALIZE[31189]:</label2>
                             <onclick>noop</onclick>
-                            <visible>!IsEmpty(Window.Property(mpaa))</visible>
+                            <visible>!String.IsEmpty(Window.Property(mpaa))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(Duration),, [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
 							<label2>$LOCALIZE[180]:</label2>
                             <onclick>noop</onclick>
-                            <visible>!Stringcompare(Window.Property(Duration),0) + !IsEmpty(Window.Property(Duration))</visible>
+                            <visible>!Stringcompare(Window.Property(Duration),0) + !String.IsEmpty(Window.Property(Duration))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(Top250),#]</label>
 							<label2>$LOCALIZE[13409]:</label2>
                             <onclick>noop</onclick>
-                            <visible>!IsEmpty(Window.Property(Top250))</visible>
+                            <visible>!String.IsEmpty(Window.Property(Top250))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(rating)]$INFO[Window.Property(votes), (, $LOCALIZE[20350])]</label>
 							<label2>$LOCALIZE[563]:</label2>
                             <onclick>noop</onclick>
-                            <visible>!IsEmpty(Window.Property(rating))</visible>
+                            <visible>!String.IsEmpty(Window.Property(rating))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(genre)]</label>
 							<label2>$LOCALIZE[515]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(genre))</visible>
+							<visible>!String.IsEmpty(Window.Property(genre))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(studio)]</label>
 							<label2>$LOCALIZE[572]:</label2>
                             <onclick>noop</onclick>
-                            <visible>!IsEmpty(Window.Property(studio))</visible>
+                            <visible>!String.IsEmpty(Window.Property(studio))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(director)]</label>
 							<label2>$LOCALIZE[20339]:</label2>
                             <onclick>noop</onclick>
-                            <visible>!IsEmpty(Window.Property(director))</visible>
+                            <visible>!String.IsEmpty(Window.Property(director))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(writer)]</label>
 							<label2>$LOCALIZE[20417]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(writer))</visible>
+							<visible>!String.IsEmpty(Window.Property(writer))</visible>
 						</item>
 						<item>
 							<label>[UPPERCASE]$INFO[Window.Property(AudioLanguage.1)][/UPPERCASE]</label>
 							<label2>$LOCALIZE[292]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(DBID)) + !IsEmpty(Window.Property(AudioLanguage.1))</visible>
+							<visible>!String.IsEmpty(Window.Property(DBID)) + !String.IsEmpty(Window.Property(AudioLanguage.1))</visible>
 						</item>
 						<item>
 							<label>[UPPERCASE]$INFO[Window.Property(SubtitleLanguage.1)][/UPPERCASE]</label>
 							<label2>$LOCALIZE[462]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(DBID)) + !IsEmpty(Window.Property(SubtitleLanguage.1))</visible>
+							<visible>!String.IsEmpty(Window.Property(DBID)) + !String.IsEmpty(Window.Property(SubtitleLanguage.1))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(country)]</label>
 							<label2>$LOCALIZE[574]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(country))</visible>
+							<visible>!String.IsEmpty(Window.Property(country))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(playcount)]</label>
 							<label2>$LOCALIZE[567]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(DBID)) + !IsEmpty(Window.Property(playcount))</visible>
+							<visible>!String.IsEmpty(Window.Property(DBID)) + !String.IsEmpty(Window.Property(playcount))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(PercentPlayed),(,%)]</label>
 							<label2>$LOCALIZE[575]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(DBID)) + Integer.IsGreater(Window.Property(PercentPlayed),0)</visible>
+							<visible>!String.IsEmpty(Window.Property(DBID)) + Integer.IsGreater(Window.Property(PercentPlayed),0)</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(lastplayed)]</label>
 							<label2>$LOCALIZE[568]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(DBID)) + !IsEmpty(Window.Property(lastplayed))</visible>
+							<visible>!String.IsEmpty(Window.Property(DBID)) + !String.IsEmpty(Window.Property(lastplayed))</visible>
 						</item>
                         <item>
 							<label>$INFO[Window.Property(Budget),$]</label>
 							<label2>$ADDON[script.extendedinfo 32109]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(Budget))</visible>
+							<visible>!String.IsEmpty(Window.Property(Budget))</visible>
 						</item>
                         <item>
 							<label>$INFO[Window.Property(Revenue),$]</label>
 							<label2>$ADDON[script.extendedinfo 32108]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(Revenue))</visible>
+							<visible>!String.IsEmpty(Window.Property(Revenue))</visible>
 						</item>						
 					</content>
 				</control>
@@ -299,7 +299,7 @@
 					<orientation>vertical</orientation>
 				</control>
 				<control type="grouplist">
-					<visible>!IsEmpty(Window.Property(DBID)) + ControlGroup(9000).HasFocus(205)</visible>
+					<visible>!String.IsEmpty(Window.Property(DBID)) + ControlGroup(9000).HasFocus(205)</visible>
 					<left>0</left>
 					<top>965</top>
 					<width>840</width>
@@ -312,46 +312,46 @@
 						<height>80</height>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[Window.Property(VideoResolution),flags/resolution/,.png]</texture>
-						<visible>!IsEmpty(Window.Property(VideoResolution))</visible>
+						<visible>!String.IsEmpty(Window.Property(VideoResolution))</visible>
 					</control>
 					<control type="image">
 						<height>80</height>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[Window.Property(VideoCodec),flags/video/,.png]</texture>
-						<visible>!IsEmpty(Window.Property(VideoCodec))</visible>
+						<visible>!String.IsEmpty(Window.Property(VideoCodec))</visible>
 					</control>
 					<control type="image">
 						<height>80</height>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[Window.Property(VideoAspect),flags/aspectratio/,.png]</texture>
-						<visible>!IsEmpty(Window.Property(VideoAspect))</visible>
+						<visible>!String.IsEmpty(Window.Property(VideoAspect))</visible>
 					</control>
 					<control type="image">
 						<height>80</height>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[Window.Property(AudioCodec),flags/audio/,.png]</texture>
-						<visible>!IsEmpty(Window.Property(AudioCodec))</visible>
+						<visible>!String.IsEmpty(Window.Property(AudioCodec))</visible>
 					</control>
 					<control type="image">
 						<height>80</height>
 						<width>100</width>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[Window.Property(AudioChannels),flags/channels/,.png]</texture>
-						<visible>!IsEmpty(Window.Property(AudioChannels))</visible>
+						<visible>!String.IsEmpty(Window.Property(AudioChannels))</visible>
 					</control>
 					<control type="image">
 						<height>80</height>
 						<width>100</width>
 						<include>MediaFlagVars</include>
 						<texture>flags/cc.png</texture>
-						<visible>!IsEmpty(Window.Property(SubtitleLanguage.1)</visible>
+						<visible>!String.IsEmpty(Window.Property(SubtitleLanguage.1)</visible>
 					</control>
 				</control>
 				<control type="group">
 					<visible>Container.Content(tvshows) + ControlGroup(9000).HasFocus(205)</visible>
 					<top>950</top>
 					<control type="group">
-						<visible>!IsEmpty(Window.Property(TotalSeasons))</visible>
+						<visible>!String.IsEmpty(Window.Property(TotalSeasons))</visible>
 						<width>200</width>
 						<control type="label">
 							<left>0</left>
@@ -375,7 +375,7 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(Window.Property(TotalEpisodes))</visible>
+						<visible>!String.IsEmpty(Window.Property(TotalEpisodes))</visible>
 						<left>200</left>
 						<width>200</width>
 						<control type="label">
@@ -457,7 +457,7 @@
                             <width>40</width>
                             <height>40</height>
                             <texture>WidgetIndicator.png</texture>								
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+							<visible>!String.IsEmpty(ListItem.Property(DBID))</visible>							
                         </control>
 					</itemlayout>
 					<focusedlayout height="421" width="289">
@@ -486,7 +486,7 @@
 	                            <width>40</width>
 	                            <height>40</height>
 	                            <texture>WidgetIndicator.png</texture>								
-								<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+								<visible>!String.IsEmpty(ListItem.Property(DBID))</visible>							
 	                        </control>
 	                    </control>
 					</focusedlayout>
@@ -560,7 +560,7 @@
                             <width>40</width>
                             <height>40</height>
                             <texture>WidgetIndicator.png</texture>						
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+							<visible>!String.IsEmpty(ListItem.Property(DBID))</visible>							
                         </control>
 						<control type="image">
 							<top>325</top>
@@ -569,7 +569,7 @@
 							<height>90</height>
 							<texture>black.png</texture>
 							<colordiffuse>bbffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Label)</visible>
+							<visible>!String.IsEmpty(ListItem.Label)</visible>
 						</control>
 						<control type="textbox">
 							<left>11</left>
@@ -599,7 +599,7 @@
 	                            <width>40</width>
 	                            <height>40</height>
 	                            <texture>WidgetIndicator.png</texture>						
-								<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+								<visible>!String.IsEmpty(ListItem.Property(DBID))</visible>							
 	                        </control>
 	                        <control type="image">
 	                        	<animation center="auto" condition="Control.HasFocus(750)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -617,7 +617,7 @@
 								<height>90</height>
 								<texture>black.png</texture>
 								<colordiffuse>bbffffff</colordiffuse>
-								<visible>!IsEmpty(ListItem.Label)</visible>
+								<visible>!String.IsEmpty(ListItem.Label)</visible>
 							</control>
 							<control type="textbox">
 								<left>11</left>
@@ -694,7 +694,7 @@
                             <width>40</width>
                             <height>40</height>
                             <texture>WidgetIndicator.png</texture>						
-							<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+							<visible>!String.IsEmpty(ListItem.Property(DBID))</visible>							
                         </control>
 						<control type="image">
 							<top>325</top>
@@ -703,7 +703,7 @@
 							<height>90</height>
 							<texture>black.png</texture>
 							<colordiffuse>bbffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Label)</visible>
+							<visible>!String.IsEmpty(ListItem.Label)</visible>
 						</control>
 						<control type="textbox">
 							<left>11</left>
@@ -733,7 +733,7 @@
 	                            <width>40</width>
 	                            <height>40</height>
 	                            <texture>WidgetIndicator.png</texture>						
-								<visible>!IsEmpty(ListItem.Property(DBID))</visible>							
+								<visible>!String.IsEmpty(ListItem.Property(DBID))</visible>							
 	                        </control>
 	                        <control type="image">
 	                        	<animation center="auto" condition="Control.HasFocus(1000)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -751,7 +751,7 @@
 								<height>90</height>
 								<texture>black.png</texture>
 								<colordiffuse>bbffffff</colordiffuse>
-								<visible>!IsEmpty(ListItem.Label)</visible>
+								<visible>!String.IsEmpty(ListItem.Label)</visible>
 							</control>
 							<control type="textbox">
 								<left>11</left>
@@ -824,7 +824,7 @@
                             <height>95</height>
                             <texture>black.png</texture>
                             <colordiffuse>bbffffff</colordiffuse>
-							<visible>!IsEmpty(ListItem.Title)</visible>							
+							<visible>!String.IsEmpty(ListItem.Title)</visible>							
                         </control>						
 						<control type="textbox">
                             <left>16</left>
@@ -865,7 +865,7 @@
 	                            <height>95</height>
 	                            <texture>black.png</texture>
 	                            <colordiffuse>bbffffff</colordiffuse>
-								<visible>!IsEmpty(ListItem.Title)</visible>							
+								<visible>!String.IsEmpty(ListItem.Title)</visible>							
 	                        </control>						
 							<control type="textbox">
 	                           <left>16</left>

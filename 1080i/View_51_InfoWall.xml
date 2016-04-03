@@ -171,7 +171,7 @@
 							<height>171</height>
 							<aspectratio align="center" aligny="center">scale</aspectratio>
 							<texture background="true">$VAR[BannerThumb]</texture>
-							<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
+							<visible>!String.IsEmpty(ListItem.Art(banner)) | String.IsEmpty(ListItem.Art(fanart))</visible>
 						</control>
 						<control type="image">
 							<top>6</top>
@@ -180,10 +180,10 @@
 							<height>171</height>
 							<aspectratio align="center" aligny="center">keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<visible>IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
+							<visible>String.IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
 						</control>
 	                    <control type="group">
-							<visible>IsEmpty(ListItem.Art(banner))</visible>
+							<visible>String.IsEmpty(ListItem.Art(banner))</visible>
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
@@ -224,7 +224,7 @@
 				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="490,89" />
 				        </animation>
 						<control type="group">
-							<visible>!IsEmpty(ListItem.Art(banner)) | IsEmpty(ListItem.Art(fanart))</visible>
+							<visible>!String.IsEmpty(ListItem.Art(banner)) | String.IsEmpty(ListItem.Art(fanart))</visible>
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
@@ -235,7 +235,7 @@
 							</control>
 						</control>
 						<control type="group">
-							<visible>IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
+							<visible>String.IsEmpty(ListItem.Art(banner)) + StringCompare(ListItem.Label,..)</visible>
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
@@ -254,7 +254,7 @@
 							</control>
 						</control>
                         <control type="group">
-							<visible>IsEmpty(ListItem.Art(banner))</visible>
+							<visible>String.IsEmpty(ListItem.Art(banner))</visible>
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
@@ -299,7 +299,7 @@
 					<height>383</height>
 					<aspectratio>scale</aspectratio>
 					<imagepath background="true">$VAR[ExtraFanartVar]</imagepath>
-					<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+					<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 				</control>
 				<control type="label">
 					<width>680</width>
@@ -317,7 +317,7 @@
 					<font>font13_title</font>
 					<aligny>top</aligny>
 					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-					<visible>!IsEmpty(ListItem.Genre)</visible>
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label">
 					<label>$VAR[VideoSubLabelVar]</label>
