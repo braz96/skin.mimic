@@ -43,7 +43,7 @@
             <aspectratio>keep</aspectratio>
             <animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">conditional</animation>
             <animation effect="fade" start="0" end="100" time="400" delay="720">WindowOpen</animation>
-            <visible>[!IntegerGreaterThan(Container(100).NumPages,0) | ![Container(100).OnNext | Container(100).OnPrevious]]</visible>
+            <visible>[!Integer.IsGreater(Container(100).NumPages,0) | ![Container(100).OnNext | Container(100).OnPrevious]]</visible>
         </control>
         <control type="list" id="100">
             <description>List of Images</description>
@@ -111,7 +111,7 @@
                 <width>29</width>
                 <height>58</height>
                 <texture flipx="true" colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
-                <visible>Control.IsVisible(104) + IntegerGreaterThan(Container(100).NumPages,0) + !StringCompare(Container(100).CurrentPage,1)</visible>
+                <visible>Control.IsVisible(104) + Integer.IsGreater(Container(100).NumPages,0) + !StringCompare(Container(100).CurrentPage,1)</visible>
             </control>
             <control type="image">
                 <description>Arrow right</description>
@@ -119,7 +119,7 @@
                 <width>29</width>
                 <height>58</height>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
-                <visible>Control.IsVisible(104) + IntegerGreaterThan(Container(100).NumPages,0) + !StringCompare(Container(100).CurrentPage,Container(100).NumPages)</visible>
+                <visible>Control.IsVisible(104) + Integer.IsGreater(Container(100).NumPages,0) + !StringCompare(Container(100).CurrentPage,Container(100).NumPages)</visible>
             </control>
         </control>-->
         <control type="group">

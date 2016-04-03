@@ -35,7 +35,7 @@
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture background="true">$INFO[Window.Property(set.thumb)]</texture>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
-                <visible>IntegerGreaterThan(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208) + !IsEmpty(Window.Property(Set)) + !IsEmpty(Window.Property(set.thumb))</visible>
+                <visible>Integer.IsGreater(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208) + !IsEmpty(Window.Property(Set)) + !IsEmpty(Window.Property(set.thumb))</visible>
 			</control>
 			<control type="button" id="8">
 				<onleft>9000</onleft>
@@ -238,7 +238,7 @@
 							<label>$INFO[Window.Property(PercentPlayed),(,%)]</label>
 							<label2>$LOCALIZE[575]:</label2>
 							<onclick>noop</onclick>
-							<visible>!IsEmpty(Window.Property(DBID)) + IntegerGreaterThan(Window.Property(PercentPlayed),0)</visible>
+							<visible>!IsEmpty(Window.Property(DBID)) + Integer.IsGreater(Window.Property(PercentPlayed),0)</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(lastplayed)]</label>
@@ -405,7 +405,7 @@
                     <visible>false</visible>
                 </control>
                 <control type="group">
-	                <visible>IntegerGreaterThan(Container(250).NumItems,0)</visible>
+	                <visible>Integer.IsGreater(Container(250).NumItems,0)</visible>
 	                <animation effect="fade" time="320" delay="300">Visible</animation>
 	                <control type="image">
 	                	<visible>Control.HasFocus(250)</visible>
@@ -433,7 +433,7 @@
                     <ondown>9000</ondown>
                     <orientation>horizontal</orientation>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>IntegerGreaterThan(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208)</visible>
+                    <visible>Integer.IsGreater(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208)</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                     <itemlayout height="421" width="289">
 						<control type="image">
@@ -508,7 +508,7 @@
                     <visible>false</visible>
                 </control>
                 <control type="group">
-	                <visible>IntegerGreaterThan(Container(750).NumItems,0)</visible>
+	                <visible>Integer.IsGreater(Container(750).NumItems,0)</visible>
 	                <animation effect="fade" time="320" delay="300">Visible</animation>
 	                <control type="image">
 	                	<visible>Control.HasFocus(750)</visible>
@@ -536,7 +536,7 @@
                     <ondown>9000</ondown>
 					<orientation>horizontal</orientation>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>IntegerGreaterThan(Container(750).NumItems,0) + ControlGroup(9000).HasFocus(210)</visible>
+                    <visible>Integer.IsGreater(Container(750).NumItems,0) + ControlGroup(9000).HasFocus(210)</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                     <itemlayout height="421" width="289">
 						<control type="image">
@@ -642,7 +642,7 @@
                     <visible>false</visible>
                 </control>
                 <control type="group">
-	                <visible>IntegerGreaterThan(Container(1000).NumItems,0)</visible>
+	                <visible>Integer.IsGreater(Container(1000).NumItems,0)</visible>
 	                <animation effect="fade" time="320" delay="300">Visible</animation>
 	                <control type="image">
 	                	<visible>Control.HasFocus(1000)</visible>
@@ -772,7 +772,7 @@
                     <visible>false</visible>
                 </control>
                 <control type="group">
-	                <visible>IntegerGreaterThan(Container(1150).NumItems,0)</visible>
+	                <visible>Integer.IsGreater(Container(1150).NumItems,0)</visible>
 	                <animation effect="fade" time="320" delay="300">Visible</animation>
 	                <control type="image">
 	                	<visible>Control.HasFocus(1150)</visible>
@@ -799,7 +799,7 @@
 					<orientation>horizontal</orientation>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>IntegerGreaterThan(Container(1150).NumItems,0) + ControlGroup(9000).HasFocus(206)</visible>
+                    <visible>Integer.IsGreater(Container(1150).NumItems,0) + ControlGroup(9000).HasFocus(206)</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                     <itemlayout height="440" width="578">
 						<control type="image">
@@ -883,7 +883,7 @@
 					</focusedlayout>                   
                 </control>
                 <control type="group">
-	                <visible>IntegerGreaterThan(Container(1250).NumItems,0)</visible>
+	                <visible>Integer.IsGreater(Container(1250).NumItems,0)</visible>
 	                <animation effect="fade" time="320" delay="300">Visible</animation>
 	                <control type="image">
 	                	<visible>Control.HasFocus(1250)</visible>
@@ -912,7 +912,7 @@
 					<orientation>horizontal</orientation>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>IntegerGreaterThan(Container(1250).NumItems,0) + [ControlGroup(9000).HasFocus(204) + StringCompare(Control.GetLabel(204),$LOCALIZE[20445])]</visible>
+                    <visible>Integer.IsGreater(Container(1250).NumItems,0) + [ControlGroup(9000).HasFocus(204) + StringCompare(Control.GetLabel(204),$LOCALIZE[20445])]</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                     <itemlayout height="421" width="289">
 						<control type="image">
@@ -955,7 +955,7 @@
 					</focusedlayout>
                 </control>
                 <control type="group">
-	                <visible>IntegerGreaterThan(Container(1350).NumItems,0)</visible>
+	                <visible>Integer.IsGreater(Container(1350).NumItems,0)</visible>
 	                <animation effect="fade" time="320" delay="300">Visible</animation>
 	                <control type="image">
 	                	<visible>Control.HasFocus(1350)</visible>
@@ -982,7 +982,7 @@
 					<orientation>horizontal</orientation>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>IntegerGreaterThan(Container(1350).NumItems,0) + [ControlGroup(9000).HasFocus(204) + StringCompare(Control.GetLabel(204),$LOCALIZE[31016])]</visible>
+                    <visible>Integer.IsGreater(Container(1350).NumItems,0) + [ControlGroup(9000).HasFocus(204) + StringCompare(Control.GetLabel(204),$LOCALIZE[31016])]</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                     <itemlayout height="440" width="578">
 						<control type="image">
@@ -1043,7 +1043,7 @@
                     <font>font30_title</font>
                     <textcolor>$VAR[ColorTextVar]</textcolor>
                     <label>[B]$LOCALIZE[161][/B]</label>
-                    <visible>ControlGroup(9000).HasFocus(204) + [[!IntegerGreaterThan(Container(1350).NumItems,0) + StringCompare(Control.GetLabel(204),$LOCALIZE[31016])] | [!IntegerGreaterThan(Container(1250).NumItems,0) + StringCompare(Control.GetLabel(204),$LOCALIZE[20445])]]</visible>
+                    <visible>ControlGroup(9000).HasFocus(204) + [[!Integer.IsGreater(Container(1350).NumItems,0) + StringCompare(Control.GetLabel(204),$LOCALIZE[31016])] | [!Integer.IsGreater(Container(1250).NumItems,0) + StringCompare(Control.GetLabel(204),$LOCALIZE[20445])]]</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 </control>
                 <control type="group">
@@ -1059,7 +1059,7 @@
 	                    <align>right</align>
 	                    <aligny>top</aligny>
 	                    <label>$INFO[Container(1000).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(1000).CurrentPage]$INFO[Container(1000).NumPages,/][/COLOR]</label>
-	                    <visible>IntegerGreaterThan(Container(1000).NumItems,0) + ControlGroup(9000).HasFocus(5)</visible>
+	                    <visible>Integer.IsGreater(Container(1000).NumItems,0) + ControlGroup(9000).HasFocus(5)</visible>
 	                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 	                </control>
 	                <!-- Fanart - Items/Page -->
@@ -1072,7 +1072,7 @@
 	                    <align>right</align>
 	                    <aligny>top</aligny>
 	                    <label>$INFO[Container(1350).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(1350).CurrentPage]$INFO[Container(1350).NumPages,/][/COLOR]</label>
-	                    <visible>IntegerGreaterThan(Container(1350).NumItems,0) + ControlGroup(9000).HasFocus(204) + StringCompare(Control.GetLabel(204),$LOCALIZE[31016])</visible>
+	                    <visible>Integer.IsGreater(Container(1350).NumItems,0) + ControlGroup(9000).HasFocus(204) + StringCompare(Control.GetLabel(204),$LOCALIZE[31016])</visible>
 	                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 	                </control>
 	                <!-- Thumb - Items/Page -->
@@ -1085,7 +1085,7 @@
 	                    <align>right</align>
 	                    <aligny>top</aligny>
 	                    <label>$INFO[Container(1250).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(1250).CurrentPage]$INFO[Container(1250).NumPages,/][/COLOR]</label>
-	                    <visible>IntegerGreaterThan(Container(1250).NumItems,0) + ControlGroup(9000).HasFocus(204) + StringCompare(Control.GetLabel(204),$LOCALIZE[20445])</visible>
+	                    <visible>Integer.IsGreater(Container(1250).NumItems,0) + ControlGroup(9000).HasFocus(204) + StringCompare(Control.GetLabel(204),$LOCALIZE[20445])</visible>
 	                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 	                </control>
 	                <!-- Trailers - Items/Page -->
@@ -1098,7 +1098,7 @@
 	                    <align>right</align>
 	                    <aligny>top</aligny>
 	                    <label>$INFO[Container(1150).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(1150).CurrentPage]$INFO[Container(1150).NumPages,/][/COLOR]</label>
-	                    <visible>IntegerGreaterThan(Container(1150).NumItems,0) + ControlGroup(9000).HasFocus(206)</visible>
+	                    <visible>Integer.IsGreater(Container(1150).NumItems,0) + ControlGroup(9000).HasFocus(206)</visible>
 	                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 	                </control>
 	                <!-- Set - Items/Page -->
@@ -1111,7 +1111,7 @@
 	                    <align>right</align>
 	                    <aligny>top</aligny>
 	                    <label>$INFO[Container(250).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(250).CurrentPage]$INFO[Container(250).NumPages,/][/COLOR]</label>
-	                    <visible>IntegerGreaterThan(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208)</visible>
+	                    <visible>Integer.IsGreater(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208)</visible>
 	                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 	                </control>
 	                <!-- Crew - Items/Page -->
@@ -1124,7 +1124,7 @@
 	                    <align>right</align>
 	                    <aligny>top</aligny>
 	                    <label>$INFO[Container(750).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(750).CurrentPage]$INFO[Container(750).NumPages,/][/COLOR]</label>
-	                    <visible>IntegerGreaterThan(Container(750).NumItems,0) + ControlGroup(9000).HasFocus(210)</visible>
+	                    <visible>Integer.IsGreater(Container(750).NumItems,0) + ControlGroup(9000).HasFocus(210)</visible>
 	                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 	                </control>
 	            </control>
@@ -1139,7 +1139,7 @@
                     <align>left</align>
                     <aligny>top</aligny>
                     <label>$INFO[Window.Property(Set)]</label>
-                    <visible>IntegerGreaterThan(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208)</visible>
+                    <visible>Integer.IsGreater(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208)</visible>
                 </control>
 			</control>
 			<control type="group">
@@ -1182,28 +1182,28 @@
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>20445</label>
                         <altlabel>31016</altlabel>
-                        <enable>IntegerGreaterThan(Container(1250).NumItems,0) | IntegerGreaterThan(Container(1350).NumItems,0)</enable>
+                        <enable>Integer.IsGreater(Container(1250).NumItems,0) | Integer.IsGreater(Container(1350).NumItems,0)</enable>
 					</control>
                     <control type="button" id="206">
 						<description>Trailer</description>
                         <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>20410</label>
-						<enable>IntegerGreaterThan(Container(1150).NumItems,0)</enable>
+						<enable>Integer.IsGreater(Container(1150).NumItems,0)</enable>
 					</control>
 					<control type="button" id="208">
 						<description>Set</description>
                         <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>20141</label>
-                        <enable>IntegerGreaterThan(Container(250).NumItems,0)</enable>
+                        <enable>Integer.IsGreater(Container(250).NumItems,0)</enable>
 					</control>
 					<control type="button" id="210">
 						<description>Crew</description>
                         <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>$ADDON[script.extendedinfo 32115]</label>
-                        <enable>IntegerGreaterThan(Container(750).NumItems,0)</enable>
+                        <enable>Integer.IsGreater(Container(750).NumItems,0)</enable>
 					</control>
 				</control>
 			</control>
