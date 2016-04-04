@@ -314,6 +314,7 @@
 				</control>
 				<control type="textbox" id="400">
 					<description>Plot</description>
+					<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="100">Visible</animation>
 					<left>5</left>
 					<top>555</top>
 					<width>1120</width>
@@ -324,7 +325,7 @@
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<visible>![[Control.IsVisible(50) + !System.HasAddon(script.extendedinfo)] | Control.IsVisible(90019) | Control.IsVisible(150) | Control.IsVisible(250) | Control.HasFocus(206)]</visible>
+					<visible>Control.HasFocus(8) | Control.HasFocus(11) | Control.HasFocus(7) | Control.HasFocus(10) | Control.HasFocus(6) | Control.HasFocus(207)</visible>
 				</control>
 				<control type="scrollbar" id="60">
 					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
@@ -337,7 +338,7 @@
 					<orientation>vertical</orientation>
 				</control>
 				<control type="group">
-					<visible>!Control.IsVisible(150) + !Control.IsVisible(250) + !Control.IsVisible(90019)</visible>
+					<visible>![Control.IsVisible(150) | Control.IsVisible(250) | Control.HasFocus(206) | Control.IsVisible(90019)]</visible>
 					<include>VisibleFadeEffect</include>
 					<include name="MediaFlags">
 						<param name="left" value="0" />
@@ -604,7 +605,7 @@
 	            <ondown>9000</ondown>
 	            <orientation>horizontal</orientation>
 	            <scrolltime tween="quadratic" easing="out">300</scrolltime>
-	            <visible>Integer.IsGreater(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(206)</visible>
+	            <visible>ControlGroup(9000).HasFocus(206)</visible>
 	            <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 	            <itemlayout height="421" width="289">
 					<control type="image">
@@ -793,7 +794,7 @@
 						<width>221</width>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>20410</label>
-						<visible>Container.Content(movies) + !String.IsEmpty(ListItem.Trailer)</visible>
+						<visible>False</visible>
 					</control>
 					<control type="button" id="204">
 						<description>YouTube</description>
@@ -802,7 +803,6 @@
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>[Container.Content(movies) + String.IsEmpty(ListItem.Trailer)] | Container.Content(tvshows) | Container.Content(episodes)</visible>
 					</control>
 					<control type="button" id="7">
 						<description>User ratings</description>
@@ -810,7 +810,6 @@
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>38023</label>
 					</control>
-					
 					<control type="button" id="10">
 						<description>Get Thumb</description>
 						<width>221</width>
@@ -840,7 +839,6 @@
 						<onclick>ActivateWindow(1119)</onclick>
 						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 					</control>
-
 				</control>
 			</control>
 			<control type="button" id="556">

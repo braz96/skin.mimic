@@ -26,6 +26,16 @@
 				<texture border="12">button_border.png</texture>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
+			<control type="button" id="90217">
+				<description>Play trailer button</description>
+				<width>510</width>
+				<textwidth>425</textwidth>
+				<textoffsetx>45</textoffsetx>
+				<texturefocus border="12">button_bg.png</texturefocus>
+				<texturenofocus border="12">button_bg.png</texturenofocus>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+				<visible>Container.Content(movies) + !String.IsEmpty(ListItem.Trailer)</visible>
+			</control>
 			<control type="button" id="90206">
 				<description>Rating Update button</description>
 				<width>510</width>
@@ -159,6 +169,16 @@
 			<ondown>90300</ondown>
 			<itemgap>0</itemgap>
 			<align>center</align>
+			<control type="button" id="90317">
+				<description>Play trailer button</description>
+				<texturefocus>listselect_fo.png</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+				<onclick>Dialog.Close(1119)</onclick>
+				<onclick>SendClick(11)</onclick>
+				<label>Play trailer</label>
+				<visible>Container.Content(movies) + !String.IsEmpty(ListItem.Trailer)</visible>
+			</control>
 			<control type="button" id="90306">
 				<description>Rating Update button</description>
 				<texturefocus>listselect_fo.png</texturefocus>
