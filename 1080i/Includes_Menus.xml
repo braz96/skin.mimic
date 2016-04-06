@@ -2,10 +2,10 @@
 <includes>
 	<!-- Main Menu Includes -->
 	<include name="MainMenuList">
-		<include condition="!Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuFocusBackground">
+		<include condition="!Skin.HasSetting(Enable.WideMenuItems)" content="MainMenuFocusBackground">
 			<param name="MainMenuBackgroundWidth" value="384" />
 		</include>
-		<include condition="Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuFocusBackground">
+		<include condition="Skin.HasSetting(Enable.WideMenuItems)" content="MainMenuFocusBackground">
 			<param name="MainMenuBackgroundWidth" value="480" />
 		</include>
         <control type="image">
@@ -39,19 +39,19 @@
                 <effect type="fade" start="0" end="100" time="250" tween="cubic" easing="inout"/>
             </animation>
             <animation effect="fade" end="0" start="100" time="0" condition="Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)" reversible="false">Conditional</animation>
-			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu) + !Skin.HasSetting(Enable.WideMenuItems) + !Skin.HasSetting(Enable.HomeTopbar)" name="MainMenuListContent">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu) + !Skin.HasSetting(Enable.WideMenuItems) + !Skin.HasSetting(Enable.HomeTopbar)" content="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1536" />
 				<param name="MainMenuItemWidth" value="384" />
 			</include>
-			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu) + Skin.HasSetting(Enable.WideMenuItems) + !Skin.HasSetting(Enable.HomeTopbar)" name="MainMenuListContent">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu) + Skin.HasSetting(Enable.WideMenuItems) + !Skin.HasSetting(Enable.HomeTopbar)" content="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1440" />
 				<param name="MainMenuItemWidth" value="480" />
 			</include>
-			<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu) | Skin.HasSetting(Enable.HomeTopbar)] + !Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuListContent">
+			<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu) | Skin.HasSetting(Enable.HomeTopbar)] + !Skin.HasSetting(Enable.WideMenuItems)" content="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1920" />
 				<param name="MainMenuItemWidth" value="384" />
 			</include>
-			<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu) | Skin.HasSetting(Enable.HomeTopbar)] + Skin.HasSetting(Enable.WideMenuItems)" name="MainMenuListContent">
+			<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu) | Skin.HasSetting(Enable.HomeTopbar)] + Skin.HasSetting(Enable.WideMenuItems)" content="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1920" />
 				<param name="MainMenuItemWidth" value="480" />
 			</include>
@@ -61,15 +61,15 @@
             <animation effect="fade" end="0" start="100" time="0" condition="!Control.HasFocus(9010) + [!Skin.HasSetting(Disable.SubmenuSlide) | system.getbool(lookandfeel.enablerssfeeds)]" reversible="false">Conditional</animation>
             <animation effect="slide" time="0" start="0,0" end="0,95" condition="Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
 			<control type="panel" id="9010">
-				<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Disable.SubmenuSlide) + Skin.HasSetting(Enable.WeatherInMenu) + !Skin.HasSetting(Enable.HomeTopbar)" name="SubMenuListDefault">
+				<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Disable.SubmenuSlide) + Skin.HasSetting(Enable.WeatherInMenu) + !Skin.HasSetting(Enable.HomeTopbar)" content="SubMenuListDefault">
 					<param name="SubMenuContainerWidth" value="1536" />
 				</include>
-				<include condition="Skin.HasSetting(Disable.WeatherClockDate) | Skin.HasSetting(Disable.SubmenuSlide) | !Skin.HasSetting(Enable.WeatherInMenu) | Skin.HasSetting(Enable.HomeTopbar)" name="SubMenuListDefault">
+				<include condition="Skin.HasSetting(Disable.WeatherClockDate) | Skin.HasSetting(Disable.SubmenuSlide) | !Skin.HasSetting(Enable.WeatherInMenu) | Skin.HasSetting(Enable.HomeTopbar)" content="SubMenuListDefault">
 					<param name="SubMenuContainerWidth" value="1920" />
 				</include>
 			</control>
 		</control>
-		<include condition="!Skin.HasSetting(Enable.HomeTopbar)" name="MenuClockWeather">
+		<include condition="!Skin.HasSetting(Enable.HomeTopbar)" content="MenuClockWeather">
 			<param name="MenuClockLeft" value="1536" />
 			<param name="MenuClockTop" value="10" />
 			<param name="MenuClockAlign" value="right" />
@@ -142,16 +142,16 @@
             <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Column,0)">Conditional</animation>
         </control>
 		<control type="panel" id="9000">
-			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)" name="MainMenuListContent">
+			<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)" content="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1536" />
 				<param name="MainMenuItemWidth" value="384" />
 			</include>
-			<include condition="Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)" name="MainMenuListContent">
+			<include condition="Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)" content="MainMenuListContent">
 				<param name="MainMenuTopWidth" value="1920" />
 				<param name="MainMenuItemWidth" value="384" />
 			</include>
 		</control>
-		<include name="MenuClockWeather">
+		<include content="MenuClockWeather">
 			<param name="MenuClockLeft" value="1536" />
 			<param name="MenuClockTop" value="5" />
 			<param name="MenuClockAlign" value="right" />
@@ -194,26 +194,26 @@
                 <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,0)">Conditional</animation>
             </control>
     		<control type="panel" id="9000">
-    			<include condition="[!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)] | Skin.HasSetting(Enable.HomeTopbar)" name="MainMenuListContentVertical">
+    			<include condition="[!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)] | Skin.HasSetting(Enable.HomeTopbar)" content="MainMenuListContentVertical">
     				<param name="MainMenuVerticalHeight" value="960" />
     			</include>
-    			<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)] + !Skin.HasSetting(Enable.HomeTopbar)" name="MainMenuListContentVertical">
+    			<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)] + !Skin.HasSetting(Enable.HomeTopbar)" content="MainMenuListContentVertical">
     				<param name="MainMenuVerticalHeight" value="1080" />
     			</include>
     		</control>
     		<control type="group" id="9001">
                 <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010) + [!Skin.HasSetting(Disable.SubmenuSlide) | system.getbool(lookandfeel.enablerssfeeds)]" reversible="false">Conditional</animation>
     			<control type="panel" id="9010">
-    				<include condition="[!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)] | Skin.HasSetting(Enable.HomeTopbar)" name="SubMenuListVertical">
+    				<include condition="[!Skin.HasSetting(Disable.WeatherClockDate) + Skin.HasSetting(Enable.WeatherInMenu)] | Skin.HasSetting(Enable.HomeTopbar)" content="SubMenuListVertical">
     					<param name="SubMenuContainerHeight" value="960" />
     				</include>
-    				<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)] + !Skin.HasSetting(Enable.HomeTopbar)" name="SubMenuListVertical">
+    				<include condition="[Skin.HasSetting(Disable.WeatherClockDate) | !Skin.HasSetting(Enable.WeatherInMenu)] + !Skin.HasSetting(Enable.HomeTopbar)" content="SubMenuListVertical">
     					<param name="SubMenuContainerHeight" value="1080" />
     				</include>
     			</control>
     		</control>
         </control>
-		<include condition="!Skin.HasSetting(Enable.HomeTopbar)" name="MenuClockWeather">
+		<include condition="!Skin.HasSetting(Enable.HomeTopbar)" content="MenuClockWeather">
 			<param name="MenuClockLeft" value="5" />
 			<param name="MenuClockTop" value="970" />
 			<param name="MenuClockAlign" value="left" />
@@ -606,7 +606,7 @@
 		<focusposition>0</focusposition>
 		<movement>1</movement>
 		<orientation>Horizontal</orientation>
-		<include name="SubmenuListContent">
+		<include content="SubmenuListContent">
 			<param name="SubmenuItemHeight" value="120" />
 			<param name="SubmenuItemWidth" value="384" />
 			<param name="SubmenuAlign" value="center" />
@@ -629,7 +629,7 @@
 		<focusposition>0</focusposition>
 		<movement>1</movement>
 		<orientation>Vertical</orientation>
-		<include name="SubmenuListContent">
+		<include content="SubmenuListContent">
 			<param name="SubmenuItemHeight" value="120" />
 			<param name="SubmenuItemWidth" value="474" />
 			<param name="SubmenuAlign" value="left" />
@@ -650,7 +650,7 @@
 		<focusposition>2</focusposition>
 		<movement>1</movement>
 		<orientation>Horizontal</orientation>
-		<include name="SubmenuListContent">
+		<include content="SubmenuListContent">
 			<param name="SubmenuItemHeight" value="120" />
 			<param name="SubmenuItemWidth" value="384" />
 			<param name="SubmenuAlign" value="center" />

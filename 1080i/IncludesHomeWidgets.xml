@@ -19,7 +19,7 @@
 				<control type="group">
 					<animation effect="slide" time="0" start="0,0" end="0,195" condition="StringCompare(Skin.String(HomeLayout),2)">Conditional</animation>
 					<animation effect="slide" time="0" tween="" easing="" start="0" end="160" condition="Skin.HasSetting(Enable.BasicWeatherView)">Conditional</animation>
-					<include name="WeatherWidgetCommons">
+					<include content="WeatherWidgetCommons">
 						<param name="WeatherPositionLeft" value="0" />
 						<param name="WeatherPositionTop" value="550" />
 						<param name="WeatherPanelWidth" value="1920" />
@@ -94,17 +94,17 @@
 				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
 				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</visible>
 			</control>
-			<include name="NowPlayingWidgetLabels" condition="VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)">
+			<include content="NowPlayingWidgetLabels" condition="VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)">
 				<param name="NowPlayingLeft" value="130" />
 				<param name="NowPlayingWidth" value="640" />
 				<param name="NowPlayingAlign" value="left" />
 			</include>
-			<include name="NowPlayingWidgetLabels" condition="VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)">
+			<include content="NowPlayingWidgetLabels" condition="VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)">
 				<param name="NowPlayingLeft" value="105" />
 				<param name="NowPlayingWidth" value="665" />
 				<param name="NowPlayingAlign" value="left" />
 			</include>
-			<include name="NowPlayingWidgetLabels" condition="![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]">
+			<include content="NowPlayingWidgetLabels" condition="![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]">
 				<param name="NowPlayingLeft" value="192" />
 				<param name="NowPlayingWidth" value="603" />
 				<param name="NowPlayingAlign" value="left" />
