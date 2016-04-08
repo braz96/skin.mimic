@@ -689,16 +689,19 @@
 		<value condition="[Container.Content(albums) | Container.Content(songs)] + !String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="Container.Content(artists) + String.IsEmpty(ListItem.Property(Artist_Description))">$LOCALIZE[547]</value>
 		<value condition="[Container.Content(albums) | Container.Content(songs)] + String.IsEmpty(ListItem.Property(Album_Description))">$LOCALIZE[414]</value>
+		<value>$LOCALIZE[547]</value>
 	</variable>
 	<variable name="MusicInfoHeading">
 		<value condition="Container.Content(artists)">$INFO[ListItem.Artist]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Album]</value>
 		<value condition="Container.Content(songs)">$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Title]</value>
+		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="MusicInfoSubheading">
 		<value condition="Container.Content(artists)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Artist]</value>
 		<value condition="Container.Content(songs)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]</value>
+		<value>$INFO[ListItem.Artist]</value>
 	</variable>
 	<variable name="MusicInfoYoutubePath">
 		<value condition="Container.Content(artists)">plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.Artist] $LOCALIZE[2]</value>
