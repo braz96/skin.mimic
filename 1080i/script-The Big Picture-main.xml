@@ -51,8 +51,8 @@
             <top>0</top>
             <include>FullscreenDimensions</include>
             <scrolltime tween="cubic" easing="inout">500</scrolltime>
-            <animation effect="zoom" start="100" end="65" center="auto" time="400" tween="cubic" easing="inout" condition="stringcompare(Window.Property(Category),Album)">Conditional</animation>
-            <animation effect="slide" start="0" end="0,-80" center="auto" time="400" tween="cubic" easing="inout" condition="stringcompare(Window.Property(Category),Album)">Conditional</animation>
+            <animation effect="zoom" start="100" end="65" center="auto" time="400" tween="cubic" easing="inout" condition="String.IsEqual(Window.Property(Category),Album)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,-80" center="auto" time="400" tween="cubic" easing="inout" condition="String.IsEqual(Window.Property(Category),Album)">Conditional</animation>
             <animation effect="fade" end="0" start="100" time="150">WindowClose</animation>
             <orientation>horizontal</orientation>
             <preloaditems>2</preloaditems>
@@ -98,11 +98,11 @@
             </focusedlayout>
         </control>
         <control type="group">
-            <visible>stringcompare(Window.Property(Category),Album)</visible>
+            <visible>String.IsEqual(Window.Property(Category),Album)</visible>
             <include>Topbar</include>
         </control>
         <!--<control type="group">
-            <visible>Control.IsVisible(102) + stringcompare(Window.Property(Category),Album)</visible>
+            <visible>Control.IsVisible(102) + String.IsEqual(Window.Property(Category),Album)</visible>
             <animation effect="fade" end="0" start="100" time="150">WindowClose</animation>
             <top>420</top>
             <control type="image">
@@ -111,7 +111,7 @@
                 <width>29</width>
                 <height>58</height>
                 <texture flipx="true" colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
-                <visible>Control.IsVisible(104) + Integer.IsGreater(Container(100).NumPages,0) + !StringCompare(Container(100).CurrentPage,1)</visible>
+                <visible>Control.IsVisible(104) + Integer.IsGreater(Container(100).NumPages,0) + !String.IsEqual(Container(100).CurrentPage,1)</visible>
             </control>
             <control type="image">
                 <description>Arrow right</description>
@@ -119,7 +119,7 @@
                 <width>29</width>
                 <height>58</height>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
-                <visible>Control.IsVisible(104) + Integer.IsGreater(Container(100).NumPages,0) + !StringCompare(Container(100).CurrentPage,Container(100).NumPages)</visible>
+                <visible>Control.IsVisible(104) + Integer.IsGreater(Container(100).NumPages,0) + !String.IsEqual(Container(100).CurrentPage,Container(100).NumPages)</visible>
             </control>
         </control>-->
         <control type="group">
@@ -130,7 +130,7 @@
             <animation effect="slide" start="0,230" end="0,0" time="480">Visible</animation>
             <animation effect="slide" end="0,230" start="0,0" time="240">Hidden</animation>
             <control type="image">
-                <visible>!stringcompare(Window.Property(Category),Album) + !String.IsEmpty(Container(100).ListItem.Label2) + !Window.IsActive(addonsettings)</visible>
+                <visible>!String.IsEqual(Window.Property(Category),Album) + !String.IsEmpty(Container(100).ListItem.Label2) + !Window.IsActive(addonsettings)</visible>
                 <left>0</left>
                 <top>850</top>
                 <width>FullScreenWidth</width>

@@ -128,7 +128,7 @@
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31080]</label>
-					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 				<control type="button" id="306">
 					<description>Change thumbnail</description>
@@ -148,7 +148,7 @@
 					<font>font15</font>
 					<label>$ADDON[script.skinshortcuts 32045]</label>
 					<label2>$INFO[Container(211).ListItem.Property(backgroundName)]</label2>
-					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 
 				<control type="button" id="312">
@@ -159,7 +159,7 @@
 					<font>font15</font>
 					<label>$ADDON[script.skinshortcuts 32044]</label>
 					<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
-					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 
 				<control type="button" id="501">
@@ -170,8 +170,8 @@
 					<font>font15</font>
 					<label>31161</label>
 					<label2>$VAR[WidgetIconLabel]</label2>
-					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
-					<enable>!StringCompare(Container(211).ListItem.Property(widgetName),weather)</enable>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+					<enable>!String.IsEqual(Container(211).ListItem.Property(widgetName),weather)</enable>
 					<onclick>SetProperty(chooseProperty,widgetIcon)</onclick>
 					<onclick>SendClick(404)</onclick>
 				</control>
@@ -184,7 +184,7 @@
 					<font>font15</font>
 					<label>$LOCALIZE[31053]</label>
 					<label2>$INFO[Container(211).ListItem.Property(InfoLine)]</label2>
-					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 					<onclick>SetProperty(chooseProperty,InfoLine)</onclick>
 					<onclick>SendClick(404)</onclick>
 					<enable>Skin.HasSetting(Enable.HomeTopbar)</enable>

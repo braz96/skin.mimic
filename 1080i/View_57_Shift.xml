@@ -360,7 +360,7 @@
 			<include>VisibleFadeEffect</include>
 			<visible>Window.IsActive(videos)</visible>
 			<control type="group">
-				<visible>[!StringCompare(Container.SortMethod,$LOCALIZE[13409]) + !Skin.HasSetting(Enable.MediaFlags)] | !Window.IsActive(videos)</visible>
+				<visible>[!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Skin.HasSetting(Enable.MediaFlags)] | !Window.IsActive(videos)</visible>
 				<control type="label">
 					<left>0</left>
 					<top>0</top>
@@ -386,7 +386,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>[StringCompare(Container.SortMethod,$LOCALIZE[13409]) | Skin.HasSetting(Enable.MediaFlags)] + Window.IsActive(videos)</visible>
+				<visible>[String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) | Skin.HasSetting(Enable.MediaFlags)] + Window.IsActive(videos)</visible>
 				<control type="label">
 					<left>0</left>
 					<top>0</top>
@@ -440,7 +440,7 @@
 			<width>500</width>
 			<height>150</height>
 			<include>VisibleFadeEffect</include>
-			<visible>Container.Content(movies) + StringCompare(Container.SortMethod,$LOCALIZE[13409])</visible>
+			<visible>Container.Content(movies) + String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
 			<control type="image">
 				<height>50</height>
 				<colordiffuse>$VAR[ColorTextVar]</colordiffuse>

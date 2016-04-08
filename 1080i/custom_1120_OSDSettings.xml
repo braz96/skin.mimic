@@ -53,7 +53,7 @@
 				<label>31905</label>
 				<onclick>Skin.ToggleSetting(Disable.AnimateFanart)</onclick>
 				<selected>!Skin.HasSetting(Disable.AnimateFanart)</selected>
-				<enable>!StringCompare(Skin.String(musicvis.background),albumwall)</enable>
+				<enable>!String.IsEqual(Skin.String(musicvis.background),albumwall)</enable>
 			</control>
 			<control type="radiobutton" id="90202">
 				<description>Background Button</description>
@@ -61,7 +61,7 @@
 				<label>$LOCALIZE[31129]</label>
 				<onclick>Skin.ToggleSetting(HideVisualizationFanart)</onclick>
 				<selected>Skin.HasSetting(HideVisualizationFanart)</selected>
-				<enable>Visualisation.Enabled + ![StringCompare(Visualisation.Name,waveform) | StringCompare(Visualisation.Name,opengl spectrum) | StringCompare(Visualisation.Name,directx spectrum)]</enable>
+				<enable>Visualisation.Enabled + ![String.IsEqual(Visualisation.Name,waveform) | String.IsEqual(Visualisation.Name,opengl spectrum) | String.IsEqual(Visualisation.Name,directx spectrum)]</enable>
 			</control>
 			<control type="radiobutton" id="90203">
 				<description>Big Ass Label Button</description>

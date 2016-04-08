@@ -152,7 +152,7 @@
 						<label>- $LOCALIZE[31201]</label>
 						<onclick>Skin.ToggleSetting(Enable.CenteredMenu)</onclick>
 						<selected>Skin.HasSetting(Enable.CenteredMenu)</selected>
-						<visible>!StringCompare(Skin.String(HomeLayout),2) + !StringCompare(Skin.String(HomeLayout),3)</visible>
+						<visible>!String.IsEqual(Skin.String(HomeLayout),2) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
 						<enable>!Skin.HasSetting(Enable.WideMenuItems)</enable>
 					</control>
 					<control type="radiobutton" id="112">
@@ -163,7 +163,7 @@
 						<label>- $LOCALIZE[31202]</label>
 						<onclick>Skin.ToggleSetting(Enable.WideMenuItems)</onclick>
 						<selected>Skin.HasSetting(Enable.WideMenuItems)</selected>
-						<visible>!StringCompare(Skin.String(HomeLayout),2) + !StringCompare(Skin.String(HomeLayout),3)</visible>
+						<visible>!String.IsEqual(Skin.String(HomeLayout),2) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
 						<enable>!Skin.HasSetting(Enable.CenteredMenu)</enable>
 					</control>
 					<control type="radiobutton" id="115">
@@ -175,7 +175,7 @@
 						<onclick>Skin.ToggleSetting(Enable.MenuIcons)</onclick>
 						<onclick>ReloadSkin()</onclick>
 						<selected>Skin.HasSetting(Enable.MenuIcons)</selected>
-						<visible>StringCompare(Skin.String(HomeLayout),3)</visible>
+						<visible>String.IsEqual(Skin.String(HomeLayout),3)</visible>
 					</control>
 					<control type="radiobutton" id="114">
 						<width>1316</width>
@@ -185,7 +185,7 @@
 						<label>31231</label>
 						<onclick>Skin.ToggleSetting(Enable.CombineMenus)</onclick>
 						<selected>Skin.HasSetting(Enable.CombineMenus)</selected>
-						<visible>StringCompare(Skin.String(HomeLayout),3)</visible>
+						<visible>String.IsEqual(Skin.String(HomeLayout),3)</visible>
 					</control>
 					<control type="radiobutton" id="113">
 						<width>1316</width>
@@ -195,7 +195,7 @@
 						<label>- Show header</label>
 						<onclick>Skin.ToggleSetting(Enable.HomeTopbar)</onclick>
 						<selected>Skin.HasSetting(Enable.HomeTopbar)</selected>
-						<visible>!StringCompare(Skin.String(HomeLayout),2)</visible>
+						<visible>!String.IsEqual(Skin.String(HomeLayout),2)</visible>
 					</control>
 					<control type="button" id="100">
 						<width>1316</width>
@@ -213,7 +213,7 @@
 						<label>31112</label>
 						<onclick>Skin.ToggleSetting(Disable.SubmenuSlide)</onclick>
 						<selected>Skin.HasSetting(Disable.SubmenuSlide)</selected>
-						<enable>!StringCompare(Skin.String(HomeLayout),3)</enable>
+						<enable>!String.IsEqual(Skin.String(HomeLayout),3)</enable>
 					</control>
 					<control type="radiobutton" id="102">
 						<width>1316</width>
@@ -223,7 +223,7 @@
 						<label>31509</label>
 						<onclick>Skin.ToggleSetting(Disable.Musicinfo)</onclick>
 						<selected>!Skin.HasSetting(Disable.Musicinfo)</selected>
-						<enable>!Skin.HasSetting(Enable.HomeTopbar) | StringCompare(Skin.String(HomeLayout),2)</enable>
+						<enable>!Skin.HasSetting(Enable.HomeTopbar) | String.IsEqual(Skin.String(HomeLayout),2)</enable>
 					</control>
 					<control type="radiobutton" id="103">
 						<width>1316</width>
@@ -233,7 +233,7 @@
 						<label>31510</label>
 						<onclick>Skin.ToggleSetting(Disable.Videoinfo)</onclick>
 						<selected>!Skin.HasSetting(Disable.Videoinfo)</selected>
-						<enable>!Skin.HasSetting(Enable.HomeTopbar) | StringCompare(Skin.String(HomeLayout),2)</enable>
+						<enable>!Skin.HasSetting(Enable.HomeTopbar) | String.IsEqual(Skin.String(HomeLayout),2)</enable>
 					</control>
 					<control type="radiobutton" id="104">
 						<width>1316</width>
@@ -243,7 +243,7 @@
 						<label>31002</label>
 						<onclick>Skin.ToggleSetting(Disable.WeatherClockDate)</onclick>
 						<selected>!Skin.HasSetting(Disable.WeatherClockDate)</selected>
-						<enable>!Skin.HasSetting(Enable.HomeTopbar) | StringCompare(Skin.String(HomeLayout),2)</enable>
+						<enable>!Skin.HasSetting(Enable.HomeTopbar) | String.IsEqual(Skin.String(HomeLayout),2)</enable>
 					</control>
 					<control type="radiobutton" id="101">
 						<width>1316</width>
@@ -251,7 +251,7 @@
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31187</label>
-						<enable>!Skin.HasSetting(Enable.CenteredMenu) + !Skin.HasSetting(Disable.WeatherClockDate) + [!Skin.HasSetting(Enable.HomeTopbar) | StringCompare(Skin.String(HomeLayout),2)]</enable>
+						<enable>!Skin.HasSetting(Enable.CenteredMenu) + !Skin.HasSetting(Disable.WeatherClockDate) + [!Skin.HasSetting(Enable.HomeTopbar) | String.IsEqual(Skin.String(HomeLayout),2)]</enable>
 						<onclick>Skin.ToggleSetting(Enable.WeatherInMenu)</onclick>
 						<selected>Skin.HasSetting(Enable.WeatherInMenu)</selected>
 					</control>
@@ -286,7 +286,7 @@
 						<label>31233</label>
 						<label2>$VAR[WidgetStyleVar]</label2>
 						<onclick>Skin.ToggleSetting(WidgetStyle)</onclick>
-						<enable>!StringCompare(Skin.String(HomeLayout),3)</enable>
+						<enable>!String.IsEqual(Skin.String(HomeLayout),3)</enable>
 					</control>
 					<control type="button" id="701">
 						<width>1316</width>
@@ -296,7 +296,7 @@
 						<label>- $LOCALIZE[31915]</label>
 						<label2>$VAR[HorizontalListNavVar]</label2>
 						<onclick>Skin.ToggleSetting(HorizontalListNav)</onclick>
-						<enable>!Skin.HasSetting(WidgetStyle) + !StringCompare(Skin.String(HomeLayout),3)</enable>
+						<enable>!Skin.HasSetting(WidgetStyle) + !String.IsEqual(Skin.String(HomeLayout),3)</enable>
 					</control>
 					<control type="radiobutton" id="702">
 						<width>1316</width>

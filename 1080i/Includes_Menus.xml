@@ -359,7 +359,7 @@
 				<aligny>center</aligny>
 				<textcolor>33ffffff</textcolor>
 				<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
-				<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+				<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 				<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
 			</control>
 		</itemlayout>
@@ -405,7 +405,7 @@
 				<aligny>center</aligny>
 				<textcolor>33ffffff</textcolor>
 				<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
-				<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+				<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
 				<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
 			</control>
 		</focusedlayout>
@@ -460,7 +460,7 @@
                 <aligny>center</aligny>
                 <textcolor>33ffffff</textcolor>
                 <visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
-                <visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+                <visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
                 <animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
             </control>
         </itemlayout>
@@ -515,7 +515,7 @@
                 <aligny>center</aligny>
                 <textcolor>33ffffff</textcolor>
                 <visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
-                <visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+                <visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
                 <animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
             </control>
         </focusedlayout>
@@ -532,7 +532,7 @@
 				<height>$PARAM[SubmenuItemHeight]</height>
 				<texture>background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				<visible>StringCompare(Skin.String(HomeLayout),2) | [StringCompare(Skin.String(HomeLayout),3) + Skin.HasSetting(Enable.CombineMenus)]</visible>
+				<visible>String.IsEqual(Skin.String(HomeLayout),2) | [String.IsEqual(Skin.String(HomeLayout),3) + Skin.HasSetting(Enable.CombineMenus)]</visible>
 			</control>
 			<control type="label">
 				<width>$PARAM[SubmenuItemWidth]</width>
@@ -552,14 +552,14 @@
 				<height>$PARAM[SubmenuItemHeight]</height>
 				<texture>background.png</texture>
 				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				<visible>StringCompare(Skin.String(HomeLayout),2) | [StringCompare(Skin.String(HomeLayout),3) + Skin.HasSetting(Enable.CombineMenus)]</visible>
+				<visible>String.IsEqual(Skin.String(HomeLayout),2) | [String.IsEqual(Skin.String(HomeLayout),3) + Skin.HasSetting(Enable.CombineMenus)]</visible>
 			</control>
 			<control type="image">
 				<width>$PARAM[SubmenuItemWidth]</width>
 				<height>$PARAM[SubmenuItemHeight]</height>
 				<texture>listselect_fo.png</texture>
 				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<visible>ControlGroup(9001).HasFocus() + StringCompare(Skin.String(HomeLayout),2)</visible>
+				<visible>ControlGroup(9001).HasFocus() + String.IsEqual(Skin.String(HomeLayout),2)</visible>
 			</control>
 			<control type="group">
 				<visible>Control.HasFocus(9010)</visible>

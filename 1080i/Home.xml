@@ -3,7 +3,7 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9000)</onload>
-	<onunload condition="StringCompare(Skin.String(HomeLayout),3)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
+	<onunload condition="String.IsEqual(Skin.String(HomeLayout),3)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<controls>
 		<include>LiveCasesBackground</include>
@@ -28,14 +28,14 @@
             <visible>Player.HasVideo + !Skin.HasSetting(Disable.ShowBackgroundVideo)</visible>
         </control>
         <control type="image">
-            <visible>Skin.HasSetting(Enable.HomeFanartOverlay) + !StringCompare(Skin.String(HomeLayout),3)</visible>
+            <visible>Skin.HasSetting(Enable.HomeFanartOverlay) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
             <include>FullscreenDimensions</include>
             <texture>background.png</texture>
             <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
         </control>
-		<include condition="Skin.HasSetting(Enable.HomeTopbar) + !StringCompare(Skin.String(HomeLayout),2)">Topbar</include>
-		<include condition="!StringCompare(Skin.String(HomeLayout),2) + !StringCompare(Skin.String(HomeLayout),3)">HomeDefault</include>
-		<include condition="StringCompare(Skin.String(HomeLayout),2)">HomeTopMenu</include>
-		<include condition="StringCompare(Skin.String(HomeLayout),3)">HomeVerticalMenu</include>
+		<include condition="Skin.HasSetting(Enable.HomeTopbar) + !String.IsEqual(Skin.String(HomeLayout),2)">Topbar</include>
+		<include condition="!String.IsEqual(Skin.String(HomeLayout),2) + !String.IsEqual(Skin.String(HomeLayout),3)">HomeDefault</include>
+		<include condition="String.IsEqual(Skin.String(HomeLayout),2)">HomeTopMenu</include>
+		<include condition="String.IsEqual(Skin.String(HomeLayout),3)">HomeVerticalMenu</include>
 	</controls>
 </window>

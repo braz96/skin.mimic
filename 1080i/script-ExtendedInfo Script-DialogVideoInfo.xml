@@ -46,7 +46,7 @@
 				<width>200</width>
 				<texturefocus>play.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[ColorTextVar]">play.png</texturenofocus>
-				<visible>!String.IsEmpty(Window.Property(DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
+				<visible>!String.IsEmpty(Window.Property(DBID)) + !String.IsEqual(Window.Property(Type),tvshow)</visible>
 			</control>
 			<control type="image">
 				<top>-1000</top>
@@ -172,7 +172,7 @@
 							<label>$INFO[Window.Property(Duration),, [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]]</label>
 							<label2>$LOCALIZE[180]:</label2>
                             <onclick>noop</onclick>
-                            <visible>!Stringcompare(Window.Property(Duration),0) + !String.IsEmpty(Window.Property(Duration))</visible>
+                            <visible>!String.IsEqual(Window.Property(Duration),0) + !String.IsEmpty(Window.Property(Duration))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window.Property(Top250),#]</label>
@@ -928,7 +928,7 @@
 					<orientation>horizontal</orientation>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>Integer.IsGreater(Container(1250).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(1250)] + StringCompare(Control.GetLabel(204),$LOCALIZE[20445])</visible>
+                    <visible>Integer.IsGreater(Container(1250).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(1250)] + String.IsEqual(Control.GetLabel(204),$LOCALIZE[20445])</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                     <itemlayout height="453" width="289">
                     	<control type="group">
@@ -1002,7 +1002,7 @@
 					<orientation>horizontal</orientation>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>Integer.IsGreater(Container(1350).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(1350)] + StringCompare(Control.GetLabel(204),$LOCALIZE[31016])</visible>
+                    <visible>Integer.IsGreater(Container(1350).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(1350)] + String.IsEqual(Control.GetLabel(204),$LOCALIZE[31016])</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                     <itemlayout height="416" width="578">
                     	<control type="group">
@@ -1067,7 +1067,7 @@
                     <font>font30_title</font>
                     <textcolor>$VAR[ColorTextVar]</textcolor>
                     <label>$LOCALIZE[161]</label>
-                    <visible>ControlGroup(9000).HasFocus(204) + [[!Integer.IsGreater(Container(1350).NumItems,0) + StringCompare(Control.GetLabel(204),$LOCALIZE[31016])] | [!Integer.IsGreater(Container(1250).NumItems,0) + StringCompare(Control.GetLabel(204),$LOCALIZE[20445])]]</visible>
+                    <visible>ControlGroup(9000).HasFocus(204) + [[!Integer.IsGreater(Container(1350).NumItems,0) + String.IsEqual(Control.GetLabel(204),$LOCALIZE[31016])] | [!Integer.IsGreater(Container(1250).NumItems,0) + String.IsEqual(Control.GetLabel(204),$LOCALIZE[20445])]]</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 </control>
                 <control type="group">
@@ -1096,7 +1096,7 @@
 	                    <align>right</align>
 	                    <aligny>top</aligny>
 	                    <label>$INFO[Container(1350).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(1350).CurrentPage]$INFO[Container(1350).NumPages,/][/COLOR]</label>
-	                    <visible>Integer.IsGreater(Container(1350).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(1350)] + StringCompare(Control.GetLabel(204),$LOCALIZE[31016])</visible>
+	                    <visible>Integer.IsGreater(Container(1350).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(1350)] + String.IsEqual(Control.GetLabel(204),$LOCALIZE[31016])</visible>
 	                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 	                </control>
 	                <!-- Thumb - Items/Page -->
@@ -1109,7 +1109,7 @@
 	                    <align>right</align>
 	                    <aligny>top</aligny>
 	                    <label>$INFO[Container(1250).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(1250).CurrentPage]$INFO[Container(1250).NumPages,/][/COLOR]</label>
-	                    <visible>Integer.IsGreater(Container(1250).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(1250)] + StringCompare(Control.GetLabel(204),$LOCALIZE[20445])</visible>
+	                    <visible>Integer.IsGreater(Container(1250).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(1250)] + String.IsEqual(Control.GetLabel(204),$LOCALIZE[20445])</visible>
 	                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
 	                </control>
 	                <!-- Trailers - Items/Page -->
