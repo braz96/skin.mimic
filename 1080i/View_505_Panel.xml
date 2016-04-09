@@ -142,14 +142,14 @@
                     <visible>Skin.HasSetting(Enable.PanelFanart)</visible>
                     <width>525</width>
                     <height>296</height>
-                    <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+                    <texture background="true" fallback="DefaultFallback.png">$VAR[FanartVar]</texture>
                     <aspectratio align="center" aligny="center">scale</aspectratio>
                 </control>
                 <control type="image">
                     <visible>Skin.HasSetting(Enable.PanelLogo)</visible>
                     <width>525</width>
                     <height>296</height>
-                    <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                    <texture background="true">$VAR[LogoVar]</texture>
                     <aspectratio align="center" aligny="center">keep</aspectratio>
                 </control>
                 <include content="OverlayIcons" condition="![Container.Content(artists) | Skin.HasSetting(Enable.PanelLogo)]">

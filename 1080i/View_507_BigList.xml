@@ -449,7 +449,7 @@
                 <visible>Skin.HasSetting(Enable.BigListFanart)</visible>
                 <width>346</width>
                 <height>195</height>
-                <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+                <texture background="true" fallback="DefaultFallback.png">$VAR[FanartVar]</texture>
                 <aspectratio>scale</aspectratio>
             </control>
             <control type="image">
@@ -457,7 +457,7 @@
                 <left>15</left>
                 <width>316</width>
                 <height>195</height>
-                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                <texture background="true" fallback="DefaultFolder.png">$VAR[LogoVar]</texture>
                 <aspectratio>keep</aspectratio>
             </control>
             <control type="image">
@@ -475,10 +475,13 @@
                 <height>195</height>
                 <texture>thumbs/diffuse.png</texture>
             </control>
-            <include content="OverlayIcons" condition="!Skin.HasSetting(Enable.BigListLogo)">
-                <param name="OverlayLeft" value="288" />
-                <param name="OverlayTop" value="0" />
-            </include>
+            <control type="group">
+                <visible>!Skin.HasSetting(Enable.BigListLogo)</visible>
+                <include content="OverlayIcons">
+                    <param name="OverlayLeft" value="288" />
+                    <param name="OverlayTop" value="0" />
+                </include>
+            </control>
         </control>
     </include>
     <include name="view_BigList-PosterCommons">
@@ -492,7 +495,7 @@
             <control type="image">
                 <width>130</width>
                 <height>195</height>
-                <texture background="true">$VAR[PosterThumb]</texture>
+                <texture background="true">$VAR[PosterVar]</texture>
                 <aspectratio>scale</aspectratio>
             </control>
             <control type="image">
@@ -519,7 +522,7 @@
             <control type="image">
                 <width>195</width>
                 <height>195</height>
-                <texture background="true">$VAR[MusicThumbVar]</texture>
+                <texture background="true" fallback="DefaultFallback.png">$VAR[ThumbVar]</texture>
                 <aspectratio>scale</aspectratio>
             </control>
             <control type="image">

@@ -123,12 +123,40 @@
 		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
 		<value condition="Container.Content(episodes) + !String.IsEmpty(Container.Art(season.poster))">$INFO[Container.Art(season.poster)]</value>
 		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="ListItem.IsParentFolder">DefaultFallbackParent.png</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
-	<variable name="MusicThumbVar">
+	<variable name="ThumbVar">
 		<value condition="String.Contains(ListItem.Label,* All Albums) | String.Contains(ListItem.Label,* All Songs)">$INFO[ListItem.Icon]</value>
+		<value condition="ListItem.IsParentFolder">DefaultFallbackParent.png</value>
 		<value>$INFO[ListItem.Art(thumb)]</value>
+	</variable>
+	<variable name="FanartViewThumb">
+		<value condition="Skin.HasSetting(Enable.FanartLandscape) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+		<value condition="Skin.HasSetting(Enable.FanartLogo) + !String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="ListItem.IsParentFolder">DefaultFolderBack.png</value>
+		<value>$INFO[ListItem.Art(fanart)]</value>
+	</variable>
+	<variable name="LandscapeArtVar">
+		<value condition="!String.IsEmpty(ListItem.Art(landscape)) + !Container.Content(episodes)">$INFO[ListItem.Art(landscape)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="ListItem.IsParentFolder">DefaultFallbackParent.png</value>
+		<value>DefaultFallback.png</value>
+	</variable>
+	<variable name="FanartVar">
+		<value condition="ListItem.IsParentFolder">DefaultFallbackParent.png</value>
+		<value>$INFO[ListItem.Art(fanart)]</value>
+	</variable>
+	<variable name="LogoVar">
+		<value condition="ListItem.IsParentFolder">DefaultFolderBack.png</value>
+		<value>$INFO[ListItem.Art(clearlogo)]</value>
+	</variable>
+	<variable name="ExtraFanartVar">
+		<value condition="Skin.HasSetting(Enable.Extra.Fanart) + !String.IsEmpty(ListItem.Art(extrafanart1))">$INFO[Control.GetLabel(4410)]</value>
+		<value condition="Skin.HasSetting(Enable.Landscape.Art) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+		<value>$INFO[ListItem.Art(fanart)]</value>
 	</variable>
 	<variable name="DurationVar">
 		<value condition="Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.Runtime))">$INFO[Window(Home).Property(NextAired.Runtime)]</value>
@@ -231,12 +259,6 @@
 	<variable name="BannerThumb">
 		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(poster)]</value>
-	</variable>
-	<variable name="PosterThumb">
-		<!--<value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
-		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster)) + !Container.Content(seasons)">$INFO[ListItem.Art(tvshow.poster)]</value>-->
-		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="FloorLabelVar">
 		<value condition="Container.Content(episodes) + String.Contains(Container.FolderPath,/recentlyaddedepisodes)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
@@ -473,34 +495,20 @@
 		<value condition="Skin.HasSetting(ColorCustomizer.Enabled) + !String.IsEmpty(Skin.String(menucolor.name))">$INFO[Skin.String(menucolor.name)]</value>
 		<value>maintext</value>
 	</variable>
-	<variable name="ExtraFanartVar">
-		<value condition="Skin.HasSetting(Enable.Extra.Fanart) + !String.IsEmpty(ListItem.Art(extrafanart1))">$INFO[Control.GetLabel(4410)]</value>
-		<value condition="Skin.HasSetting(Enable.Landscape.Art) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
-		<value>$INFO[ListItem.Art(fanart)]</value>
-	</variable>
 	<variable name="ArtLabelVar">
 		<value condition="[Control.IsVisible(57) + Skin.HasSetting(Enable.ShiftLandscape) + Window.IsActive(videolibrary)] | [Control.IsVisible(59) + Skin.HasSetting(Enable.FanartLandscape) + Window.IsActive(videolibrary)] | [Control.IsVisible(500) + Skin.HasSetting(Enable.IconLandscape)] | [Control.IsVisible(505) + !Skin.HasSetting(Enable.PanelFanart) + !Skin.HasSetting(Enable.PanelLogo)] | [Control.IsVisible(507) + !Skin.HasSetting(Enable.BigListPoster) + !Skin.HasSetting(Enable.BigListLogo) + !Skin.HasSetting(Enable.BigListFanart) + !Window.IsActive(musiclibrary)] | [Control.IsVisible(509) + Skin.HasSetting(Enable.WallLandscape)] | [Control.IsVisible(52) + Skin.HasSetting(Enable.ThumbnailLandscape) + [Container.Content(movies) | Container.Content(tvshows)]]">$LOCALIZE[31100]</value>
 		<value condition="[Control.IsVisible(51) + Skin.HasSetting(InfoWall.Banners)] | [Control.IsVisible(500) + Skin.HasSetting(Enable.IconBanner)] | [Control.IsVisible(509) + Skin.HasSetting(Enable.WallBanner)]">$LOCALIZE[31085]</value>
 		<value condition="[Control.IsVisible(500) + Skin.HasSetting(Enable.IconLogo) + !Container.Content(seasons)] | [Control.IsVisible(59) + Skin.HasSetting(Enable.FanartLogo) + Window.IsActive(videolibrary)] | [Control.IsVisible(505) + Skin.HasSetting(Enable.PanelLogo)] | [Control.IsVisible(507) + Skin.HasSetting(Enable.BigListLogo)] | [Control.IsVisible(509) + Skin.HasSetting(Enable.WallLogo) + !Container.Content(seasons)] | [Control.IsVisible(52) + Skin.HasSetting(Enable.ThumbnailLogo) + [Container.Content(movies) | Container.Content(tvshows)]]">$LOCALIZE[31088]</value>
-		<value condition="[Control.IsVisible(57) + !Skin.HasSetting(Enable.ShiftFanart) + Window.IsActive(musiclibrary)] | [Control.IsVisible(507) + [Skin.HasSetting(Enable.BigListThumb) | Container.Content(albums)]]">$LOCALIZE[21371]</value>
+		
 		<value condition="[Control.IsVisible(57) + Window.IsActive(musiclibrary) + Skin.HasSetting(Enable.ShiftFanart)] | [Control.IsVisible(57) + Window.IsActive(videolibrary) + Skin.HasSetting(Enable.ShiftVidFanart)] | [Control.IsVisible(505) + Skin.HasSetting(Enable.PanelFanart)] | [Control.IsVisible(507) + Window.IsActive(musiclibrary) + !Skin.HasSetting(Enable.BigListThumb)] | [Control.IsVisible(507) + Window.IsActive(videolibrary) + Skin.HasSetting(Enable.BigListFanart)] | [Control.IsVisible(52) + Skin.HasSetting(Enable.ThumbnailFanart)] | [Control.IsVisible(59) + Skin.HasSetting(Enable.FanartFanart) + Window.IsActive(videolibrary)]">$LOCALIZE[20445]</value>
+		<value condition="[Control.IsVisible(507) + Skin.HasSetting(Enable.BigListPoster)]">$LOCALIZE[31016]</value>
+		<value condition="[Control.IsVisible(57) + !Skin.HasSetting(Enable.ShiftFanart) + Window.IsActive(musiclibrary)] | [Control.IsVisible(507) + [Skin.HasSetting(Enable.BigListThumb) | Container.Content(albums)]]">$LOCALIZE[21371]</value>
 		<value>$LOCALIZE[31016]</value>
 	</variable>
 	<variable name="Art2LabelVar">
 		<value condition="Skin.HasSetting(Enable.Extra.Fanart) + !String.IsEmpty(ListItem.Art(extrafanart1))">$LOCALIZE[31118]</value>
 		<value condition="Skin.HasSetting(Enable.Landscape.Art) + !String.IsEmpty(ListItem.Art(landscape))">$LOCALIZE[31100]</value>
 		<value>$LOCALIZE[20445]</value>
-	</variable>
-	<variable name="FanartViewThumb">
-		<value condition="Skin.HasSetting(Enable.FanartLandscape) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
-		<value condition="Skin.HasSetting(Enable.FanartLogo) + !String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-		<value>$INFO[ListItem.Art(fanart)]</value>
-	</variable>
-	<variable name="LandscapeArtVar">
-		<value condition="!String.IsEmpty(ListItem.Art(landscape)) + !Container.Content(episodes)">$INFO[ListItem.Art(landscape)]</value>
-		<value condition="!String.IsEmpty(ListItem.Art(fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
-		<value>DefaultFallback.png</value>
 	</variable>
 	<variable name="SortDirection">
 		<value condition="Container.SortDirection(Ascending)">$LOCALIZE[31050]</value>

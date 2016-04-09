@@ -67,7 +67,7 @@
 						<width>195</width>
 						<height>292</height>
 						<aspectratio>scale</aspectratio>
-						<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
+						<texture fallback="DefaultFallback.png" background="true">$VAR[PosterVar]</texture>
 					</control>
 					<control type="image">
 						<top>6</top>
@@ -90,7 +90,7 @@
 							<width>195</width>
 							<height>292</height>
 							<aspectratio>scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
+							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterVar]</texture>
 						</control>
 						<control type="image">
 							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -116,7 +116,7 @@
 							<width>296</width>
 							<height>444</height>
 							<aspectratio>scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
+							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterVar]</texture>
 						</control>
 						<control type="image">
 							<top>6</top>
@@ -144,7 +144,7 @@
 							<width>296</width>
 							<height>444</height>
 							<aspectratio>scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterThumb]</texture>
+							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterVar]</texture>
 						</control>
 						<control type="image">
 							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -325,6 +325,7 @@
 					<height>34</height>
 					<font>font14</font>
 					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 				<control type="textbox">
 					<label>$VAR[VideoPlotVar]</label>
@@ -351,7 +352,7 @@
 			<control type="image">
 				<visible>Control.HasFocus(51)</visible>
                 <left>149</left>
-                <top>115</top>
+                <top>129</top>
                 <width>312</width>
                 <height>312</height>
                 <include>FocusedBackgroundFade</include>
@@ -363,7 +364,7 @@
             </control>
 			<control type="panel" id="51">
 				<left>155</left>
-				<top>121</top>
+				<top>135</top>
 				<width>900</width>
 				<height>900</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
@@ -382,7 +383,7 @@
 						<width>288</width>
 						<height>288</height>
 						<aspectratio>scale</aspectratio>
-						<texture background="true">$VAR[MusicThumbVar]</texture>
+						<texture background="true" fallback="DefaultFallback.png">$VAR[ThumbVar]</texture>
 					</control>
 					<control type="image">
 						<visible>Container.Content(albums)</visible>
@@ -422,7 +423,7 @@
 							<width>288</width>
 							<height>288</height>
 							<aspectratio>scale</aspectratio>
-							<texture fallback="blank.png" background="true">$VAR[MusicThumbVar]</texture>
+							<texture background="true" fallback="DefaultFallback.png">$VAR[ThumbVar]</texture>
 						</control>
 						<control type="group">
 							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -460,7 +461,7 @@
 				</focusedlayout>
 			</control>
 			<control type="grouplist">
-				<top>127</top>
+				<top>141</top>
 				<left>1090</left>
 				<itemgap>15</itemgap>
 				<control type="image">

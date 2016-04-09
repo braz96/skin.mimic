@@ -16,7 +16,7 @@
 				<width>194</width>
 				<height>290</height>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
-				<texture background="true">$VAR[PosterThumb]</texture>
+				<texture background="true" fallback="DefaultFallback.png">$VAR[PosterVar]</texture>
 			</control>
 			<include content="OverlayIcons">
                 <param name="OverlayLeft" value="164" />
@@ -133,7 +133,7 @@
 				<width>290</width>
 				<height>290</height>
 				<aspectratio aligny="center" align="center">scale</aspectratio>
-				<texture background="true">$VAR[MusicThumbVar]</texture>
+				<texture background="true" fallback="DefaultFallback.png">$VAR[ThumbVar]</texture>
 			</control>
 			<control type="label">
 				<top>15</top>
@@ -188,7 +188,7 @@
 				<focusposition>0</focusposition>
 				<viewtype label="20445">list</viewtype>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)]</visible>
+				<visible>Container.Content(tvshows) | Container.Content(movies) | Container.Content(artists)</visible>
 				<orientation>horizontal</orientation>
 				<itemlayout width="1920" height="370">
 					<include>FanartDetails</include>
