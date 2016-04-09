@@ -167,9 +167,8 @@
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="6000" repeat="6000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-                    <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
-					<animation effect="fade" start="100" end="78" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">Conditional</animation>
-                    <visible>ControlGroup(9000).HasFocus(30) | [!ControlGroup(9000).HasFocus() + ![Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(350) | Control.HasFocus(450) | Control.HasFocus(550) | Control.HasFocus(650) | Control.HasFocus(750) | Control.HasFocus(61)]]</visible>
+                    <animation effect="fade" start="0" end="100" time="300" delay="100">Visible</animation>
+                    <visible>ControlGroup(9000).HasFocus(30) | [!ControlGroup(9000).HasFocus() + ![Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(350) | Control.HasFocus(450) | Control.HasFocus(550) | Control.HasFocus(650) | Control.HasFocus(750) | Control.HasFocus(61)]] | [ControlGroup(9000).HasFocus(30) + Control.HasFocus(61)]</visible>
 				</control>
 				<control type="scrollbar" id="60">
 					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
@@ -1121,7 +1120,7 @@
                     <onright>9000</onright>
                     <onup>300</onup>
                     <align>left</align>
-                    <ondown condition="Control.IsVisible(800)">60</ondown>
+                    <ondown condition="Control.IsVisible(800) + [Container(800).HasNext | Container(800).HasPrevious]">60</ondown>
                     <ondown condition="Control.IsVisible(150)">150</ondown>
                     <ondown condition="Control.IsVisible(250)">250</ondown>
                     <ondown condition="Control.IsVisible(350)">350</ondown>

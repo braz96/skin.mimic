@@ -284,8 +284,8 @@
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="6000" repeat="6000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="100">VisibleChange</animation>
-					<visible>ControlGroup(9000).HasFocus(205) | [!ControlGroup(9000).HasFocus() + ![Control.HasFocus(250) | Control.HasFocus(750) | Control.HasFocus(1000) | Control.HasFocus(1150) | Control.HasFocus(1250) | Control.HasFocus(1350) | Control.HasFocus(61)]]</visible>
+					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
+					<visible>ControlGroup(9000).HasFocus(205) | [!ControlGroup(9000).HasFocus() + ![Control.HasFocus(250) | Control.HasFocus(750) | Control.HasFocus(1000) | Control.HasFocus(1150) | Control.HasFocus(1250) | Control.HasFocus(1350) | Control.HasFocus(61)]] | [ControlGroup(9000).HasFocus(205) + Control.HasFocus(61)]</visible>
 				</control>                
 				<control type="scrollbar" id="60">
 					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
@@ -299,7 +299,7 @@
 				</control>
 				<control type="grouplist">
 					<visible>!String.IsEmpty(Window.Property(DBID)) + [ControlGroup(9000).HasFocus(205) | [!ControlGroup(9000).HasFocus() + ![Control.HasFocus(250) | Control.HasFocus(750) | Control.HasFocus(1000) | Control.HasFocus(1150) | Control.HasFocus(1250) | Control.HasFocus(1350) | Control.HasFocus(61)]]]</visible>
-					<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="100">VisibleChange</animation>
+					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<left>0</left>
 					<top>965</top>
 					<width>840</width>
@@ -348,7 +348,9 @@
 					</control>
 				</control>
 				<control type="group">
-					<visible>Container.Content(tvshows) + ControlGroup(9000).HasFocus(205)</visible>
+					<!--<visible>Container.Content(tvshows) + ControlGroup(9000).HasFocus(205)</visible>-->
+					<visible>!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),tvshow) + [ControlGroup(9000).HasFocus(205) | [!ControlGroup(9000).HasFocus() + ![Control.HasFocus(250) | Control.HasFocus(750) | Control.HasFocus(1000) | Control.HasFocus(1150) | Control.HasFocus(1250) | Control.HasFocus(1350) | Control.HasFocus(61)]]]</visible>
+					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<top>950</top>
 					<control type="group">
 						<visible>!String.IsEmpty(Window.Property(TotalSeasons))</visible>

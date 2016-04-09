@@ -314,7 +314,7 @@
 				</control>
 				<control type="textbox" id="400">
 					<description>Plot</description>
-					<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="100">Visible</animation>
+					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<left>5</left>
 					<top>555</top>
 					<width>1120</width>
@@ -325,7 +325,7 @@
 					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<visible>![Control.HasFocus(50) | Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(555) | Control.HasFocus(206) | Control.HasFocus(204) | Control.HasFocus(90019) | Control.HasFocus(61)]</visible>
+					<visible>![Control.HasFocus(50) | Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(555) | Control.HasFocus(206) | Control.HasFocus(204) | Control.HasFocus(90019) | Control.HasFocus(61)] | [![ControlGroup(9000).HasFocus(555) | ControlGroup(9000).HasFocus(206) | ControlGroup(9000).HasFocus(204)] + Control.HasFocus(61)]</visible>
 				</control>
 				<control type="scrollbar" id="60">
 					<visible allowhiddenfocus="true">Control.HasFocus(60) + [Container(400).HasNext | Container(400).HasPrevious]</visible>
@@ -339,7 +339,7 @@
 				</control>
 				<control type="group">
 					<visible>![Control.IsVisible(150) | Control.IsVisible(250) | Control.HasFocus(206) | Control.IsVisible(90019)]</visible>
-					<include>VisibleFadeEffect</include>
+					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<include content="MediaFlags">
 						<param name="left" value="0" />
 						<param name="top" value="960" />
@@ -349,6 +349,7 @@
 				</control>
 				<control type="group">
 					<visible>Container.Content(tvshows) + !Control.IsVisible(150) + !Control.IsVisible(90019)</visible>
+					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<top>950</top>
 					<control type="group">
 						<visible>!String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
