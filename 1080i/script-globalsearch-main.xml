@@ -49,6 +49,9 @@
 			<control type="label" id="220">
 				<include>HiddenObject</include>
 			</control>
+			<control type="label" id="230">
+				<include>HiddenObject</include>
+			</control>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(100)</visible>
@@ -140,6 +143,12 @@
 					<item id="6">
 						<visible>!String.IsEmpty(Container(211).ListItem.Label)</visible>
 						<label>$LOCALIZE[344]$INFO[Control.GetLabel(210), (,)]</label>
+						<onclick>noop</onclick>
+						<icon>-</icon>
+					</item>
+					<item id="11">
+						<visible>!String.IsEmpty(Container(231).ListItem.Label)</visible>
+						<label>$LOCALIZE[20348]$INFO[Control.GetLabel(230), (,)]</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
@@ -342,7 +351,7 @@
 							<height>900</height>
 							<pagecontrol>60</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(221).HasNext | Container(221).HasPrevious">60</onright>
 							<onup>221</onup>
 							<ondown>221</ondown>
 							<orientation>vertical</orientation>
@@ -384,9 +393,9 @@
 							<top>0</top>
 							<width>1316</width>
 							<height>900</height>
-							<pagecontrol>60</pagecontrol>
+							<pagecontrol>61</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(111).HasNext | Container(111).HasPrevious">61</onright>
 							<onup>111</onup>
 							<ondown>111</ondown>
 							<orientation>vertical</orientation>
@@ -449,9 +458,9 @@
 							<top>0</top>
 							<width>1316</width>
 							<height>900</height>
-							<pagecontrol>60</pagecontrol>
+							<pagecontrol>62</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(121).HasNext | Container(121).HasPrevious">62</onright>
 							<onup>121</onup>
 							<ondown>121</ondown>
 							<orientation>vertical</orientation>
@@ -493,9 +502,9 @@
 							<top>0</top>
 							<width>1316</width>
 							<height>900</height>
-							<pagecontrol>60</pagecontrol>
+							<pagecontrol>63</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(131).HasNext | Container(131).HasPrevious">63</onright>
 							<onup>131</onup>
 							<ondown>131</ondown>
 							<orientation>vertical</orientation>
@@ -537,9 +546,9 @@
 							<top>0</top>
 							<width>1316</width>
 							<height>900</height>
-							<pagecontrol>60</pagecontrol>
+							<pagecontrol>64</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(141).HasNext | Container(141).HasPrevious">64</onright>
 							<onup>141</onup>
 							<ondown>141</ondown>
 							<orientation>vertical</orientation>
@@ -636,11 +645,76 @@
 							<top>0</top>
 							<width>1316</width>
 							<height>900</height>
-							<pagecontrol>60</pagecontrol>
+							<pagecontrol>65</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(211).HasNext | Container(211).HasPrevious">65</onright>
 							<onup>211</onup>
 							<ondown>211</ondown>
+							<orientation>vertical</orientation>
+							<viewtype label="535">list</viewtype>
+							<preloaditems>2</preloaditems>
+							<itemlayout width="1316" height="300">
+								<include>GlobalSearchPosterCommons</include>
+								<control type="textbox">
+									<top>125</top>
+									<left>220</left>
+									<width>1068</width>
+									<height>160</height>
+									<label>$INFO[ListItem.Property(PlotOutline)]</label>
+									<font>font14_textbox3</font>
+									<textcolor>$VAR[ColorTextVar]</textcolor>
+								</control>
+								<control type="textbox">
+									<top>125</top>
+									<left>220</left>
+									<width>1068</width>
+									<height>160</height>
+									<label>$INFO[ListItem.Property(Plot)]</label>
+									<font>font14_textbox3</font>
+									<textcolor>$VAR[ColorTextVar]</textcolor>
+									<visible>String.IsEmpty(ListItem.Property(PlotOutline))</visible>
+								</control>
+							</itemlayout>
+							<focusedlayout width="1316" height="300">
+								<include>GlobalSearchPosterCommons</include>
+								<control type="textbox">
+									<top>125</top>
+									<left>220</left>
+									<width>1068</width>
+									<height>160</height>
+									<label>$INFO[ListItem.Property(PlotOutline)]</label>
+									<font>font14_textbox3</font>
+									<textcolor>$VAR[ColorTextVar]</textcolor>
+									<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+								</control>
+								<control type="textbox">
+									<top>125</top>
+									<left>220</left>
+									<width>1068</width>
+									<height>160</height>
+									<label>$INFO[ListItem.Property(Plot)]</label>
+									<font>font14_textbox3</font>
+									<textcolor>$VAR[ColorTextVar]</textcolor>
+									<visible>String.IsEmpty(ListItem.Property(PlotOutline))</visible>
+									<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+					<!-- Directors -->
+					<control type="group" id="2399">
+						<visible>Container(9000).HasFocus(2)</visible>
+						<include>SettingsFadeEffect</include>
+						<control type="panel" id="231">
+							<left>0</left>
+							<top>0</top>
+							<width>1316</width>
+							<height>900</height>
+							<pagecontrol>66</pagecontrol>
+							<onleft>Control.SetFocus(9000)</onleft>
+							<onright condition="Container(231).HasNext | Container(231).HasPrevious">66</onright>
+							<onup>231</onup>
+							<ondown>231</ondown>
 							<orientation>vertical</orientation>
 							<viewtype label="535">list</viewtype>
 							<preloaditems>2</preloaditems>
@@ -701,9 +775,9 @@
 							<top>0</top>
 							<width>1316</width>
 							<height>900</height>
-							<pagecontrol>60</pagecontrol>
+							<pagecontrol>67</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(151).HasNext | Container(151).HasPrevious">67</onright>
 							<onup>151</onup>
 							<ondown>151</ondown>
 							<orientation>vertical</orientation>
@@ -745,9 +819,9 @@
 							<top>0</top>
 							<width>1316</width>
 							<height>900</height>
-							<pagecontrol>60</pagecontrol>
+							<pagecontrol>68</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(161).HasNext | Container(161).HasPrevious">68</onright>
 							<onup>161</onup>
 							<ondown>161</ondown>
 							<orientation>vertical</orientation>
@@ -789,9 +863,9 @@
 							<top>0</top>
 							<width>1316</width>
 							<height>900</height>
-							<pagecontrol>60</pagecontrol>
+							<pagecontrol>69</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(171).HasNext | Container(171).HasPrevious">69</onright>
 							<onup>171</onup>
 							<ondown>171</ondown>
 							<orientation>vertical</orientation>
@@ -833,9 +907,9 @@
 							<top>0</top>
 							<width>1316</width>
 							<height>900</height>
-							<pagecontrol>60</pagecontrol>
+							<pagecontrol>70</pagecontrol>
 							<onleft>Control.SetFocus(9000)</onleft>
-							<onright>60</onright>
+							<onright condition="Container(181).HasNext | Container(181).HasPrevious">70</onright>
 							<onup>181</onup>
 							<ondown>181</ondown>
 							<orientation>vertical</orientation>
@@ -870,18 +944,50 @@
 				</control>
 			</control>
 		</control>
-		<control type="scrollbar" id="60">
-			<visible allowhiddenfocus="true">Control.HasFocus(60) | Container(111).Scrolling | Container(121).Scrolling | Container(131).Scrolling | Container(141).Scrolling | Container(151).Scrolling | Container(161).Scrolling | Container(171).Scrolling | Container(181).Scrolling | Container(221).Scrolling</visible>
-			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-			<left>1910</left>
-			<top>120</top>
-			<width>10</width>
-			<height>960</height>
-			<onleft>101</onleft>
-			<onright>101</onright>
-			<onup>60</onup>
-			<ondown>60</ondown>
-		</control>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="60" />
+			<param name="container" value="221" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="61" />
+			<param name="container" value="111" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="62" />
+			<param name="container" value="121" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="63" />
+			<param name="container" value="131" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="64" />
+			<param name="container" value="141" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="65" />
+			<param name="container" value="211" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="66" />
+			<param name="container" value="231" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="67" />
+			<param name="container" value="151" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="68" />
+			<param name="container" value="161" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="69" />
+			<param name="container" value="171" />
+		</include>
+		<include content="GlobalSearchScrollbar">
+			<param name="id" value="70" />
+			<param name="container" value="181" />
+		</include>
 		<include>Topbar</include>
 		<control type="group">
 			<left>-440</left>
