@@ -430,4 +430,495 @@
             <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
         </control>
     </include>
+    <include name="VerticalWidgetThumbnail">
+        <top>-20</top>
+        <left>498</left>
+        <width>1400</width>
+        <height>780</height>
+        <onleft>9000</onleft>
+        <onright>$PARAM[id]</onright>
+        <onback>9000</onback>
+        <preloaditems>2</preloaditems>
+        <pagecontrol>60</pagecontrol>
+        <viewtype label="21371">list</viewtype>
+        <scrolltime tween="quadratic" easing="out">300</scrolltime>
+        <orientation>vertical</orientation>
+        <visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath)) + !String.IsEqual(Container(9000).ListItem.Property(widget),weather) + ![Control.HasFocus(9010) + !Skin.HasSetting(Enable.PersistentWidgets)]</visible>
+        <itemlayout height="390" width="350">
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="$VAR[ColorBackgroundVar]">background.png</texture>
+            </control>
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33ffffff">background.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <label>$VAR[VerticalWidgetThumbnailLabel]</label>
+                <textcolor>$VAR[ColorTextVar]</textcolor>
+                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+            </control>
+            <control type="image">
+                <visible>!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])</visible>
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png">$VAR[VerticalWidgetArt]</texture>
+            </control>
+            <control type="image">
+                <visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])</visible>
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png">$VAR[VerticalWidgetArt]</texture>
+            </control>
+            <control type="image">
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture>thumbs/diffuse.png</texture>
+            </control>
+        </itemlayout>
+
+        <focusedlayout height="390" width="350">
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="$VAR[ColorBackgroundVar]">background.png</texture>
+            </control>
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33ffffff">background.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <label>$VAR[VerticalWidgetThumbnailLabel]</label>
+                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                <textcolor>$VAR[ColorTextVar]</textcolor>
+            </control>
+            <control type="image">
+                <visible>!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])</visible>
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png">$VAR[VerticalWidgetArt]</texture>
+            </control>
+            <control type="image">
+                <visible>StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])</visible>
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png">$VAR[VerticalWidgetArt]</texture>
+            </control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture>thumbs/diffuse.png</texture>
+            </control>
+        </focusedlayout>
+        <content limit="$VAR[WidgetLimit]" target="$PARAM[target]">$PARAM[path]</content>
+    </include>
+    <include name="VerticalWidgetThumbnailWeather">
+        <visible>String.IsEqual(Container(9000).ListItem.Property(widget),weather)</visible>
+        <top>370</top>
+        <left>498</left>
+        <width>1400</width>
+        <height>390</height>
+        <onleft>9000</onleft>
+        <onright>$PARAM[id]</onright>
+        <onback>9000</onback>
+        <onup>9000</onup>
+        <ondown>9000</ondown>
+        <preloaditems>2</preloaditems>
+        <viewtype label="21371">list</viewtype>
+        <scrolltime tween="quadratic" easing="out">300</scrolltime>
+        <orientation>horizontal</orientation>
+        <itemlayout height="390" width="350">
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="$VAR[ColorBackgroundVar]">background.png</texture>
+            </control>
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33ffffff">background.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <label>$INFO[ListItem.Label]</label>
+                <textcolor>$VAR[ColorTextVar]</textcolor>
+                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+            </control>
+            <control type="image">
+                <left>75</left>
+                <top>72</top>
+                <right>75</right>
+                <height>200</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <top>30</top>
+                <left>20</left>
+                <width>310</width>
+                <height>60</height>
+                <font>font15</font>
+                <align>center</align>
+                <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                <label>$INFO[ListItem.Label2]</label>
+            </control>
+            <control type="label">
+                <top>250</top>
+                <left>20</left>
+                <width>310</width>
+                <height>60</height>
+                <font>font15</font>
+                <align>center</align>
+                <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                <label>$INFO[ListItem.Property(HighTemp),[COLOR invalid],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR ff8de0ff],[/COLOR]]</label>
+            </control>
+            <control type="image">
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture>thumbs/diffuse.png</texture>
+            </control>
+        </itemlayout>
+
+        <focusedlayout height="390" width="350">
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="$VAR[ColorBackgroundVar]">background.png</texture>
+            </control>
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33ffffff">background.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <aligny>center</aligny>
+                <font>font13</font>
+                <label>$INFO[ListItem.Label]</label>
+                <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                <textcolor>$VAR[ColorTextVar]</textcolor>
+            </control>
+            <control type="image">
+                <left>75</left>
+                <top>72</top>
+                <right>75</right>
+                <height>200</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+                <top>30</top>
+                <left>20</left>
+                <width>310</width>
+                <height>60</height>
+                <font>font15</font>
+                <align>center</align>
+                <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                <label>$INFO[ListItem.Label2]</label>
+            </control>
+            <control type="label">
+                <top>250</top>
+                <left>20</left>
+                <width>310</width>
+                <height>60</height>
+                <font>font15</font>
+                <align>center</align>
+                <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                <label>$INFO[ListItem.Property(HighTemp),[COLOR invalid],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR ff8de0ff],[/COLOR]]</label>
+            </control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture>thumbs/diffuse.png</texture>
+            </control>
+        </focusedlayout>
+        <content>
+            <item>
+                <label>$INFO[Window(weather).Property(Day0.Title)]</label>
+                <label2>$INFO[Window(weather).Property(Day0.Outlook)]</label2>
+                <icon>$VAR[WeatherIconVar]$INFO[Window(weather).Property(Day0.FanartCode),,.png]</icon>
+                <property name="HighTemp">$INFO[Window(weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits]</property>
+                <property name="LowTemp">$INFO[Window(weather).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits]</property>
+                <onclick>noop</onclick>
+            </item>
+            <item>
+                <label>$INFO[Window(weather).Property(Day1.Title)]</label>
+                <label2>$INFO[Window(weather).Property(Day1.Outlook)]</label2>
+                <icon>$VAR[WeatherIconVar]$INFO[Window(weather).Property(Day1.FanartCode),,.png]</icon>
+                <property name="HighTemp">$INFO[Window(weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</property>
+                <property name="LowTemp">$INFO[Window(weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</property>
+                <onclick>noop</onclick>
+            </item>
+            <item>
+                <label>$INFO[Window(weather).Property(Day2.Title)]</label>
+                <label2>$INFO[Window(weather).Property(Day2.Outlook)]</label2>
+                <icon>$VAR[WeatherIconVar]$INFO[Window(weather).Property(Day2.FanartCode),,.png]</icon>
+                <property name="HighTemp">$INFO[Window(weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</property>
+                <property name="LowTemp">$INFO[Window(weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</property>
+                <onclick>noop</onclick>
+            </item>
+            <item>
+                <label>$INFO[Window(weather).Property(Day3.Title)]</label>
+                <label2>$INFO[Window(weather).Property(Day3.Outlook)]</label2>
+                <icon>$VAR[WeatherIconVar]$INFO[Window(weather).Property(Day3.FanartCode),,.png]</icon>
+                <property name="HighTemp">$INFO[Window(weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</property>
+                <property name="LowTemp">$INFO[Window(weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</property>
+                <onclick>noop</onclick>
+            </item>
+            <item>
+                <label>$INFO[Window(weather).Property(Day4.Title)]</label>
+                <label2>$INFO[Window(weather).Property(Day4.Outlook)]</label2>
+                <icon>$VAR[WeatherIconVar]$INFO[Window(weather).Property(Day4.FanartCode),,.png]</icon>
+                <property name="HighTemp">$INFO[Window(weather).Property(Day4.HighTemp)]$INFO[System.TemperatureUnits]</property>
+                <property name="LowTemp">$INFO[Window(weather).Property(Day4.LowTemp)]$INFO[System.TemperatureUnits]</property>
+                <onclick>noop</onclick>
+            </item>
+            <item>
+                <visible>!Skin.HasSetting(Enable.BasicWeatherView)</visible>
+                <label>$INFO[Window(weather).Property(Day5.Title)]</label>
+                <label2>$INFO[Window(weather).Property(Day5.Outlook)]</label2>
+                <icon>$VAR[WeatherIconVar]$INFO[Window(weather).Property(Day5.FanartCode),,.png]</icon>
+                <property name="HighTemp">$INFO[Window(weather).Property(Day5.HighTemp)]$INFO[System.TemperatureUnits]</property>
+                <property name="LowTemp">$INFO[Window(weather).Property(Day5.LowTemp)]$INFO[System.TemperatureUnits]</property>
+                <onclick>noop</onclick>
+            </item>
+            <item>
+                <visible>!Skin.HasSetting(Enable.BasicWeatherView)</visible>
+                <label>$INFO[Window(weather).Property(Day6.Title)]</label>
+                <label2>$INFO[Window(weather).Property(Day6.Outlook)]</label2>
+                <icon>$VAR[WeatherIconVar]$INFO[Window(weather).Property(Day6.FanartCode),,.png]</icon>
+                <property name="HighTemp">$INFO[Window(weather).Property(Day6.HighTemp)]$INFO[System.TemperatureUnits]</property>
+                <property name="LowTemp">$INFO[Window(weather).Property(Day6.LowTemp)]$INFO[System.TemperatureUnits]</property>
+                <onclick>noop</onclick>
+            </item>
+        </content>
+    </include>
+    <include name="VerticalWidgetDefault">
+        <animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Container($PARAM[id]).IsUpdating | Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml)">Conditional</animation>
+        <left>580</left>
+        <top>54</top>
+        <width>1242</width>
+        <height>609</height>
+        <onleft>9000</onleft>
+        <onright>$PARAM[id]</onright>
+        <onback>9000</onback>
+        <viewtype label="535">list</viewtype>
+        <focusposition>0</focusposition>
+        <pagecontrol>-</pagecontrol>
+        <preloaditems>2</preloaditems>
+        <scrolltime tween="quadratic">400</scrolltime>
+        <orientation>Vertical</orientation>
+        <visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath)) + ![Control.HasFocus(9010) + !Skin.HasSetting(Enable.PersistentWidgets)]</visible>
+        <autoscroll time="10000" delay="10000" repeat="10000">[Control.IsVisible(9003) + !ControlGroup(9003).HasFocus] + !Skin.HasSetting(Disable.WidgetAutoScroll)</autoscroll>
+
+        <!-- Poster -->
+        <itemlayout height="304" width="207" condition="!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
+            <control type="image">
+                <visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                <top>6</top>
+                <left>6</left>
+                <width>195</width>
+                <height>292</height>
+                <aspectratio aligny="center" align="center">scale</aspectratio>
+                <texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+            </control>
+            <control type="image">
+                <visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                <top>6</top>
+                <left>6</left>
+                <width>195</width>
+                <height>292</height>
+                <aspectratio aligny="center" align="center">scale</aspectratio>
+                <texture background="true" fallback="DefaultFallback.png">$INFO[ListItem.Art(tvshow.poster)]</texture>
+            </control>
+            <control type="image">
+                <top>6</top>
+                <left>6</left>
+                <width>195</width>
+                <height>292</height>
+                <texture>thumbs/diffuse.png</texture>
+                <fadetime>300</fadetime>
+            </control>
+        </itemlayout>
+        <focusedlayout height="304" width="207" condition="!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
+            <control type="group">
+                <include>PanelFocusedItemZoom</include>
+                <control type="image">
+                    <visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                    <top>6</top>
+                    <left>6</left>
+                    <width>195</width>
+                    <height>292</height>
+                    <aspectratio aligny="center" align="center">scale</aspectratio>
+                    <texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                </control>
+                <control type="image">
+                    <visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+                    <top>6</top>
+                    <left>6</left>
+                    <width>195</width>
+                    <height>292</height>
+                    <aspectratio aligny="center" align="center">scale</aspectratio>
+                    <texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+                </control>
+                <control type="image">
+                    <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                    <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                    <top>6</top>
+                    <left>6</left>
+                    <width>195</width>
+                    <height>292</height>
+                    <texture>thumbs/diffuse.png</texture>
+                </control>
+            </control>
+        </focusedlayout>
+
+        <!-- Square -->
+        <itemlayout height="304" width="304" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])">
+            <control type="group">
+                <left>14</left>
+                <control type="image">
+                    <top>6</top>
+                    <left>6</left>
+                    <width>292</width>
+                    <height>292</height>
+                    <aspectratio aligny="center" align="center">scale</aspectratio>
+                    <texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+                </control>
+                <control type="image">
+                    <top>6</top>
+                    <left>6</left>
+                    <width>292</width>
+                    <height>292</height>
+                    <texture>thumbs/diffuse.png</texture>
+                </control>
+            </control>
+        </itemlayout>
+        <focusedlayout height="304" width="304" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313])">
+            <control type="group">
+                <include>PanelFocusedItemZoom</include>
+                <left>14</left>
+                <control type="image">
+                    <top>6</top>
+                    <left>6</left>
+                    <width>292</width>
+                    <height>292</height>
+                    <aspectratio aligny="center" align="center">scale</aspectratio>
+                    <texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+                </control>
+                <control type="image">
+                    <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                    <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                    <top>6</top>
+                    <left>6</left>
+                    <width>292</width>
+                    <height>292</height>
+                    <texture>thumbs/diffuse.png</texture>
+                </control>
+            </control>
+        </focusedlayout>
+
+        <!-- Landscape -->
+        <itemlayout height="203" width="310" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
+            <control type="image">
+                <top>6</top>
+                <left>6</left>
+                <width>298</width>
+                <height>191</height>
+                <aspectratio aligny="center" align="center">scale</aspectratio>
+                <texture background="true">$VAR[LandscapeWidgetArt]</texture>
+            </control>
+            <control type="image">
+                <top>6</top>
+                <left>6</left>
+                <width>298</width>
+                <height>191</height>
+                <texture>thumbs/diffuse.png</texture>
+            </control>
+        </itemlayout>
+        <focusedlayout height="203" width="310" condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100])">
+            <include>PanelFocusedItemZoom</include>
+            <control type="image">
+                <top>6</top>
+                <left>6</left>
+                <width>298</width>
+                <height>191</height>
+                <aspectratio aligny="center" align="center">scale</aspectratio>
+                <texture background="true">$VAR[LandscapeWidgetArt]</texture>
+            </control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <top>6</top>
+                <left>6</left>
+                <width>298</width>
+                <height>191</height>
+                <texture>thumbs/diffuse.png</texture>
+            </control>
+        </focusedlayout>
+        <content limit="$VAR[WidgetLimit]" target="$PARAM[target]">$PARAM[path]</content>
+    </include>
 </includes>

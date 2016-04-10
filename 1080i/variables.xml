@@ -372,7 +372,7 @@
 	</variable>
 	<variable name="WidgetStyleVar">
 		<value condition="Skin.HasSetting(WidgetStyle)">$LOCALIZE[31059]</value>
-		<value>$LOCALIZE[31079]</value>
+		<value>$LOCALIZE[571]</value>
 	</variable>
 	
 	<variable name="RatingFlagVar">
@@ -692,6 +692,12 @@
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value>DefaultFallback.png</value>
 	</variable>
+	<variable name="VerticalWidgetArt">
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + !String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31313]) + !StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) + String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<!--<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>-->
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
 	<variable name="MusicInfoDescription">
 		<value condition="Container.Content(artists) + !String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="[Container.Content(albums) | Container.Content(songs)] + !String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
@@ -736,5 +742,9 @@
 		<value condition="Integer.IsLessOrEqual(MusicPlayer.UserRating,6)">rating3.png</value>
 		<value condition="Integer.IsLessOrEqual(MusicPlayer.UserRating,8)">rating4.png</value>
 		<value condition="Integer.IsLessOrEqual(MusicPlayer.UserRating,10)">rating5.png</value>
+	</variable>
+	<variable name="VerticalWidgetThumbnailLabel">
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
+		<value>$INFO[ListItem.Label]</value>
 	</variable>
 </includes>

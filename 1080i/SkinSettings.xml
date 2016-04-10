@@ -286,7 +286,6 @@
 						<label>31233</label>
 						<label2>$VAR[WidgetStyleVar]</label2>
 						<onclick>Skin.ToggleSetting(WidgetStyle)</onclick>
-						<enable>!String.IsEqual(Skin.String(HomeLayout),3)</enable>
 					</control>
 					<control type="button" id="701">
 						<width>1316</width>
@@ -313,7 +312,7 @@
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31967</label>
-						<enable>Skin.HasSetting(Enable.PersistentWidgets)</enable>
+						<enable>Skin.HasSetting(Enable.PersistentWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</enable>
 						<onclick>Skin.ToggleSetting(Disable.WidgetAutoScroll)</onclick>
 						<selected>Skin.HasSetting(Disable.WidgetAutoScroll)</selected>
 					</control>
