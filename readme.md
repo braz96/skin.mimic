@@ -23,6 +23,14 @@ More screenshots available here: http://imgur.com/a/LLSMM
 
 
 ***
+**4.0.1**
+- Added new widget style for vertical home layout.
+
+***
+**4.0.0**
+- Initial release for Kodi 17 Krypton.
+
+***
 **3.4.1**
 - Added an option to limit the number of widget items.
 - Added an option for wide list when using List view.
