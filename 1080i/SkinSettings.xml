@@ -642,6 +642,7 @@
 						<label>31083</label>
 						<onclick>Skin.ToggleSetting(Disable.NextAired)</onclick>
 						<selected>!Skin.HasSetting(Disable.NextAired)</selected>
+						<onclick condition="!System.HasAddon(script.tv.show.next.aired)">InstallAddon(script.tv.show.next.aired)</onclick>
 					</control>
 					<control type="radiobutton" id="312">
 						<width>1316</width>
@@ -650,8 +651,8 @@
 						<font>font15</font>
 						<label>31135</label>
 						<onclick>Skin.ToggleSetting(Disable.AutoComplete)</onclick>
+						<onclick condition="!System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
 						<selected>!Skin.HasSetting(Disable.AutoComplete)</selected>
-						<enable>System.HasAddon(plugin.program.autocompletion)</enable>
 					</control>
 					<control type="button" id="303">
 						<width>1316</width>
@@ -660,7 +661,7 @@
 						<font>font15</font>
 						<label>31119</label>
 						<onclick>RunScript(script.toolbox,info=extrafanartmovie)</onclick>
-						<enable>System.HasAddon(script.toolbox)</enable>
+						<onclick condition="!System.HasAddon(script.toolbox)">InstallAddon(script.toolbox)</onclick>
 					</control>
 					<control type="button" id="304">
 						<width>1316</width>
@@ -669,7 +670,7 @@
 						<font>font15</font>
 						<label>31120</label>
 						<onclick>RunScript(script.toolbox,info=extrafanarttvshow)</onclick>
-						<enable>System.HasAddon(script.toolbox)</enable>
+						<onclick condition="!System.HasAddon(script.toolbox)">InstallAddon(script.toolbox)</onclick>
 					</control>
 				</control>
 				<control type="grouplist" id="9004">
