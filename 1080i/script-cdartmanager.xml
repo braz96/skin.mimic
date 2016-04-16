@@ -159,22 +159,15 @@ id      | description
 300     - blank image
 -->
 <window>
-    <!--<defaultcontrol>1001</defaultcontrol>
-    <animation effect="fade" time="250">WindowOpen</animation>
-    <animation effect="fade" time="250">WindowClose</animation>-->
+    <!--<defaultcontrol>1001</defaultcontrol>-->
     <controls>
         <control type="group">
             <left>0</left>
             <top>0</top>
             <control type="image">
                 <include>FullscreenDimensions</include>
-                <texture background="true">special://skin/backgrounds/default_bg.jpg</texture>
+                <texture background="true" fallback="special://skin/backgrounds/default_bg.jpg">$INFO[Skin.String(CustomBackground)]</texture>
             </control>
-            <!--<control type="image">
-                <include>FullscreenDimensions</include>
-                <texture>background.png</texture>
-                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-            </control>-->
             <!-- ** Required ** Do not change <id> or <type> -->
             <control type="group" id="9051">
                 <!-- Blank Image with artist label -->
@@ -354,7 +347,6 @@ id      | description
                     <top>0</top>
                     <width>591</width>
                     <height>1080</height>
-                    <!--<aspectratio scalediffuse="false">keep</aspectratio>-->
                     <texture>background.png</texture>
                     <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
                 </control>
@@ -442,6 +434,8 @@ id      | description
                         <height>1080</height>
                         <onleft>120</onleft>
                         <onright>120</onright>
+                        <onup>121</onup>
+                        <ondown>121</ondown>
                         <orientation>vertical</orientation>
                         <visible>Control.IsVisible(120)</visible>
                     </control>
