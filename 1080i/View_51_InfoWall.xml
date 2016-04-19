@@ -22,7 +22,7 @@
                 <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,0)">Conditional</animation>
             </control>
             <control type="image">
-				<visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.LargeIcons)</visible>
+				<visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.LargeIcons) + !Skin.HasSetting(InfoWall.Banners)</visible>
                 <left>137</left>
                 <top>123</top>
                 <width>320</width>
@@ -107,7 +107,7 @@
 	                    </include>
 					</control>
 				</focusedlayout>
-				<itemlayout height="456" width="308" condition="Skin.HasSetting(InfoWall.LargeIcons)">
+				<itemlayout height="456" width="308" condition="Skin.HasSetting(InfoWall.LargeIcons) + !Skin.HasSetting(InfoWall.Banners)">
 					<control type="group">
 						<left>55</left>
 						<control type="image">
@@ -131,7 +131,7 @@
 	                    </include>
 					</control>
 				</itemlayout>
-				<focusedlayout height="456" width="308" condition="Skin.HasSetting(InfoWall.LargeIcons)">
+				<focusedlayout height="456" width="308" condition="Skin.HasSetting(InfoWall.LargeIcons) + !Skin.HasSetting(InfoWall.Banners)">
 					<control type="group">
 						<left>55</left>
 						<animation type="Focus">
@@ -289,7 +289,7 @@
 				</focusedlayout>
 			</control>
 			<control type="grouplist">
-				<animation effect="slide" time="300" tween="sine" easing="inout" end="-55" condition="Skin.HasSetting(InfoWall.LargeIcons)">Conditional</animation>
+				<animation effect="slide" time="300" tween="sine" easing="inout" end="-55" condition="Skin.HasSetting(InfoWall.LargeIcons) + !Skin.HasSetting(InfoWall.Banners)">Conditional</animation>
 				<animation effect="slide" time="300" tween="sine" easing="inout" start="0" end="-50" condition="Skin.HasSetting(InfoWall.Banners)">Conditional</animation>
 				<top>135</top>
 				<left>1157</left>
