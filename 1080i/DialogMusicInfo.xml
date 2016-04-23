@@ -498,8 +498,8 @@
 						<description>Extras</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>22082</label>
-						<onclick>ActivateWindow(1119)</onclick>
-						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+						<onclick>RunScript(script.mimic.extras)</onclick>
+						<enable>!String.IsEmpty(ListItem.Art(fanart)) + !Skin.HasSetting(KioskMode.Enabled)</enable>
 					</control>
 				</control>
 				<control type="button" id="555">
@@ -530,6 +530,28 @@
 				<height>680</height>
 				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
 				<texture background="true">$INFO[ListItem.Icon]</texture>
+			</control>
+		</control>
+		<control type="group">
+			<visible allowhiddenfocus="true">Control.HasFocus(90400)</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="button" id="90400">
+				<description>FS Fanart button</description>
+				<width>FullScreenWidth</width>
+				<height>1080</height>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onclick>SetFocus(9000)</onclick>
+				<onleft>SetFocus(9000)</onleft>
+				<onright>SetFocus(9000)</onright>
+				<onup>SetFocus(9000)</onup>
+				<ondown>SetFocus(9000)</ondown>
+				<label>-</label>
+				<hitrect x="0" y="0" w="0" h="0"/>
+			</control>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>$INFO[ListItem.Art(fanart)]</texture>
 			</control>
 		</control>
 	</controls>
