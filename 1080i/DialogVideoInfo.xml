@@ -56,7 +56,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Tagline]</label>
-						<visible>String.IsEqual(ListItem.DBTYPE,"movie") + !String.IsEmpty(ListItem.Tagline)</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Tagline)</visible>
 					</control>
 					<control type="label">
 						<width>1135</width>
@@ -67,7 +67,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.OriginalTitle]</label>
-						<visible>String.IsEqual(ListItem.DBTYPE,"movie") + String.IsEmpty(ListItem.Tagline)</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,movie) + String.IsEmpty(ListItem.Tagline)</visible>
 					</control>
 					<control type="label">
 						<width>1135</width>
@@ -78,7 +78,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[Window(Home).Property(NextAired.Status)]</label>
-						<visible>String.IsEqual(ListItem.DBTYPE,"tvshow") + !String.IsEmpty(Window(Home).Property(NextAired.Status))</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.Status))</visible>
 					</control>
 					<control type="label">
 						<width>1135</width>
@@ -89,7 +89,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.TvShowTitle]</label>
-						<visible>String.IsEqual(ListItem.DBTYPE,"episode") + !String.IsEmpty(ListItem.TvShowTitle)</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.TvShowTitle)</visible>
 					</control>
 					<control type="label">
 						<width>1135</width>
@@ -100,7 +100,7 @@
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Artist]</label>
-						<visible>Container.Content(musicvideos) + !String.IsEmpty(ListItem.Artist)</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,musicvideo) + !String.IsEmpty(ListItem.Artist)</visible>
 					</control>
 				</control>
 				<control type="panel">
@@ -154,13 +154,13 @@
 							<label>$INFO[ListItem.Year]</label>
 							<label2>$LOCALIZE[345]:</label2>
 							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Year) + ![String.IsEqual(ListItem.DBTYPE,"tvshow") | String.IsEqual(ListItem.DBTYPE,"season") | String.IsEqual(ListItem.DBTYPE,"episode")]</visible>
+							<visible>!String.IsEmpty(ListItem.Year) + ![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)]</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Premiered]</label>
 							<label2>$LOCALIZE[20416]:</label2>
 							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Premiered) + [String.IsEqual(ListItem.DBTYPE,"tvshow") | String.IsEqual(ListItem.DBTYPE,"season") | String.IsEqual(ListItem.DBTYPE,"episode")]</visible>
+							<visible>!String.IsEmpty(ListItem.Premiered) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)]</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.mpaa]</label>
@@ -172,7 +172,7 @@
 							<label>$VAR[DurationVar] [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]</label>
 							<label2>$LOCALIZE[180]:</label2>
 							<onclick>noop</onclick>
-							<visible>![String.IsEqual(ListItem.DBTYPE,"tvshow") + Skin.HasSetting(Disable.NextAired)]</visible>
+							<visible>![String.IsEqual(ListItem.DBTYPE,tvshow) + Skin.HasSetting(Disable.NextAired)]</visible>
 							<visible>Integer.IsGreater(ListItem.Duration,0) | Integer.IsGreater(Window(Home).Property(NextAired.Runtime),0)</visible>
 						</item>
 						<item>
@@ -209,19 +209,19 @@
 							<label>$INFO[Window(Home).Property(NextAired.NextNumber),, - ]$INFO[Window(Home).Property(NextAired.NextTitle)]</label>
 							<label2>$LOCALIZE[31010]:</label2>
 							<onclick>noop</onclick>
-							<visible>String.IsEqual(ListItem.DBTYPE,"tvshow") + !String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+							<visible>String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window(Home).Property(NextAired.LatestNumber),, - ]$INFO[Window(Home).Property(NextAired.LatestTitle)]</label>
 							<label2>$LOCALIZE[31011]:</label2>
 							<onclick>noop</onclick>
-							<visible>String.IsEqual(ListItem.DBTYPE,"tvshow") + !String.IsEmpty(Window(Home).Property(NextAired.LatestDate)) + String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+							<visible>String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.LatestDate)) + String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
 						</item>
 						<item>
 							<label>$INFO[Window(Home).Property(NextAired.NextDate),, | ]$INFO[Window(Home).Property(NextAired.AirTime)]</label>
 							<label2>$LOCALIZE[31012]:</label2>
 							<onclick>noop</onclick>
-							<visible>String.IsEqual(ListItem.DBTYPE,"tvshow") + !String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
+							<visible>String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Director]</label>
@@ -257,7 +257,7 @@
 							<label>$INFO[Window(Home).Property(NextAired.Country)]</label>
 							<label2>$LOCALIZE[574]:</label2>
 							<onclick>noop</onclick>
-							<visible>String.IsEqual(ListItem.DBTYPE,"tvshow") + !String.IsEmpty(Window(Home).Property(NextAired.Country))</visible>
+							<visible>String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.Country))</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.PlayCount]</label>
@@ -349,7 +349,7 @@
 					</include>
 				</control>
 				<control type="group">
-					<visible>String.IsEqual(ListItem.DBTYPE,"tvshow") + !Control.IsVisible(150) + !Control.IsVisible(90019)</visible>
+					<visible>String.IsEqual(ListItem.DBTYPE,tvshow) + !Control.IsVisible(150) + !Control.IsVisible(90019)</visible>
 					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<top>950</top>
 					<control type="group">
@@ -777,7 +777,7 @@
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>208</label>
 						<altlabel>1024</altlabel>
-						<usealttexture>String.IsEqual(ListItem.DBTYPE,"tvshow")</usealttexture>
+						<usealttexture>String.IsEqual(ListItem.DBTYPE,tvshow)</usealttexture>
 					</control>
 					<control type="button" id="5">
 						<description>Cast/Plot</description>
@@ -789,13 +789,13 @@
 						<description>Cast</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>206</label>
-						<visible>String.IsEqual(ListItem.DBTYPE,"movie") | String.IsEqual(ListItem.DBTYPE,"tvshow") | String.IsEqual(ListItem.DBTYPE,"season") | String.IsEqual(ListItem.DBTYPE,"episode")</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)</visible>
 					</control>
 					<control type="button" id="206">
 						<description>Sets list</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>[CAPITALIZE]$LOCALIZE[36910][/CAPITALIZE]</label>
-						<visible>String.IsEqual(ListItem.DBTYPE,"movie") + !String.IsEmpty(ListItem.SetID)</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.SetID)</visible>
 					</control>
 					<control type="button" id="11">
 						<description>Play Trailer</description>
@@ -809,7 +809,7 @@
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>String.IsEqual(ListItem.DBTYPE,"movie") | String.IsEqual(ListItem.DBTYPE,"tvshow") | String.IsEqual(ListItem.DBTYPE,"season") | String.IsEqual(ListItem.DBTYPE,"episode")</visible>
+						<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)</visible>
 					</control>
 					<control type="button" id="7">
 						<description>User ratings</description>
@@ -826,7 +826,7 @@
 						<description>Spacer</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<enable>False</enable>
-						<visible>[!String.IsEqual(ListItem.DBTYPE,"movie") + !System.HasAddon(script.extendedinfo)] | Container.Content(musicvideos)</visible>
+						<visible>[!String.IsEqual(ListItem.DBTYPE,movie) + !System.HasAddon(script.extendedinfo)] | String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 					</control>
 					<control type="button" id="6">
 						<description>Refresh</description>
@@ -848,7 +848,7 @@
 			<include>dialogeffect</include>
 			<include>Animation_ExtendedInfo</include>
 			<control type="image">
-				<visible>!Container.Content(musicvideos)</visible>
+				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 				<top>30</top>
 				<left>30</left>
 				<width>681</width>
@@ -857,7 +857,7 @@
 				<texture background="true">$VAR[PosterVar]</texture>
 			</control>
 			<control type="group">
-				<visible>Container.Content(musicvideos)</visible>
+				<visible>String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 				<top>30</top>
 				<left>30</left>
 				<control type="image">
