@@ -135,7 +135,7 @@
 							<label>$INFO[ListItem.Genre]</label>
 							<label2>$LOCALIZE[515]:</label2>
 							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Genre) + String.IsEqual(ListItem.DBTYPE,album)</visible>
+							<visible>!String.IsEmpty(ListItem.Genre) + $EXP[isAlbum]</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Property(Album_Mood)]</label>
@@ -271,7 +271,7 @@
 					<onright>9000</onright>
 					<orientation>vertical</orientation>
 				</control>
-				<include condition="String.IsEqual(ListItem.DBTYPE,artist) | String.IsEqual(ListItem.DBTYPE,album)">DefaultDiscography</include>
+				<include condition="$EXP[isArtist] | $EXP[isAlbum]">DefaultDiscography</include>
 				<!--<include condition="Container.Content(albums) | !System.HasAddon(script.extendedinfo)">DefaultDiscography</include>
 				<include condition="Container.Content(artists) + System.HasAddon(script.extendedinfo)">ExtendedDiscography</include>-->
 			</control>
@@ -439,19 +439,19 @@
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>21887</label>
 						<altlabel>21821</altlabel>
-						<usealttexture>String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,song)</usealttexture>
+						<usealttexture>$EXP[isAlbum] | String.IsEqual(ListItem.DBTYPE,song)</usealttexture>
 					</control>
 					<control type="button" id="203">
 						<description>Discography</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>21888</label>
-						<visible>String.IsEqual(ListItem.DBTYPE,artist)</visible>
+						<visible>$EXP[isArtist]</visible>
 					</control>
 					<control type="button" id="208">
 						<description>Tracks</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>182</label>
-						<visible>String.IsEqual(ListItem.DBTYPE,album)</visible>
+						<visible>$EXP[isAlbum]</visible>
 					</control>
 					<control type="button" id="204">
 						<description>YouTube</description>
@@ -459,7 +459,7 @@
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>String.IsEqual(ListItem.DBTYPE,artist) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,song)</visible>
+						<visible>$EXP[isArtist] | $EXP[isAlbum] | String.IsEqual(ListItem.DBTYPE,song)</visible>
 					</control>
 					<control type="button" id="7">
 						<description>User ratings</description>

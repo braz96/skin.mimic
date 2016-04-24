@@ -33,6 +33,12 @@
 	<constant name="FullScreenWidth">1920</constant>
 	<expression name="PluginAdvancedLauncher">String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/)</expression>
 	<expression name="PluginSuperFavourites">String.Contains(Container.FolderPath,plugin://plugin.program.super.favourites/)</expression>
+	<expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
+	<expression name="isTvshow">String.IsEqual(ListItem.DBTYPE,tvshow)</expression>
+	<expression name="isEpisode">String.IsEqual(ListItem.DBTYPE,episode)</expression>
+	<expression name="isMusicvideo">String.IsEqual(ListItem.DBTYPE,musicvideo)</expression>
+	<expression name="isArtist">String.IsEqual(ListItem.DBTYPE,artist)</expression>
+	<expression name="isAlbum">String.IsEqual(ListItem.DBTYPE,album)</expression>
 	<!-- Media Menu -->
 	<include name="SideBladeLeft">
 		<animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="String.IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
@@ -1216,7 +1222,7 @@
 			<viewtype label="">list</viewtype>
 			<scrolltime tween="quadratic" easing="out">200</scrolltime>
 			<orientation>horizontal</orientation>
-			<itemlayout height="74" width="573" condition="String.IsEqual(ListItem.DBTYPE,artist)">
+			<itemlayout height="74" width="573" condition="$EXP[isArtist]">
 				<control type="label">
 					<width>573</width>
 					<height>74</height>
@@ -1227,7 +1233,7 @@
 					<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="74" width="573" condition="String.IsEqual(ListItem.DBTYPE,artist)">
+			<focusedlayout height="74" width="573" condition="$EXP[isArtist]">
 				<control type="image">
 					<width>573</width>
 					<height>74</height>
@@ -1246,7 +1252,7 @@
 					<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
 				</control>
 			</focusedlayout>
-			<itemlayout height="74" width="573" condition="String.IsEqual(ListItem.DBTYPE,album)">
+			<itemlayout height="74" width="573" condition="$EXP[isAlbum]">
 				<control type="label">
 					<width>573</width>
 					<height>74</height>
@@ -1257,7 +1263,7 @@
 					<label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="74" width="573" condition="String.IsEqual(ListItem.DBTYPE,album)">
+			<focusedlayout height="74" width="573" condition="$EXP[isAlbum]">
 				<control type="image">
 					<width>573</width>
 					<height>74</height>
@@ -1431,51 +1437,51 @@
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
-				<visible>!String.IsEmpty(ListItem.VideoResolution) + ![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)]</visible>
+				<visible>!String.IsEmpty(ListItem.VideoResolution) + ![$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
-				<visible>!String.IsEmpty(ListItem.VideoCodec) + ![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)]</visible>
+				<visible>!String.IsEmpty(ListItem.VideoCodec) + ![$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
-				<visible>!String.IsEmpty(ListItem.VideoAspect) + ![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(501) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.VideoAspect) + ![$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season) | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(501) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
-				<visible>!String.IsEmpty(ListItem.AudioCodec) + ![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)]</visible>
+				<visible>!String.IsEmpty(ListItem.AudioCodec) + ![$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<width>100</width>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
-				<visible>!String.IsEmpty(ListItem.AudioChannels) + ![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.AudioChannels) + ![$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season) | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<width>100</width>
 				<include>MediaFlagVars</include>
 				<texture>flags/cc.png</texture>
-				<visible>!String.IsEmpty(ListItem.SubtitleLanguage) + ![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.SubtitleLanguage) + ![$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>resource://resource.images.studios.white/$INFO[ListItem.Studio,,.png]</texture>
-				<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + !Window.IsVisible(movieinformation)</visible>
+				<visible>[$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season)] + !Window.IsVisible(movieinformation)</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
-				<visible>[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + !Window.IsVisible(movieinformation)</visible>
+				<visible>[$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season)] + !Window.IsVisible(movieinformation)</visible>
 			</control>
 		</control>
     </include>
