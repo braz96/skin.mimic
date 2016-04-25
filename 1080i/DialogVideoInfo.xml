@@ -40,18 +40,13 @@
 					<control type="label">
 						<width>1135</width>
 						<height>60</height>
-						<aligny>center</aligny>
-						<align>left</align>
 						<font>font30_title</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
 						<width>1135</width>
 						<height>30</height>
-						<aligny>center</aligny>
-						<align>left</align>
 						<font>font15</font>
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
@@ -61,8 +56,6 @@
 					<control type="label">
 						<width>1135</width>
 						<height>30</height>
-						<aligny>center</aligny>
-						<align>left</align>
 						<font>font15</font>
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
@@ -72,8 +65,6 @@
 					<control type="label">
 						<width>1135</width>
 						<height>30</height>
-						<aligny>center</aligny>
-						<align>left</align>
 						<font>font15</font>
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
@@ -83,8 +74,6 @@
 					<control type="label">
 						<width>1135</width>
 						<height>30</height>
-						<aligny>center</aligny>
-						<align>left</align>
 						<font>font15</font>
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
@@ -94,8 +83,6 @@
 					<control type="label">
 						<width>1135</width>
 						<height>30</height>
-						<aligny>center</aligny>
-						<align>left</align>
 						<font>font15</font>
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
@@ -117,7 +104,6 @@
 							<height>50</height>
 							<font>font15</font>
 							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 						<control type="label">
@@ -125,8 +111,6 @@
 							<width>970</width>
 							<height>50</height>
 							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
@@ -136,7 +120,6 @@
 							<height>50</height>
 							<font>font15</font>
 							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 						<control type="label">
@@ -144,8 +127,6 @@
 							<width>970</width>
 							<height>50</height>
 							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</focusedlayout>
@@ -154,13 +135,13 @@
 							<label>$INFO[ListItem.Year]</label>
 							<label2>$LOCALIZE[345]:</label2>
 							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Year) + ![$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season) | $EXP[isEpisode]]</visible>
+							<visible>!String.IsEmpty(ListItem.Year) + ![$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.Premiered]</label>
 							<label2>$LOCALIZE[20416]:</label2>
 							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Premiered) + [$EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season) | $EXP[isEpisode]]</visible>
+							<visible>!String.IsEmpty(ListItem.Premiered) + [$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 						</item>
 						<item>
 							<label>$INFO[ListItem.mpaa]</label>
@@ -321,9 +302,7 @@
 					<width>1120</width>
 					<height>395</height>
 					<font>font15_textbox</font>
-					<align>left</align>
 					<label>$VAR[VideoInfoPlotVar]</label>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					<visible>![Control.HasFocus(50) | Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(555) | Control.HasFocus(206) | Control.HasFocus(204) | Control.HasFocus(90019) | Control.HasFocus(61)] | [![ControlGroup(9000).HasFocus(555) | ControlGroup(9000).HasFocus(206) | ControlGroup(9000).HasFocus(204)] + Control.HasFocus(61)]</visible>
@@ -356,7 +335,6 @@
 						<visible>!String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
 						<width>200</width>
 						<control type="label">
-							<left>0</left>
 							<top>4</top>
 							<width>200</width>
 							<height>60</height>
@@ -364,7 +342,6 @@
 							<label>$INFO[ListItem.Property(TotalSeasons)]</label>
 							<font>font16</font>
 							<wrapmultiline>true</wrapmultiline>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 						<control type="label">
 							<top>52</top>
@@ -373,7 +350,6 @@
 							<align>center</align>
 							<label>[LOWERCASE]$VAR[OneOrMoreSeasonsVar][/LOWERCASE]</label>
 							<font>font12</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 					</control>
 					<control type="group">
@@ -382,7 +358,6 @@
 						<left>200</left>
 						<width>200</width>
 						<control type="label">
-							<left>0</left>
 							<top>4</top>
 							<width>200</width>
 							<height>60</height>
@@ -390,7 +365,6 @@
 							<label>$INFO[ListItem.Property(TotalEpisodes)]</label>
 							<font>font16</font>
 							<wrapmultiline>true</wrapmultiline>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 						<control type="label">
 							<top>52</top>
@@ -399,7 +373,6 @@
 							<align>center</align>
 							<label>[LOWERCASE]$VAR[OneOrMoreEpisodesVar][/LOWERCASE]</label>
 							<font>font12</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 					</control>
 					<control type="group">
@@ -408,7 +381,6 @@
 						<left>400</left>
 						<width>200</width>
 						<control type="label">
-							<left>0</left>
 							<top>4</top>
 							<width>200</width>
 							<height>60</height>
@@ -416,7 +388,6 @@
 							<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
 							<font>font16</font>
 							<wrapmultiline>true</wrapmultiline>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 						<control type="label">
 							<top>52</top>
@@ -425,7 +396,6 @@
 							<align>center</align>
 							<label>[LOWERCASE]$LOCALIZE[16101][/LOWERCASE]</label>
 							<font>font12</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
 						</control>
 					</control>
 				</control>
@@ -528,10 +498,7 @@
 	                        <top>286</top>
 	                        <width>546</width>
 	                        <height>90</height>
-	                        <align>left</align>
 							<font>font_Actor</font>
-	                        <textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</control>
@@ -571,10 +538,7 @@
                             <top>286</top>
                             <width>546</width>
                             <height>90</height>
-                            <align>left</align>
 							<font>font_Actor</font>
-                            <textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 						</control>
@@ -680,7 +644,6 @@
 				<width>1156</width>
 				<height>440</height>
 				<align>center</align>
-				<aligny>center</aligny>
             	<visible>ControlGroup(9000).HasFocus(204) + !Integer.IsGreater(Container(150).NumItems,0)</visible>
             	<label>31137</label>
             	<font>font16_title</font>
@@ -693,7 +656,6 @@
                 <height>40</height>
                 <font>font13_title</font>
                 <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorTextVar]</textcolor>
                 <align>right</align>
                 <aligny>top</aligny>
                 <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/][/COLOR]</label>
@@ -707,7 +669,6 @@
                 <height>40</height>
                 <font>font13_title</font>
                 <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorTextVar]</textcolor>
                 <aligny>top</aligny>
                 <label>$INFO[ListItem.Set]</label>
                 <visible>Integer.IsGreater(Container(250).NumItems,0) + [ControlGroup(9000).HasFocus(206) | Control.HasFocus(250)]</visible>
@@ -720,7 +681,6 @@
                 <height>40</height>
                 <font>font13_title</font>
                 <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorTextVar]</textcolor>
                 <align>right</align>
                 <aligny>top</aligny>
                 <label>$INFO[Container(250).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(250).CurrentPage]$INFO[Container(250).NumPages,/][/COLOR]</label>
@@ -734,7 +694,6 @@
                 <height>40</height>
                 <font>font13_title</font>
                 <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorTextVar]</textcolor>
                 <align>right</align>
                 <aligny>top</aligny>
                 <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(50).CurrentPage]$INFO[Container(50).NumPages,/][/COLOR]</label>
@@ -748,7 +707,6 @@
                 <height>40</height>
                 <font>font13_title</font>
                 <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorTextVar]</textcolor>
                 <align>right</align>
                 <aligny>top</aligny>
                 <label>$INFO[Container(90019).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(90019).CurrentPage]$INFO[Container(90019).NumPages,/][/COLOR]</label>
@@ -789,7 +747,7 @@
 						<description>Cast</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>206</label>
-						<visible>$EXP[isMovie] | $EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season) | $EXP[isEpisode]</visible>
+						<visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					</control>
 					<control type="button" id="206">
 						<description>Sets list</description>
@@ -809,7 +767,7 @@
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>$EXP[isMovie] | $EXP[isTvshow] | String.IsEqual(ListItem.DBTYPE,season) | $EXP[isEpisode]</visible>
+						<visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					</control>
 					<control type="button" id="7">
 						<description>User ratings</description>

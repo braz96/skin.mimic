@@ -79,8 +79,6 @@
                 <itemlayout height="192" width="192">
                     <control type="image">
                         <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(HideVisualizationFanart) + Visualisation.Enabled">Conditional</animation>
-                        <left>0</left>
-                        <top>0</top>
                         <width>192</width>
                         <height>192</height>
                         <aspectratio>scale</aspectratio>
@@ -91,8 +89,6 @@
                 <focusedlayout height="192" width="192">
                     <control type="image">
                         <animation effect="fade" start="100" end="40" time="0" condition="!Skin.HasSetting(HideVisualizationFanart) + Visualisation.Enabled">Conditional</animation>
-                        <left>0</left>
-                        <top>0</top>
                         <width>192</width>
                         <height>192</height>
                         <aspectratio>scale</aspectratio>
@@ -147,7 +143,6 @@
 			<visible>[Player.ShowInfo | Window.IsActive(MusicOSD)] + ![Window.IsVisible(1120) | Window.IsVisible(okdialog) | Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList)]</visible>
 			<include>Window_OpenClose_Animation</include>
 			<control type="image">
-				<left>0</left>
 				<top>-1</top>
 				<width>FullScreenWidth</width>
 				<height>361</height>
@@ -182,9 +177,6 @@
 				<width>900</width>
 				<height>35</height>
 				<font>font13_title</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
 				<label>$INFO[Player.Time]</label>
 			</control>
 			<control type="label">
@@ -193,9 +185,7 @@
 				<width>900</width>
 				<height>35</height>
 				<font>font13_title</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
 				<align>right</align>
-				<aligny>center</aligny>
 				<label>$INFO[Player.Duration]</label>
 			</control>
 			<control type="label">
@@ -204,9 +194,7 @@
 				<width>1543</width>
 				<height>35</height>
 				<font>font13_title</font>
-				<textcolor>$VAR[ColorTextVar]</textcolor>
 				<align>center</align>
-				<aligny>center</aligny>
 				<label>$VAR[MusicSeekLabelVar]</label>
 			</control>
 			<control type="grouplist">
@@ -219,7 +207,6 @@
 					<width>1300</width>
 					<height>60</height>
 					<font>font35_title</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[MusicPlayer.TrackNumber,,. ]$INFO[Player.Title]</label>
 					<scroll>true</scroll>
 				</control>
@@ -234,14 +221,12 @@
 					<width>1300</width>
 					<height>50</height>
 					<font>font14_textbox</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year, • ,]</label>
 				</control>
 				<control type="label">
 					<width>1300</width>
 					<height>48</height>
 					<font>font14_textbox</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<scroll>true</scroll>
 					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[19031]:[/COLOR] $INFO[MusicPlayer.offset(1).Artist,, • ]$INFO[MusicPlayer.offset(1).TrackNumber,,. ]$INFO[MusicPlayer.offset(1).Title]</label>
 				</control>
@@ -273,7 +258,7 @@
 					<height>43</height>
 					<aspectratio>keep</aspectratio>
 					<texture flipx="true">osd/ff.png</texture>
-					<colordiffuse>FFe5e5e5</colordiffuse>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 					<animation effect="fade" start="100" end="60" time="800" pulse="true" condition="true">Conditional</animation>
 					<visible>Player.Rewinding</visible>
 				</control>
@@ -284,7 +269,6 @@
 					<height>35</height>
 					<aligny>center</aligny>
 					<font>font13_title</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 				</control>
 				<control type="image">
 					<top>4</top>
@@ -292,7 +276,7 @@
 					<height>43</height>
 					<aspectratio>keep</aspectratio>
 					<texture>osd/ff.png</texture>
-					<colordiffuse>FFe5e5e5</colordiffuse>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 					<animation effect="fade" start="100" end="60" time="800" pulse="true" condition="true">Conditional</animation>
 					<visible>Player.Forwarding</visible>
 				</control>
@@ -321,7 +305,6 @@
 					<height>160</height>
 					<width>1870</width>
 					<font>font14_textbox3</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21887]:[/COLOR] $INFO[Window(Visualisation).Property(ArtistSlideshow.ArtistBiography)]</label>
 					<autoscroll time="3000" delay="10000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				</control>

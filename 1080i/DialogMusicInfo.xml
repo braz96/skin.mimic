@@ -36,18 +36,13 @@
 					<control type="label">
 						<width>1135</width>
 						<height>60</height>
-						<aligny>center</aligny>
-						<align>left</align>
 						<font>font30_title</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
 						<scroll>true</scroll>
 						<label>$VAR[MusicInfoHeading]</label>
 					</control>
 					<control type="label">
 						<width>1135</width>
 						<height>30</height>
-						<aligny>center</aligny>
-						<align>left</align>
 						<font>font15</font>
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<scroll>true</scroll>
@@ -68,7 +63,6 @@
 							<height>50</height>
 							<font>font15</font>
 							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 						<control type="label">
@@ -76,8 +70,6 @@
 							<width>950</width>
 							<height>50</height>
 							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
@@ -87,7 +79,6 @@
 							<height>50</height>
 							<font>font15</font>
 							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 						<control type="label">
@@ -95,8 +86,6 @@
 							<width>950</width>
 							<height>50</height>
 							<font>font15</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorTextVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</focusedlayout>
@@ -255,9 +244,7 @@
 					<width>1120</width>
 					<height>462</height>
 					<font>font15_textbox</font>
-					<align>left</align>
 					<label>$VAR[MusicInfoDescription]</label>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<pagecontrol>60</pagecontrol>
 					<visible>![Control.HasFocus(204) | Control.HasFocus(203) | Control.HasFocus(208) | Control.HasFocus(150) | Control.HasFocus(50) | Control.HasFocus(555) | Control.HasFocus(61)]</visible>
 				</control>
@@ -337,10 +324,7 @@
 	                        <top>286</top>
 	                        <width>547</width>
 	                        <height>90</height>
-	                        <align>left</align>
 							<font>font_Actor</font>
-	                        <textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</control>
@@ -380,10 +364,7 @@
                             <top>286</top>
                             <width>547</width>
                             <height>90</height>
-                            <align>left</align>
 							<font>font_Actor</font>
-                            <textcolor>$VAR[ColorTextVar]</textcolor>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 						</control>
@@ -397,7 +378,6 @@
 				<width>1156</width>
 				<height>440</height>
 				<align>center</align>
-				<aligny>center</aligny>
             	<visible>[ControlGroup(9000).HasFocus(204) | Control.HasFocus(150)] + !Integer.IsGreater(Container(150).NumItems,0)</visible>
             	<label>31137</label>
             	<font>font16_title</font>
@@ -410,7 +390,6 @@
                 <height>40</height>
                 <font>font13_title</font>
                 <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorTextVar]</textcolor>
                 <align>right</align>
                 <aligny>top</aligny>
                 <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/][/COLOR]</label>
@@ -439,7 +418,7 @@
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>21887</label>
 						<altlabel>21821</altlabel>
-						<usealttexture>$EXP[isAlbum] | String.IsEqual(ListItem.DBTYPE,song)</usealttexture>
+						<usealttexture>$EXP[isAlbum] | $EXP[isSong]</usealttexture>
 					</control>
 					<control type="button" id="203">
 						<description>Discography</description>
@@ -459,7 +438,7 @@
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>$EXP[isArtist] | $EXP[isAlbum] | String.IsEqual(ListItem.DBTYPE,song)</visible>
+						<visible>$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong]</visible>
 					</control>
 					<control type="button" id="7">
 						<description>User ratings</description>

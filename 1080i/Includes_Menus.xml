@@ -10,8 +10,6 @@
 		</include>
         <control type="image">
         	<visible>Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)</visible>
-            <left>0</left>
-            <top>0</top>
             <width>384</width>
             <height>120</height>
             <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9010)">Conditional</animation>
@@ -23,7 +21,6 @@
         </control>
         <control type="image">
         	<visible>Control.HasFocus(9010) + Skin.HasSetting(Disable.SubmenuSlide)</visible>
-            <left>0</left>
             <top>120</top>
             <width>384</width>
             <height>70</height>
@@ -100,7 +97,6 @@
         </control>
         <control type="image">
         	<visible>Control.HasFocus(9010) + Skin.HasSetting(Disable.SubmenuSlide)</visible>
-            <left>0</left>
             <top>120</top>
             <width>384</width>
             <height>70</height>
@@ -130,8 +126,6 @@
 	</include>
 	<include name="MainMenuListTop">
 		<control type="image">
-            <left>0</left>
-            <top>0</top>
             <width>384</width>
             <height>120</height>
             <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
@@ -162,8 +156,6 @@
             <include>MainMenuSlide</include>
     		<control type="image">
     			<visible>!Control.HasFocus(9010)</visible>
-                <left>0</left>
-                <top>0</top>
                 <width>474</width>
                 <height>120</height>
                 <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
@@ -179,8 +171,6 @@
             </control>
             <control type="image">
     			<visible>Control.HasFocus(9010)</visible>
-                <left>0</left>
-                <top>0</top>
                 <width>474</width>
                 <height>120</height>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
@@ -238,7 +228,6 @@
 				<font>font_MainMenu</font>
 				<textcolor>$VAR[ColorMenuVar]</textcolor>
 				<align>center</align>
-				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -251,7 +240,6 @@
 				<textcolor>$VAR[ColorMenuVar]</textcolor>
 				<selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
 				<align>center</align>
-				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</focusedlayout>
@@ -280,7 +268,6 @@
 				<font>font_MainMenu</font>
 				<textcolor>$VAR[ColorMenuVar]</textcolor>
 				<align>center</align>
-				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -293,7 +280,6 @@
 				<textcolor>$VAR[ColorMenuVar]</textcolor>
 				<selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
 				<align>center</align>
-				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</focusedlayout>
@@ -325,8 +311,6 @@
 				<font>font_MainMenu</font>
 				<textoffsetx>20</textoffsetx>
 				<textcolor>$VAR[ColorMenuVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 			</control>
@@ -344,8 +328,6 @@
 				<font>font_SubMenu</font>
 				<textoffsetx>20</textoffsetx>
 				<textcolor>$VAR[ColorMenuVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 			</control>
@@ -356,7 +338,6 @@
 				<label></label>
 				<font>IconTiny</font>
 				<align>right</align>
-				<aligny>center</aligny>
 				<textcolor>33ffffff</textcolor>
 				<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
 				<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
@@ -371,8 +352,6 @@
 				<font>font_MainMenu</font>
 				<textoffsetx>20</textoffsetx>
 				<textcolor>$VAR[ColorMenuVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 			</control>
@@ -390,8 +369,6 @@
 				<font>font_SubMenu</font>
 				<textoffsetx>20</textoffsetx>
 				<textcolor>$VAR[ColorMenuVar]</textcolor>
-				<align>left</align>
-				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 			</control>
@@ -402,7 +379,6 @@
 				<label></label>
 				<font>IconTiny</font>
 				<align>right</align>
-				<aligny>center</aligny>
 				<textcolor>33ffffff</textcolor>
 				<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
 				<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
@@ -426,8 +402,6 @@
                 <font>font_MainMenu</font>
                 <textoffsetx>20</textoffsetx>
                 <textcolor>$VAR[ColorMenuVar]</textcolor>
-                <align>left</align>
-                <aligny>center</aligny>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
             </control>
@@ -445,8 +419,6 @@
                 <font>font_SubMenu</font>
                 <textoffsetx>20</textoffsetx>
                 <textcolor>$VAR[ColorMenuVar]</textcolor>
-                <align>left</align>
-                <aligny>center</aligny>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
             </control>
@@ -457,7 +429,6 @@
                 <label></label>
                 <font>IconTiny</font>
                 <align>right</align>
-                <aligny>center</aligny>
                 <textcolor>33ffffff</textcolor>
                 <visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
                 <visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
@@ -481,8 +452,6 @@
                 <font>font_MainMenu</font>
                 <textoffsetx>20</textoffsetx>
                 <textcolor>$VAR[ColorMenuVar]</textcolor>
-                <align>left</align>
-                <aligny>center</aligny>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
             </control>
@@ -500,8 +469,6 @@
                 <font>font_SubMenu</font>
                 <textoffsetx>20</textoffsetx>
                 <textcolor>$VAR[ColorMenuVar]</textcolor>
-                <align>left</align>
-                <aligny>center</aligny>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
             </control>
@@ -512,7 +479,6 @@
                 <label></label>
                 <font>IconTiny</font>
                 <align>right</align>
-                <aligny>center</aligny>
                 <textcolor>33ffffff</textcolor>
                 <visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
                 <visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
@@ -542,7 +508,6 @@
 				<textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
 				<selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
 				<align>$PARAM[SubmenuAlign]</align>
-				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -570,7 +535,6 @@
 					<textcolor>$VAR[ColorMenuVar]</textcolor>
 					<textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
 					<align>$PARAM[SubmenuAlign]</align>
-					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</control>
@@ -583,7 +547,6 @@
 					<textcolor>$VAR[ColorMenuVar]</textcolor>
 					<textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
 					<align>$PARAM[SubmenuAlign]</align>
-					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</control>
@@ -675,7 +638,6 @@
 					<height>45</height>
 					<label>$INFO[Weather.Temperature,, • ]</label>
 					<font>font28_title</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 					<visible>Weather.IsFetched + !String.IsEmpty(Weather.Plugin) + !String.Contains(Weather.Temperature,$LOCALIZE[503])</visible>
 				</control>
 				<control type="label" id="2">
@@ -683,7 +645,6 @@
 					<height>45</height>
 					<label>$INFO[System.Time]</label>
 					<font>font28_title</font>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
 				</control>
 			</control>
 			<control type="label">
@@ -701,8 +662,6 @@
 	<include name="MainMenuFocusBackground">
 		<control type="image">
 			<visible>!Control.HasFocus(9010) | Skin.HasSetting(Disable.SubmenuSlide)</visible>
-            <left>0</left>
-            <top>0</top>
             <width>$PARAM[MainMenuBackgroundWidth]</width>
             <height>120</height>
             <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
