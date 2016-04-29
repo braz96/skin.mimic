@@ -170,11 +170,11 @@
 				<control type="group">
 					<left>-1446</left>
 					<control type="image">
-						<include condition="[!Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)]">MainMenuSlide</include>
+						<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false" condition="[!Skin.HasSetting(Enable.PersistentWidgets) | String.IsEmpty(Container(9000).ListItem.Property(widgetName))] + !Skin.HasSetting(Enable.HomeFanartOverlay)">WindowOpen</animation>
+						<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false" condition="[!Skin.HasSetting(Enable.PersistentWidgets) | String.IsEmpty(Container(9000).ListItem.Property(widgetName))] + !Skin.HasSetting(Enable.HomeFanartOverlay)">WindowClose</animation>
 						<animation effect="slide" time="300" start="0" end="1446" tween="sine" easing="inout" reversible="false" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] | Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 						<animation effect="slide" time="150" delay="200" start="1446" end="0" tween="sine" easing="inout" reversible="false" condition="![[ControlGroup(9003).HasFocus | Control.HasFocus(9010)] + !Skin.HasSetting(Enable.PersistentWidgets) + ControlGroup(9003).IsVisible] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
 						<animation effect="slide" time="0" delay="0" start="0" end="1446" tween="sine" reversible="true" condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-						<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false" condition="[!Skin.HasSetting(Enable.PersistentWidgets) | String.IsEmpty(Container(9000).ListItem.Property(widgetName))] + !Skin.HasSetting(Enable.HomeFanartOverlay)">WindowOpen</animation>
 						<top>0</top>
 						<width>1920</width>
 						<height>1080</height>
