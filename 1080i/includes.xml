@@ -630,7 +630,7 @@
 	                    <width>80</width>
 	                    <height>80</height>
 	                    <texture colordiffuse="$VAR[ColorTextVar]">$VAR[HeaderIcon]</texture>
-	                    <visible>![Container.Scrolling + String.IsEqual(Container.SortMethod,$LOCALIZE[369])]</visible>
+	                    <visible>![Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[369]) | String.IsEqual(Container.SortMethod,$LOCALIZE[551])]]</visible>
 	                    <visible>!Window.IsVisible(DialogBusy.xml) + [!Control.IsVisible(12345) | [!Skin.HasSetting(Enable.PersistentWidgets) + !ControlGroup(9003).HasFocus]]</visible>
 	                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 	                </control>
@@ -642,7 +642,7 @@
 	                    <font>font35_title</font>
 	                    <align>center</align>
 	                    <label>$INFO[ListItem.SortLetter,[UPPERCASE],[/UPPERCASE]]</label>
-	                    <visible>Container.Scrolling + String.IsEqual(Container.SortMethod,$LOCALIZE[369])</visible>
+	                    <visible>Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[369]) | String.IsEqual(Container.SortMethod,$LOCALIZE[551])]</visible>
 	                    <visible>!Window.IsVisible(DialogBusy.xml) + !Control.IsVisible(12345)</visible>
 	                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 	                </control>
@@ -813,6 +813,112 @@
 	        <onright>60</onright>
 	        <orientation>horizontal</orientation>
 	    </control>
+	</include>
+	<include name="Alpha_Vertical">
+		<control type="panel" id="6000">
+			<visible allowhiddenfocus="true">Control.HasFocus(6000)</visible>
+			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<top>120</top>
+		    <width>36.92</width>
+		    <right>0</right>
+		    <height>960</height>
+		    <onleft>50</onleft>
+		    <onright>50</onright>
+		    <orientation>vertical</orientation>
+		    <itemlayout height="36.92" width="36.92">
+		    	<control type="image">
+		    		<width>36.92</width>
+		    		<height>36.92</height>
+		    		<texture>listselect_fo.png</texture>
+		    		<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+		    		<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+		    	</control>
+		        <control type="label">
+		            <label>$INFO[ListItem.Label]</label>
+		            <align>center</align>
+		            <height>35</height>
+		            <textcolor>$VAR[ColorTextVar]</textcolor>
+		            <animation effect="fade" start="100" end="30" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+		        </control>
+		        <control type="label">
+		            <label>$INFO[ListItem.Label]</label>
+		            <align>center</align>
+		            <height>35</height>
+		            <textcolor>black</textcolor>
+		            <visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+		        </control>
+		    </itemlayout>
+		    <focusedlayout height="36.92" width="36.92">
+		    	<control type="image">
+		    		<width>36.92</width>
+		    		<height>36.92</height>
+		    		<texture>listselect_fo.png</texture>
+		    		<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+		    		<animation effect="fade" start="100" end="30" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+		    	</control>
+		        <control type="label">
+		            <label>$INFO[ListItem.Label]</label>
+		            <align>center</align>
+		            <height>35</height>
+		            <textcolor>$VAR[ColorTextVar]</textcolor>
+		            <animation effect="fade" start="100" end="30" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+		        </control>
+		    </focusedlayout>
+		    <content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+		</control>
+	</include>
+	<include name="Alpha_Horizontal">
+		<control type="panel" id="6000">
+			<visible allowhiddenfocus="true">Control.HasFocus(6000)</visible>
+			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<top>1043</top>
+		    <width>1920</width>
+		    <left>0</left>
+		    <height>37</height>
+		    <onup>50</onup>
+		    <ondown>50</ondown>
+		    <orientation>vertical</orientation>
+		    <itemlayout height="37" width="73.84">
+		    	<control type="image">
+		    		<width>73.84</width>
+		    		<height>37</height>
+		    		<texture>listselect_fo.png</texture>
+		    		<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+		    		<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+		    	</control>
+		        <control type="label">
+		            <label>$INFO[ListItem.Label]</label>
+		            <align>center</align>
+		            <height>35</height>
+		            <textcolor>$VAR[ColorTextVar]</textcolor>
+		            <animation effect="fade" start="100" end="30" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+		        </control>
+		        <control type="label">
+		            <label>$INFO[ListItem.Label]</label>
+		            <align>center</align>
+		            <height>35</height>
+		            <textcolor>black</textcolor>
+		            <visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+		        </control>
+		    </itemlayout>
+		    <focusedlayout height="37" width="73.84">
+		    	<control type="image">
+		    		<width>73.84</width>
+		    		<height>37</height>
+		    		<texture>listselect_fo.png</texture>
+		    		<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+		    		<animation effect="fade" start="100" end="30" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+		    	</control>
+		        <control type="label">
+		            <label>$INFO[ListItem.Label]</label>
+		            <align>center</align>
+		            <height>35</height>
+		            <textcolor>$VAR[ColorTextVar]</textcolor>
+		            <animation effect="fade" start="100" end="30" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+		        </control>
+		    </focusedlayout>
+		    <content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+		</control>
 	</include>
 	<include name="OverlayIcons">
 		<control type="group">
