@@ -840,7 +840,7 @@
 				<top>165</top>
 				<control type="group">
 					<left>1276</left>
-					<visible>![Container.Content(episodes) | Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos) | Container.Content(countries)] + SubString(ListItem.Icon,Default,left)</visible>
+					<visible>SubString(ListItem.Icon,Default,left) + !Container.Content(countries)</visible>
 					<animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsActive(programs) | Window.IsActive(addonbrowser)">Conditional</animation>
 					<control type="image">
 						<width>560</width>
@@ -859,7 +859,7 @@
 				</control>
 				<control type="group">
 					<left>1276</left>
-					<visible>![Container.Content(episodes) | Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(actors) | Container.Content(musicvideos) | Container.Content(files)] + !SubString(ListItem.Icon,Default,left) + !substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)</visible>
+					<visible>![Container.Content(episodes) | Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(actors) | Container.Content(musicvideos) | Container.Content(files) | Window.IsActive(videoplaylist) | SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | SubString(Container.FolderPath,plugin://plugin.program.super.favourites/,left) | SubString(Container.FolderPath,plugin.video)] + !SubString(ListItem.Icon,Default,left)</visible>
 					<control type="image">
 						<width>560</width>
 						<height>840</height>
@@ -868,10 +868,22 @@
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>
 				</control>
+				<control type="group">
+					<left>1276</left>
+					<visible>[[Window.IsActive(pictures) | Container.Content(files) | Container.Content(actors) | [SubString(Container.FolderPath,plugin.video) + !Container.Content(episodes)] | Window.IsActive(videoplaylist) | SubString(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | SubString(Container.FolderPath,plugin://plugin.program.super.favourites/,left)] + !SubString(ListItem.Icon,Default,left)] | Container.Content(countries)</visible>
+					<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | substring(Container.FolderPath,plugin://plugin.program.super.favourites/,left)">Conditional</animation>
+					<control type="image">
+						<width>560</width>
+						<height>840</height>
+						<aspectratio align="center" aligny="top">keep</aspectratio>
+						<texture background="true">$VAR[ListIcon]</texture>
+						<fadetime>IconCrossfadeTime</fadetime>
+					</control>
+				</control>
 				<control type="grouplist">
 					<left>1276</left>
 					<itemgap>15</itemgap>
-					<visible>Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)</visible>
+					<visible>[Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)] + !SubString(ListItem.Icon,Default,left)</visible>
 					<animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsActive(programs) | Window.IsActive(addonbrowser)">Conditional</animation>
 					<control type="image">
 						<width>560</width>
@@ -885,7 +897,6 @@
 						<width>560</width>
 						<height>30</height>
 						<font>font14</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
 						<label>$INFO[ListItem.Album]</label>
 					</control>
 					<control type="label">
@@ -893,7 +904,6 @@
 						<width>560</width>
 						<height>30</height>
 						<font>font14</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
 						<label>$INFO[ListItem.Year]</label>
 					</control>
 					<control type="textbox">
@@ -902,7 +912,6 @@
 						<width>560</width>
 						<height>220</height>
 						<font>font14_textbox4</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
 						<label>$INFO[ListItem.Plot]</label>
 						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					</control>
@@ -916,38 +925,25 @@
 						<include>ShowCaseInfoPanelButtonsValues</include>
 					</control>
 					<control type="textbox">
-						<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
+						<visible>!String.IsEmpty(ListItem.AddonDescription)</visible>
 						<description>Description</description>
 						<width>560</width>
 						<height>275</height>
 						<font>font14_textbox5</font>
-						<textcolor>$VAR[ColorTextVar]</textcolor>
-						<label>$INFO[ListItem.Property(Addon.Description)]</label>
+						<label>$INFO[ListItem.AddonDescription]</label>
 						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					</control>
 				</control>
 				<control type="group">
 					<left>1276</left>
-					<visible>[Window.IsActive(pictures) | Container.Content(files) | Container.Content(actors) | Container.Content(countries) | [substring(Container.FolderPath,plugin.video) + !Container.Content(episodes)] | Window.IsActive(videoplaylist) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)] + [!SubString(ListItem.Icon,Default,left) | Container.Content(countries)]</visible>
-					<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(videoplaylist) | substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)">Conditional</animation>
-					<control type="image">
-						<width>560</width>
-						<height>840</height>
-						<aspectratio align="center" aligny="top">keep</aspectratio>
-						<texture background="true">$VAR[ListIcon]</texture>
-						<fadetime>IconCrossfadeTime</fadetime>
-					</control>
-				</control>
-				<control type="group">
-					<left>1276</left>
-					<visible>Container.Content(episodes)</visible>
+					<visible>Container.Content(episodes) + !SubString(ListItem.Icon,Default,left)</visible>
 					<control type="image">
 						<width>560</width>
 						<height>342</height>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
-						<visible>!IsEmpty(ListItem.Plot)</visible>
+						<visible>!String.IsEmpty(ListItem.Plot)</visible>
 					</control>
 					<control type="image">
 						<width>560</width>
@@ -955,7 +951,7 @@
 						<aspectratio align="center" aligny="top">keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
-						<visible>IsEmpty(ListItem.Plot)</visible>
+						<visible>String.IsEmpty(ListItem.Plot)</visible>
 					</control>
 					<control type="textbox" id="70">
 						<label>$VAR[VideoPlotVar]</label>
@@ -965,7 +961,7 @@
 						<font>font15_textbox</font>
 						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 						<include>ShowCaseInfoPanelButtonsValues</include>
-						<visible>!IsEmpty(ListItem.Plot)</visible>
+						<visible>!String.IsEmpty(ListItem.Plot)</visible>
 					</control>
 				</control>
 			</control>
