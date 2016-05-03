@@ -29,7 +29,7 @@
                 <visible>Integer.IsGreater(Container(9000).NumItems,0) + !Skin.HasSetting(Enable.SettingsPanelView)</visible>
                 <control type="image">
                     <left>175</left>
-                    <top>240</top>
+                    <top>300</top>
                     <width>770</width>
                     <height>120</height>
                     <visible>Control.HasFocus(9000)</visible>
@@ -46,7 +46,7 @@
                 </control>
             </control>
             <control type="panel" id="9000">
-                <animation effect="slide" time="0" tween="sine" easing="inout" start="0,0" end="90,30" condition="!Skin.HasSetting(Enable.SettingsPanelView)">Condition</animation>
+                <animation effect="slide" time="0" tween="sine" easing="inout" start="0,0" end="90,90" condition="!Skin.HasSetting(Enable.SettingsPanelView)">Condition</animation>
                 <top>210</top>
                 <left>85</left>
                 <width>1750</width>
@@ -120,7 +120,6 @@
                         </control>
                     </control>
                 </itemlayout>
-
                 <focusedlayout height="390" width="350" condition="Skin.HasSetting(Enable.SettingsPanelView)">
                     <control type="group">
                         <control type="image">
@@ -235,78 +234,65 @@
                 </focusedlayout>
                 <content>
                     <item id="1">
-                        <label>$LOCALIZE[480]</label>
-                        <label2>$LOCALIZE[166] • $LOCALIZE[248] • $LOCALIZE[360]</label2>
-                        <icon>DefaultAddonSkin.png</icon>
-                        <onclick>ActivateWindow(AppearanceSettings)</onclick>
+                        <label>$LOCALIZE[14206]</label>
+                        <label2>$LOCALIZE[166] • $LOCALIZE[20026] • $LOCALIZE[14223] • $LOCALIZE[24008]</label2>
+                        <icon>DefaultAddonVisualization.png</icon>
+                        <onclick>ActivateWindow(InterfaceSettings)</onclick>
                     </item>
                     <item id="2">
-                        <label>$LOCALIZE[157]</label>
-                        <label2>$LOCALIZE[14022] • $LOCALIZE[14086] • $LOCALIZE[24012] • $LOCALIZE[14087]</label2>
-                        <icon>DefaultVideo.png</icon>
-                        <onclick>ActivateWindow(MyVideosSettings)</onclick>
+                        <label>$LOCALIZE[166]</label>
+                        <label2>$LOCALIZE[10000] • $LOCALIZE[31311] • $LOCALIZE[19190]</label2>
+                        <icon>DefaultAddonSkin.png</icon>
+                        <onclick>ActivateWindow(skinsettings)</onclick>
                     </item>
                     <item id="3">
-                        <label>$LOCALIZE[2]</label>
-                        <label2>$LOCALIZE[14022] • $LOCALIZE[14086] • $LOCALIZE[14081] • $LOCALIZE[620]</label2>
-                        <icon>DefaultAudio.png</icon>
-                        <onclick>ActivateWindow(MyMusicSettings)</onclick>
+                        <label>$LOCALIZE[16003]</label>
+                        <label2>$LOCALIZE[14215] • $LOCALIZE[14216] • $LOCALIZE[14087] • $LOCALIZE[14217]</label2>
+                        <icon>DefaultIconPlay.png</icon>
+                        <onclick>ActivateWindow(PlayerSettings)</onclick>
                     </item>
                     <item id="4">
+                        <label>$LOCALIZE[14022]</label>
+                        <label2>$LOCALIZE[14215] • $LOCALIZE[14216] • $LOCALIZE[14217] • $LOCALIZE[14219]</label2>
+                        <icon>DefaultSets.png</icon>
+                        <onclick>ActivateWindow(LibrarySettings)</onclick>
+                    </item>
+                    
+                    <item id="5">
                         <label>$LOCALIZE[19020]</label>
                         <label2>$LOCALIZE[19019] • $LOCALIZE[19069] • $LOCALIZE[14086] • $LOCALIZE[19043]</label2>
                         <icon>DefaultTVShows.png</icon>
                         <onclick>ActivateWindow(TVSettings)</onclick>
                     </item>
-                    <item id="5">
-                        <label>$LOCALIZE[1]</label>
-                        <label2>$LOCALIZE[14081] • $LOCALIZE[108]</label2>
-                        <icon>DefaultPicture.png</icon>
-                        <onclick>ActivateWindow(MyPicturesSettings)</onclick>
-                    </item>
                     <item id="6">
-                        <label>$LOCALIZE[166]</label>
-                        <label2>$LOCALIZE[10000] • $LOCALIZE[31311] • $LOCALIZE[19190]</label2>
-                        <icon>DefaultIconPlay.png</icon>
-                        <onclick>ActivateWindow(skinsettings)</onclick>
-                    </item>
-                    <item id="7">
                         <label>$LOCALIZE[13000]</label>
                         <label2>$LOCALIZE[15088] • $LOCALIZE[14094] • $LOCALIZE[14095]</label2>
                         <icon>DefaultProgram.png</icon>
                         <onclick>ActivateWindow(SystemSettings)</onclick>
                     </item>
-                    <item id="8">
+                    <item id="7">
                         <label>$LOCALIZE[705]</label>
                         <label2>$LOCALIZE[20187] • $LOCALIZE[33101] • $LOCALIZE[1259]</label2>
                         <icon>DefaultAddonService.png</icon>
                         <onclick>ActivateWindow(ServiceSettings)</onclick>
                     </item>
-                    <item id="9">
-                        <label>$LOCALIZE[8]</label>
-                        <label2>$LOCALIZE[396] • $LOCALIZE[10140]</label2>
-                        <icon>DefaultAddonWeather.png</icon>
-                        <onclick>ActivateWindow(MyWeatherSettings)</onclick>
-                    </item>
-                    <item id="10">
+                    <item id="8">
                         <label>$LOCALIZE[13200]</label>
                         <label2>$LOCALIZE[20067] • $LOCALIZE[20096]</label2>
                         <icon>DefaultActor.png</icon>
                         <onclick>ActivateWindow(Profiles)</onclick>
                     </item>
-                    <item id="11">
+                    <item id="9">
                         <label>$LOCALIZE[24001]</label>
                         <label2>$LOCALIZE[24038] • $LOCALIZE[24020] • $LOCALIZE[24069]</label2>
                         <icon>DefaultAddon.png</icon>
                         <onclick>ActivateWindow(AddonBrowser)</onclick>
-                        <visible>!Skin.HasSetting(Enable.SettingsPanelView)</visible>
                     </item>
-                    <item id="12">
+                    <item id="10">
                         <label>$LOCALIZE[19033]</label>
                         <label2>$LOCALIZE[154] • $LOCALIZE[705] • $LOCALIZE[157] • $LOCALIZE[13281]</label2>
                         <icon>DefaultHardDisk.png</icon>
                         <onclick>ActivateWindow(systeminfo)</onclick>
-                        <visible>!Skin.HasSetting(Enable.SettingsPanelView)</visible>
                     </item>
                 </content>
             </control>
