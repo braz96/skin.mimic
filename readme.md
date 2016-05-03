@@ -25,6 +25,9 @@ More screenshots available here: http://imgur.com/a/LLSMM
 ***
 **4.0.1**
 - Added new widget style for vertical home layout.
+- Redesigned extended weather window.
+- Moved extras menu to a helper script.
+- Code cleanup.
 
 ***
 **4.0.0**
