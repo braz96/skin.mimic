@@ -28,6 +28,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Redesigned extended weather window.
 - Moved extras menu to a helper script.
 - Code cleanup.
+- Removed cdART Manager and ROM Collection Browser skins.
 
 ***
 **4.0.0**
