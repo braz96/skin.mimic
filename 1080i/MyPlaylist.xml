@@ -5,6 +5,7 @@
 	<allowoverlay>no</allowoverlay>
 	<views>50,52,501,508</views>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
@@ -59,11 +60,23 @@
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
 				</control>
+				<control type="button" id="203">
+                    <description>Actions label</description>
+                    <textwidth>352</textwidth>
+                    <font>font13_title</font>
+                    <include>ButtonCommonValues</include>
+                    <label>31039</label>
+                    <enable>no</enable>
+                    <disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
+                    <visible>!Skin.HasSetting(Disable.Quicknav) | Player.HasMedia</visible>
+                </control>
+				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="1802" />
 				</include>
 			</control>
+			<include condition="!Skin.HasSetting(Disable.Quicknav)">QuicknavMenu</include>
 		</control>
 	</controls>
 </window>

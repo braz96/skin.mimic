@@ -6,8 +6,10 @@
 	<views>50,52,507,51,53,56,57,59,500,501,502,504,505,509,520,55</views>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(Disable.NextAired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
+	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;quicknavmenuID=9013)</onload>
 	<controls>
 		<control type="fadelabel" id="4410">
 	        <scrollspeed>20</scrollspeed>
@@ -134,7 +136,7 @@
 					<visible>system.haslocks</visible>
 				</control>
 				<control type="button" id="203">
-					<description>View options</description>
+					<description>Actions label</description>
 					<textwidth>352</textwidth>
 					<font>font13_title</font>
 					<include>ButtonCommonValues</include>
@@ -149,11 +151,13 @@
 					<altlabel>13353</altlabel>
 					<usealttexture>library.isscanningvideo</usealttexture>
 				</control>
+				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="1802" />
 				</include>
 			</control>
+			<include condition="!Skin.HasSetting(Disable.Quicknav)">QuicknavMenu</include>
 		</control>
 	</controls>
 </window>

@@ -5,6 +5,7 @@
 	<allowoverlay>no</allowoverlay>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<views>50,52,51,54,57,59,500,501,504,507,508,505,509,520</views>
 	<controls>
@@ -117,11 +118,13 @@
 					<altlabel>13353</altlabel>
 					<usealttexture>library.isscanningmusic</usealttexture>
 				</control>
+				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="1802" />
 				</include>
 			</control>
+			<include condition="!Skin.HasSetting(Disable.Quicknav)">QuicknavMenu</include>
 		</control>
 	</controls>
 </window>

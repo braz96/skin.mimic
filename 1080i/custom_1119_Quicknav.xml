@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1119">
+    <defaultcontrol always="true">9013</defaultcontrol>
+    <onload condition="!Integer.IsGreater(Container(9013).NumItems,0)">SetFocus(9014)</onload>
+    <coordinates>
+        <left>0</left>
+        <top>0</top>
+        <system>1</system>
+    </coordinates>
+    <controls>
+		<include content="SideBladeCloseIcon">
+            <param name="CloseIconDialogClose" value="Dialog.Close(1119)" />
+            <param name="CloseIconDialogClose2" value="noop" />
+            <param name="ClearMediaMenu" value="ClearProperty(MediaMenu,Home)" />
+            <param name="CloseIconSetFocus" value="SetFocus(50)" />
+            <param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + Window.IsActive(1118)" />
+        </include>
+		<control type="group">
+			<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="-440,0" time="160" tween="quadratic" easing="out">WindowClose</animation>
+			<control type="label">
+				<top>10</top>
+				<width>400</width>
+				<height>52</height>
+				<textoffsetx>15</textoffsetx>
+				<font>font13_title</font>
+				<label>Quicknav</label>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			</control>
+			<control type="list" id="9013">
+				<!-- Quicknav list-->
+				<top>62</top>
+				<width>400</width>
+				<height>840</height>
+				<orientation>vertical</orientation>
+				<onright>Dialog.Close(1119)</onright>
+				<onright>ClearProperty(MediaMenu,Home)</onright>
+				<onright>Control.SetFocus(50)</onright>
+				<onup>9014</onup>
+				<ondown condition="Control.IsVisible(9014)">9014</ondown>
+				<ondown condition="!Control.IsVisible(9014)">9013</ondown>
+				<itemlayout width="400" height="60">
+					<control type="image">
+						<top>10</top>
+						<left>10</left>
+						<width>40</width>
+						<height>40</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="label">
+						<textoffsetx>15</textoffsetx>
+						<left>50</left>
+						<width>350</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="400" height="60">
+					<control type="image">
+						<width>400</width>
+						<height>60</height>
+						<texture>listselect_fo.png</texture>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+						<visible>Control.HasFocus(9013)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="image">
+						<top>10</top>
+						<left>10</left>
+						<width>40</width>
+						<height>40</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="label">
+						<textoffsetx>15</textoffsetx>
+						<left>50</left>
+						<width>350</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>skinshortcuts-group-quicknav</include>
+				</content>
+			</control>
+			<control type="button" id="9014">
+				<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
+				<top>1020</top>
+				<width>400</width>
+				<align>center</align>
+				<textoffsetx>30</textoffsetx>
+				<font>IconMedium</font>
+				<label></label>
+				<focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
+				<texturefocus>-</texturefocus>
+				<onright>Dialog.Close(1119)</onright>
+				<onright>ClearProperty(MediaMenu,Home)</onright>
+				<onright>Control.SetFocus(50)</onright>
+				<onup>SetFocus(9013,50)</onup>
+				<ondown>SetFocus(9013,0)</ondown>
+				<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=quicknav)</onclick>
+			</control>
+		</control>
+    </controls>
+</window>

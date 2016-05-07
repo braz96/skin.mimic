@@ -23,6 +23,10 @@ More screenshots available here: http://imgur.com/a/LLSMM
 
 
 ***
+**4.0.2**
+- Added a quick launch menu to side menu.
+
+***
 **4.0.1**
 - Added new widget style for vertical home layout.
 - Redesigned extended weather window.

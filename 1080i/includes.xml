@@ -108,7 +108,7 @@
 	</include>
 	<include name="MediaMenuTop">
 		<left>0</left>
-		<top>10</top>
+		<top>0</top>
 		<width>400</width>
 		<height>1080</height>
 		<onleft>9050</onleft>
@@ -122,11 +122,11 @@
 		<onback>50</onback>
 		<itemgap>0</itemgap>
 		<include condition="Skin.HasSetting(KioskMode.Enabled)">KioskModeButton</include>
-		<visible>String.IsEmpty(Window(home).Property(viewtypeselect)) + !Window.IsVisible(1133)</visible>
+		<visible allowhiddenfocus="true">String.IsEmpty(Window(home).Property(viewtypeselect)) + !Window.IsVisible(1133) + !Control.HasFocus(9013) + !Control.HasFocus(9014)</visible>
 		<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
 		<control type="label" id="200">
 			<width>400</width>
-			<height>52</height>
+			<height>60</height>
 			<textoffsetx>15</textoffsetx>
 			<font>font13_title</font>
 			<label>31006</label>
@@ -372,7 +372,9 @@
 				<onup>9050</onup>
 				<ondown>9050</ondown>
 				<onback>ClearProperty(MediaMenu,Home)</onback>
-				<onback>3</onback>
+				<onback condition="![Window.IsActive(skinsettings) | Window.IsActive(systeminfo) | Window.IsActive(profiles)]">3</onback>
+				<onback condition="Window.IsActive(skinsettings) | Window.IsActive(systeminfo)">9000</onback>
+				<onback condition="Window.IsActive(profiles)">2</onback>
 				<itemgap>0</itemgap>
 				<include condition="Skin.HasSetting(KioskMode.Enabled)">KioskModeButton</include>
 				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
@@ -470,7 +472,7 @@
 					<textwidth>352</textwidth>
 					<font>font13_title</font>
 					<include>ButtonCommonValues</include>
-					<label>5</label>
+					<label>31039</label>
 					<enable>no</enable>
 					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
 					<visible>Window.IsActive(SettingsCategory.xml)</visible>
@@ -1469,6 +1471,107 @@
 			<onright>101</onright>
 			<onup>$PARAM[id]</onup>
 			<ondown>$PARAM[id]</ondown>
+		</control>
+    </include>
+    <include name="QuicknavMenu">
+    	<control type="group">
+    		<visible allowhiddenfocus="true">Control.HasFocus(9013) | Control.HasFocus(9014)</visible>
+			<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
+			<animation effect="slide" start="0,0" end="-440,0" time="160" tween="quadratic" easing="out">Hidden</animation>
+			<control type="label">
+				<width>400</width>
+				<height>60</height>
+				<textoffsetx>15</textoffsetx>
+				<font>font13_title</font>
+				<label>31248</label>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			</control>
+			<control type="list" id="9013">
+				<!-- Quicknav list-->
+				<top>60</top>
+				<width>400</width>
+				<height>960</height>
+				<orientation>vertical</orientation>
+				<onright>ClearProperty(MediaMenu,Home)</onright>
+				<onright condition="![Window.IsVisible(tvguide) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(settings) | Window.IsActive(weather)]">SetFocus(50)</onright>
+				<onright condition="Window.IsVisible(tvguide)">SetFocus(10)</onright>
+				<onright condition="Window.IsActive(SettingsCategory.xml)">SetFocus(3)</onright>
+				<onright condition="Window.IsActive(settings) | Window.IsActive(weather)">SetFocus(9000)</onright>
+				<onback>9050</onback>
+				<onup>9014</onup>
+				<ondown condition="Control.IsVisible(9014)">9014</ondown>
+				<ondown condition="!Control.IsVisible(9014)">9013</ondown>
+				<itemlayout width="400" height="60">
+					<control type="image">
+						<top>10</top>
+						<left>10</left>
+						<width>40</width>
+						<height>40</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="label">
+						<textoffsetx>15</textoffsetx>
+						<left>50</left>
+						<width>350</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="400" height="60">
+					<control type="image">
+						<width>400</width>
+						<height>60</height>
+						<texture>listselect_fo.png</texture>
+						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+						<visible>Control.HasFocus(9013)</visible>
+						<include>VisibleFadeEffect</include>
+					</control>
+					<control type="image">
+						<top>10</top>
+						<left>10</left>
+						<width>40</width>
+						<height>40</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="label">
+						<textoffsetx>15</textoffsetx>
+						<left>50</left>
+						<width>350</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+				<content>
+					<include condition="!Skin.HasSetting(Disable.MainQuicknav)">skinshortcuts-mainmenu</include>
+					<include>skinshortcuts-group-quicknav</include>
+				</content>
+			</control>
+			<control type="button" id="9014">
+				<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
+				<top>1020</top>
+				<width>400</width>
+				<align>center</align>
+				<textoffsetx>30</textoffsetx>
+				<font>IconMedium</font>
+				<label></label>
+				<focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
+				<texturefocus>-</texturefocus>
+				<onright>Control.SetFocus(9050)</onright>
+				<onback>Control.SetFocus(9050)</onback>
+				<onup>SetFocus(9013,50)</onup>
+				<ondown>SetFocus(9013,0)</ondown>
+				<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=quicknav)</onclick>
+			</control>
+		</control>
+    </include>
+    <include name="QuicknavButton">
+    	<control type="button" id="98765">
+			<description>Quicknav</description>
+			<label>31248</label>
+			<include>ButtonCommonValues</include>
+			<visible>System.HasAddon(script.skinshortcuts) + !Skin.HasSetting(Disable.Quicknav)</visible>
+			<onclick condition="Integer.IsGreater(Container(9013).NumItems,0)">SetFocus(9013)</onclick>
+			<onclick condition="!Integer.IsGreater(Container(9013).NumItems,0)">SetFocus(9014)</onclick>
 		</control>
     </include>
 </includes>

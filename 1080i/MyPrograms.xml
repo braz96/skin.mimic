@@ -5,6 +5,7 @@
 	<allowoverlay>no</allowoverlay>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<onunload>ClearProperty(Progams.Games,Home)</onunload>
 	<views>50,52,520,57,501</views>
@@ -43,11 +44,23 @@
 					<onclick>right</onclick>
 					<onclick>Filter</onclick>
 				</control>
+				<control type="button" id="203">
+					<description>Actions label</description>
+					<textwidth>352</textwidth>
+					<font>font13_title</font>
+					<include>ButtonCommonValues</include>
+					<label>31039</label>
+					<enable>no</enable>
+					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
+					<visible>!Skin.HasSetting(Disable.Quicknav) | Player.HasMedia</visible>
+				</control>
+				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="1802" />
 				</include>
 			</control>
+			<include condition="!Skin.HasSetting(Disable.Quicknav)">QuicknavMenu</include>
 		</control>
 	</controls>
 </window>

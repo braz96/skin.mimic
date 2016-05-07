@@ -2,6 +2,8 @@
 <window>
     <defaultcontrol always="true">9000</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
+    <onload>ClearProperty(MediaMenu,Home)</onload>
+    <onunload>ClearProperty(MediaMenu,Home)</onunload>
     <controls>
         <include>CommonBackground</include>
         <include>Topbar</include>
@@ -301,7 +303,7 @@
             <left>-440</left>
             <include>SideBladeLeft</include>
             <control type="grouplist" id="9050">
-                <visible>!Window.IsVisible(1118)</visible>
+                <visible allowhiddenfocus="true">!Window.IsVisible(1118) + !Control.HasFocus(9013) + !Control.HasFocus(9014)</visible>
                 <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
                 <left>0</left>
                 <top>10</top>
@@ -332,11 +334,23 @@
                     <onclick>ActivateWindow(1118)</onclick>
                     <visible>!Window.IsActive(musicplaylisteditor)</visible>
                 </control>
+                <control type="button" id="203">
+                    <description>Actions label</description>
+                    <textwidth>352</textwidth>
+                    <font>font13_title</font>
+                    <include>ButtonCommonValues</include>
+                    <label>31039</label>
+                    <enable>no</enable>
+                    <disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
+                    <visible>!Skin.HasSetting(Disable.Quicknav) | Player.HasMedia</visible>
+                </control>
+                <include>QuicknavButton</include>
                 <include>PlaylistButtons</include>
                 <include content="MenuPlayerControls">
                     <param name="PlayerControlsOnDown" value="1802" />
                 </include>
             </control>
+            <include condition="!Skin.HasSetting(Disable.Quicknav)">QuicknavMenu</include>
         </control>
     </controls>
 </window>

@@ -38,8 +38,10 @@
 				<orientation>vertical</orientation>
 				<onright>Dialog.Close(1118)</onright>
 				<onright>ClearProperty(MediaMenu,Home)</onright>
-				<onright>Control.SetFocus(50)</onright>
-				<onup>9011</onup>
+				<onright condition="!Window.IsActive(settings)">Control.SetFocus(50)</onright>
+				<onright condition="Window.IsActive(settings)">Control.SetFocus(9000)</onright>
+				<onup condition="Control.IsVisible(9012)">9012</onup>
+				<onup condition="!Control.IsVisible(9012)">9011</onup>
 				<ondown condition="Control.IsVisible(9012)">9012</ondown>
 				<ondown condition="!Control.IsVisible(9012)">9011</ondown>
 				<itemlayout width="400" height="60">
@@ -246,8 +248,8 @@
 				<onright>Dialog.Close(1118)</onright>
 				<onright>ClearProperty(MediaMenu,Home)</onright>
 				<onright>Control.SetFocus(50)</onright>
-				<onup>9011</onup>
-				<ondown>9011</ondown>
+				<onup>SetFocus(9011,50)</onup>
+				<ondown>SetFocus(9011,0)</ondown>
 				<onclick>Notification($LOCALIZE[31007],$LOCALIZE[31008])</onclick>
 				<onclick>ActivateWindow(1129)</onclick>
 			</control>

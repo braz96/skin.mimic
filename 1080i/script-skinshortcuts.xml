@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1134">
 	<defaultcontrol always="true">90001</defaultcontrol>
+	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;mainmenuID=9000&amp;levels=2&amp;group=mainmenu|quicknav)</onunload>
 	<allowoverlay>no</allowoverlay>
 	<coordinates>
 		<system>1</system>
 	</coordinates>
+	<include condition="!Window.IsVisible(SkinSettings.xml)">dialogeffect</include>
+	<animation effect="slide" start="0,0" end="0,30" time="0" condition="!Window.IsVisible(SkinSettings.xml)">Conditional</animation>
 	<controls>
+		<control type="group">
+			<top>90</top>
+			<left>53</left>
+			<include condition="!Window.IsVisible(SkinSettings.xml)" content="DialogBackgroundCommons">
+				<param name="DialogBackgroundWidth" value="1814" />
+				<param name="DialogBackgroundHeight" value="840" />
+				<param name="DialogHeaderLabel" value="31249" />
+				<param name="DialogHeaderId" value="" />
+			</include>
+		</control>
 		<control type="group">
 			<visible>String.IsEmpty(Window.Property(additionalDialog))</visible>
 			<left>0</left>
 			<top>180</top>
-			<animation type="WindowOpen" reversible="false">
+			<animation type="WindowOpen" reversible="false" condition="Window.IsVisible(SkinSettings.xml)">
 	            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
 	            <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
 	        </animation>
@@ -18,7 +31,7 @@
 				<left>82</left>
 				<top>0</top>
 				<width>356</width>
-				<height>840</height>
+				<height>720</height>
 				<onleft>90001</onleft>
 				<onright>90001</onright>
 				<onup>211</onup>
@@ -67,6 +80,7 @@
 			</control>-->
 			<control type="textbox">
 				<description>description area</description>
+				<visible>Window.IsVisible(SkinSettings.xml)</visible>
 				<left>552</left>
 				<top>742</top>
 				<width>1256</width>
@@ -143,6 +157,7 @@
 					<font>font15</font>
 					<label>$ADDON[script.skinshortcuts 32045]</label>
 					<label2>$INFO[Container(211).ListItem.Property(backgroundName)]</label2>
+					<visible>Window.IsVisible(SkinSettings.xml)</visible>
 				</control>
 
 				<control type="button" id="312">
@@ -221,7 +236,7 @@
 			</control>
 		</control>
 		<control type="scrollbar" id="60">
-			<visible allowhiddenfocus="true">[Control.HasFocus(60) | ControlGroup(90001).HasFocus] + String.IsEmpty(Window.Property(additionalDialog))</visible>
+			<visible allowhiddenfocus="true">[Control.HasFocus(60) | ControlGroup(90001).HasFocus] + String.IsEmpty(Window.Property(additionalDialog)) + Window.IsVisible(SkinSettings.xml)</visible>
 			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
 			<left>1910</left>
 			<top>120</top>

@@ -5,6 +5,7 @@
 	<allowoverlay>no</allowoverlay>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
+	<onunload>ClearProperty(MediaMenu,Home)</onunload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<views>50,52,510,504,509,520,57,501</views>
 	<controls>
@@ -81,11 +82,13 @@
 					<include>ButtonCommonValues</include>
 					<label>13319</label>
 				</control>
+				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="1802" />
 				</include>
 			</control>
+			<include condition="!Skin.HasSetting(Disable.Quicknav)">QuicknavMenu</include>
 		</control>
 	</controls>
 </window>
