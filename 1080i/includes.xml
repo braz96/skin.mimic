@@ -138,7 +138,7 @@
 			<include>ButtonCommonValues</include>
 			<onclick>SetProperty(viewtypeselect,1,home)</onclick>
 			<onclick>ActivateWindow(1118)</onclick>
-			<visible>!Window.IsActive(musicplaylisteditor)</visible>
+			<visible>![Window.IsActive(musicplaylisteditor) | Window.IsActive(tvchannels) | Window.IsActive(tvtimers) | Window.IsActive(tvtimerrules) | Window.IsActive(tvrecordings) | Window.IsActive(tvsearch) | Window.IsActive(radiochannels) | Window.IsActive(radiotimers) | Window.IsActive(radiotimerrules) | Window.IsActive(radiorecordings) | Window.IsActive(radiosearch)]</visible>
 		</control>
 		<control type="button" id="3">
 			<description>Sort by button</description>
@@ -218,14 +218,14 @@
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.ToggleSetting(Enable.SlimList)</onclick>
 			<selected>Skin.HasSetting(Enable.SlimList)</selected>
-			<visible>Control.IsVisible(50) + ![Window.IsActive(eventlog) | Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(radiochannels) | Window.IsActive(radiorecordings) | Window.IsActive(radiotimers) | Window.IsActive(radiosearch)]</visible>
+			<visible>Control.IsVisible(50) + ![Window.IsActive(eventlog) | Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvtimerrules) | Window.IsActive(tvsearch) | Window.IsActive(radiochannels) | Window.IsActive(radiorecordings) | Window.IsActive(radiotimers) | Window.IsActive(radiosearch)]</visible>
 		</control>
 		<control type="radiobutton" id="1899">
 			<label>31237</label>
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.ToggleSetting(Enable.WideList)</onclick>
 			<selected>Skin.HasSetting(Enable.WideList)</selected>
-			<visible>Control.IsVisible(50) + ![Window.IsActive(eventlog) | Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | Window.IsActive(radiochannels) | Window.IsActive(radiorecordings) | Window.IsActive(radiotimers) | Window.IsActive(radiosearch)]</visible>
+			<visible>Control.IsVisible(50) + ![Window.IsActive(eventlog) | Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvtimerrules) | Window.IsActive(tvsearch) | Window.IsActive(radiochannels) | Window.IsActive(radiorecordings) | Window.IsActive(radiotimers) | Window.IsActive(radiosearch)]</visible>
 		</control>
 	</include>
 	<include name="PVRMediaMenu">
@@ -242,6 +242,41 @@
 					<selected>Container.Filtered</selected>
 					<onclick>right</onclick>
 					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
+				</control>
+				<control type="button" id="28">
+					<description>Channel Groups</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>-</label>
+					<visible>Window.IsActive(TVChannels) | Window.IsActive(TVGuide)</visible>
+				</control>
+				<control type="radiobutton" id="5">
+					<description>Group recording items by folder structure</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>19270</label>
+					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
+				</control>
+				<control type="radiobutton" id="6">
+					<description>Show hidden channels</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>19051</label>
+					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
+				</control>
+				<control type="radiobutton" id="7">
+					<description>Show deleted recordings</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>19184</label>
+					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
+				</control>
+				<control type="radiobutton" id="8">
+					<description>Hide disabled timers</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>19077</label>
+					<visible>Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
 				</control>
 				<control type="button" id="203">
 					<description>View options</description>
@@ -305,7 +340,7 @@
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 				</control>
-				<control type="button" id="201">
+				<!--<control type="button" id="201">
 					<description>View options</description>
 					<textwidth>352</textwidth>
 					<font>font13_title</font>
@@ -313,46 +348,14 @@
 					<label>31026</label>
 					<enable>no</enable>
 					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
-				</control>
-				<control type="button" id="28">
-					<description>Channel Groups</description>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<label>-</label>
-				</control>
-				<control type="radiobutton" id="5">
-					<description>Group recording items by folder structure</description>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<label>19270</label>
-					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
-				</control>
-				<control type="radiobutton" id="6">
-					<description>Show hidden channels</description>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<label>19051</label>
-					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
-				</control>
-				<control type="radiobutton" id="7">
-					<description>Show deleted recordings</description>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<label>19184</label>
-					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
-				</control>
-				<control type="radiobutton" id="8">
-					<description>Hide disabled timers</description>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<label>19077</label>
-					<visible>Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
-				</control>
+				</control>-->
+				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="1802" />
 				</include>
 			</control>
+			<include condition="!Skin.HasSetting(Disable.Quicknav)">QuicknavMenu</include>
 		</control>
 	</include>
 	<include name="SettingsMediaMenu">
