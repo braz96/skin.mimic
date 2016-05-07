@@ -507,21 +507,12 @@
 	<include name="MenuPlayerControls">
 		<control type="group" id="1810">
 			<visible>Player.HasMedia + Control.IsVisible(9050)</visible>
-			<control type="label" id="6049">
-				<top>5</top>
-				<width>400</width>
-				<height>52</height>
-				<textoffsetx>15</textoffsetx>
-				<font>font13_title</font>
-				<label>31157</label>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-			</control>
 			<control type="grouplist" id="6050">
 				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-				<top>70</top>
-				<left>9</left>
-				<height>48</height>
-				<width>400</width>
+				<top>9</top>
+				<left>7</left>
+				<height>42</height>
+				<width>402</width>
 				<align>center</align>
 				<itemgap>-10</itemgap>
 				<scrolltime tween="sine">200</scrolltime>
@@ -536,8 +527,8 @@
 					<texturefocus>osd/buttons/OSDPrevTrack.png</texturefocus>
 					<texturenofocus>osd/buttons/OSDPrevTrack2.png</texturenofocus>
 					<label>-</label>
-					<width>75</width>
-					<height>48</height>
+					<width>66</width>
+					<height>42</height>
 					<font>-</font>
 					<onclick>PlayerControl(Previous)</onclick>
 					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
@@ -546,8 +537,8 @@
 					<texturefocus>osd/buttons/OSDRewind.png</texturefocus>
 					<texturenofocus>osd/buttons/OSDRewind2.png</texturenofocus>
 					<label>-</label>
-					<width>75</width>
-					<height>48</height>
+					<width>66</width>
+					<height>42</height>
 					<font>-</font>
 					<onclick>PlayerControl(Rewind)</onclick>
 					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
@@ -560,8 +551,8 @@
 					<alttexturenofocus>osd/buttons/OSDPlay2.png</alttexturenofocus>
 					<label>-</label>
 					<altlabel>208</altlabel>
-					<width>75</width>
-					<height>48</height>
+					<width>66</width>
+					<height>42</height>
 					<font>-</font>
 					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
 					<onclick>PlayerControl(Play)</onclick>
@@ -572,8 +563,8 @@
 					<texturefocus>osd/buttons/OSDStop.png</texturefocus>
 					<texturenofocus>osd/buttons/OSDStop2.png</texturenofocus>
 					<label>-</label>
-					<width>75</width>
-					<height>48</height>
+					<width>66</width>
+					<height>42</height>
 					<font>-</font>
 					<onclick>PlayerControl(Stop)</onclick>
 					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
@@ -582,8 +573,8 @@
 					<texturefocus>osd/buttons/OSDForward.png</texturefocus>
 					<texturenofocus>osd/buttons/OSDForward2.png</texturenofocus>
 					<label>-</label>
-					<width>75</width>
-					<height>48</height>
+					<width>66</width>
+					<height>42</height>
 					<font>-</font>
 					<onclick>PlayerControl(Forward)</onclick>
 					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
@@ -593,10 +584,21 @@
 					<texturefocus>osd/buttons/OSDNextTrack.png</texturefocus>
 					<texturenofocus>osd/buttons/OSDNextTrack2.png</texturenofocus>
 					<label>-</label>
-					<width>75</width>
-					<height>48</height>
+					<width>66</width>
+					<height>42</height>
 					<font>-</font>
 					<onclick>PlayerControl(Next)</onclick>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+				</control>
+				<control type="button" id="6057">
+					<texturefocus>osd/buttons/OSDChannelUp.png</texturefocus>
+					<texturenofocus>osd/buttons/OSDChannelUp2.png</texturenofocus>
+					<label>-</label>
+					<width>66</width>
+					<height>42</height>
+					<font>-</font>
+					<onclick condition="Player.HasVideo">ActivateWindow(fullscreenvideo)</onclick>
+					<onclick condition="Player.HasAudio">ActivateWindow(visualisation)</onclick>
 					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
 				</control>
 			</control>
@@ -840,14 +842,6 @@
         </control>
     </include>
     <include name="PlaylistButtons">
-    	<control type="button" id="612">
-			<label>31926</label>
-			<include>ButtonCommonValues</include>
-			<onclick>ClearProperty(MediaMenu,Home)</onclick>
-			<onclick condition="Player.HasVideo">ActivateWindow(fullscreenvideo)</onclick>
-			<onclick condition="Player.HasAudio">ActivateWindow(visualisation)</onclick>
-			<visible>Player.HasMedia</visible>
-		</control>
 		<control type="button" id="613">
 			<description>Go to playlist</description>
 			<include>ButtonCommonValues</include>
