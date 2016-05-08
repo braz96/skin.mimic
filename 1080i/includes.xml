@@ -363,6 +363,7 @@
 			<left>-440</left>
 			<include>SideBladeLeft</include>
 			<control type="grouplist" id="9050">
+				<visible allowhiddenfocus="true">!Control.HasFocus(9013) + !Control.HasFocus(9014)</visible>
 				<left>0</left>
 				<top>0</top>
 				<width>400</width>
@@ -478,7 +479,7 @@
 					<label>31039</label>
 					<enable>no</enable>
 					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
-					<visible>Window.IsActive(SettingsCategory.xml)</visible>
+					<visible>Window.IsActive(SettingsCategory.xml) | Player.HasMedia | !Skin.HasSetting(Disable.Quicknav)</visible>
 				</control>
 				<control type="button" id="20">
 					<description>Settings level</description>
@@ -497,11 +498,13 @@
 					<onclick>SettingsLevelChange</onclick>
 					<visible>Window.IsActive(SettingsCategory.xml)</visible>
 				</control>
+				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">
 					<param name="PlayerControlsOnDown" value="2202" />
 				</include>
 			</control>
+			<include condition="!Skin.HasSetting(Disable.Quicknav)">QuicknavMenu</include>
 		</control>
 	</include>
 	<include name="MenuPlayerControls">
@@ -1473,10 +1476,11 @@
 				<height>960</height>
 				<orientation>vertical</orientation>
 				<onright>ClearProperty(MediaMenu,Home)</onright>
-				<onright condition="![Window.IsVisible(tvguide) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(settings) | Window.IsActive(weather)]">SetFocus(50)</onright>
+				<onright condition="![Window.IsVisible(tvguide) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(settings) | Window.IsActive(weather) | Window.IsActive(skinsettings) | Window.IsActive(systeminfo) | Window.IsActive(profiles)]">SetFocus(50)</onright>
 				<onright condition="Window.IsVisible(tvguide)">SetFocus(10)</onright>
 				<onright condition="Window.IsActive(SettingsCategory.xml)">SetFocus(3)</onright>
-				<onright condition="Window.IsActive(settings) | Window.IsActive(weather)">SetFocus(9000)</onright>
+				<onright condition="Window.IsActive(settings) | Window.IsActive(weather) | Window.IsActive(skinsettings) | Window.IsActive(systeminfo)">SetFocus(9000)</onright>
+				<onright condition="Window.IsActive(profiles)">2</onright>
 				<onback>9050</onback>
 				<onup>9014</onup>
 				<ondown condition="Control.IsVisible(9014)">9014</ondown>
