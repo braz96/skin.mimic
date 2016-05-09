@@ -97,12 +97,9 @@
 		<value>$VAR[BreadcrumbsFillerVar]</value>
 	</variable>
 	<variable name="MusicOSDRepeatButtonVar">
-		<value condition="[!Playlist.IsRepeat + !Playlist.IsRepeatOne] + !Control.HasFocus(707)">osd/buttons/OSDRepeat2.png</value>
-		<value condition="Playlist.IsRepeatOne+!Control.HasFocus(707)">osd/buttons/OSDRepeatOne2.png</value>
-		<value condition="Playlist.IsRepeat+!Control.HasFocus(707)">osd/buttons/OSDRepeatAll2.png</value>
-		<value condition="[!Playlist.IsRepeat + !Playlist.IsRepeatOne] + Control.HasFocus(707)">osd/buttons/OSDRepeat.png</value>
-		<value condition="Playlist.IsRepeatOne + Control.HasFocus(707)">osd/buttons/OSDRepeatOne.png</value>
-		<value condition="Playlist.IsRepeat + Control.HasFocus(707)">osd/buttons/OSDRepeatAll.png</value>
+		<value condition="!Playlist.IsRepeat + !Playlist.IsRepeatOne"></value>
+		<value condition="Playlist.IsRepeatOne"></value>
+		<value condition="Playlist.IsRepeat"></value>
 	</variable>
 	<!--  List Label Vars -->
 	<variable name="ListMainLabelVar">
@@ -497,6 +494,11 @@
 	</variable>
 	<variable name="ColorMenuVar">
 		<value condition="Skin.HasSetting(ColorCustomizer.Enabled) + !String.IsEmpty(Skin.String(menucolor.name))">$INFO[Skin.String(menucolor.name)]</value>
+		<value>maintext</value>
+	</variable>
+	<variable name="ColorRecordingVar">
+		<value condition="Player.Recording">ffff0000</value>
+		<value condition="!Player.Recording + !String.IsEmpty(Skin.String(menucolor.name))">$INFO[Skin.String(menucolor.name)]</value>
 		<value>maintext</value>
 	</variable>
 	<variable name="ArtLabelVar">
