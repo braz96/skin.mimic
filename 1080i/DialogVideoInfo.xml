@@ -7,10 +7,9 @@
 		<include condition="System.HasAddon(script.extendedinfo)">HiddenActorList</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Conditional</animation>
-			<animation effect="fade" time="300">WindowClose</animation>
 			<include>FullscreenDimensions</include>
 			<control type="image">
-				<texture>black.png</texture>
+				<texture fallback="special://skin/backgrounds/default_bg.jpg">$INFO[Skin.String(CustomBackground)]</texture>
 				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
 			</control>
 			<control type="image">
@@ -23,73 +22,12 @@
 			</control>
 		</control>
 		<control type="group">
-			<include>dialogeffect</include>
-			<include>Animation_ExtendedInfo</include>
-			<left>741</left>
+			<include>Animation.Common</include>
+			<left>702</left>
 			<control type="group">
 				<top>20</top>
 				<width>1150</width>
 				<height>854</height>
-				<control type="grouplist">
-					<top>-15</top>
-					<left>5</left>
-					<width>1135</width>
-					<height>110</height>
-					<itemgap>0</itemgap>
-					<align>center</align>
-					<control type="label">
-						<width>1135</width>
-						<height>60</height>
-						<font>font30_title</font>
-						<scroll>true</scroll>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<width>1135</width>
-						<height>30</height>
-						<font>font15</font>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<scroll>true</scroll>
-						<label>$INFO[ListItem.Tagline]</label>
-						<visible>$EXP[isMovie] + !String.IsEmpty(ListItem.Tagline)</visible>
-					</control>
-					<control type="label">
-						<width>1135</width>
-						<height>30</height>
-						<font>font15</font>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<scroll>true</scroll>
-						<label>$INFO[ListItem.OriginalTitle]</label>
-						<visible>$EXP[isMovie] + String.IsEmpty(ListItem.Tagline)</visible>
-					</control>
-					<control type="label">
-						<width>1135</width>
-						<height>30</height>
-						<font>font15</font>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<scroll>true</scroll>
-						<label>$INFO[Window(Home).Property(NextAired.Status)]</label>
-						<visible>$EXP[isTvshow] + !String.IsEmpty(Window(Home).Property(NextAired.Status))</visible>
-					</control>
-					<control type="label">
-						<width>1135</width>
-						<height>30</height>
-						<font>font15</font>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<scroll>true</scroll>
-						<label>$INFO[ListItem.TvShowTitle]</label>
-						<visible>$EXP[isEpisode] + !String.IsEmpty(ListItem.TvShowTitle)</visible>
-					</control>
-					<control type="label">
-						<width>1135</width>
-						<height>30</height>
-						<font>font15</font>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<scroll>true</scroll>
-						<label>$INFO[ListItem.Artist]</label>
-						<visible>$EXP[isMusicvideo] + !String.IsEmpty(ListItem.Artist)</visible>
-					</control>
-				</control>
 				<control type="panel">
 					<left>5</left>
 					<top>120</top>
@@ -436,7 +374,7 @@
 				<include condition="!System.HasAddon(script.extendedinfo)">DefaultActorList</include>
 				<include condition="System.HasAddon(script.extendedinfo)">ExtendedActorList</include>
 			</control>
-			<control type="group">
+			<!--<control type="group">
                 <visible>Integer.IsGreater(Container(150).NumItems,0)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
                 <control type="image">
@@ -545,7 +483,7 @@
 					</control>
 				</focusedlayout>
 				<content>$VAR[VideoInfoYoutubePath]</content>
-            </control>
+            </control>-->
             <control type="group">
 	            <visible>Integer.IsGreater(Container(250).NumItems,0)</visible>
 	            <animation effect="fade" time="320" delay="300">Visible</animation>
@@ -638,7 +576,7 @@
 				</focusedlayout>
 				<content target="video">videodb://movies/sets/$INFO[ListItem.SetID]</content>
 	        </control>
-            <control type="label">
+            <!--<control type="label">
             	<left>-3</left>
 				<top>576</top>
 				<width>1156</width>
@@ -661,7 +599,7 @@
                 <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/][/COLOR]</label>
                 <visible>Integer.IsGreater(Container(150).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(150)]</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
-            </control>
+            </control>-->
             <control type="label">
                 <left>-10</left>
                 <top>1012</top>
@@ -713,6 +651,32 @@
                 <visible>Integer.IsGreater(Container(90019).NumItems,0) + [ControlGroup(9000).HasFocus(555) | Control.HasFocus(90019)] + System.HasAddon(script.extendedinfo)</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
             </control>
+            <control type="group">
+                <include>VisibleFadeEffect</include>
+                <visible>ControlGroup(9000).HasFocus()</visible>
+                <height>30</height>
+                <top>505</top>
+                <left>-50</left>
+                <control type="label">
+                    <visible>Container(9000).HasPrevious</visible>
+                    <width>30</width>
+                    <height>30</height>
+                    <align>center</align>
+                    <label></label>
+                    <font>IconTiny</font>
+                    <textcolor>disabled</textcolor>
+                </control>
+                <control type="label">
+                    <visible>Container(9000).HasNext</visible>
+                    <left>1220</left>
+                    <width>30</width>
+                    <height>30</height>
+                    <align>center</align>
+                    <label></label>
+                    <font>IconTiny</font>
+                    <textcolor>disabled</textcolor>
+                </control>
+            </control>
 			<control type="group">
 				<left>2</left>
 				<top>490</top>
@@ -761,14 +725,14 @@
 						<label>20410</label>
 						<visible>False</visible>
 					</control>
-					<control type="button" id="204">
+					<!--<control type="button" id="204">
 						<description>YouTube</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>31070</label>
 						<onclick>noop</onclick>
 						<enable>System.HasAddon(script.extendedinfo)</enable>
 						<visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
-					</control>
+					</control>-->
 					<control type="button" id="7">
 						<description>User ratings</description>
 						<include>ButtonInfoDialogsCommonValues</include>
@@ -803,36 +767,27 @@
 			</control>
 		</control>
 		<control type="group">
-			<include>dialogeffect</include>
-			<include>Animation_ExtendedInfo</include>
+			<include>Animation.Common</include>
 			<control type="image">
-				<visible>!$EXP[isMusicvideo]</visible>
-				<top>30</top>
+				<visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
+				<top>150</top>
 				<left>30</left>
-				<width>681</width>
-				<height>1020</height>
+				<width>600</width>
+				<height>900</height>
 				<aspectratio align="center" aligny="center">scale</aspectratio>
 				<texture background="true">$VAR[PosterVar]</texture>
 			</control>
-			<control type="group">
-				<visible>$EXP[isMusicvideo]</visible>
-				<top>30</top>
+			<control type="image">
+				<visible>![$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
+				<top>150</top>
 				<left>30</left>
-				<control type="image">
-					<width>680</width>
-					<height>340</height>
-					<aspectratio>keep</aspectratio>
-					<texture background="true">$INFO[Skin.String(MusicLibraryPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
-				</control>
-				<control type="image">
-					<top>339</top>
-					<width>681</width>
-					<height>681</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$VAR[PosterVar]</texture>
-				</control>
+				<width>600</width>
+				<height>900</height>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
+				<texture background="true">$VAR[PosterVar]</texture>
 			</control>
 		</control>
+		<include>Topbar</include>
 		<control type="group">
 			<visible allowhiddenfocus="true">Control.HasFocus(90400)</visible>
 			<include>VisibleFadeEffect</include>
