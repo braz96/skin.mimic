@@ -61,40 +61,26 @@
 		<value condition="ListItem.IsResumable">overlays/list/resumable.png</value>
 		<value>$INFO[ListItem.Overlay,overlays/list/]</value>
 	</variable>
-	<variable name="BreadcrumbsFillerVar">
-		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[20343]</value>
-		<value condition="String.Contains(Container.FolderPath,videodb://recentlyadded)">$INFO[Window(home).Property(fakelabel)]</value>
-		<value condition="Container.Content(episodes) + !String.IsEqual(Container.FolderName,ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
-		<value condition="String.Contains(Container.FolderPath,videodb://tvshows/)">$LOCALIZE[20343]</value>
-		<value condition="String.Contains(Container.FolderPath,videodb://movies/)">$LOCALIZE[20342]</value>
-		<value condition="Window.IsActive(textviewer)">$INFO[Control.GetLabel(1)]</value>
-		<value condition="Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">$INFO[System.AddonTitle(script.tv.show.next.aired)]</value>
-		<value condition="Window.IsActive(tvchannels) | Window.IsActive(TVGuide) | Window.IsActive(TVRecordings) | Window.IsActive(TVTimers) | Window.IsActive(TVSearch)">$LOCALIZE[19020]</value>
-		<value condition="Window.IsActive(RadioChannels) | Window.IsActive(RadioGuide) | Window.IsActive(RadioRecordings) | Window.IsActive(RadioSearch)">$LOCALIZE[19183]</value>
-		<value condition="!String.IsEmpty(Container.FolderName)">$INFO[System.CurrentWindow]</value>
-		<value condition="Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings)">$LOCALIZE[5]</value>
-		<value condition="Window.IsActive(videos) + String.IsEmpty(System.CurrentWindow)">$LOCALIZE[3]</value>
-		<value condition="Window.IsActive(musiclibrary) + String.IsEmpty(System.CurrentWindow)">$LOCALIZE[10502]</value>
-		<value condition="!Window.IsActive(home)">$INFO[System.CurrentWindow]</value>
-	</variable>
 	<variable name="BreadcrumbsVar">
 		<value condition="Window.IsActive(favourites)">$LOCALIZE[1036]</value>
+		<value condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/)">$INFO[System.AddonTitle(plugin.program.advanced.launcher)]</value>
 		<value condition="Window.IsActive(script-The Big Picture-main.xml)">$INFO[Container(100).ListItem.Property(album_title)]</value>
-		<value condition="Window.IsActive(addoninformation) + !Window.IsActive(textviewer)">$VAR[BreadcrumbsFillerVar,,: ]$INFO[ListItem.AddonName]</value>
-		<value condition="Window.IsActive(textviewer)">$VAR[BreadcrumbsFillerVar]</value>
+		<value condition="Window.IsActive(addoninformation) + !Window.IsActive(textviewer)">$INFO[ListItem.AddonName]</value>
 		<value condition="Window.IsActive(script-lazytv-BigScreenList.xml) | Window.IsActive(script-lazytv-main.xml)">$INFO[System.AddonTitle(script.lazytv)]</value>
 		<value condition="Window.IsActive(script-Rom_Collection_Browser-main.xml)">$INFO[System.AddonTitle(service.rom.collection.browser)]</value>
+		<value condition="Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">$INFO[System.AddonTitle(script.tv.show.next.aired)]</value>
 		<value condition="Window.IsActive(script-ExtendedInfo Script-VideoList.xml)">$INFO[System.AddonTitle(script.extendedinfo)]</value>
 		<value condition="Window.IsActive(script-ExtendedInfo Script-YoutubeList.xml)">$LOCALIZE[31132]</value>
 		<value condition="Window.IsActive(script-globalsearch-main.xml)">$INFO[System.AddonTitle(script.globalsearch)]</value>
-		<value condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[19069]]</value>
-		<value condition="Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[19163]]</value>
-		<value condition="Window.IsActive(TVTimers) | Window.IsActive(RadioTimers)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[19040]]</value>
-		<value condition="Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[137]]</value>
+		<value condition="Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(profiles) | Window.IsActive(skinsettings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">$LOCALIZE[19069]</value>
+		<value condition="Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)">$LOCALIZE[19163]</value>
+		<value condition="Window.IsActive(TVTimers) | Window.IsActive(RadioTimers)">$LOCALIZE[19040]</value>
+		<value condition="Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)">$LOCALIZE[137]</value>
 		<value condition="Window.IsActive(eventlog)">$LOCALIZE[14111]$INFO[Control.GetLabel(21), - ,]</value>
 		<value condition="Window.IsActive(home)">$LOCALIZE[10000]</value>
-		<value condition="!String.IsEmpty(Container.FolderName)">$VAR[BreadcrumbsFillerVar,,: ]$INFO[Container.FolderName]</value>
-		<value>$VAR[BreadcrumbsFillerVar]</value>
+		<value condition="!String.IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
+		<value>$INFO[System.CurrentWindow]</value>
 	</variable>
 	<variable name="MusicOSDRepeatButtonVar">
 		<value condition="!Playlist.IsRepeat + !Playlist.IsRepeatOne"></value>
@@ -534,9 +520,9 @@
     </variable>
     <variable name="HeaderIcon">
     	<value condition="Window.IsActive(script-The Big Picture-main.xml)">$INFO[System.AddonIcon(script.image.bigpictures)]</value>
-    	<value condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/)">DefaultProgram.png</value>
         <value condition="Player.Muted">DefaultIconMute.png</value>
         <value condition="Window.IsVisible(DialogFavourites.xml)">DefaultIconFavourite.png</value>
+        <value condition="String.Contains(Container.FolderPath,plugin://plugin.program.super.favourites/)">SuperFavourites.png</value>
         <value condition="Player.HasAudio + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)]">DefaultMusicSongs.png</value>
         <value condition="Player.HasVideo + VideoPlayer.Content(livetv) + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)]">DefaultAddonPVRClient.png</value>
         <value condition="Player.HasVideo + VideoPlayer.Content(movies) + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)]">DefaultVideo.png</value>
@@ -547,6 +533,7 @@
         <value condition="Window.IsVisible(script-ExtendedInfo Script-YoutubeList.xml)">YouTube.png</value>
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">DefaultAddonPVRClient.png</value>
         <value condition="Window.IsVisible(script-globalsearch-main.xml)">DefaultIconSearch.png</value>
+        <value condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/) | Window.IsActive(programs)">DefaultProgram.png</value>
         <value condition="String.Contains(Container.FolderPath,sources://)">DefaultFile.png</value>
         <value condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">DefaultPlaylist.png</value>
         <value condition="String.Contains(Container.FolderPath,special://videoplaylists/)">DefaultPlaylist.png</value>

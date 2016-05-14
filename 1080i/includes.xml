@@ -1335,7 +1335,12 @@
 				<label></label>
 				<focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
 				<texturefocus>-</texturefocus>
-				<onright>Control.SetFocus(9050)</onright>
+				<onright>ClearProperty(MediaMenu,Home)</onright>
+				<onright condition="![Window.IsVisible(tvguide) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(settings) | Window.IsActive(weather) | Window.IsActive(skinsettings) | Window.IsActive(systeminfo) | Window.IsActive(profiles)]">SetFocus(50)</onright>
+				<onright condition="Window.IsVisible(tvguide)">SetFocus(10)</onright>
+				<onright condition="Window.IsActive(SettingsCategory.xml)">SetFocus(3)</onright>
+				<onright condition="Window.IsActive(settings) | Window.IsActive(weather) | Window.IsActive(skinsettings) | Window.IsActive(systeminfo)">SetFocus(9000)</onright>
+				<onright condition="Window.IsActive(profiles)">2</onright>
 				<onback>9050</onback>
 				<onup>SetFocus(9013,50)</onup>
 				<ondown>SetFocus(9013,0)</ondown>
