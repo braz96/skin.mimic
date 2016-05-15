@@ -20,14 +20,14 @@
 		</control>
 		<control type="group">
 			<include>Animation.Common</include>
-			<left>702</left>
+			<left>703</left>
 			<control type="group">
-				<top>20</top>
+				<top>60</top>
 				<width>1150</width>
 				<height>854</height>
 				<control type="panel" id="90050">
 					<left>5</left>
-					<top>130</top>
+					<top>118</top>
 					<width>1150</width>
 					<height>300</height>
 					<orientation>horizontal</orientation>
@@ -216,9 +216,9 @@
 					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<description>Plot</description>
 					<left>5</left>
-					<top>570</top>
+					<top>545</top>
 					<width>1120</width>
-					<height>462</height>
+					<height>395</height>
 					<font>font15_textbox</font>
 					<label>$VAR[MusicInfoDescription]</label>
 					<pagecontrol>60</pagecontrol>
@@ -227,9 +227,9 @@
 				<control type="scrollbar" id="60">
 					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
 					<left>1140</left>
-					<top>585</top>
+					<top>545</top>
 					<width>10</width>
-					<height>445</height>
+					<height>395</height>
 					<onleft>9000</onleft>
 					<onright>9000</onright>
 					<orientation>vertical</orientation>
@@ -239,7 +239,7 @@
 		            <control type="image">
 		            	<visible>Control.HasFocus(50)</visible>
 		                <left>-9</left>
-		                <top>570</top>
+		                <top>560</top>
 		                <width>397</width>
 		                <height>397</height>
 		                <animation effect="fade" time="320" delay="0">Visible</animation>
@@ -254,7 +254,7 @@
 					<animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
 					<animation effect="slide" start="0" end="6" time="0" condition="$EXP[isAlbum]">Conditional</animation>
 					<left>-3</left>
-					<top>576</top>
+					<top>566</top>
 					<width>1155</width>
 					<height>385</height>
 					<onleft>50</onleft>
@@ -382,14 +382,14 @@
 				</control>
 				<control type="label">
 		            <left>862</left>
-		            <top>992</top>
+		            <top>960</top>
 		            <width>300</width>
 		            <height>40</height>
 		            <font>font13_title</font>
 		            <textoffsetx>15</textoffsetx>
+		            <textcolor>disabled</textcolor>
 		            <align>right</align>
-		            <aligny>top</aligny>
-		            <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025]  •  ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(50).CurrentPage]$INFO[Container(50).NumPages,/][/COLOR]</label>
+		            <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025]  •  ]$INFO[Container(50).CurrentPage]$INFO[Container(50).NumPages,/]</label>
 		            <visible>Control.IsVisible(50) + Integer.IsGreater(Container(50).NumItems,0) + !Control.IsVisible(150)</visible>
 		            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
 		        </control>
@@ -555,11 +555,9 @@
                 </control>
             </control>
 			<control type="group">
-				<left>3</left>
-				<top>0</top>
+				<left>2</left>
+				<top>510</top>
 				<control type="grouplist" id="9000">
-					<left>0</left>
-					<top>510</top>
 					<width>1145</width>
 					<height>60</height>
 					<itemgap>10</itemgap>
@@ -653,18 +651,18 @@
 		</control>
 		<control type="group">
 			<include>Animation.Common</include>
-			<top>150</top>
-			<left>30</left>
+			<top>190</top>
+			<left>72</left>
 			<control type="image">
-				<width>600</width>
-				<height>600</height>
+				<width>560</width>
+				<height>560</height>
 				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
 				<texture background="true">$INFO[ListItem.Icon]</texture>
 			</control>
 			<control type="image">
-				<top>600</top>
-				<width>600</width>
-				<height>300</height>
+				<top>560</top>
+				<width>560</width>
+				<height>260</height>
 				<aspectratio>keep</aspectratio>
 				<texture background="true">$INFO[Skin.String(MusicLibraryPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
 			</control>
