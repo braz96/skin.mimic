@@ -62,11 +62,6 @@
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="2">
-						<label>31311</label>
-						<onclick>noop</onclick>
-						<icon>-</icon>
-					</item>
 					<item id="3">
 						<label>33069</label>
 						<onclick>noop</onclick>
@@ -129,68 +124,6 @@
 					<onup>9001</onup>
 					<ondown>9001</ondown>
 					<visible>Container(9000).HasFocus(1)</visible>
-					<control type="button" id="108">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31018</label>
-						<label2>$INFO[Skin.String(HomeLayout.label)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HomeLayout,header=$LOCALIZE[31018])</onclick>
-					</control>
-					<control type="radiobutton" id="111">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>- $LOCALIZE[31201]</label>
-						<onclick>Skin.ToggleSetting(Enable.CenteredMenu)</onclick>
-						<selected>Skin.HasSetting(Enable.CenteredMenu)</selected>
-						<visible>!String.IsEqual(Skin.String(HomeLayout),2) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
-						<enable>!Skin.HasSetting(Enable.WideMenuItems)</enable>
-					</control>
-					<control type="radiobutton" id="112">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>- $LOCALIZE[31202]</label>
-						<onclick>Skin.ToggleSetting(Enable.WideMenuItems)</onclick>
-						<selected>Skin.HasSetting(Enable.WideMenuItems)</selected>
-						<visible>!String.IsEqual(Skin.String(HomeLayout),2) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
-						<enable>!Skin.HasSetting(Enable.CenteredMenu)</enable>
-					</control>
-					<control type="radiobutton" id="115">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31240</label>
-						<onclick>Skin.ToggleSetting(Enable.MenuIcons)</onclick>
-						<onclick>ReloadSkin()</onclick>
-						<selected>Skin.HasSetting(Enable.MenuIcons)</selected>
-						<visible>String.IsEqual(Skin.String(HomeLayout),3)</visible>
-					</control>
-					<control type="radiobutton" id="114">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31231</label>
-						<onclick>Skin.ToggleSetting(Enable.CombineMenus)</onclick>
-						<selected>Skin.HasSetting(Enable.CombineMenus)</selected>
-						<visible>String.IsEqual(Skin.String(HomeLayout),3)</visible>
-					</control>
-					<control type="radiobutton" id="113">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>- Show header</label>
-						<onclick>Skin.ToggleSetting(Enable.HomeTopbar)</onclick>
-						<selected>Skin.HasSetting(Enable.HomeTopbar)</selected>
-						<visible>!String.IsEqual(Skin.String(HomeLayout),2)</visible>
-					</control>
 					<control type="button" id="100">
 						<width>1316</width>
 						<height>90</height>
@@ -199,118 +132,46 @@
 						<label>31911</label>
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
 					</control>
-					<control type="radiobutton" id="109">
+					<!--<control type="button" id="108">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>31112</label>
-						<onclick>Skin.ToggleSetting(Disable.SubmenuSlide)</onclick>
-						<selected>Skin.HasSetting(Disable.SubmenuSlide)</selected>
-						<enable>!String.IsEqual(Skin.String(HomeLayout),3)</enable>
+						<label>31018</label>
+						<label2>$INFO[Skin.String(HomeLayout.label)]</label2>
+						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HomeLayout,header=$LOCALIZE[31018])</onclick>
+					</control>-->
+					<control type="button" id="101">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31018</label>
+						<label2>$VAR[MenuOrientationVar]</label2>
+						<onclick>Skin.ToggleSetting(Enable.HorizontalMenu)</onclick>
 					</control>
 					<control type="radiobutton" id="102">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>31509</label>
-						<onclick>Skin.ToggleSetting(Disable.Musicinfo)</onclick>
-						<selected>!Skin.HasSetting(Disable.Musicinfo)</selected>
-						<enable>!Skin.HasSetting(Enable.HomeTopbar) | String.IsEqual(Skin.String(HomeLayout),2)</enable>
+						<label>31240</label>
+						<onclick>Skin.ToggleSetting(Enable.MenuIcons)</onclick>
+						<onclick>ReloadSkin()</onclick>
+						<selected>Skin.HasSetting(Enable.MenuIcons)</selected>
+						<enable>!Skin.HasSetting(Enable.HorizontalMenu)</enable>
 					</control>
 					<control type="radiobutton" id="103">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
-						<label>31510</label>
-						<onclick>Skin.ToggleSetting(Disable.Videoinfo)</onclick>
-						<selected>!Skin.HasSetting(Disable.Videoinfo)</selected>
-						<enable>!Skin.HasSetting(Enable.HomeTopbar) | String.IsEqual(Skin.String(HomeLayout),2)</enable>
+						<label>- $LOCALIZE[31202]</label>
+						<onclick>Skin.ToggleSetting(Enable.WideMenuItems)</onclick>
+						<selected>Skin.HasSetting(Enable.WideMenuItems)</selected>
+						<enable>Skin.HasSetting(Enable.HorizontalMenu)</enable>
 					</control>
 					<control type="radiobutton" id="104">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31002</label>
-						<onclick>Skin.ToggleSetting(Disable.WeatherClockDate)</onclick>
-						<selected>!Skin.HasSetting(Disable.WeatherClockDate)</selected>
-						<enable>!Skin.HasSetting(Enable.HomeTopbar) | String.IsEqual(Skin.String(HomeLayout),2)</enable>
-					</control>
-					<control type="radiobutton" id="101">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31187</label>
-						<enable>![String.IsEqual(Skin.String(HomeLayout),1) + Skin.HasSetting(Enable.CenteredMenu)] + !Skin.HasSetting(Disable.WeatherClockDate) + [!Skin.HasSetting(Enable.HomeTopbar) | String.IsEqual(Skin.String(HomeLayout),2)]</enable>
-						<onclick>Skin.ToggleSetting(Enable.WeatherInMenu)</onclick>
-						<selected>Skin.HasSetting(Enable.WeatherInMenu)</selected>
-					</control>
-					<control type="radiobutton" id="106">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31101</label>
-						<onclick>Skin.ToggleSetting(Enable.HomeFanartOverlay)</onclick>
-						<selected>Skin.HasSetting(Enable.HomeFanartOverlay)</selected>
-					</control>
-				</control>
-				<control type="grouplist" id="9007">
-					<description>Widgets control area</description>
-					<left>522</left>
-					<top>0</top>
-					<width>1316</width>
-					<height>720</height>
-					<itemgap>0</itemgap>
-					<pagecontrol>60</pagecontrol>
-					<onleft>9000</onleft>
-					<onright>60</onright>
-					<onup>9007</onup>
-					<ondown>9007</ondown>
-					<visible>Container(9000).HasFocus(2)</visible>
-					<control type="button" id="700">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31233</label>
-						<label2>$VAR[WidgetStyleVar]</label2>
-						<onclick>Skin.ToggleSetting(WidgetStyle)</onclick>
-					</control>
-					<control type="button" id="701">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>- $LOCALIZE[31915]</label>
-						<label2>$VAR[HorizontalListNavVar]</label2>
-						<onclick>Skin.ToggleSetting(HorizontalListNav)</onclick>
-						<enable>!Skin.HasSetting(WidgetStyle) + !String.IsEqual(Skin.String(HomeLayout),3)</enable>
-					</control>
-					<control type="radiobutton" id="702">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31939</label>
-						<onclick>Skin.ToggleSetting(Enable.PersistentWidgets)</onclick>
-						<selected>Skin.HasSetting(Enable.PersistentWidgets)</selected>
-					</control>
-					<control type="radiobutton" id="703">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31967</label>
-						<enable>Skin.HasSetting(Enable.PersistentWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</enable>
-						<onclick>Skin.ToggleSetting(Disable.WidgetAutoScroll)</onclick>
-						<selected>Skin.HasSetting(Disable.WidgetAutoScroll)</selected>
-					</control>
-					<control type="radiobutton" id="704">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
@@ -319,6 +180,18 @@
 						<onclick>Skin.ToggleSetting(Enable.WidgetLimit)</onclick>
 						<selected>Skin.HasSetting(Enable.WidgetLimit)</selected>
 					</control>
+					
+					
+					<!--<control type="radiobutton" id="109">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31112</label>
+						<onclick>Skin.ToggleSetting(Disable.SubmenuSlide)</onclick>
+						<selected>Skin.HasSetting(Disable.SubmenuSlide)</selected>
+						<enable>!String.IsEqual(Skin.String(HomeLayout),3)</enable>
+					</control>-->
 				</control>
 				<control type="grouplist" id="9006">
 					<description>Backgrounds control area</description>

@@ -1,233 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="HomeDefault">
-		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
-		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
-		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + [!Skin.HasSetting(Enable.WeatherInMenu) | Skin.HasSetting(Enable.CenteredMenu)]">WeatherHomeWidget</include>
+	<include name="HomeVertical">
 		<control type="group">
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
-			<animation effect="slide" time="0" start="0,0" end="0,-70" condition="system.getbool(lookandfeel.enablerssfeeds) | Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
-			<top>960</top>
-			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
-			<!-- Main Menu (Includes_Home.xml) -->
-			<control type="image">
-				<visible>!Skin.HasSetting(Enable.HomeFanartOverlay)</visible>
-				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
-				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
-				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
-				<width>FullScreenWidth</width>
-				<height>700</height>
-				<texture background="true">background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<width>FullScreenWidth</width>
-				<height>120</height>
-				<texture>listselect_fo.png</texture>
-				<colordiffuse>55000000</colordiffuse>
-				<visible>!Skin.HasTheme(Light)</visible>
-			</control>
-			<include condition="!Skin.HasSetting(Enable.CenteredMenu)">MainMenuList</include>	
-			<include condition="Skin.HasSetting(Enable.CenteredMenu)">MainMenuListCentered</include>	
-		</control>
-		<include condition="system.getbool(lookandfeel.enablerssfeeds)">RSSFeedWidget</include>
-		<include>HomeDefaultWidgets</include>
-	</include>
-	<include name="HomeTopMenu">
-		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
-		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
-		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu)">WeatherHomeWidget</include>
-		<control type="group">
-			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
-			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
-			<control type="image">
-				<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
-				<animation effect="slide" time="300" start="0" end="0,-453" tween="cubic" reversible="false" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" time="150" delay="200" start="0,-453" end="0" tween="cubic" reversible="false" condition="![ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<animation effect="slide" time="300" delay="0" start="0" end="0,-453" tween="cubic" reversible="true" condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-				<top>1080</top>
-				<width>FullScreenWidth</width>
-				<height>700</height>
-				<texture background="true">background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
+			<top>120</top>
+			<include>MainMenuVertical</include>
 			<control type="group">
-				<top>-70</top>
-				<include>HomeDefaultWidgets</include>
-			</control>
-		</control>
-		<control type="group">
-			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
-			<top>0</top>
-			<animation effect="slide" tween="cubic" time="600" start="0,-820" end="0,0" reversible="false">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,-820" reversible="false">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="600" start="0,-820" end="0,0" reversible="false">Visible</animation>
-			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,-820" reversible="false">Hidden</animation>
-			<control type="group" id="9001">
-				<control type="list" id="9010">
-					<animation effect="slide" time="300" tween="cubic" easing="inout" start="0" end="384" condition="Container(9000).Position(1)">Conditional</animation>
-					<animation effect="slide" time="300" tween="cubic" easing="inout" start="0" end="768" condition="Container(9000).Position(2)">Conditional</animation>
-					<animation effect="slide" time="300" tween="cubic" easing="inout" start="0" end="1152" condition="Container(9000).Position(3)">Conditional</animation>
-					<animation effect="slide" time="300" tween="cubic" easing="inout" start="0" end="1536" condition="Container(9000).Position(4)">Conditional</animation>
-					<animation effect="slide" time="300" tween="" easing="" start="0,0" end="0,820" condition="[Control.HasFocus(9010) + !Skin.HasSetting(Disable.SubmenuSlide)] | Skin.HasSetting(Disable.SubmenuSlide)">Conditional</animation>
-					<include>VisibleFadeEffect</include>
-					<left>0</left>
-					<top>-700</top>
-					<width>384</width>
-					<height>700</height>
-					<onup>9000</onup>
-					<ondown>9010</ondown>
-					<onleft>9000</onleft>
-					<onright>9000</onright>
-					<onback>9000</onback>
-					<pagecontrol>-</pagecontrol>
-					<scrolltime tween="quadratic" easing="out">300</scrolltime>
-					<orientation>Vertical</orientation>
-					<include content="SubmenuListContent">
-						<param name="SubmenuItemHeight" value="70" />
-						<param name="SubmenuItemWidth" value="384" />
-						<param name="SubmenuAlign" value="left" />
-						<param name="SubmenuTextOffset" value="15" />
-					</include>
-				</control>
-			</control>
-			<!-- Main Menu (Includes_Home.xml) -->
-			<control type="group">
-				<control type="image">
-					<visible>!Skin.HasSetting(Enable.HomeFanartOverlay)</visible>
-					<top>0</top>
-					<width>FullScreenWidth</width>
-					<height>120</height>
-					<texture>background.png</texture>
-					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				</control>
-				<control type="image">
-					<top>0</top>
-					<width>FullScreenWidth</width>
-					<height>120</height>
-					<texture>listselect_fo.png</texture>
-					<colordiffuse>55000000</colordiffuse>
-				</control>
-			</control>
-			<include>MainMenuListTop</include>
-		</control>
-		<control type="group">
-			<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)] + ![[ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)] | ControlGroup(9003).HasFocus]</visible>
-			<animation effect="slide" end="0,50" time="240">WindowClose</animation>
-			<animation effect="slide" start="0,50" end="0,0" delay="300" time="240" condition="!Window.Previous(startup)">WindowOpen</animation>
-			<animation effect="slide" start="0,50" end="0,0" delay="800" time="480" condition="Window.Previous(startup)">WindowOpen</animation>
-			<animation effect="slide" start="0,50" end="0,0" time="240">VisibleChange</animation>
-			<top>989</top>
-			<control type="group">
-				<control type="image">
-					<top>42</top>
-					<left>0</left>
-					<width>FullScreenWidth</width>
-					<height>50</height>
-					<texture>listselect_fo.png</texture>
-					<colordiffuse>33000000</colordiffuse>
-				</control>
-				<control type="label">
-					<left>1880</left>
-					<top>44</top>
-					<width>60</width>
-					<height>41</height>
-					<label></label>
-					<font>IconSmall</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-				<control type="rss">
-					<description>RSS feed</description>
-					<left>15</left>
-					<top>44</top>
-					<height>30</height>
-					<width>1855</width>
-					<font>font13</font>
-					<urlset>1</urlset>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-					<titlecolor>$VAR[ColorHighlightVar]</titlecolor>
-					<headlinecolor>$VAR[ColorTextVar]</headlinecolor>
-				</control>
-			</control>
-		</control>
-	</include>
-	<include name="HomeVerticalMenu">
-		<control type="group">
-			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
-			<top>0</top>
-			<!-- Main Menu (Includes_Menus.xml) -->
-			<control type="group">
-				<animation effect="slide" time="0" start="0,0" end="0,120" condition="Skin.HasSetting(Enable.HomeTopbar)">Conditional</animation>
+				<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
+				<animation effect="slide" end="2500,0" time="240">WindowClose</animation>
+				<animation effect="slide" start="1920,0" end="0,0" delay="300" time="240" condition="!window.previous(startup)">WindowOpen</animation>
+				<animation effect="slide" start="1920" end="0" time="240">VisibleChange</animation>
+				<animation effect="slide" start="1920,0" end="0,0" delay="800" time="480" condition="window.previous(startup)">WindowOpen</animation>
+				<top>869</top>
 				<control type="group">
-					<left>-1446</left>
 					<control type="image">
-						<animation effect="slide" tween="cubic" time="600" start="-818" end="0" reversible="false" condition="[!Skin.HasSetting(Enable.PersistentWidgets) | String.IsEmpty(Container(9000).ListItem.Property(widgetName))] + !Skin.HasSetting(Enable.HomeFanartOverlay)">WindowOpen</animation>
-						<animation effect="slide" tween="cubic" time="300" start="0" end="-818" reversible="false" condition="[!Skin.HasSetting(Enable.PersistentWidgets) | String.IsEmpty(Container(9000).ListItem.Property(widgetName))] + !Skin.HasSetting(Enable.HomeFanartOverlay)">WindowClose</animation>
-						<animation effect="slide" time="300" start="0" end="1446" tween="sine" easing="inout" reversible="false" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] | Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-						<animation effect="slide" time="150" delay="200" start="1446" end="0" tween="sine" easing="inout" reversible="false" condition="![[ControlGroup(9003).HasFocus | Control.HasFocus(9010)] + !Skin.HasSetting(Enable.PersistentWidgets) + ControlGroup(9003).IsVisible] + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-						<animation effect="slide" time="0" delay="0" start="0" end="1446" tween="sine" reversible="true" condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetName)) + Skin.HasSetting(Enable.PersistentWidgets) + !Skin.HasSetting(Enable.HomeFanartOverlay)">Conditional</animation>
-						<top>0</top>
-						<width>1920</width>
-						<height>1080</height>
-						<texture>background.png</texture>
-						<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-					</control>
-					<control type="image">
-						<include>MainMenuSlide</include>
-						<top>0</top>
-						<width>1920</width>
-						<height>1080</height>
+						<top>42</top>
+						<left>474</left>
+						<width>1446</width>
+						<height>50</height>
 						<texture>listselect_fo.png</texture>
-						<colordiffuse>08ffffff</colordiffuse>
+						<colordiffuse>33000000</colordiffuse>
 					</control>
-				</control>
-				<include>MainMenuListVertical</include>
-			</control>
-			<control type="group" id="9001">
-				<control type="group">
-					<visible>system.getbool(lookandfeel.enablerssfeeds) + ![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
-					<animation effect="slide" end="2500,0" time="240">WindowClose</animation>
-					<animation effect="slide" start="1920,0" end="0,0" delay="300" time="240" condition="!window.previous(startup)">WindowOpen</animation>
-					<animation effect="slide" start="1920" end="0" time="240">VisibleChange</animation>
-					<animation effect="slide" start="1920,0" end="0,0" delay="800" time="480" condition="window.previous(startup)">WindowOpen</animation>
-					<top>989</top>
-					<control type="group">
-						<control type="image">
-							<top>42</top>
-							<left>474</left>
-							<width>1446</width>
-							<height>50</height>
-							<texture>listselect_fo.png</texture>
-							<colordiffuse>33000000</colordiffuse>
-						</control>
-						<control type="label">
-							<left>1880</left>
-							<top>44</top>
-							<width>60</width>
-							<height>41</height>
-							<label></label>
-							<font>IconSmall</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						</control>
-						<control type="rss">
-							<description>RSS feed</description>
-							<left>490</left>
-							<top>44</top>
-							<height>30</height>
-							<width>1375</width>
-							<font>font13</font>
-							<urlset>1</urlset>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<titlecolor>$VAR[ColorHighlightVar]</titlecolor>
-							<headlinecolor>$VAR[ColorTextVar]</headlinecolor>
-						</control>
+					<control type="label">
+						<left>1880</left>
+						<top>44</top>
+						<width>60</width>
+						<height>41</height>
+						<label></label>
+						<font>IconSmall</font>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+					</control>
+					<control type="rss">
+						<description>RSS feed</description>
+						<left>490</left>
+						<top>44</top>
+						<height>30</height>
+						<width>1375</width>
+						<font>font13</font>
+						<urlset>1</urlset>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<titlecolor>$VAR[ColorHighlightVar]</titlecolor>
+						<headlinecolor>$VAR[ColorTextVar]</headlinecolor>
 					</control>
 				</control>
 			</control>
@@ -236,17 +49,65 @@
 			<visible>!String.IsEmpty(Container(9000).ListItem.Property(widgetPath)) | String.IsEqual(Container(9000).ListItem.Property(widget),weather)</visible>
 			<control type="group">
 				<include>Animation.Common</include>
-				<top>234</top>
-				<animation effect="fade" start="0" end="100" time="0" easing="out" condition="ControlGroup(9003).IsVisible + Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
-				<animation effect="fade" start="0" end="100" time="200" easing="out" delay="400" condition="[ControlGroup(9003).HasFocus + !Skin.HasSetting(Enable.PersistentWidgets)] | Skin.HasSetting(Enable.PersistentWidgets)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="0" condition="[Control.HasFocus(9000) + !Skin.HasSetting(Enable.PersistentWidgets)]">Conditional</animation>
-				
-				<include>skinshortcuts-template-widget-verticalpanel</include>
-
+				<top>214</top>
+				<include>skinshortcuts-template-widget-vertical</include>
 			</control>
 		</control>
-		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
-		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
-		<include condition="!Skin.HasSetting(Disable.WeatherClockDate) + !Skin.HasSetting(Enable.WeatherInMenu)">WeatherHomeWidget</include>
+	</include>
+	<include name="HomeHorizontal">
+		<control type="group">
+			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
+			<top>960</top>
+			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="600" start="0,700" end="0,0" reversible="false">Visible</animation>
+			<animation effect="slide" tween="cubic" time="300" start="0,0" end="0,700" reversible="false">Hidden</animation>
+			<control type="image">
+				<left>0</left>
+				<width>FullScreenWidth</width>
+				<height>120</height>
+				<texture>listselect_fo.png</texture>
+				<colordiffuse>55000000</colordiffuse>
+				<visible>!Skin.HasTheme(Light)</visible>
+			</control>
+			<include>MainMenuHorizontal</include>	
+		</control>
+		<control type="group">
+			<!--<animation effect="slide" tween="cubic" end="0,90" time="240">WindowClose</animation>
+			<animation effect="slide" tween="cubic" start="0,90" end="0,0" delay="300" time="240" condition="!Window.Previous(startup)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" start="0,90" end="0,0" delay="800" time="480" condition="Window.Previous(startup)">WindowOpen</animation>-->
+			<animation effect="slide" start="1920" end="0" time="240">VisibleChange</animation>
+			<visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
+			<top>920</top>
+			<control type="group">
+				<control type="label">
+					<left>1890</left>
+					<width>40</width>
+					<height>40</height>
+					<label></label>
+					<font>IconTiny</font>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
+				</control>
+				<control type="rss">
+					<description>RSS feed</description>
+					<left>10</left>
+					<height>30</height>
+					<width>1870</width>
+					<font>font12</font>
+					<urlset>1</urlset>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
+					<titlecolor>$VAR[ColorHighlightVar]</titlecolor>
+					<headlinecolor>$VAR[ColorTextVar]</headlinecolor>
+				</control>
+			</control>
+		</control>
+		<control type="group" id="9003">
+			<visible>!String.IsEmpty(Container(9000).ListItem.Property(widgetPath)) | String.IsEqual(Container(9000).ListItem.Property(widget),weather)</visible>
+			<control type="group">
+				<include>Animation.Common</include>
+				<top>150</top>
+				<include>skinshortcuts-template-widget-horizontal</include>
+			</control>
+		</control>
 	</include>
 </includes>
