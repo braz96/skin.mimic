@@ -6,23 +6,8 @@
 		<left>0</left>
 		<top>0</top>
 	</coordinates>
-	<allowoverlay>no</allowoverlay>
+	<include>dialogeffect</include>
 	<controls>
-		<control type="group">
-			<include>FullscreenDimensions</include>
-			<control type="image">
-				<texture fallback="special://skin/backgrounds/default_bg.jpg">$INFO[Skin.String(CustomBackground)]</texture>
-				<visible>String.IsEmpty(Container(100).ListItem.Property(Fanart))</visible>
-			</control>
-			<control type="image">
-				<aspectratio align="center">scale</aspectratio>
-				<texture background="true">$INFO[Container(100).ListItem.Property(Fanart)]</texture>
-			</control>
-			<control type="image">
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-		</control>
 		<control type="list" id="100">
 			<left>-10</left>
 			<top>-10</top>
@@ -33,50 +18,106 @@
 			<focusedlayout width="1" height="1" />
 		</control>
 		<control type="group">
-			<include>Animation.Common</include>
-			<left>703</left>
+			<left>199</left>
+			<top>158</top>
+			<include content="DialogBackgroundCommons">
+				<param name="DialogBackgroundWidth" value="1522" />
+				<param name="DialogBackgroundHeight" value="764" />
+				<param name="DialogHeaderLabel" value="$INFO[Container(100).ListItem.Label]" />
+				<param name="DialogHeaderId" value="" />
+			</include>
+			<control type="grouplist">
+				<left>31</left>
+				<top>655</top>
+				<width>1138</width>
+				<height>90</height>
+				<align>center</align>
+				<itemgap>115</itemgap>
+				<orientation>horizontal</orientation>
+				<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
+				<control type="image">
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>$INFO[Container(100).ListItem.Property(VideoResolution),flags/resolution/,.png]</texture>
+				</control>
+				<control type="image">
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>$INFO[Container(100).ListItem.Property(VideoCodec),flags/video/,.png]</texture>
+				</control>
+				<control type="image">
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>$INFO[Container(100).ListItem.Property(VideoAspect),flags/aspectratio/,.png]</texture>
+				</control>
+				<control type="image">
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>$INFO[Container(100).ListItem.Property(AudioCodec),flags/audio/,.png]</texture>
+				</control>
+				<control type="image">
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>$INFO[Container(100).ListItem.Property(AudioChannels),flags/channels/,.png]</texture>
+				</control>
+			</control>
 			<control type="group" id="101">
-				<top>60</top>
-				<width>1150</width>
-				<height>854</height>
 				<control type="panel" id="110">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
+					<itemlayout height="82" width="569">
 						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(110)</visible>
+							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
 							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -155,43 +196,61 @@
 					</content>
 				</control>
 				<control type="panel" id="120">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
+					<itemlayout height="82" width="569">
 						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(120)</visible>
+							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
 							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -252,43 +311,61 @@
 					</content>
 				</control>
 				<control type="panel" id="130">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
+					<itemlayout height="82" width="569">
 						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(130)</visible>
+							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
 							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -319,43 +396,61 @@
 					</content>
 				</control>
 				<control type="panel" id="140">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
+					<itemlayout height="82" width="569">
 						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(140)</visible>
+							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
 							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -422,43 +517,61 @@
 					</content>
 				</control>
 				<control type="panel" id="150">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
+					<itemlayout height="82" width="569">
 						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(150)</visible>
+							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
 							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -519,43 +632,61 @@
 					</content>
 				</control>
 				<control type="panel" id="160">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
+					<itemlayout height="82" width="569">
 						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(160)</visible>
+							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
 							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -616,43 +747,61 @@
 					</content>
 				</control>
 				<control type="panel" id="170">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
+					<itemlayout height="82" width="569">
 						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(170)</visible>
+							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
 							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -719,43 +868,61 @@
 					</content>
 				</control>
 				<control type="panel" id="180">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
+					<itemlayout height="82" width="569">
 						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(180)</visible>
+							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
 							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -821,44 +988,63 @@
 						</item>
 					</content>
 				</control>
-				<control type="panel" id="200">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
+				<control type="list" id="200">
+					<left>31</left>
+					<top>88</top>
+					<width>1138</width>
+					<height>328</height>
+					<onleft>110</onleft>
+					<onright>190</onright>
+					<onup>110</onup>
+					<ondown condition="Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)">195</ondown>
+					<ondown condition="![Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)]">196</ondown>
+					<pagecontrol>-</pagecontrol>
 					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
+					<itemlayout height="82" width="569">
 						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>180</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+					<focusedlayout height="82" width="569">
+						<control type="image">
+							<top>1</top>
+							<width>569</width>
+							<height>80</height>
+							<texture>listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(140)</visible>
+							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
-							<left>180</left>
-							<width>970</width>
-							<height>50</height>
-							<font>font15</font>
+							<top>40</top>
+							<width>569</width>
+							<height>32</height>
+							<font>font14</font>
 							<label>$INFO[ListItem.Label2]</label>
+							<textoffsetx>15</textoffsetx>
+						</control>
+						<control type="label">
+							<width>569</width>
+							<height>41</height>
+							<font>font14</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textoffsetx>15</textoffsetx>
 						</control>
 					</focusedlayout>
 					<content>
@@ -901,208 +1087,91 @@
 					</content>
 				</control>
 			</control>
-
-			<control type="scrollbar" id="61">
-				<visible allowhiddenfocus="true">Control.HasFocus(61)</visible>
-				<left>2</left>
-				<top>490</top>
-				<width>1145</width>
-				<height>10</height>
-				<onup>190</onup>
-				<ondown>190</ondown>
-				<onleft>61</onleft>
-				<onright>61</onright>
-				<orientation>horizontal</orientation>
-			</control>
 			<control type="textbox">
-				<description>Plot</description>
-				<left>5</left>
-				<top>605</top>
-				<width>1120</width>
-				<height>330</height>
-				<font>font15_textbox</font>
+				<left>46</left>
+				<top>435</top>
+				<width>1108</width>
+				<height>220</height>
+				<font>font14_textbox4</font>
+				<pagecontrol>195</pagecontrol>
 				<label>$INFO[Container(100).ListItem.Property(Plot)]</label>
-				<pagecontrol>60</pagecontrol>
 				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-				<visible>Control.IsVisible(110) | Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
+				<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
 			</control>
 			<control type="textbox">
-				<description>Plot</description>
-				<left>5</left>
-				<top>605</top>
-				<width>1120</width>
-				<height>380</height>
-				<font>font15_textbox</font>
+				<left>46</left>
+				<top>435</top>
+				<width>1108</width>
+				<height>275</height>
+				<font>font14_textbox5</font>
+				<pagecontrol>195</pagecontrol>
+				<label>$INFO[Container(100).ListItem.Property(Plot)]</label>
+				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				<visible>Control.IsVisible(120) | Control.IsVisible(130)</visible>
+			</control>
+			<control type="textbox">
+				<left>46</left>
+				<top>435</top>
+				<width>1108</width>
+				<height>275</height>
+				<font>font14_textbox5</font>
+				<pagecontrol>195</pagecontrol>
 				<label>$INFO[Container(100).ListItem.Property(Artist_Description)]</label>
-				<pagecontrol>60</pagecontrol>
 				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				<visible>Control.IsVisible(160)</visible>
 			</control>
 			<control type="textbox">
-				<description>Plot</description>
-				<left>5</left>
-				<top>605</top>
-				<width>1120</width>
-				<height>380</height>
-				<font>font15_textbox</font>
+				<left>46</left>
+				<top>435</top>
+				<width>1108</width>
+				<height>275</height>
+				<font>font14_textbox5</font>
+				<pagecontrol>195</pagecontrol>
 				<label>$INFO[Container(100).ListItem.Property(Album_Description)]</label>
-				<pagecontrol>60</pagecontrol>
 				<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 				<visible>Control.IsVisible(170)</visible>
 			</control>
-			<control type="scrollbar" id="60">
-				<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
-				<left>1140</left>
-				<top>605</top>
+			<control type="scrollbar" id="195">
+				<left>1168</left>
+				<top>435</top>
+				<height>220</height>
 				<width>10</width>
-				<height>330</height>
-				<onleft>190</onleft>
+				<onleft>101</onleft>
 				<onright>190</onright>
 				<orientation>vertical</orientation>
+				<visible allowhiddenfocus="true">Control.HasFocus(195)</visible>
 			</control>
-			<control type="grouplist">
-				<left>5</left>
-				<top>945</top>
-				<width>840</width>
-				<height>90</height>
-				<align>left</align>
-				<itemgap>20</itemgap>
-				<orientation>horizontal</orientation>
-				<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
-				<control type="image">
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<include>MediaFlagVars</include>
-					<texture>$INFO[Container(100).ListItem.Property(VideoResolution),flags/resolution/,.png]</texture>
-				</control>
-				<control type="image">
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<include>MediaFlagVars</include>
-					<texture>$INFO[Container(100).ListItem.Property(VideoCodec),flags/video/,.png]</texture>
-				</control>
-				<control type="image">
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<include>MediaFlagVars</include>
-					<texture>$INFO[Container(100).ListItem.Property(VideoAspect),flags/aspectratio/,.png]</texture>
-				</control>
-				<control type="image">
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<include>MediaFlagVars</include>
-					<texture>$INFO[Container(100).ListItem.Property(AudioCodec),flags/audio/,.png]</texture>
-				</control>
-				<control type="image">
-					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-					<include>MediaFlagVars</include>
-					<texture>$INFO[Container(100).ListItem.Property(AudioChannels),flags/channels/,.png]</texture>
-				</control>
-			</control>
-			<!--<control type="group">
-				<include content="MediaFlags">
-					<param name="left" value="0" />
-					<param name="top" value="890" />
-					<param name="align" value="left" />
-					<param name="orientation" value="horizontal" />
-				</include>
-			</control>-->
-            
-            <!--<control type="group">
-                <include>VisibleFadeEffect</include>
-                <visible>ControlGroup(9000).HasFocus()</visible>
-                <height>30</height>
-                <top>525</top>
-                <left>-50</left>
-                <control type="label">
-                    <visible>Container(9000).HasPrevious</visible>
-                    <width>30</width>
-                    <height>30</height>
-                    <align>center</align>
-                    <label></label>
-                    <font>IconTiny</font>
-                    <textcolor>disabled</textcolor>
-                </control>
-                <control type="label">
-                    <visible>Container(9000).HasNext</visible>
-                    <left>1220</left>
-                    <width>30</width>
-                    <height>30</height>
-                    <align>center</align>
-                    <label></label>
-                    <font>IconTiny</font>
-                    <textcolor>disabled</textcolor>
-                </control>
-            </control>-->
+			<!-- right group -->
 			<control type="group" id="190">
-				<left>2</left>
-				<top>510</top>
+				<left>1182</left>
+				<top>88</top>
 				<control type="grouplist" id="190">
-					<width>1145</width>
-					<height>60</height>
-					<itemgap>10</itemgap>
-					<onup>61</onup>
-					<ondown>60</ondown>
-					<onleft>190</onleft>
-					<onright>190</onright>
-					<align>left</align>
-					<orientation>horizontal</orientation>
+					<onup>190</onup>
+					<onleft>101</onleft>
+					<onright>101</onright>
+					<ondown>190</ondown>
+					<control type="image">
+						<width>310</width>
+						<height>465</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$INFO[Container(100).ListItem.Icon]</texture>
+					</control>
 					<control type="button" id="191">
-						<description>OK button</description>
-						<include>ButtonInfoDialogsCommonValues</include>
+						<description>Ok Button</description>
+						<width>310</width>
 						<label>186</label>
 					</control>
 					<control type="button" id="192">
-						<description>Play button</description>
-						<include>ButtonInfoDialogsCommonValues</include>
+						<description>Play Button</description>
+						<width>310</width>
 						<label>-</label>
 					</control>
 					<control type="button" id="193">
-						<description>Trailer button</description>
-						<include>ButtonInfoDialogsCommonValues</include>
+						<description>Trailer Button</description>
+						<width>310</width>
 						<label>-</label>
 					</control>
 				</control>
-			</control>
-		</control>
-		<control type="group">
-			<include>Animation.Common</include>
-			<control type="image">
-				<visible>Control.IsVisible(110) | Control.IsVisible(120) | Control.IsVisible(130)</visible>
-				<top>190</top>
-				<left>72</left>
-				<width>560</width>
-				<height>820</height>
-				<aspectratio align="center" aligny="center">scale</aspectratio>
-				<texture background="true">$INFO[Container(100).ListItem.Icon]</texture>
-			</control>
-			<control type="image">
-				<visible>Control.IsVisible(140) | Control.IsVisible(150) | Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180) | Control.IsVisible(200)</visible>
-				<top>190</top>
-				<left>72</left>
-				<width>560</width>
-				<height>820</height>
-				<aspectratio align="center" aligny="top">keep</aspectratio>
-				<texture background="true">$INFO[Container(100).ListItem.Icon]</texture>
-			</control>
-		</control>
-		<include>Topbar</include>
-		<control type="group">
-			<visible allowhiddenfocus="true">Control.HasFocus(90400)</visible>
-			<include>VisibleFadeEffect</include>
-			<control type="button" id="90400">
-				<description>FS Fanart button</description>
-				<width>FullScreenWidth</width>
-				<height>1080</height>
-				<texturefocus>-</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<onclick>SetFocus(190)</onclick>
-				<onleft>SetFocus(190)</onleft>
-				<onright>SetFocus(190)</onright>
-				<onup>SetFocus(190)</onup>
-				<ondown>SetFocus(190)</ondown>
-				<label>-</label>
-				<hitrect x="0" y="0" w="0" h="0"/>
-			</control>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>$INFO[Container(100).ListItem.Art(fanart)]</texture>
 			</control>
 		</control>
 	</controls>
