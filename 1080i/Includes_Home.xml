@@ -5,6 +5,13 @@
 			<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
 			<top>120</top>
 			<include>MainMenuVertical</include>
+			<control type="button">
+				<width>10</width>
+				<height>960</height>
+				<texturefocus>-</texturefocus>
+				<onfocus>SetFocus(9010)</onfocus>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
 			<control type="group">
 				<visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
 				<animation effect="slide" end="2500,0" time="240">WindowClose</animation>
@@ -52,8 +59,6 @@
 			<top>960</top>
 			<animation effect="slide" tween="cubic" time="400" start="0,120" end="0,0" reversible="false">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="200" start="0,0" end="0,120" reversible="false">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="400" start="0,120" end="0,0" reversible="false">Visible</animation>
-			<animation effect="slide" tween="cubic" time="200" start="0,0" end="0,120" reversible="false">Hidden</animation>
 			<control type="image">
 				<width>FullScreenWidth</width>
 				<height>120</height>
@@ -61,7 +66,17 @@
 				<colordiffuse>08ffffff</colordiffuse>
 				<visible>!Skin.HasTheme(Light)</visible>
 			</control>
-			<include>MainMenuHorizontal</include>	
+			<include>MainMenuHorizontal</include>
+		</control>
+		<control type="group">
+			<top>1070</top>
+			<control type="button">
+				<width>1920</width>
+				<height>10</height>
+				<texturefocus>-</texturefocus>
+				<onfocus>SetFocus(9010)</onfocus>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
 		</control>
 		<control type="group">
 			<visible>system.getbool(lookandfeel.enablerssfeeds)</visible>

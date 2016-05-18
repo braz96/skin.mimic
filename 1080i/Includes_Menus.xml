@@ -19,10 +19,13 @@
             <animation effect="slide" end="384" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Column,0)">Conditional</animation>
         </control>
 		<control type="panel" id="9000">
-			<animation type="Conditional" condition="!Control.HasFocus(9010)" reversible="false">
+			<!--<animation type="Conditional" condition="!Control.HasFocus(9010)" reversible="false">
                 <effect type="fade" start="0" end="100" time="250" tween="cubic" easing="inout"/>
             </animation>
-            <animation effect="fade" end="0" start="100" time="0" condition="Control.HasFocus(9010)" reversible="false">Conditional</animation>
+            <animation effect="fade" end="0" start="100" time="0" condition="Control.HasFocus(9010)" reversible="false">Conditional</animation>-->
+            <animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="300" condition="Control.HasFocus(9010)">Conditional</animation>
+			<animation effect="slide" start="0,120" end="0,0" time="400" tween="quadratic" easing="out" condition="!Control.HasFocus(9010)">Conditional</animation>
 			<include condition="!Skin.HasSetting(Enable.WideMenuItems)" content="MainMenuListHorizontalContent">
 				<param name="MainMenuTopWidth" value="1920" />
 				<param name="MainMenuItemWidth" value="384" />
@@ -36,6 +39,7 @@
             <animation effect="fade" end="0" start="100" time="0" condition="!Control.HasFocus(9010)" reversible="false">Conditional</animation>
 			<control type="panel" id="9010">
 				<animation effect="fade" start="100" end="50" time="300" condition="!ControlGroup(9001).HasFocus()">conditional</animation>
+				<animation effect="slide" start="0,120" end="0,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9010)">Conditional</animation>
 				<include>VisibleFadeEffect</include>
 				<left>0</left>
 				<top>0</top>
