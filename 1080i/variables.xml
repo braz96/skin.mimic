@@ -2,12 +2,32 @@
 <includes>
 	<variable name="GlobalBackgroundVar">
 		<value condition="!String.IsEmpty(ListItem.Art(fanart)) + !Skin.HasSetting(Disable.Fanart)">$INFO[ListItem.Art(fanart)]</value>
-		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),1)">$INFO[Window(Home).Property(script.grab.fanart.Movie.FanArt)]</value>
-		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),2)">$INFO[Window(Home).Property(script.grab.fanart.TV.FanArt)]</value>
-		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),3)">$INFO[Window(Home).Property(script.grab.fanart.Video.FanArt)]</value>
-		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),4)">$INFO[Window(Home).Property(script.grab.fanart.Music.FanArt)]</value>
-		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),5)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
-		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),6)">$INFO[Skin.String(weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanartExtension]</value>
+
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),1)">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),2)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),3)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),4)">$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),5)">$INFO[Window(Home).Property(SkinHelper.PicturesBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),6)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),7)">$INFO[Window(Home).Property(SkinHelper.AllVideosBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),8)">$INFO[Window(Home).Property(SkinHelper.InProgressMoviesBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),9)">$INFO[Window(Home).Property(SkinHelper.InProgressShowsBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),10)">$INFO[Window(Home).Property(SkinHelper.InProgressVideosBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),11)">$INFO[Window(Home).Property(SkinHelper.RecentEpisodesBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),12)">$INFO[Window(Home).Property(SkinHelper.RecentMoviesBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),13)">$INFO[Window(Home).Property(SkinHelper.RecentVideosBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),14)">$INFO[Window(Home).Property(SkinHelper.RecentMusicBackground)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),15)">$INFO[Window(Home).Property(SkinHelper.UnwatchedMoviesBackground)]</value>
+
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),16)">$INFO[Window(Home).Property(SkinHelper.AllMusicSongsBackground.Wall)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),17)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Wall)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),18)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Wall.BW)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),19)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground.Wall)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),20)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground.Wall.BW)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),21)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Wall)]</value>
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),22)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Wall.BW)]</value>
+
+		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),23)">$INFO[Skin.String(weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanartExtension]</value>
 		<value condition="!String.IsEmpty(Container(9033).ListItem.Art(thumb))">$INFO[Container(9033).ListItem.Art(thumb)]</value>
 		<value condition="!String.IsEmpty(Skin.String(CustomBackground))">$INFO[Skin.String(CustomBackground)]</value>
 		<value>$INFO[Window(home).Property(fakelabel)]</value>
@@ -17,12 +37,33 @@
 		<value condition="!String.IsEmpty(Skin.String(CustomHomeSlideshow))">$INFO[Skin.String(CustomHomeSlideshow)]</value>
 
 		<!-- Fanart backgrounds -->
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),movieFanart)">$INFO[Window(Home).Property(script.grab.fanart.Movie.FanArt)]</value>
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),tvFanart)">$INFO[Window(Home).Property(script.grab.fanart.TV.FanArt)]</value>
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),videoFanart)">$INFO[Window(Home).Property(script.grab.fanart.Video.FanArt)]</value>
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),musicFanart)">$INFO[Window(Home).Property(script.grab.fanart.Music.FanArt)]</value>
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allFanart)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
-
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMovies)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allTVShows)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMusicVideos)">$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),recentMusic)">$INFO[Window(Home).Property(SkinHelper.RecentMusicBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMusic)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMedia)">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),inprogressMovies)">$INFO[Window(Home).Property(SkinHelper.InProgressMoviesBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),recentMovies)">$INFO[Window(Home).Property(SkinHelper.RecentMoviesBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),unwatchedMovies)">$INFO[Window(Home).Property(SkinHelper.UnwatchedMoviesBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),inprogressTVShows)">$INFO[Window(Home).Property(SkinHelper.InProgressShowsBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),recentEpisodes)">$INFO[Window(Home).Property(SkinHelper.RecentEpisodesBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allVideos)">$INFO[Window(Home).Property(SkinHelper.AllVideosBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),recentVideos)">$INFO[Window(Home).Property(SkinHelper.RecentVideosBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),inprogressVideos)">$INFO[Window(Home).Property(SkinHelper.InProgressVideosBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allPictures)">$INFO[Window(Home).Property(SkinHelper.PicturesBackground)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMoviesWall)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Wall)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMoviesWallBW)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Wall.BW)]</value>
+		<!--<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMoviesPosterWall)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Poster.Wall)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMoviesPosterWallBW)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Poster.Wall.BW)]</value>-->
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMusicWall)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground.Wall)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allMusicWallBW)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground.Wall.BW)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allSongsWall)">$INFO[Window(Home).Property(SkinHelper.AllMusicSongsBackground.Wall)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allTVShowsWall)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Wall)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allTVShowsWallBW)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Wall.BW)]</value>
+		<!--<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allTVShowsPosterWall)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Poster.Wall)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allTVShowsPosterWallBW)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Poster.Wall.BW)]</value>-->
+		
 		<!-- Weather background -->
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),weatherBackground)">$INFO[Skin.String(weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanartExtension]</value>
 
