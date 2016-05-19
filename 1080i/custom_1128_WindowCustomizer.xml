@@ -3,31 +3,31 @@
 	<defaultcontrol always="true">90100</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<left>614</left>
-		<top>240</top>
+		<left>457</left>
+		<top>198</top>
 	</coordinates>
 	<include>dialogeffect</include>
 	<controls>
-		<include content="DialogBackgroundCommons">
-            <param name="DialogBackgroundWidth" value="692" />
-            <param name="DialogBackgroundHeight" value="600" />
-            <param name="DialogHeaderLabel" value="$LOCALIZE[31412]" />
-            <param name="DialogHeaderId" value="1" />
-        </include>
+        <include content="DialogBackgroundCommons">
+			<param name="DialogBackgroundWidth" value="1006" />
+			<param name="DialogBackgroundHeight" value="684" />
+			<param name="DialogHeaderLabel" value="$LOCALIZE[31412]" />
+			<param name="DialogHeaderId" value="1" />
+		</include>
 		<control type="list" id="90100">
 			<left>32</left>
 			<top>88</top>
-			<width>630</width>
+			<width>942</width>
 			<height>480</height>
 			<onup>90100</onup>
 			<ondown>90100</ondown>
-			<onleft>90100</onleft>
+			<onleft>9001</onleft>
 			<onright>60</onright>
 			<pagecontrol>60</pagecontrol>
 			<scrolltime tween="quadratic" easing="out">200</scrolltime>
-			<itemlayout height="60" width="630">
+			<itemlayout height="60" width="942">
 				<control type="label">
-					<width>630</width>
+					<width>942</width>
 					<height>60</height>
 					<textoffsetx>15</textoffsetx>
 					<font>font14</font>
@@ -35,9 +35,9 @@
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="60" width="630">
+			<focusedlayout height="60" width="942">
 				<control type="image">
-					<width>629</width>
+					<width>942</width>
 					<height>60</height>
 					<texture>listselect_fo.png</texture>
 					<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
@@ -45,7 +45,7 @@
 					<include>VisibleFadeEffect</include>
 				</control>
 				<control type="label">
-					<width>630</width>
+					<width>942</width>
 					<height>60</height>
 					<textoffsetx>15</textoffsetx>
 					<font>font14</font>
@@ -123,13 +123,32 @@
 				</item>-->
 			</content>
 		</control>
+		<control type="grouplist" id="9001">
+			<left>32</left>
+			<top>592</top>
+			<height>60</height>
+			<width>942</width>
+			<ondown>60</ondown>
+			<onup>90100</onup>
+			<align>center</align>
+			<itemgap>0</itemgap>
+			<orientation>horizontal</orientation>
+			<control type="button" id="7">
+				<description>Cancel button</description>
+				<font>font15_title</font>
+				<align>center</align>
+				<width>471</width>
+				<label>222</label>
+				<onclick>Dialog.Close(1128)</onclick>
+			</control>
+		</control>
 		<control type="scrollbar" id="60">
-			<left>664</left>
+			<left>980</left>
 			<top>88</top>
 			<height>480</height>
 			<width>10</width>
 			<onleft>90100</onleft>
-			<onright>90100</onright>
+			<onright>9001</onright>
 			<ondown>60</ondown>
 			<onup>60</onup>
 		</control>
