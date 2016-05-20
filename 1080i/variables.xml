@@ -104,6 +104,8 @@
 	</variable>
 	<variable name="BreadcrumbsVar">
 		<value condition="Window.IsActive(script-globalsearch-infodialog.xml)">$INFO[Container(100).ListItem.Label]</value>
+		<value condition="Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml)">$INFO[Window.Property(label)]</value>
+		<value condition="Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml)">$INFO[Window.Property(title)]</value>
 		<value condition="Window.IsActive(movieinformation) + String.IsEqual(ListItem.DBTYPE,episode)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(movieinformation)">$INFO[ListItem.Label]</value>
 		<value condition="Window.IsActive(DialogMusicInfo.xml)">$VAR[MusicInfoHeading]</value>
@@ -605,6 +607,9 @@
     	<value condition="Window.IsActive(script-globalsearch-infodialog.xml) + [Control.IsVisible(130) | Control.IsVisible(140)]">$INFO[Container(100).ListItem.Property(TVShowTitle)]</value>
     	<value condition="Window.IsActive(script-globalsearch-infodialog.xml) + [Control.IsVisible(150) | Control.IsVisible(170) | Control.IsVisible(180)]">$INFO[Container(100).ListItem.Property(Artist)]</value>
     	<value condition="Window.IsActive(script-globalsearch-infodialog.xml) + Control.IsVisible(160)">$INFO[Container(100).ListItem.Property(Artist_Genre)]</value>
+    	<value condition="Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml)">$INFO[Window.Property(AlsoKnownAs)]</value>
+    	<value condition="Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) + !String.IsEmpty(Window.Property(tagline))">$INFO[Window.Property(tagline)]</value>
+    	<value condition="Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) + String.IsEmpty(Window.Property(tagline))">$INFO[Window.Property(originaltitle)]</value>
     	<value condition="Window.IsActive(movieinformation) + String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
     	<value condition="Window.IsActive(movieinformation) + String.IsEqual(ListItem.DBTYPE,movie) + String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.OriginalTitle]</value>
     	<value condition="Window.IsActive(movieinformation) + String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.Status))">$INFO[Window(Home).Property(NextAired.Status)]</value>
