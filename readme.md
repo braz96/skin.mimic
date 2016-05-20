@@ -23,6 +23,15 @@ More screenshots available here: http://imgur.com/a/LLSMM
 
 
 ***
+**5.0.0**
+- Simplified home window, removed several options.
+- Removed Live DVD background option (wasn't working).
+- Added mouse support for submenus.
+- Redesigned Global Search info dialog.
+- Added more home background options via script.skin.helper.service.
+- Removed dependency on script.grab.fanart.
+
+***
 **4.0.2**
 - Added a quick launch menu to side menu.
 - Redesigned player controls and video/music OSD buttons.
