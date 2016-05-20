@@ -27,6 +27,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added a quick launch menu to side menu.
 - Redesigned player controls and video/music OSD buttons.
 - Removed Live DVD background options (not working).
+- Redesigned info dialogs.
 
 ***
 **4.0.1**
