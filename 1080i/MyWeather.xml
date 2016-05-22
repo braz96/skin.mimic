@@ -2288,7 +2288,7 @@
 				<visible allowhiddenfocus="true">!Window.IsVisible(1134) + !Control.HasFocus(9013) + !Control.HasFocus(9014)</visible>
 				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
 				<left>0</left>
-				<top>10</top>
+				<top>0</top>
 				<width>400</width>
 				<height>1080</height>
 				<onleft>9050</onleft>
@@ -2300,18 +2300,19 @@
 				<onback>9000</onback>
 				<itemgap>0</itemgap>
 				<control type="label" id="200">
-					<top></top>
 					<width>400</width>
-					<height>52</height>
+					<height>60</height>
 					<textoffsetx>15</textoffsetx>
 					<font>font13_title</font>
 					<label>31006</label>
 					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				</control>
-				<control type="spincontrolex" id="3">
-					<description>change location button</description>
-					<font>-</font>
-					<include>ButtonCommonValues</include>
+				<control type="button" id="213">
+					<description>Change weather location</description>
+					<width>400</width>
+					<font>font13</font>
+					<label>$INFO[Weather.Location]</label>
+                    <onclick>Weather.LocationNext</onclick>
 				</control>
 				<control type="button" id="210">
 					<description>Select weather icons</description>
@@ -2336,7 +2337,7 @@
 				</control>
 				<control type="label" id="203">
 					<width>400</width>
-					<height>52</height>
+					<height>60</height>
 					<textoffsetx>15</textoffsetx>
 					<font>font13_title</font>
 					<label>31026</label>
@@ -2357,16 +2358,19 @@
 				</control>
 				<control type="label" id="207">
 					<width>400</width>
-					<height>52</height>
+					<height>60</height>
 					<textoffsetx>15</textoffsetx>
 					<font>font13_title</font>
 					<label>31301</label>
 					<textcolor>$VAR[ColorHighlightVar]</textcolor>
+					<visible>!String.IsEmpty(Window.Property(Updated))</visible>
 				</control>
 				<control type="label" id="208">
+					<height>60</height>
+					<textoffsetx>15</textoffsetx>
 					<include>ButtonCommonValues</include>
 					<label>$INFO[Window.Property(Updated)]</label>
-					<textcolor>$VAR[ColorTextVar]</textcolor>
+					<visible>!String.IsEmpty(Window.Property(Updated))</visible>
 				</control>
 				<control type="button" id="212">
 					<description>Actions label</description>
@@ -2385,23 +2389,6 @@
 				</include>
 			</control>
 			<include condition="!Skin.HasSetting(Disable.Quicknav)">QuicknavMenu</include>
-			<control type="group">
-				<visible>!Window.IsVisible(1134) + !Control.HasFocus(9013) + !Control.HasFocus(9014)</visible>
-				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-				<left>0</left>
-				<top>62</top>
-				<control type="label" id="201">
-					<include>ButtonCommonValues</include>
-					<label>31069</label>
-					<visible>!Control.HasFocus(3)</visible>
-				</control>
-				<control type="label" id="202">
-					<textcolor>$VAR[ColorTextVar]</textcolor>
-					<include>ButtonCommonValues</include>
-					<label>31069</label>
-					<visible>Control.HasFocus(3)</visible>
-				</control>
-			</control>
 		</control>
 	</controls>
 </window>
