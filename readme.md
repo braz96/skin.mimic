@@ -27,9 +27,10 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Simplified home window, removed several options.
 - Removed Live DVD background option (wasn't working).
 - Added mouse support for submenus.
-- Redesigned Global Search info dialog.
+- Redesigned Global Search and Extended Info dialogs.
 - Added more home background options via script.skin.helper.service.
 - Removed dependency on script.grab.fanart.
+- Implemented a context menu for the menu customizer.
 
 ***
 **4.0.2**

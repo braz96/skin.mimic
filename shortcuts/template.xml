@@ -8,215 +8,219 @@
         <property name="path"></property>
         <property name="target"></property>
         <controls>
-            <!--<include content="WidgetBusyAnimation">
+            <include content="WidgetBusyAnimation">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
-            </include>-->
-            <control type="image">
-                <visible>Control.HasFocus(8011$SKINSHORTCUTS[id]) + !Container(8011$SKINSHORTCUTS[id]).IsUpdating</visible>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
-                <left>503</left>
-                <top>10</top>
-                <width>330</width>
-                <height>370</height>
-                <include>FocusedBackgroundFade</include>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Row,0)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
-            </control>
-            <control type="panel" id="8011$SKINSHORTCUTS[id]">
-                <skinshortcuts>visibility</skinshortcuts>
-                <include content="WidgetContents">
-                    <param name="id">8011$SKINSHORTCUTS[id]</param>
-                    <param name="path">$SKINSHORTCUTS[path]</param>
-                    <param name="target">$SKINSHORTCUTS[target]</param>
-                    <param name="onup">8011$SKINSHORTCUTS[id]</param>
-                    <param name="ondown">8011$SKINSHORTCUTS[id]</param>
-                    <param name="onleft">9000</param>
-                    <param name="onright">8011$SKINSHORTCUTS[id]</param>
-                    <param name="width">1400</param>
-                    <param name="left">493</param>
-                    <param name="orientation">vertical</param>
-                </include>
-            </control>
+            </include>
             <control type="group">
-                <include>VisibleFadeEffect</include>
-                <visible>Control.HasFocus(8011$SKINSHORTCUTS[id])</visible>
-                <height>30</height>
-                <top>-40</top>
-                <left>1178</left>
-                <control type="label">
-                    <visible>Container(8011$SKINSHORTCUTS[id]).HasPrevious</visible>
-                    <width>30</width>
-                    <height>30</height>
-                    <align>center</align>
-                    <label></label>
-                    <font>IconTiny</font>
-                    <textcolor>disabled</textcolor>
-                </control>
-                <control type="label">
-                    <visible>Container(8011$SKINSHORTCUTS[id]).HasNext</visible>
-                    <top>830</top>
-                    <width>30</width>
-                    <height>30</height>
-                    <align>center</align>
-                    <label></label>
-                    <font>IconTiny</font>
-                    <textcolor>disabled</textcolor>
-                </control>
-            </control>
-            <control type="image">
-                <visible>Control.HasFocus(8012$SKINSHORTCUTS[id]) + !Container(8012$SKINSHORTCUTS[id]).IsUpdating</visible>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
-                <left>503</left>
-                <top>400</top>
-                <width>330</width>
-                <height>370</height>
-                <include>FocusedBackgroundFade</include>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
-            </control>
-            <control type="panel" id="8012$SKINSHORTCUTS[id]">
-                <skinshortcuts>visibility</skinshortcuts>
-                <include content="WeatherWidgetContents">
-                    <param name="id">8012$SKINSHORTCUTS[id]</param>
-                    <param name="left">493</param>
-                    <param name="width">1400</param>
-                </include>
-            </control>
-            <control type="group">
-                <visible>Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).NumItems,0) | Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
-                <control type="label">
-                    <visible>Control.HasFocus(9000) | Control.HasFocus(9010)</visible>
-                    <include>VisibleFadeEffect</include>
+                <include>Animation.Common</include>
+                <top>214</top>
+                <control type="image">
+                    <visible>Control.HasFocus(8011$SKINSHORTCUTS[id]) + !Container(8011$SKINSHORTCUTS[id]).IsUpdating</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
                     <left>503</left>
-                    <top>-40</top>
-                    <width>1380</width>
-                    <height>40</height>
-                    <font>font15_title</font>
-                    <align>right</align>
-                    <textcolor>disabled</textcolor>
-                    <label>$VAR[WidgetNameLabelVar]</label>
-                </control>
-            </control>
-            <control type="group">
-                <visible>Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
-                <top>0</top>
-                <left>493</left>
-                <width>1400</width>
-                <height>390</height>
-                <top>370</top>
-                <control type="image">
-                    <left>20</left>
-                    <top>20</top>
-                    <right>20</right>
-                    <height>310</height>
-                    <texture colordiffuse="$VAR[ColorBackgroundVar]">background.png</texture>
-                </control>
-                <control type="image">
-                    <left>10</left>
                     <top>10</top>
-                    <right>10</right>
-                    <bottom>10</bottom>
-                    <texture colordiffuse="33ffffff">background.png</texture>
+                    <width>330</width>
+                    <height>370</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Row,0)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
+                </control>
+                <control type="panel" id="8011$SKINSHORTCUTS[id]">
+                    <skinshortcuts>visibility</skinshortcuts>
+                    <include content="WidgetContents">
+                        <param name="id">8011$SKINSHORTCUTS[id]</param>
+                        <param name="path">$SKINSHORTCUTS[path]</param>
+                        <param name="target">$SKINSHORTCUTS[target]</param>
+                        <param name="onup">8011$SKINSHORTCUTS[id]</param>
+                        <param name="ondown">8011$SKINSHORTCUTS[id]</param>
+                        <param name="onleft">9000</param>
+                        <param name="onright">8011$SKINSHORTCUTS[id]</param>
+                        <param name="width">1400</param>
+                        <param name="left">493</param>
+                        <param name="orientation">vertical</param>
+                    </include>
+                </control>
+                <control type="group">
+                    <include>VisibleFadeEffect</include>
+                    <visible>Control.HasFocus(8011$SKINSHORTCUTS[id])</visible>
+                    <height>30</height>
+                    <top>-40</top>
+                    <left>1178</left>
+                    <control type="label">
+                        <visible>Container(8011$SKINSHORTCUTS[id]).HasPrevious</visible>
+                        <width>30</width>
+                        <height>30</height>
+                        <align>center</align>
+                        <label></label>
+                        <font>IconTiny</font>
+                        <textcolor>disabled</textcolor>
+                    </control>
+                    <control type="label">
+                        <visible>Container(8011$SKINSHORTCUTS[id]).HasNext</visible>
+                        <top>830</top>
+                        <width>30</width>
+                        <height>30</height>
+                        <align>center</align>
+                        <label></label>
+                        <font>IconTiny</font>
+                        <textcolor>disabled</textcolor>
+                    </control>
                 </control>
                 <control type="image">
-                    <top>20</top>
-                    <left>20</left>
-                    <right>20</right>
-                    <height>310</height>
-                    <texture>thumbs/diffuse.png</texture>
+                    <visible>Control.HasFocus(8012$SKINSHORTCUTS[id]) + !Container(8012$SKINSHORTCUTS[id]).IsUpdating</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <left>503</left>
+                    <top>400</top>
+                    <width>330</width>
+                    <height>370</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
                 </control>
-                <control type="label">
-                    <left>20</left>
-                    <right>20</right>
-                    <top>327</top>
-                    <height>50</height>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <label>31204</label>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                    <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                <control type="panel" id="8012$SKINSHORTCUTS[id]">
+                    <skinshortcuts>visibility</skinshortcuts>
+                    <include content="WeatherWidgetContents">
+                        <param name="id">8012$SKINSHORTCUTS[id]</param>
+                        <param name="left">493</param>
+                        <param name="width">1400</param>
+                    </include>
                 </control>
-                <control type="image">
-                    <left>40</left>
-                    <top>40</top>
-                    <height>270</height>
-                    <aspectratio scalediffuse="false" align="left" aligny="center">keep</aspectratio>
-                    <texture background="true">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</texture>
+                <control type="group">
+                    <visible>Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).NumItems,0) | Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
+                    <control type="label">
+                        <visible>Control.HasFocus(9000) | Control.HasFocus(9010)</visible>
+                        <include>VisibleFadeEffect</include>
+                        <left>503</left>
+                        <top>-40</top>
+                        <width>1380</width>
+                        <height>40</height>
+                        <font>font15_title</font>
+                        <align>right</align>
+                        <textcolor>disabled</textcolor>
+                        <label>$VAR[WidgetNameLabelVar]</label>
+                    </control>
                 </control>
-                <control type="grouplist">
+                <control type="group">
+                    <visible>Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
                     <top>0</top>
-                    <left>350</left>
-                    <orientation>horizontal</orientation>
+                    <left>493</left>
+                    <width>1400</width>
+                    <height>390</height>
+                    <top>370</top>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture colordiffuse="$VAR[ColorBackgroundVar]">background.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <texture colordiffuse="33ffffff">background.png</texture>
+                    </control>
+                    <control type="image">
+                        <top>20</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture>thumbs/diffuse.png</texture>
+                    </control>
                     <control type="label">
-                        <description>current temp Value</description>
-                        <width>auto</width>
+                        <left>20</left>
+                        <right>20</right>
+                        <top>327</top>
+                        <height>50</height>
+                        <aligny>center</aligny>
+                        <font>font13</font>
+                        <label>31204</label>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                        <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                    </control>
+                    <control type="image">
+                        <left>40</left>
+                        <top>40</top>
                         <height>270</height>
-                        <font>WeatherTemp</font>
-                        <align>left</align>
-                        <label>$INFO[Window(weather).Property(Current.Temperature)]</label>
+                        <aspectratio scalediffuse="false" align="left" aligny="center">keep</aspectratio>
+                        <texture background="true">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</texture>
+                    </control>
+                    <control type="grouplist">
+                        <top>0</top>
+                        <left>350</left>
+                        <orientation>horizontal</orientation>
+                        <control type="label">
+                            <description>current temp Value</description>
+                            <width>auto</width>
+                            <height>270</height>
+                            <font>WeatherTemp</font>
+                            <align>left</align>
+                            <label>$INFO[Window(weather).Property(Current.Temperature)]</label>
+                            <textcolor>$VAR[ColorTextVar]</textcolor>
+                        </control>
+                        <control type="label">
+                            <description>current temp Value Units</description>
+                            <left>270</left>
+                            <width>auto</width>
+                            <height>216</height>
+                            <font>font16</font>
+                            <label>$INFO[System.TemperatureUnits]</label>
+                            <textcolor>$VAR[ColorTextVar]</textcolor>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <description>current condition label</description>
+                        <top>210</top>
+                        <left>350</left>
+                        <width>800</width>
+                        <height>60</height>
+                        <label>$INFO[Window(weather).Property(Current.Condition)], $LOCALIZE[402] $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+                        <font>font30</font>
                         <textcolor>$VAR[ColorTextVar]</textcolor>
                     </control>
-                    <control type="label">
-                        <description>current temp Value Units</description>
-                        <left>270</left>
-                        <width>auto</width>
-                        <height>216</height>
-                        <font>font16</font>
-                        <label>$INFO[System.TemperatureUnits]</label>
-                        <textcolor>$VAR[ColorTextVar]</textcolor>
-                    </control>
-                </control>
-                <control type="label">
-                    <description>current condition label</description>
-                    <top>210</top>
-                    <left>350</left>
-                    <width>800</width>
-                    <height>60</height>
-                    <label>$INFO[Window(weather).Property(Current.Condition)], $LOCALIZE[402] $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-                    <font>font30</font>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                </control>
-                <control type="grouplist">
-                    <left>900</left>
-                    <top>60</top>
-                    <width>438</width>
-                    <itemgap>20</itemgap>
-                    <control type="label">
-                        <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[406]: [/COLOR]$INFO[Window(weather).Property(Current.Humidity)]</label>
+                    <control type="grouplist">
+                        <left>900</left>
+                        <top>60</top>
                         <width>438</width>
-                        <height>40</height>
-                        <align>right</align>
-                        <font>font14</font>
-                    </control>
-                    <control type="label">
-                        <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[404]:[/COLOR] $INFO[Window(weather).Property(Current.Wind)]</label>
-                        <width>438</width>
-                        <height>40</height>
-                        <align>right</align>
-                        <font>font14</font>
-                    </control>
-                    <control type="label">
-                        <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33027]:[/COLOR] $INFO[Window(weather).Property(Today.Sunrise)]</label>
-                        <width>438</width>
-                        <height>40</height>
-                        <align>right</align>
-                        <font>font14</font>
-                    </control>
-                    <control type="label">
-                        <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33028]:[/COLOR] $INFO[Window(weather).Property(Today.Sunset)]</label>
-                        <width>438</width>
-                        <height>40</height>
-                        <align>right</align>
-                        <font>font14</font>
+                        <itemgap>20</itemgap>
+                        <control type="label">
+                            <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[406]: [/COLOR]$INFO[Window(weather).Property(Current.Humidity)]</label>
+                            <width>438</width>
+                            <height>40</height>
+                            <align>right</align>
+                            <font>font14</font>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[404]:[/COLOR] $INFO[Window(weather).Property(Current.Wind)]</label>
+                            <width>438</width>
+                            <height>40</height>
+                            <align>right</align>
+                            <font>font14</font>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33027]:[/COLOR] $INFO[Window(weather).Property(Today.Sunrise)]</label>
+                            <width>438</width>
+                            <height>40</height>
+                            <align>right</align>
+                            <font>font14</font>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33028]:[/COLOR] $INFO[Window(weather).Property(Today.Sunset)]</label>
+                            <width>438</width>
+                            <height>40</height>
+                            <align>right</align>
+                            <font>font14</font>
+                        </control>
                     </control>
                 </control>
             </control>
@@ -229,217 +233,221 @@
         <property name="path"></property>
         <property name="target"></property>
         <controls>
-            <!--<include content="WidgetBusyAnimation">
+            <include content="WidgetBusyAnimation">
                 <param name="id">8011$SKINSHORTCUTS[id]</param>
-            </include>-->
-            <control type="image">
-                <visible>Control.HasFocus(8011$SKINSHORTCUTS[id]) + !Container(8011$SKINSHORTCUTS[id]).IsUpdating</visible>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
-                <left>95</left>
-                <top>10</top>
-                <width>330</width>
-                <height>370</height>
-                <include>FocusedBackgroundFade</include>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Row,0)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
-            </control>
-            <control type="panel" id="8011$SKINSHORTCUTS[id]">
-                <skinshortcuts>visibility</skinshortcuts>
-                <include content="WidgetContents">
-                    <param name="id">8011$SKINSHORTCUTS[id]</param>
-                    <param name="path">$SKINSHORTCUTS[path]</param>
-                    <param name="target">$SKINSHORTCUTS[target]</param>
-                    <param name="onup">8011$SKINSHORTCUTS[id]</param>
-                    <param name="ondown">9000</param>
-                    <param name="onleft">8011$SKINSHORTCUTS[id]</param>
-                    <param name="onright">8011$SKINSHORTCUTS[id]</param>
-                    <param name="width">1750</param>
-                    <param name="left">85</param>
-                    <param name="orientation">horizontal</param>
-                </include>
-            </control>
+            </include>
             <control type="group">
-                <include>VisibleFadeEffect</include>
-                <visible>Control.HasFocus(8011$SKINSHORTCUTS[id])</visible>
-                <height>30</height>
-                <top>375</top>
-                <left>40</left>
-                <control type="label">
-                    <visible>Container(8011$SKINSHORTCUTS[id]).HasPrevious</visible>
-                    <width>30</width>
-                    <height>30</height>
-                    <align>center</align>
-                    <label></label>
-                    <font>IconTiny</font>
-                    <textcolor>disabled</textcolor>
+                <include>Animation.Common</include>
+                <top>150</top>
+                <control type="image">
+                    <visible>Control.HasFocus(8011$SKINSHORTCUTS[id]) + !Container(8011$SKINSHORTCUTS[id]).IsUpdating</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <left>95</left>
+                    <top>10</top>
+                    <width>330</width>
+                    <height>370</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Row,0)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
                 </control>
-                <control type="label">
-                    <visible>Container(8011$SKINSHORTCUTS[id]).HasNext</visible>
-                    <left>1805</left>
-                    <width>30</width>
-                    <height>30</height>
-                    <align>center</align>
-                    <label></label>
-                    <font>IconTiny</font>
-                    <textcolor>disabled</textcolor>
+                <control type="panel" id="8011$SKINSHORTCUTS[id]">
+                    <skinshortcuts>visibility</skinshortcuts>
+                    <include content="WidgetContents">
+                        <param name="id">8011$SKINSHORTCUTS[id]</param>
+                        <param name="path">$SKINSHORTCUTS[path]</param>
+                        <param name="target">$SKINSHORTCUTS[target]</param>
+                        <param name="onup">8011$SKINSHORTCUTS[id]</param>
+                        <param name="ondown">9000</param>
+                        <param name="onleft">8011$SKINSHORTCUTS[id]</param>
+                        <param name="onright">8011$SKINSHORTCUTS[id]</param>
+                        <param name="width">1750</param>
+                        <param name="left">85</param>
+                        <param name="orientation">horizontal</param>
+                    </include>
                 </control>
-            </control>
-            <control type="image">
-                <visible>Control.HasFocus(8012$SKINSHORTCUTS[id]) + !Container(8012$SKINSHORTCUTS[id]).IsUpdating</visible>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
-                <left>95</left>
-                <top>400</top>
-                <width>330</width>
-                <height>370</height>
-                <include>FocusedBackgroundFade</include>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
-                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
-            </control>
-            <control type="panel" id="8012$SKINSHORTCUTS[id]">
-                <skinshortcuts>visibility</skinshortcuts>
-                <include content="WeatherWidgetContents">
-                    <param name="id">8012$SKINSHORTCUTS[id]</param>
-                    <param name="left">85</param>
-                    <param name="width">1750</param>
-                </include>
-            </control>
-            <control type="group">
-                <visible>Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).NumItems,0) | Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
-                <control type="label">
-                    <visible>Control.HasFocus(9000) | Control.HasFocus(9010)</visible>
+                <control type="group">
                     <include>VisibleFadeEffect</include>
-                    <left>1885</left>
-                    <top>10</top>
-                    <width>780</width>
-                    <height>40</height>
-                    <font>font15_title</font>
-                    <angle>-90</angle>
-                    <align>left</align>
-                    <aligny>top</aligny>
-                    <textcolor>disabled</textcolor>
-                    <label>$VAR[WidgetNameLabelVar]</label>
-                </control>
-            </control>
-            <control type="group">
-                <visible>Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
-                <top>0</top>
-                <left>85</left>
-                <width>1750</width>
-                <height>390</height>
-                <top>370</top>
-                <control type="image">
-                    <left>20</left>
-                    <top>20</top>
-                    <right>20</right>
-                    <height>310</height>
-                    <texture colordiffuse="$VAR[ColorBackgroundVar]">background.png</texture>
-                </control>
-                <control type="image">
-                    <left>10</left>
-                    <top>10</top>
-                    <right>10</right>
-                    <bottom>10</bottom>
-                    <texture colordiffuse="33ffffff">background.png</texture>
-                </control>
-                <control type="image">
-                    <top>20</top>
-                    <left>20</left>
-                    <right>20</right>
-                    <height>310</height>
-                    <texture>thumbs/diffuse.png</texture>
-                </control>
-                <control type="label">
-                    <left>20</left>
-                    <right>20</right>
-                    <top>327</top>
-                    <height>50</height>
-                    <aligny>center</aligny>
-                    <font>font13</font>
-                    <label>31204</label>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                    <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
-                </control>
-                <control type="image">
+                    <visible>Control.HasFocus(8011$SKINSHORTCUTS[id])</visible>
+                    <height>30</height>
+                    <top>375</top>
                     <left>40</left>
-                    <top>40</top>
-                    <height>270</height>
-                    <aspectratio scalediffuse="false" align="left" aligny="center">keep</aspectratio>
-                    <texture background="true">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</texture>
-                </control>
-                <control type="grouplist">
-                    <top>0</top>
-                    <left>350</left>
-                    <orientation>horizontal</orientation>
                     <control type="label">
-                        <description>current temp Value</description>
-                        <width>auto</width>
-                        <height>270</height>
-                        <font>WeatherTemp</font>
+                        <visible>Container(8011$SKINSHORTCUTS[id]).HasPrevious</visible>
+                        <width>30</width>
+                        <height>30</height>
+                        <align>center</align>
+                        <label></label>
+                        <font>IconTiny</font>
+                        <textcolor>disabled</textcolor>
+                    </control>
+                    <control type="label">
+                        <visible>Container(8011$SKINSHORTCUTS[id]).HasNext</visible>
+                        <left>1805</left>
+                        <width>30</width>
+                        <height>30</height>
+                        <align>center</align>
+                        <label></label>
+                        <font>IconTiny</font>
+                        <textcolor>disabled</textcolor>
+                    </control>
+                </control>
+                <control type="image">
+                    <visible>Control.HasFocus(8012$SKINSHORTCUTS[id]) + !Container(8012$SKINSHORTCUTS[id]).IsUpdating</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <left>95</left>
+                    <top>400</top>
+                    <width>330</width>
+                    <height>370</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8012$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
+                </control>
+                <control type="panel" id="8012$SKINSHORTCUTS[id]">
+                    <skinshortcuts>visibility</skinshortcuts>
+                    <include content="WeatherWidgetContents">
+                        <param name="id">8012$SKINSHORTCUTS[id]</param>
+                        <param name="left">85</param>
+                        <param name="width">1750</param>
+                    </include>
+                </control>
+                <control type="group">
+                    <visible>Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).NumItems,0) | Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
+                    <control type="label">
+                        <visible>Control.HasFocus(9000) | Control.HasFocus(9010)</visible>
+                        <include>VisibleFadeEffect</include>
+                        <left>1885</left>
+                        <top>10</top>
+                        <width>780</width>
+                        <height>40</height>
+                        <font>font15_title</font>
+                        <angle>-90</angle>
                         <align>left</align>
-                        <label>$INFO[Window(weather).Property(Current.Temperature)]</label>
-                        <textcolor>$VAR[ColorTextVar]</textcolor>
-                    </control>
-                    <control type="label">
-                        <description>current temp Value Units</description>
-                        <left>270</left>
-                        <width>auto</width>
-                        <height>216</height>
-                        <font>font16</font>
-                        <label>$INFO[System.TemperatureUnits]</label>
-                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                        <aligny>top</aligny>
+                        <textcolor>disabled</textcolor>
+                        <label>$VAR[WidgetNameLabelVar]</label>
                     </control>
                 </control>
-                <control type="label">
-                    <description>current condition label</description>
-                    <top>210</top>
-                    <left>350</left>
-                    <width>800</width>
-                    <height>60</height>
-                    <label>$INFO[Window(weather).Property(Current.Condition)], $LOCALIZE[402] $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-                    <font>font30</font>
-                    <textcolor>$VAR[ColorTextVar]</textcolor>
-                </control>
-                <control type="grouplist">
-                    <left>1250</left>
-                    <top>60</top>
-                    <width>438</width>
-                    <itemgap>20</itemgap>
-                    <control type="label">
-                        <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[406]: [/COLOR]$INFO[Window(weather).Property(Current.Humidity)]</label>
-                        <width>438</width>
-                        <height>40</height>
-                        <align>right</align>
-                        <font>font14</font>
+                <control type="group">
+                    <visible>Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
+                    <top>0</top>
+                    <left>85</left>
+                    <width>1750</width>
+                    <height>390</height>
+                    <top>370</top>
+                    <control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture colordiffuse="$VAR[ColorBackgroundVar]">background.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <texture colordiffuse="33ffffff">background.png</texture>
+                    </control>
+                    <control type="image">
+                        <top>20</top>
+                        <left>20</left>
+                        <right>20</right>
+                        <height>310</height>
+                        <texture>thumbs/diffuse.png</texture>
                     </control>
                     <control type="label">
-                        <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[404]:[/COLOR] $INFO[Window(weather).Property(Current.Wind)]</label>
-                        <width>438</width>
-                        <height>40</height>
-                        <align>right</align>
-                        <font>font14</font>
+                        <left>20</left>
+                        <right>20</right>
+                        <top>327</top>
+                        <height>50</height>
+                        <aligny>center</aligny>
+                        <font>font13</font>
+                        <label>31204</label>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
+                        <selectedcolor>$VAR[ColorTextVar]</selectedcolor>
+                    </control>
+                    <control type="image">
+                        <left>40</left>
+                        <top>40</top>
+                        <height>270</height>
+                        <aspectratio scalediffuse="false" align="left" aligny="center">keep</aspectratio>
+                        <texture background="true">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</texture>
+                    </control>
+                    <control type="grouplist">
+                        <top>0</top>
+                        <left>350</left>
+                        <orientation>horizontal</orientation>
+                        <control type="label">
+                            <description>current temp Value</description>
+                            <width>auto</width>
+                            <height>270</height>
+                            <font>WeatherTemp</font>
+                            <align>left</align>
+                            <label>$INFO[Window(weather).Property(Current.Temperature)]</label>
+                            <textcolor>$VAR[ColorTextVar]</textcolor>
+                        </control>
+                        <control type="label">
+                            <description>current temp Value Units</description>
+                            <left>270</left>
+                            <width>auto</width>
+                            <height>216</height>
+                            <font>font16</font>
+                            <label>$INFO[System.TemperatureUnits]</label>
+                            <textcolor>$VAR[ColorTextVar]</textcolor>
+                        </control>
                     </control>
                     <control type="label">
-                        <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33027]:[/COLOR] $INFO[Window(weather).Property(Today.Sunrise)]</label>
-                        <width>438</width>
-                        <height>40</height>
-                        <align>right</align>
-                        <font>font14</font>
+                        <description>current condition label</description>
+                        <top>210</top>
+                        <left>350</left>
+                        <width>800</width>
+                        <height>60</height>
+                        <label>$INFO[Window(weather).Property(Current.Condition)], $LOCALIZE[402] $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+                        <font>font30</font>
+                        <textcolor>$VAR[ColorTextVar]</textcolor>
                     </control>
-                    <control type="label">
-                        <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33028]:[/COLOR] $INFO[Window(weather).Property(Today.Sunset)]</label>
+                    <control type="grouplist">
+                        <left>1250</left>
+                        <top>60</top>
                         <width>438</width>
-                        <height>40</height>
-                        <align>right</align>
-                        <font>font14</font>
+                        <itemgap>20</itemgap>
+                        <control type="label">
+                            <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[406]: [/COLOR]$INFO[Window(weather).Property(Current.Humidity)]</label>
+                            <width>438</width>
+                            <height>40</height>
+                            <align>right</align>
+                            <font>font14</font>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[404]:[/COLOR] $INFO[Window(weather).Property(Current.Wind)]</label>
+                            <width>438</width>
+                            <height>40</height>
+                            <align>right</align>
+                            <font>font14</font>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33027]:[/COLOR] $INFO[Window(weather).Property(Today.Sunrise)]</label>
+                            <width>438</width>
+                            <height>40</height>
+                            <align>right</align>
+                            <font>font14</font>
+                        </control>
+                        <control type="label">
+                            <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[33028]:[/COLOR] $INFO[Window(weather).Property(Today.Sunset)]</label>
+                            <width>438</width>
+                            <height>40</height>
+                            <align>right</align>
+                            <font>font14</font>
+                        </control>
                     </control>
                 </control>
             </control>
