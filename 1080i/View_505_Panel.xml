@@ -32,6 +32,7 @@
                 <onleft>505</onleft>
                 <onright>505</onright>
                 <pagecontrol>60</pagecontrol>
+                <preloaditems>2</preloaditems>
                 <orientation>horizontal</orientation>
                 <itemlayout width="600" height="725">
                     <control type="label">
@@ -144,6 +145,14 @@
                     <height>296</height>
                     <texture background="true">$VAR[LogoVar]</texture>
                     <aspectratio align="center" aligny="center">keep</aspectratio>
+                </control>
+                <control type="image">
+                    <visible>!Skin.HasSetting(Enable.PanelLogo)</visible>
+                    <animation center="auto" condition="Control.HasFocus(505)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                    <animation center="auto" condition="Control.HasFocus(505)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                    <width>525</width>
+                    <height>296</height>
+                    <texture>thumbs/diffuse.png</texture>
                 </control>
                 <include content="OverlayIcons" condition="![Container.Content(artists) | Skin.HasSetting(Enable.PanelLogo)]">
                     <param name="OverlayLeft" value="465" />
