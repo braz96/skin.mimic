@@ -47,9 +47,13 @@
             <effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
             <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
         </animation>
-        <animation type="Visible" reversible="false" condition="!Window.IsActive(skinsettings)">
-            <effect type="fade" start="0" end="100" time="300" delay="300" tween="sine" easing="in" />
-            <effect type="zoom" start="115" end="100" time="300" delay="300" center="auto" tween="sine" easing="out" />
+        <animation type="Visible" reversible="false">
+            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+            <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+        </animation>
+        <animation type="Hidden" reversible="false">
+            <effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
+            <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
         </animation>
     </include>
     <include name="FocusedBackgroundFade">
@@ -59,5 +63,7 @@
     <include name="MainMenuSlide">
     	<animation effect="slide" tween="cubic" time="400" start="-464" end="0" reversible="false">WindowOpen</animation>
 		<animation effect="slide" tween="cubic" time="200" start="0" end="-464" reversible="false">WindowClose</animation>
+		<animation effect="slide" tween="cubic" time="400" start="-464" end="0" reversible="false">Visible</animation>
+		<animation effect="slide" tween="cubic" time="200" start="0" end="-464" reversible="false">Hidden</animation>
     </include>
 </includes>
