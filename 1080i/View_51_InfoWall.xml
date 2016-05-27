@@ -14,9 +14,7 @@
                 <height>408</height>
                 <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="0,396" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,1)">Conditional</animation>
                 <animation effect="slide" end="0,396" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,0)">Conditional</animation>
-                <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,3)">Conditional</animation>
                 <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,2)">Conditional</animation>
                 <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,1)">Conditional</animation>
                 <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,0)">Conditional</animation>
@@ -65,7 +63,7 @@
 						<texture>thumbs/diffuse.png</texture>
 					</control>
 					<include content="OverlayIcons">
-                        <param name="OverlayLeft" value="143" />
+                        <param name="OverlayLeft" value="202" />
                         <param name="OverlayTop" value="4" />
                     </include>
 				</itemlayout>
@@ -90,7 +88,7 @@
 							<texture>thumbs/diffuse.png</texture>
 						</control>
 						<include content="OverlayIcons">
-	                        <param name="OverlayLeft" value="143" />
+	                        <param name="OverlayLeft" value="202" />
 	                        <param name="OverlayTop" value="4" />
 	                    </include>
 					</control>
@@ -283,22 +281,23 @@
 			<top>0</top>
 			<control type="image">
 				<visible>Control.HasFocus(51)</visible>
-                <left>149</left>
-                <top>129</top>
-                <width>312</width>
-                <height>312</height>
+                <left>39</left>
+                <top>159</top>
+                <width>292</width>
+                <height>292</height>
                 <include>FocusedBackgroundFade</include>
                 <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="0,300" time="300" tween="cubic" easing="inout" condition="Container(51).Row(2)">Conditional</animation>
-                <animation effect="slide" end="0,300" time="300" tween="cubic" easing="inout" condition="Container(51).Row(2) | Container(51).Row(1)">Conditional</animation>
-                <animation effect="slide" end="300,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(2)">Conditional</animation>
-                <animation effect="slide" end="300,0" time="300" tween="cubic" easing="inout" condition="Container(51).Column(2) | Container(51).Column(1)">Conditional</animation>
+                <animation effect="slide" end="0,280" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,1)">Conditional</animation>
+                <animation effect="slide" end="0,280" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,0)">Conditional</animation>
+                <animation effect="slide" end="280,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,2)">Conditional</animation>
+                <animation effect="slide" end="280,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,1)">Conditional</animation>
+                <animation effect="slide" end="280,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,0)">Conditional</animation>
             </control>
 			<control type="panel" id="51">
-				<left>155</left>
-				<top>135</top>
-				<width>900</width>
-				<height>900</height>
+				<left>45</left>
+				<top>165</top>
+				<width>1120</width>
+				<height>840</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<onright>60</onright>
@@ -308,95 +307,93 @@
 				<preloaditems>2</preloaditems>
 				<viewtype label="31021">icons</viewtype>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="300" width="300">
+				<itemlayout height="280" width="280">
 					<control type="image">
 						<top>6</top>
 						<left>6</left>
-						<width>288</width>
-						<height>288</height>
+						<width>268</width>
+						<height>268</height>
 						<aspectratio>scale</aspectratio>
 						<texture background="true" fallback="DefaultFallback.png">$VAR[ThumbVar]</texture>
 					</control>
 					<control type="image">
-						<visible>Container.Content(albums)</visible>
 						<top>6</top>
 						<left>6</left>
-						<width>288</width>
-						<height>288</height>
+						<width>268</width>
+						<height>268</height>
 						<texture>thumbs/diffuse.png</texture>
 					</control>
 					<control type="group">
 						<visible>Container.Content(artists)</visible>
 						<control type="image">
-							<top>6</top>
+							<top>224</top>
 							<left>6</left>
-							<width>288</width>
-							<height>288</height>
-							<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
+							<width>268</width>
+							<height>50</height>
+							<texture>black.png</texture>
+							<colordiffuse>bbffffff</colordiffuse>
 						</control>
 						<control type="label">
 							<left>6</left>
-							<top>254</top>
-							<width>288</width>
+							<top>234</top>
+							<width>268</width>
 							<height>28</height>
 							<align>center</align>
 							<textoffsetx>4</textoffsetx>
-							<label>$INFO[ListItem.Label]</label>
+							<info>ListItem.Label</info>
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="300" width="300">
+				<focusedlayout height="280" width="280">
 					<control type="group">
 						<include>PanelFocusedItemZoom</include>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
-							<width>288</width>
-							<height>288</height>
+							<width>268</width>
+							<height>268</height>
 							<aspectratio>scale</aspectratio>
-							<texture background="true" fallback="DefaultFallback.png">$VAR[ThumbVar]</texture>
+							<texture fallback="DefaultFallback.png" background="true">$VAR[ThumbVar]</texture>
+						</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>268</width>
+							<height>268</height>
+							<texture>thumbs/diffuse.png</texture>
 						</control>
 						<control type="group">
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<visible>Container.Content(artists)</visible>
 							<control type="image">
-								<visible>Container.Content(albums)</visible>
-								<top>6</top>
+								<top>224</top>
 								<left>6</left>
-								<width>288</width>
-								<height>288</height>
-								<texture>thumbs/diffuse.png</texture>
+								<width>268</width>
+								<height>50</height>
+								<texture>black.png</texture>
+								<colordiffuse>bbffffff</colordiffuse>
 							</control>
-							<control type="group">
-								<visible>Container.Content(artists)</visible>
-								<control type="image">			
-									<top>6</top>
-									<left>6</left>
-									<width>288</width>
-									<height>288</height>
-									<texture border="0,0,0,50">thumbs/diffuse_music.png</texture>
-								</control>
-									<control type="label">
-									<left>6</left>
-									<top>254</top>
-									<width>288</width>
-									<height>28</height>
-									<align>center</align>
-									<textoffsetx>4</textoffsetx>
-									<label>$INFO[ListItem.Label]</label>
-								</control>
+							<control type="label">
+								<left>6</left>
+								<top>234</top>
+								<width>268</width>
+								<height>28</height>
+								<align>center</align>
+								<textoffsetx>4</textoffsetx>
+								<info>ListItem.Label</info>
 							</control>
 						</control>
 					</control>
 				</focusedlayout>
 			</control>
 			<control type="grouplist">
-				<top>141</top>
-				<left>1090</left>
+				<top>171</top>
+				<left>1195</left>
 				<itemgap>15</itemgap>
 				<control type="image">
 					<width>680</width>
-					<height>383</height>
+					<height>384</height>
 					<aspectratio>scale</aspectratio>
 					<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
 					<fadetime>400</fadetime>
@@ -444,8 +441,8 @@
 				<control type="textbox">
 					<label>$VAR[MusicPlotVar]</label>
 					<width>680</width>
-					<height>342</height>
-					<font>font14_textbox</font>
+					<height>275</height>
+					<font>font14_textbox5</font>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					<include>InfoPanelButtonsValues</include>
 				</control>
