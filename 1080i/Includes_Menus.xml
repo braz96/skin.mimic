@@ -137,18 +137,7 @@
 						<label>$INFO[ListItem.Label]</label>
 						<visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 					</control>
-					<control type="label">
-						<left>415</left>
-						<width>30</width>
-						<height>110</height>
-						<label></label>
-						<font>IconTiny</font>
-						<align>right</align>
-						<textcolor>33ffffff</textcolor>
-						<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
-						<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
-						<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
-					</control>
+					<include>CombinedMenuArrow</include>
 				</itemlayout>
 				<focusedlayout height="120" width="464" condition="!Skin.HasSetting(Enable.MenuIcons)">
 					<control type="label">
@@ -178,18 +167,7 @@
 						<label>$INFO[ListItem.Label]</label>
 						<visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 					</control>
-					<control type="label">
-						<left>415</left>
-						<width>30</width>
-						<height>110</height>
-						<label></label>
-						<font>IconTiny</font>
-						<align>right</align>
-						<textcolor>33ffffff</textcolor>
-						<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
-						<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
-						<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
-					</control>
+					<include>CombinedMenuArrow</include>
 				</focusedlayout>
 		        <itemlayout height="120" width="464" condition="Skin.HasSetting(Enable.MenuIcons)">
 		            <control type="image">
@@ -228,6 +206,7 @@
 		                <label>$INFO[ListItem.Label]</label>
 		                <visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 		            </control>
+		            <include>CombinedMenuArrow</include>
 		        </itemlayout>
 		        <focusedlayout height="120" width="464" condition="Skin.HasSetting(Enable.MenuIcons)">
 		            <control type="image">
@@ -266,6 +245,7 @@
 		                <label>$INFO[ListItem.Label]</label>
 		                <visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
 		            </control>
+		            <include>CombinedMenuArrow</include>
 		        </focusedlayout>
 				<content>
 					<include condition="Skin.HasSetting(Enable.CombineMenus)">skinshortcuts-allmenus</include>
@@ -363,13 +343,6 @@
 				<texture>blank.png</texture>
 				<visible>!Skin.HasSetting(Enable.HorizontalMenu)</visible>
 			</control>
-			<!--<control type="image">
-				<width>$PARAM[SubmenuItemWidth]</width>
-				<height>$PARAM[SubmenuItemHeight]</height>
-				<texture>listselect_fo.png</texture>
-				<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-				<visible>ControlGroup(9001).HasFocus() + String.IsEqual(Skin.String(HomeLayout),2)</visible>
-			</control>-->
 			<control type="group">
 				<visible>Control.HasFocus(9010)</visible>
 				<control type="label">
@@ -411,5 +384,19 @@
             <animation effect="slide" end="$PARAM[MainMenuBackgroundWidth]" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2)">Conditional</animation>
             <animation effect="slide" end="$PARAM[MainMenuBackgroundWidth]" time="300" tween="cubic" easing="inout" condition="Container(9000).Position(4) | Container(9000).Position(3) | Container(9000).Position(2) | Container(9000).Position(1)">Conditional</animation>
         </control>
+	</include>
+	<include name="CombinedMenuArrow">
+		<control type="label">
+			<left>415</left>
+			<width>30</width>
+			<height>110</height>
+			<label></label>
+			<font>IconTiny</font>
+			<align>right</align>
+			<textcolor>33ffffff</textcolor>
+			<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
+			<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+			<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
+		</control>
 	</include>
 </includes>
