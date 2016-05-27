@@ -10,10 +10,7 @@
 	<include file="View_50_List.xml" />
 	<include file="View_51_InfoWall.xml" />
 	<include file="View_52_Thumbnail.xml" />
-	<include file="View_53_ShowCase.xml" />
-	<include file="View_54_ShowCase.xml" />
 	<include file="View_55_LowPanel.xml" />
-	<include file="View_56_Posters.xml" />
 	<include file="View_57_Shift.xml" />
 	<include file="View_59_Fanart.xml" />
 	<include file="View_500_Wall.xml" />
@@ -181,7 +178,7 @@
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.SetBool(Art2Customizer)</onclick>
 			<onclick>ActivateWindow(1133)</onclick>
-			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53)] + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons) + !Container.Content(musicvideos)</visible>
+			<visible>Window.IsActive(videolibrary) + Control.IsVisible(51) + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons) + !Container.Content(musicvideos)</visible>
 		</control>
 		<control type="radiobutton" id="1803">
 			<label>31117</label>
@@ -190,26 +187,12 @@
 			<visible>Window.IsActive(videolibrary) + Control.IsVisible(51) + !Skin.HasSetting(InfoWall.Banners)</visible>
 			<selected>Skin.HasSetting(InfoWall.LargeIcons)</selected>
 		</control>
-		<control type="radiobutton" id="1806">
-			<label>31104</label>
-			<include>ButtonCommonValues</include>
-			<onclick>Skin.ToggleSetting(Disable.ShowcaseInfopanel)</onclick>
-			<visible>[Control.IsVisible(53) | Control.IsVisible(54)] + !Container.Content(sets)</visible>
-			<selected>!Skin.HasSetting(Disable.ShowcaseInfopanel)</selected>
-		</control>
 		<control type="radiobutton" id="1805">
 			<label>31140</label>
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.ToggleSetting(Enable.ShiftPlot)</onclick>
 			<selected>Skin.HasSetting(Enable.ShiftPlot)</selected>
 			<visible>Window.IsActive(videos) + Control.IsVisible(57) + !Container.Content(sets) + !Container.Content(addons)</visible>
-		</control>
-		<control type="radiobutton" id="1807">
-			<label>31151</label>
-			<include>ButtonCommonValues</include>
-			<onclick>Skin.ToggleSetting(Enable.ShowcaseWrap)</onclick>
-			<selected>Skin.HasSetting(Enable.ShowcaseWrap)</selected>
-			<visible>Control.IsVisible(53) | Control.IsVisible(54)</visible>
 		</control>
 		<control type="radiobutton" id="1809">
 			<label>31095</label>
@@ -1198,7 +1181,7 @@
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
-				<visible>!String.IsEmpty(ListItem.VideoAspect) + ![$EXP[isTvshow] | $EXP[isSeason] | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(501) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.VideoAspect) + ![$EXP[isTvshow] | $EXP[isSeason] | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(501) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
@@ -1211,14 +1194,14 @@
 				<width>100</width>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
-				<visible>!String.IsEmpty(ListItem.AudioChannels) + ![$EXP[isTvshow] | $EXP[isSeason] | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.AudioChannels) + ![$EXP[isTvshow] | $EXP[isSeason] | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
 				<width>100</width>
 				<include>MediaFlagVars</include>
 				<texture>flags/cc.png</texture>
-				<visible>!String.IsEmpty(ListItem.SubtitleLanguage) + ![$EXP[isTvshow] | $EXP[isSeason] | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(57) | Control.IsVisible(56) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.SubtitleLanguage) + ![$EXP[isTvshow] | $EXP[isSeason] | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(57) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
