@@ -28,6 +28,7 @@
 	<constant name="FullScreenWidth">1920</constant>
 	<expression name="PluginAdvancedLauncher">String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/)</expression>
 	<expression name="PluginSuperFavourites">String.Contains(Container.FolderPath,plugin://plugin.program.super.favourites/)</expression>
+	<expression name="isVideoAddon">String.Contains(Container.FolderPath,plugin://plugin.video)</expression>
 	<expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
 	<expression name="isTvshow">String.IsEqual(ListItem.DBTYPE,tvshow)</expression>
 	<expression name="isSeason">String.IsEqual(ListItem.DBTYPE,season)</expression>
@@ -1174,7 +1175,7 @@
 				<height>80</height>
 				<include>MediaFlagVars</include>
 				<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
-				<visible>!String.IsEmpty(ListItem.VideoAspect) + ![$EXP[isTvshow] | $EXP[isSeason] | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(501) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.VideoAspect) + ![$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | Control.IsVisible(500) | Control.IsVisible(57) | Control.IsVisible(501) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>
@@ -1194,7 +1195,7 @@
 				<width>100</width>
 				<include>MediaFlagVars</include>
 				<texture>flags/cc.png</texture>
-				<visible>!String.IsEmpty(ListItem.SubtitleLanguage) + ![$EXP[isTvshow] | $EXP[isSeason] | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(57) | Control.IsVisible(55)]</visible>
+				<visible>!String.IsEmpty(ListItem.SubtitleLanguage) + ![$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(57) | Control.IsVisible(55)]</visible>
 			</control>
 			<control type="image">
 				<height>80</height>

@@ -797,15 +797,33 @@
 						<fadetime>IconCrossfadeTime</fadetime>
 						<visible>String.IsEmpty(ListItem.Plot)</visible>
 					</control>
-					<control type="textbox" id="70">
+					<control type="group">
+						<visible>!$EXP[isVideoAddon]</visible>
+						<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
+							<param name="left" value="0" />
+							<param name="top" value="360" />
+							<param name="align" value="left" />
+						</include>
+					</control>
+					<control type="textbox">
 						<label>$VAR[VideoPlotVar]</label>
-						<top>360</top>
+						<top>450</top>
+						<width>540</width>
+						<height>390</height>
+						<font>font14_textbox</font>
+						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+						<include>InfoPanelButtonsValues</include>
+						<visible>Skin.HasSetting(Enable.MediaFlags) + !String.IsEmpty(ListItem.Plot) + !$EXP[isVideoAddon]</visible>
+					</control>
+					<control type="textbox">
+						<label>$VAR[VideoPlotVar]</label>
+						<top>370</top>
 						<width>540</width>
 						<height>458</height>
 						<font>font15_textbox</font>
 						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 						<include>InfoPanelButtonsValues</include>
-						<visible>!String.IsEmpty(ListItem.Plot)</visible>
+						<visible>[!Skin.HasSetting(Enable.MediaFlags) | $EXP[isVideoAddon]] + !String.IsEmpty(ListItem.Plot)</visible>
 					</control>
 				</control>
 			</control>
