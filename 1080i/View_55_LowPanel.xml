@@ -132,4 +132,130 @@
 			<include>Scrollbar_Horizontal</include>
 		</control>
 	</include>
+	<!-- Music Wall -->
+	<include name="View_55_LowPanelMusic">
+		<control type="group">
+			<visible>Control.IsVisible(55) + !Window.IsActive(addoninformation)</visible>
+			<include>Animation.Common</include>
+			<control type="group">
+                <visible>Integer.IsGreater(Container(55).NumItems,0)</visible>
+                <animation effect="fade" time="320" delay="300">Visible</animation>
+                <control type="image">
+                	<visible>Control.HasFocus(55) </visible>
+                    <left>37</left>
+                    <top>650</top>
+                    <width>379</width>
+                    <height>379</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <animation effect="slide" end="367,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(55).Column,4)">Conditional</animation>
+                    <animation effect="slide" end="367,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(55).Column,3)">Conditional</animation>
+                    <animation effect="slide" end="367,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(55).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="367,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(55).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="367,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(55).Column,0)">Conditional</animation>
+                </control>
+            </control>
+			<control type="panel" id="55">
+				<left>43</left>
+				<top>656</top>
+				<width>1835</width>
+				<height>367</height>
+				<onup>SetProperty(MediaMenu,True,home)</onup>
+				<onup>SetFocus(9050)</onup>
+				<onright>55</onright>
+				<onleft>55</onleft>
+				<ondown>60</ondown>
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<orientation>Horizontal</orientation>
+				<viewtype label="31245">Icon</viewtype>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<itemlayout height="367" width="367">
+					<control type="group">
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>355</width>
+							<height>355</height>
+							<aspectratio>scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterVar]</texture>
+						</control>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>355</width>
+							<height>355</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<include content="OverlayIcons">
+	                        <param name="OverlayLeft" value="197" />
+	                        <param name="OverlayTop" value="4" />
+	                    </include>
+					</control>
+				</itemlayout>
+				<focusedlayout height="367" width="367">
+					<control type="group">
+						<include>PanelFocusedItemZoom</include>
+						<control type="image">
+							<left>6</left>
+							<top>6</top>
+							<width>355</width>
+							<height>355</height>
+							<aspectratio>scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterVar]</texture>
+						</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(55)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(55)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>355</width>
+							<height>355</height>
+							<texture>thumbs/diffuse.png</texture>
+						</control>
+						<include content="OverlayIcons">
+	                        <param name="OverlayLeft" value="197" />
+	                        <param name="OverlayTop" value="4" />
+	                    </include>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<left>43</left>
+				<top>210</top>
+				<include>VisibleFadeEffect</include>
+				<control type="image" id="9991">
+					<width>600</width>
+					<height>180</height>
+					<aspectratio aligny="bottom" align="left">keep</aspectratio>
+					<texture background="true">$INFO[Skin.String(MusicLibraryPath)]$INFO[Container(55).ListItem.Artist,,/logo.png]</texture>
+				</control>
+				<control type="label">
+					<animation effect="fade" start="0" end="100" time="300" delay="300">Visible</animation>
+					<top>25</top>
+					<width>750</width>
+					<height>130</height>
+					<font>font35_title</font>
+					<wrapmultiline>true</wrapmultiline>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>String.IsEqual(Control.GetLabel(9991),blank.png)</visible>
+				</control>
+				<control type="textbox">
+					<top>200</top>
+					<left>3</left>
+					<width>750</width>
+					<height>220</height>
+					<font>font14_textbox4</font>
+					<aligny>top</aligny>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					<label>$VAR[MusicPlotVar]</label>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(55) + !Window.IsActive(addoninformation)</visible>
+			<top>-15</top>
+			<include>Scrollbar_Horizontal</include>
+		</control>
+	</include>
 </includes>
