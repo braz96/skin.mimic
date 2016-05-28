@@ -92,7 +92,7 @@
 			<control type="group">
 				<left>43</left>
 				<top>190</top>
-				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(55)</visible>
 				<control type="image" id="9991">
 					<width>600</width>
 					<height>180</height>
@@ -110,6 +110,7 @@
 					<visible>String.IsEqual(Control.GetLabel(9991),blank.png)</visible>
 				</control>
 				<control type="textbox">
+					<visible>Control.IsVisible(55)</visible>
 					<top>200</top>
 					<left>3</left>
 					<width>750</width>
@@ -120,11 +121,14 @@
 					<label>$VAR[VideoPlotVar]</label>
 				</control>
 			</control>
-			<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
-				<param name="left" value="1050" />
-				<param name="top" value="540" />
-				<param name="align" value="right" />
-			</include>
+			<control type="group">
+				<visible>Control.IsVisible(55)</visible>
+				<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
+					<param name="left" value="1050" />
+					<param name="top" value="540" />
+					<param name="align" value="right" />
+				</include>
+			</control>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(55) + !Window.IsActive(addoninformation)</visible>
@@ -223,7 +227,7 @@
 			<control type="group">
 				<left>43</left>
 				<top>210</top>
-				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(55)</visible>
 				<control type="image" id="9991">
 					<width>600</width>
 					<height>180</height>

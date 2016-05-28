@@ -542,8 +542,7 @@
 				<animation effect="slide" time="0" start="0" end="-48" condition="Container.Content(musicvideos)">Conditional</animation>
 				<left>90</left>
 				<top>910</top>
-				<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Skin.HasSetting(Enable.MediaFlags)</visible>
-				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(500) + !String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Skin.HasSetting(Enable.MediaFlags)</visible>
 				<control type="label">
 					<width>1740</width>
 					<height>42</height>
@@ -570,8 +569,7 @@
 				<animation effect="slide" time="0" start="0" end="-48" condition="Container.Content(musicvideos)">Conditional</animation>
 				<left>90</left>
 				<top>910</top>
-				<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) | Skin.HasSetting(Enable.MediaFlags)</visible>
-				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(500) + [String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) | Skin.HasSetting(Enable.MediaFlags)]</visible>
 				<control type="label">
 					<width>1280</width>
 					<height>42</height>
@@ -600,8 +598,7 @@
 					<top>925</top>
 					<width>468</width>
 					<height>73</height>
-					<include>VisibleFadeEffect</include>
-					<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
+					<visible>Control.IsVisible(500) + String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
 					<control type="image">
 						<height>50</height>
 						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
@@ -616,11 +613,14 @@
 						<label>[UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#]</label>
 					</control>
 				</control>
-				<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
-					<param name="left" value="975" />
-					<param name="top" value="905" />
-					<param name="align" value="right" />
-				</include>
+				<control type="group">
+					<visible>Control.IsVisible(500)</visible>
+					<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
+						<param name="left" value="975" />
+						<param name="top" value="905" />
+						<param name="align" value="right" />
+					</include>
+				</control>
 			</control>
 		</control>
 		<control type="group">
@@ -746,6 +746,7 @@
 			<control type="group">
 				<left>95</left>
 				<top>970</top>
+				<visible>Control.IsVisible(500)</visible>
 				<control type="label">
 					<left>0</left>
 					<top>0</top>
@@ -894,7 +895,7 @@
 				<control type="group">
 					<left>90</left>
 					<top>925</top>
-					<include>VisibleFadeEffect</include>
+					<visible>Control.IsVisible(510)</visible>
 					<control type="label">
 						<width>1150</width>
 						<height>42</height>
@@ -1010,6 +1011,7 @@
 				<top>945</top>
 				<left>176</left>
 				<control type="group">
+					<visible>Control.IsVisible(520)</visible>
 					<control type="label">
 						<left>0</left>
 						<top>0</top>

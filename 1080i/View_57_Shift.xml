@@ -356,9 +356,9 @@
 		<control type="group">
 			<left>112</left>
 			<top>950</top>
-			<include>VisibleFadeEffect</include>
 			<visible>Window.IsActive(videos)</visible>
 			<control type="group">
+				<visible>Control.IsVisible(57)</visible>
 				<visible>[!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Skin.HasSetting(Enable.MediaFlags)] | !Window.IsActive(videos)</visible>
 				<control type="label">
 					<width>1693</width>
@@ -379,6 +379,7 @@
 				</control>
 			</control>
 			<control type="group">
+				<visible>Control.IsVisible(57)</visible>
 				<visible>[String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) | Skin.HasSetting(Enable.MediaFlags)] + Window.IsActive(videos)</visible>
 				<control type="label">
 					<width>1250</width>
@@ -398,17 +399,19 @@
 					<textoffsetx>30</textoffsetx>
 				</control>
 			</control>
-			<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
-				<param name="left" value="935" />
-				<param name="top" value="-5" />
-				<param name="align" value="right" />
-			</include>
+			<control type="group">
+				<visible>Control.IsVisible(57)</visible>
+				<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
+					<param name="left" value="935" />
+					<param name="top" value="-5" />
+					<param name="align" value="right" />
+				</include>
+			</control>
 			<control type="group">
 				<left>30</left>
 				<top>90</top>
 				<control type="textbox">
-					<visible>Skin.HasSetting(Enable.ShiftPlot)</visible>
-					<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
+					<visible>Control.IsVisible(57) + Skin.HasSetting(Enable.ShiftPlot)</visible>
 					<width>1633</width>
 					<height>160</height>
 					<font>font14_textbox3</font>
@@ -424,8 +427,7 @@
 			<top>960</top>
 			<width>500</width>
 			<height>150</height>
-			<include>VisibleFadeEffect</include>
-			<visible>Container.Content(movies) + String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
+			<visible>Control.IsVisible(57) + Container.Content(movies) + String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
 			<control type="image">
 				<height>50</height>
 				<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
@@ -446,6 +448,7 @@
 			<control type="group">
 				<left>115</left>
 				<top>920</top>
+				<visible>Control.IsVisible(57)</visible>
 				<control type="label">
 					<width>1693</width>
 					<height>42</height>
@@ -467,7 +470,6 @@
 				</control>
 				<control type="textbox">
 					<visible>Skin.HasSetting(Enable.ShiftDescription) + !Container.Content(addons)</visible>
-					<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100" delay="300">Visible</animation>
 					<top>90</top>
 					<left>30</left>
 					<width>1633</width>
