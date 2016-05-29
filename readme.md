@@ -31,6 +31,10 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added more home background options via script.skin.helper.service.
 - Removed dependency on script.grab.fanart.
 - Implemented a context menu for the menu customizer.
+- Removed ShowCase and Poster views.
+- Redesigned InfoWall view.
+- Added LowPanel view for Artists and Albums.
+- Added media flags for episode List view.
 
 ***
 **4.0.2**
