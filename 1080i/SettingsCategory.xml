@@ -47,7 +47,8 @@
 				<itemgap>0</itemgap>
 				<pagecontrol>60</pagecontrol>
 				<onleft>3</onleft>
-				<onright>60</onright>
+				<onright condition="Container(5).HasNext | Container(5).HasPrevious">60</onright>
+				<onright condition="!Container(5).HasNext + !Container(5).HasPrevious">3</onright>
 				<onup>5</onup>
 				<ondown>5</ondown>
 			</control>

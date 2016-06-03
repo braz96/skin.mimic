@@ -120,7 +120,8 @@
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
-					<onright>60</onright>
+					<onright condition="Container(9001).HasNext | Container(9001).HasPrevious">60</onright>
+					<onright condition="!Container(9001).HasNext + !Container(9001).HasPrevious">9000</onright>
 					<onup>9001</onup>
 					<ondown>9001</ondown>
 					<visible>Container(9000).HasFocus(1)</visible>
@@ -132,15 +133,6 @@
 						<label>31911</label>
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
 					</control>
-					<!--<control type="button" id="108">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31018</label>
-						<label2>$INFO[Skin.String(HomeLayout.label)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=HomeLayout,header=$LOCALIZE[31018])</onclick>
-					</control>-->
 					<control type="button" id="101">
 						<width>1316</width>
 						<height>90</height>
@@ -190,18 +182,6 @@
 						<onclick>Skin.ToggleSetting(Enable.WidgetLimit)</onclick>
 						<selected>Skin.HasSetting(Enable.WidgetLimit)</selected>
 					</control>
-					
-					
-					<!--<control type="radiobutton" id="109">
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31112</label>
-						<onclick>Skin.ToggleSetting(Disable.SubmenuSlide)</onclick>
-						<selected>Skin.HasSetting(Disable.SubmenuSlide)</selected>
-						<enable>!String.IsEqual(Skin.String(HomeLayout),3)</enable>
-					</control>-->
 				</control>
 				<control type="grouplist" id="9006">
 					<description>Backgrounds control area</description>
@@ -212,7 +192,8 @@
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
-					<onright>60</onright>
+					<onright condition="Container(9006).HasNext | Container(9006).HasPrevious">60</onright>
+					<onright condition="!Container(9006).HasNext + !Container(9006).HasPrevious">9000</onright>
 					<onup>9006</onup>
 					<ondown>9006</ondown>
 					<visible>Container(9000).HasFocus(3)</visible>
@@ -288,7 +269,8 @@
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
-					<onright>60</onright>
+					<onright condition="Container(9002).HasNext | Container(9002).HasPrevious">60</onright>
+					<onright condition="!Container(9002).HasNext + !Container(9002).HasPrevious">9000</onright>
 					<onup>9002</onup>
 					<ondown>9002</ondown>
 					<visible>Container(9000).HasFocus(4)</visible>
@@ -384,7 +366,8 @@
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
-					<onright>60</onright>
+					<onright condition="Container(9005).HasNext | Container(9005).HasPrevious">60</onright>
+					<onright condition="!Container(9005).HasNext + !Container(9005).HasPrevious">9000</onright>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<visible>Container(9000).HasFocus(5)</visible>
@@ -505,7 +488,8 @@
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
-					<onright>60</onright>
+					<onright condition="Container(9003).HasNext | Container(9003).HasPrevious">60</onright>
+					<onright condition="!Container(9003).HasNext + !Container(9003).HasPrevious">9000</onright>
 					<onup>9003</onup>
 					<ondown>9003</ondown>
 					<visible>Container(9000).HasFocus(6)</visible>
@@ -578,7 +562,8 @@
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
-					<onright>60</onright>
+					<onright condition="Container(9004).HasNext | Container(9004).HasPrevious">60</onright>
+					<onright condition="!Container(9004).HasNext + !Container(9004).HasPrevious">9000</onright>
 					<onup>9004</onup>
 					<ondown>9004</ondown>
 					<visible>Container(9000).HasFocus(7)</visible>
@@ -644,11 +629,6 @@
 					<width>1316</width>
 					<height>840</height>
 					<itemgap>0</itemgap>
-					<pagecontrol>60</pagecontrol>
-					<onleft>9000</onleft>
-					<onright>60</onright>
-					<onup>9009</onup>
-					<ondown>9008</ondown>
 					<usecontrolcoords>true</usecontrolcoords>
 					<visible>Container(9000).HasFocus(8)</visible>
 					<control type="label">
