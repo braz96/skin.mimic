@@ -21,9 +21,9 @@
 			<visible>!VideoPlayer.Content(LiveTV)</visible>
 		</control>
 		<control type="group">
-			<animation effect="slide" end="0,-238" time="240" tween="quadratic" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)">Conditional</animation>
-			<animation effect="slide" start="0,-238" end="0,0" time="240" tween="quadratic">WindowOpen</animation>
-			<animation effect="slide" end="0,-238" start="0,0" time="240" tween="quadratic">WindowClose</animation>
+			<animation effect="slide" end="0,-420" time="240" tween="quadratic" condition="Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)">Conditional</animation>
+			<animation effect="slide" start="0,-420" end="0,0" time="240" tween="quadratic">WindowOpen</animation>
+			<animation effect="slide" end="0,-420" start="0,0" time="240" tween="quadratic">WindowClose</animation>
 			<top>0</top>
 			<control type="image">
 				<width>FullScreenWidth</width>
@@ -40,7 +40,8 @@
 				<scrolltime tween="sine">200</scrolltime>
 				<orientation>horizontal</orientation>
 				<onup>701</onup>
-				<ondown>703</ondown>
+				<ondown condition="!Control.HasFocus(703)">703</ondown>
+				<ondown condition="Control.HasFocus(703)">12000</ondown>
 				<onleft>202</onleft>
 				<onright>202</onright>
 				<visible>!VideoPlayer.Content(livetv)</visible>
@@ -147,8 +148,8 @@
 					<width>100</width>
 					<height>64</height>
 					<font>IconMedium</font>
-					<onclick>Close</onclick>
-					<onclick>ActivateWindow(SubtitleSearch)</onclick>
+					<!--<onclick>Close</onclick>
+					<onclick>ActivateWindow(SubtitleSearch)</onclick>-->
 				</control>
 				<control type="button" id="704">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -183,6 +184,59 @@
 					<onclick>Close</onclick>
 					<onclick>ActivateWindow(fullscreeninfo)</onclick>
 					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(files)</visible>
+				</control>
+			</control>
+			<control type="group" id="12000">
+				<left>1120</left>
+				<top>130</top>
+				<visible>Control.HasFocus(703) | ControlGroup(12000).HasFocus</visible>
+				<control type="image">
+					<width>510</width>
+					<height>280</height>
+					<texture>background.png</texture>
+					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+				</control>
+				<control type="grouplist" id="12100">
+					<left>20</left>
+					<top>20</top>
+					<width>470</width>
+					<height>260</height>
+					<itemgap>0</itemgap>
+					<onleft>703</onleft>
+					<onright>703</onright>
+					<onup>12100</onup>
+					<ondown>12100</ondown>
+					<orientation>vertical</orientation>
+					<control type="button" id="12101">
+						<description>Download with Subtitles script</description>
+						<width>470</width>
+						<label>33003</label>
+						<!--<onclick>Close</onclick>-->
+						<onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(SubtitleSearch)</onclick>
+						<enable>!VideoPlayer.Content(LiveTV)</enable>
+					</control>
+					<control type="button" id="12102">
+						<width>470</width>
+						<label>$LOCALIZE[22006]</label>
+						<onclick>SubtitleDelay</onclick>
+						<enable>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</enable>
+					</control>
+					<control type="button" id="12103">
+						<width>470</width>
+						<label>$LOCALIZE[21448]</label>
+						<label2>[UPPERCASE]$INFO[VideoPlayer.SubtitlesLanguage][/UPPERCASE]</label2>
+						<onclick>CycleSubtitle</onclick>
+						<enable>VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled</enable>
+					</control>
+					<control type="radiobutton" id="12104">
+						<width>470</width>
+						<label>$LOCALIZE[449]</label>
+						<radioposx>350</radioposx>
+						<onclick>ShowSubtitles</onclick>
+						<selected>VideoPlayer.SubtitlesEnabled + VideoPlayer.HasSubtitles</selected>
+						<enable>VideoPlayer.HasSubtitles</enable>
+					</control>
 				</control>
 			</control>
 			<control type="grouplist" id="202">
