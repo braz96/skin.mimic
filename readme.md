@@ -23,6 +23,10 @@ More screenshots available here: http://imgur.com/a/LLSMM
 
 
 ***
+**4.0.3**
+- Added subtitle menu to Video OSD (from Estuary).
+
+***
 **4.0.2**
 - Added a quick launch menu to side menu.
 - Redesigned player controls and video/music OSD buttons.
