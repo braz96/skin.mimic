@@ -654,14 +654,13 @@
 			</control>
 			<control type="image">
 				<description>avatar</description>
-				<animation effect="fade" time="500">Visible</animation>
 				<left>1821</left>
 				<top>19</top>
 				<width>80</width>
 				<height>80</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture>$VAR[HomeNowPlayingThumbVar]</texture>
-				<visible>!Window.IsVisible(volumebar) | Player.Muted</visible>
+				<visible>[!Window.IsVisible(volumebar) + !Window.IsVisible(extendedprogressdialog)] | Player.Muted</visible>
 			</control>
 		</control>
 	</include>
