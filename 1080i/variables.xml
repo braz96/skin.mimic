@@ -738,10 +738,10 @@
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="MusicInfoDescription">
-		<value condition="Container.Content(artists) + !String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
-		<value condition="[Container.Content(albums) | Container.Content(songs)] + !String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
-		<value condition="Container.Content(artists) + String.IsEmpty(ListItem.Property(Artist_Description))">$LOCALIZE[547]</value>
-		<value condition="[Container.Content(albums) | Container.Content(songs)] + String.IsEmpty(ListItem.Property(Album_Description))">$LOCALIZE[414]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,artist) + !String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,song)] + !String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,artist) + String.IsEmpty(ListItem.Property(Artist_Description))">$LOCALIZE[547]</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,song)] + String.IsEmpty(ListItem.Property(Album_Description))">$LOCALIZE[414]</value>
 		<value>$LOCALIZE[547]</value>
 	</variable>
 	<variable name="MusicInfoHeading">
