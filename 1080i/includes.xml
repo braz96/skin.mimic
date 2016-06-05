@@ -598,8 +598,7 @@
 	                    <height>80</height>
 	                    <texture colordiffuse="$VAR[ColorTextVar]">$VAR[HeaderIcon]</texture>
 	                    <visible>![Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[369]) | String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | [Container.Content(artists) + String.IsEqual(Container.SortMethod,$LOCALIZE[557])]]]</visible>
-	                    <!--<visible>!Window.IsVisible(DialogBusy.xml) + [!Control.IsVisible(12345) | [!Skin.HasSetting(Enable.PersistentWidgets) + !ControlGroup(9003).HasFocus]]</visible>-->
-	                    <visible>!Window.IsVisible(DialogBusy.xml) + !Control.IsVisible(12345)</visible>
+	                    <visible>!Window.IsVisible(busydialog) + !Control.IsVisible(12345)</visible>
 	                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 	                </control>
 	                <control type="label">
@@ -655,12 +654,14 @@
 			</control>
 			<control type="image">
 				<description>avatar</description>
+				<animation effect="fade" time="500">Visible</animation>
 				<left>1821</left>
 				<top>19</top>
 				<width>80</width>
 				<height>80</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture>$VAR[HomeNowPlayingThumbVar]</texture>
+				<visible>!Window.IsVisible(volumebar) | Player.Muted</visible>
 			</control>
 		</control>
 	</include>
