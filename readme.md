@@ -34,7 +34,10 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Removed ShowCase and Poster views.
 - Redesigned InfoWall view.
 - Added LowPanel view for Artists and Albums.
+- Added LowList view for Sets.
 - Added media flags for episode List view.
+- Redesigned volume bar and extended progress bar dialogs (adapted from Estuary).
+- Added button to side menu to edit library nodes.
 
 ***
 **4.0.2**
