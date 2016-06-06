@@ -141,6 +141,13 @@
 					<altlabel>13353</altlabel>
 					<usealttexture>library.isscanningvideo</usealttexture>
 				</control>
+				<control type="button" id="622">
+					<include>ButtonCommonValues</include>
+					<label>31013</label>
+					<onclick condition="System.HasAddon(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
+					<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+					<visible>String.IsEmpty(Container.FolderPath) | String.IsEqual(Container.FolderPath,library://video/tvshows/) | String.IsEqual(Container.FolderPath,library://video/movies/) | String.IsEqual(Container.FolderPath,library://video/musicvideos/)</visible>
+				</control>
 				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">

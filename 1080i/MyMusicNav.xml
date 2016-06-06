@@ -113,6 +113,13 @@
 					<altlabel>13353</altlabel>
 					<usealttexture>library.isscanningmusic</usealttexture>
 				</control>
+				<control type="button" id="622">
+					<include>ButtonCommonValues</include>
+					<label>31013</label>
+					<onclick condition="System.HasAddon(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=music,return)</onclick>
+					<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+					<visible>String.IsEmpty(Container.FolderPath) | String.IsEqual(Container.FolderPath,library://music/top100/) | String.IsEqual(Container.FolderPath,library://music/musicvideos/) | String.IsEqual(Container.FolderPath,library://music/musicroles/)</visible>
+				</control>
 				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">
