@@ -11,7 +11,7 @@
             <control type="group">
                 <visible>Control.IsVisible(504)</visible>
     			<control type="label">
-    				<visible>![Window.IsActive(pictures) + Skin.HasSetting(PictureInfo.Disabled)]</visible>
+    				<visible>![Container.Content(images) + Skin.HasSetting(PictureInfo.Disabled)]</visible>
     				<left>383</left>
                     <top>760</top>
     				<label>$INFO[ListItem.Label]</label>
@@ -26,7 +26,7 @@
     				<font>font13_title</font>
     				<textcolor>$VAR[ColorHighlightVar]</textcolor>
     				<label>$VAR[FloorSubLabelVar]</label>
-    				<visible>![Container.Content(artists) | Window.IsActive(pictures)]</visible>
+    				<visible>![Container.Content(artists) | Container.Content(images)]</visible>
     			</control>
     			<control type="label">
     				<left>383</left>
@@ -65,33 +65,34 @@
 				<pagecontrol>60</pagecontrol>
                 <focusposition>1</focusposition>
                 <orientation>horizontal</orientation>
+                <visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(images) | [Container.Content(artists) + !Window.IsActive(videos)]] + !Container.Content(addons)</visible>
                 <itemlayout width="1167" height="650">
                     <control type="group">
                     	<top>6</top>
                     	<left>6</left>
                         <control type="image">
-							<visible>!Window.IsActive(pictures)</visible>
+							<visible>!Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
                             <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
                             <aspectratio align="center" aligny="center">scale</aspectratio>
                         </control>
 						<control type="image">
-							<visible>Window.IsActive(pictures)</visible>
+							<visible>Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
                             <texture background="true">$INFO[ListItem.PicturePath]</texture>
 							<aspectratio align="center" aligny="center">scale</aspectratio>
                         </control>
                         <control type="image">
-							<visible>ListItem.IsFolder + Window.IsActive(pictures)</visible>
+							<visible>ListItem.IsFolder + Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
                         </control>
                         <control type="image">
-                            <visible>![Window.IsActive(pictures) | Container.Content(artists)]</visible>
+                            <visible>![Container.Content(images) | Container.Content(artists)]</visible>
                             <left>6</left>
                             <top>420</top>
                             <width>1155</width>
@@ -104,7 +105,7 @@
                             <height>650</height>
                             <texture>thumbs/diffuse.png</texture>
                         </control>
-                        <include content="OverlayIcons" condition="![Window.IsActive(pictures) | Container.Content(artists)]">
+                        <include content="OverlayIcons" condition="![Container.Content(images) | Container.Content(artists)]">
                             <param name="OverlayLeft" value="1095" />
                             <param name="OverlayTop" value="0" />
                         </include>
@@ -123,14 +124,14 @@
 							<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
                         </control>
                         <control type="image">
-							<visible>!Window.IsActive(pictures)</visible>
+							<visible>!Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
                             <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
                             <aspectratio align="center" aligny="center">scale</aspectratio>
                         </control>
                         <control type="image">
-							<visible>![Window.IsActive(pictures) | Container.Content(artists)]</visible>
+							<visible>![Container.Content(images) | Container.Content(artists)]</visible>
                             <left>6</left>
                             <top>420</top>
                             <width>1155</width>
@@ -139,7 +140,7 @@
                             <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                         </control>
 						<control type="image">
-							<visible>Window.IsActive(pictures)</visible>
+							<visible>Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
                             <texture background="true">$INFO[ListItem.PicturePath]</texture>
@@ -152,7 +153,7 @@
                             <height>650</height>
                             <texture>thumbs/diffuse.png</texture>
                         </control>
-                        <include content="OverlayIcons" condition="![Window.IsActive(pictures) | Container.Content(artists)]">
+                        <include content="OverlayIcons" condition="![Container.Content(images) | Container.Content(artists)]">
                             <param name="OverlayLeft" value="1095" />
                             <param name="OverlayTop" value="0" />
                         </include>

@@ -148,7 +148,7 @@
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Premiered]</value>
 		<value condition="Container.Content(albums) | Container.Content(songs)">$INFO[ListItem.Artist]</value>
-		<value condition="Window.IsActive(pictures)">$INFO[ListItem.PictureResolution]</value>
+		<value condition="Container.Content(images)">$INFO[ListItem.PictureResolution]</value>
 		<value condition="Window.IsActive(videoplaylist) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Premiered]</value>
 		<value condition="!Container.Content(genres)">$INFO[ListItem.Genre]</value>
 	</variable>
@@ -164,7 +164,8 @@
 	<variable name="ThumbVar">
 		<value condition="String.Contains(ListItem.Label,* All Albums) | String.Contains(ListItem.Label,* All Songs)">$INFO[ListItem.Icon]</value>
 		<value condition="ListItem.IsParentFolder">DefaultFallbackParent.png</value>
-		<value>$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="FanartViewThumb">
 		<value condition="Skin.HasSetting(Enable.FanartLandscape) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>

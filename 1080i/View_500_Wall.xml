@@ -92,6 +92,7 @@
 				<pagecontrol>60</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<viewtype label="31086">Icon</viewtype>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos)</visible>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<itemlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]">
 					<control type="group">
@@ -662,6 +663,7 @@
 				<ondown>500</ondown>
 				<pagecontrol>60</pagecontrol>
 				<viewtype label="31086">Icon</viewtype>
+				<visible>Container.Content(artists) | Container.Content(albums)</visible>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<itemlayout height="280" width="280">
 					<control type="image">
@@ -808,6 +810,7 @@
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<viewtype label="31086">Icon</viewtype>
+				<visible>Container.Content(images)</visible>
 				<itemlayout height="357" width="424">
 					<control type="image">
 						<left>6</left>
@@ -897,13 +900,22 @@
 					<top>925</top>
 					<visible>Control.IsVisible(510)</visible>
 					<control type="label">
-						<width>1150</width>
+						<width>1300</width>
 						<height>42</height>
-						<aligny>top</aligny>
 						<font>font16_title</font>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Label]</label>
 						<textoffsety>-2</textoffsety>
+						<textoffsetx>30</textoffsetx>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>45</top>
+						<width>1300</width>
+						<height>30</height>
+						<font>font13_title</font>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<label>$INFO[ListItem.PictureResolution]</label>
 						<textoffsetx>30</textoffsetx>
 					</control>
 				</control>
@@ -947,6 +959,7 @@
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<viewtype label="31086">Icon</viewtype>
+				<visible>Container.Content(addons)</visible>
 				<itemlayout height="380" width="380">
 					<control type="image">
 						<top>6</top>
