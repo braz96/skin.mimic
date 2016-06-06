@@ -17,14 +17,15 @@
         	<visible>Player.HasAudio + !Skin.HasSetting(Disable.ShowBackgroundVis)</visible>
             <include>FullscreenDimensions</include>
         </control>
-        <control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>black.png</texture>
-			<visible>Player.HasVideo + !Skin.HasSetting(Disable.ShowBackgroundVideo)</visible>
-		</control>
- 		<control type="videowindow">
-            <include>FullscreenDimensions</include>
+        <control type="group">
             <visible>Player.HasVideo + !Skin.HasSetting(Disable.ShowBackgroundVideo)</visible>
+            <control type="image">
+    			<include>FullscreenDimensions</include>
+    			<texture>black.png</texture>
+    		</control>
+     		<control type="videowindow">
+                <include>FullscreenDimensions</include>
+            </control>
         </control>
         <control type="image">
             <include>FullscreenDimensions</include>
