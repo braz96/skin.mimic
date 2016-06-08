@@ -4,7 +4,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
 			<include>Animation.Common</include>
-			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-190" condition="Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftPlot) + !Container.Content(addons)">Conditional</animation>
+			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-190" condition="[Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftPlot)] | [!Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftDescription)]">Conditional</animation>
 			<control type="fixedlist" id="57">
 				<include condition="Window.IsActive(videos)">Contents57VideoList</include>
 				<include condition="!Window.IsActive(videos)">Contents57AlbumList</include>
@@ -233,7 +233,6 @@
 		</focusedlayout>
 	</include>
 	<include name="Contents57AlbumList">
-		<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftDescription) + !Container.Content(addons)">Conditional</animation>
 		<left>-135</left>
 		<top>275</top>
 		<width>2200</width>
@@ -446,7 +445,7 @@
 		</control>
 		<control type="group">
 			<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(addons) | [Container.Content(musicvideos) + !Window.IsActive(videos)]</visible>
-			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftDescription) + !Container.Content(addons)">Conditional</animation>
+			<!--<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-230" condition="Skin.HasSetting(Enable.ShiftDescription)">Conditional</animation>-->
 			<control type="group">
 				<left>115</left>
 				<top>920</top>
@@ -481,6 +480,18 @@
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					<include>InfoPanelButtonsValues</include>
 					<label>$VAR[MusicPlotVar]</label>
+				</control>
+				<control type="textbox">
+					<visible>Skin.HasSetting(Enable.ShiftDescription) + Container.Content(addons)</visible>
+					<top>90</top>
+					<left>30</left>
+					<width>1633</width>
+					<height>220</height>
+					<font>font14_textbox4</font>
+					<aligny>top</aligny>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					<include>InfoPanelButtonsValues</include>
+					<label>$INFO[ListItem.AddonDescription]</label>
 				</control>
 			</control>
 		</control>
