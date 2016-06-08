@@ -45,7 +45,7 @@
 				<pagecontrol>60</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<viewtype label="31021">icons</viewtype>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<itemlayout height="396" width="268" condition="!Skin.HasSetting(InfoWall.Banners)">
 					<control type="image">
@@ -244,20 +244,19 @@
 					<label>$VAR[FloorLabelVar]</label>
 				</control>
 				<control type="label">
-					<label>$INFO[ListItem.Genre]</label>
+					<label>$VAR[InfoWallSubLabelVar]</label>
 					<width>680</width>
 					<height>42</height>
 					<font>font13_title</font>
 					<aligny>top</aligny>
 					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-					<visible>!String.IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label">
 					<label>$VAR[VideoSubLabelVar]</label>
 					<width>680</width>
 					<height>34</height>
 					<font>font14</font>
-					<visible>!ListItem.IsParentFolder</visible>
+					<visible>!ListItem.IsParentFolder + !Container.Content(sets)</visible>
 				</control>
 				<control type="textbox">
 					<label>$VAR[VideoPlotVar]</label>

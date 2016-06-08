@@ -303,6 +303,7 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.TvShowTitle]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.AddonSummary]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
+		<value condition="Container.Content(sets)">$INFO[ListItem.Label2]</value>
 		<value condition="String.IsEmpty(ListItem.Genre)">$INFO[Window(Home).Property(Set.Movies.Genre)]</value>
 		<value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.Year]$INFO[ListItem.Genre, • ]</value>
 		<value>$INFO[ListItem.Genre]</value>
@@ -806,5 +807,9 @@
 		<value condition="player.passthrough"></value>
 		<value condition="Player.Muted"></value>
 		<value></value>
+	</variable>
+	<variable name="InfoWallSubLabelVar">
+		<value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
+		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 </includes>
