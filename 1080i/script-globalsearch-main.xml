@@ -9,7 +9,6 @@
 	<controls>
 		<include>CommonBackground</include>
 		<control type="image">
-			<visible>Control.IsVisible(100)</visible>
 			<include>FullscreenDimensions</include>
 			<texture>background.png</texture>
 			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
@@ -54,7 +53,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>Control.IsVisible(100)</visible>
+			<visible>Control.IsVisible(100) + !Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
 			<include>Animation.Common</include>
 			<control type="list" id="9000">
 				<left>60</left>
@@ -167,6 +166,7 @@
 			</control>
 		</control>
 		<control type="group" id="100">
+			<visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
 			<include>Animation.Common</include>
 			<top>60</top>
 			<control type="group">
@@ -873,7 +873,10 @@
 			<param name="id" value="70" />
 			<param name="container" value="181" />
 		</include>
-		<include>Topbar</include>
+		<control type="group">
+			<visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
+			<include>Topbar</include>
+		</control>
 		<control type="group">
 			<left>-440</left>
 			<include>SideBladeLeft</include>

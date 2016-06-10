@@ -8,24 +8,6 @@
 	</coordinates>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-		<control type="group">
-			<include>FullscreenDimensions</include>
-			<control type="image">
-				<visible>String.IsEmpty(Container(100).ListItem.Property(Fanart))</visible>
-				<animation effect="fade" start="0" end="100" time="400" delay="2000">WindowOpen</animation>
-				<texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[Skin.String(CustomBackground)]</texture>
-			</control>
-			<control type="image">
-				<visible>!String.IsEmpty(Container(100).ListItem.Property(Fanart))</visible>
-				<include>VisibleFadeEffect</include>
-				<aspectratio align="center">scale</aspectratio>
-				<texture background="true">$INFO[Container(100).ListItem.Property(Fanart)]</texture>
-			</control>
-			<control type="image">
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-		</control>
 		<control type="list" id="100">
 			<left>-10</left>
 			<top>-10</top>
@@ -992,41 +974,7 @@
 					<texture>$INFO[Container(100).ListItem.Property(AudioChannels),flags/channels/,.png]</texture>
 				</control>
 			</control>
-			<!--<control type="group">
-				<include content="MediaFlags">
-					<param name="left" value="0" />
-					<param name="top" value="890" />
-					<param name="align" value="left" />
-					<param name="orientation" value="horizontal" />
-				</include>
-			</control>-->
-            
-            <!--<control type="group">
-                <include>VisibleFadeEffect</include>
-                <visible>ControlGroup(9000).HasFocus()</visible>
-                <height>30</height>
-                <top>525</top>
-                <left>-50</left>
-                <control type="label">
-                    <visible>Container(9000).HasPrevious</visible>
-                    <width>30</width>
-                    <height>30</height>
-                    <align>center</align>
-                    <label></label>
-                    <font>IconTiny</font>
-                    <textcolor>disabled</textcolor>
-                </control>
-                <control type="label">
-                    <visible>Container(9000).HasNext</visible>
-                    <left>1220</left>
-                    <width>30</width>
-                    <height>30</height>
-                    <align>center</align>
-                    <label></label>
-                    <font>IconTiny</font>
-                    <textcolor>disabled</textcolor>
-                </control>
-            </control>-->
+			
 			<control type="group" id="190">
 				<left>2</left>
 				<top>510</top>
