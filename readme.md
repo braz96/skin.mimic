@@ -24,7 +24,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 
 ***
 **4.0.3**
-- Added subtitle menu to Video OSD (from Estuary).
+- Added subtitle menu to Video OSD (adapted from Estuary).
 
 ***
 **4.0.2**
