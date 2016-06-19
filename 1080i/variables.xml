@@ -741,6 +741,12 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.TVShowTitle] $LOCALIZE[20364]</value>
 	</variable>
 	<variable name="StarRatingVar">
+		<value condition="!String.IsEmpty(ListItem.UserRating) + Integer.IsLess(ListItem.UserRating,1)">rating0.png</value>
+		<value condition="!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,2)">rating1.png</value>
+		<value condition="!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,4)">rating2.png</value>
+		<value condition="!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,6)">rating3.png</value>
+		<value condition="!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,8)">rating4.png</value>
+		<value condition="!String.IsEmpty(ListItem.UserRating) + Integer.IsLessOrEqual(ListItem.UserRating,10)">rating5.png</value>
 		<value condition="Integer.IsLess(ListItem.Rating,1)">rating0.png</value>
 		<value condition="Integer.IsLessOrEqual(ListItem.Rating,2)">rating1.png</value>
 		<value condition="Integer.IsLessOrEqual(ListItem.Rating,4)">rating2.png</value>
