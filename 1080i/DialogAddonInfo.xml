@@ -22,7 +22,7 @@
 				</control>
 				<control type="grouplist" id="9000">
 					<left>82</left>
-					<top>356</top>
+					<top>420</top>
 					<width>356</width>
 					<height>480</height>
 					<onleft condition="Container(400).HasNext | Container(400).HasPrevious">60</onleft>
@@ -34,7 +34,7 @@
 					<control type="button" id="9">
 						<description>Configure Addon</description>
 						<width>356</width>
-						<height>68.57</height>
+						<height>70</height>
 						<label>24020</label>
 						<align>left</align>
 						<font>font15</font>
@@ -42,7 +42,7 @@
 					<control type="button" id="8">
 						<description>Update Addon button</description>
 						<width>356</width>
-						<height>68.57</height>
+						<height>70</height>
 						<label>24069</label>
 						<align>left</align>
 						<font>font15</font>
@@ -50,7 +50,7 @@
 					<control type="radiobutton" id="13">
 						<description>Auto update button</description>
 						<width>356</width>
-						<height>68.57</height>
+						<height>70</height>
 						<label>21340</label>
 						<align>left</align>
 						<font>font15</font>
@@ -58,7 +58,7 @@
 					<control type="button" id="12">
 						<description>Launch Addon button</description>
 						<width>356</width>
-						<height>68.57</height>
+						<height>70</height>
 						<label>518</label>
 						<align>left</align>
 						<font>font15</font>
@@ -66,7 +66,7 @@
 					<control type="button" id="6">
 						<description>Install/UnInstall Addon button</description>
 						<width>356</width>
-						<height>68.57</height>
+						<height>70</height>
 						<label>24022</label>
 						<align>left</align>
 						<font>font15</font>
@@ -74,65 +74,97 @@
 					<control type="button" id="7">
 						<description>Enable/Disable Addon button</description>
 						<width>356</width>
-						<height>68.57</height>
+						<height>70</height>
 						<label>24021</label>
-						<align>left</align>
-						<font>font15</font>
-					</control>
-					<control type="button" id="10">
-						<description>Changelog button</description>
-						<width>356</width>
-						<height>68.57</height>
-						<label>24036</label>
 						<align>left</align>
 						<font>font15</font>
 					</control>
 				</control>
 			</control>
 			<control type="group">
-				<control type="group">
-					<left>490</left>
-					<include>SettingsFadeEffect</include>
-					<control type="grouplist">
-						<left>32</left>
-						<width>658</width>
-						<itemgap>10</itemgap>
-						<control type="button">
-							<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
-							<include>SettingsPanelButtonsValues</include>
+				<top>-15</top>
+				<left>540</left>
+				<width>1256</width>
+				<height>880</height>
+				<control type="panel">
+					<width>1256</width>
+					<height>300</height>
+					<orientation>horizontal</orientation>
+					<pagecontrol>61</pagecontrol>
+					<scrolltime tween="quadratic" easing="out">200</scrolltime>
+					<itemlayout height="50" width="1256">
+						<control type="label">
+							<width>180</width>
+							<height>50</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
 						</control>
-						<control type="button">
-							<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[24051][/COLOR][CR]$INFO[ListItem.AddonVersion]</label>
-							<include>SettingsPanelButtonsValues</include>
+						<control type="label">
+							<left>180</left>
+							<width>970</width>
+							<height>50</height>
+							<font>font15</font>
+							<label>$INFO[ListItem.Label]</label>
 						</control>
-					</control>
-					<control type="grouplist">
-						<left>690</left>
-						<itemgap>10</itemgap>
-						<width>658</width>
-						<usecontrolcoords>true</usecontrolcoords>
-						<control type="button">
-							<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
-							<include>SettingsPanelButtonsValues</include>
+					</itemlayout>
+					<focusedlayout height="50" width="1256">
+						<control type="label">
+							<width>180</width>
+							<height>50</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
 						</control>
-						<control type="button">
-							<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[560]:[/COLOR][CR]$INFO[ListItem.Property(Addon.ID)]</label>
-							<include>SettingsPanelButtonsValues</include>
+						<control type="label">
+							<left>180</left>
+							<width>970</width>
+							<height>50</height>
+							<font>font15</font>
+							<label>$INFO[ListItem.Label]</label>
 						</control>
-					</control>
-					<control type="grouplist">
-						<left>47</left>
-						<top>230</top>
-						<usecontrolcoords>true</usecontrolcoords>
-						<control type="textbox" id="400">
-							<description>Description</description>
-							<width>1256</width>
-							<height>580</height>
-							<font>font15_textbox</font>
-							<textcolor>$VAR[ColorTextVar]</textcolor>
-							<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21821]: [/COLOR][CR]$INFO[ListItem.AddonDescription][CR]$VAR[AddonDisclaimer]</label>
-							<pagecontrol>60</pagecontrol>
-						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<label>$INFO[ListItem.AddonCreator]</label>
+							<label2>$LOCALIZE[21863]:</label2>
+							<onclick>noop</onclick>
+						</item>
+						<item>
+							<label>$INFO[ListItem.AddonVersion]</label>
+							<label2>$LOCALIZE[24051]</label2>
+							<onclick>noop</onclick>
+						</item>
+						<item>
+							<label>$INFO[ListItem.AddonType]</label>
+							<label2>$LOCALIZE[146]</label2>
+							<onclick>noop</onclick>
+						</item>
+						<item>
+							<label>$INFO[ListItem.AddonSize]</label>
+							<label2>$LOCALIZE[289]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.AddonSize)</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Addon.ID)]</label>
+							<label2>$LOCALIZE[560]:</label2>
+							<onclick>noop</onclick>
+						</item>
+					</content>
+				</control>
+				<control type="grouplist">
+					<left>0</left>
+					<top>275</top>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="textbox" id="400">
+						<description>Description</description>
+						<width>1256</width>
+						<height>575</height>
+						<font>font15_textbox</font>
+						<textcolor>$VAR[ColorTextVar]</textcolor>
+						<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21821]: [/COLOR][CR]$INFO[ListItem.AddonDescription][CR]$VAR[AddonDisclaimer][CR]$VAR[AddonNews]</label>
+						<pagecontrol>60</pagecontrol>
 					</control>
 				</control>
 			</control>
