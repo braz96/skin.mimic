@@ -38,6 +38,8 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added media flags for episode List view.
 - Redesigned volume bar and extended progress bar dialogs (adapted from Estuary).
 - Added button to side menu to edit library nodes.
+- Removed light theme.
+- Added option to customize disabled color.
 
 ***
 **4.0.2**
