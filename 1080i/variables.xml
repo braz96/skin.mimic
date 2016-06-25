@@ -534,6 +534,7 @@
     	<value condition="Window.IsVisible(movieinformation)">DefaultAddonInfoProvider.png</value>
         <value condition="Window.IsVisible(musicinformation)">DefaultAddonInfoProvider.png</value>
         <value condition="Window.IsVisible(songinformation)">DefaultAddonInfoProvider.png</value>
+        <value condition="Window.IsVisible(addoninformation)">DefaultAddonInfoProvider.png</value>
         <value condition="Window.IsVisible(script-globalsearch-infodialog.xml)">DefaultAddonInfoProvider.png</value>
     	<value condition="Window.IsActive(script-The Big Picture-main.xml)">$INFO[System.AddonIcon(script.image.bigpictures)]</value>
         <value condition="Player.Muted">DefaultIconMute.png</value>
@@ -584,6 +585,7 @@
         <value>DefaultArtist.png</value>
     </variable>
     <variable name="HeaderSubLabel">
+    	<value condition="Window.IsActive(addoninformation)">$INFO[ListItem.AddonType]</value>
     	<value condition="Window.IsActive(script-globalsearch-infodialog.xml) + Control.IsVisible(110) + !String.IsEmpty(Container(100).ListItem.Property(TagLine))">$INFO[Container(100).ListItem.Property(TagLine)]</value>
     	<value condition="Window.IsActive(script-globalsearch-infodialog.xml) + Control.IsVisible(110) + String.IsEmpty(Container(100).ListItem.Property(TagLine))">$INFO[Container(100).ListItem.Property(PlotOutline)]</value>
     	<value condition="Window.IsActive(script-globalsearch-infodialog.xml) + Control.IsVisible(120)">$INFO[Container(100).ListItem.Property(Genre)]</value>
@@ -674,7 +676,7 @@
     	<value condition="!String.IsEmpty(ListItem.AddonDisclaimer)">[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[24052]: [/COLOR][CR]$INFO[ListItem.AddonDisclaimer]</value>
     </variable>
     <variable name="AddonNews">
-    	<value condition="!String.IsEmpty(ListItem.AddonNews)">[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[24054]: [/COLOR][CR]$INFO[ListItem.AddonNews]</value>
+    	<value condition="!String.IsEmpty(ListItem.AddonNews)">[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[24054]: [/COLOR][CR]$INFO[ListItem.AddonNews][CR]</value>
     </variable>
     <variable name="LibraryStatsVar">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(InfoLine),$LOCALIZE[31097])">$LOCALIZE[20342]: $INFO[Window(Home).Property(Movies.Count)] • $LOCALIZE[16102]: $INFO[Window(Home).Property(Movies.Watched)] • $LOCALIZE[16101]: $INFO[Window(Home).Property(Movies.UnWatched)]</value>
