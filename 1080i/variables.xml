@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<variable name="GlobalBackgroundVar">
-		<value condition="!String.IsEmpty(ListItem.Art(fanart)) + !Skin.HasSetting(Disable.Fanart)">$INFO[ListItem.Art(fanart)]</value>
-
+		<value condition="!String.IsEmpty(Container.ListItem.Art(fanart)) + !Skin.HasSetting(Disable.Fanart)">$INFO[Container.ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container.Art(set.fanart))">$INFO[Container.Art(set.fanart)]</value>
+		<value condition="!String.IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
+		<value condition="!String.IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),1)">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</value>
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),2)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</value>
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),3)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]</value>
@@ -713,7 +715,7 @@
 		<value>blank.png</value>
 	</variable>
 	<variable name="WidgetArt">
-		<value condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20445]) + !String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20445]) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="StringCompare(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021]) + String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
