@@ -40,6 +40,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added button to side menu to edit library nodes.
 - Removed light theme.
 - Added option to customize disabled color.
+- Added color theme management.
 
 ***
 **4.0.2**
