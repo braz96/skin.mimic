@@ -174,7 +174,7 @@
 			<label2>$VAR[ArtLabelVar]</label2>
 			<include>ButtonCommonValues</include>
 			<onclick>ActivateWindow(1133)</onclick>
-			<visible>[Window.IsActive(videolibrary) + [Control.IsVisible(500) | Control.IsVisible(59) | [Control.IsVisible(57) + !Container.Content(seasons) + !Container.Content(addons)] | Control.IsVisible(51) | Control.IsVisible(509) | Control.IsVisible(505)] + !Container.Content(episodes) + !Container.Content(sets) + !Container.Content(addons) + !Container.Content(musicvideos) + !Container.Content(files)] | [Control.IsVisible(507) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists)]] | [Window.IsActive(musiclibrary) + Control.IsVisible(57) + !Container.Content(addons)] | [Control.IsVisible(52) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]]</visible>
+			<visible>[Window.IsActive(videos) + [Control.IsVisible(500) | Control.IsVisible(59) | [Control.IsVisible(57) + !Container.Content(seasons) + !Container.Content(addons)] | Control.IsVisible(51) | Control.IsVisible(509) | Control.IsVisible(505)] + !Container.Content(episodes) + !Container.Content(sets) + !Container.Content(addons) + !Container.Content(musicvideos) + !Container.Content(files)] | [Control.IsVisible(507) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists)]] | [Window.IsActive(music) + Control.IsVisible(57) + !Container.Content(addons)] | [Control.IsVisible(52) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]]</visible>
 		</control>
 		<control type="button" id="1808">
 			<label>$LOCALIZE[31152] 2</label>
@@ -182,13 +182,13 @@
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.SetBool(Art2Customizer)</onclick>
 			<onclick>ActivateWindow(1133)</onclick>
-			<visible>Window.IsActive(videolibrary) + [Control.IsVisible(51) | Control.IsVisible(53)] + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons) + !Container.Content(musicvideos)</visible>
+			<visible>Window.IsActive(videos) + [Control.IsVisible(51) | Control.IsVisible(53)] + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons) + !Container.Content(musicvideos)</visible>
 		</control>
 		<control type="radiobutton" id="1803">
 			<label>31117</label>
 			<include>ButtonCommonValues</include>
 			<onclick>Skin.ToggleSetting(InfoWall.LargeIcons)</onclick>
-			<visible>Window.IsActive(videolibrary) + Control.IsVisible(51) + !Skin.HasSetting(InfoWall.Banners)</visible>
+			<visible>Window.IsActive(videos) + Control.IsVisible(51) + !Skin.HasSetting(InfoWall.Banners)</visible>
 			<selected>Skin.HasSetting(InfoWall.LargeIcons)</selected>
 		</control>
 		<control type="radiobutton" id="1806">
@@ -427,7 +427,7 @@
 					<include>ButtonCommonValues</include>
 					<label>19020</label>
 					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ReplaceWindow(TVSettings)</onclick>
+					<onclick>ReplaceWindow(PVRSettings)</onclick>
 					<onclick>Control.SetFocus(3)</onclick>
 				</control>
 				<control type="button" id="2207">
