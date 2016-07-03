@@ -465,6 +465,12 @@
 					<visible>!String.IsEmpty(ListItem.Artist)</visible>
 				</control>
 				<control type="button">
+					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[558]/$LOCALIZE[562]:[/COLOR][CR]$INFO[ListItem.Album]$INFO[ListItem.Year, (,)]</label>
+					<width>610</width>
+					<include>InfoPanelButtonsValues</include>
+					<visible>Container.Content(songs) + !String.IsEmpty(ListItem.Album)</visible>
+				</control>
+				<control type="button">
 					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Genre]</label>
 					<width>610</width>
 					<include>InfoPanelButtonsValues</include>
@@ -571,7 +577,7 @@
 				<ondown>501</ondown>
 				<pagecontrol>60</pagecontrol>
 				<viewtype label="31003">list</viewtype>
-				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Window.IsActive(musicplaylist)</visible>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
 				<itemlayout height="67" width="806" condition="Container.Content(albums)">
 					<control type="label">
@@ -646,12 +652,29 @@
 				</focusedlayout>
 				<itemlayout height="67" width="806" condition="Container.Content(songs)">
 					<control type="label">
-						<left>15</left>
+						<left>0</left>
 						<width>60</width>
 						<height>67</height>
 						<font>font15</font>
+						<align>center</align>
 						<label fallback="• •">$INFO[ListItem.TrackNumber]</label>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
+						<visible>!String.IsEmpty(ListItem.Title) + !ListItem.IsPlaying</visible>
+					</control>
+					<control type="label">
+						<visible>ListItem.IsPlaying + !Player.Paused</visible>
+						<left>17</left>
+						<width>60</width>
+						<height>67</height>
+						<font>IconTiny</font>
+						<label></label>
+					</control>
+					<control type="label">
+						<visible>ListItem.IsPlaying + Player.Paused</visible>
+						<left>17</left>
+						<width>60</width>
+						<height>67</height>
+						<font>IconTiny</font>
+						<label></label>
 					</control>
 					<control type="label">
 						<left>65</left>
@@ -682,12 +705,29 @@
 				</itemlayout>
 				<focusedlayout height="67" width="806" condition="Container.Content(songs)">
 					<control type="label">
-						<left>15</left>
+						<left>0</left>
 						<width>60</width>
 						<height>67</height>
 						<font>font15</font>
+						<align>center</align>
 						<label fallback="• •">$INFO[ListItem.TrackNumber]</label>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
+						<visible>!String.IsEmpty(ListItem.Title) + !ListItem.IsPlaying</visible>
+					</control>
+					<control type="label">
+						<visible>ListItem.IsPlaying + !Player.Paused</visible>
+						<left>17</left>
+						<width>60</width>
+						<height>67</height>
+						<font>IconTiny</font>
+						<label></label>
+					</control>
+					<control type="label">
+						<visible>ListItem.IsPlaying + Player.Paused</visible>
+						<left>17</left>
+						<width>60</width>
+						<height>67</height>
+						<font>IconTiny</font>
+						<label></label>
 					</control>
 					<control type="label">
 						<left>65</left>
