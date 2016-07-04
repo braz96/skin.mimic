@@ -4,7 +4,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
 			<include>Animation.Common</include>
-			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-190" condition="[Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftPlot)] | [!Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftDescription)]">Conditional</animation>
+			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-190" condition="[[Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftPlot)] | [!Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftDescription)]] + !Container.Content(files)">Conditional</animation>
 			<control type="fixedlist" id="57">
 				<include condition="Window.IsActive(videos)">Contents57VideoList</include>
 				<include condition="!Window.IsActive(videos)">Contents57AlbumList</include>
@@ -30,7 +30,7 @@
 		<ondown>60</ondown>
 		<orientation>horizontal</orientation>
 		<viewtype label="31079">BigWrap</viewtype>
-		<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(musicvideos)</visible>
+		<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(musicvideos) | Container.Content(files)</visible>
 		<pagecontrol>60</pagecontrol>
 		<preloaditems>2</preloaditems>
 		<scrolltime tween="quadratic">400</scrolltime>
@@ -215,6 +215,80 @@
 	                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 	                <aspectratio align="center" aligny="bottom">keep</aspectratio>
 	            </control>
+				<control type="image">
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+					<left>-237</left>
+					<top>240</top>
+					<width>610</width>
+					<height>360</height>
+					<texture>thumbs/diffuse.png</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<include content="OverlayIcons">
+	                <param name="OverlayLeft" value="295" />
+	                <param name="OverlayTop" value="258" />
+	            </include>
+			</control>
+		</focusedlayout>
+		<itemlayout width="588" height="750" condition="Container.Content(files)">
+			<control type="image">
+				<visible>!String.StartsWith(ListItem.Icon,Default)</visible>
+				<left>-237</left>
+				<top>240</top>
+				<width>610</width>
+				<height>360</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image">
+				<visible>String.StartsWith(ListItem.Icon,Default)</visible>
+				<left>-237</left>
+				<top>240</top>
+				<width>610</width>
+				<height>360</height>
+				<aspectratio scalediffuse="false">keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image">
+				<left>-237</left>
+				<top>240</top>
+				<width>610</width>
+				<height>360</height>
+				<texture>thumbs/diffuse.png</texture>
+				<bordersize>20</bordersize>
+			</control>
+			<include content="OverlayIcons">
+                <param name="OverlayLeft" value="295" />
+                <param name="OverlayTop" value="258" />
+            </include>
+		</itemlayout>
+		<focusedlayout width="588" height="750" condition="Container.Content(files)">
+			<control type="group">
+				<animation effect="zoom" center="80,426" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
+				<animation effect="zoom" center="80,426" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
+				<control type="image">
+					<visible>!String.StartsWith(ListItem.Icon,Default)</visible>
+					<left>-237</left>
+					<top>240</top>
+					<width>610</width>
+					<height>360</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<visible>String.StartsWith(ListItem.Icon,Default)</visible>
+					<left>-237</left>
+					<top>240</top>
+					<width>610</width>
+					<height>360</height>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<bordersize>20</bordersize>
+				</control>
 				<control type="image">
 					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 					<animation center="auto" condition="Control.HasFocus(57)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
