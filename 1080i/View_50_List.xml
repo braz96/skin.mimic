@@ -10,7 +10,7 @@
 				<top>-30</top>
 				<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="Window.IsActive(addonbrowser) | Window.IsActive(programs) | $EXP[PluginAdvancedLauncher]">Conditional</animation>
 				<control type="group">
-	                <visible>Integer.IsGreater(Container(50).NumItems,0) + !Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)</visible>
+	                <visible>Integer.IsGreater(Container(50).NumItems,0) + !Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList) + !Skin.HasSetting(Enable.2ColumnList)</visible>
 	                <control type="image">
 	                    <top>195</top>
 	                    <width>1150</width>
@@ -28,7 +28,26 @@
 	                </control>
 	            </control>
 	            <control type="group">
-	                <visible>Integer.IsGreater(Container(50).NumItems,0) + !Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)</visible>
+	                <visible>Integer.IsGreater(Container(50).NumItems,0) + Skin.HasSetting(Enable.2ColumnList) + !Skin.HasSetting(Enable.SlimList)</visible>
+	                <control type="image">
+	                    <top>195</top>
+	                    <width>870</width>
+	                    <height>120</height>
+	                    <visible>Control.HasFocus(50)</visible>
+	                    <animation effect="fade" time="320" delay="200">Visible</animation>
+	                    <animation effect="fade" time="50">Hidden</animation>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <animation effect="slide" end="870,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Column,0)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,5)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,4)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,3)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,2)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,1)">Conditional</animation>
+	                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,0)">Conditional</animation>
+	                </control>
+	            </control>
+	            <control type="group">
+	                <visible>Integer.IsGreater(Container(50).NumItems,0) + !Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList) + !Skin.HasSetting(Enable.2ColumnList)</visible>
 	                <control type="image">
 	                    <top>195</top>
 	                    <width>1740</width>
@@ -46,7 +65,7 @@
 	                </control>
 	            </control>
 	            <control type="group">
-	                <visible>Integer.IsGreater(Container(50).NumItems,0) + Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)</visible>
+	                <visible>Integer.IsGreater(Container(50).NumItems,0) + Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList) + !Skin.HasSetting(Enable.2ColumnList)</visible>
 	                <control type="image">
 	                    <top>195</top>
 	                    <width>1150</width>
@@ -71,7 +90,7 @@
 	                </control>
 	            </control>
 	            <control type="group">
-	                <visible>Integer.IsGreater(Container(50).NumItems,0) + Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)</visible>
+	                <visible>Integer.IsGreater(Container(50).NumItems,0) + Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList) + !Skin.HasSetting(Enable.2ColumnList)</visible>
 	                <control type="image">
 	                    <top>195</top>
 	                    <width>1740</width>
@@ -80,6 +99,32 @@
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="50">Hidden</animation>
 	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,12)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,11)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,10)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,9)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,8)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,7)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,6)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,5)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,4)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,3)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,2)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,1)">Conditional</animation>
+	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,0)">Conditional</animation>
+	                </control>
+	            </control>
+	            <control type="group">
+	                <visible>Integer.IsGreater(Container(50).NumItems,0) + Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList) + Skin.HasSetting(Enable.2ColumnList)</visible>
+	                <control type="image">
+	                    <top>195</top>
+	                    <width>870</width>
+	                    <height>60</height>
+	                    <visible>Control.HasFocus(50)</visible>
+	                    <animation effect="fade" time="320" delay="200">Visible</animation>
+	                    <animation effect="fade" time="50">Hidden</animation>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <animation effect="slide" end="870,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Column,0)">Conditional</animation>
 	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,12)">Conditional</animation>
 	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,11)">Conditional</animation>
 	                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,10)">Conditional</animation>
@@ -110,7 +155,7 @@
 					<pagecontrol>60</pagecontrol>
 					<preloaditems>2</preloaditems>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
+					<itemlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.2ColumnList) + !Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
 						<control type="image">
 							<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Container.Content(addons)</visible>
 							<left>10</left>
@@ -210,7 +255,7 @@
 							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
+					<focusedlayout height="120" width="1150" condition="!Skin.HasSetting(Enable.2ColumnList) + !Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
 						<control type="image">
 							<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Container.Content(addons)</visible>
 							<left>10</left>
@@ -309,7 +354,7 @@
 							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout height="120" width="1740" condition="!Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
+					<itemlayout height="120" width="1740" condition="!Skin.HasSetting(Enable.2ColumnList) + !Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
 						<control type="image">
 							<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Container.Content(addons)</visible>
 							<left>10</left>
@@ -408,7 +453,7 @@
 							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120" width="1740" condition="!Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
+					<focusedlayout height="120" width="1740" condition="!Skin.HasSetting(Enable.2ColumnList) + !Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
 						<control type="image">
 							<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Container.Content(addons)</visible>
 							<left>10</left>
@@ -507,7 +552,7 @@
 							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
+					<itemlayout height="60" width="1150" condition="!Skin.HasSetting(Enable.2ColumnList) + Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
 						<control type="label">
 							<visible>ListItem.IsPlaying + !Player.Paused</visible>
 							<left>20</left>
@@ -566,7 +611,7 @@
 							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout height="60" width="1150" condition="Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
+					<focusedlayout height="60" width="1150" condition="!Skin.HasSetting(Enable.2ColumnList) + Skin.HasSetting(Enable.SlimList) + !Skin.HasSetting(Enable.WideList)">
 						<control type="label">
 							<visible>ListItem.IsPlaying + !Player.Paused</visible>
 							<left>20</left>
@@ -625,7 +670,7 @@
 							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout height="60" width="1740" condition="Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
+					<itemlayout height="60" width="1740" condition="!Skin.HasSetting(Enable.2ColumnList) + Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
 						<control type="label">
 							<visible>ListItem.IsPlaying + !Player.Paused</visible>
 							<left>20</left>
@@ -684,7 +729,7 @@
 							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout height="60" width="1740" condition="Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
+					<focusedlayout height="60" width="1740" condition="!Skin.HasSetting(Enable.2ColumnList) + Skin.HasSetting(Enable.SlimList) + Skin.HasSetting(Enable.WideList)">
 						<control type="label">
 							<visible>ListItem.IsPlaying + !Player.Paused</visible>
 							<left>20</left>
@@ -743,10 +788,259 @@
 							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 						</control>
 					</focusedlayout>
+					<itemlayout height="120" width="870" condition="Skin.HasSetting(Enable.2ColumnList) + !Skin.HasSetting(Enable.SlimList)">
+						<control type="image">
+							<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Container.Content(addons)</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$VAR[ListIcon]</texture>
+						</control>
+						<!-- Fix for default icons not showing up for addons that don't have one -->
+						<control type="image">
+							<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + Container.Content(addons)</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<font>font35_title</font>
+							<align>center</align>
+							<label>$INFO[ListItem.Top250]</label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying + !Player.Paused</visible>
+							<left>135</left>
+							<top>5</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<label></label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying + Player.Paused</visible>
+							<left>135</left>
+							<top>5</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<label></label>
+						</control>
+						<control type="label">
+							<left>135</left>
+							<top>3</top>
+							<width>660</width>
+							<height>70</height>
+							<font>font30</font>
+							<label>$VAR[ListMainLabelVar]</label>
+							<visible>!ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>170</left>
+							<top>3</top>
+							<width>615</width>
+							<height>70</height>
+							<font>font30</font>
+							<label>$VAR[ListMainLabelVar]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>135</left>
+							<top>52</top>
+							<width>660</width>
+							<height>60</height>
+							<label>$VAR[ListSubLabelVar]</label>
+						</control>
+						<control type="image">
+							<left>800</left>
+							<top>28</top>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="120" width="870" condition="Skin.HasSetting(Enable.2ColumnList) + !Skin.HasSetting(Enable.SlimList)">
+						<control type="image">
+							<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + !Container.Content(addons)</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$VAR[ListIcon]</texture>
+						</control>
+						<control type="image">
+							<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + Container.Content(addons)</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
+							<left>10</left>
+							<top>10</top>
+							<width>100</width>
+							<height>100</height>
+							<font>font35_title</font>
+							<align>center</align>
+							<label>$INFO[ListItem.Top250]</label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying + !Player.Paused</visible>
+							<left>135</left>
+							<top>5</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<label></label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying + Player.Paused</visible>
+							<left>135</left>
+							<top>5</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<label></label>
+						</control>
+						<control type="label">
+							<top>3</top>
+							<left>135</left>
+							<width>660</width>
+							<height>70</height>
+							<font>font30</font>
+							<label>$VAR[ListMainLabelVar]</label>
+							<visible>!ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<top>3</top>
+							<left>170</left>
+							<width>615</width>
+							<height>70</height>
+							<font>font30</font>
+							<label>$VAR[ListMainLabelVar]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>135</left>
+							<top>52</top>
+							<width>660</width>
+							<height>60</height>
+							<label>$VAR[ListSubLabelVar]</label>
+						</control>
+						<control type="image">
+							<left>800</left>
+							<top>28</top>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
+						</control>
+					</focusedlayout>
+					<itemlayout height="60" width="870" condition="Skin.HasSetting(Enable.2ColumnList) + Skin.HasSetting(Enable.SlimList)">
+						<control type="label">
+							<visible>ListItem.IsPlaying + !Player.Paused</visible>
+							<left>20</left>
+							<width>35</width>
+							<height>60</height>
+							<font>IconTiny</font>
+							<label></label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying + Player.Paused</visible>
+							<left>20</left>
+							<width>35</width>
+							<height>60</height>
+							<font>IconTiny</font>
+							<label></label>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>780</width>
+							<height>60</height>
+							<font>font15</font>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>55</left>
+							<width>745</width>
+							<height>60</height>
+							<font>font15</font>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="image">
+							<left>800</left>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60" width="870" condition="Skin.HasSetting(Enable.2ColumnList) + Skin.HasSetting(Enable.SlimList)">
+						<control type="label">
+							<visible>ListItem.IsPlaying + !Player.Paused</visible>
+							<left>20</left>
+							<width>35</width>
+							<height>60</height>
+							<font>IconTiny</font>
+							<label></label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying + Player.Paused</visible>
+							<left>20</left>
+							<width>35</width>
+							<height>60</height>
+							<font>IconTiny</font>
+							<label></label>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>780</width>
+							<height>60</height>
+							<font>font15</font>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
+							<left>55</left>
+							<width>745</width>
+							<height>60</height>
+							<font>font15</font>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="image">
+							<left>800</left>
+							<width>64</width>
+							<height>64</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[ColorTextVar]">$VAR[ListItem.Overlay]</texture>
+							<visible>!String.IsEmpty(ListItem.Overlay)</visible>
+						</control>
+					</focusedlayout>
 				</control>
 			</control>
 			<control type="group">
-				<visible>Control.IsVisible(50) + !Skin.HasSetting(Enable.WideList)</visible>
+				<visible>Control.IsVisible(50) + !Skin.HasSetting(Enable.WideList) + !Skin.HasSetting(Enable.2ColumnList)</visible>
 				<top>165</top>
 				<control type="group">
 					<left>1276</left>
