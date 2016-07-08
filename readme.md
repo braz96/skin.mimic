@@ -41,6 +41,9 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Removed light theme.
 - Added option to customize disabled color.
 - Added color theme management.
+- Added default widgets for new installs.
+- Added Shift view for Files.
+- Added 2 column option for list view.
 
 ***
 **4.0.2**
