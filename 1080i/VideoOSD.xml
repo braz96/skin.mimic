@@ -44,7 +44,7 @@
 				<ondown condition="Control.HasFocus(703)">12000</ondown>
 				<onleft>202</onleft>
 				<onright>202</onright>
-				<visible>!VideoPlayer.Content(livetv)</visible>
+				
 				<control type="button" id="700">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
@@ -54,6 +54,7 @@
 					<height>64</height>
 					<font>IconMedium</font>
 					<onclick>ActivateWindow(videobookmarks)</onclick>
+					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="button" id="701">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -75,6 +76,28 @@
 					<font>IconMedium</font>
 					<onclick>ActivateWindow(osdvideosettings)</onclick>
 				</control>
+				<control type="button" id="802">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconMedium</font>
+					<onclick>PlayerControl(Previous)</onclick>
+					<visible>VideoPlayer.Content(livetv)</visible>
+				</control>
+				<control type="button" id="803">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconMedium</font>
+					<onclick>PlayerControl(Next)</onclick>
+					<visible>VideoPlayer.Content(livetv)</visible>
+				</control>
 				<control type="button" id="600">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
@@ -84,6 +107,7 @@
 					<height>64</height>
 					<font>IconSmall</font>
 					<onclick>PlayerControl(Previous)</onclick>
+					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="button" id="601">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -94,6 +118,7 @@
 					<height>64</height>
 					<font>IconSmall</font>
 					<onclick>PlayerControl(Rewind)</onclick>
+					<visible>Player.SeekEnabled</visible>
 				</control>
 				<control type="togglebutton" id="602">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -108,6 +133,7 @@
 					<font>IconSmall</font>
 					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
 					<onclick>PlayerControl(Play)</onclick>
+					<visible>Player.PauseEnabled</visible>
 				</control>
 				<control type="button" id="603">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -129,6 +155,7 @@
 					<height>64</height>
 					<font>IconSmall</font>
 					<onclick>PlayerControl(Forward)</onclick>
+					<visible>Player.SeekEnabled</visible>
 				</control>
 				<control type="button" id="605">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -139,6 +166,7 @@
 					<height>64</height>
 					<font>IconSmall</font>
 					<onclick>PlayerControl(Next)</onclick>
+					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="button" id="704">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -149,7 +177,7 @@
 					<height>64</height>
 					<font>IconSmall</font>
 					<onclick>PlayerControl(ShowVideoMenu)</onclick>
-					<visible>VideoPlayer.HasMenu</visible>
+					<visible>VideoPlayer.HasMenu + !VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="button" id="705">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -162,6 +190,47 @@
 					<onclick>StereoMode</onclick>
 					<visible>VideoPlayer.IsStereoscopic</visible>
 				</control>
+				<control type="togglebutton" id="10">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<alttexturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</alttexturefocus>
+					<alttexturenofocus colordiffuse="22ffffff">osd/button_bg.png</alttexturenofocus>
+					<label></label>
+					<altlabel></altlabel>
+					<textcolor>$VAR[ColorRecordingVar]</textcolor>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconMedium</font>
+					<onclick>PlayerControl(Record)</onclick>
+					<enable>Player.CanRecord</enable>
+					<usealttexture>Player.Recording</usealttexture>
+					<visible>VideoPlayer.Content(livetv)</visible>
+				</control>
+				<control type="button" id="807">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconMedium</font>
+					<onclick>ActivateWindow(PVROSDChannels)</onclick>
+					<onclick>Dialog.Close(VideoOSD)</onclick>
+					<visible>VideoPlayer.Content(livetv)</visible>
+				</control>
+				<control type="button" id="808">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconSmall</font>
+					<onclick>Close</onclick>
+            		<onclick>ActivateWindow(tvguide,,return)</onclick>
+            		<visible>VideoPlayer.Content(livetv)</visible>
+				</control>
 				<control type="button" id="703">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
@@ -170,6 +239,18 @@
 					<width>100</width>
 					<height>64</height>
 					<font>IconMedium</font>
+					<visible>!VideoPlayer.Content(livetv)</visible>
+				</control>
+				<control type="button" id="810">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconSmall</font>
+					<onclick>ActivateWindow(Teletext)</onclick>
+					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="button" id="706">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -181,7 +262,7 @@
 					<font>IconMedium</font>
 					<onclick>Close</onclick>
 					<onclick>ActivateWindow(fullscreeninfo)</onclick>
-					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(files)</visible>
+					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(files) | VideoPlayer.Content(livetv)</visible>
 				</control>
 			</control>
 			<control type="group" id="12000">
@@ -241,14 +322,14 @@
 			</control>
 			<control type="group">
 				<left>1110</left>
-				<top>130</top>
-				<visible>Control.HasFocus(706) + Skin.HasSetting(Enable.VideoDebug)</visible>
+				<top>128</top>
+				<visible>!VideoPlayer.Content(livetv) + Control.HasFocus(706) + Skin.HasSetting(Enable.VideoDebug)</visible>
 				<animation effect="fade" time="100">WindowClose</animation>
 				<animation effect="slide" time="0" end="50" condition="VideoPlayer.HasMenu">Conditional</animation>
 				<animation effect="slide" time="0" end="50" condition="VideoPlayer.IsStereoscopic">Conditional</animation>
 				<control type="image">
 					<width>706</width>
-					<height>520</height>
+					<height>634</height>
 					<texture>background.png</texture>
 					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 				</control>
@@ -256,264 +337,83 @@
 					<left>38</left>
 					<top>20</top>
 					<width>630</width>
-					<height>480</height>
+					<height>630</height>
 					<itemgap>0</itemgap>
 					<orientation>vertical</orientation>
-					<control type="label">
-						<height>60</height>
-						<label>31259</label>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<font>font13_title</font>
-					</control>
-					<control type="label">
-						<height>60</height>
-						<label>$VAR[videohwdecoder]</label>
-					</control>
-					<control type="label">
-						<height>60</height>
-						<label>$LOCALIZE[31188]:$INFO[Player.Process(videodecoder), ]$INFO[Player.Process(pixformat),$COMMA ]</label>
-						<visible>!String.IsEmpty(Player.Process(videodecoder)) | !String.IsEmpty(Player.Process(pixformat))</visible>
-					</control>
-					<control type="label">
-						<height>60</height>
-						<label>$INFO[Player.Process(deintmethod),$LOCALIZE[16038]: ]</label>
-						<visible>!String.IsEmpty(Player.Process(deintmethod))</visible>
-					</control>
-					<control type="label">
-						<height>60</height>
-						<label>$LOCALIZE[169]:$INFO[Player.Process(videowidth), ,x]$INFO[Player.Process(videoheight),, px]$INFO[Player.Process(videodar),$COMMA , AR]$INFO[Player.Process(videofps),$COMMA , FPS]</label>
-						<visible>!String.IsEmpty(Player.Process(videowidth)) | !String.IsEmpty(Player.Process(videoheight)) | !String.IsEmpty(Player.Process(videodar))</visible>
-					</control>
-					<control type="label">
-						<height>60</height>
-						<label>31260</label>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<font>font13_title</font>
-					</control>
-					<control type="label">
-						<height>60</height>
-						<label>$LOCALIZE[31188]:$INFO[Player.Process(audiodecoder), ]$INFO[Player.Process(audiobitspersample),$COMMA , bit]$INFO[Player.Process(audiosamplerate),$COMMA , Hz]</label>
-						<visible>!String.IsEmpty(Player.Process(audiodecoder)) | !String.IsEmpty(Player.Process(audiosamplerate)) | !String.IsEmpty(Player.Process(audiobitspersample))</visible>
-					</control>
-					<control type="label">
-						<height>60</height>
-						<label>$INFO[Player.Process(audiochannels),$LOCALIZE[19019]: ]</label>
-						<visible>!String.IsEmpty(Player.Process(audiochannels))</visible>
-					</control>
-				</control>
-			</control>
-			<control type="grouplist" id="202">
-				<top>20</top>
-				<height>144</height>
-				<width>FullScreenWidth</width>
-				<align>center</align>
-				<itemgap>0</itemgap>
-				<scrolltime tween="sine">200</scrolltime>
-				<orientation>horizontal</orientation>
-				<onup>800</onup>
-				<ondown>808</ondown>
-				<onleft>202</onleft>
-				<onright>202</onright>
-				<visible>VideoPlayer.Content(livetv)</visible>
-				<control type="button" id="800">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>ActivateWindow(osdaudiosettings)</onclick>
-				</control>
-				<control type="button" id="801">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>ActivateWindow(osdvideosettings)</onclick>
-				</control>
-				<control type="button" id="802">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>PlayerControl(Previous)</onclick>
-				</control>
-				<control type="button" id="803">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>PlayerControl(Next)</onclick>
-				</control>
-				<control type="button" id="804">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<textoffsetx>32</textoffsetx>
-					<width>100</width>
-					<height>64</height>
-					<font>IconSmall</font>
-					<onclick>PlayerControl(Rewind)</onclick>
-					<visible>Player.SeekEnabled</visible>
-				</control>
-				<control type="togglebutton" id="812">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<alttexturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</alttexturefocus>
-					<alttexturenofocus colordiffuse="22ffffff">osd/button_bg.png</alttexturenofocus>
-					<label></label>
-					<altlabel></altlabel>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconSmall</font>
-					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-					<onclick>PlayerControl(Play)</onclick>
-					<visible>Player.PauseEnabled</visible>
-				</control>
-				<control type="button" id="805">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconSmall</font>
-					<onclick>PlayerControl(Stop)</onclick>
-				</control>
-				<control type="button" id="806">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>right</align>
-					<textoffsetx>32</textoffsetx>
-					<width>100</width>
-					<height>64</height>
-					<font>IconSmall</font>
-					<onclick>PlayerControl(Forward)</onclick>
-					<visible>Player.SeekEnabled</visible>
-				</control>
-				<control type="togglebutton" id="10">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<alttexturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</alttexturefocus>
-					<alttexturenofocus colordiffuse="22ffffff">osd/button_bg.png</alttexturenofocus>
-					<label></label>
-					<altlabel></altlabel>
-					<textcolor>$VAR[ColorRecordingVar]</textcolor>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>PlayerControl(Record)</onclick>
-					<enable>Player.CanRecord</enable>
-					<usealttexture>Player.Recording</usealttexture>
-				</control>
-				<control type="button" id="807">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>ActivateWindow(PVROSDChannels)</onclick>
-					<onclick>Dialog.Close(VideoOSD)</onclick>
-				</control>
-				<control type="button" id="808">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconSmall</font>
-					<onclick>Close</onclick>
-            		<onclick>ActivateWindow(tvguide,,return)</onclick>
-				</control>
-				<control type="button" id="809">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>ToggleStereoMode</onclick>
-					<visible>VideoPlayer.IsStereoscopic</visible>
-				</control>
-				<control type="button" id="810">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconSmall</font>
-					<onclick>ActivateWindow(Teletext)</onclick>
-				</control>
-				<control type="button" id="811">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>Close</onclick>
-					<onclick>ActivateWindow(fullscreeninfo)</onclick>
+					<include>VideoDebugContent</include>
 				</control>
 			</control>
 			<control type="group">
-				<left>1205</left>
-				<top>130</top>
-				<visible>Control.HasFocus(811) + Skin.HasSetting(Enable.VideoDebug)</visible>
+				<left>544</left>
+				<top>128</top>
+				<visible>VideoPlayer.Content(livetv) + Control.HasFocus(706) + Skin.HasSetting(Enable.VideoDebug)</visible>
 				<animation effect="fade" time="100">WindowClose</animation>
-				<animation effect="slide" time="0" end="-100" condition="!Player.SeekEnabled">Conditional</animation>
-				<animation effect="slide" time="0" end="-50" condition="!Player.PauseEnabled">Conditional</animation>
 				<control type="image">
-					<width>696</width>
-					<height>450</height>
+					<width>1360</width>
+					<height>634</height>
 					<texture>background.png</texture>
 					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
 				</control>
 				<control type="grouplist">
 					<left>38</left>
 					<top>20</top>
-					<width>620</width>
-					<height>480</height>
+					<width>630</width>
+					<height>630</height>
+					<itemgap>0</itemgap>
+					<orientation>vertical</orientation>
+					<include>VideoDebugContent</include>
+				</control>
+				<control type="grouplist">
+					<left>698</left>
+					<top>20</top>
+					<width>630</width>
+					<height>630</height>
 					<itemgap>0</itemgap>
 					<orientation>vertical</orientation>
 					<control type="label">
-						<height>60</height>
+						<height>50</height>
 						<label>19005</label>
 						<textcolor>$VAR[ColorHighlightVar]</textcolor>
 						<font>font13_title</font>
 					</control>
 					<control type="label">
-						<height>60</height>
+						<height>50</height>
 						<label>$LOCALIZE[19012]: $INFO[PVR.ActStreamClient]</label>
 					</control>
 					<control type="label">
-						<height>60</height>
+						<height>50</height>
 						<label>$LOCALIZE[19006]: $INFO[PVR.ActStreamDevice]</label>
 					</control>
 					<control type="label">
-						<height>60</height>
+						<height>50</height>
 						<label>$LOCALIZE[19007]: $INFO[PVR.ActStreamStatus]</label>
 					</control>
 					<control type="label">
-						<height>60</height>
+						<height>50</height>
+						<label>$LOCALIZE[19010]: $INFO[PVR.ActStreamBER]</label>
+					</control>
+					<control type="label">
+						<height>50</height>
+						<label>$LOCALIZE[19011]: $INFO[PVR.ActStreamUNC]</label>
+					</control>
+					<control type="label">
+						<height>50</height>
+						<label>$LOCALIZE[19099]: $INFO[PVR.ActStreamServiceName]</label>
+					</control>
+					<control type="label">
+						<height>50</height>
+						<label>$LOCALIZE[19015]: $INFO[PVR.ActStreamEncryptionName]</label>
+					</control>
+					<control type="label">
+						<height>50</height>
+						<label>$LOCALIZE[19101]: $INFO[PVR.ActStreamProviderName]</label>
+					</control>
+					<!--<control type="label">
+						<height>50</height>
+						<label>$LOCALIZE[19100]: $INFO[PVR.ActStreamMux]</label>
+					</control>-->
+					<control type="label">
+						<height>50</height>
 						<label>$LOCALIZE[19008]: $INFO[PVR.ActStreamSignal]</label>
 					</control>
 					<control type="progress">
@@ -522,7 +422,7 @@
 						<info>PVR.ActStreamProgrSignal</info>
 					</control>
 					<control type="label">
-						<height>60</height>
+						<height>50</height>
 						<label>$LOCALIZE[19009]: $INFO[PVR.ActStreamSNR]</label>
 					</control>
 					<control type="progress">

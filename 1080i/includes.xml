@@ -1409,4 +1409,71 @@
             </control>
         </focusedlayout>
     </include>
+    <include name="VideoDebugContent">
+    	<control type="label">
+			<height>50</height>
+			<label>31259</label>
+			<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			<font>font13_title</font>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>$VAR[videohwdecoder]</label>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>$LOCALIZE[31188]:$INFO[Player.Process(videodecoder), ]$INFO[Player.Process(pixformat),$COMMA ]</label>
+			<visible>!String.IsEmpty(Player.Process(videodecoder)) | !String.IsEmpty(Player.Process(pixformat))</visible>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>$INFO[Player.Process(deintmethod),$LOCALIZE[16038]: ]</label>
+			<visible>!String.IsEmpty(Player.Process(deintmethod))</visible>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>$LOCALIZE[169]:$INFO[Player.Process(videowidth), ,x]$INFO[Player.Process(videoheight),, px]$INFO[Player.Process(videodar),$COMMA , AR]$INFO[Player.Process(videofps),$COMMA , FPS]</label>
+			<visible>!String.IsEmpty(Player.Process(videowidth)) | !String.IsEmpty(Player.Process(videoheight)) | !String.IsEmpty(Player.Process(videodar))</visible>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>31260</label>
+			<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			<font>font13_title</font>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>$LOCALIZE[31188]:$INFO[Player.Process(audiodecoder), ]$INFO[Player.Process(audiobitspersample),$COMMA , bit]$INFO[Player.Process(audiosamplerate),$COMMA , Hz]</label>
+			<visible>!String.IsEmpty(Player.Process(audiodecoder)) | !String.IsEmpty(Player.Process(audiosamplerate)) | !String.IsEmpty(Player.Process(audiobitspersample))</visible>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>$INFO[Player.Process(audiochannels),$LOCALIZE[19019]: ]</label>
+			<visible>!String.IsEmpty(Player.Process(audiochannels))</visible>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>138</label>
+			<textcolor>$VAR[ColorHighlightVar]</textcolor>
+			<font>font13_title</font>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>$LOCALIZE[13271]$INFO[System.CpuUsage, ]</label>
+		</control>
+		<control type="progress">
+			<width>620</width>
+			<height>14</height>
+			<info>System.CpuUsage</info>
+		</control>
+		<control type="label">
+			<height>50</height>
+			<label>$LOCALIZE[31014]:$INFO[System.Memory(used.percent), ]</label>
+		</control>
+		<control type="progress">
+			<width>620</width>
+			<height>14</height>
+			<info>System.Memory(used)</info>
+		</control>
+    </include>
 </includes>
