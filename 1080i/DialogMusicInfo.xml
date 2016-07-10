@@ -636,11 +636,11 @@
 						<visible>!Skin.HasSetting(KioskMode.Enabled) + Control.IsEnabled(6)</visible>
 					</control>-->
 					<control type="button" id="207">
-						<description>Extras</description>
+						<description>View fanart</description>
 						<include>ButtonInfoDialogsCommonValues</include>
-						<label>22082</label>
-						<onclick>RunScript(script.mimic.extras)</onclick>
-						<visible>!String.IsEmpty(ListItem.Art(fanart)) + !Skin.HasSetting(KioskMode.Enabled)</visible>
+						<label>31092</label>
+						<onclick>SetFocus(90400)</onclick>
+						<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 					</control>
 				</control>
 				<control type="button" id="555">
@@ -694,6 +694,14 @@
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture>$INFO[ListItem.Art(fanart)]</texture>
+			</control>
+			<control type="image">
+				<left>1400</left>
+				<top>820</top>
+				<width>400</width>
+				<height>200</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
 			</control>
 		</control>
 	</controls>
