@@ -755,31 +755,26 @@
 						<description>User ratings</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>38023</label>
+						<visible>Control.IsEnabled(7)</visible>
 					</control>
 					<control type="button" id="10">
 						<description>Get Thumb</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>13511</label>
-						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
-					</control>
-					<control type="button" id="203">
-						<description>Spacer</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<enable>False</enable>
-						<visible>[!$EXP[isMovie] + !System.HasAddon(script.extendedinfo)] | $EXP[isMusicvideo]</visible>
+						<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 					</control>
 					<control type="button" id="6">
 						<description>Refresh</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>184</label>
-						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+						<visible>!Skin.HasSetting(KioskMode.Enabled) + Control.IsEnabled(6)</visible>
 					</control>
 					<control type="button" id="207">
 						<description>Extras</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>22082</label>
 						<onclick>RunScript(script.mimic.extras)</onclick>
-						<enable>!String.IsEmpty(ListItem.Art(fanart)) + !Skin.HasSetting(KioskMode.Enabled)</enable>
+						<visible>!String.IsEmpty(ListItem.Art(fanart)) + !Skin.HasSetting(KioskMode.Enabled)</visible>
 					</control>
 				</control>
 			</control>

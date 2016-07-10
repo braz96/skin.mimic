@@ -586,8 +586,7 @@
 						<description>Tracks</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>182</label>
-						<enable>Integer.IsGreater(Container(50).NumItems,0)</enable>
-						<visible>$EXP[isAlbum]</visible>
+						<visible>$EXP[isAlbum] + Integer.IsGreater(Container(50).NumItems,0)</visible>
 					</control>
 					<!--<control type="button" id="205">
 						<description>YouTube</description>
@@ -609,41 +608,39 @@
 						<description>User ratings</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>38023</label>
+						<visible>Control.IsEnabled(7)</visible>
 					</control>
 					<control type="button" id="10">
 						<description>Get Thumb</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>13405</label>
-						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+						<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
 					</control>
 					<control type="button" id="12">
 						<description>Get Fanart</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>20413</label>
-						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
-						<visible>!String.IsEqual(Control.GetLabel(12),$LOCALIZE[10523])</visible>
+						<visible>!Skin.HasSetting(KioskMode.Enabled) + !String.IsEqual(Control.GetLabel(12),$LOCALIZE[10523])</visible>
 					</control>
 					<control type="button" id="6">
 						<description>Refresh</description>
-						<font>IconMedium</font>
-						<width>68</width>
 						<include>ButtonInfoDialogsCommonValues</include>
-						<label></label>
-						<visible>False</visible>
+						<label>184</label>
+						<visible>!Skin.HasSetting(KioskMode.Enabled) + Control.IsEnabled(6)</visible>
 					</control>
-					<control type="button" id="206">
+					<!--<control type="button" id="206">
 						<description>Refresh</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>184</label>
 						<onclick>SendClick(6)</onclick>
-						<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
-					</control>
+						<visible>!Skin.HasSetting(KioskMode.Enabled) + Control.IsEnabled(6)</visible>
+					</control>-->
 					<control type="button" id="207">
 						<description>Extras</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>22082</label>
 						<onclick>RunScript(script.mimic.extras)</onclick>
-						<enable>!String.IsEmpty(ListItem.Art(fanart)) + !Skin.HasSetting(KioskMode.Enabled)</enable>
+						<visible>!String.IsEmpty(ListItem.Art(fanart)) + !Skin.HasSetting(KioskMode.Enabled)</visible>
 					</control>
 				</control>
 				<control type="button" id="555">
