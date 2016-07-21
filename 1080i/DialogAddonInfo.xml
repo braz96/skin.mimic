@@ -236,6 +236,13 @@
 					<ondown condition="Control.IsVisible(400) + [Container(400).HasNext | Container(400).HasPrevious]">60</ondown>
 					<ondown condition="Control.IsVisible(50)">50</ondown>
 					<orientation>horizontal</orientation>
+					<control type="button" id="999">
+						<description>Install/UnInstall Addon button</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>24038</label>
+						<onclick>SendClick(6)</onclick>
+						<visible>!String.IsEqual(Control.GetLabel(6),$LOCALIZE[24037])</visible>
+					</control>
 					<control type="button" id="9">
 						<description>Configure Addon</description>
 						<include>ButtonInfoDialogsCommonValues</include>
@@ -270,6 +277,7 @@
 					<control type="button" id="6">
 						<description>Install/UnInstall Addon button</description>
 						<include>ButtonInfoDialogsCommonValues</include>
+						<visible>String.IsEqual(Control.GetLabel(6),$LOCALIZE[24037])</visible>
 					</control>
 				</control>
 				<control type="button" id="555">
