@@ -25,6 +25,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 ***
 **4.0.4**
 - Redesigned addon info dialog.
+- Added skin screenshots.
 
 ***
 **4.0.3**
