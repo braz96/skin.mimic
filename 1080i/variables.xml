@@ -703,6 +703,7 @@
 	<variable name="WidgetNameLabelVar">
 		<value condition="!String.IsEqual(Container(9000).ListItem.Property(widgetName),weather)">$INFO[Container(9000).ListItem.Property(widgetName)]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetName),weather) + !Weather.IsFetched">$LOCALIZE[31909]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetName),weather) + Weather.IsFetched">$INFO[Window(Weather).Property(WeatherProvider)]</value>
 	</variable>
 	<variable name="WidgetLimit">
 		<value condition="Skin.HasSetting(Enable.WidgetLimit)">20</value>
