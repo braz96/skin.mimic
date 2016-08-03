@@ -6,22 +6,6 @@
 	<controls>
 		<include condition="System.HasAddon(script.extendedinfo)">HiddenActorList</include>
 		<control type="group">
-			<animation effect="fade" start="100" end="0" time="300" condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">Conditional</animation>
-			<include>FullscreenDimensions</include>
-			<control type="image">
-				<texture fallback="special://skin/backgrounds/default_bg.jpg">$INFO[Skin.String(CustomBackground)]</texture>
-				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
-			</control>
-			<control type="image">
-				<aspectratio align="center">scale</aspectratio>
-				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-			</control>
-			<control type="image">
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-		</control>
-		<control type="group">
 			<include>Animation.Common</include>
 			<left>703</left>
 			<control type="group">
@@ -800,7 +784,6 @@
 				<texture background="true">$VAR[PosterVar]</texture>
 			</control>
 		</control>
-		<include>Topbar</include>
 		<control type="group">
 			<visible allowhiddenfocus="true">Control.HasFocus(90400)</visible>
 			<include>VisibleFadeEffect</include>
