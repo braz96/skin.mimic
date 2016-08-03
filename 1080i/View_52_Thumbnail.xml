@@ -2,7 +2,7 @@
 <includes>
 	<include name="View_52_Thumbnail">
 		<control type="group">
-			<visible>Control.IsVisible(52) + !Window.IsActive(addoninformation)</visible>
+			<visible>Control.IsVisible(52) + !$EXP[isInfoDialog]</visible>
             <animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsVisible(programs) | Window.IsVisible(addonbrowser)">Conditional</animation>
 			<include>Animation.Common</include>
 			<control type="group">
@@ -170,7 +170,7 @@
 		</control>
         <control type="group">
             <animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsVisible(programs) | Window.IsVisible(addonbrowser)">Conditional</animation>
-            <visible>Control.IsVisible(52) + !Window.IsActive(addoninformation)</visible>
+            <visible>Control.IsVisible(52) + !$EXP[isInfoDialog]</visible>
             <top>-15</top>
             <include>Scrollbar_Vertical</include>
         </control>

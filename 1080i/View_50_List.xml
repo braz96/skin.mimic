@@ -3,7 +3,7 @@
 	<!-- List -->
 	<include name="View_50_List">
 		<control type="group">
-			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
+			<visible>Control.IsVisible(50) + !$EXP[isInfoDialog]</visible>
 			<include>Animation.Common</include>
 			<control type="group">
 				<left>90</left>
@@ -1189,7 +1189,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
+			<visible>Control.IsVisible(50) + !$EXP[isInfoDialog]</visible>
 			<animation effect="slide" time="0" start="0,0" end="0,-15" condition="Window.IsActive(videos) | Window.IsActive(music) | Window.IsActive(musicplaylist) | Window.IsActive(pictures)">Conditional</animation>
 			<include>Scrollbar_Vertical</include>
 		</control>

@@ -3,7 +3,7 @@
 	<!-- Song -->
 	<include name="View_508_SongList">
 		<control type="group">
-			<visible>Control.IsVisible(508) + !Window.IsActive(addoninformation)</visible>
+			<visible>Control.IsVisible(508) + !$EXP[isInfoDialog]</visible>
 			<include>Animation.Common</include>
 			<animation effect="slide" end="0,15" start="0,0" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
 			<control type="group">
@@ -102,7 +102,7 @@
 		</control>
 		<control type="group">
 			<animation effect="slide" end="0,15" start="0,0" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
-			<visible>Control.IsVisible(508) + !Window.IsActive(addoninformation)</visible>
+			<visible>Control.IsVisible(508) + !$EXP[isInfoDialog]</visible>
 			<top>-15</top>
 			<include>Scrollbar_Vertical</include>
 		</control>

@@ -37,6 +37,7 @@
 	<expression name="isArtist">String.IsEqual(ListItem.DBTYPE,artist)</expression>
 	<expression name="isAlbum">String.IsEqual(ListItem.DBTYPE,album)</expression>
 	<expression name="isSong">String.IsEqual(ListItem.DBTYPE,song)</expression>
+	<expression name="isInfoDialog">[Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]</expression>
 	<!-- Media Menu -->
 	<include name="SideBladeLeft">
 		<animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="String.IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>

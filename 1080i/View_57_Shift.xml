@@ -2,7 +2,7 @@
 <includes>
 	<include name="ShiftFixedList">
 		<control type="group">
-			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
+			<visible>Control.IsVisible(57) + !$EXP[isInfoDialog]</visible>
 			<include>Animation.Common</include>
 			<animation effect="slide" time="300" tween="sine" easing="inout" start="0,0" end="0,-190" condition="[[Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftPlot)] | [!Window.IsActive(videos) + Skin.HasSetting(Enable.ShiftDescription)]] + !Container.Content(files)">Conditional</animation>
 			<control type="fixedlist" id="57">
@@ -12,7 +12,7 @@
 			<include>ShiftLabels</include>
 		</control>
 		<control type="group">
-			<visible>Control.IsVisible(57) + !Window.IsActive(addoninformation)</visible>
+			<visible>Control.IsVisible(57) + !$EXP[isInfoDialog]</visible>
 			<animation effect="slide" time="0" start="0,0" end="0,15" condition="Container.Content(addons) + !Window.IsActive(videos) + !Window.IsActive(pictures)">Conditional</animation>
 			<top>-15</top>
 			<include>Scrollbar_Horizontal</include>
