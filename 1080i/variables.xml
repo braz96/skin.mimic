@@ -93,17 +93,18 @@
 		<value>$LOCALIZE[231]</value>
 	</variable>
 	<variable name="OverlayVar">
-		<value condition="Container.ListItem.IsResumable + Skin.HasSetting(Overlay.Resumable)">overlays/OverlayResumable.png</value>
-		<value condition="String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(Overlay.Unwatched)">overlays/OverlayUnwatched.png</value>
-		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) + Skin.HasSetting(Overlay.Watched)">overlays/OverlayWatched.png</value>
-		<value condition="String.IsEmpty(ListItem.Overlay) + Skin.HasSetting(Overlay.Watched) + Integer.IsGreater(ListItem.PlayCount,0)">overlays/OverlayWatched.png</value>
+		<value condition="Container.ListItem.IsResumable + Skin.HasSetting(Overlay.Resumable)"></value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(Overlay.Unwatched)"></value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) + Skin.HasSetting(Overlay.Watched)"></value>
+		<value condition="String.IsEmpty(ListItem.Overlay) + Skin.HasSetting(Overlay.Watched) + Integer.IsGreater(ListItem.PlayCount,0)"></value>
 	</variable>
 	<variable name="OverlayBGVar">
 		<value condition="[Container.ListItem.IsResumable + Skin.HasSetting(Overlay.Resumable)] | [String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(Overlay.Unwatched)] | [String.IsEqual(ListItem.Overlay,OverlayWatched.png) + Skin.HasSetting(Overlay.Watched)] | [String.IsEmpty(ListItem.Overlay) + Skin.HasSetting(Overlay.Watched) + Integer.IsGreater(ListItem.PlayCount,0)]">overlays/overlaybg.png</value>
 	</variable>
 	<variable name="ListItem.Overlay">
-		<value condition="ListItem.IsResumable">overlays/list/resumable.png</value>
-		<value>$INFO[ListItem.Overlay,overlays/list/]</value>
+		<value condition="ListItem.IsResumable"></value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayUnwatched.png)"></value>
+		<value condition="Integer.IsGreater(ListItem.PlayCount,0)"></value>
 	</variable>
 	<variable name="BreadcrumbsVar">
 		<value condition="Window.IsActive(filemanager)">$LOCALIZE[7]</value>
