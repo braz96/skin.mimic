@@ -460,10 +460,6 @@
 		<value condition="Skin.HasSetting(Enable.VizPersistent)">$LOCALIZE[31107]</value>
 		<value>$LOCALIZE[1223]</value>
 	</variable>
-	<variable name="VideoSubLabelVar">
-		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[20360]: $INFO[ListItem.Property(TotalEpisodes)]$INFO[ListItem.Property(UnWatchedEpisodes), (,[LOWERCASE] $LOCALIZE[16101][/LOWERCASE])]</value>
-		<value>$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
-	</variable>
 	<variable name="HomeNowPlayingThumbVar">
 		<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !String.IsEmpty(Window(weather).Property(Current.FanartCode))">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</value>
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)] + !String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
@@ -665,7 +661,7 @@
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="TopbarFadeLabel1">
-    	<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !String.IsEmpty(Weather.Plugin) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Weather.Temperature,, • ]$INFO[System.Time]</value>
+    	<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !String.IsEmpty(Weather.Plugin) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Weather.Temperature,, • ][LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
     	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo | !String.IsEmpty(Weather.Plugin)] | Window.IsActive(tvchannels)">$INFO[System.Time]</value>
     	<value condition="VideoPlayer.Content(episodes) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,X,. ]$INFO[Player.Title]</value>
     	<value condition="[!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Player.Title]</value>
