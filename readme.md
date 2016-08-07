@@ -44,6 +44,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added default widgets for new installs.
 - Added Shift view for Files.
 - Added 2 column option for list view.
+- Overhaul skin fonts.
 
 ***
 **4.0.2**
