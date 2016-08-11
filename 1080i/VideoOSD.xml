@@ -168,6 +168,28 @@
 					<onclick>PlayerControl(Next)</onclick>
 					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
+				<control type="button" id="811">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconSmall</font>
+					<onclick>PlayerControl(tempodown)</onclick>
+					<visible>Player.TempoEnabled</visible>
+				</control>
+				<control type="button" id="812">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconSmall</font>
+					<onclick>PlayerControl(tempoup)</onclick>
+					<visible>Player.TempoEnabled</visible>
+				</control>
 				<control type="button" id="704">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
@@ -265,13 +287,22 @@
 					<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(files) | VideoPlayer.Content(livetv)</visible>
 				</control>
 			</control>
+			<control type="label">
+				<top>20</top>
+				<left>1800</left>
+				<width>100</width>
+				<height>40</height>
+				<label>$INFO[Player.Playspeed]</label>
+				<visible>Player.IsTempo</visible>
+			</control>
 			<control type="group" id="12000">
-				<left>1070</left>
+				<left>1100</left>
 				<top>130</top>
 				<visible>Control.HasFocus(703) | ControlGroup(12000).HasFocus</visible>
 				<animation effect="fade" time="100">WindowClose</animation>
 				<animation effect="slide" time="0" end="50" condition="VideoPlayer.HasMenu">Conditional</animation>
 				<animation effect="slide" time="0" end="50" condition="VideoPlayer.IsStereoscopic">Conditional</animation>
+				<animation effect="slide" time="0" end="100" condition="VideoPlayer.TempoEnabled">Conditional</animation>
 				<control type="image">
 					<width>510</width>
 					<height>280</height>
