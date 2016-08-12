@@ -140,6 +140,28 @@
 					<font>IconSmall</font>
 					<onclick>PlayerControl(Next)</onclick>
 				</control>
+				<control type="button" id="811">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconMedium</font>
+					<onclick>PlayerControl(tempodown)</onclick>
+					<visible>Player.TempoEnabled</visible>
+				</control>
+				<control type="button" id="812">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconMedium</font>
+					<onclick>PlayerControl(tempoup)</onclick>
+					<visible>Player.TempoEnabled</visible>
+				</control>
 				<control type="button" id="703">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
@@ -148,8 +170,6 @@
 					<width>100</width>
 					<height>64</height>
 					<font>IconMedium</font>
-					<!--<onclick>Close</onclick>
-					<onclick>ActivateWindow(SubtitleSearch)</onclick>-->
 				</control>
 				<control type="button" id="704">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
@@ -187,9 +207,13 @@
 				</control>
 			</control>
 			<control type="group" id="12000">
-				<left>1120</left>
+				<left>1110</left>
 				<top>130</top>
 				<visible>Control.HasFocus(703) | ControlGroup(12000).HasFocus</visible>
+				<animation effect="fade" time="100">WindowClose</animation>
+				<animation effect="slide" time="0" end="50" condition="VideoPlayer.HasMenu">Conditional</animation>
+				<animation effect="slide" time="0" end="50" condition="VideoPlayer.IsStereoscopic">Conditional</animation>
+				<animation effect="slide" time="0" end="100" condition="Player.TempoEnabled">Conditional</animation>
 				<control type="image">
 					<width>510</width>
 					<height>280</height>
