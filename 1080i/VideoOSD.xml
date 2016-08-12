@@ -171,22 +171,22 @@
 				<control type="button" id="811">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
+					<label></label>
 					<align>center</align>
 					<width>100</width>
 					<height>64</height>
-					<font>IconSmall</font>
+					<font>IconMedium</font>
 					<onclick>PlayerControl(tempodown)</onclick>
 					<visible>Player.TempoEnabled</visible>
 				</control>
 				<control type="button" id="812">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
+					<label></label>
 					<align>center</align>
 					<width>100</width>
 					<height>64</height>
-					<font>IconSmall</font>
+					<font>IconMedium</font>
 					<onclick>PlayerControl(tempoup)</onclick>
 					<visible>Player.TempoEnabled</visible>
 				</control>
@@ -288,11 +288,12 @@
 				</control>
 			</control>
 			<control type="label">
-				<top>20</top>
+				<top>30</top>
 				<left>1800</left>
 				<width>100</width>
 				<height>40</height>
-				<label>$INFO[Player.Playspeed]</label>
+				<font>font16</font>
+				<label>$INFO[Player.Playspeed,,x]</label>
 				<visible>Player.IsTempo</visible>
 			</control>
 			<control type="group" id="12000">
@@ -302,7 +303,7 @@
 				<animation effect="fade" time="100">WindowClose</animation>
 				<animation effect="slide" time="0" end="50" condition="VideoPlayer.HasMenu">Conditional</animation>
 				<animation effect="slide" time="0" end="50" condition="VideoPlayer.IsStereoscopic">Conditional</animation>
-				<animation effect="slide" time="0" end="100" condition="VideoPlayer.TempoEnabled">Conditional</animation>
+				<animation effect="slide" time="0" end="100" condition="Player.TempoEnabled">Conditional</animation>
 				<control type="image">
 					<width>510</width>
 					<height>280</height>
