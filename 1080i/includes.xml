@@ -44,9 +44,9 @@
 		<animation effect="slide" start="0,0" end="-440,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
 		<!--<top>44</top>-->
 		<control type="button">
-			<left>-12</left>
+			<left>-20</left>
 			<top>-12</top>
-			<width>442</width>
+			<width>462</width>
 			<height>1104</height>
 			<texturefocus border="12">dialog_context.png</texturefocus>
 			<texturenofocus border="12">dialog_context.png</texturenofocus>
@@ -78,7 +78,7 @@
 	<include name="SideBladeCloseIcon">
 		<control type="button" id="8999">
 			<description>Close Window button</description>
-			<left>358</left>
+			<left>368</left>
 			<width>64</width>
 			<height>48</height>
 			<label></label>
@@ -104,7 +104,7 @@
 		</control>
 	</include>
 	<include name="MediaMenuTop">
-		<left>0</left>
+		<left>15</left>
 		<top>0</top>
 		<width>400</width>
 		<height>1080</height>
@@ -356,7 +356,7 @@
 			<include>SideBladeLeft</include>
 			<control type="grouplist" id="9050">
 				<visible allowhiddenfocus="true">!Control.HasFocus(9013) + !Control.HasFocus(9014)</visible>
-				<left>0</left>
+				<left>15</left>
 				<top>0</top>
 				<width>400</width>
 				<height>1080</height>
@@ -596,7 +596,7 @@
 			<control type="image">
 				<width>FullScreenWidth</width>
 				<height>120</height>
-				<texture>listselect_fo.png</texture>
+				<texture>menu_fo.png</texture>
 				<colordiffuse>33000000</colordiffuse>
 			</control>
 			<control type="group">
@@ -606,7 +606,7 @@
 						<left>19</left>
 	                    <width>80</width>
 	                    <height>80</height>
-	                    <texture colordiffuse="33ffffff">background.png</texture>
+	                    <texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
 	                </control>
 	                <control type="image">
 	                    <top>19</top>
@@ -675,8 +675,8 @@
 				<top>19</top>
 				<width>80</width>
 				<height>80</height>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture>$VAR[HomeNowPlayingThumbVar]</texture>
+				<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+				<texture diffuse="diffuse/nowplaying.png">$VAR[HomeNowPlayingThumbVar]</texture>
 				<visible>[!Window.IsVisible(volumebar) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]] | Player.Muted</visible>
 			</control>
 		</control>
@@ -733,7 +733,7 @@
 						<top>5</top>
 						<width>305</width>
 						<height>70</height>
-						<texture colordiffuse="white11">white.png</texture>
+						<texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
 					</control>
 					<control type="label">
 						<top>5</top>
@@ -751,7 +751,7 @@
 						<top>5</top>
 						<width>305</width>
 						<height>70</height>
-						<texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+						<texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
 						<visible>Control.HasFocus(5000)</visible>
 					</control>
 					<control type="label">
@@ -868,23 +868,22 @@
 						<left>6</left>
 						<width>277</width>
 						<height>406</height>
-						<aspectratio align="center" aligny="center">scale</aspectratio>
-						<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+						<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
 					<control type="image">
 						<top>6</top>
 						<left>6</left>
 						<width>277</width>
 						<height>406</height>
-						<texture>thumbs/diffuse.png</texture>
+						<texture border="5">thumbs/diffuse.png</texture>
 					</control>
 					<control type="image">
 						<top>317</top>
 						<left>6</left>
 						<width>277</width>
 						<height>95</height>
-						<texture>black.png</texture>
-						<colordiffuse>bbffffff</colordiffuse>
+						<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 					</control>
 					<control type="textbox">
 						<left>16</left>
@@ -905,8 +904,8 @@
 						<left>6</left>
 						<width>277</width>
 						<height>406</height>
-						<aspectratio align="center" aligny="center">scale</aspectratio>
-						<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+						<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
 					<control type="image">
 						<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -915,15 +914,14 @@
 						<left>6</left>
 						<width>277</width>
 						<height>406</height>
-						<texture>thumbs/diffuse.png</texture>
+						<texture border="5">thumbs/diffuse.png</texture>
 					</control>
 					<control type="image">
 						<top>317</top>
 						<left>6</left>
 						<width>277</width>
 						<height>95</height>
-						<texture>black.png</texture>
-						<colordiffuse>bbffffff</colordiffuse>
+						<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 					</control>
 					<control type="textbox">
 						<left>16</left>
@@ -960,23 +958,22 @@
 						<left>6</left>
 						<width>277</width>
 						<height>406</height>
-						<aspectratio align="center" aligny="center">scale</aspectratio>
-						<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+						<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="image">
 						<top>6</top>
 						<left>6</left>
 						<width>277</width>
 						<height>406</height>
-						<texture>thumbs/diffuse.png</texture>
+						<texture border="5">thumbs/diffuse.png</texture>
 					</control>
 					<control type="image">
 						<top>317</top>
 						<left>6</left>
 						<width>277</width>
 						<height>95</height>
-						<texture>black.png</texture>
-						<colordiffuse>bbffffff</colordiffuse>
+						<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 					</control>
 					<control type="textbox">
 						<left>16</left>
@@ -997,8 +994,8 @@
 						<left>6</left>
 						<width>277</width>
 						<height>406</height>
-						<aspectratio align="center" aligny="center">scale</aspectratio>
-						<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+						<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="image">
 						<animation center="auto" condition="Control.HasFocus(90019)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -1007,15 +1004,14 @@
 						<left>6</left>
 						<width>277</width>
 						<height>406</height>
-						<texture>thumbs/diffuse.png</texture>
+						<texture border="5">thumbs/diffuse.png</texture>
 					</control>
 					<control type="image">
 						<top>317</top>
 						<left>6</left>
 						<width>277</width>
 						<height>95</height>
-						<texture>black.png</texture>
-						<colordiffuse>bbffffff</colordiffuse>
+						<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 					</control>
 					<control type="textbox">
 						<left>16</left>
@@ -1292,7 +1288,7 @@
 					<control type="image">
 						<width>400</width>
 						<height>60</height>
-						<texture>listselect_fo.png</texture>
+						<texture border="5">listselect_fo.png</texture>
 						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(9013)</visible>
 						<include>VisibleFadeEffect</include>
@@ -1384,7 +1380,7 @@
             <control type="image">
                 <width>100%</width>
                 <height>100%</height>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
             </control>
             <control type="image">
                 <top>10</top>

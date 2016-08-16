@@ -15,7 +15,7 @@
                     <height>725</height>
                     <visible>Control.HasFocus(505)</visible>
                     <include>FocusedBackgroundFade</include>
-                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
                     <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(505).Column,1)">Conditional</animation>
                     <animation effect="slide" end="600,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(505).Column,0)">Conditional</animation>
                 </control>
@@ -121,8 +121,8 @@
                     <control type="image">
                         <width>525</width>
                         <height>296</height>
-                        <texture background="true">$VAR[LandscapeArtVar]</texture>
-                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                        <texture background="true" diffuse="diffuse/panel.png">$VAR[LandscapeArtVar]</texture>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                     </control>
                     <control type="image">
     					<visible>[Container.Content(movies) | Container.Content(tvshows)] + String.IsEmpty(ListItem.Art(landscape))</visible>
@@ -137,8 +137,8 @@
                     <visible>Skin.HasSetting(Enable.PanelFanart)</visible>
                     <width>525</width>
                     <height>296</height>
-                    <texture background="true" fallback="DefaultFallback.png">$VAR[FanartVar]</texture>
-                    <aspectratio align="center" aligny="center">scale</aspectratio>
+                    <texture background="true" fallback="DefaultFallback.png" diffuse="diffuse/panel.png">$VAR[FanartVar]</texture>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                 </control>
                 <control type="image">
                     <visible>Skin.HasSetting(Enable.PanelLogo)</visible>
@@ -153,7 +153,7 @@
                     <animation center="auto" condition="Control.HasFocus(505)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
                     <width>525</width>
                     <height>296</height>
-                    <texture>thumbs/diffuse.png</texture>
+                    <texture border="5">thumbs/diffuse.png</texture>
                 </control>
                 <include content="OverlayIcons" condition="![Container.Content(artists) | Skin.HasSetting(Enable.PanelLogo)]">
                     <param name="OverlayLeft" value="465" />

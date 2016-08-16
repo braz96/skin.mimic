@@ -47,7 +47,7 @@
             	<left>370</left>
                 <width>1179</width>
                 <height>674</height>
-                <texture>listselect_fo.png</texture>
+                <texture border="5">listselect_fo.png</texture>
                 <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
             </control>
             <!--container-->
@@ -74,22 +74,22 @@
 							<visible>!Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
-                            <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
-                            <aspectratio align="center" aligny="center">scale</aspectratio>
+                            <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(fanart)]</texture>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         </control>
 						<control type="image">
 							<visible>Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
-                            <texture background="true">$INFO[ListItem.PicturePath]</texture>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
+                            <texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.PicturePath]</texture>
+							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         </control>
                         <control type="image">
 							<visible>ListItem.IsFolder + Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(thumb)]</texture>
                         </control>
                         <control type="image">
                             <visible>![Container.Content(images) | Container.Content(artists)]</visible>
@@ -103,7 +103,7 @@
                         <control type="image">
                             <width>1155</width>
                             <height>650</height>
-                            <texture>thumbs/diffuse.png</texture>
+                            <texture border="5">thumbs/diffuse.png</texture>
                         </control>
                         <include content="OverlayIcons" condition="![Container.Content(images) | Container.Content(artists)]">
                             <param name="OverlayLeft" value="1095" />
@@ -121,14 +121,14 @@
                             <width>1155</width>
                             <height>650</height>
 							<aspectratio>keep</aspectratio>
-							<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+							<texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(thumb)]</texture>
                         </control>
                         <control type="image">
 							<visible>!Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
-                            <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
-                            <aspectratio align="center" aligny="center">scale</aspectratio>
+                            <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(fanart)]</texture>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         </control>
                         <control type="image">
 							<visible>![Container.Content(images) | Container.Content(artists)]</visible>
@@ -143,15 +143,15 @@
 							<visible>Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
-                            <texture background="true">$INFO[ListItem.PicturePath]</texture>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
+                            <texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.PicturePath]</texture>
+							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         </control>
                         <control type="image">
                             <animation center="auto" condition="Control.HasFocus(504)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
                             <animation center="auto" condition="Control.HasFocus(504)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
                             <width>1155</width>
                             <height>650</height>
-                            <texture>thumbs/diffuse.png</texture>
+                            <texture border="5">thumbs/diffuse.png</texture>
                         </control>
                         <include content="OverlayIcons" condition="![Container.Content(images) | Container.Content(artists)]">
                             <param name="OverlayLeft" value="1095" />

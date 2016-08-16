@@ -13,7 +13,7 @@
                 <width>280</width>
                 <height>408</height>
                 <include>FocusedBackgroundFade</include>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
                 <animation effect="slide" end="0,396" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,0)">Conditional</animation>
                 <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,2)">Conditional</animation>
                 <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,1)">Conditional</animation>
@@ -26,7 +26,7 @@
                 <width>1031</width>
                 <height>210</height>
                 <include>FocusedBackgroundFade</include>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
                 <animation effect="slide" end="0,198" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,3)">Conditional</animation>
                 <animation effect="slide" end="0,198" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,2)">Conditional</animation>
                 <animation effect="slide" end="0,198" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,1)">Conditional</animation>
@@ -53,15 +53,15 @@
 						<left>6</left>
 						<width>256</width>
 						<height>384</height>
-						<aspectratio>scale</aspectratio>
-						<texture fallback="DefaultFallback.png" background="true">$VAR[PosterVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
 					</control>
 					<control type="image">
 						<top>6</top>
 						<left>6</left>
 						<width>256</width>
 						<height>384</height>
-						<texture>thumbs/diffuse.png</texture>
+						<texture border="5">thumbs/diffuse.png</texture>
 					</control>
 					<include content="OverlayIcons">
                         <param name="OverlayLeft" value="202" />
@@ -76,8 +76,8 @@
 							<left>6</left>
 							<width>256</width>
 							<height>384</height>
-							<aspectratio>scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true">$VAR[PosterVar]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
 						</control>
 						<control type="image">
 							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -86,7 +86,7 @@
 							<left>6</left>
 							<width>256</width>
 							<height>384</height>
-							<texture>thumbs/diffuse.png</texture>
+							<texture border="5">thumbs/diffuse.png</texture>
 						</control>
 						<include content="OverlayIcons">
 	                        <param name="OverlayLeft" value="202" />
@@ -103,8 +103,8 @@
 							<left>6</left>
 							<width>1007</width>
 							<height>186</height>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
-							<texture background="true">$VAR[BannerThumb]</texture>
+							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+							<texture background="true" diffuse="diffuse/infowall-banner.png">$VAR[BannerThumb]</texture>
 							<visible>!String.IsEmpty(ListItem.Art(banner)) | String.IsEmpty(ListItem.Art(fanart))</visible>
 						</control>
 						<control type="image">
@@ -112,8 +112,8 @@
 							<left>6</left>
 							<width>1007</width>
 							<height>186</height>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+							<texture background="true" diffuse="diffuse/infowall-banner.png">$INFO[ListItem.Icon]</texture>
 							<visible>String.IsEmpty(ListItem.Art(banner)) + ListItem.IsParentFolder</visible>
 						</control>
 	                    <control type="group">
@@ -123,8 +123,8 @@
 								<left>6</left>
 								<width>1007</width>
 								<height>186</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture background="true" diffuse="diffuse/infowall-banner.png">$INFO[ListItem.Art(fanart)]</texture>
 								<fadetime>300</fadetime>
 							</control>
 							<control type="image">
@@ -142,7 +142,7 @@
 							<left>6</left>
 							<width>1007</width>
 							<height>186</height>
-							<texture>thumbs/diffuse.png</texture>
+							<texture border="5">thumbs/diffuse.png</texture>
 						</control>
 						<include content="OverlayIcons">
 	                        <param name="OverlayLeft" value="955" />
@@ -164,8 +164,8 @@
 								<left>6</left>
 								<width>1007</width>
 								<height>186</height>
-								<aspectratio align="center" aligny="center">scale</aspectratio>
-								<texture background="true">$VAR[BannerThumb]</texture>
+								<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+								<texture background="true" diffuse="diffuse/infowall-banner.png">$VAR[BannerThumb]</texture>
 							</control>
 						</control>
 						<control type="group">
@@ -194,8 +194,8 @@
 								<left>6</left>
 								<width>1007</width>
 								<height>186</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture background="true" diffuse="diffuse/infowall-banner.png">$INFO[ListItem.Art(fanart)]</texture>
 							</control>
 							<control type="image">
 								<top>16</top>
@@ -213,7 +213,7 @@
 							<left>6</left>
 							<width>1007</width>
 							<height>186</height>
-							<texture>thumbs/diffuse.png</texture>
+							<texture border="5">thumbs/diffuse.png</texture>
 						</control>
                         <include content="OverlayIcons">
 	                        <param name="OverlayLeft" value="955" />
@@ -231,8 +231,8 @@
 				<control type="multiimage">
 					<width>680</width>
 					<height>384</height>
-					<aspectratio>scale</aspectratio>
-					<imagepath background="true">$VAR[ExtraFanartVar]</imagepath>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<imagepath background="true" diffuse="diffuse/infowall-fanart.png">$VAR[ExtraFanartVar]</imagepath>
 					<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 				</control>
 				<control type="label">
@@ -280,7 +280,7 @@
                 <width>292</width>
                 <height>292</height>
                 <include>FocusedBackgroundFade</include>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
                 <animation effect="slide" end="0,280" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,1)">Conditional</animation>
                 <animation effect="slide" end="0,280" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,0)">Conditional</animation>
                 <animation effect="slide" end="280,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,2)">Conditional</animation>
@@ -308,15 +308,15 @@
 						<left>6</left>
 						<width>268</width>
 						<height>268</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true" fallback="DefaultFallback.png">$VAR[ThumbVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true" fallback="DefaultFallback.png" diffuse="diffuse/wall-square.png">$VAR[ThumbVar]</texture>
 					</control>
 					<control type="image">
 						<top>6</top>
 						<left>6</left>
 						<width>268</width>
 						<height>268</height>
-						<texture>thumbs/diffuse.png</texture>
+						<texture border="5">thumbs/diffuse.png</texture>
 					</control>
 					<control type="group">
 						<visible>Container.Content(artists)</visible>
@@ -325,8 +325,7 @@
 							<left>6</left>
 							<width>268</width>
 							<height>50</height>
-							<texture>black.png</texture>
-							<colordiffuse>bbffffff</colordiffuse>
+							<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 						</control>
 						<control type="label">
 							<left>6</left>
@@ -347,8 +346,8 @@
 							<left>6</left>
 							<width>268</width>
 							<height>268</height>
-							<aspectratio>scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true">$VAR[ThumbVar]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/wall-square.png">$VAR[ThumbVar]</texture>
 						</control>
 						<control type="image">
 							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -357,7 +356,7 @@
 							<left>6</left>
 							<width>268</width>
 							<height>268</height>
-							<texture>thumbs/diffuse.png</texture>
+							<texture border="5">thumbs/diffuse.png</texture>
 						</control>
 						<control type="group">
 							<visible>Container.Content(artists)</visible>
@@ -366,8 +365,7 @@
 								<left>6</left>
 								<width>268</width>
 								<height>50</height>
-								<texture>black.png</texture>
-								<colordiffuse>bbffffff</colordiffuse>
+								<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 							</control>
 							<control type="label">
 								<left>6</left>
@@ -390,8 +388,8 @@
 				<control type="image">
 					<width>680</width>
 					<height>384</height>
-					<aspectratio>scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="diffuse/infowall-fanart.png">$INFO[ListItem.Art(fanart)]</texture>
 					<fadetime>400</fadetime>
 					<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 				</control>

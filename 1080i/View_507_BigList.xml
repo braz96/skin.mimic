@@ -16,7 +16,7 @@
                         <visible>Control.HasFocus(507)</visible>
                         <animation effect="fade" time="320" delay="200">Visible</animation>
                         <animation effect="fade" time="50">Hidden</animation>
-                        <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
                         <animation effect="slide" end="0,221" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(507).Row,2)">Conditional</animation>
                         <animation effect="slide" end="0,221" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(507).Row,1)">Conditional</animation>
                         <animation effect="slide" end="0,221" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(507).Row,0)">Conditional</animation>
@@ -365,15 +365,15 @@
                 <visible>![Skin.HasSetting(Enable.BigListLogo) | Skin.HasSetting(Enable.BigListFanart)]</visible>
                 <width>346</width>
                 <height>195</height>
-                <texture background="true">$VAR[LandscapeArtVar]</texture>
-                <aspectratio>scale</aspectratio>
+                <texture background="true" diffuse="diffuse/biglist-landscape.png">$VAR[LandscapeArtVar]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
             </control>
             <control type="image">
                 <visible>Skin.HasSetting(Enable.BigListFanart)</visible>
                 <width>346</width>
                 <height>195</height>
-                <texture background="true" fallback="DefaultFallback.png">$VAR[FanartVar]</texture>
-                <aspectratio>scale</aspectratio>
+                <texture background="true" fallback="DefaultFallback.png" diffuse="diffuse/biglist-landscape.png">$VAR[FanartVar]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
             </control>
             <control type="image">
                 <visible>Skin.HasSetting(Enable.BigListLogo)</visible>
@@ -396,7 +396,7 @@
                 <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
                 <width>346</width>
                 <height>195</height>
-                <texture>thumbs/diffuse.png</texture>
+                <texture border="5">thumbs/diffuse.png</texture>
             </control>
             <control type="group">
                 <visible>!Skin.HasSetting(Enable.BigListLogo)</visible>
@@ -418,15 +418,15 @@
             <control type="image">
                 <width>130</width>
                 <height>195</height>
-                <texture background="true">$VAR[PosterVar]</texture>
-                <aspectratio>scale</aspectratio>
+                <texture background="true" diffuse="diffuse/biglist-poster.png">$VAR[PosterVar]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
             </control>
             <control type="image">
                 <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
                 <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
                 <width>130</width>
                 <height>195</height>
-                <texture>thumbs/diffuse.png</texture>
+                <texture border="5">thumbs/diffuse.png</texture>
             </control>
             <include content="OverlayIcons">
                 <param name="OverlayLeft" value="72" />
@@ -445,15 +445,15 @@
             <control type="image">
                 <width>195</width>
                 <height>195</height>
-                <texture background="true" fallback="DefaultFallback.png">$VAR[ThumbVar]</texture>
-                <aspectratio>scale</aspectratio>
+                <texture background="true" fallback="DefaultFallback.png" diffuse="diffuse/biglist-square.png">$VAR[ThumbVar]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
             </control>
             <control type="image">
                 <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
                 <animation center="auto" condition="Control.HasFocus(507)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
                 <width>195</width>
                 <height>195</height>
-                <texture>thumbs/diffuse.png</texture>
+                <texture border="5">thumbs/diffuse.png</texture>
             </control>
         </control>
     </include>
