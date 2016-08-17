@@ -22,97 +22,92 @@
 		<control type="group">
 			<visible>Control.IsVisible(655)</visible>
 			<include>Animation.Common</include>
-			<top>-29</top>
-			<control type="image">
+			<top>15</top>
+            <control type="image">
 				<visible>Control.HasFocus(655)</visible>
-                <left>82</left>
-                <top>167</top>
-                <width>219</width>
-                <height>316</height>
-                <animation effect="fade" time="320" delay="200">Visible</animation>
-                <animation effect="fade" time="50">Hidden</animation>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
-                <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="Container(655).Row(2)">Conditional</animation>
-                <animation effect="slide" end="0,304" time="300" tween="cubic" easing="inout" condition="Container(655).Row(2) | Container(655).Row(1)">Conditional</animation>
-                <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(655).Column(4)">Conditional</animation>
-                <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(655).Column(4) | Container(655).Column(3)">Conditional</animation>
-                <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(655).Column(4) | Container(655).Column(3) | Container(655).Column(2)">Conditional</animation>
-                <animation effect="slide" end="207,0" time="300" tween="cubic" easing="inout" condition="Container(655).Column(4) | Container(655).Column(3) | Container(655).Column(2) | Container(655).Column(1)">Conditional</animation>
+                <left>62</left>
+                <top>184</top>
+                <width>280</width>
+                <height>408</height>
+                <include>FocusedBackgroundFade</include>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                <animation effect="slide" end="0,396" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(655).Row,0)">Conditional</animation>
+                <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(655).Column,2)">Conditional</animation>
+                <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(655).Column,1)">Conditional</animation>
+                <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(655).Column,0)">Conditional</animation>
             </control>
-			<control type="panel" id="655">
-				<left>88</left>
-				<top>173</top>
-				<width>1035</width>
-				<height>912</height>
+            <control type="panel" id="655">
+				<left>68</left>
+				<top>190</top>
+				<width>1072</width>
+				<height>792</height>
 				<onleft>655</onleft>
 				<onright>60</onright>
-				<onup>655</onup>
-				<ondown>655</ondown>
+				<onup>51</onup>
+				<ondown>51</ondown>
 				<pagecontrol>60</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<viewtype label="31021">icons</viewtype>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="304" width="207">
-					<control type="group">
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>195</width>
-							<height>292</height>
-							<aspectratio>scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-						</control>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>195</width>
-							<height>292</height>
-							<texture border="5">thumbs/diffuse.png</texture>
-						</control>
-						<control type="group">
-                            <visible>ListItem.IsSelected</visible>
-                            <left>140</left>
-                            <top>5</top>
-                            <control type="image">
-                                <width>60</width>
-                                <height>60</height>
-                                <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
-                                <aspectratio align="center" aligny="top">keep</aspectratio>
-                            </control>
-                            <control type="image">
-                                <top>16</top>
-                                <left>16</left>
-                                <width>28</width>
-                                <height>28</height>
-                                <texture colordiffuse="ffffffff">overlays/checkmark.png</texture>
-                                <aspectratio align="center" aligny="top">keep</aspectratio>
-                            </control>
-                        </control>
+				<itemlayout height="396" width="268">
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>256</width>
+						<height>384</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
 					</control>
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>256</width>
+						<height>384</height>
+						<texture border="5">thumbs/diffuse.png</texture>
+					</control>
+					<control type="group">
+                        <visible>ListItem.IsSelected</visible>
+                        <left>201</left>
+                        <top>5</top>
+                        <control type="image">
+                            <width>60</width>
+                            <height>60</height>
+                            <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
+                            <aspectratio align="center" aligny="top">keep</aspectratio>
+                        </control>
+                        <control type="image">
+                            <top>16</top>
+                            <left>16</left>
+                            <width>28</width>
+                            <height>28</height>
+                            <texture colordiffuse="ffffffff">overlays/checkmark.png</texture>
+                            <aspectratio align="center" aligny="top">keep</aspectratio>
+                        </control>
+                    </control>
 				</itemlayout>
-				<focusedlayout height="304" width="207">
+				<focusedlayout height="396" width="268">
 					<control type="group">
 						<include>PanelFocusedItemZoom</include>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
-							<width>195</width>
-							<height>292</height>
-							<aspectratio>scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+							<width>256</width>
+							<height>384</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
 						</control>
 						<control type="image">
 							<animation center="auto" condition="Control.HasFocus(655)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 							<animation center="auto" condition="Control.HasFocus(655)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 							<top>6</top>
 							<left>6</left>
-							<width>195</width>
-							<height>292</height>
+							<width>256</width>
+							<height>384</height>
 							<texture border="5">thumbs/diffuse.png</texture>
 						</control>
 						<control type="group">
                             <visible>ListItem.IsSelected</visible>
-                            <left>140</left>
+                            <left>201</left>
                             <top>5</top>
                             <control type="image">
                                 <width>60</width>
@@ -133,58 +128,55 @@
 				</focusedlayout>
 			</control>
 			<control type="grouplist">
-				<top>179</top>
-				<left>1157</left>
+				<top>196</top>
+				<left>1171</left>
 				<itemgap>15</itemgap>
+				<visible>Control.IsVisible(655)</visible>
 				<control type="multiimage">
 					<width>680</width>
-					<height>400</height>
-					<aspectratio>scale</aspectratio>
-					<imagepath background="true">$INFO[Container(655).ListItem.Property(Fanart_Image)]</imagepath>
-					<fadetime>400</fadetime>
+					<height>384</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<imagepath background="true" diffuse="diffuse/infowall-fanart.png">$INFO[Container(655).ListItem.Property(Fanart_Image)]</imagepath>
 					<visible>!String.IsEmpty(Container(655).ListItem.Property(Fanart_Image))</visible>
 				</control>
 				<control type="label">
 					<width>680</width>
-					<height>32</height>
-					<font>font16</font>
+					<height>40</height>
+					<font>font30</font>
 					<scroll>true</scroll>
+					<aligny>bottom</aligny>
 					<label>$INFO[Container(655).ListItem.Season,,x]$INFO[Container(655).ListItem.Episode,,. ]$INFO[Container(655).ListItem.Label2]</label>
 				</control>
 				<control type="label">
 					<label>$INFO[Container(655).ListItem.Label]</label>
 					<width>680</width>
-					<height>30</height>
+					<height>42</height>
 					<font>font14</font>
+					<aligny>top</aligny>
+					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 				</control>
 				<control type="label">
-					<label>[COLOR $VAR[ColorHighlightVar]]$ADDON[script.lazytv 32222]: $INFO[Container(655).ListItem.Property(percentplayed)][/COLOR]</label>
+					<label>$ADDON[script.lazytv 32222]: $INFO[Container(655).ListItem.Property(percentplayed)]</label>
 					<width>680</width>
-					<height>30</height>
+					<height>42</height>
 					<font>font14</font>
+					<aligny>center</aligny>
 				</control>
 				<control type="textbox">
 					<visible>String.IsEqual(ListItem.Plot,$LOCALIZE[32250])</visible>
-                    <label>$INFO[Container(655).ListItem.Plot]</label>
+					<label>$INFO[Container(655).ListItem.Plot]</label>
 					<width>680</width>
-					<height>342</height>
+					<height>220</height>
 					<font>font14_textbox</font>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					<include>InfoPanelButtonsValues</include>
 				</control>
 			</control>
 		</control>
-		<control type="scrollbar" id="60">
-			<visible allowhiddenfocus="true">Control.HasFocus(60) | Container(655).Scrolling</visible>
-			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-			<left>1910</left>
-			<top>120</top>
-			<width>10</width>
-			<height>960</height>
-			<onright>655</onright>
-			<onleft>655</onleft>
-			<ondown>60</ondown>
-			<onup>60</onup>
+		<control type="group">
+			<visible allowhiddenfocus="true">Control.IsVisible(655) + [Control.HasFocus(60) | Container(655).Scrolling]</visible>
+			<top>-15</top>
+			<include>Scrollbar_Vertical</include>
 		</control>
 		<include>Topbar</include>
 	</controls>
