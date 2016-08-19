@@ -46,6 +46,7 @@ More screenshots available here: http://imgur.com/a/LLSMM
 - Added 2 column option for list view.
 - Overhaul skin fonts.
 - Rounded skin textures (based on Arctic Zephyr) and added square theme.
+- Redesigned main menu.
 
 ***
 **4.0.2**
