@@ -473,8 +473,8 @@
 							<top>6</top>
 							<width>345</width>
 							<height>345</height>
-							<aspectratio>scale</aspectratio>
-							<texture fallback="DefaultMusicVideos.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture fallback="DefaultMusicVideos.png" background="true" diffuse="diffuse/wall-musicvideo.png">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="image">
 							<left>6</left>
@@ -514,33 +514,35 @@
 							<top>6</top>
 							<width>345</width>
 							<height>345</height>
-							<aspectratio>scale</aspectratio>
-							<texture fallback="DefaultMusicVideos.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture fallback="DefaultMusicVideos.png" background="true" diffuse="diffuse/wall-musicvideo.png">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
-						<control type="image">
+						<control type="group">
 							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 							<animation center="auto" condition="Control.HasFocus(500)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<left>6</left>
-							<top>6</top>
-							<width>345</width>
-							<height>345</height>
-							<texture border="5">overlays/diffuse-overlay.png</texture>
-						</control>
-						<control type="image">
-							<left>6</left>
-							<top>301</top>
-							<width>345</width>
-							<height>50</height>
-							<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
-						</control>
-						<control type="label">
-							<left>6</left>
-							<top>304</top>
-							<width>345</width>
-							<height>40</height>
-							<align>center</align>
-							<textoffsetx>10</textoffsetx>
-							<label>$INFO[ListItem.Label]</label>
+							<control type="image">
+								<left>6</left>
+								<top>6</top>
+								<width>345</width>
+								<height>345</height>
+								<texture border="5">overlays/diffuse-overlay.png</texture>
+							</control>
+							<control type="image">
+								<left>6</left>
+								<top>301</top>
+								<width>345</width>
+								<height>50</height>
+								<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
+							</control>
+							<control type="label">
+								<left>6</left>
+								<top>304</top>
+								<width>345</width>
+								<height>40</height>
+								<align>center</align>
+								<textoffsetx>10</textoffsetx>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
 						</control>
 						<include content="OverlayIcons">
 	                        <param name="OverlayLeft" value="293" />
