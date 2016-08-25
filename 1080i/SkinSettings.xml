@@ -9,7 +9,6 @@
 	<controls>
 		<include>CommonBackground</include>
 		<control type="group">
-			<!--<visible>!Window.IsVisible(scipt-skinshortcuts.xml)</visible>-->
 			<left>0</left>
 			<top>180</top>
 			<include>Animation.Common</include>
@@ -509,6 +508,15 @@
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31119</label>
+						<onclick condition="System.HasAddon(script.toolbox)">RunScript(script.toolbox)</onclick>
+						<onclick condition="!System.HasAddon(script.toolbox)">InstallAddon(script.toolbox)</onclick>
+					</control>
+					<!--<control type="button" id="303">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31119</label>
 						<onclick condition="System.HasAddon(script.toolbox)">RunScript(script.toolbox,info=extrafanartmovie)</onclick>
 						<onclick condition="!System.HasAddon(script.toolbox)">InstallAddon(script.toolbox)</onclick>
 					</control>
@@ -520,7 +528,7 @@
 						<label>31120</label>
 						<onclick condition="System.HasAddon(script.toolbox)">RunScript(script.toolbox,info=extrafanarttvshow)</onclick>
 						<onclick condition="!System.HasAddon(script.toolbox)">InstallAddon(script.toolbox)</onclick>
-					</control>
+					</control>-->
 				</control>
 				<control type="grouplist" id="9004">
 					<description>Advanced control area</description>
