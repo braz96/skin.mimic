@@ -23,6 +23,11 @@ More screenshots available here: http://imgur.com/a/LLSMM
 
 
 ***
+**4.0.5**
+- Add player process info dialog.
+- Add tempo buttons to player controls.
+
+***
 **4.0.4**
 - Redesigned addon info dialog.
 - Added skin screenshots.
