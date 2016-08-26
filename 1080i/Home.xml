@@ -6,6 +6,12 @@
 	<onunload condition="String.IsEqual(Skin.String(HomeLayout),3)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onunload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<controls>
+        <control type="wraplist" id="9034">
+            <include>HiddenList</include>
+            <content>$INFO[Container(9000).ListItem.Property(backgroundPlaylist)]</content>
+            <autoscroll time="7000" delay="7000" repeat="7000">String.IsEqual(Container(9000).ListItem.Property(background),playlistBackground)</autoscroll>
+            <visible>String.IsEqual(Container(9000).ListItem.Property(background),playlistBackground)</visible>
+        </control>
  		<control type="multiimage">
             <fadetime>300</fadetime>
             <animation effect="fade" time="200" tween="cubic">Visible</animation>
