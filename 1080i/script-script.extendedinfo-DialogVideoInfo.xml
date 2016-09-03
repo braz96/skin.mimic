@@ -25,16 +25,16 @@
 				<left>72</left>
 				<width>560</width>
 				<height>820</height>
-				<aspectratio align="center" aligny="center">scale</aspectratio>
-				<texture background="true">$INFO[Window.Property(Poster)]</texture>
+				<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+				<texture background="true" diffuse="diffuse/videoinfo-poster.png">$INFO[Window.Property(Poster)]</texture>
 			</control>
             <control type="image">
             	<top>190</top>
 				<left>72</left>
 				<width>560</width>
 				<height>820</height>
-				<aspectratio align="center" aligny="center">scale</aspectratio>
-				<texture background="true">$INFO[Window.Property(set.thumb)]</texture>
+				<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+				<texture background="true" diffuse="diffuse/videoinfo-poster.png">$INFO[Window.Property(set.thumb)]</texture>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 <visible>Integer.IsGreater(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208) + !String.IsEmpty(Window.Property(Set)) + !String.IsEmpty(Window.Property(set.thumb))</visible>
 			</control>
@@ -368,7 +368,7 @@
 	                    <height>430</height>
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
-	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(3)">Conditional</animation>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(3) | Container(250).Column(2)">Conditional</animation>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(3) | Container(250).Column(2) | Container(250).Column(1)">Conditional</animation>
@@ -396,8 +396,8 @@
 								<left>6</left>
 								<width>277</width>
 	                            <height>406</height>
-								<aspectratio align="center" aligny="center">scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+								<texture background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
 							</control>
 							<control type="image">
 								<top>6</top>
@@ -412,7 +412,7 @@
 	                            <width>40</width>
 	                            <height>40</height>
 	                            <texture>WidgetIndicator.png</texture>								
-								<visible>!String.IsEmpty(ListItem.Property(DBID))</visible>							
+								<visible>!String.IsEmpty(ListItem.Property(DBID))</visible>
 	                        </control>
 	                    </control>
 					</itemlayout>
@@ -425,8 +425,8 @@
 								<left>6</left>
 								<width>277</width>
                             	<height>406</height>
-                                <aspectratio align="center" aligny="center">scale</aspectratio>
-                                <texture background="true" fallback="default_Actor.png">$INFO[ListItem.Art(thumb)]</texture>
+                                <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                                <texture background="true" fallback="default_Actor.png" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
                             </control>
 	                        <control type="image">
 	                        	<animation center="auto" condition="Control.HasFocus(250)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -475,7 +475,7 @@
 	                    <height>430</height>
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
-	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(750).Column(3)">Conditional</animation>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(750).Column(3) | Container(750).Column(2)">Conditional</animation>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(750).Column(3) | Container(750).Column(2) | Container(750).Column(1)">Conditional</animation>
@@ -503,8 +503,8 @@
 								<left>6</left>
 								<width>277</width>
 	                            <height>406</height>
-								<aspectratio align="center" aligny="center">scale</aspectratio>
-								<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+								<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
 							</control>
 							<control type="image">
 								<top>6</top>
@@ -526,8 +526,7 @@
 								<left>6</left>
 								<width>277</width>
 								<height>90</height>
-								<texture>black.png</texture>
-								<colordiffuse>bbffffff</colordiffuse>
+								<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 								<visible>!String.IsEmpty(ListItem.Label)</visible>
 							</control>
 							<control type="textbox">
@@ -549,8 +548,8 @@
 								<left>6</left>
 								<width>277</width>
                             	<height>406</height>
-                                <aspectratio align="center" aligny="center">scale</aspectratio>
-                                <texture background="true" fallback="default_Actor.png">$INFO[ListItem.Art(thumb)]</texture>
+                                <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                                <texture background="true" fallback="default_Actor.png" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
                             </control>
 	                        <control type="image">
 								<left>243</left>
@@ -574,8 +573,7 @@
 								<top>322</top>
 								<width>277</width>
 								<height>90</height>
-								<texture>black.png</texture>
-								<colordiffuse>bbffffff</colordiffuse>
+								<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 								<visible>!String.IsEmpty(ListItem.Label)</visible>
 							</control>
 							<control type="textbox">
@@ -609,7 +607,7 @@
 	                    <height>430</height>
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
-	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(1000).Column(3)">Conditional</animation>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(1000).Column(3) | Container(1000).Column(2)">Conditional</animation>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(1000).Column(3) | Container(1000).Column(2) | Container(1000).Column(1)">Conditional</animation>
@@ -637,8 +635,8 @@
 								<left>6</left>
 								<width>277</width>
 	                            <height>406</height>
-								<aspectratio align="center" aligny="center">scale</aspectratio>
-								<texture fallback="default_Actor.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+								<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
 							</control>
 							<control type="image">
 								<top>6</top>
@@ -660,8 +658,7 @@
 								<left>6</left>
 								<width>277</width>
 								<height>90</height>
-								<texture>black.png</texture>
-								<colordiffuse>bbffffff</colordiffuse>
+								<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 								<visible>!String.IsEmpty(ListItem.Label)</visible>
 							</control>
 							<control type="textbox">
@@ -683,8 +680,8 @@
 								<left>6</left>
 								<width>277</width>
                             	<height>406</height>
-                                <aspectratio align="center" aligny="center">scale</aspectratio>
-                                <texture background="true" fallback="default_Actor.png">$INFO[ListItem.Art(thumb)]</texture>
+                                <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                                <texture background="true" fallback="default_Actor.png" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
                             </control>
 	                        <control type="image">
 								<left>243</left>
@@ -708,8 +705,7 @@
 								<top>322</top>
 								<width>277</width>
 								<height>90</height>
-								<texture>black.png</texture>
-								<colordiffuse>bbffffff</colordiffuse>
+								<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 								<visible>!String.IsEmpty(ListItem.Label)</visible>
 							</control>
 							<control type="textbox">
@@ -736,10 +732,10 @@
 	                    <left>-9</left>
 	                    <top>531</top>
 	                    <width>590</width>
-	                    <height>396</height>
+	                    <height>343</height>
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
-	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
 	                    <animation effect="slide" end="578,0" time="300" tween="cubic" easing="inout" condition="Container(1150).Column(1)">Conditional</animation>
 	                </control>
 	            </control>
@@ -765,29 +761,28 @@
 								<top>6</top>
 								<left>6</left>
 								<width>566</width>
-	                            <height>372</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+	                            <height>319</height>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture background="true" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Art(thumb)]</texture>
 							</control>
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
 								<width>566</width>
-								<height>372</height>
+								<height>319</height>
 								<texture border="5">overlays/diffuse-overlay.png</texture>
 							</control>
 	                        <control type="image">
-	                            <top>283</top>
+	                            <top>230</top>
 	                            <left>6</left>
 	                            <width>566</width>
 	                            <height>95</height>
-	                            <texture>black.png</texture>
-	                            <colordiffuse>bbffffff</colordiffuse>
+	                            <texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 								<visible>!String.IsEmpty(ListItem.Label)</visible>							
 	                        </control>						
 							<control type="textbox">
 	                            <left>16</left>
-		                        <top>283</top>
+		                        <top>230</top>
 		                        <width>546</width>
 		                        <height>90</height>
 								<font>font_Actor</font>
@@ -803,9 +798,9 @@
 								<top>6</top>
 								<left>6</left>
 								<width>566</width>
-								<height>372</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true" fallback="blank.png">$INFO[ListItem.Art(thumb)]</texture>
+								<height>319</height>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture background="true" fallback="blank.png" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Art(thumb)]</texture>
 							</control>
 							<control type="image">
 								<animation center="auto" condition="Control.HasFocus(1150)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -813,21 +808,20 @@
 								<top>6</top>
 								<left>6</left>
 								<width>566</width>
-								<height>372</height>
+								<height>319</height>
 								<texture border="5">overlays/diffuse-overlay.png</texture>
 							</control>							
 	                        <control type="image">
-	                            <top>283</top>
+	                            <top>230</top>
 								<left>6</left>
 	                            <width>566</width>
 	                            <height>95</height>
-	                            <texture>black.png</texture>
-	                            <colordiffuse>bbffffff</colordiffuse>
+	                            <texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
 								<visible>!String.IsEmpty(ListItem.Label)</visible>							
 	                        </control>						
 							<control type="textbox">
 	                           <left>16</left>
-	                            <top>283</top>
+	                            <top>230</top>
 	                            <width>546</width>
 	                            <height>90</height>
 								<font>font_Actor</font>
@@ -848,7 +842,7 @@
 	                    <height>430</height>
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
-	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(1250).Column(3)">Conditional</animation>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(1250).Column(3) | Container(1250).Column(2)">Conditional</animation>
 	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(1250).Column(3) | Container(1250).Column(2) | Container(1250).Column(1)">Conditional</animation>
@@ -877,8 +871,8 @@
 								<left>6</left>
 								<width>277</width>
 	                            <height>406</height>
-								<aspectratio align="center" aligny="center">scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+								<texture background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
 							</control>
 							<control type="image">
 								<top>6</top>
@@ -898,8 +892,8 @@
 								<left>6</left>
 								<width>277</width>
                             	<height>406</height>
-                                <aspectratio align="center" aligny="center">scale</aspectratio>
-                                <texture background="true" fallback="default_Actor.png">$INFO[ListItem.Art(thumb)]</texture>
+                                <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                                <texture background="true" fallback="default_Actor.png" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
                             </control>
 	                        <control type="image">
 	                        	<animation center="auto" condition="Control.HasFocus(1250)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -921,10 +915,10 @@
 	                    <left>-9</left>
 	                    <top>531</top>
 	                    <width>590</width>
-	                    <height>396</height>
+	                    <height>343</height>
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
-	                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
 	                    <animation effect="slide" end="578,0" time="300" tween="cubic" easing="inout" condition="Container(1350).Column(1)">Conditional</animation>
 	                </control>
 	            </control>
@@ -950,15 +944,15 @@
 								<top>6</top>
 								<left>6</left>
 								<width>566</width>
-	                            <height>372</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+	                            <height>319</height>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture background="true" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Art(thumb)]</texture>
 							</control>
 							<control type="image">
 								<top>6</top>
 								<left>6</left>
 								<width>566</width>
-								<height>372</height>
+								<height>319</height>
 								<texture border="5">overlays/diffuse-overlay.png</texture>
 							</control>
 						</control>
@@ -971,9 +965,9 @@
 								<top>6</top>
 								<left>6</left>
 								<width>566</width>
-								<height>372</height>
-								<aspectratio>scale</aspectratio>
-								<texture background="true" fallback="blank.png">$INFO[ListItem.Art(thumb)]</texture>
+								<height>319</height>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture background="true" fallback="blank.png" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Art(thumb)]</texture>
 							</control>
 							<control type="image">
 								<animation center="auto" condition="Control.HasFocus(1350)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -981,7 +975,7 @@
 								<top>6</top>
 								<left>6</left>
 								<width>566</width>
-								<height>372</height>
+								<height>319</height>
 								<texture border="5">overlays/diffuse-overlay.png</texture>
 							</control>							
 						</control>
@@ -1129,12 +1123,12 @@
                 </control>
             </control>
 			<control type="group">
-				<left>2</left>
+				<left>3</left>
 				<top>510</top>
 				<control type="grouplist" id="9000">
-					<width>1145</width>
+					<width>1144</width>
 					<height>60</height>
-					<itemgap>10</itemgap>
+					<itemgap>12</itemgap>
 					<onleft condition="Control.IsVisible(8)">8</onleft>
 					<onleft condition="!Control.IsVisible(8)">210</onleft>
 					<onright>9000</onright>
@@ -1150,19 +1144,16 @@
 					<orientation>horizontal</orientation>
 					<control type="button" id="205">
 						<description>Plot</description>
-                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
                         <label>207</label>
 					</control>
 					<control type="button" id="5">
 						<description>Cast</description>
-                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
                         <label>206</label>
 					</control>
 					<control type="togglebutton" id="204">
 						<description>Thumb/Fanart</description>
-                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>20445</label>
                         <altlabel>31016</altlabel>
@@ -1170,21 +1161,18 @@
 					</control>
                     <control type="button" id="206">
 						<description>Trailer</description>
-                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>20410</label>
 						<enable>Integer.IsGreater(Container(1150).NumItems,0)</enable>
 					</control>
 					<control type="button" id="208">
 						<description>Set</description>
-                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>20141</label>
                         <enable>Integer.IsGreater(Container(250).NumItems,0)</enable>
 					</control>
 					<control type="button" id="210">
 						<description>Crew</description>
-                        <width>221</width>
                         <include>ButtonInfoDialogsCommonValues</include>
 						<label>$ADDON[script.extendedinfo 32115]</label>
                         <enable>Integer.IsGreater(Container(750).NumItems,0)</enable>

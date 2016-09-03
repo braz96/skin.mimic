@@ -63,7 +63,7 @@
                         <width>340</width>
                         <height>490</height>
                         <aspectratio scalediffuse="false">scale</aspectratio>
-                        <texture background="true">$INFO[ListItem.Art(poster)]</texture>
+                        <texture background="true" diffuse="diffuse/shift-poster.png">$INFO[ListItem.Art(poster)]</texture>
                         <bordersize>20</bordersize>
                     </control>
                     <control type="image">
@@ -94,7 +94,7 @@
                             <width>340</width>
                             <height>490</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
-                            <texture background="true">$INFO[ListItem.Art(poster)]</texture>
+                            <texture background="true" diffuse="diffuse/shift-poster.png">$INFO[ListItem.Art(poster)]</texture>
                             <bordersize>20</bordersize>
                         </control>
                         <control type="image">
@@ -151,7 +151,7 @@
                     <control type="label">
                         <left>35</left>
                         <width>1150</width>
-                        <height>4</height>
+                        <height>40</height>
                         <font>font30</font>
                         <scroll>true</scroll>
                         <label>$INFO[Container(500).ListItem.Label]$INFO[Container(500).ListItem.Property(User_Rating),[COLOR $VAR[ColorHighlightVar]]  |  ,[/COLOR]]</label>
@@ -227,9 +227,9 @@
             <animation effect="slide" start="0,0" end="440,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9000)">Conditional</animation>
             <left>-440</left>
             <control type="button">
-                <left>-16</left>
+                <left>-20</left>
                 <top>-16</top>
-                <width>450</width>
+                <width>464</width>
                 <height>1112</height>
                 <texturefocus border="16">dialog_context.png</texturefocus>
                 <texturenofocus border="16">dialog_context.png</texturenofocus>
@@ -248,12 +248,11 @@
                 <param name="CloseIconDialogClose2" value="noop" />
                 <param name="ClearMediaMenu" value="ClearProperty(MediaMenu,Home)" />
                 <param name="CloseIconSetFocus" value="SetFocus(500)" />
-                <param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + String.IsEmpty(Window(home).Property(t9search))" />
+                <param name="CloseIconVisibility" value="system.getbool(input.enablemouse)" />
             </include>
             <control type="grouplist" id="9000">
                 <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-                <visible>String.IsEmpty(Window(home).Property(t9search))</visible>
-                <left>0</left>
+                <left>15</left>
                 <top>10</top>
                 <width>400</width>
                 <height>1080</height>

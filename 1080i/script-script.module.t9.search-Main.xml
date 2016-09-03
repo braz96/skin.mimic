@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-    <onload>SetProperty(t9search,1,home)</onload>
-    <onunload>ClearProperty(t9search,home)</onunload>
     <onunload>ClearProperty(MediaMenu,Home)</onunload>
     <defaultcontrol always="true">9090</defaultcontrol>
     <controls>
         <control type="group">
             <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
             <animation effect="slide" start="0,0" end="-440,0" time="160" tween="quadratic" easing="out">WindowClose</animation>
+            <control type="button">
+                <left>-20</left>
+                <top>-16</top>
+                <width>464</width>
+                <height>1112</height>
+                <texturefocus border="16">dialog_context.png</texturefocus>
+                <texturenofocus border="16">dialog_context.png</texturenofocus>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
             <control type="panel" id="9090">
-                <left>11</left>
+                <left>15</left>
                 <top>100</top>
-                <width>430</width>
+                <width>400</width>
                 <height>708</height>
                 <onleft>9090</onleft>
                 <onright>Action(Close)</onright>
@@ -28,7 +35,7 @@
                         <top>5</top>
                         <width>90</width>
                         <height>90</height>
-                        <texture colordiffuse="22000000" border="5">listselect_fo.png</texture>
+                        <texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
                     </control>
                     <control type="label">
                         <left>5</left>
@@ -78,9 +85,9 @@
                 </focusedlayout>
             </control>
             <control type="list" id="9091">
-                <left>11</left>
+                <left>15</left>
                 <top>500</top>
-                <width>390</width>
+                <width>400</width>
                 <height>550</height>
                 <onleft>9091</onleft>
                 <onright>Action(Close)</onright>
@@ -112,9 +119,9 @@
                 </focusedlayout>
             </control>
             <control type="label" id="600">
-                <left>11</left>
+                <left>15</left>
                 <top>440</top>
-                <width>390</width>
+                <width>400</width>
                 <height>50</height>
                 <align>center</align>
                 <textoffsetx>15</textoffsetx>

@@ -44,7 +44,7 @@
                     <visible>Control.HasFocus(500)</visible>
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="200">Hidden</animation>
-                    <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
                     <animation effect="slide" end="0,410" time="300" tween="cubic" easing="inout" condition="Container(500).Row(1)">Conditional</animation>
                     <animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3)">Conditional</animation>
                     <animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3) | Container(500).Column(2)">Conditional</animation>
@@ -73,8 +73,8 @@
                         <control type="image">
                             <width>416</width>
                             <height>235</height>
-                            <aspectratio aligny="center">scale</aspectratio>
-                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                            <aspectratio aligny="center" scalediffuse="false">scale</aspectratio>
+                            <texture background="true" diffuse="diffuse/youtube.png">$INFO[ListItem.Icon]</texture>
                         </control>
                         <control type="image">
                             <left>285</left>
@@ -109,8 +109,8 @@
                         <control type="image">
                             <width>416</width>
                             <height>235</height>
-                            <aspectratio aligny="center">scale</aspectratio>
-                            <texture background="true">$INFO[ListItem.Icon]</texture>
+                            <aspectratio aligny="center" scalediffuse="false">scale</aspectratio>
+                            <texture background="true" diffuse="diffuse/youtube.png">$INFO[ListItem.Icon]</texture>
                         </control>
                         <control type="image">
                             <left>285</left>
@@ -169,9 +169,9 @@
             <animation effect="slide" start="0,0" end="440,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9000)">Conditional</animation>
             <left>-440</left>
             <control type="button">
-                <left>-16</left>
+                <left>-20</left>
                 <top>-16</top>
-                <width>450</width>
+                <width>464</width>
                 <height>1112</height>
                 <texturefocus border="16">dialog_context.png</texturefocus>
                 <texturenofocus border="16">dialog_context.png</texturenofocus>
@@ -194,8 +194,7 @@
             </include>
             <control type="grouplist" id="9000">
                 <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
-                <visible>String.IsEmpty(Window(home).Property(t9search))</visible>
-                <left>0</left>
+                <left>15</left>
                 <top>10</top>
                 <width>400</width>
                 <height>1080</height>
