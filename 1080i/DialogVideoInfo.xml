@@ -523,8 +523,8 @@
 							<left>6</left>
 							<width>277</width>
 		                    <height>406</height>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
-							<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+							<texture background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="image">
 							<top>6</top>
@@ -544,8 +544,8 @@
 							<left>6</left>
 							<width>277</width>
 	                    	<height>406</height>
-	                        <aspectratio align="center" aligny="center">scale</aspectratio>
-	                        <texture background="true" fallback="default_Actor.png">$INFO[ListItem.Art(thumb)]</texture>
+	                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+	                        <texture background="true" fallback="default_Actor.png" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
 	                    </control>
 	                    <control type="image">
 	                    	<animation center="auto" condition="Control.HasFocus(250)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -704,10 +704,10 @@
 						<visible>$EXP[isMovie] + !String.IsEmpty(ListItem.SetID)</visible>
 					</control>
 					<control type="button" id="11">
+						<visible>!String.IsEmpty(ListItem.Trailer)</visible>
 						<description>Play Trailer</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>20410</label>
-						<visible>False</visible>
 					</control>
 					<!--<control type="button" id="204">
 						<description>YouTube</description>
@@ -739,8 +739,9 @@
 						<description>Extras</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>22082</label>
-						<onclick>RunScript(script.mimic.extras)</onclick>
-						<visible>!Skin.HasSetting(KioskMode.Enabled) + !String.IsEmpty(ListItem.Property(Fanart_Image))</visible>
+						<onclick>ActivateWindow(1123)</onclick>
+						<visible>!Skin.HasSetting(KioskMode.Enabled) + !Window.IsVisible(home) + !String.IsEqual(Container.Content,seasons)</visible>
+						<visible>[System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]] | [System.HasAddon(script.artwork.downloader) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]] | [System.HasAddon(script.simpleplaylists) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode)]] | [System.HasAddon(script.ratingupdate) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]] | [System.HasAddon(script.tvtunes) + String.IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton")) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,musicvideo)]] | [System.HasAddon(script.cinemavision) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)]] | [System.HasAddon(script.videoextras) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)]]</visible>
 					</control>
 				</control>
 			</control>
@@ -764,36 +765,6 @@
 				<height>820</height>
 				<aspectratio align="center" aligny="top">keep</aspectratio>
 				<texture background="true">$VAR[PosterVar]</texture>
-			</control>
-		</control>
-		<control type="group">
-			<visible allowhiddenfocus="true">Control.HasFocus(90400)</visible>
-			<include>VisibleFadeEffect</include>
-			<control type="button" id="90400">
-				<description>FS Fanart button</description>
-				<width>FullScreenWidth</width>
-				<height>1080</height>
-				<texturefocus>-</texturefocus>
-				<texturenofocus>-</texturenofocus>
-				<onclick>SetFocus(9000)</onclick>
-				<onleft>SetFocus(9000)</onleft>
-				<onright>SetFocus(9000)</onright>
-				<onup>SetFocus(9000)</onup>
-				<ondown>SetFocus(9000)</ondown>
-				<label>-</label>
-				<hitrect x="0" y="0" w="0" h="0"/>
-			</control>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>$INFO[ListItem.Art(fanart)]</texture>
-			</control>
-			<control type="image">
-				<left>1400</left>
-				<top>820</top>
-				<width>400</width>
-				<height>200</height>
-				<aspectratio>keep</aspectratio>
-				<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
 			</control>
 		</control>
 	</controls>
