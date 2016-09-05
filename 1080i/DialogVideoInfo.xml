@@ -376,15 +376,15 @@
 				<include condition="!System.HasAddon(script.extendedinfo)">DefaultActorList</include>
 				<include condition="System.HasAddon(script.extendedinfo)">ExtendedActorList</include>
 			</control>
-			<!--<control type="group">
+			<control type="group">
                 <visible>Integer.IsGreater(Container(150).NumItems,0)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
                 <control type="image">
                 	<visible>Control.HasFocus(150)</visible>
                     <left>-9</left>
-                    <top>571</top>
+                    <top>591</top>
                     <width>590</width>
-                    <height>396</height>
+                    <height>343</height>
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="200">Hidden</animation>
                     <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
@@ -395,7 +395,7 @@
                 <description>YouTube Videos</description>
                 <animation effect="fade" time="300" delay="0" tween="sine" easing="inout" start="0" end="100">Visible</animation>
                 <left>-3</left>
-				<top>545</top>
+				<top>565</top>
 				<width>1156</width>
 				<height>472</height>
 				<onleft>150</onleft>
@@ -413,19 +413,19 @@
 							<top>6</top>
 							<left>6</left>
 							<width>566</width>
-	                        <height>372</height>
-							<aspectratio>scale</aspectratio>
-							<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+	                        <height>319</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="image">
 							<top>6</top>
 							<left>6</left>
 							<width>566</width>
-							<height>372</height>
+							<height>319</height>
 							<texture border="5">overlays/diffuse-overlay.png</texture>
 						</control>
 	                    <control type="image">
-	                        <top>283</top>
+	                        <top>230</top>
 	                        <left>6</left>
 	                        <width>566</width>
 	                        <height>95</height>
@@ -434,7 +434,7 @@
 	                    </control>					
 						<control type="textbox">
 	                        <left>16</left>
-	                        <top>286</top>
+	                        <top>230</top>
 	                        <width>546</width>
 	                        <height>90</height>
 							<font>font_Actor</font>
@@ -450,9 +450,9 @@
 							<top>6</top>
 							<left>6</left>
 							<width>566</width>
-							<height>372</height>
-							<aspectratio>scale</aspectratio>
-							<texture background="true" fallback="blank.png">$INFO[ListItem.Art(thumb)]</texture>
+							<height>319</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true" fallback="blank.png" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="image">
 							<animation center="auto" condition="Control.HasFocus(150)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -460,11 +460,11 @@
 							<top>6</top>
 							<left>6</left>
 							<width>566</width>
-							<height>372</height>
+							<height>319</height>
 							<texture border="5">overlays/diffuse-overlay.png</texture>
 						</control>							
                         <control type="image">
-                            <top>283</top>
+                            <top>230</top>
 							<left>6</left>
                             <width>566</width>
                             <height>95</height>
@@ -473,7 +473,7 @@
                         </control>						
 						<control type="textbox">
                            <left>16</left>
-                            <top>286</top>
+                            <top>230</top>
                             <width>546</width>
                             <height>90</height>
 							<font>font_Actor</font>
@@ -483,7 +483,7 @@
 					</control>
 				</focusedlayout>
 				<content>$VAR[VideoInfoYoutubePath]</content>
-            </control>-->
+            </control>
             <control type="group">
 	            <visible>Integer.IsGreater(Container(250).NumItems,0)</visible>
 	            <animation effect="fade" time="320" delay="300">Visible</animation>
@@ -560,7 +560,7 @@
 				</focusedlayout>
 				<content target="video">videodb://movies/sets/$INFO[ListItem.SetID]</content>
 	        </control>
-            <!--<control type="label">
+            <control type="label">
             	<left>-3</left>
 				<top>576</top>
 				<width>1156</width>
@@ -576,14 +576,15 @@
                 <top>1012</top>
                 <width>300</width>
                 <height>40</height>
-                <font>font13_title</font>
+                <font>font13</font>
                 <textoffsetx>15</textoffsetx>
+                <textcolor>$VAR[ColorDisabledVar]</textcolor>
                 <align>right</align>
                 <aligny>top</aligny>
-                <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ][COLOR $VAR[ColorHighlightVar]]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/][/COLOR]</label>
+                <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/]</label>
                 <visible>Integer.IsGreater(Container(150).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(150)]</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
-            </control>-->
+            </control>
             <control type="label">
                 <left>-10</left>
                 <top>1022</top>
@@ -709,14 +710,13 @@
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>20410</label>
 					</control>
-					<!--<control type="button" id="204">
+					<control type="button" id="204">
 						<description>YouTube</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>31070</label>
 						<onclick>noop</onclick>
-						<enable>System.HasAddon(script.extendedinfo)</enable>
-						<visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
-					</control>-->
+						<visible>System.HasAddon(script.extendedinfo)</visible>
+					</control>
 					<control type="button" id="7">
 						<description>User ratings</description>
 						<include>ButtonInfoDialogsCommonValues</include>
@@ -766,6 +766,19 @@
 				<aspectratio align="center" aligny="top">keep</aspectratio>
 				<texture background="true">$VAR[PosterVar]</texture>
 			</control>
+		</control>
+		<control type="button">
+			<visible>Window.IsActive(movieinformation)</visible>
+			<left>102</left>
+			<top>17</top>
+			<width>1715</width>
+			<height>45</height>
+			<font>font30</font>
+			<textoffsetx>15</textoffsetx>
+			<label>$VAR[BreadcrumbsMovieInfoVar]</label>
+			<label2>$VAR[TopbarFadeLabel1]</label2>
+			<onclick>noop</onclick>
+			<texturefocus>blank.png</texturefocus>
 		</control>
 	</controls>
 </window>
