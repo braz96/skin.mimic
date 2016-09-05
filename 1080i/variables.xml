@@ -110,14 +110,21 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
+	<variable name="BreadcrumbsMusicInfoVar">
+		<value condition="String.IsEqual(ListItem.DBTYPE,artist) + !String.IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,album) + !String.IsEmpty(ListItem.Album)">$INFO[ListItem.Album]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,song) + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Title]</value>
+		<value condition="!String.IsEmpty(ListItem.Album)">$INFO[ListItem.Album]</value>
+		<value condition="!String.IsEmpty(ListItem.Title) + Integer.IsGreaterThan(ListItem.TrackNumber,0)">$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Title]</value>
+		<value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+		<value condition="!String.IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
 	<variable name="BreadcrumbsVar">
 		<value condition="Window.IsActive(filemanager)">$LOCALIZE[7]</value>
 		<value condition="Window.IsActive(script-globalsearch-infodialog.xml)">$INFO[Container(100).ListItem.Label]</value>
 		<value condition="Window.IsActive(script-script.extendedinfo-DialogInfo.xml)">$INFO[Window.Property(label)]</value>
 		<value condition="Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml)">$INFO[Window.Property(title)]</value>
-
-		
-		<value condition="Window.IsActive(musicinformation) | Window.IsActive(songinformation)">$VAR[MusicInfoHeading]</value>
 		<value condition="Window.IsActive(favourites)">$LOCALIZE[1036]</value>
 		<value condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/)">$INFO[System.AddonTitle(plugin.program.advanced.launcher)]</value>
 		<value condition="Window.IsActive(script-The Big Picture-main.xml)">$INFO[Container(100).ListItem.Property(album_title)]</value>
@@ -135,8 +142,8 @@
 		<value condition="Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)">$LOCALIZE[137]</value>
 		<value condition="Window.IsActive(eventlog)">$LOCALIZE[14111]$INFO[Control.GetLabel(21), - ,]</value>
 		<value condition="Window.IsActive(home)">$LOCALIZE[10000]</value>
-		<value condition="!String.IsEmpty(Container.FolderName) + !Window.IsActive(movieinformation)">$INFO[Container.FolderName]</value>
-		<value condition="!Window.IsActive(movieinformation)">$INFO[System.CurrentWindow]</value>
+		<value condition="!String.IsEmpty(Container.FolderName) + !Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[Container.FolderName]</value>
+		<value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[System.CurrentWindow]</value>
 	</variable>
 	<variable name="MusicOSDRepeatButtonVar">
 		<value condition="!Playlist.IsRepeat + !Playlist.IsRepeatOne"></value>
@@ -588,15 +595,25 @@
         <value condition="Window.IsActive(home)">DefaultIconHome.png</value>
         <value>DefaultArtist.png</value>
     </variable>
+    <variable name="HeaderSubLabelMovieInfo">
+    	<value condition="String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
+    	<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.OriginalTitle]</value>
+    	<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.Status))">$INFO[Window(Home).Property(NextAired.Status)]</value>
+    	<value condition="[String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,season)] + !String.IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
+    	<value condition="String.IsEqual(ListItem.DBTYPE,musicvideo) + !String.IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
+    	<value>$LOCALIZE[19033]</value>
+    </variable>
+    <variable name="HeaderSubLabelMusicInfo">
+    	<value condition="String.IsEqual(ListItem.DBTYPE,artist)">$INFO[ListItem.Genre]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,album)">$INFO[ListItem.Artist]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,song)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]</value>
+		<value condition="String.IsEmpty(ListItem.DBTYPE)">$LOCALIZE[19033]</value>
+		<value>$INFO[ListItem.Artist]</value>
+    </variable>
     <variable name="HeaderSubLabel">
     	<value condition="Window.IsActive(script-script.extendedinfo-DialogInfo.xml) + !String.IsEmpty(Window.Property(AlsoKnownAs))">$INFO[Window.Property(AlsoKnownAs)]</value>
     	<value condition="Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml) + !String.IsEmpty(Window.Property(tagline))">$INFO[Window.Property(tagline)]</value>
-    	<value condition="Window.IsActive(movieinformation) + String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
-    	<value condition="Window.IsActive(movieinformation) + String.IsEqual(ListItem.DBTYPE,movie) + String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.OriginalTitle]</value>
-    	<value condition="Window.IsActive(movieinformation) + String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.Status))">$INFO[Window(Home).Property(NextAired.Status)]</value>
-    	<value condition="Window.IsActive(movieinformation) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,season)] + !String.IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
-    	<value condition="Window.IsActive(movieinformation) + String.IsEqual(ListItem.DBTYPE,musicvideo) + !String.IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
-    	<value condition="Window.IsActive(movieinformation)">$LOCALIZE[19033]</value>
+    	
     	<value condition="Window.IsActive(DialogMusicInfo.xml)">$VAR[MusicInfoSubheading]</value>
     	<value condition="Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml) + String.IsEmpty(Window.Property(tagline))">$INFO[Window.Property(originaltitle)]</value>
     	<value condition="Window.IsActive(addoninformation)">$INFO[ListItem.AddonType]</value>
@@ -645,7 +662,7 @@
     	<value condition="Window.IsActive(home) + Window.IsVisible(shutdownmenu)">$LOCALIZE[13005]</value>
     	<value condition="Window.IsActive(home) + Window.IsVisible(busydialog)">$LOCALIZE[503]</value>
     	<value condition="Window.IsActive(home)">$VAR[LibraryStatsVar]</value>
-    	<value condition="!Window.IsActive(movieinformation)">$INFO[Container.NumItems,, $LOCALIZE[31025]]</value>
+    	<value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[Container.NumItems,, $LOCALIZE[31025]]</value>
     </variable>
     <variable name="ThumbViewImage">
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
@@ -728,23 +745,6 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,artist) + String.IsEmpty(ListItem.Property(Artist_Description))">$LOCALIZE[547]</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,song)] + String.IsEmpty(ListItem.Property(Album_Description))">$LOCALIZE[414]</value>
 		<value>$LOCALIZE[547]</value>
-	</variable>
-	<variable name="MusicInfoHeading">
-		<value condition="String.IsEqual(ListItem.DBTYPE,artist) + !String.IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,album) + !String.IsEmpty(ListItem.Album)">$INFO[ListItem.Album]</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,song) + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Title]</value>
-		<value condition="!String.IsEmpty(ListItem.Album)">$INFO[ListItem.Album]</value>
-		<value condition="!String.IsEmpty(ListItem.Title) + Integer.IsGreaterThan(ListItem.TrackNumber,0)">$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Title]</value>
-		<value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
-		<value condition="!String.IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
-		<value>$INFO[ListItem.Label]</value>
-	</variable>
-	<variable name="MusicInfoSubheading">
-		<value condition="String.IsEqual(ListItem.DBTYPE,artist)">$INFO[ListItem.Genre]</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,album)">$INFO[ListItem.Artist]</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,song)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]</value>
-		<value condition="String.IsEmpty(ListItem.DBTYPE)">$LOCALIZE[19033]</value>
-		<value>$INFO[ListItem.Artist]</value>
 	</variable>
 	<variable name="MusicInfoYoutubePath">
 		<value condition="String.IsEqual(ListItem.DBTYPE,artist)">plugin://script.extendedinfo?info=youtubesearchvideos&amp;&amp;id=$ESCINFO[ListItem.Artist] $LOCALIZE[2]</value>
