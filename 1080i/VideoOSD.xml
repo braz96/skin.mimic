@@ -5,8 +5,7 @@
 		<left>0</left>
 		<top>0</top>
 	</coordinates>
-	<onload condition="VideoPlayer.Content(livetv)">SetFocus(808)</onload>
-	<onload condition="!VideoPlayer.Content(livetv)">SetFocus(602)</onload>
+	<onload>SetFocus(700)</onload>
 	<controls>
 		<control type="slider">
 			<description>Seek Slider</description>
@@ -39,13 +38,32 @@
 				<itemgap>0</itemgap>
 				<scrolltime tween="sine">200</scrolltime>
 				<orientation>horizontal</orientation>
-				<onup>701</onup>
-				<ondown condition="!Control.HasFocus(703)">703</ondown>
-				<ondown condition="Control.HasFocus(703)">12000</ondown>
+				<onup>700</onup>
+				<ondown condition="!Control.HasFocus(717)">719</ondown>
+				<ondown condition="Control.HasFocus(717)">12000</ondown>
 				<onleft>202</onleft>
 				<onright>202</onright>
-				
 				<control type="button" id="700">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconMedium</font>
+					<onclick>ActivateWindow(osdaudiosettings)</onclick>
+				</control>
+				<control type="button" id="701">
+					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
+					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
+					<label></label>
+					<align>center</align>
+					<width>100</width>
+					<height>64</height>
+					<font>IconMedium</font>
+					<onclick>ActivateWindow(osdvideosettings)</onclick>
+				</control>
+				<control type="button" id="702">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -56,27 +74,7 @@
 					<onclick>ActivateWindow(videobookmarks)</onclick>
 					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="701">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>ActivateWindow(osdaudiosettings)</onclick>
-				</control>
-				<control type="button" id="702">
-					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
-					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
-					<label></label>
-					<align>center</align>
-					<width>100</width>
-					<height>64</height>
-					<font>IconMedium</font>
-					<onclick>ActivateWindow(osdvideosettings)</onclick>
-				</control>
-				<control type="button" id="802">
+				<control type="button" id="703">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -87,7 +85,7 @@
 					<onclick>PlayerControl(Previous)</onclick>
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="803">
+				<control type="button" id="704">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -98,7 +96,7 @@
 					<onclick>PlayerControl(Next)</onclick>
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="600">
+				<control type="button" id="705">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -109,7 +107,7 @@
 					<onclick>PlayerControl(Previous)</onclick>
 					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="601">
+				<control type="button" id="706">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -120,7 +118,7 @@
 					<onclick>PlayerControl(Rewind)</onclick>
 					<visible>Player.SeekEnabled</visible>
 				</control>
-				<control type="togglebutton" id="602">
+				<control type="togglebutton" id="707">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<alttexturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</alttexturefocus>
@@ -135,7 +133,7 @@
 					<onclick>PlayerControl(Play)</onclick>
 					<visible>Player.PauseEnabled</visible>
 				</control>
-				<control type="button" id="603">
+				<control type="button" id="708">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -145,7 +143,7 @@
 					<font>IconSmall</font>
 					<onclick>PlayerControl(Stop)</onclick>
 				</control>
-				<control type="button" id="604">
+				<control type="button" id="709">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -157,7 +155,7 @@
 					<onclick>PlayerControl(Forward)</onclick>
 					<visible>Player.SeekEnabled</visible>
 				</control>
-				<control type="button" id="605">
+				<control type="button" id="710">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -168,7 +166,7 @@
 					<onclick>PlayerControl(Next)</onclick>
 					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="811">
+				<control type="button" id="711">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -179,7 +177,7 @@
 					<onclick>PlayerControl(tempodown)</onclick>
 					<visible>Player.TempoEnabled</visible>
 				</control>
-				<control type="button" id="812">
+				<control type="button" id="712">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -190,7 +188,7 @@
 					<onclick>PlayerControl(tempoup)</onclick>
 					<visible>Player.TempoEnabled</visible>
 				</control>
-				<control type="button" id="704">
+				<control type="button" id="713">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -201,7 +199,7 @@
 					<onclick>PlayerControl(ShowVideoMenu)</onclick>
 					<visible>VideoPlayer.HasMenu + !VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="705">
+				<control type="button" id="714">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -229,7 +227,7 @@
 					<usealttexture>Player.Recording</usealttexture>
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="807">
+				<control type="button" id="715">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -241,7 +239,7 @@
 					<onclick>Dialog.Close(VideoOSD)</onclick>
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="808">
+				<control type="button" id="716">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -253,7 +251,7 @@
             		<onclick>ActivateWindow(tvguide,,return)</onclick>
             		<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="703">
+				<control type="button" id="717">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -263,7 +261,7 @@
 					<font>IconMedium</font>
 					<visible>!VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="810">
+				<control type="button" id="718">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -274,7 +272,7 @@
 					<onclick>ActivateWindow(Teletext)</onclick>
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
-				<control type="button" id="706">
+				<control type="button" id="719">
 					<texturefocus colordiffuse="$VAR[ColorHighlightVar]">osd/button_bg.png</texturefocus>
 					<texturenofocus colordiffuse="22ffffff">osd/button_bg.png</texturenofocus>
 					<label></label>
@@ -299,7 +297,7 @@
 			<control type="group" id="12000">
 				<left>1100</left>
 				<top>130</top>
-				<visible>Control.HasFocus(703) | ControlGroup(12000).HasFocus</visible>
+				<visible>Control.HasFocus(717) | ControlGroup(12000).HasFocus</visible>
 				<animation effect="fade" time="100">WindowClose</animation>
 				<animation effect="slide" time="0" end="50" condition="VideoPlayer.HasMenu">Conditional</animation>
 				<animation effect="slide" time="0" end="50" condition="VideoPlayer.IsStereoscopic">Conditional</animation>
@@ -316,8 +314,8 @@
 					<width>470</width>
 					<height>260</height>
 					<itemgap>0</itemgap>
-					<onleft>703</onleft>
-					<onright>703</onright>
+					<onleft>717</onleft>
+					<onright>717</onright>
 					<onup>12100</onup>
 					<ondown>12100</ondown>
 					<orientation>vertical</orientation>
