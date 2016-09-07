@@ -105,17 +105,7 @@
 	<property property="InfoLine">31228</property>
 	<property property="InfoLine">31229</property>
 
-	<!-- Widgets -->
-	<widget label="$INFO[System.AddonTitle(plugin.video.the.trailers)]" condition="System.HasAddon(plugin.video.the.trailers)" path="plugin://plugin.video.the.trailers/apple/movies/" type="movies" target="movies">trailers</widget>
-	<widget label="12600" condition="!IsEmpty(Weather.Plugin)">weather</widget>
-
-	<!-- Widget Icon Aspect Ratio -->
-	<propertySettings property="widgetIcon" title="$LOCALIZE[31242]" showNone="False" />
-	<property property="widgetIcon">$LOCALIZE[21371]</property>
-	<property property="widgetIcon">$LOCALIZE[20021]</property>
-	<property property="widgetIcon">$LOCALIZE[20445]</property>
-
-    <contextmenu>
+     <contextmenu>
         <!-- Enable context menu on controls 211, 303 and 304 -->
         <enableon>211</enableon>
 
@@ -128,6 +118,18 @@
         <item control="301">$LOCALIZE[15019]</item>
         <item control="308">$ADDON[script.skinshortcuts 32028]</item>
     </contextmenu>
+
+    <warn heading="$LOCALIZE[750]" message="$LOCALIZE[31072]">ActivateWindow(Settings)</warn>
+
+	<!-- Widgets -->
+	<widget label="$INFO[System.AddonTitle(plugin.video.the.trailers)]" condition="System.HasAddon(plugin.video.the.trailers)" path="plugin://plugin.video.the.trailers/apple/movies/" type="movies" target="movies">trailers</widget>
+	<widget label="12600" condition="!IsEmpty(Weather.Plugin)">weather</widget>
+
+	<!-- Widget Icon Aspect Ratio -->
+	<propertySettings property="widgetIcon" title="$LOCALIZE[31242]" showNone="False" />
+	<property property="widgetIcon">$LOCALIZE[21371]</property>
+	<property property="widgetIcon">$LOCALIZE[20021]</property>
+	<property property="widgetIcon">$LOCALIZE[20445]</property>
 
     <!-- Widget Defaults -->
     <widgetdefault labelID="weather" group="mainmenu">weather</widgetdefault>
