@@ -998,6 +998,13 @@
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>-</label>
 					</control>
+					<control type="button" id="205">
+						<description>View fanart</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>31092</label>
+						<onclick>SetFocus(90400)</onclick>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Fanart))</visible>
+					</control>
 				</control>
 			</control>
 		</control>
@@ -1009,8 +1016,8 @@
 				<left>72</left>
 				<width>560</width>
 				<height>820</height>
-				<aspectratio align="center" aligny="center">scale</aspectratio>
-				<texture background="true">$INFO[Container(100).ListItem.Icon]</texture>
+				<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+				<texture background="true" diffuse="diffuse/videoinfo-poster.png">$INFO[Container(100).ListItem.Icon]</texture>
 			</control>
 			<control type="image">
 				<visible>Control.IsVisible(140) | Control.IsVisible(150) | Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180) | Control.IsVisible(200)</visible>
@@ -1042,7 +1049,7 @@
 			</control>
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture>$INFO[Container(100).ListItem.Art(fanart)]</texture>
+				<texture>$INFO[Container(100).ListItem.Property(Fanart)]</texture>
 			</control>
 		</control>
 	</controls>
