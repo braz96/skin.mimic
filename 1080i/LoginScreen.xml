@@ -11,10 +11,9 @@
 		<control type="image">
 			<description>Normal Default Background Image</description>
 			<include>FullscreenDimensions</include>
-			<texture>special://skin/backgrounds/default_bg.jpg</texture>
+			<texture fallback="special://skin/backgrounds/default_bg.jpg">$INFO[Skin.String(CustomBackground)]</texture>
 		</control>
 		<control type="image">
-			<description>Normal Default Background Image</description>
 			<include>FullscreenDimensions</include>
 			<texture>background.png</texture>
 			<colordiffuse>background</colordiffuse>
@@ -28,7 +27,7 @@
                 <height>150</height>
                 <animation effect="fade" time="320" delay="200">Visible</animation>
                 <animation effect="fade" time="50">Hidden</animation>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
                 <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(52).Row,2)">Conditional</animation>
                 <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(52).Row,1)">Conditional</animation>
                 <animation effect="slide" end="0,150" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(52).Row,0)">Conditional</animation>
@@ -51,21 +50,21 @@
 						<top>15</top>
 						<width>120</width>
 						<height>120</height>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+						<texture diffuse="diffuse/login.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
 						<left>165</left>
-						<top>15</top>
+						<top>17</top>
 						<width>870</width>
 						<height>60</height>
-						<font>font15_title</font>
+						<font>font30</font>
 						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
 						<left>165</left>
-						<top>80</top>
+						<top>82</top>
 						<width>870</width>
 						<height>38</height>
 						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
@@ -78,20 +77,20 @@
 						<top>15</top>
 						<width>120</width>
 						<height>120</height>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+						<texture diffuse="diffuse/login.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
 						<left>165</left>
-						<top>15</top>
+						<top>17</top>
 						<width>870</width>
 						<height>60</height>
-						<font>font15_title</font>
+						<font>font30</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
 						<left>165</left>
-						<top>80</top>
+						<top>82</top>
 						<width>870</width>
 						<height>38</height>
 						<label>$INFO[ListItem.Label2]</label>
@@ -102,7 +101,20 @@
 				<top>920</top>
 				<width>FullScreenWidth</width>
 				<height>160</height>
-				<texture border="5">overlays/diffuse-overlay.png</texture>
+				<texture>menu_fo.png</texture>
+				<colordiffuse>33000000</colordiffuse>
+			</control>
+			<control type="label">
+				<include>VisibleFadeEffect</include>
+				<visible>Control.HasFocus(20)</visible>
+				<top>975</top>
+				<left>1300</left>
+				<width>400</width>
+				<height>50</height>
+				<label>13005</label>
+				<font>font30</font>
+				<textcolor>EEFF0000</textcolor>
+				<align>right</align>
 			</control>
 			<control type="button" id="20">
 				<description>Power push button</description>
