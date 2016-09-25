@@ -680,7 +680,7 @@
 				<height>80</height>
 				<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
 				<texture diffuse="diffuse/nowplaying.png">$VAR[HomeNowPlayingThumbVar]</texture>
-				<visible>[!Window.IsVisible(volumebar) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]] | Player.Muted</visible>
+				<visible>[!Window.IsVisible(volumebar) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]] | [Player.Muted + !Window.IsVisible(extendedprogressdialog)]</visible>
 			</control>
 		</control>
 	</include>
