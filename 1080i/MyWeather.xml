@@ -2318,15 +2318,15 @@
 					<description>Select weather icons</description>
 					<include>ButtonCommonValues</include>
 					<label>31158</label>
-					<onclick>RunScript(script.image.resource.select,property=weathericons&amp;type=resource.images.weathericons)</onclick>
-					<visible>System.HasAddon(script.image.resource.select)</visible>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weathericons&amp;type=resource.images.weathericons)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
 				<control type="button" id="211">
 					<description>Select weather fanart</description>
 					<include>ButtonCommonValues</include>
 					<label>$LOCALIZE[424] [LOWERCASE]$LOCALIZE[20445][/LOWERCASE]</label>
-					<onclick>RunScript(script.image.resource.select,property=weatherfanart&amp;type=resource.images.weatherfanart)</onclick>
-					<visible>System.HasAddon(script.image.resource.select)</visible>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherfanart&amp;type=resource.images.weatherfanart)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
 				<control type="radiobutton" id="209">
 					<description>View Toggle</description>
