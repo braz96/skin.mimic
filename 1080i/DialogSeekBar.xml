@@ -4,8 +4,9 @@
 	<visible>[Window.IsActive(videoosd) | Player.Paused | Player.Seeking | Player.DisplayAfterSeek | Player.Forwarding | Player.Rewinding] + VideoPlayer.IsFullscreen + ![Window.IsVisible(fullscreeninfo) | Window.IsVisible(musicosd) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVROSDTeletext) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(subtitlesearch) | Window.IsVisible(videobookmarks) | Window.IsActive(script.pseudotv.TVOverlay.xml) | Window.IsActive(script.pseudotv.live.TVOverlay.xml)]</visible>
 	<controls>
 		<control type="group">
-			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
-			<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>
+			<animation effect="slide" start="0,100" end="0,0" time="200">WindowOpen</animation>
+			<animation effect="slide" start="0,100" end="0,0" time="200">VisibleChange</animation>
+			<animation effect="slide" start="0,0" end="0,100" time="200">WindowClose</animation>
 			<top>985</top>
 			<visible>!VideoPlayer.Content(livetv)</visible>
 			<control type="image">

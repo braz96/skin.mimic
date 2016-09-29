@@ -4,6 +4,7 @@
 		<control type="group">
 			<animation effect="slide" start="0,-110" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,-110" end="0,0" time="200">VisibleChange</animation>
+			<animation effect="slide" start="0,0" end="0,-110" time="200">WindowClose</animation>
 			<visible>!Window.IsActive(videoosd)</visible>
 			<top>0</top>
 			<control type="image">
@@ -82,6 +83,7 @@
 		<control type="group">
 			<animation effect="slide" start="0,400" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,400" end="0,0" time="200">VisibleChange</animation>
+			<animation effect="slide" start="0,0" end="0,400" time="200">WindowClose</animation>
 			<top>680</top>
 			<visible>![VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)]</visible>
 			<visible>!Window.IsActive(videoosd)</visible>
@@ -196,6 +198,7 @@
 		<control type="group">
 			<animation effect="slide" start="0,290" end="0,0" time="200">WindowOpen</animation>
 			<animation effect="slide" start="0,290" end="0,0" time="200">VisibleChange</animation>
+			<animation effect="slide" start="0,0" end="0,290" time="200">WindowClose</animation>
 			<top>780</top>
 			<visible>VideoPlayer.Content(livetv) | VideoPlayer.Content(musicvideos)</visible>
 			<visible>!Window.IsActive(videoosd)</visible>
@@ -262,7 +265,7 @@
 					<font>font14_textbox</font>
 					<aligny>top</aligny>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-					<label>[COLOR $VAR[ColorHighlightVar]]$INFO[VideoPlayer.Tagline,, ][/COLOR]$INFO[VideoPlayer.Plot]</label>
+					<label>$INFO[VideoPlayer.Plot]</label>
 				</control>
 			</control>
 			<control type="progress">
