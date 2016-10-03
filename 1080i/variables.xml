@@ -93,18 +93,18 @@
 		<value>$LOCALIZE[231]</value>
 	</variable>
 	<variable name="OverlayVar">
-		<value condition="Container.ListItem.IsResumable + Skin.HasSetting(Overlay.Resumable)"></value>
-		<value condition="String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(Overlay.Unwatched)"></value>
-		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) + Skin.HasSetting(Overlay.Watched)"></value>
-		<value condition="String.IsEmpty(ListItem.Overlay) + Skin.HasSetting(Overlay.Watched) + Integer.IsGreater(ListItem.PlayCount,0)"></value>
+		<value condition="Container.ListItem.IsResumable + Skin.HasSetting(Overlay.Resumable)">S</value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(Overlay.Unwatched)">R</value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) + Skin.HasSetting(Overlay.Watched)">T</value>
+		<value condition="String.IsEmpty(ListItem.Overlay) + Skin.HasSetting(Overlay.Watched) + Integer.IsGreater(ListItem.PlayCount,0)">T</value>
 	</variable>
 	<variable name="OverlayBGVar">
 		<value condition="[Container.ListItem.IsResumable + Skin.HasSetting(Overlay.Resumable)] | [String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(Overlay.Unwatched)] | [String.IsEqual(ListItem.Overlay,OverlayWatched.png) + Skin.HasSetting(Overlay.Watched)] | [String.IsEmpty(ListItem.Overlay) + Skin.HasSetting(Overlay.Watched) + Integer.IsGreater(ListItem.PlayCount,0)]">overlays/overlaybg.png</value>
 	</variable>
 	<variable name="ListItem.Overlay">
-		<value condition="ListItem.IsResumable"></value>
-		<value condition="String.IsEqual(ListItem.Overlay,OverlayUnwatched.png)"></value>
-		<value condition="Integer.IsGreater(ListItem.PlayCount,0)"></value>
+		<value condition="ListItem.IsResumable">S</value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayUnwatched.png)">R</value>
+		<value condition="Integer.IsGreater(ListItem.PlayCount,0)">T</value>
 	</variable>
 	<variable name="BreadcrumbsMovieInfoVar">
 		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
@@ -146,9 +146,9 @@
 		<value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[System.CurrentWindow]</value>
 	</variable>
 	<variable name="MusicOSDRepeatButtonVar">
-		<value condition="!Playlist.IsRepeat + !Playlist.IsRepeatOne"></value>
-		<value condition="Playlist.IsRepeatOne"></value>
-		<value condition="Playlist.IsRepeat"></value>
+		<value condition="!Playlist.IsRepeat + !Playlist.IsRepeatOne">O</value>
+		<value condition="Playlist.IsRepeatOne">p</value>
+		<value condition="Playlist.IsRepeat">L</value>
 	</variable>
 	<!--  List Label Vars -->
 	<variable name="ListMainLabelVar">
@@ -794,11 +794,11 @@
 		<value>Vertical</value>
 	</variable>
 	<variable name="VolumeIconVar">
-		<value condition="Integer.IsGreater(Control.GetLabel(20),66)"></value>
-		<value condition="Integer.IsGreater(Control.GetLabel(20),33)"></value>
-		<value condition="player.passthrough"></value>
-		<value condition="Player.Muted"></value>
-		<value></value>
+		<value condition="Integer.IsGreater(Control.GetLabel(20),66)">k</value>
+		<value condition="Integer.IsGreater(Control.GetLabel(20),33)">l</value>
+		<value condition="player.passthrough">w</value>
+		<value condition="Player.Muted">m</value>
+		<value>v</value>
 	</variable>
 	<variable name="InfoWallSubLabelVar">
 		<value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
