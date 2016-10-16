@@ -5,6 +5,7 @@
 		<value condition="!String.IsEmpty(Container.Art(set.fanart))">$INFO[Container.Art(set.fanart)]</value>
 		<value condition="!String.IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
 		<value condition="!String.IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>
+		<value condition="Window.IsActive(1119) + !String.IsEmpty(Container(51).ListItem.Art(fanart)) + Control.HasFocus(51)">$INFO[Container(51).ListItem.Art(fanart)]</value>
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),1)">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</value>
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),2)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</value>
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),3)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]</value>
@@ -143,6 +144,7 @@
 		<value condition="Window.IsActive(eventlog)">$LOCALIZE[14111]$INFO[Control.GetLabel(21), - ,]</value>
 		<value condition="Window.IsActive(home)">$LOCALIZE[10000]</value>
 		<value condition="!String.IsEmpty(Container.FolderName) + !Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsActive(1119)">$LOCALIZE[31075]</value>
 		<value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[System.CurrentWindow]</value>
 	</variable>
 	<variable name="MusicOSDRepeatButtonVar">
@@ -593,6 +595,7 @@
         <value condition="Window.IsVisible(MyVideoNav.xml)">DefaultMovies.png</value>
         <value condition="Window.IsActive(home) + !String.IsEmpty(Container(9000).ListItem.Icon)">$INFO[Container(9000).ListItem.Icon]</value>
         <value condition="Window.IsActive(home)">DefaultIconHome.png</value>
+        <value condition="Window.IsActive(1119)">DefaultAddon.png</value>
         <value>DefaultArtist.png</value>
     </variable>
     <variable name="HeaderSubLabelMovieInfo">
@@ -665,6 +668,7 @@
     	<value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[Container.NumItems,, $LOCALIZE[31025]]</value>
     </variable>
     <variable name="ThumbViewImage">
+    	<value condition="Container.Content(studios)">$INFO[ListItem.Label,special://skin/extras/studios/,.jpg]</value>
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
     	<value condition="Window.IsActive(videos) + Container.Content(countries)">$INFO[ListItem.Label,special://skin/extras/countries/,.png]</value>
     	<value condition="Skin.HasSetting(Enable.ThumbnailFanart) + !String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]">$INFO[ListItem.Art(fanart)]</value>
@@ -674,6 +678,7 @@
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="ListIcon">
+    	<value condition="Container.Content(studios)">$INFO[ListItem.Label,special://skin/extras/studios/,.jpg]</value>
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
     	<value condition="Window.IsActive(videos) + Container.Content(countries)">$INFO[ListItem.Label,special://skin/extras/countries/,.png]</value>
         <value>$INFO[ListItem.Icon]</value>
