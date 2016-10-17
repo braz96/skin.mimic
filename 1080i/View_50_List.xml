@@ -163,7 +163,7 @@
 							<width>100</width>
 							<height>100</height>
 							<aspectratio scalediffuse="false">keep</aspectratio>
-							<texture background="true" diffuse="diffuse/list-icon.png">$VAR[ListIcon]</texture>
+							<texture background="true" diffuse="diffuse/list-icon.png" fallback="DefaultFolder.png">$VAR[ListIcon]</texture>
 						</control>
 						<!-- Fix for default icons not showing up for addons that don't have one -->
 						<control type="image">
@@ -264,7 +264,7 @@
 							<width>100</width>
 							<height>100</height>
 							<aspectratio scalediffuse="false">keep</aspectratio>
-							<texture background="true" diffuse="diffuse/list-icon.png">$VAR[ListIcon]</texture>
+							<texture background="true" diffuse="diffuse/list-icon.png" fallback="DefaultFolder.png">$VAR[ListIcon]</texture>
 						</control>
 						<control type="image">
 							<visible>!String.IsEqual(Container.SortMethod,$LOCALIZE[13409]) + Container.Content(addons)</visible>
@@ -1054,6 +1054,7 @@
 						<texture colordiffuse="33000000" border="5">listselect_fo.png</texture>
 					</control>
 					<control type="image">
+						<visible>!Container.Content(studios)</visible>
 						<left>80</left>
 						<top>80</top>
 						<width>400</width>
@@ -1089,13 +1090,13 @@
 				<control type="grouplist">
 					<left>1276</left>
 					<itemgap>15</itemgap>
-					<visible>[Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)] + !String.StartsWith(ListItem.Icon,Default)</visible>
+					<visible>[[Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)] + !String.StartsWith(ListItem.Icon,Default)] | Container.Content(studios)</visible>
 					<animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsActive(programs) | Window.IsActive(addonbrowser)">Conditional</animation>
 					<control type="image">
 						<width>560</width>
 						<height>560</height>
 						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-						<texture background="true" diffuse="diffuse/list-square.png">$INFO[ListItem.Icon]</texture>
+						<texture background="true" diffuse="diffuse/list-square.png" fallback="DefaultFolder.png">$VAR[ThumbViewImage]</texture>
 						<fadetime>IconCrossfadeTime</fadetime>
 					</control>
 					<control type="label">
