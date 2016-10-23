@@ -146,14 +146,6 @@
 	                    <onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
 		            </item>
 		            <item id="6">
-		            	<visible>System.HasAddon(script.tvtunes) + String.IsEmpty(Window(movieinformation).Property("TvTunes_HideVideoInfoButton")) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,musicvideo)]</visible>
-						<icon>$INFO[System.AddonIcon(script.tvtunes)]</icon>
-						<label>$INFO[System.AddonTitle(script.tvtunes)]</label>
-	                    <label2>$INFO[System.AddonTitle(script.tvtunes)]$INFO[System.AddonVersion(script.tvtunes), (,)]</label2>
-	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick>RunScript(script.tvtunes,mode=solo)</onclick>
-		            </item>
-		            <item id="7">
 		            	<visible>System.HasAddon(script.cinemavision) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)]</visible>
 						<icon>$INFO[System.AddonIcon(script.cinemavision)]</icon>
 						<label>$INFO[System.AddonTitle(script.cinemavision)]</label>
@@ -162,15 +154,6 @@
 	                    <onclick>Dialog.Close(movieinformation)</onclick>
 	                    <onclick>RunScript(script.cinemavision,experience)</onclick>
 		            </item>
-		            <item id="8">
-		            	<visible>System.HasAddon(script.videoextras) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)]</visible>
-						<icon>$INFO[System.AddonIcon(script.videoextras)]</icon>
-						<label>$INFO[System.AddonTitle(script.videoextras)]</label>
-	                    <label2>$INFO[System.AddonTitle(script.videoextras)]$INFO[System.AddonVersion(script.videoextras), (,)]</label2>
-	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick condition="!String.IsEqual(ListItem.DBTYPE,tvshow)">RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
-						<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)">RunScript(script.videoextras,display,"$INFO[ListItem.Path]")</onclick>
-		            </item>		            
 				</content>
 			</control>
 			<control type="scrollbar" id="60">
