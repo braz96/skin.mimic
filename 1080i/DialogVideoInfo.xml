@@ -345,9 +345,9 @@
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
 	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(3)">Conditional</animation>
-	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(3) | Container(50).Column(2)">Conditional</animation>
-	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(3) | Container(50).Column(2) | Container(50).Column(1)">Conditional</animation>
+	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Column,2)">Conditional</animation>
+	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Column,1)">Conditional</animation>
+	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Column,0)">Conditional</animation>
 	                </control>
 	            </control>
 	            <control type="group">
@@ -362,9 +362,9 @@
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>
 	                    <animation effect="fade" time="200">Hidden</animation>
 	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(90019).Column(3)">Conditional</animation>
-	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(90019).Column(3) | Container(90019).Column(2)">Conditional</animation>
-	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(90019).Column(3) | Container(90019).Column(2) | Container(90019).Column(1)">Conditional</animation>
+	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90019).Column,2)">Conditional</animation>
+	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90019).Column,1)">Conditional</animation>
+	                    <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90019).Column,0)">Conditional</animation>
 	                </control>
 	            </control>
 				<include condition="!System.HasAddon(script.extendedinfo)">DefaultActorList</include>
@@ -490,9 +490,9 @@
 	                <animation effect="fade" time="320" delay="200">Visible</animation>
 	                <animation effect="fade" time="200">Hidden</animation>
 	                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	                <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(3)">Conditional</animation>
-	                <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(3) | Container(250).Column(2)">Conditional</animation>
-	                <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(3) | Container(250).Column(2) | Container(250).Column(1)">Conditional</animation>
+	                <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(250).Column,2)">Conditional</animation>
+	                <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(250).Column,1)">Conditional</animation>
+	                <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(250).Column,0)">Conditional</animation>
 	            </control>
 	        </control>
 	        <control type="panel" id="250">
@@ -649,25 +649,6 @@
 		        		</control>
 		        	</control>
 		        </control>
-		        <!--<control type="group">
-	        		<visible>!String.IsEmpty(ListItem.Rating)</visible>
-		        	<control type="image">
-		        		<top>600</top>
-		        		<left>800</left>
-		        		<width>100</width>
-		        		<height>100</height>
-		        		<aspectratio>keep</aspectratio>
-		        		<texture>addons/imdb.png</texture>
-		        	</control>
-		        	<control type="label">
-		        		<top>600</top>
-		        		<left>930</left>
-		        		<width>200</width>
-		        		<height>100</height>
-		        		<font>font_MainMenu</font>
-		        		<label>$INFO[ListItem.Rating]</label>
-		        	</control>
-		        </control>-->
 	        	<control type="group">
 	        		<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.MetaCritic.Rating))</visible>
 		        	<control type="image">
