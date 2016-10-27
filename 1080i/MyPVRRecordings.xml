@@ -14,10 +14,26 @@
 			<visible>Control.IsVisible(50)</visible>
 			<include>VisibleFadeEffect</include>
 			<include>Animation.Common</include>
-			<top>60</top>
+			<top>180</top>
 			<left>90</left>
-			<control type="list" id="50">
-				<top>120</top>
+			<control type="group">
+                <visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
+                <control type="image">
+                    <width>1140</width>
+                    <height>120</height>
+                    <visible>Control.HasFocus(50)</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="50">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,5)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Row,0)">Conditional</animation>
+                </control>
+            </control>
+			<control type="panel" id="50">
 				<width>1140</width>
 				<height>840</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
@@ -34,19 +50,8 @@
 						<top>10</top>
 						<width>100</width>
 						<height>100</height>
-						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<visible>!String.Contains(ListItem.Icon,Default)</visible>
-					</control>
-					<control type="image">
-						<left>10</left>
-						<top>10</top>
-						<width>100</width>
-						<height>100</height>
-						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-						<visible>String.Contains(ListItem.Icon,Default)</visible>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<texture background="true" diffuse="diffuse/list-icon.png">$INFO[ListItem.ActualIcon]</texture>
 					</control>
 					<control type="label">
 						<left>135</left>
@@ -77,7 +82,7 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="120" width="1140">
-					<control type="image">
+					<!--<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>1140</width>
@@ -86,25 +91,14 @@
 						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
 						<visible>Control.HasFocus(50)</visible>
 						<include>VisibleFadeEffect</include>
-					</control>
+					</control>-->
 					<control type="image">
 						<left>10</left>
 						<top>10</top>
 						<width>100</width>
 						<height>100</height>
-						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<visible>!String.Contains(ListItem.Icon,Default)</visible>
-					</control>
-					<control type="image">
-						<left>10</left>
-						<top>10</top>
-						<width>100</width>
-						<height>100</height>
-						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-						<visible>String.Contains(ListItem.Icon,Default)</visible>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<texture background="true" diffuse="diffuse/list-icon.png">$INFO[ListItem.ActualIcon]</texture>
 					</control>
 					<control type="label">
 						<left>135</left>
@@ -135,13 +129,12 @@
 			</control>
 			<control type="grouplist">
 				<left>1176</left>
-				<top>120</top>
 				<itemgap>15</itemgap>
 				<control type="image">
 					<width>570</width>
 					<height>321</height>
-					<aspectratio align="center" aligny="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="diffuse/pvr-recordings.png">$INFO[ListItem.Art(thumb)]</texture>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
@@ -149,7 +142,7 @@
 					<description>Description</description>
 					<visible>!String.IsEmpty(ListItem.Plot)</visible>
 					<width>570</width>
-					<height>275</height>
+					<height>550</height>
 					<font>font14_textbox</font>
 					<label>$INFO[ListItem.Plot]$INFO[ListItem.Date, (,)]</label>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
