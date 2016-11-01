@@ -398,11 +398,14 @@
 					<textoffsetx>30</textoffsetx>
 				</control>
 			</control>
-			<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
-				<param name="left" value="935" />
-				<param name="top" value="-5" />
-				<param name="align" value="right" />
-			</include>
+			<control type="group">
+				<visible>Control.IsVisible(57) + !String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
+				<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
+					<param name="left" value="935" />
+					<param name="top" value="-5" />
+					<param name="align" value="right" />
+				</include>
+			</control>
 			<control type="group">
 				<left>30</left>
 				<top>90</top>
