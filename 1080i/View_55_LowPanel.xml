@@ -120,11 +120,35 @@
 					<label>$VAR[VideoPlotVar]</label>
 				</control>
 			</control>
-			<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
-				<param name="left" value="1050" />
-				<param name="top" value="540" />
-				<param name="align" value="right" />
-			</include>
+			<control type="group">
+				<left>1480</left>
+				<top>540</top>
+				<width>468</width>
+				<height>73</height>
+				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(55) + String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
+				<control type="image">
+					<height>50</height>
+					<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+					<texture>imdb.png</texture>
+					<aspectratio align="left" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>22</left>
+					<top>2</top>
+					<width>200</width>
+					<height>42</height>
+					<label>[UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#]</label>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Control.IsVisible(55) + !String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
+				<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
+					<param name="left" value="1050" />
+					<param name="top" value="540" />
+					<param name="align" value="right" />
+				</include>
+			</control>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(55) + !Window.IsActive(addoninformation)</visible>
