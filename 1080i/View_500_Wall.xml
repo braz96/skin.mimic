@@ -616,11 +616,14 @@
 						<label>[UPPERCASE]$LOCALIZE[13409][/UPPERCASE] $INFO[ListItem.Top250,#]</label>
 					</control>
 				</control>
-				<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
-					<param name="left" value="975" />
-					<param name="top" value="905" />
-					<param name="align" value="right" />
-				</include>
+				<control type="group">
+					<visible>Control.IsVisible(500) + !String.IsEqual(Container.SortMethod,$LOCALIZE[13409])</visible>
+					<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
+						<param name="left" value="975" />
+						<param name="top" value="905" />
+						<param name="align" value="right" />
+					</include>
+				</control>
 			</control>
 		</control>
 		<control type="group">
