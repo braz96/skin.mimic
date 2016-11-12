@@ -270,7 +270,7 @@
 						<label>$VAR[MusicInfoDescription]</label>
 						<pagecontrol>60</pagecontrol>
 						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-						<visible>![Control.HasFocus(204) | Control.HasFocus(203) | Control.HasFocus(208) | Control.HasFocus(150) | Control.HasFocus(50) | Control.HasFocus(555) | Control.HasFocus(61)]</visible>
+						<visible>![Control.HasFocus(204) | Control.HasFocus(203) | Control.HasFocus(202) | Control.HasFocus(208) | Control.HasFocus(50) | Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(555) | Control.HasFocus(61)]</visible>
 					</control>
 					<control type="scrollbar" id="60">
 						<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
@@ -282,10 +282,52 @@
 						<onright>9000</onright>
 						<orientation>vertical</orientation>
 					</control>
+					<control type="panel" id="50">
+						<visible>ControlGroup(9000).HasFocus(202) | Control.HasFocus(555) | Control.HasFocus(50)</visible>
+						<animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
+						<left>3</left>
+						<top>544</top>
+						<width>1155</width>
+						<height>385</height>
+						<onleft>50</onleft>
+						<onright>50</onright>
+						<onup>9000</onup>
+						<ondown>9000</ondown>
+						<viewtype label="">list</viewtype>
+						<scrolltime tween="quadratic" easing="out">200</scrolltime>
+						<orientation>horizontal</orientation>
+						<itemlayout height="77" width="572">
+							<control type="label">
+								<width>572</width>
+								<height>77</height>
+								<font>font15</font>
+								<textoffsetx>20</textoffsetx>
+								<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+								<label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+							</control>
+						</itemlayout>
+						<focusedlayout height="77" width="572">
+							<control type="image">
+								<width>572</width>
+								<height>77</height>
+								<texture border="5">listselect_fo.png</texture>
+								<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+								<visible>Control.HasFocus(50)</visible>
+								<include>VisibleFadeEffect</include>
+							</control>
+							<control type="label">
+								<width>572</width>
+								<height>77</height>
+								<font>font15</font>
+								<textoffsetx>20</textoffsetx>
+								<label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+							</control>
+						</focusedlayout>
+					</control>
 					<control type="group">
-			            <visible>Integer.IsGreater(Container(50).NumItems,0) + $EXP[isArtist]</visible>
+			            <visible>Integer.IsGreater(Container(250).NumItems,0) + $EXP[isArtist]</visible>
 			            <control type="image">
-			            	<visible>Control.HasFocus(50)</visible>
+			            	<visible>Control.HasFocus(250)</visible>
 			                <left>-9</left>
 			                <top>532</top>
 			                <width>397</width>
@@ -293,20 +335,20 @@
 			                <animation effect="fade" time="320" delay="0">Visible</animation>
 			                <animation effect="fade" time="200">Hidden</animation>
 			                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-			                <animation effect="slide" end="385,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(2)">Conditional</animation>
-			                <animation effect="slide" end="385,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(2) | Container(50).Column(1)">Conditional</animation>
+			                <animation effect="slide" end="385,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(2)">Conditional</animation>
+			                <animation effect="slide" end="385,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(2) | Container(250).Column(1)">Conditional</animation>
 			            </control>
 			        </control>
-					<control type="panel" id="50">
-						<visible>ControlGroup(9000).HasFocus(208) | ControlGroup(9000).HasFocus(203) | Control.HasFocus(555) | Control.HasFocus(50)</visible>
+					<control type="panel" id="250">
+						<visible>ControlGroup(9000).HasFocus(208) | ControlGroup(9000).HasFocus(203) | Control.HasFocus(555) | Control.HasFocus(250)</visible>
 						<animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
 						<animation effect="slide" start="0" end="6,6" time="0" condition="$EXP[isAlbum]">Conditional</animation>
 						<left>-3</left>
 						<top>538</top>
 						<width>1155</width>
 						<height>385</height>
-						<onleft>50</onleft>
-						<onright>50</onright>
+						<onleft>250</onleft>
+						<onright>250</onright>
 						<onup>9000</onup>
 						<ondown>9000</ondown>
 						<viewtype label="">list</viewtype>
@@ -328,7 +370,7 @@
 								<height>77</height>
 								<texture border="5">listselect_fo.png</texture>
 								<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-								<visible>Control.HasFocus(50)</visible>
+								<visible>Control.HasFocus(250)</visible>
 								<include>VisibleFadeEffect</include>
 							</control>
 							<control type="label">
@@ -392,8 +434,8 @@
 									<texture background="true" diffuse="diffuse/musicinfo-album.png">$INFO[ListItem.Thumb]</texture>
 								</control>
 								<control type="image">
-									<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-									<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+									<animation center="auto" condition="Control.HasFocus(250)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+									<animation center="auto" condition="Control.HasFocus(250)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 									<top>6</top>
 									<left>6</left>
 									<width>373</width>
@@ -425,6 +467,7 @@
 								</control>
 							</control>
 						</focusedlayout>
+						<content sortby="year" sortorder="$VAR[MusicInfoContentSortOrder]">$VAR[MusicInfoContentVar]</content>
 					</control>
 					<control type="label">
 			            <left>862</left>
@@ -573,6 +616,20 @@
 	                <visible>Integer.IsGreater(Container(150).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(150)]</visible>
 	                <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="300">Visible</animation>
 	            </control>
+	            <control type="label">
+	                <left>862</left>
+	                <top>1012</top>
+	                <width>300</width>
+	                <height>40</height>
+	                <font>font13</font>
+	                <textoffsetx>15</textoffsetx>
+	                <textcolor>$VAR[ColorDisabledVar]</textcolor>
+	                <align>right</align>
+	                <aligny>top</aligny>
+	                <label>$INFO[Container(250).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(250).CurrentPage]$INFO[Container(250).NumPages,/]</label>
+	                <visible>Integer.IsGreater(Container(250).NumItems,0) + [ControlGroup(9000).HasFocus(203) | ControlGroup(9000).HasFocus(208) | Control.HasFocus(250)]</visible>
+	                <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="300">Visible</animation>
+	            </control>
 	            <control type="group">
 	                <include>VisibleFadeEffect</include>
 	                <visible>ControlGroup(9000).HasFocus()</visible>
@@ -613,6 +670,7 @@
 						<ondown condition="Control.IsVisible(209) + [Container(209).HasNext | Container(209).HasPrevious]">60</ondown>
 						<ondown condition="Control.IsVisible(50)">50</ondown>
 						<ondown condition="Control.IsVisible(150)">150</ondown>
+						<ondown condition="Control.IsVisible(250)">250</ondown>
 						<orientation>horizontal</orientation>
 						<control type="togglebutton" id="5">
 							<description>Description</description>
@@ -622,6 +680,12 @@
 							<usealttexture>$EXP[isAlbum] | $EXP[isSong]</usealttexture>
 						</control>
 						<control type="button" id="203">
+							<description>Albums</description>
+							<include>ButtonInfoDialogsCommonValues</include>
+							<label>132</label>
+							<visible>$EXP[isArtist]</visible>
+						</control>
+						<control type="button" id="202">
 							<description>Discography</description>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>21888</label>
@@ -631,21 +695,13 @@
 							<description>Tracks</description>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>182</label>
-							<visible>$EXP[isAlbum] + Integer.IsGreater(Container(50).NumItems,0)</visible>
+							<visible>$EXP[isAlbum]</visible>
 						</control>
-						<!--<control type="button" id="205">
-							<description>YouTube</description>
-							<include>ButtonInfoDialogsCommonValues</include>
-							<label>31070</label>
-							<onclick>RunScript(script.skin.helper.service,action=searchyoutube,title=$INFO[ListItem.Artist], header=Videos for $INFO[ListItem.Artist])</onclick>
-							<enable>System.HasAddon(script.skin.helper.service)</enable>
-							<visible>$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong]</visible>
-						</control>-->
 						<control type="button" id="204">
 							<description>YouTube</description>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>31070</label>
-							<onclick>noop</onclick>
+							<onclick>RunScript(script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.Artist] $LOCALIZE[2])</onclick>
 							<enable>System.HasAddon(script.extendedinfo)</enable>
 							<visible>$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong]</visible>
 						</control>
@@ -680,13 +736,6 @@
 							<label>184</label>
 							<visible>!Skin.HasSetting(KioskMode.Enabled) + Control.IsEnabled(6)</visible>
 						</control>
-						<!--<control type="button" id="206">
-							<description>Refresh</description>
-							<include>ButtonInfoDialogsCommonValues</include>
-							<label>184</label>
-							<onclick>SendClick(6)</onclick>
-							<visible>!Skin.HasSetting(KioskMode.Enabled) + Control.IsEnabled(6)</visible>
-						</control>-->
 					</control>
 					<control type="button" id="555">
 						<description>fake button for mouse support</description>
