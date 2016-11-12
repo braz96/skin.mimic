@@ -351,6 +351,7 @@
 						<onright>250</onright>
 						<onup>9000</onup>
 						<ondown>9000</ondown>
+						<onclick condition="$EXP[isArtist]">PlayMedia(musicdb://artists/$INFO[ListItem.DBID])</onclick>
 						<viewtype label="">list</viewtype>
 						<scrolltime tween="quadratic" easing="out">200</scrolltime>
 						<orientation>horizontal</orientation>
@@ -689,13 +690,13 @@
 							<description>Discography</description>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>21888</label>
-							<visible>$EXP[isArtist]</visible>
+							<visible>$EXP[isArtist] + !String.IsEmpty(Container(50).ListItem.Label)</visible>
 						</control>
 						<control type="button" id="208">
 							<description>Tracks</description>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>182</label>
-							<visible>$EXP[isAlbum] + Integer.IsGreater(Container(50).NumItems,0)</visible>
+							<visible>$EXP[isAlbum] + Integer.IsGreater(Container(250).NumItems,0)</visible>
 						</control>
 						<control type="button" id="204">
 							<description>YouTube</description>
