@@ -1479,4 +1479,798 @@
 			<info>System.Memory(used)</info>
 		</control>
     </include>
+    <include name="MusicInfoContent">
+    	<control type="group">
+			<include>Animation.Common.MusicInfo</include>
+			<left>703</left>
+			<control type="group">
+				<top>60</top>
+				<width>1150</width>
+				<height>854</height>
+				<control type="panel" id="90050">
+					<left>5</left>
+					<top>118</top>
+					<width>1150</width>
+					<height>300</height>
+					<orientation>horizontal</orientation>
+					<pagecontrol>61</pagecontrol>
+					<scrolltime tween="quadratic" easing="out">200</scrolltime>
+					<itemlayout height="50" width="1150">
+						<control type="label">
+							<width>200</width>
+							<height>50</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<left>200</left>
+							<width>950</width>
+							<height>50</height>
+							<font>font15</font>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="50" width="1150">
+						<control type="label">
+							<width>200</width>
+							<height>50</height>
+							<font>font15</font>
+							<textcolor>$VAR[ColorHighlightVar]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<left>200</left>
+							<width>950</width>
+							<height>50</height>
+							<font>font15</font>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<label>$INFO[ListItem.Year]</label>
+							<label2>$LOCALIZE[345]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Year)</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Duration]</label>
+							<label2>$LOCALIZE[180]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Duration)</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Rating]</label>
+							<label2>$LOCALIZE[563]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Rating)</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.UserRating]</label>
+							<label2>$LOCALIZE[38018]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.UserRating)</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Album_Label)]</label>
+							<label2>$LOCALIZE[21899]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Album_Label))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Genre]</label>
+							<label2>$LOCALIZE[515]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Genre) + $EXP[isAlbum]</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Album_Mood)]</label>
+							<label2>$LOCALIZE[175]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Album_Mood))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Album_Style)]</label>
+							<label2>$LOCALIZE[176]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Album_Style))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Album_Theme)]</label>
+							<label2>$LOCALIZE[21895]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Album_Theme))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Album_Type)]</label>
+							<label2>$LOCALIZE[564]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Album_Type))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Artist_Formed)]</label>
+							<label2>$LOCALIZE[21894]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Artist_Disbanded)]</label>
+							<label2>$LOCALIZE[21896]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Artist_Disbanded))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Artist_Born)]</label>
+							<label2>$LOCALIZE[21893]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Artist_Died)]</label>
+							<label2>$LOCALIZE[21897]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Artist_Died))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Artist_YearsActive)]</label>
+							<label2>$LOCALIZE[21898]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Artist_Mood)]</label>
+							<label2>$LOCALIZE[175]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Artist_Mood))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Artist_Style)]</label>
+							<label2>$LOCALIZE[176]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Artist_Style))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Artist_Instrument)]</label>
+							<label2>$LOCALIZE[21892]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Artist_Instrument))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.Composer)]</label>
+							<label2>$LOCALIZE[29003]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.Composer))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.Conductor)]</label>
+							<label2>$LOCALIZE[29005]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.Conductor))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.Orchestra)]</label>
+							<label2>$LOCALIZE[38034]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.Orchestra))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.Lyricist)]</label>
+							<label2>$LOCALIZE[38035]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.Lyricist))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.Remixer)]</label>
+							<label2>$LOCALIZE[38036]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.Remixer))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.Arranger)]</label>
+							<label2>$LOCALIZE[38037]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.Arranger))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.Engineer)]</label>
+							<label2>$LOCALIZE[38038]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.Engineer))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.Producer)]</label>
+							<label2>$LOCALIZE[38039]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.Producer))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.DJMixer)]</label>
+							<label2>$LOCALIZE[38040]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.DJMixer))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Property(Role.Mixer)]</label>
+							<label2>$LOCALIZE[38041]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Property(Role.Mixer))</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.Filename]</label>
+							<label2>$LOCALIZE[21800]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.Filename)</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.PlayCount]</label>
+							<label2>$LOCALIZE[567]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.PercentPlayed,,%]</label>
+							<label2 fallback="-">$LOCALIZE[575]:</label2>
+							<onclick>noop</onclick>
+							<visible>ListItem.IsResumable</visible>
+						</item>
+						<item>
+							<label>$INFO[ListItem.LastPlayed]</label>
+							<label2 fallback="-">$LOCALIZE[568]:</label2>
+							<onclick>noop</onclick>
+							<visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
+						</item>
+					</content>
+				</control>
+				<control type="scrollbar" id="61">
+					<visible allowhiddenfocus="true">Control.HasFocus(61)</visible>
+					<left>2</left>
+					<top>430</top>
+					<width>1145</width>
+					<height>10</height>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<onleft>61</onleft>
+					<onright>61</onright>
+					<orientation>horizontal</orientation>
+				</control>
+				<control type="textbox" id="209">
+					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
+					<description>Plot</description>
+					<left>5</left>
+					<top>545</top>
+					<width>1120</width>
+					<height>405</height>
+					<font>font15_textbox</font>
+					<label>$VAR[MusicInfoDescription]</label>
+					<pagecontrol>60</pagecontrol>
+					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					<visible>![Control.HasFocus(204) | Control.HasFocus(203) | Control.HasFocus(202) | Control.HasFocus(208) | Control.HasFocus(50) | Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(555) | Control.HasFocus(61)]</visible>
+				</control>
+				<control type="scrollbar" id="60">
+					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+					<left>1140</left>
+					<top>545</top>
+					<width>10</width>
+					<height>405</height>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<orientation>vertical</orientation>
+				</control>
+				<control type="panel" id="50">
+					<visible>ControlGroup(9000).HasFocus(202) | Control.HasFocus(555) | Control.HasFocus(50)</visible>
+					<animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
+					<left>3</left>
+					<top>544</top>
+					<width>1155</width>
+					<height>385</height>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<viewtype label="">list</viewtype>
+					<scrolltime tween="quadratic" easing="out">200</scrolltime>
+					<orientation>horizontal</orientation>
+					<itemlayout height="77" width="572">
+						<control type="label">
+							<width>572</width>
+							<height>77</height>
+							<font>font15</font>
+							<textoffsetx>20</textoffsetx>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]$VAR[LocalAlbumVar]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="77" width="572">
+						<control type="image">
+							<width>572</width>
+							<height>77</height>
+							<texture border="5">listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(50)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="label">
+							<width>572</width>
+							<height>77</height>
+							<font>font15</font>
+							<textoffsetx>20</textoffsetx>
+							<label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]$VAR[LocalAlbumVar]</label>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="group">
+		            <visible>Integer.IsGreater(Container(250).NumItems,0) + $EXP[isArtist]</visible>
+		            <control type="image">
+		            	<visible>Control.HasFocus(250)</visible>
+		                <left>-9</left>
+		                <top>532</top>
+		                <width>397</width>
+		                <height>397</height>
+		                <animation effect="fade" time="320" delay="0">Visible</animation>
+		                <animation effect="fade" time="200">Hidden</animation>
+		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+		                <animation effect="slide" end="385,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(2)">Conditional</animation>
+		                <animation effect="slide" end="385,0" time="300" tween="cubic" easing="inout" condition="Container(250).Column(2) | Container(250).Column(1)">Conditional</animation>
+		            </control>
+		        </control>
+				<control type="panel" id="250">
+					<visible>ControlGroup(9000).HasFocus(208) | ControlGroup(9000).HasFocus(203) | Control.HasFocus(555) | Control.HasFocus(250)</visible>
+					<animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
+					<animation effect="slide" start="0" end="6,6" time="0" condition="$EXP[isAlbum]">Conditional</animation>
+					<left>-3</left>
+					<top>538</top>
+					<width>1155</width>
+					<height>385</height>
+					<onleft>250</onleft>
+					<onright>250</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<onclick condition="$EXP[isArtist]">PlayMedia(musicdb://artists/$INFO[ListItem.DBID])</onclick>
+					<viewtype label="">list</viewtype>
+					<scrolltime tween="quadratic" easing="out">200</scrolltime>
+					<orientation>horizontal</orientation>
+					<itemlayout height="77" width="572" condition="$EXP[isAlbum]">
+						<control type="label">
+							<width>572</width>
+							<height>77</height>
+							<font>font15</font>
+							<textoffsetx>20</textoffsetx>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="77" width="572" condition="$EXP[isAlbum]">
+						<control type="image">
+							<width>572</width>
+							<height>77</height>
+							<texture border="5">listselect_fo.png</texture>
+							<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+							<visible>Control.HasFocus(250)</visible>
+							<include>VisibleFadeEffect</include>
+						</control>
+						<control type="label">
+							<width>572</width>
+							<height>77</height>
+							<font>font15</font>
+							<textoffsetx>20</textoffsetx>
+							<label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
+						</control>
+					</focusedlayout>
+					<itemlayout height="385" width="385" condition="$EXP[isArtist]">
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>373</width>
+							<height>373</height>
+							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+							<texture background="true" diffuse="diffuse/musicinfo-album.png">$INFO[ListItem.Thumb]</texture>
+						</control>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>373</width>
+							<height>373</height>
+							<texture border="5">overlays/diffuse-overlay.png</texture>
+						</control>
+						<control type="image">
+							<top>289</top>
+							<left>6</left>
+							<width>373</width>
+							<height>90</height>
+							<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
+						</control>
+						<control type="label">
+							<left>16</left>
+							<top>293</top>
+							<width>353</width>
+							<height>40</height>
+							<font>font_Actor</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>16</left>
+							<top>333</top>
+							<width>353</width>
+							<height>40</height>
+							<font>font_Actor</font>
+							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="385" width="385" condition="$EXP[isArtist]">
+						<control type="group">
+							<control type="image">
+								<top>6</top>
+								<left>6</left>
+								<width>373</width>
+								<height>373</height>
+								<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+								<texture background="true" diffuse="diffuse/musicinfo-album.png">$INFO[ListItem.Thumb]</texture>
+							</control>
+							<control type="image">
+								<animation center="auto" condition="Control.HasFocus(250)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+								<animation center="auto" condition="Control.HasFocus(250)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+								<top>6</top>
+								<left>6</left>
+								<width>373</width>
+								<height>373</height>
+								<texture border="5">overlays/diffuse-overlay.png</texture>
+							</control>
+							<control type="image">
+								<top>289</top>
+								<left>6</left>
+								<width>373</width>
+								<height>90</height>
+								<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
+							</control>
+							<control type="label">
+								<left>16</left>
+								<top>293</top>
+								<width>353</width>
+								<height>40</height>
+								<font>font_Actor</font>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="label">
+								<left>16</left>
+								<top>333</top>
+								<width>353</width>
+								<height>40</height>
+								<font>font_Actor</font>
+								<label>$INFO[ListItem.Label2]</label>
+							</control>
+						</control>
+					</focusedlayout>
+					<content sortby="year" sortorder="$VAR[MusicInfoContentSortOrder]">$VAR[MusicInfoContentVar]</content>
+				</control>
+				<control type="label">
+		            <left>862</left>
+		            <top>960</top>
+		            <width>300</width>
+		            <height>40</height>
+		            <font>font13</font>
+		            <textoffsetx>15</textoffsetx>
+		            <textcolor>$VAR[ColorDisabledVar]</textcolor>
+		            <align>right</align>
+		            <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025]  •  ]$INFO[Container(50).CurrentPage]$INFO[Container(50).NumPages,/]</label>
+		            <visible>Control.IsVisible(50) + Integer.IsGreater(Container(50).NumItems,0) + !Control.IsVisible(150)</visible>
+		            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+		        </control>
+			</control>
+			<control type="group">
+                <visible>Integer.IsGreater(Container(150).NumItems,0)</visible>
+                <animation effect="fade" time="320" delay="300">Visible</animation>
+                <control type="image">
+                	<visible>Control.HasFocus(150)</visible>
+                    <left>-10</left>
+                    <top>591</top>
+                    <width>591</width>
+                    <height>343</height>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="579,0" time="300" tween="cubic" easing="inout" condition="Container(150).Column(1)">Conditional</animation>
+                </control>
+            </control>
+			<control type="panel" id="150">
+                <description>YouTube Videos</description>
+                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
+                <left>-4</left>
+				<top>565</top>
+				<width>1158</width>
+				<height>472</height>
+				<onleft>150</onleft>
+				<onright>150</onright>
+				<onup>9000</onup>
+                <ondown>9000</ondown>
+				<orientation>horizontal</orientation>
+                <preloaditems>2</preloaditems>
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <visible>[ControlGroup(9000).HasFocus(204) | Control.HasFocus(150)] + System.HasAddon(script.extendedinfo)</visible>
+                <itemlayout height="472" width="579">
+                	<control type="group">
+                		<top>32</top>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>567</width>
+	                        <height>319</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>567</width>
+							<height>319</height>
+							<texture border="5">overlays/diffuse-overlay.png</texture>
+						</control>
+	                    <control type="image">
+	                        <top>230</top>
+	                        <left>6</left>
+	                        <width>567</width>
+	                        <height>95</height>
+	                        <texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
+							<visible>!String.IsEmpty(ListItem.Label)</visible>							
+	                    </control>						
+						<control type="textbox">
+	                        <left>16</left>
+	                        <top>230</top>
+	                        <width>547</width>
+	                        <height>90</height>
+							<font>font_Actor</font>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="472" width="579">
+                    <control type="group">
+                    	<top>32</top>
+                    	<include>PanelFocusedItemZoom</include>
+						<control type="image">
+							<top>6</top>
+							<left>6</left>
+							<width>567</width>
+							<height>319</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true" fallback="blank.png" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(150)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(150)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>567</width>
+							<height>319</height>
+							<texture border="5">overlays/diffuse-overlay.png</texture>
+						</control>							
+                        <control type="image">
+                            <top>230</top>
+							<left>6</left>
+                            <width>567</width>
+                            <height>95</height>
+                            <texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
+							<visible>!String.IsEmpty(ListItem.Label)</visible>							
+                        </control>						
+						<control type="textbox">
+                           <left>16</left>
+                            <top>230</top>
+                            <width>547</width>
+                            <height>90</height>
+							<font>font_Actor</font>
+							<label>$INFO[ListItem.Label]</label>
+							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>$VAR[MusicInfoYoutubePath]</content>
+            </control>
+            <control type="label">
+            	<left>-4</left>
+				<top>576</top>
+				<width>1156</width>
+				<height>440</height>
+				<align>center</align>
+            	<visible>[ControlGroup(9000).HasFocus(204) | Control.HasFocus(150)] + !Integer.IsGreater(Container(150).NumItems,0)</visible>
+            	<label>31137</label>
+            	<font>font16</font>
+            	<animation effect="fade" time="400" tween="inout" easing="sine" start="0" end="100" delay="5000">Visible</animation>
+            </control>
+            <control type="label">
+                <left>862</left>
+                <top>1012</top>
+                <width>300</width>
+                <height>40</height>
+                <font>font13</font>
+                <textoffsetx>15</textoffsetx>
+                <textcolor>$VAR[ColorDisabledVar]</textcolor>
+                <align>right</align>
+                <aligny>top</aligny>
+                <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/]</label>
+                <visible>Integer.IsGreater(Container(150).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(150)]</visible>
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="300">Visible</animation>
+            </control>
+            <control type="label">
+                <left>862</left>
+                <top>1012</top>
+                <width>300</width>
+                <height>40</height>
+                <font>font13</font>
+                <textoffsetx>15</textoffsetx>
+                <textcolor>$VAR[ColorDisabledVar]</textcolor>
+                <align>right</align>
+                <aligny>top</aligny>
+                <label>$INFO[Container(250).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(250).CurrentPage]$INFO[Container(250).NumPages,/]</label>
+                <visible>Integer.IsGreater(Container(250).NumItems,0) + [ControlGroup(9000).HasFocus(203) | ControlGroup(9000).HasFocus(208) | Control.HasFocus(250)]</visible>
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="300">Visible</animation>
+            </control>
+            <control type="group">
+                <include>VisibleFadeEffect</include>
+                <visible>ControlGroup(9000).HasFocus()</visible>
+                <height>30</height>
+                <top>525</top>
+                <left>-50</left>
+                <control type="label">
+                    <visible>Container(9000).HasPrevious</visible>
+                    <width>30</width>
+                    <height>30</height>
+                    <align>center</align>
+                    <label>a</label>
+                    <font>IconTiny</font>
+                    <textcolor>$VAR[ColorDisabledVar]</textcolor>
+                </control>
+                <control type="label">
+                    <visible>Container(9000).HasNext</visible>
+                    <left>1220</left>
+                    <width>30</width>
+                    <height>30</height>
+                    <align>center</align>
+                    <label>b</label>
+                    <font>IconTiny</font>
+                    <textcolor>$VAR[ColorDisabledVar]</textcolor>
+                </control>
+            </control>
+			<control type="group">
+				<left>3</left>
+				<top>510</top>
+				<control type="grouplist" id="9000">
+					<width>1144</width>
+					<height>60</height>
+					<itemgap>12</itemgap>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<align>left</align>
+					<onup condition="Container(90050).HasNext | Container(90050).HasPrevious">61</onup>
+					<ondown condition="Control.IsVisible(209) + [Container(209).HasNext | Container(209).HasPrevious]">60</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<ondown condition="Control.IsVisible(150)">150</ondown>
+					<ondown condition="Control.IsVisible(250)">250</ondown>
+					<orientation>horizontal</orientation>
+					<control type="togglebutton" id="5">
+						<description>Description</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>21887</label>
+						<altlabel>21821</altlabel>
+						<usealttexture>$EXP[isAlbum] | $EXP[isSong]</usealttexture>
+					</control>
+					<control type="button" id="203">
+						<description>Albums</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>132</label>
+						<visible>$EXP[isArtist]</visible>
+					</control>
+					<control type="button" id="202">
+						<description>Discography</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>21888</label>
+						<visible>$EXP[isArtist] + !String.IsEmpty(Container(50).ListItem.Label)</visible>
+					</control>
+					<control type="button" id="208">
+						<description>Tracks</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>182</label>
+						<visible>$EXP[isAlbum] + Integer.IsGreater(Container(250).NumItems,0)</visible>
+					</control>
+					<control type="button" id="204">
+						<description>YouTube</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>31070</label>
+						<onclick>RunScript(script.extendedinfo?info=youtubesearch&amp;&amp;id=$ESCINFO[ListItem.Artist] $LOCALIZE[2])</onclick>
+						<enable>System.HasAddon(script.extendedinfo)</enable>
+						<visible>$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong]</visible>
+					</control>
+					<control type="button" id="7">
+						<description>User ratings</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>38023</label>
+						<visible>Control.IsEnabled(7)</visible>
+					</control>
+					<control type="button" id="10">
+						<description>Get Thumb</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>13405</label>
+						<visible>!Skin.HasSetting(KioskMode.Enabled)</visible>
+					</control>
+					<control type="button" id="12">
+						<description>Get Fanart</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>20413</label>
+						<visible>!Skin.HasSetting(KioskMode.Enabled) + !String.IsEqual(Control.GetLabel(12),$LOCALIZE[10523])</visible>
+					</control>
+					<control type="button" id="207">
+						<description>View fanart</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>31092</label>
+						<onclick>SetFocus(90400)</onclick>
+						<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
+					</control>
+					<control type="button" id="6">
+						<description>Refresh</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>184</label>
+						<visible>!Skin.HasSetting(KioskMode.Enabled) + Control.IsEnabled(6)</visible>
+					</control>
+				</control>
+				<control type="button" id="555">
+					<description>fake button for mouse support</description>
+					<left>231</left>
+					<top>570</top>
+					<height>34</height>
+					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
+					<include>ButtonInfoDialogsCommonValues</include>
+					<visible>Control.IsEnabled(208)</visible>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<include>Animation.Common.MusicInfo</include>
+			<top>190</top>
+			<left>72</left>
+			<control type="image">
+				<width>560</width>
+				<height>560</height>
+				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+				<texture background="true" diffuse="diffuse/list-square.png">$INFO[ListItem.Icon]</texture>
+			</control>
+			<control type="image">
+				<top>560</top>
+				<width>560</width>
+				<height>260</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Window.IsActive(DialogMusicInfo.xml)</visible>
+			<control type="button">
+				<left>102</left>
+				<top>17</top>
+				<width>1715</width>
+				<height>45</height>
+				<font>font30</font>
+				<textoffsetx>15</textoffsetx>
+				<label>$VAR[BreadcrumbsMusicInfoVar]</label>
+				<label2>$VAR[TopbarFadeLabel1]</label2>
+				<onclick>noop</onclick>
+				<texturefocus>blank.png</texturefocus>
+			</control>
+			<control type="button">
+				<left>102</left>
+				<top>59</top>
+				<width>1715</width>
+				<height>45</height>
+				<font>font14</font>
+				<textoffsetx>15</textoffsetx>
+				<textcolor>$VAR[ColorHighlightVar]</textcolor>
+				<label>$VAR[HeaderSubLabelMusicInfo]</label>
+				<label2>$VAR[TopbarFadeLabel2]</label2>
+				<onclick>noop</onclick>
+				<texturefocus>blank.png</texturefocus>
+				<focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
+			</control>
+		</control>
+    </include>
 </includes>

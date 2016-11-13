@@ -56,6 +56,24 @@
             <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
         </animation>
     </include>
+    <include name="Animation.Common.MusicInfo">
+    	<animation type="WindowOpen" reversible="false" condition="[Window.Is(musicinformation) + !Window.IsActive(songinformation)] | [Window.Is(songinformation) + !Window.IsActive(musicinformation)]">
+            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+            <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+        </animation>
+        <animation type="WindowClose" reversible="false" condition="[Window.Is(musicinformation) + !Window.IsActive(songinformation)] | [Window.Is(songinformation) + !Window.IsActive(musicinformation)]">
+            <effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
+            <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+        </animation>
+        <animation type="Visible" reversible="false" condition="[Window.Is(musicinformation) + !Window.IsActive(songinformation)] | [Window.Is(songinformation) + !Window.IsActive(musicinformation)]">
+            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+            <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+        </animation>
+        <animation type="Hidden" reversible="false" condition="[Window.Is(musicinformation) + !Window.IsActive(songinformation)] | [Window.Is(songinformation) + !Window.IsActive(musicinformation)]">
+            <effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
+            <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+        </animation>
+    </include>
     <include name="FocusedBackgroundFade">
     	<animation effect="fade" time="320" delay="200">Visible</animation>
         <animation effect="fade" time="50">Hidden</animation>
