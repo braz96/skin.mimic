@@ -675,6 +675,16 @@
                         <label>21887</label>
                         <altlabel>21821</altlabel>
                         <usealttexture>$EXP[isAlbum] | $EXP[isSong]</usealttexture>
+                        <visible>$EXP[isArtist] | !System.HasAddon(script.playalbum)</visible>
+                    </control>
+                    <control type="button" id="205">
+                        <description>Play</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <label>208</label>
+                        <onclick condition="$EXP[isAlbum]">RunScript(script.playalbum,albumid=$INFO[ListItem.DBID])</onclick>
+                        <onclick condition="$EXP[isSong]">PlayMedia($INFO[ListItem.FileNameAndPath])</onclick>
+                        <visible>System.HasAddon(script.playalbum) + !Window.IsActive(home)</visible>
+                        <visible>$EXP[isAlbum] | $EXP[isSong]</visible>
                     </control>
                     <control type="button" id="203">
                         <description>Albums</description>
