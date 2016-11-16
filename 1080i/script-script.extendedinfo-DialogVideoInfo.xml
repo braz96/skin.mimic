@@ -38,17 +38,6 @@
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                 <visible>Integer.IsGreater(Container(250).NumItems,0) + ControlGroup(9000).HasFocus(208) + !String.IsEmpty(Window.Property(Set)) + !String.IsEmpty(Window.Property(set.thumb))</visible>
 			</control>
-			<control type="button" id="8">
-				<onleft>9000</onleft>
-				<onright>9000</onright>
-				<top>500</top>
-				<left>252</left>
-				<height>200</height>
-				<width>200</width>
-				<texturefocus>play.png</texturefocus>
-				<texturenofocus colordiffuse="$VAR[ColorTextVar]">play.png</texturenofocus>
-				<visible>!String.IsEmpty(Window.Property(DBID)) + !String.IsEqual(Window.Property(Type),tvshow)</visible>
-			</control>
 			<control type="image">
 				<top>180</top>
 				<left>1600</left>
@@ -241,7 +230,7 @@
 					<pagecontrol>60</pagecontrol>
 					<autoscroll time="3000" delay="6000" repeat="6000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
-					<visible>ControlGroup(9000).HasFocus(205) | [!ControlGroup(9000).HasFocus() + ![Control.HasFocus(250) | Control.HasFocus(750) | Control.HasFocus(1000) | Control.HasFocus(1150) | Control.HasFocus(1250) | Control.HasFocus(1350) | Control.HasFocus(61)]] | [ControlGroup(9000).HasFocus(205) + Control.HasFocus(61)]</visible>
+					<visible>ControlGroup(9000).HasFocus(205) | ControlGroup(9000).HasFocus(8) | ControlGroup(9000).HasFocus(120) | [!ControlGroup(9000).HasFocus() + ![Control.HasFocus(250) | Control.HasFocus(750) | Control.HasFocus(1000) | Control.HasFocus(1150) | Control.HasFocus(1250) | Control.HasFocus(1350) | Control.HasFocus(61)]] | [ControlGroup(9000).HasFocus(205) + Control.HasFocus(61)]</visible>
 				</control>                
 				<control type="scrollbar" id="60">
 					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
@@ -1129,8 +1118,7 @@
 					<width>1144</width>
 					<height>60</height>
 					<itemgap>12</itemgap>
-					<onleft condition="Control.IsVisible(8)">8</onleft>
-					<onleft condition="!Control.IsVisible(8)">210</onleft>
+					<onleft>9000</onleft>
 					<onright>9000</onright>
 					<onup condition="Container(9900).HasNext | Container(9900).HasPrevious">61</onup>
 					<align>left</align>
@@ -1146,6 +1134,19 @@
 						<description>Plot</description>
                         <include>ButtonInfoDialogsCommonValues</include>
                         <label>207</label>
+                        <visible>String.IsEmpty(Window.Property(DBID))</visible>
+					</control>
+					<control type="button" id="8">
+						<description>Play</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <label>208</label>
+                        <visible>!String.IsEmpty(Window.Property(DBID)) + !String.IsEqual(Window.Property(Type),tvshow)</visible>
+					</control>
+					<control type="button" id="120">
+						<description>Browse</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <label>21385</label>
+                        <visible>!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),tvshow)</visible>
 					</control>
 					<control type="button" id="5">
 						<description>Cast</description>
