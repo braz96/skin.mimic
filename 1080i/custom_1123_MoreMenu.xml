@@ -145,6 +145,15 @@
 	                    <onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
 		            </item>
 		            <item id="6">
+		            	<visible>System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]</visible>
+						<icon>$INFO[System.AddonIcon(script.extendedinfo)]</icon>
+						<label>31202</label>
+	                    <label2>$INFO[System.AddonTitle(script.extendedinfo)]$INFO[System.AddonVersion(script.extendedinfo), (,)]</label2>
+	                    <onclick>Dialog.Close(1123)</onclick>
+	                    <onclick condition="String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
+						<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
+		            </item>
+		            <item id="7">
 		            	<visible>System.HasAddon(script.cinemavision) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)]</visible>
 						<icon>$INFO[System.AddonIcon(script.cinemavision)]</icon>
 						<label>$INFO[System.AddonTitle(script.cinemavision)]</label>

@@ -606,7 +606,7 @@
     	<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.Status))">$INFO[Window(Home).Property(NextAired.Status)]</value>
     	<value condition="[String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,season)] + !String.IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
     	<value condition="String.IsEqual(ListItem.DBTYPE,musicvideo) + !String.IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
-    	<value>$LOCALIZE[19033]</value>
+    	<value>$LOCALIZE[14116]</value>
     </variable>
     <variable name="HeaderSubLabelMusicInfo">
     	<value condition="String.IsEqual(ListItem.DBTYPE,artist)">$INFO[ListItem.Genre]</value>
@@ -617,6 +617,7 @@
     </variable>
     <variable name="HeaderSubLabel">
     	<value condition="Window.IsActive(script-script.extendedinfo-DialogInfo.xml) + !String.IsEmpty(Window.Property(AlsoKnownAs))">$INFO[Window.Property(AlsoKnownAs)]</value>
+    	<value condition="Window.IsActive(script-script.extendedinfo-DialogInfo.xml) + String.IsEmpty(Window.Property(AlsoKnownAs))">$LOCALIZE[14116]</value>
     	<value condition="Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml) + !String.IsEmpty(Window.Property(tagline))">$INFO[Window.Property(tagline)]</value>
     	
     	<value condition="Window.IsActive(DialogMusicInfo.xml)">$VAR[MusicInfoSubheading]</value>
@@ -667,7 +668,8 @@
     	<value condition="Window.IsActive(home) + Window.IsVisible(shutdownmenu)">$LOCALIZE[13005]</value>
     	<value condition="Window.IsActive(home) + Window.IsVisible(busydialog)">$LOCALIZE[503]</value>
     	<value condition="Window.IsActive(home)">$VAR[LibraryStatsVar]</value>
-    	<value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[Container.NumItems,, $LOCALIZE[31025]]</value>
+    	<value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml) + !Window.IsActive(script-script.extendedinfo-DialogInfo.xml)">$INFO[Container.NumItems,, $LOCALIZE[31025]]</value>
+    	<value>$LOCALIZE[14116]</value>
     </variable>
     <variable name="ThumbViewImage">
     	<value condition="Container.Content(studios)">$INFO[ListItem.Label,resource://resource.images.studios.squarehd/,.jpg]</value>
