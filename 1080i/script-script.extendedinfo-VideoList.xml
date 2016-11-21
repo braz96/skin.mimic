@@ -74,31 +74,15 @@
                         <texture border="5">overlays/diffuse-overlay.png</texture>
                         <bordersize>20</bordersize>
                     </control>
-                    <control type="group">
-                        <visible>!IsEmpty(ListItem.DBID)</visible>
-                        <left>246</left>
-                        <top>120</top>
-                        <control type="image">
-                            <width>60</width>
-                            <height>60</height>
-                            <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
-                            <aspectratio align="center" aligny="top">keep</aspectratio>
-                        </control>
-                        <control type="label">
-                            <top>14</top>
-                            <left>14</left>
-                            <width>30</width>
-                            <height>30</height>
-                            <align>center</align>
-                            <font>IconPlayer</font>
-                            <label>A</label>
-                        </control>
-                    </control>
+                    <include content="OverlayExtendedInfo">
+                        <param name="OverlayExtendedLeft" value="246" />
+                        <param name="OverlayExtendedTop" value="120" />
+                    </include>
                 </itemlayout>
                 <focusedlayout width="315" height="750" >
                     <control type="group">
-                        <animation effect="zoom" center="auto" start="100" end="130" time="400" tween="quadratic" reversible="false">Focus</animation>
-                        <animation effect="zoom" center="auto" start="130" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
+                        <animation effect="zoom" center="auto" start="100" end="132" time="400" tween="quadratic" reversible="false">Focus</animation>
+                        <animation effect="zoom" center="auto" start="132" end="100" time="400" tween="quadratic" reversible="false">Unfocus</animation>
                         <control type="image">
                             <left>-12</left>
                             <top>100</top>
@@ -118,26 +102,10 @@
                             <texture border="5">overlays/diffuse-overlay.png</texture>
                             <bordersize>20</bordersize>
                         </control>
-                        <control type="group">
-                            <visible>!IsEmpty(ListItem.DBID)</visible>
-                            <left>246</left>
-                            <top>120</top>
-                            <control type="image">
-                                <width>60</width>
-                                <height>60</height>
-                                <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
-                                <aspectratio align="center" aligny="top">keep</aspectratio>
-                            </control>
-                            <control type="label">
-                                <top>14</top>
-                                <left>14</left>
-                                <width>30</width>
-                                <height>30</height>
-                                <align>center</align>
-                                <font>IconPlayer</font>
-                                <label>A</label>
-                            </control>
-                        </control>
+                        <include content="OverlayExtendedInfo">
+                            <param name="OverlayExtendedLeft" value="246" />
+                            <param name="OverlayExtendedTop" value="120" />
+                        </include>
                     </control>
                 </focusedlayout>
             </control>

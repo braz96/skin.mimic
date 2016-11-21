@@ -806,7 +806,7 @@
 	</include>
 	<include name="OverlayIcons">
 		<control type="group">
-			<visible>![Container.Content(albums) | Container.Content(songs) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/)]</visible>
+			<visible>![$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong] | String.IsEmpty(ListItem.DBTYPE)]</visible>
             <left>$PARAM[OverlayLeft]</left>
             <top>$PARAM[OverlayTop]</top>
             <control type="image">
@@ -823,6 +823,75 @@
                 <align>center</align>
                 <font>IconPlayer</font>
                 <label>$VAR[OverlayVar]</label>
+            </control>
+            <control type="label">
+            	<visible>Skin.HasSetting(Overlay.Watched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
+            	<top>1</top>
+            	<left>1</left>
+                <width>56</width>
+                <height>56</height>
+                <align>center</align>
+                <font>IconSuperTiny</font>
+                <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                <label>A</label>
+            </control>
+        </control>
+    </include>
+    <include name="OverlayList">
+    	<control type="group">
+    		<visible>![$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong] | String.IsEmpty(ListItem.DBTYPE)]</visible>
+	    	<control type="label">
+				<left>$PARAM[OverlayListLeft]</left>
+				<top>$PARAM[OverlayListTop]</top>
+				<width>64</width>
+				<height>64</height>
+				<font>IconSmall</font>
+				<align>center</align>
+				<label>$VAR[ListItem.Overlay]</label>
+				<visible>!String.IsEmpty(ListItem.Overlay)</visible>
+			</control>
+			<control type="label">
+	        	<visible>Skin.HasSetting(Overlay.Watched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
+	        	<left>$PARAM[OverlayListLeft]</left>
+				<top>$PARAM[OverlayListTop]</top>
+	            <width>64</width>
+	            <height>62</height>
+	            <align>center</align>
+	            <font>IconTiny</font>
+	            <textcolor>$VAR[ColorHighlightVar]</textcolor>
+	            <label>A</label>
+	        </control>
+	    </control>
+    </include>
+    <include name="OverlayExtendedInfo">
+    	<control type="group">
+            <visible>!IsEmpty(ListItem.DBID)</visible>
+            <left>$PARAM[OverlayExtendedLeft]</left>
+            <top>$PARAM[OverlayExtendedTop]</top>
+            <control type="image">
+                <width>60</width>
+                <height>60</height>
+                <texture colordiffuse="$VAR[ColorHighlightVar]">overlays/overlaybg.png</texture>
+                <aspectratio align="center" aligny="top">keep</aspectratio>
+            </control>
+            <control type="label">
+                <top>2</top>
+                <left>2</left>
+                <width>56</width>
+                <height>56</height>
+                <align>center</align>
+                <font>IconPlayer</font>
+                <label>T</label>
+            </control>
+            <control type="label">
+                <top>2</top>
+                <left>2</left>
+                <width>56</width>
+                <height>56</height>
+                <align>center</align>
+                <font>IconSuperTiny</font>
+                <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                <label>I</label>
             </control>
         </control>
     </include>

@@ -76,12 +76,23 @@
                             <aspectratio align="center" aligny="top">keep</aspectratio>
                         </control>
                         <control type="label">
-                        	<top>14</top>
-                            <left>14</left>
-                            <width>30</width>
-                            <height>30</height>
+                            <top>2</top>
+                            <left>2</left>
+                            <width>56</width>
+                            <height>56</height>
                             <align>center</align>
                             <font>IconPlayer</font>
+                            <label>T</label>
+                        </control>
+                        <control type="label">
+                            <top>1</top>
+                            <left>1</left>
+                            <width>56</width>
+                            <height>56</height>
+                            <align>center</align>
+                            <font>IconSuperTiny</font>
+                            <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                            <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
                             <label>A</label>
                         </control>
                     </control>
@@ -117,14 +128,25 @@
                                 <aspectratio align="center" aligny="top">keep</aspectratio>
                             </control>
                             <control type="label">
-	                        	<top>14</top>
-	                            <left>14</left>
-	                            <width>30</width>
-	                            <height>30</height>
-	                            <align>center</align>
-	                            <font>IconPlayer</font>
-	                            <label>A</label>
-	                        </control>
+                                <top>2</top>
+                                <left>2</left>
+                                <width>56</width>
+                                <height>56</height>
+                                <align>center</align>
+                                <font>IconPlayer</font>
+                                <label>T</label>
+                            </control>
+                            <control type="label">
+                                <top>1</top>
+                                <left>1</left>
+                                <width>56</width>
+                                <height>56</height>
+                                <align>center</align>
+                                <font>IconSuperTiny</font>
+                                <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                                <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                                <label>A</label>
+                            </control>
                         </control>
 					</control>
 				</focusedlayout>
@@ -175,10 +197,17 @@
 				</control>
 			</control>
 		</control>
-		<control type="group">
+		<control type="scrollbar" id="60">
 			<visible allowhiddenfocus="true">Control.IsVisible(655) + [Control.HasFocus(60) | Container(655).Scrolling]</visible>
-			<top>-15</top>
-			<include>Scrollbar_Vertical</include>
+			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+			<left>1910</left>
+			<top>120</top>
+			<width>10</width>
+			<height>960</height>
+			<onleft>655</onleft>
+			<onright>655</onright>
+			<ondown>60</ondown>
+			<onup>60</onup>
 		</control>
 		<include>Topbar</include>
 	</controls>
