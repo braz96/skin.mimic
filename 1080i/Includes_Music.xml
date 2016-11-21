@@ -294,12 +294,41 @@
                     <orientation>horizontal</orientation>
                     <itemlayout height="77" width="572">
                         <control type="label">
+                            <visible>String.IsEmpty(ListItem.DBID)</visible>
                             <width>572</width>
                             <height>77</height>
                             <font>font15</font>
                             <textoffsetx>20</textoffsetx>
-                            <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-                            <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]$VAR[LocalAlbumVar]</label>
+                            <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="group">
+                            <visible>!String.IsEmpty(ListItem.DBID)</visible>
+                            <control type="label">
+                                <width>522</width>
+                                <height>77</height>
+                                <font>font15</font>
+                                <textoffsetx>20</textoffsetx>
+                                <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+                            </control>
+                            <control type="label">
+                                <left>505</left>
+                                <top>7</top>
+                                <width>64</width>
+                                <height>64</height>
+                                <font>IconSmall</font>
+                                <align>center</align>
+                                <label>T</label>
+                            </control>
+                            <control type="label">
+                                <left>505</left>
+                                <top>7</top>
+                                <width>64</width>
+                                <height>62</height>
+                                <align>center</align>
+                                <font>IconSuperTiny</font>
+                                <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                                <label>I</label>
+                            </control>
                         </control>
                     </itemlayout>
                     <focusedlayout height="77" width="572">
@@ -312,11 +341,41 @@
                             <include>VisibleFadeEffect</include>
                         </control>
                         <control type="label">
+                            <visible>String.IsEmpty(ListItem.DBID)</visible>
                             <width>572</width>
                             <height>77</height>
                             <font>font15</font>
                             <textoffsetx>20</textoffsetx>
-                            <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]$VAR[LocalAlbumVar]</label>
+                            <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="group">
+                            <visible>!String.IsEmpty(ListItem.DBID)</visible>
+                            <control type="label">
+                                <width>522</width>
+                                <height>77</height>
+                                <font>font15</font>
+                                <textoffsetx>20</textoffsetx>
+                                <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+                            </control>
+                            <control type="label">
+                                <left>505</left>
+                                <top>7</top>
+                                <width>64</width>
+                                <height>64</height>
+                                <font>IconSmall</font>
+                                <align>center</align>
+                                <label>T</label>
+                            </control>
+                            <control type="label">
+                                <left>505</left>
+                                <top>7</top>
+                                <width>64</width>
+                                <height>62</height>
+                                <align>center</align>
+                                <font>IconSuperTiny</font>
+                                <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                                <label>I</label>
+                            </control>
                         </control>
                     </focusedlayout>
                 </control>
