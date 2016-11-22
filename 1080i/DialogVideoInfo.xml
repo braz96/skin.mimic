@@ -199,16 +199,16 @@
 							<visible>!String.IsEmpty(ListItem.Filename)</visible>
 						</item>
 						<item>
-							<label>$$INFO[Window(Home).Property(SkinHelper.TMDB.Budget.mln)] million</label>
+							<label>$$INFO[Window(Home).Property(SkinHelper.ListItem.Budget.formatted)] $LOCALIZE[31233]</label>
 							<label2>$LOCALIZE[31255]:</label2>
 							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.TMDB.Budget.mln))</visible>
+							<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Budget.formatted))</visible>
 						</item>
 						<item>
-							<label>$$INFO[Window(Home).Property(SkinHelper.TMDB.Revenue.mln)] million</label>
+							<label>$$INFO[Window(Home).Property(SkinHelper.ListItem.Revenue.formatted)] $LOCALIZE[31233]</label>
 							<label2>$LOCALIZE[31256]:</label2>
 							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.TMDB.Revenue.mln))</visible>
+							<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Revenue.formatted))</visible>
 						</item>
 					</content>
 				</control>
@@ -558,7 +558,7 @@
 	        	<visible>ControlGroup(9000).HasFocus(208)</visible>
 	        	<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 	        	<control type="group">
-	        		<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.RottenTomatoesMeter))</visible>
+	        		<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>
 		        	<control type="image">
 		        		<top>600</top>
 		        		<left>0</left>
@@ -573,7 +573,7 @@
 		        		<width>200</width>
 		        		<height>100</height>
 		        		<font>font_MainMenu</font>
-		        		<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesMeter),,%]</label>
+		        		<label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),,%]</label>
 		        	</control>
 		        	<control type="grouplist">
 		        		<top>710</top>
@@ -592,19 +592,19 @@
 		        			<height>40</height>
 		        			<font>font13</font>
 		        			<textcolor>$VAR[ColorDisabledVar]</textcolor>
-		        			<label>$LOCALIZE[31269]: $INFO[Window(Home).Property(SkinHelper.RottenTomatoesRating),,/10]</label>
+		        			<label>$LOCALIZE[31269]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),,/10]</label>
 		        		</control>
 		        		<control type="label">
 		        			<width>300</width>
 		        			<height>40</height>
 		        			<font>font13</font>
 		        			<textcolor>$VAR[ColorDisabledVar]</textcolor>
-		        			<label>$LOCALIZE[31271]: $INFO[Window(Home).Property(SkinHelper.RottenTomatoesReviews)]</label>
+		        			<label>$LOCALIZE[31271]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Reviews)]</label>
 		        		</control>
 		        	</control>
 		        </control>
 	        	<control type="group">
-	        		<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.RottenTomatoesAudienceMeter))</visible>
+	        		<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
 		        	<control type="image">
 		        		<top>600</top>
 		        		<left>400</left>
@@ -619,7 +619,7 @@
 		        		<width>200</width>
 		        		<height>100</height>
 		        		<font>font_MainMenu</font>
-		        		<label>$INFO[Window(Home).Property(SkinHelper.RottenTomatoesAudienceMeter),,%]</label>
+		        		<label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),,%]</label>
 		        	</control>
 		        	<control type="grouplist">
 		        		<top>710</top>
@@ -638,19 +638,19 @@
 		        			<height>40</height>
 		        			<font>font13</font>
 		        			<textcolor>$VAR[ColorDisabledVar]</textcolor>
-		        			<label>$LOCALIZE[31269]: $INFO[Window(Home).Property(SkinHelper.RottenTomatoesAudienceRating),,/5]</label>
+		        			<label>$LOCALIZE[31269]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserRating),,/5]</label>
 		        		</control>
 		        		<control type="label">
 		        			<width>300</width>
 		        			<height>40</height>
 		        			<font>font13</font>
 		        			<textcolor>$VAR[ColorDisabledVar]</textcolor>
-		        			<label>$LOCALIZE[31268]: $INFO[Window(Home).Property(SkinHelper.RottenTomatoesAudienceReviews)]</label>
+		        			<label>$LOCALIZE[31268]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserReviews)]</label>
 		        		</control>
 		        	</control>
 		        </control>
 	        	<control type="group">
-	        		<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.MetaCritic.Rating))</visible>
+	        		<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.MC))</visible>
 		        	<control type="image">
 		        		<top>600</top>
 		        		<left>800</left>
@@ -665,7 +665,7 @@
 		        		<width>200</width>
 		        		<height>100</height>
 		        		<font>font_MainMenu</font>
-		        		<label>$INFO[Window(Home).Property(SkinHelper.MetaCritic.Rating)]</label>
+		        		<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.MC)]</label>
 		        	</control>
 		        </control>
 	        	<control type="textbox">
@@ -825,7 +825,7 @@
 						<description>Ratings</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>31267</label>
-						<visible>$EXP[isMovie] + !String.IsEmpty(Window(Home).Property(SkinHelper.RottenTomatoesMeter))</visible>
+						<visible>$EXP[isMovie] + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>
 					</control>
 					<control type="button" id="11">
 						<visible>!String.IsEmpty(ListItem.Trailer)</visible>

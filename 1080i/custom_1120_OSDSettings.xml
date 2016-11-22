@@ -32,7 +32,7 @@
 				<label>$LOCALIZE[31102]</label>
 				<label2>$VAR[VizBackgroundLabelVar]</label2>
                 <onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
-                <onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(musicvis.background))</onclick>
+                <onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(musicvis.background,none))</onclick>
                 <onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20445])</onclick>
                 <onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(musicvis.background,fanart))</onclick>
                 <onclick condition="System.HasAddon(script.artistslideshow)">SetProperty(Dialog.3.Label,$INFO[System.AddonTitle(script.artistslideshow)])</onclick>
@@ -46,6 +46,7 @@
                 <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.7.Label,$LOCALIZE[31169])</onclick>
                 <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.7.BuiltIn,Skin.SetString(musicvis.background,posterizefanart))</onclick>
                 <onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31167])</onclick>
+                <!--<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=musicviz.background,header=$LOCALIZE[31167])</onclick>-->
 			</control>
 			<control type="radiobutton" id="90205">
 				<width>1074</width>

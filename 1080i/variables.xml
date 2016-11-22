@@ -240,7 +240,7 @@
 	</variable>
 	<variable name="VideoPlotVar">
 		<value condition="Container.Content(seasons)">$INFO[Container.ShowPlot]</value>
-		<value condition="Container.Content(sets) + !String.IsEmpty(Window(Home).Property(SkinHelper.MovieSet.Plot))">$INFO[Window(Home).Property(SkinHelper.MovieSet.Plot)]</value>
+		<value condition="Container.Content(sets) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</value>
 		<value condition="!String.IsEmpty(ListItem.PlotOutline) + !Skin.HasSetting(VideoInfoPlotToggle)">$INFO[ListItem.PlotOutline]</value>
 		<value condition="System.GetBool(videolibrary.showunwatchedplots)">$INFO[ListItem.Plot]</value>
 		<value>$INFO[ListItem.Plot]</value>
@@ -360,7 +360,6 @@
 		<value condition="Control.HasFocus(406)">$LOCALIZE[31183]</value>
 		<value condition="Control.HasFocus(407)">$LOCALIZE[31105]</value>
 		<value condition="Control.HasFocus(408)">$LOCALIZE[31133]</value>
-		<value condition="Control.HasFocus(409)">$LOCALIZE[31134]</value>
 		<value condition="Control.HasFocus(502)">$LOCALIZE[31206]</value>
 		<value condition="Control.HasFocus(503)">$LOCALIZE[31207]</value>
 		<value condition="Control.HasFocus(504)">$LOCALIZE[31208]</value>
@@ -732,7 +731,7 @@
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetName),weather) + Weather.IsFetched">$INFO[Window(Weather).Property(WeatherProvider)]</value>
 	</variable>
 	<variable name="WidgetLimit">
-		<value condition="Skin.HasSetting(Enable.WidgetLimit)">20</value>
+		<value condition="Skin.HasSetting(Enable.WidgetLimit)">24</value>
 		<value condition="!Skin.HasSetting(Enable.WidgetLimit)">1000</value>
 	</variable>
 	<variable name="Settings.Viewmode">
@@ -740,7 +739,7 @@
 		<value condition="!Skin.HasSetting(Enable.SettingsPanelView)">$LOCALIZE[535]</value>
 	</variable>
 	<variable name="LowPanelLogoVar">
-		<value condition="Container.Content(sets) + !String.IsEmpty(Window(Home).Property(SkinHelper.MovieSet.0.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.MovieSet.0.ClearLogo)]</value>
+		<value condition="Container.Content(sets) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.0.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.0.ClearLogo)]</value>
 		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 		<value>blank.png</value>
@@ -820,12 +819,12 @@
 		<value>$LOCALIZE[31258]</value>
 	</variable>
 	<variable name="RottenTomatoMeter">
-		<value condition="String.IsEqual(Window(Home).Property(SkinHelper.RottenTomatoesImage),fresh)">addons/fresh.png</value>
-		<value condition="String.IsEqual(Window(Home).Property(SkinHelper.RottenTomatoesImage),rotten)">addons/rotten.png</value>
-		<value condition="String.IsEqual(Window(Home).Property(SkinHelper.RottenTomatoesImage),certified)">addons/certified.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Image),fresh)">addons/fresh.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Image),rotten)">addons/rotten.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Image),certified)">addons/certified.png</value>
 	</variable>
 	<variable name="CriticConsensus">
-		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.RottenTomatoesConsensus))">[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[31265]: [/COLOR]$INFO[Window(Home).Property(SkinHelper.RottenTomatoesConsensus)]</value>
+		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus))">[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[31265]: [/COLOR]$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Consensus)]</value>
 		<value>$LOCALIZE[31266].</value>
 	</variable>
 	<variable name="MusicInfoContentVar">

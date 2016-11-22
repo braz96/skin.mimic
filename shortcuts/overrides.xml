@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <overrides>
 
+    <!-- Custom shortcuts -->
     <shortcut label="$LOCALIZE[31075]" type="$ADDON[script.skinshortcuts 32034]" thumbnail="DefaultAddon.png" icon="DefaultAddon.png">ActivateWindow(1119)</shortcut>
     <shortcut label="$LOCALIZE[31174]" type="$ADDON[script.skinshortcuts 32034]" thumbnail="DefaultIconPower.png" icon="DefaultIconPower.png">ActivateWindow(shutdownmenu)</shortcut>
 
@@ -109,7 +110,7 @@
 	<property property="InfoLine">31228</property>
 	<property property="InfoLine">31229</property>
 
-     <contextmenu>
+    <contextmenu>
         <!-- Enable context menu on controls 211, 303 and 304 -->
         <enableon>211</enableon>
 
@@ -126,7 +127,8 @@
     <warn heading="$LOCALIZE[750]" message="$LOCALIZE[31072]">ActivateWindow(Settings)</warn>
 
 	<!-- Widgets -->
-	<widget label="$INFO[System.AddonTitle(plugin.video.the.trailers)]" condition="System.HasAddon(plugin.video.the.trailers)" path="plugin://plugin.video.the.trailers/apple/movies/" type="movies" target="movies">trailers</widget>
+    <widget label="Widgets" type="32010">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=skinplaylists,librarydataprovider,scriptwidgets,extendedinfo,smartshortcuts,pvr,smartishwidgets</widget>
+
 	<widget label="12600" condition="!IsEmpty(Weather.Plugin)">weather</widget>
 
 	<!-- Widget Icon Aspect Ratio -->
@@ -137,16 +139,17 @@
     <property property="widgetIcon">$LOCALIZE[31088]</property>
 
     <!-- Widget Defaults -->
+    
+    <widgetdefaultnode defaultID="movies" group="mainmenu" label="20386" type="movies" path="videodb://recentlyaddedmovies/" target="video">recentlyaddedmovies</widgetdefaultnode>
+    <widgetdefaultnode defaultID="tvshows" group="mainmenu" label="$ADDON[script.skin.helper.widgets 32002]" type="episodes" path="plugin://script.skin.helper.service/?action=nextepisodes&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]" target="video">nextepisodes</widgetdefaultnode>
+    <widgetdefaultnode defaultID="music" group="mainmenu" label="359" type="albums" path="musicdb://recentlyaddedalbums/" target="music">recentalbums</widgetdefaultnode>
+    <widgetdefaultnode defaultID="apps" group="mainmenu" label="1037" type="movies" path="addons://sources/video/" target="video">videoaddons</widgetdefaultnode>
     <widgetdefault labelID="weather" group="mainmenu">weather</widgetdefault>
-    <widgetdefaultnode defaultID="movies" group="mainmenu" label="20386" type="movies" path="plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window(Home).Property(widgetreload)]" target="video">recentlyaddedmovies</widgetdefaultnode>
-    <widgetdefaultnode defaultID="tvshows" group="mainmenu" label="$ADDON[script.skin.helper.service 32002]" type="episodes" path="plugin://script.skin.helper.service/?action=nextepisodes&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]" target="video">nextepisodes</widgetdefaultnode>
-    <widgetdefaultnode defaultID="music" group="mainmenu" label="359" type="albums" path="plugin://script.skin.helper.service/?action=recentalbums&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreloadmusic)]" target="music">recentalbums</widgetdefaultnode>
-    <widgetdefaultnode defaultID="musicvideos" group="mainmenu" label="20390" type="musicvideos" path="plugin://script.skin.helper.service/?action=recentmusicvideos&amp;reload=$INFO[Window(Home).Property(widgetreload)]" target="video">recentmusicvideos</widgetdefaultnode>
-    <widgetdefaultnode defaultID="livetv" group="mainmenu" label="$ADDON[script.skin.helper.service 32153]" type="pvr" path="pvr://channels/tv/;reload=$INFO[Window(Home).Property(widgetreload2)]" target="videos">pvr</widgetdefaultnode>
-    <widgetdefaultnode defaultID="settings" group="mainmenu" label="1036" type="movies" path="plugin://script.skin.helper.service/?action=favourites&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload2)]" target="video">favourites</widgetdefaultnode>
-    <widgetdefaultnode defaultID="videos" group="mainmenu" label="1037" type="movies" path="addons://sources/video/" target="video">videoaddons</widgetdefaultnode>
-    <widgetdefaultnode defaultID="programs" group="mainmenu" label="0" type="movies" path="addons://sources/executable/" target="video">programs</widgetdefaultnode>
-    <widgetdefaultnode defaultID="pictures" group="mainmenu" label="1039" type="picture" path="addons://sources/image/" target="pictures">pictureaddons</widgetdefaultnode>
+    <widgetdefaultnode defaultID="script.globalsearch" group="mainmenu" label="1036" type="" path="favourites://" target="">favourites</widgetdefaultnode>
+    <widgetdefaultnode defaultID="settings" group="mainmenu" label="0" type="movies" path="addons://sources/executable/" target="video">programs</widgetdefaultnode>
+    <!--<widgetdefaultnode defaultID="musicvideos" group="mainmenu" label="20390" type="musicvideos" path="plugin://script.skin.helper.service/?action=recentmusicvideos&amp;reload=$INFO[Window(Home).Property(widgetreload)]" target="video">recentmusicvideos</widgetdefaultnode>
+    <widgetdefaultnode defaultID="livetv" group="mainmenu" label="$ADDON[script.skin.helper.service 32153]" type="pvr" path="pvr://channels/tv/;reload=$INFO[Window(Home).Property(widgetreload2)]" target="videos">pvr</widgetdefaultnode>-->
+    <!--<widgetdefaultnode defaultID="pictures" group="mainmenu" label="1039" type="picture" path="addons://sources/image/" target="pictures">pictureaddons</widgetdefaultnode>-->
     
     <propertydefault defaultID="tvshows" property="widgetIcon">20021</propertydefault>
 
