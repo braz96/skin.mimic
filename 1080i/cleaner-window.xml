@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<window>
+	<defaultcontrol always="true">1</defaultcontrol>
+    <include>dialogeffect</include>
+    <allowoverlay>no</allowoverlay>
+    <coordinates>
+        <left>60</left>
+        <top>60</top>
+    </coordinates>
+    <controls>
+    	<include content="DialogBackgroundCommons">
+            <param name="DialogBackgroundWidth" value="1800" />
+            <param name="DialogBackgroundHeight" value="960" />
+            <param name="DialogHeaderLabel" value="$INFO[System.AddonTitle(script.database.cleaner)]" />
+            <param name="DialogHeaderId" value="" />
+        </include>
+		
+		<control type="label">
+			<description>Label for sources.xml list</description>
+			<left>50</left>
+			<top>128</top>
+			<height>40</height>
+			<width>800</width>
+			<font>font15_title</font>
+			<label>Keeping data from the following paths:</label>
+			<textcolor>$VAR[ColorHighlightVar]</textcolor>
+		</control>
+		
+		<!-- Scrollbar for sources.xml list -->
+		<control type="scrollbar" id="17">
+			<left>855</left>
+			<top>180</top>
+			<height>400</height>
+			<width>10</width>
+			<onleft>1</onleft>
+			<onright>18</onright>
+			<ondown>17</ondown>
+			<onup>17</onup>
+		</control>
+	
+		<!-- List control for sources.xml paths -->
+		<control type="list" id="6">	
+			<left>50</left>
+			<top>180</top>
+			<width>800</width>
+			<height>400</height>
+			<pagecontrol>17</pagecontrol>
+			<itemlayout height="40">
+				<control type="label">
+					<width>800</width>
+					<height>40</height>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="40">
+				<control type="label">
+					<width>800</width>
+					<height>40</height>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+		</control>
+		
+		<!-- Title for excludes.xml listbox -->
+		<control type="label">
+			<description>Label for excludes.xml list</description>
+			<left>950</left>
+			<top>128</top>
+			<height>40</height>
+			<width>800</width>
+			<font>font15_title</font>
+			<label>Contents of excludes.xml:</label>
+			<textcolor>$VAR[ColorHighlightVar]</textcolor>
+		</control>
+
+		<!-- Scrollbar for excludes.xml listbox -->
+		<control type="scrollbar" id="18">
+			<left>1755</left>
+			<top>180</top>
+			<height>200</height>
+			<width>10</width>
+			<onleft>17</onleft>
+			<onright>1</onright>
+			<ondown>18</ondown>
+			<onup>18</onup>
+		</control>
+		
+		<!-- List control for excludes.xml -->
+		<control type="list" id="8">	
+			<left>950</left>
+			<top>180</top>
+			<width>800</width>
+			<height>200</height>
+			<pagecontrol>18</pagecontrol>
+			<itemlayout height="40">
+				<control type="label">
+					<width>800</width>
+					<height>40</height>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="40">
+				<control type="label">
+					<width>800</width>
+					<height>40</height>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+		</control>
+		
+		<control type="label">
+			<description>Label for addon settings list</description>
+			<left>950</left>
+			<top>400</top>
+			<height>40</height>
+			<width>800</width>
+			<font>font15_title</font>
+			<label>$LOCALIZE[10140]:</label>
+			<textcolor>$VAR[ColorHighlightVar]</textcolor>
+		</control>
+		
+		<!-- List control for Addon Settings -->
+		<control type="list" id="10">	
+			<left>950</left>
+			<top>450</top>
+			<width>800</width>
+			<height>400</height>
+			<pagecontrol>61</pagecontrol>
+			<onleft>5</onleft>
+			<onright>5</onright>
+			<onup>6</onup>
+			<ondown>6</ondown>
+			<itemlayout height="40">
+				<control type="label">
+					<width>800</width>
+					<height>40</height>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="40">
+				<control type="label">
+					<width>800</width>
+					<height>40</height>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+		</control>
+		
+		<!-- Warnings -->
+		<control type="label" id="20">
+			<left>50</left>
+			<top>700</top>
+			<width>800</width>
+			<height>40</height>
+			<label />
+		</control>
+		<control type="label" id="21">
+			<left>50</left>
+			<top>750</top>
+			<width>800</width>
+			<height>40</height>
+			<label />
+		</control>
+		
+		<!--  Clean and Abort Buttons -->		
+		<control type="grouplist" id="9001">
+            <width>1736</width>
+            <left>32</left>
+            <top>868</top>
+            <height>69</height>
+            <align>center</align>
+            <itemgap>13</itemgap>
+ 			<orientation>horizontal</orientation>
+            <control type="button" id="1">
+                <description>Abort button</description>
+                <align>center</align>
+                <width>570</width>
+                <onup>17</onup>
+                <label>222</label>
+                <font>font15_title</font>
+                <texturenofocus colordiffuse="33787878" border="5">listselect_fo.png</texturenofocus>
+            </control>
+            <control type="button" id="200">
+                <description>Settings button</description>
+                <align>center</align>
+                <left>584</left>
+                <width>570</width>
+                <onup>17</onup>
+                <label>10004</label>
+                <font>font15_title</font>
+                <onclick condition="System.HasAddon(script.database.cleaner)">Addon.OpenSettings(script.database.cleaner)</onclick>
+                <texturenofocus colordiffuse="33787878" border="5">listselect_fo.png</texturenofocus>
+            </control>
+            <control type="button" id="2">
+                <description>Clean button</description>
+                <align>center</align>
+                <left>584</left>
+                <width>570</width>
+                <onup>17</onup>
+                <label>14247</label>
+                <font>font15_title</font>
+                <texturenofocus colordiffuse="33787878" border="5">listselect_fo.png</texturenofocus>
+            </control>
+        </control>
+	</controls>
+</window>
