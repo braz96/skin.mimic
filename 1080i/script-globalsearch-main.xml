@@ -55,7 +55,27 @@
 		<control type="group">
 			<visible>Control.IsVisible(100) + !Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
 			<include>Animation.Common</include>
-			<control type="list" id="9000">
+			<control type="group">
+                <visible>Integer.IsGreater(Container(9000).NumItems,0)</visible>
+                <control type="image">
+                	<left>60</left>
+                    <top>220</top>
+                    <width>356</width>
+                    <height>95</height>
+                    <visible>Control.HasFocus(9000)</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="50">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,6)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,5)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,0)">Conditional</animation>
+                </control>
+            </control>
+			<control type="panel" id="9000">
 				<left>60</left>
 				<top>220</top>
 				<width>356</width>
@@ -77,14 +97,6 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="95" width="356">
-					<control type="image">
-						<animation effect="fade" time="50" start="100" end="50" condition="!Control.HasFocus(9000)">Conditional</animation>
-						<width>356</width>
-						<height>95</height>
-						<texture border="5">listselect_fo.png</texture>
-						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						<include>VisibleFadeEffect</include>
-					</control>
 					<control type="label">
 						<width>356</width>
 						<height>95</height>

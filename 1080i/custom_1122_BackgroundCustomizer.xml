@@ -17,7 +17,27 @@
 			<param name="DialogHeaderLabel" value="$LOCALIZE[31027]" />
 			<param name="DialogHeaderId" value="1" />
 		</include>
-		<control type="list" id="90100">
+		<control type="group">
+            <visible>Integer.IsGreater(Container(90100).NumItems,0)</visible>
+            <control type="image">
+            	<left>32</left>
+                <top>88</top>
+                <width>942</width>
+                <height>60</height>
+                <visible>Control.HasFocus(90100)</visible>
+                <animation effect="fade" time="320" delay="200">Visible</animation>
+                <animation effect="fade" time="50">Hidden</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90100).Row,6)">Conditional</animation>
+                <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90100).Row,5)">Conditional</animation>
+                <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90100).Row,4)">Conditional</animation>
+                <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90100).Row,3)">Conditional</animation>
+                <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90100).Row,2)">Conditional</animation>
+                <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90100).Row,1)">Conditional</animation>
+                <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90100).Row,0)">Conditional</animation>
+            </control>
+        </control>
+		<control type="panel" id="90100">
 			<left>32</left>
 			<top>88</top>
 			<width>942</width>
@@ -39,14 +59,6 @@
 				</control>
 			</itemlayout>
 			<focusedlayout height="60" width="942">
-				<control type="image">
-					<width>942</width>
-					<height>60</height>
-					<texture border="5">listselect_fo.png</texture>
-					<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-					<visible>Control.HasFocus(90100)</visible>
-					<include>VisibleFadeEffect</include>
-				</control>
 				<control type="label">
 					<width>942</width>
 					<height>60</height>
@@ -267,7 +279,7 @@
 			</control>
 		</control>
 		<control type="scrollbar" id="60">
-			<left>980</left>
+			<left>979</left>
 			<top>88</top>
 			<height>480</height>
 			<width>10</width>
