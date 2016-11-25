@@ -52,12 +52,12 @@
                 </control>
                 <control type="group">
                     <include>VisibleFadeEffect</include>
-                    <visible>Control.HasFocus(8011$SKINSHORTCUTS[id])</visible>
+                    <visible>Control.HasFocus(8011$SKINSHORTCUTS[id]) | Control.HasFocus(8013$SKINSHORTCUTS[id])</visible>
                     <height>30</height>
                     <top>-55</top>
                     <left>1178</left>
                     <control type="label">
-                        <visible>Container(8011$SKINSHORTCUTS[id]).HasPrevious</visible>
+                        <visible>[Control.HasFocus(8011$SKINSHORTCUTS[id]) + Container(8011$SKINSHORTCUTS[id]).HasPrevious] | [Control.HasFocus(8013$SKINSHORTCUTS[id]) + Container(8013$SKINSHORTCUTS[id]).HasPrevious]</visible>
                         <width>30</width>
                         <height>30</height>
                         <align>center</align>
@@ -66,7 +66,7 @@
                         <textcolor>disabled</textcolor>
                     </control>
                     <control type="label">
-                        <visible>Container(8011$SKINSHORTCUTS[id]).HasNext</visible>
+                        <visible>[Control.HasFocus(8011$SKINSHORTCUTS[id]) + Container(8011$SKINSHORTCUTS[id]).HasNext] | [Control.HasFocus(8013$SKINSHORTCUTS[id]) + Container(8013$SKINSHORTCUTS[id]).HasNext]</visible>
                         <top>860</top>
                         <width>30</width>
                         <height>30</height>
@@ -76,29 +76,20 @@
                         <textcolor>disabled</textcolor>
                     </control>
                 </control>
-                <control type="image">
-                    <visible>Control.HasFocus(8013$SKINSHORTCUTS[id]) + !Container(8013$SKINSHORTCUTS[id]).IsUpdating</visible>
-                    <animation effect="fade" time="320" delay="200">Visible</animation>
-                    <animation effect="fade" time="200">Hidden</animation>
-                    <left>504</left>
-                    <top>10</top>
-                    <width>330</width>
-                    <height>370</height>
-                    <include>FocusedBackgroundFade</include>
-                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Row,0)">Conditional</animation>
-                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
-                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
-                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
-                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
-                </control>
-                <control type="panel" id="8013$SKINSHORTCUTS[id]">
-                    <skinshortcuts>visibility</skinshortcuts>
-                    <include content="SettingsWidgetContents">
-                        <param name="id">8013$SKINSHORTCUTS[id]</param>
-                        <param name="left">494</param>
-                        <param name="width">1400</param>
-                    </include>
+                <control type="group">
+                    <visible>Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).NumItems,0) | Control.IsVisible(8012$SKINSHORTCUTS[id]) | Control.IsVisible(8013$SKINSHORTCUTS[id])</visible>
+                    <control type="label">
+                        <visible>Control.HasFocus(9000) | Control.HasFocus(9010)</visible>
+                        <include>VisibleFadeEffect</include>
+                        <left>503</left>
+                        <top>-40</top>
+                        <width>1380</width>
+                        <height>40</height>
+                        <font>font15_title</font>
+                        <align>right</align>
+                        <textcolor>$VAR[ColorDisabledVar]</textcolor>
+                        <label>[LOWERCASE]$VAR[WidgetNameLabelVar][/LOWERCASE]</label>
+                    </control>
                 </control>
                 <control type="image">
                     <visible>Control.HasFocus(8012$SKINSHORTCUTS[id]) + !Container(8012$SKINSHORTCUTS[id]).IsUpdating</visible>
@@ -121,21 +112,6 @@
                         <param name="left">494</param>
                         <param name="width">1400</param>
                     </include>
-                </control>
-                <control type="group">
-                    <visible>Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).NumItems,0) | Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
-                    <control type="label">
-                        <visible>Control.HasFocus(9000) | Control.HasFocus(9010)</visible>
-                        <include>VisibleFadeEffect</include>
-                        <left>503</left>
-                        <top>-40</top>
-                        <width>1380</width>
-                        <height>40</height>
-                        <font>font15_title</font>
-                        <align>right</align>
-                        <textcolor>$VAR[ColorDisabledVar]</textcolor>
-                        <label>[LOWERCASE]$VAR[WidgetNameLabelVar][/LOWERCASE]</label>
-                    </control>
                 </control>
                 <control type="group">
                     <visible>Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
@@ -259,6 +235,30 @@
                         </control>
                     </control>
                 </control>
+                <control type="image">
+                    <visible>Control.HasFocus(8013$SKINSHORTCUTS[id]) + !Container(8013$SKINSHORTCUTS[id]).IsUpdating</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <left>504</left>
+                    <top>10</top>
+                    <width>330</width>
+                    <height>370</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Row,0)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
+                </control>
+                <control type="panel" id="8013$SKINSHORTCUTS[id]">
+                    <skinshortcuts>visibility</skinshortcuts>
+                    <include content="SettingsWidgetContents">
+                        <param name="id">8013$SKINSHORTCUTS[id]</param>
+                        <param name="left">494</param>
+                        <param name="width">1400</param>
+                    </include>
+                </control>
             </control>
         </controls>
     </other>
@@ -312,12 +312,12 @@
                 </control>
                 <control type="group">
                     <include>VisibleFadeEffect</include>
-                    <visible>Control.HasFocus(8011$SKINSHORTCUTS[id])</visible>
+                    <visible>Control.HasFocus(8011$SKINSHORTCUTS[id]) | Control.HasFocus(8013$SKINSHORTCUTS[id])</visible>
                     <height>30</height>
                     <top>375</top>
                     <left>30</left>
                     <control type="label">
-                        <visible>Container(8011$SKINSHORTCUTS[id]).HasPrevious</visible>
+                        <visible>[Control.HasFocus(8011$SKINSHORTCUTS[id]) + Container(8011$SKINSHORTCUTS[id]).HasPrevious] | [Control.HasFocus(8013$SKINSHORTCUTS[id]) + Container(8013$SKINSHORTCUTS[id]).HasPrevious]</visible>
                         <width>30</width>
                         <height>30</height>
                         <align>center</align>
@@ -326,7 +326,7 @@
                         <textcolor>disabled</textcolor>
                     </control>
                     <control type="label">
-                        <visible>Container(8011$SKINSHORTCUTS[id]).HasNext</visible>
+                        <visible>[Control.HasFocus(8011$SKINSHORTCUTS[id]) + Container(8011$SKINSHORTCUTS[id]).HasNext] | [Control.HasFocus(8013$SKINSHORTCUTS[id]) + Container(8013$SKINSHORTCUTS[id]).HasNext]</visible>
                         <left>1830</left>
                         <width>30</width>
                         <height>30</height>
@@ -334,6 +334,22 @@
                         <label>b</label>
                         <font>IconTiny</font>
                         <textcolor>disabled</textcolor>
+                    </control>
+                </control>
+                <control type="group">
+                    <visible>Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).NumItems,0) | Control.IsVisible(8012$SKINSHORTCUTS[id]) | Control.IsVisible(8013$SKINSHORTCUTS[id])</visible>
+                    <control type="label">
+                        <visible>Control.HasFocus(9000) | Control.HasFocus(9010)</visible>
+                        <include>VisibleFadeEffect</include>
+                        <left>1885</left>
+                        <top>10</top>
+                        <width>780</width>
+                        <height>40</height>
+                        <font>font15_title</font>
+                        <angle>-90</angle>
+                        <aligny>top</aligny>
+                        <textcolor>$VAR[ColorDisabledVar]</textcolor>
+                        <label>[LOWERCASE]$VAR[WidgetNameLabelVar][/LOWERCASE]</label>
                     </control>
                 </control>
                 <control type="image">
@@ -358,22 +374,6 @@
                         <param name="left">85</param>
                         <param name="width">1750</param>
                     </include>
-                </control>
-                <control type="group">
-                    <visible>Integer.IsGreater(Container(8011$SKINSHORTCUTS[id]).NumItems,0) | Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
-                    <control type="label">
-                        <visible>Control.HasFocus(9000) | Control.HasFocus(9010)</visible>
-                        <include>VisibleFadeEffect</include>
-                        <left>1885</left>
-                        <top>10</top>
-                        <width>780</width>
-                        <height>40</height>
-                        <font>font15_title</font>
-                        <angle>-90</angle>
-                        <aligny>top</aligny>
-                        <textcolor>$VAR[ColorDisabledVar]</textcolor>
-                        <label>[LOWERCASE]$VAR[WidgetNameLabelVar][/LOWERCASE]</label>
-                    </control>
                 </control>
                 <control type="group">
                     <visible>Control.IsVisible(8012$SKINSHORTCUTS[id])</visible>
@@ -496,6 +496,30 @@
                             <font>font14</font>
                         </control>
                     </control>
+                </control>
+                <control type="image">
+                    <visible>Control.HasFocus(8013$SKINSHORTCUTS[id]) + !Container(8013$SKINSHORTCUTS[id]).IsUpdating</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <left>95</left>
+                    <top>10</top>
+                    <width>330</width>
+                    <height>370</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Row,0)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
+                </control>
+                <control type="panel" id="8013$SKINSHORTCUTS[id]">
+                    <skinshortcuts>visibility</skinshortcuts>
+                    <include content="SettingsWidgetContents">
+                        <param name="id">8013$SKINSHORTCUTS[id]</param>
+                        <param name="left">85</param>
+                        <param name="width">1750</param>
+                    </include>
                 </control>
             </control>
         </controls>
