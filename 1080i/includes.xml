@@ -824,7 +824,7 @@
                 <label>$VAR[OverlayVar]</label>
             </control>
             <control type="label">
-            	<visible>Skin.HasSetting(Overlay.Watched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
+            	<visible>!Skin.HasSetting(Overlay.Watched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
             	<top>1</top>
             	<left>1</left>
                 <width>56</width>
@@ -850,7 +850,7 @@
 				<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 			</control>
 			<control type="label">
-	        	<visible>Skin.HasSetting(Overlay.Watched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
+	        	<visible>!Skin.HasSetting(Overlay.Watched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
 	        	<left>$PARAM[OverlayListLeft]</left>
 				<top>$PARAM[OverlayListTop]</top>
 	            <width>64</width>
