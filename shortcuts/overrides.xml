@@ -11,6 +11,7 @@
 	<icon labelID="live tv">special://skin/extras/icons/remote.png</icon>
     <icon labelID="radio">special://skin/extras/icons/remote.png</icon>
     <icon labelID="settings">special://skin/extras/icons/settings.png</icon>
+    <icon labelID="playlists">special://skin/extras/icons/playlist.png</icon>
     <icon labelID="programs">special://skin/extras/icons/program.png</icon>
     <icon labelID="weather">special://skin/extras/icons/weather.png</icon>
     <icon labelID="sets">special://skin/extras/icons/set.png</icon>
@@ -20,6 +21,7 @@
     <icon labelID="3">special://skin/extras/icons/video.png</icon>
     <icon labelID="7">special://skin/extras/icons/file.png</icon>
     <icon labelID="8">special://skin/extras/icons/weather.png</icon>
+    <icon labelID="136">special://skin/extras/icons/playlist.png</icon>
     <icon labelID="360">special://skin/extras/icons/screensaver.png</icon>
     <icon labelID="400">special://skin/extras/icons/weather.png</icon>
     <icon labelID="480">special://skin/extras/icons/skin.png</icon>
@@ -129,8 +131,9 @@
 	<!-- Widgets -->
     <widget label="Widgets" type="32010">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=skinplaylists,librarydataprovider,scriptwidgets,extendedinfo,smartshortcuts,pvr,smartishwidgets</widget>
 
-	<widget label="12600" condition="!IsEmpty(Weather.Plugin)">weather</widget>
+    <widget label="136" icon="DefaultPlaylist.png" name="Playlists" type="videos" path="special://videoplaylists/" target="video">myplaylists</widget>
     <widget label="5">settings</widget>
+    <widget label="12600" condition="!IsEmpty(Weather.Plugin)">weather</widget>
 
 	<!-- Widget Icon Aspect Ratio -->
 	<propertySettings property="widgetIcon" title="$LOCALIZE[31242]" showNone="False" />
@@ -158,9 +161,9 @@
     <widgetdefaultnode defaultID="music" group="mainmenu" label="359" type="albums" path="musicdb://recentlyaddedalbums/" target="music">recentalbums</widgetdefaultnode>
     <widgetdefaultnode defaultID="add-ons" group="mainmenu" label="1037" type="movies" path="addons://sources/video/" target="video">videoaddons</widgetdefaultnode>
     <widgetdefaultnode defaultID="favorites" group="mainmenu" label="1036" type="" path="favourites://" target="">favorites</widgetdefaultnode>
+    <widgetdefaultnode defaultID="script.globalsearch" group="mainmenu" label="136" type="videos" path="special://videoplaylists/" target="video">myplaylists</widgetdefaultnode>
     <widgetdefault labelID="weather" group="mainmenu">weather</widgetdefault>
     <widgetdefault labelID="settings" group="mainmenu">settings</widgetdefault>
-    <!--<widgetdefaultnode defaultID="script.globalsearch" group="mainmenu" label="1036" type="" path="favourites://" target="">favourites</widgetdefaultnode>-->
         
     <propertydefault defaultID="tvshows" property="widgetIcon">20021</propertydefault>
 
