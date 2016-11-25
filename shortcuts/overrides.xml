@@ -2,7 +2,7 @@
 <overrides>
 
     <!-- Custom shortcuts -->
-    <shortcut label="$LOCALIZE[31075]" type="$ADDON[script.skinshortcuts 32034]" thumbnail="DefaultAddon.png" icon="DefaultAddon.png">ActivateWindow(1119)</shortcut>
+    <shortcut label="$LOCALIZE[24001]" type="$ADDON[script.skinshortcuts 32034]" thumbnail="DefaultAddon.png" icon="DefaultAddon.png">ActivateWindow(1119)</shortcut>
     <shortcut label="$LOCALIZE[31174]" type="$ADDON[script.skinshortcuts 32034]" thumbnail="DefaultIconPower.png" icon="DefaultIconPower.png">ActivateWindow(shutdownmenu)</shortcut>
 
 	<!-- Menu thumbnails -->
@@ -130,6 +130,7 @@
     <widget label="Widgets" type="32010">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=skinplaylists,librarydataprovider,scriptwidgets,extendedinfo,smartshortcuts,pvr,smartishwidgets</widget>
 
 	<widget label="12600" condition="!IsEmpty(Weather.Plugin)">weather</widget>
+    <widget label="5">settings</widget>
 
 	<!-- Widget Icon Aspect Ratio -->
 	<propertySettings property="widgetIcon" title="$LOCALIZE[31242]" showNone="False" />
@@ -138,19 +139,29 @@
 	<property property="widgetIcon">$LOCALIZE[20445]</property>
     <property property="widgetIcon">$LOCALIZE[31088]</property>
 
+    <!-- Widget Sort By -->
+    <propertySettings property="widgetSortBy" title="$LOCALIZE[31155]" showNone="True" />
+    <property property="widgetSortBy" label="$LOCALIZE[568]">lastplayed</property>
+    <property property="widgetSortBy" label="$LOCALIZE[12012]">lastused</property>
+    <!--<property property="widgetSortBy" label="$LOCALIZE[369]">title</property>
+    <property property="widgetSortBy" label="$LOCALIZE[562]">year</property>-->
+
+    <!-- Widget Sort Direction -->
+    <propertySettings property="widgetSortDirection" title="$LOCALIZE[31156]" showNone="True" />
+    <property property="widgetSortDirection" label="$LOCALIZE[584]">ascending</property>
+    <property property="widgetSortDirection" label="$LOCALIZE[585]">descending</property>
+
     <!-- Widget Defaults -->
-    
     <widgetdefaultnode defaultID="movies" group="mainmenu" label="20386" type="movies" path="videodb://recentlyaddedmovies/" target="video">recentlyaddedmovies</widgetdefaultnode>
-    <widgetdefaultnode defaultID="tvshows" group="mainmenu" label="$ADDON[script.skin.helper.widgets 32002]" type="episodes" path="plugin://script.skin.helper.service/?action=nextepisodes&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]" target="video">nextepisodes</widgetdefaultnode>
+    <widgetdefaultnode defaultID="tvshows" group="mainmenu" label="$ADDON[script.skin.helper.widgets 32002]" type="episodes" path="plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;reload=$INFO[Window(Home).Property(widgetreload)]" target="video">nextepisodes</widgetdefaultnode>
+    <widgetdefaultnode defaultID="livetv" group="mainmenu" label="359" type="" path="pvr://channels/tv/*?view=lastplayed" target="pvr">recentchannels</widgetdefaultnode>
     <widgetdefaultnode defaultID="music" group="mainmenu" label="359" type="albums" path="musicdb://recentlyaddedalbums/" target="music">recentalbums</widgetdefaultnode>
-    <widgetdefaultnode defaultID="apps" group="mainmenu" label="1037" type="movies" path="addons://sources/video/" target="video">videoaddons</widgetdefaultnode>
+    <widgetdefaultnode defaultID="add-ons" group="mainmenu" label="1037" type="movies" path="addons://sources/video/" target="video">videoaddons</widgetdefaultnode>
+    <widgetdefaultnode defaultID="favorites" group="mainmenu" label="1036" type="" path="favourites://" target="">favorites</widgetdefaultnode>
     <widgetdefault labelID="weather" group="mainmenu">weather</widgetdefault>
-    <widgetdefaultnode defaultID="script.globalsearch" group="mainmenu" label="1036" type="" path="favourites://" target="">favourites</widgetdefaultnode>
-    <widgetdefaultnode defaultID="settings" group="mainmenu" label="0" type="movies" path="addons://sources/executable/" target="video">programs</widgetdefaultnode>
-    <!--<widgetdefaultnode defaultID="musicvideos" group="mainmenu" label="20390" type="musicvideos" path="plugin://script.skin.helper.service/?action=recentmusicvideos&amp;reload=$INFO[Window(Home).Property(widgetreload)]" target="video">recentmusicvideos</widgetdefaultnode>
-    <widgetdefaultnode defaultID="livetv" group="mainmenu" label="$ADDON[script.skin.helper.service 32153]" type="pvr" path="pvr://channels/tv/;reload=$INFO[Window(Home).Property(widgetreload2)]" target="videos">pvr</widgetdefaultnode>-->
-    <!--<widgetdefaultnode defaultID="pictures" group="mainmenu" label="1039" type="picture" path="addons://sources/image/" target="pictures">pictureaddons</widgetdefaultnode>-->
-    
+    <widgetdefault labelID="settings" group="mainmenu">settings</widgetdefault>
+    <!--<widgetdefaultnode defaultID="script.globalsearch" group="mainmenu" label="1036" type="" path="favourites://" target="">favourites</widgetdefaultnode>-->
+        
     <propertydefault defaultID="tvshows" property="widgetIcon">20021</propertydefault>
 
 </overrides>

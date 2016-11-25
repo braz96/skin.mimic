@@ -146,7 +146,7 @@
 		<value condition="Window.IsActive(eventlog)">$LOCALIZE[14111]$INFO[Control.GetLabel(21), - ,]</value>
 		<value condition="Window.IsActive(home)">$LOCALIZE[10000]</value>
 		<value condition="!String.IsEmpty(Container.FolderName) + !Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[Container.FolderName]</value>
-		<value condition="Window.IsActive(1119)">$LOCALIZE[31075]</value>
+		<value condition="Window.IsActive(1119)">$LOCALIZE[24001]</value>
 		<value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)">$INFO[System.CurrentWindow]</value>
 	</variable>
 	<variable name="MusicOSDRepeatButtonVar">
@@ -386,6 +386,8 @@
 		<value condition="Control.HasFocus(312)">$LOCALIZE[31149]</value>
 		<value condition="Control.HasFocus(500)">$LOCALIZE[31933]</value>
 		<value condition="Control.HasFocus(501)">$LOCALIZE[31162]</value>
+		<value condition="Control.HasFocus(502)">$LOCALIZE[31161]</value>
+		<value condition="Control.HasFocus(503)">$LOCALIZE[31233]</value>
 	</variable>
 	
 	<variable name="RatingFlagVar">
@@ -480,7 +482,8 @@
 		<value condition="VideoPlayer.Content(episodes) + !String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 		<value condition="VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[Player.Art(thumb)]</value>
-		<value condition="Player.Playing | Player.HasVideo | Player.HasAudio">$INFO[Player.Art(thumb)]</value>
+		<value condition="[Player.Playing | Player.HasVideo | Player.HasAudio] + !String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
+		<value condition="[Player.Playing | Player.HasVideo | Player.HasAudio] + String.IsEmpty(Player.Art(thumb))">DefaultAddonPVRClient.png</value>
 		<value condition="!String.IsEmpty(Weather.Plugin) + !Weather.IsFetched">DefaultAddonNone.png</value>
 		<value>DefaultIconClock.png</value>
 	</variable>
@@ -539,6 +542,18 @@
 	<variable name="WidgetIconLabel">
 		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetIcon))">$INFO[Container(211).ListItem.Property(widgetIcon)]</value>
 		<value>$LOCALIZE[21371]</value>
+	</variable>
+	<variable name="WidgetSortByLabel">
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastplayed)">$LOCALIZE[568]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastused)">$LOCALIZE[12012]</value>
+		<!--<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),title)">$LOCALIZE[369]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),year)">$LOCALIZE[562]</value>-->
+		<value>$LOCALIZE[16018]</value>
+	</variable>
+	<variable name="WidgetSortDirectionLabel">
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortDirection),ascending)">$LOCALIZE[584]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortDirection),descending)">$LOCALIZE[585]</value>
+		<value>$LOCALIZE[16018]</value>
 	</variable>
     <variable name="WeatherFanartExtension">
         <value condition="Skin.HasSetting(weatherfanart.multi)">/</value>
@@ -668,6 +683,7 @@
     	<value condition="Window.IsActive(home) + Window.IsVisible(shutdownmenu)">$LOCALIZE[13005]</value>
     	<value condition="Window.IsActive(home) + Window.IsVisible(busydialog)">$LOCALIZE[503]</value>
     	<value condition="Window.IsActive(home)">$VAR[LibraryStatsVar]</value>
+    	<value condition="Window.IsActive(1119)">$INFO[Window(Home).Property(SkinHelper.TotalAddons),, $LOCALIZE[31025]]</value>
     	<value condition="!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml) + !Window.IsActive(script-script.extendedinfo-DialogInfo.xml)">$INFO[Container.NumItems,, $LOCALIZE[31025]]</value>
     	<value>$LOCALIZE[14116]</value>
     </variable>

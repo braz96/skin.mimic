@@ -115,7 +115,7 @@
                 <param name="OverlayTop" value="18" />
             </include>
         </focusedlayout>
-        <content limit="$VAR[WidgetLimit]" target="$PARAM[target]">$PARAM[path]</content>
+        <content limit="$VAR[WidgetLimit]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortdirection]" target="$PARAM[target]">$PARAM[path]</content>
     </include>
     <include name="WeatherWidgetContents">
         <visible>String.IsEqual(Container(9000).ListItem.Property(widget),weather)</visible>
@@ -308,6 +308,153 @@
                 <property name="HighTemp">$INFO[Window(weather).Property(Day6.HighTemp)]$INFO[System.TemperatureUnits]</property>
                 <property name="LowTemp">$INFO[Window(weather).Property(Day6.LowTemp)]$INFO[System.TemperatureUnits]</property>
                 <onclick>noop</onclick>
+            </item>
+        </content>
+    </include>
+    <include name="SettingsWidgetContents">
+        <visible>String.IsEqual(Container(9000).ListItem.Property(widget),settings)</visible>
+        <top>0</top>
+        <left>$PARAM[left]</left>
+        <width>$PARAM[width]</width>
+        <height>780</height>
+        <onleft>9000</onleft>
+        <onright>$PARAM[id]</onright>
+        <onback>9000</onback>
+        <onup>9000</onup>
+        <ondown>9000</ondown>
+        <preloaditems>2</preloaditems>
+        <viewtype label="21371">list</viewtype>
+        <scrolltime tween="quadratic" easing="out">300</scrolltime>
+        <itemlayout height="390" width="350">
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="55000000" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="image">
+                <left>75</left>
+                <top>72</top>
+                <right>75</right>
+                <height>200</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png" diffuse="diffuse/thumbnail.png">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="image">
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture border="5">overlays/diffuse-overlay.png</texture>
+            </control>
+        </itemlayout>
+
+        <focusedlayout height="390" width="350">
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="55000000" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="image">
+                <left>75</left>
+                <top>72</top>
+                <right>75</right>
+                <height>200</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png" diffuse="diffuse/thumbnail.png">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture border="5">overlays/diffuse-overlay.png</texture>
+            </control>
+        </focusedlayout>
+        <content>
+            <item id="1">
+                <label>$LOCALIZE[14206]</label>
+                <icon>DefaultAddonVisualization.png</icon>
+                <onclick>ActivateWindow(InterfaceSettings)</onclick>
+            </item>
+            <item id="2">
+                <label>$LOCALIZE[166]</label>
+                <icon>DefaultAddonSkin.png</icon>
+                <onclick>ActivateWindow(skinsettings)</onclick>
+            </item>
+            <item id="3">
+                <label>$LOCALIZE[14200]</label>
+                <icon>DefaultIconPlay.png</icon>
+                <onclick>ActivateWindow(PlayerSettings)</onclick>
+            </item>
+            <item id="4">
+                <label>$LOCALIZE[14211]</label>
+                <icon>DefaultSets.png</icon>
+                <onclick>ActivateWindow(MediaSettings)</onclick>
+            </item>
+            
+            <item id="5">
+                <label>$LOCALIZE[19020]</label>
+                <icon>DefaultTVShows.png</icon>
+                <onclick>ActivateWindow(pvrsettings)</onclick>
+            </item>
+            <item id="6">
+                <label>$LOCALIZE[13000]</label>
+                <icon>DefaultProgram.png</icon>
+                <onclick>ActivateWindow(SystemSettings)</onclick>
+            </item>
+            <item id="7">
+                <label>$LOCALIZE[705]</label>
+                <icon>DefaultAddonService.png</icon>
+                <onclick>ActivateWindow(ServiceSettings)</onclick>
+            </item>
+            <item id="8">
+                <label>$LOCALIZE[13200]</label>
+                <icon>DefaultActor.png</icon>
+                <onclick>ActivateWindow(Profiles)</onclick>
+            </item>
+            <item id="9">
+                <label>$LOCALIZE[24001]</label>
+                <icon>DefaultAddon.png</icon>
+                <onclick>ActivateWindow(AddonBrowser)</onclick>
+            </item>
+            <item id="10">
+                <label>$LOCALIZE[19033]</label>
+                <icon>DefaultHardDisk.png</icon>
+                <onclick>ActivateWindow(systeminfo)</onclick>
             </item>
         </content>
     </include>

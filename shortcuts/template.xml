@@ -5,6 +5,8 @@
         <property name="id" tag="mainmenuid" />
         <property name="path" tag="property" attribute="name|widgetPath" />
         <property name="target" tag="property" attribute="name|widgetTarget" />
+        <property name="sortby" tag="property" attribute="name|widgetSortBy" />
+        <property name="sortdirection" tag="property" attribute="name|widgetSortDirection" />
         <property name="path"></property>
         <property name="target"></property>
         <controls>
@@ -37,6 +39,8 @@
                         <param name="id">8011$SKINSHORTCUTS[id]</param>
                         <param name="path">$SKINSHORTCUTS[path]</param>
                         <param name="target">$SKINSHORTCUTS[target]</param>
+                        <param name="sortby">$SKINSHORTCUTS[sortby]</param>
+                        <param name="sortdirection">$SKINSHORTCUTS[sortdirection]</param>
                         <param name="onup">8011$SKINSHORTCUTS[id]</param>
                         <param name="ondown">8011$SKINSHORTCUTS[id]</param>
                         <param name="onleft">9000</param>
@@ -71,6 +75,30 @@
                         <font>IconTiny</font>
                         <textcolor>disabled</textcolor>
                     </control>
+                </control>
+                <control type="image">
+                    <visible>Control.HasFocus(8013$SKINSHORTCUTS[id]) + !Container(8013$SKINSHORTCUTS[id]).IsUpdating</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="200">Hidden</animation>
+                    <left>504</left>
+                    <top>10</top>
+                    <width>330</width>
+                    <height>370</height>
+                    <include>FocusedBackgroundFade</include>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Row,0)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,3)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,2)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,1)">Conditional</animation>
+                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(8013$SKINSHORTCUTS[id]).Column,0)">Conditional</animation>
+                </control>
+                <control type="panel" id="8013$SKINSHORTCUTS[id]">
+                    <skinshortcuts>visibility</skinshortcuts>
+                    <include content="SettingsWidgetContents">
+                        <param name="id">8013$SKINSHORTCUTS[id]</param>
+                        <param name="left">494</param>
+                        <param name="width">1400</param>
+                    </include>
                 </control>
                 <control type="image">
                     <visible>Control.HasFocus(8012$SKINSHORTCUTS[id]) + !Container(8012$SKINSHORTCUTS[id]).IsUpdating</visible>
@@ -238,6 +266,8 @@
         <property name="id" tag="mainmenuid" />
         <property name="path" tag="property" attribute="name|widgetPath" />
         <property name="target" tag="property" attribute="name|widgetTarget" />
+        <property name="sortby" tag="property" attribute="name|widgetSortBy" />
+        <property name="sortdirection" tag="property" attribute="name|widgetSortDirection" />
         <property name="path"></property>
         <property name="target"></property>
         <controls>
@@ -269,6 +299,8 @@
                         <param name="id">8011$SKINSHORTCUTS[id]</param>
                         <param name="path">$SKINSHORTCUTS[path]</param>
                         <param name="target">$SKINSHORTCUTS[target]</param>
+                        <param name="sortby">$SKINSHORTCUTS[sortby]</param>
+                        <param name="sortdirection">$SKINSHORTCUTS[sortdirection]</param>
                         <param name="onup">8011$SKINSHORTCUTS[id]</param>
                         <param name="ondown">9000</param>
                         <param name="onleft">8011$SKINSHORTCUTS[id]</param>
