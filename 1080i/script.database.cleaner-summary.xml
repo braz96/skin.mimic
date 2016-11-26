@@ -18,7 +18,7 @@
 		<control type="label">
 			<description>Label for sources.xml list</description>
 			<left>50</left>
-			<top>128</top>
+			<top>108</top>
 			<height>40</height>
 			<width>800</width>
 			<font>font15_title</font>
@@ -29,7 +29,7 @@
 		<!-- Scrollbar for sources.xml list -->
 		<control type="scrollbar" id="17">
 			<left>855</left>
-			<top>180</top>
+			<top>160</top>
 			<height>400</height>
 			<width>10</width>
 			<onleft>1</onleft>
@@ -41,7 +41,7 @@
 		<!-- List control for sources.xml paths -->
 		<control type="list" id="6">	
 			<left>50</left>
-			<top>180</top>
+			<top>160</top>
 			<width>800</width>
 			<height>400</height>
 			<pagecontrol>17</pagecontrol>
@@ -65,7 +65,7 @@
 		<control type="label">
 			<description>Label for excludes.xml list</description>
 			<left>950</left>
-			<top>128</top>
+			<top>108</top>
 			<height>40</height>
 			<width>800</width>
 			<font>font15_title</font>
@@ -76,8 +76,8 @@
 		<!-- Scrollbar for excludes.xml listbox -->
 		<control type="scrollbar" id="18">
 			<left>1755</left>
-			<top>180</top>
-			<height>200</height>
+			<top>160</top>
+			<height>120</height>
 			<width>10</width>
 			<onleft>17</onleft>
 			<onright>1</onright>
@@ -88,9 +88,9 @@
 		<!-- List control for excludes.xml -->
 		<control type="list" id="8">	
 			<left>950</left>
-			<top>180</top>
+			<top>160</top>
 			<width>800</width>
-			<height>240</height>
+			<height>120</height>
 			<pagecontrol>18</pagecontrol>
 			<itemlayout height="40">
 				<control type="label">
@@ -111,7 +111,7 @@
 		<control type="label">
 			<description>Label for addon settings list</description>
 			<left>950</left>
-			<top>440</top>
+			<top>300</top>
 			<height>40</height>
 			<width>800</width>
 			<font>font15_title</font>
@@ -122,14 +122,9 @@
 		<!-- List control for Addon Settings -->
 		<control type="list" id="10">	
 			<left>950</left>
-			<top>490</top>
+			<top>350</top>
 			<width>800</width>
 			<height>400</height>
-			<pagecontrol>61</pagecontrol>
-			<onleft>5</onleft>
-			<onright>5</onright>
-			<onup>6</onup>
-			<ondown>6</ondown>
 			<itemlayout height="40">
 				<control type="label">
 					<width>800</width>
@@ -142,6 +137,49 @@
 					<width>800</width>
 					<height>40</height>
 					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+		</control>
+
+		<control type="list" id="12">	
+			<left>1650</left>
+			<top>350</top>
+			<width>100</width>
+			<height>400</height>
+			<itemlayout height="40">
+				<control type="label">
+					<visible>String.IsEqual(ListItem.Label,OFF)</visible>
+					<width>100</width>
+					<height>40</height>
+					<align>right</align>
+					<textcolor>FFFF0000</textcolor>
+					<label>[CAPITALIZE]$INFO[ListItem.Label][/CAPITALIZE]</label>
+				</control>
+				<control type="label">
+					<visible>String.IsEqual(ListItem.Label,ON)</visible>
+					<width>100</width>
+					<height>40</height>
+					<align>right</align>
+					<textcolor>FF00FF00</textcolor>
+					<label>[CAPITALIZE]$INFO[ListItem.Label][/CAPITALIZE]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="40">
+				<control type="label">
+					<visible>String.IsEqual(ListItem.Label,OFF)</visible>
+					<width>100</width>
+					<height>40</height>
+					<align>right</align>
+					<textcolor>FFFF0000</textcolor>
+					<label>[CAPITALIZE]$INFO[ListItem.Label][/CAPITALIZE]</label>
+				</control>
+				<control type="label">
+					<visible>String.IsEqual(ListItem.Label,ON)</visible>
+					<width>100</width>
+					<height>40</height>
+					<align>right</align>
+					<textcolor>FF00FF00</textcolor>
+					<label>[CAPITALIZE]$INFO[ListItem.Label][/CAPITALIZE]</label>
 				</control>
 			</focusedlayout>
 		</control>
@@ -159,6 +197,17 @@
 			<top>750</top>
 			<width>800</width>
 			<height>40</height>
+			<label />
+		</control>
+
+		<control type="label" id="22">
+			<left>32</left>
+			<top>790</top>
+			<width>1736</width>
+			<height>40</height>
+			<font>font16</font>
+			<align>center</align>
+			<textcolor>FFFF0000</textcolor>
 			<label />
 		</control>
 		
