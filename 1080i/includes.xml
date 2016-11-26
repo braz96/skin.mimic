@@ -838,6 +838,7 @@
     </include>
     <include name="OverlayList">
     	<control type="group">
+    		<visible>![Container.Content(actors) | Container.Content(countries) | Container.Content(directors) | Container.Content(studios)]</visible>
     		<visible>![$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong] | String.IsEmpty(ListItem.DBTYPE)]</visible>
 	    	<control type="label">
 				<left>$PARAM[OverlayListLeft]</left>
@@ -850,7 +851,7 @@
 				<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 			</control>
 			<control type="label">
-	        	<visible>!Skin.HasSetting(Overlay.Watched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
+	        	<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)</visible>
 	        	<left>$PARAM[OverlayListLeft]</left>
 				<top>$PARAM[OverlayListTop]</top>
 	            <width>64</width>

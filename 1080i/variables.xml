@@ -106,7 +106,7 @@
 	<variable name="ListItem.Overlay">
 		<value condition="ListItem.IsResumable">S</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayUnwatched.png)">R</value>
-		<value condition="Integer.IsGreater(ListItem.PlayCount,0)">T</value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)">T</value>
 	</variable>
 	<variable name="BreadcrumbsMovieInfoVar">
 		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
@@ -691,6 +691,8 @@
     <variable name="ThumbViewImage">
     	<value condition="Container.Content(studios)">$INFO[ListItem.Label,resource://resource.images.studios.squarehd/,.jpg]</value>
     	<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+    	<value condition="Container.Content(directors)">DefaultDirector.png</value>
+    	<value condition="Container.Content(years)">DefaultYear.png</value>
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
     	<value condition="Window.IsActive(videos) + Container.Content(countries)">$INFO[ListItem.Label,special://skin/extras/countries/,.png]</value>
     	<value condition="Skin.HasSetting(Enable.ThumbnailFanart) + !String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]">$INFO[ListItem.Art(fanart)]</value>
@@ -702,6 +704,8 @@
     <variable name="ListIcon">
     	<value condition="Container.Content(studios)">$INFO[ListItem.Label,resource://resource.images.studios.squarehd/,.jpg]</value>
     	<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+    	<value condition="Container.Content(directors)">DefaultDirector.png</value>
+    	<value condition="Container.Content(years)">DefaultYear.png</value>
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
     	<value condition="Window.IsActive(videos) + Container.Content(countries)">$INFO[ListItem.Label,special://skin/extras/countries/,.png]</value>
         <value>$INFO[ListItem.Icon]</value>
