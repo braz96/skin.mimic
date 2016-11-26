@@ -169,7 +169,7 @@
 		<value condition="Container.Content(albums) | Container.Content(songs)">$INFO[ListItem.Artist]</value>
 		<value condition="Container.Content(images)">$INFO[ListItem.PictureResolution]</value>
 		<value condition="Window.IsActive(videoplaylist) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Premiered]</value>
-		<value condition="Container.Content(actors) | Container.Content(directors)">$INFO[ListItem.Label2] $LOCALIZE[31123]</value>
+		<value condition="[Container.Content(actors) | Container.Content(directors)] + !Window.IsActive(musicvideos) + !String.IsEmpty(ListItem.Label2)">$INFO[ListItem.Label2] $LOCALIZE[31123]</value>
 		<value condition="!Container.Content(genres)">$INFO[ListItem.Genre]</value>
 	</variable>
 	<variable name="PosterVar">
@@ -693,6 +693,7 @@
     	<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
     	<value condition="Container.Content(directors)">DefaultDirector.png</value>
     	<value condition="Container.Content(years)">DefaultYear.png</value>
+    	<value condition="Window.IsActive(music) + Container.Content(genres)">DefaultMusicGenres.png</value>
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
     	<value condition="Window.IsActive(videos) + Container.Content(countries)">$INFO[ListItem.Label,special://skin/extras/countries/,.png]</value>
     	<value condition="Skin.HasSetting(Enable.ThumbnailFanart) + !String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]">$INFO[ListItem.Art(fanart)]</value>
@@ -706,6 +707,7 @@
     	<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
     	<value condition="Container.Content(directors)">DefaultDirector.png</value>
     	<value condition="Container.Content(years)">DefaultYear.png</value>
+    	<value condition="Window.IsActive(music) + Container.Content(genres)">DefaultMusicGenres.png</value>
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
     	<value condition="Window.IsActive(videos) + Container.Content(countries)">$INFO[ListItem.Label,special://skin/extras/countries/,.png]</value>
         <value>$INFO[ListItem.Icon]</value>
