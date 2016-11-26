@@ -77,7 +77,7 @@
 		<control type="scrollbar" id="18">
 			<left>1755</left>
 			<top>160</top>
-			<height>120</height>
+			<height>80</height>
 			<width>10</width>
 			<onleft>17</onleft>
 			<onright>1</onright>
@@ -90,7 +90,7 @@
 			<left>950</left>
 			<top>160</top>
 			<width>800</width>
-			<height>120</height>
+			<height>80</height>
 			<pagecontrol>18</pagecontrol>
 			<itemlayout height="40">
 				<control type="label">
@@ -111,7 +111,7 @@
 		<control type="label">
 			<description>Label for addon settings list</description>
 			<left>950</left>
-			<top>300</top>
+			<top>260</top>
 			<height>40</height>
 			<width>800</width>
 			<font>font15_title</font>
@@ -122,9 +122,9 @@
 		<!-- List control for Addon Settings -->
 		<control type="list" id="10">	
 			<left>950</left>
-			<top>350</top>
+			<top>310</top>
 			<width>800</width>
-			<height>400</height>
+			<height>440</height>
 			<itemlayout height="40">
 				<control type="label">
 					<width>800</width>
@@ -142,14 +142,14 @@
 		</control>
 
 		<control type="list" id="12">	
-			<left>1650</left>
-			<top>350</top>
-			<width>100</width>
-			<height>400</height>
+			<left>1550</left>
+			<top>310</top>
+			<width>200</width>
+			<height>440</height>
 			<itemlayout height="40">
 				<control type="label">
 					<visible>String.IsEqual(ListItem.Label,OFF)</visible>
-					<width>100</width>
+					<width>200</width>
 					<height>40</height>
 					<align>right</align>
 					<textcolor>FFFF0000</textcolor>
@@ -157,17 +157,24 @@
 				</control>
 				<control type="label">
 					<visible>String.IsEqual(ListItem.Label,ON)</visible>
-					<width>100</width>
+					<width>200</width>
 					<height>40</height>
 					<align>right</align>
 					<textcolor>FF00FF00</textcolor>
 					<label>[LOWERCASE][CAPITALIZE]$INFO[ListItem.Label][/CAPITALIZE][/LOWERCASE]</label>
+				</control>
+				<control type="label">
+					<visible>![String.IsEqual(ListItem.Label,OFF) | String.IsEqual(ListItem.Label,ON)]</visible>
+					<width>200</width>
+					<height>40</height>
+					<align>right</align>
+					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</itemlayout>
 			<focusedlayout height="40">
 				<control type="label">
 					<visible>String.IsEqual(ListItem.Label,OFF)</visible>
-					<width>100</width>
+					<width>200</width>
 					<height>40</height>
 					<align>right</align>
 					<textcolor>FFFF0000</textcolor>
@@ -175,11 +182,18 @@
 				</control>
 				<control type="label">
 					<visible>String.IsEqual(ListItem.Label,ON)</visible>
-					<width>100</width>
+					<width>200</width>
 					<height>40</height>
 					<align>right</align>
 					<textcolor>FF00FF00</textcolor>
 					<label>[LOWERCASE][CAPITALIZE]$INFO[ListItem.Label][/CAPITALIZE][/LOWERCASE]</label>
+				</control>
+				<control type="label">
+					<visible>![String.IsEqual(ListItem.Label,OFF) | String.IsEqual(ListItem.Label,ON)]</visible>
+					<width>200</width>
+					<height>40</height>
+					<align>right</align>
+					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</focusedlayout>
 		</control>
@@ -202,7 +216,7 @@
 
 		<control type="label" id="22">
 			<left>32</left>
-			<top>790</top>
+			<top>785</top>
 			<width>1736</width>
 			<height>40</height>
 			<font>font16</font>
