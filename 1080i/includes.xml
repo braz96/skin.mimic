@@ -643,7 +643,6 @@
 	                    <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
 	                </control>
 	                <control type="group">
-	                	<visible>[!Window.IsActive(movieinformation) + !Window.IsActive(DialogMusicInfo.xml)] | Window.IsActive(script-script.extendedinfo-DialogInfo.xml) | Window.IsActive(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
 						<control type="button">
 							<left>102</left>
 							<top>17</top>
@@ -682,6 +681,93 @@
 				<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
 				<texture diffuse="diffuse/nowplaying.png">$VAR[HomeNowPlayingThumbVar]</texture>
 				<visible>[!Window.IsVisible(volumebar) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]] | [Player.Muted + !Window.IsVisible(extendedprogressdialog)]</visible>
+			</control>
+		</control>
+	</include>
+	<include name="InfoDialogTopbar">
+		<control type="group">
+			<control type="image">
+				<description>Normal Default Background Image</description>
+				<include>FullscreenDimensions</include>
+				<texture fallback="special://skin/backgrounds/default_bg.jpg" background="true">$INFO[ListItem.Art(fanart)]</texture>
+			</control>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>background.png</texture>
+				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+			</control>
+			<control type="image">
+				<width>FullScreenWidth</width>
+				<height>120</height>
+				<texture>menu_fo.png</texture>
+				<colordiffuse>33000000</colordiffuse>
+			</control>
+			<control type="group">
+				<control type="image">
+					<top>19</top>
+					<left>19</left>
+                    <width>80</width>
+                    <height>80</height>
+                    <texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
+                </control>
+                <control type="image">
+                    <top>19</top>
+                    <left>19</left>
+                    <width>80</width>
+                    <height>80</height>
+                    <texture colordiffuse="$VAR[ColorTextVar]">$VAR[HeaderIcon]</texture>
+                    <visible>!Window.IsVisible(busydialog) + !Control.IsVisible(12345)</visible>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                </control>
+                <control type="image">
+                    <visible>Window.IsVisible(DialogBusy.xml)</visible>
+                    <description>Busy animation</description>
+                    <top>29</top>
+                    <left>29</left>
+                    <width>60</width>
+                    <height>60</height>
+                    <texture colordiffuse="$VAR[ColorTextVar]" fallback="special://skin/extras/spinners/Sun.png">$INFO[Skin.String(busyloader)]</texture>
+                    <aspectratio>keep</aspectratio>
+                    <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
+                </control>
+                <control type="group">
+					<control type="button">
+						<left>102</left>
+						<top>17</top>
+						<width>1715</width>
+						<height>45</height>
+						<font>font30</font>
+						<textoffsetx>15</textoffsetx>
+						<label>$VAR[BreadcrumbsInfoVar]</label>
+						<label2>$VAR[TopbarFadeLabel1]</label2>
+						<onclick>noop</onclick>
+						<texturefocus>blank.png</texturefocus>
+					</control>
+					<control type="button">
+						<left>102</left>
+						<top>59</top>
+						<width>1715</width>
+						<height>45</height>
+						<font>font14</font>
+						<textoffsetx>15</textoffsetx>
+						<textcolor>$VAR[ColorHighlightVar]</textcolor>
+						<label>$VAR[HeaderSubLabelMovieInfo]</label>
+						<label2>$VAR[TopbarFadeLabel2]</label2>
+						<onclick>noop</onclick>
+						<texturefocus>blank.png</texturefocus>
+						<focusedcolor>$VAR[ColorHighlightVar]</focusedcolor>
+					</control>
+				</control>
+			</control>
+			<control type="image">
+				<description>avatar</description>
+				<left>1821</left>
+				<top>19</top>
+				<width>80</width>
+				<height>80</height>
+				<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+				<texture diffuse="diffuse/nowplaying.png">$VAR[HomeNowPlayingThumbVar]</texture>
+				<visible>!Window.IsVisible(volumebar) | Player.Muted</visible>
 			</control>
 		</control>
 	</include>
@@ -913,329 +999,6 @@
 			<onclick>ActivateWindow(videoplaylist)</onclick>
 			<visible>!String.IsEqual(Playlist.Length(video),0)</visible>
 			<enable>!Window.IsActive(videoplaylist)</enable>
-		</control>
-    </include>
-    <include name="HiddenActorList">
-		<control type="list" id="50">
-			<include>HiddenList</include>
-			<orientation>horizontal</orientation>
-		</control>
-	</include>
-    <include name="DefaultActorList">
-    	<control type="panel" id="50">
-			<animation effect="fade" time="300" delay="0" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-			<visible>ControlGroup(9000).HasFocus(555) | Control.HasFocus(50)</visible>
-			<left>-3</left>
-			<top>505</top>
-			<width>1156</width>
-			<height>450</height>
-			<onleft>50</onleft>
-			<onright>50</onright>
-			<onup>9000</onup>
-			<viewtype label="">list</viewtype>
-			<scrolltime tween="quadratic" easing="out">300</scrolltime>
-			<orientation>horizontal</orientation>
-			<itemlayout height="450" width="289">
-				<control type="group">
-					<top>32</top>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>277</width>
-						<height>406</height>
-						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-						<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
-					</control>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>277</width>
-						<height>406</height>
-						<texture border="5">overlays/diffuse-overlay.png</texture>
-					</control>
-					<control type="image">
-						<top>317</top>
-						<left>6</left>
-						<width>277</width>
-						<height>95</height>
-						<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
-					</control>
-					<control type="textbox">
-						<left>16</left>
-						<top>319</top>
-						<width>257</width>
-						<height>90</height>
-						<font>font_Actor</font>
-						<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
-					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout height="450" width="289">
-				<control type="group">
-					<top>32</top>
-					<include>PanelFocusedItemZoom</include>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>277</width>
-						<height>406</height>
-						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-						<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Art(thumb)]</texture>
-					</control>
-					<control type="image">
-						<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-						<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-						<top>6</top>
-						<left>6</left>
-						<width>277</width>
-						<height>406</height>
-						<texture border="5">overlays/diffuse-overlay.png</texture>
-					</control>
-					<control type="image">
-						<top>317</top>
-						<left>6</left>
-						<width>277</width>
-						<height>95</height>
-						<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
-					</control>
-					<control type="textbox">
-						<left>16</left>
-						<top>319</top>
-						<width>257</width>
-						<height>90</height>
-						<font>font_Actor</font>
-						<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
-						<autoscroll time="3000" delay="4000" repeat="5000">!Skin.HasSetting(Disable.AutoScroll)</autoscroll>
-					</control>
-				</control>
-			</focusedlayout>
-		</control>
-    </include>
-    <include name="ExtendedActorList">
-    	<control type="panel" id="90019">
-			<animation effect="fade" time="300" delay="0" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-			<visible>ControlGroup(9000).HasFocus(555) | Control.HasFocus(90019)</visible>
-			<left>-3</left>
-			<top>505</top>
-			<onup>9000</onup>
-			<onleft>90019</onleft>
-			<onright>90019</onright>
-			<width>1156</width>
-			<height>450</height>
-			<viewtype label="">list</viewtype>
-			<scrolltime tween="quadratic" easing="out">300</scrolltime>
-			<orientation>horizontal</orientation>
-			<itemlayout height="450" width="289">
-				<control type="group">
-					<top>32</top>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>277</width>
-						<height>406</height>
-						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-						<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Icon]</texture>
-					</control>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>277</width>
-						<height>406</height>
-						<texture border="5">overlays/diffuse-overlay.png</texture>
-					</control>
-					<control type="image">
-						<top>317</top>
-						<left>6</left>
-						<width>277</width>
-						<height>95</height>
-						<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
-					</control>
-					<control type="textbox">
-						<left>16</left>
-						<top>319</top>
-						<width>257</width>
-						<height>90</height>
-						<font>font_Actor</font>
-						<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
-					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout height="450" width="289">
-				<control type="group">
-					<top>32</top>
-					<include>PanelFocusedItemZoom</include>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>277</width>
-						<height>406</height>
-						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-						<texture fallback="default_Actor.png" background="true" diffuse="diffuse/videoinfo-actor.png">$INFO[ListItem.Icon]</texture>
-					</control>
-					<control type="image">
-						<animation center="auto" condition="Control.HasFocus(90019)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-						<animation center="auto" condition="Control.HasFocus(90019)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-						<top>6</top>
-						<left>6</left>
-						<width>277</width>
-						<height>406</height>
-						<texture border="5">overlays/diffuse-overlay.png</texture>
-					</control>
-					<control type="image">
-						<top>317</top>
-						<left>6</left>
-						<width>277</width>
-						<height>95</height>
-						<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
-					</control>
-					<control type="textbox">
-						<left>16</left>
-						<top>319</top>
-						<width>257</width>
-						<height>90</height>
-						<font>font_Actor</font>
-						<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
-						<autoscroll time="3000" delay="4000" repeat="5000">!Skin.HasSetting(Disable.AutoScroll)</autoscroll>
-					</control>
-				</control>
-			</focusedlayout>
-			<content>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(0).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(0).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(0).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,0)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(0).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(0).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(1).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(1).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(1).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,1)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(1).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(1).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(2).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(2).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(2).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,2)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(2).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(2).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(3).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(3).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(3).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,3)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(3).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(3).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(4).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(4).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(4).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,4)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(4).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(4).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(5).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(5).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(5).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,5)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(5).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(5).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(6).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(6).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(6).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,6)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(6).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(6).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(7).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(7).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(7).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,7)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(7).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(7).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(8).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(8).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(8).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,8)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(8).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(8).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(9).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(9).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(9).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,9)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(9).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(9).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(10).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(10).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(10).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,10)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(10).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(10).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(11).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(11).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(11).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,11)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(11).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(11).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(12).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(12).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(12).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,12)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(12).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(12).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(13).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(13).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(13).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,13)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(13).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(13).Label)</visible>
-				</item>
-				<item>
-					<label>$INFO[Container(50).ListItemAbsolute(14).Label]</label>
-					<label2>$INFO[Container(50).ListItemAbsolute(14).Label2]</label2>
-					<icon>$INFO[Container(50).ListItemAbsolute(14).Art(thumb)]</icon>
-					<onclick>SetProperty(ActorID,14)</onclick>
-					<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute(14).Label])</onclick>
-					<onclick>ActivateWindow(1130)</onclick>
-					<visible>!String.IsEmpty(Container(50).ListItemAbsolute(14).Label)</visible>
-				</item>
-			</content>
 		</control>
     </include>
     <include name="MediaFlags">
