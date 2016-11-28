@@ -262,7 +262,7 @@
 					</include>
 				</control>
 				<control type="group">
-					<visible>$EXP[isTvshow] + !Control.IsVisible(150)</visible>
+					<visible>$EXP[isTvshow] + !Control.IsVisible(51) + !Control.IsVisible(150)</visible>
 					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<top>875</top>
 					<control type="group">
@@ -310,7 +310,7 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>!String.IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+						<visible>!String.IsEmpty(ListItem.Property(UnWatchedEpisodes)) + !Control.IsVisible(51)</visible>
 						<animation effect="slide" time="0" start="0" end="-200" condition="String.IsEmpty(ListItem.Property(TotalSeasons))">Conditional</animation>
 						<left>400</left>
 						<width>200</width>
@@ -542,7 +542,7 @@
 							</control>
 						</control>
 					</focusedlayout>
-					<content>plugin://script.skin.helper.service/?action=getcast&amp;movie=$INFO[ListItem.DBID]&amp;castaction=extendedinfo&amp;downloadthumbs=true</content>
+					<content>$VAR[CastListContentVar]</content>
 				</control>
 			</control>
 			<control type="group">

@@ -779,7 +779,7 @@
 		<value condition="!Skin.HasSetting(Enable.SettingsPanelView)">$LOCALIZE[535]</value>
 	</variable>
 	<variable name="LowPanelLogoVar">
-		<value condition="Container.Content(sets) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.0.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.0.ClearLogo)]</value>
+		<value condition="Container.Content(sets) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.0.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.0.Art.ClearLogo)]</value>
 		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 		<value>blank.png</value>
@@ -879,5 +879,10 @@
 	<variable name="ProfileIconVar">
 		<value condition="String.IsEqual(ListItem.Label,$LOCALIZE[20058])">DefaultAddonSource.png</value>
 		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+	<variable name="CastListContentVar">
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.skin.helper.service/?action=getcast&amp;movie=$INFO[ListItem.DBID]&amp;castaction=extendedinfo&amp;downloadthumbs=true</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.DBID]&amp;castaction=extendedinfo&amp;downloadthumbs=true</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.skin.helper.service/?action=getcast&amp;episode=$INFO[ListItem.DBID]&amp;castaction=extendedinfo&amp;downloadthumbs=true</value>
 	</variable>
 </includes>
