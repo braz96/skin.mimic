@@ -158,66 +158,6 @@
                             <visible>!String.IsEmpty(ListItem.Property(Artist_Instrument))</visible>
                         </item>
                         <item>
-                            <label>$INFO[ListItem.Property(Role.Composer)]</label>
-                            <label2>$LOCALIZE[29003]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.Composer))</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[ListItem.Property(Role.Conductor)]</label>
-                            <label2>$LOCALIZE[29005]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.Conductor))</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[ListItem.Property(Role.Orchestra)]</label>
-                            <label2>$LOCALIZE[38034]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.Orchestra))</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[ListItem.Property(Role.Lyricist)]</label>
-                            <label2>$LOCALIZE[38035]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.Lyricist))</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[ListItem.Property(Role.Remixer)]</label>
-                            <label2>$LOCALIZE[38036]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.Remixer))</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[ListItem.Property(Role.Arranger)]</label>
-                            <label2>$LOCALIZE[38037]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.Arranger))</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[ListItem.Property(Role.Engineer)]</label>
-                            <label2>$LOCALIZE[38038]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.Engineer))</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[ListItem.Property(Role.Producer)]</label>
-                            <label2>$LOCALIZE[38039]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.Producer))</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[ListItem.Property(Role.DJMixer)]</label>
-                            <label2>$LOCALIZE[38040]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.DJMixer))</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[ListItem.Property(Role.Mixer)]</label>
-                            <label2>$LOCALIZE[38041]:</label2>
-                            <onclick>noop</onclick>
-                            <visible>!String.IsEmpty(ListItem.Property(Role.Mixer))</visible>
-                        </item>
-                        <item>
                             <label>$INFO[ListItem.Filename]</label>
                             <label2>$LOCALIZE[21800]:</label2>
                             <onclick>noop</onclick>
@@ -266,7 +206,7 @@
                     <label>$VAR[MusicInfoDescription]</label>
                     <pagecontrol>60</pagecontrol>
                     <autoscroll time="3000" delay="4000" repeat="5000">!Skin.HasSetting(Disable.AutoScroll)</autoscroll>
-                    <visible>![Control.HasFocus(204) | Control.HasFocus(203) | Control.HasFocus(202) | Control.HasFocus(208) | Control.HasFocus(50) | Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(555) | Control.HasFocus(61)]</visible>
+                    <visible>![Control.HasFocus(202) | Control.HasFocus(203) | Control.HasFocus(204) | Control.HasFocus(208) | Control.HasFocus(50) | Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(555) | ControlGroup(9000).HasFocus(202) | ControlGroup(9000).HasFocus(203) | ControlGroup(9000).HasFocus(204) | ControlGroup(9000).HasFocus(208)]</visible>
                 </control>
                 <control type="scrollbar" id="60">
                     <visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
@@ -293,41 +233,54 @@
                     <scrolltime tween="quadratic" easing="out">200</scrolltime>
                     <orientation>horizontal</orientation>
                     <itemlayout height="77" width="572">
-                        <control type="label">
-                            <visible>String.IsEmpty(ListItem.DBID)</visible>
-                            <width>572</width>
-                            <height>77</height>
-                            <font>font15</font>
-                            <textoffsetx>20</textoffsetx>
-                            <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+                        <control type="group">
+                            <visible>String.IsEqual(ListItem.DBTYPE,song)</visible>
+                            <control type="label">
+                                <width>572</width>
+                                <height>77</height>
+                                <font>font15</font>
+                                <textoffsetx>20</textoffsetx>
+                                <label>$INFO[ListItem.Label,,: ]$INFO[ListItem.Label2]</label>
+                            </control>
                         </control>
                         <control type="group">
-                            <visible>!String.IsEmpty(ListItem.DBID)</visible>
+                            <visible>!String.IsEqual(ListItem.DBTYPE,song)</visible>
                             <control type="label">
-                                <width>522</width>
+                                <visible>String.IsEmpty(ListItem.DBID)</visible>
+                                <width>572</width>
                                 <height>77</height>
                                 <font>font15</font>
                                 <textoffsetx>20</textoffsetx>
                                 <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
                             </control>
-                            <control type="label">
-                                <left>505</left>
-                                <top>7</top>
-                                <width>64</width>
-                                <height>64</height>
-                                <font>IconSmall</font>
-                                <align>center</align>
-                                <label>T</label>
-                            </control>
-                            <control type="label">
-                                <left>505</left>
-                                <top>7</top>
-                                <width>64</width>
-                                <height>62</height>
-                                <align>center</align>
-                                <font>IconSuperTiny</font>
-                                <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                <label>I</label>
+                            <control type="group">
+                                <visible>!String.IsEmpty(ListItem.DBID)</visible>
+                                <control type="label">
+                                    <width>522</width>
+                                    <height>77</height>
+                                    <font>font15</font>
+                                    <textoffsetx>20</textoffsetx>
+                                    <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+                                </control>
+                                <control type="label">
+                                    <left>505</left>
+                                    <top>7</top>
+                                    <width>64</width>
+                                    <height>64</height>
+                                    <font>IconSmall</font>
+                                    <align>center</align>
+                                    <label>T</label>
+                                </control>
+                                <control type="label">
+                                    <left>505</left>
+                                    <top>7</top>
+                                    <width>64</width>
+                                    <height>62</height>
+                                    <align>center</align>
+                                    <font>IconSuperTiny</font>
+                                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                                    <label>I</label>
+                                </control>
                             </control>
                         </control>
                     </itemlayout>
@@ -340,41 +293,54 @@
                             <visible>Control.HasFocus(50)</visible>
                             <include>VisibleFadeEffect</include>
                         </control>
-                        <control type="label">
-                            <visible>String.IsEmpty(ListItem.DBID)</visible>
-                            <width>572</width>
-                            <height>77</height>
-                            <font>font15</font>
-                            <textoffsetx>20</textoffsetx>
-                            <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+                        <control type="group">
+                            <visible>String.IsEqual(ListItem.DBTYPE,song)</visible>
+                            <control type="label">
+                                <width>572</width>
+                                <height>77</height>
+                                <font>font15</font>
+                                <textoffsetx>20</textoffsetx>
+                                <label>$INFO[ListItem.Label,,: ]$INFO[ListItem.Label2]</label>
+                            </control>
                         </control>
                         <control type="group">
-                            <visible>!String.IsEmpty(ListItem.DBID)</visible>
+                            <visible>!String.IsEqual(ListItem.DBTYPE,song)</visible>
                             <control type="label">
-                                <width>522</width>
+                                <visible>String.IsEmpty(ListItem.DBID)</visible>
+                                <width>572</width>
                                 <height>77</height>
                                 <font>font15</font>
                                 <textoffsetx>20</textoffsetx>
                                 <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
                             </control>
-                            <control type="label">
-                                <left>505</left>
-                                <top>7</top>
-                                <width>64</width>
-                                <height>64</height>
-                                <font>IconSmall</font>
-                                <align>center</align>
-                                <label>T</label>
-                            </control>
-                            <control type="label">
-                                <left>505</left>
-                                <top>7</top>
-                                <width>64</width>
-                                <height>62</height>
-                                <align>center</align>
-                                <font>IconSuperTiny</font>
-                                <textcolor>$VAR[ColorHighlightVar]</textcolor>
-                                <label>I</label>
+                            <control type="group">
+                                <visible>!String.IsEmpty(ListItem.DBID)</visible>
+                                <control type="label">
+                                    <width>522</width>
+                                    <height>77</height>
+                                    <font>font15</font>
+                                    <textoffsetx>20</textoffsetx>
+                                    <label>$INFO[ListItem.Label2,,: ]$INFO[ListItem.Label]</label>
+                                </control>
+                                <control type="label">
+                                    <left>505</left>
+                                    <top>7</top>
+                                    <width>64</width>
+                                    <height>64</height>
+                                    <font>IconSmall</font>
+                                    <align>center</align>
+                                    <label>T</label>
+                                </control>
+                                <control type="label">
+                                    <left>505</left>
+                                    <top>7</top>
+                                    <width>64</width>
+                                    <height>62</height>
+                                    <align>center</align>
+                                    <font>IconSuperTiny</font>
+                                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                                    <label>I</label>
+                                </control>
                             </control>
                         </control>
                     </focusedlayout>
@@ -751,11 +717,13 @@
                         <label>132</label>
                         <visible>$EXP[isArtist]</visible>
                     </control>
-                    <control type="button" id="202">
-                        <description>Discography</description>
+                    <control type="togglebutton" id="202">
+                        <description>Discography/Roles</description>
                         <include>ButtonInfoDialogsCommonValues</include>
                         <label>21888</label>
-                        <visible>$EXP[isArtist] + !String.IsEmpty(Container(50).ListItem.Label)</visible>
+                        <altlabel>29994</altlabel>
+                        <usealttexture>$EXP[isSong]</usealttexture>
+                        <visible>[$EXP[isArtist] + !String.IsEmpty(Container(50).ListItem.Label)] | [$EXP[isSong] + Integer.IsGreater(Container(50).NumItems,0)] </visible>
                     </control>
                     <control type="button" id="208">
                         <description>Tracks</description>
