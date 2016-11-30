@@ -352,7 +352,7 @@
 		                </focusedlayout>
 		            </control>
 		            <control type="group">
-		                <visible>Integer.IsGreater(Container(250).NumItems,0) + $EXP[isArtist]</visible>
+		                <visible>Integer.IsGreater(Container(250).NumItems,0)</visible>
 		                <control type="image">
 		                    <visible>Control.HasFocus(250)</visible>
 		                    <left>-9</left>
@@ -367,9 +367,8 @@
 		                </control>
 		            </control>
 		            <control type="panel" id="250">
-		                <visible>ControlGroup(9000).HasFocus(208) | ControlGroup(9000).HasFocus(203) | Control.HasFocus(555) | Control.HasFocus(250)</visible>
+		                <visible>[ControlGroup(9000).HasFocus(203) | Control.HasFocus(555) | Control.HasFocus(250)] + !$EXP[isAlbum]</visible>
 		                <animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
-		                <animation effect="slide" start="0" end="6,6" time="0" condition="$EXP[isAlbum]">Conditional</animation>
 		                <left>-3</left>
 		                <top>538</top>
 		                <width>1155</width>
@@ -382,34 +381,7 @@
 		                <viewtype label="">list</viewtype>
 		                <scrolltime tween="quadratic" easing="out">200</scrolltime>
 		                <orientation>horizontal</orientation>
-		                <itemlayout height="77" width="572" condition="$EXP[isAlbum]">
-		                    <control type="label">
-		                        <width>572</width>
-		                        <height>77</height>
-		                        <font>font15</font>
-		                        <textoffsetx>20</textoffsetx>
-		                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-		                        <label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
-		                    </control>
-		                </itemlayout>
-		                <focusedlayout height="77" width="572" condition="$EXP[isAlbum]">
-		                    <control type="image">
-		                        <width>572</width>
-		                        <height>77</height>
-		                        <texture border="5">listselect_fo.png</texture>
-		                        <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-		                        <visible>Control.HasFocus(250)</visible>
-		                        <include>VisibleFadeEffect</include>
-		                    </control>
-		                    <control type="label">
-		                        <width>572</width>
-		                        <height>77</height>
-		                        <font>font15</font>
-		                        <textoffsetx>20</textoffsetx>
-		                        <label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
-		                    </control>
-		                </focusedlayout>
-		                <itemlayout height="385" width="385" condition="$EXP[isArtist]">
+		                <itemlayout height="385" width="385">
 		                    <control type="image">
 		                        <top>6</top>
 		                        <left>6</left>
@@ -451,7 +423,7 @@
 		                        <label>$INFO[ListItem.Label2]</label>
 		                    </control>
 		                </itemlayout>
-		                <focusedlayout height="385" width="385" condition="$EXP[isArtist]">
+		                <focusedlayout height="385" width="385">
 		                    <control type="group">
 		                        <control type="image">
 		                            <top>6</top>
@@ -495,7 +467,50 @@
 		                        </control>
 		                    </control>
 		                </focusedlayout>
-		                <content sortby="year" sortorder="$VAR[MusicInfoContentSortOrder]">$VAR[MusicInfoContentVar]</content>
+		                <content sortby="year" sortorder="descending">musicdb://artists/$INFO[ListItem.DBID]</content>
+		            </control>
+		            <control type="panel" id="350">
+		                <visible>ControlGroup(9000).HasFocus(208) | Control.HasFocus(555) | Control.HasFocus(350)</visible>
+		                <animation effect="fade" time="500" tween="inout" easing="sine" start="0" end="100" delay="200">Visible</animation>
+		                <left>3</left>
+		                <top>544</top>
+		                <width>1155</width>
+		                <height>385</height>
+		                <onleft>350</onleft>
+		                <onright>350</onright>
+		                <onup>9000</onup>
+		                <ondown>9000</ondown>
+		                <viewtype label="">list</viewtype>
+		                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+		                <orientation>horizontal</orientation>
+		                <itemlayout height="77" width="572">
+		                    <control type="label">
+		                        <width>572</width>
+		                        <height>77</height>
+		                        <font>font15</font>
+		                        <textoffsetx>20</textoffsetx>
+		                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+		                        <label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
+		                    </control>
+		                </itemlayout>
+		                <focusedlayout height="77" width="572">
+		                    <control type="image">
+		                        <width>572</width>
+		                        <height>77</height>
+		                        <texture border="5">listselect_fo.png</texture>
+		                        <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+		                        <visible>Control.HasFocus(350)</visible>
+		                        <include>VisibleFadeEffect</include>
+		                    </control>
+		                    <control type="label">
+		                        <width>572</width>
+		                        <height>77</height>
+		                        <font>font15</font>
+		                        <textoffsetx>20</textoffsetx>
+		                        <label>$INFO[ListItem.Tracknumber,,: ]$INFO[ListItem.Label]</label>
+		                    </control>
+		                </focusedlayout>
+		                <content sortby="year" sortorder="ascending">musicdb://albums/$INFO[ListItem.DBID]</content>
 		            </control>
 		        </control>
 		        <control type="group">
@@ -655,7 +670,21 @@
 		            <align>right</align>
 		            <aligny>top</aligny>
 		            <label>$INFO[Container(250).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(250).CurrentPage]$INFO[Container(250).NumPages,/]</label>
-		            <visible>Integer.IsGreater(Container(250).NumItems,0) + [ControlGroup(9000).HasFocus(203) | ControlGroup(9000).HasFocus(208) | Control.HasFocus(250)]</visible>
+		            <visible>Integer.IsGreater(Container(250).NumItems,0) + [ControlGroup(9000).HasFocus(203) | Control.HasFocus(250)]</visible>
+		            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="300">Visible</animation>
+		        </control>
+		        <control type="label">
+		            <left>862</left>
+		            <top>1012</top>
+		            <width>300</width>
+		            <height>40</height>
+		            <font>font13</font>
+		            <textoffsetx>15</textoffsetx>
+		            <textcolor>$VAR[ColorDisabledVar]</textcolor>
+		            <align>right</align>
+		            <aligny>top</aligny>
+		            <label>$INFO[Container(350).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(350).CurrentPage]$INFO[Container(350).NumPages,/]</label>
+		            <visible>Integer.IsGreater(Container(350).NumItems,0) + [ControlGroup(9000).HasFocus(208) | Control.HasFocus(350)]</visible>
 		            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="300">Visible</animation>
 		        </control>
 		        <control type="group">
@@ -699,6 +728,7 @@
 		                <ondown condition="Control.IsVisible(50)">50</ondown>
 		                <ondown condition="Control.IsVisible(150)">150</ondown>
 		                <ondown condition="Control.IsVisible(250)">250</ondown>
+		                <ondown condition="Control.IsVisible(350)">350</ondown>
 		                <orientation>horizontal</orientation>
 		                <control type="togglebutton" id="5">
 		                    <description>Description</description>
