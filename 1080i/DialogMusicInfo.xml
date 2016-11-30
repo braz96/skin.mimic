@@ -110,7 +110,7 @@
 		                        <visible>!String.IsEmpty(ListItem.Property(Album_Theme))</visible>
 		                    </item>
 		                    <item>
-		                        <label>$INFO[ListItem.Property(Album_Type)]</label>
+		                        <label>[CAPITALIZE]$INFO[ListItem.Property(Album_Type)][/CAPITALIZE]</label>
 		                        <label2>$LOCALIZE[564]:</label2>
 		                        <onclick>noop</onclick>
 		                        <visible>!String.IsEmpty(ListItem.Property(Album_Type))</visible>
@@ -721,7 +721,7 @@
 		                    <description>Albums</description>
 		                    <include>ButtonInfoDialogsCommonValues</include>
 		                    <label>132</label>
-		                    <visible>Container.Content(artists) + Integer.IsGreater(Container(250).NumItems,0)</visible>
+		                    <visible>$EXP[isArtist]</visible>
 		                </control>
 		                <control type="togglebutton" id="202">
 		                    <description>Discography/Roles</description>
