@@ -1036,10 +1036,19 @@
 					<control type="grouplist">
 						<itemgap>15</itemgap>
 						<control type="image">
+							<visible>!Container.Content(addons)</visible>
 							<width>560</width>
 							<height>560</height>
 							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
 							<texture background="true" diffuse="diffuse/list-square.png" fallback="DefaultFolder.png">$VAR[ThumbViewImage]</texture>
+							<fadetime>IconCrossfadeTime</fadetime>
+						</control>
+						<control type="image">
+							<visible>Container.Content(addons)</visible>
+							<width>560</width>
+							<height>560</height>
+							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+							<texture background="true" diffuse="diffuse/list-square.png">$INFO[ListItem.Icon]</texture>
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="label">
