@@ -238,7 +238,7 @@
 		                <viewtype label="">list</viewtype>
 		                <scrolltime tween="quadratic" easing="out">200</scrolltime>
 		                <orientation>horizontal</orientation>
-		                <itemlayout height="77" width="572" condition="Container.Content(albums)">
+		                <itemlayout height="77" width="572" condition="$EXP[isAlbum]">
 		                    <control type="label">
 					            <visible>String.IsEmpty(ListItem.DBID)</visible>
 					            <width>572</width>
@@ -277,7 +277,7 @@
 					            </control>
 					        </control>
 		                </itemlayout>
-		                <focusedlayout height="77" width="572" condition="Container.Content(albums)">
+		                <focusedlayout height="77" width="572" condition="$EXP[isAlbum]">
 		                    <control type="image">
 		                        <width>572</width>
 		                        <height>77</height>
@@ -324,7 +324,7 @@
 					            </control>
 					        </control>
 		                </focusedlayout>
-		                <itemlayout height="77" width="572" condition="Container.Content(songs)">
+		                <itemlayout height="77" width="572" condition="$EXP[isSong]">
 		                    <control type="label">
 					            <width>572</width>
 					            <height>77</height>
@@ -333,7 +333,7 @@
 					            <label>$INFO[ListItem.Label,,: ]$INFO[ListItem.Label2]</label>
 					        </control>
 		                </itemlayout>
-		                <focusedlayout height="77" width="572" condition="Container.Content(songs)">
+		                <focusedlayout height="77" width="572" condition="$EXP[isSong]">
 		                    <control type="image">
 		                        <width>572</width>
 		                        <height>77</height>
@@ -728,8 +728,8 @@
 		                    <include>ButtonInfoDialogsCommonValues</include>
 		                    <label>21888</label>
 		                    <altlabel>29994</altlabel>
-		                    <usealttexture>Container.Content(songs)</usealttexture>
-		                    <visible>[Container.Content(artists) | Container.Content(songs)] + !String.IsEmpty(Container(50).ListItem.Label)</visible>
+		                    <usealttexture>$EXP[isSong]</usealttexture>
+		                    <visible>[$EXP[isArtist] | $EXP[isSong]] + !String.IsEmpty(Container(50).ListItem.Label)</visible>
 		                </control>
 		                <control type="button" id="208">
 		                    <description>Tracks</description>
