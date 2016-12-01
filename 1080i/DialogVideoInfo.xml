@@ -957,20 +957,38 @@
                 <visible>Integer.IsGreater(Container(50).NumItems,0) + [ControlGroup(9000).HasFocus(555) | Control.HasFocus(50)] + !System.HasAddon(script.skin.helper.service)</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
             </control>
-            <control type="label">
-                <left>862</left>
-                <top>1025</top>
-                <width>300</width>
-                <height>40</height>
-                <font>font13</font>
-                <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorDisabledVar]</textcolor>
-                <align>right</align>
-                <label>$INFO[Container(51).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(51).CurrentPage]$INFO[Container(90019).NumPages,/]</label>
-                <visible>Integer.IsGreater(Container(51).NumItems,0) + [ControlGroup(9000).HasFocus(555) | Control.HasFocus(90019)] + System.HasAddon(script.skin.helper.service)</visible>
-                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
+            <control type="group">
+            	<visible>!System.HasAddon(script.skin.helper.service)</visible>
+            	<include content="PageTotals">
+		        	<param name="ContainerID" value="50" />
+		        	<param name="Top" value="1025" />
+		        	<param name="Visibility" value="ControlGroup(9000).HasFocus(555) | Control.HasFocus(50)" />
+		        </include>
             </control>
-            <control type="label">
+            <control type="group">
+            	<visible>System.HasAddon(script.skin.helper.service)</visible>
+            	<include content="PageTotals">
+		        	<param name="ContainerID" value="51" />
+		        	<param name="Top" value="1025" />
+		        	<param name="Visibility" value="ControlGroup(9000).HasFocus(555) | Control.HasFocus(51)" />
+		        </include>
+            </control>
+            <include content="PageTotals">
+	        	<param name="ContainerID" value="150" />
+	        	<param name="Top" value="1025" />
+	        	<param name="Visibility" value="ControlGroup(9000).HasFocus(204) | Control.HasFocus(150)" />
+	        </include>
+	        <include content="PageTotals">
+	        	<param name="ContainerID" value="250" />
+	        	<param name="Top" value="1025" />
+	        	<param name="Visibility" value="ControlGroup(9000).HasFocus(206) | Control.HasFocus(250)" />
+	        </include>
+	        <include content="PageTotals">
+	        	<param name="ContainerID" value="350" />
+	        	<param name="Top" value="1025" />
+	        	<param name="Visibility" value="ControlGroup(9000).HasFocus(203) | Control.HasFocus(350)" />
+	        </include>
+	        <control type="label">
             	<left>-3</left>
 				<top>576</top>
 				<width>1156</width>
@@ -982,55 +1000,14 @@
             	<animation effect="fade" time="400" tween="inout" easing="sine" start="0" end="100" delay="5000">Visible</animation>
             </control>
             <control type="label">
-                <left>862</left>
-                <top>1025</top>
-                <width>300</width>
-                <height>40</height>
-                <font>font13</font>
-                <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorDisabledVar]</textcolor>
-                <align>right</align>
-                <aligny>top</aligny>
-                <label>$INFO[Container(150).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(150).CurrentPage]$INFO[Container(150).NumPages,/]</label>
-                <visible>Integer.IsGreater(Container(150).NumItems,0) + [ControlGroup(9000).HasFocus(204) | Control.HasFocus(150)]</visible>
-                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
-            </control>
-            <control type="label">
                 <left>-10</left>
                 <top>1025</top>
                 <width>800</width>
                 <height>40</height>
                 <font>font13</font>
                 <textoffsetx>15</textoffsetx>
-                <aligny>top</aligny>
                 <label>$INFO[ListItem.Set]</label>
                 <visible>Integer.IsGreater(Container(250).NumItems,0) + [ControlGroup(9000).HasFocus(206) | Control.HasFocus(250)]</visible>
-                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
-            </control>
-            <control type="label">
-                <left>862</left>
-                <top>1025</top>
-                <width>300</width>
-                <height>40</height>
-                <font>font13</font>
-                <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorDisabledVar]</textcolor>
-                <align>right</align>
-                <label>$INFO[Container(250).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(250).CurrentPage]$INFO[Container(250).NumPages,/]</label>
-                <visible>Integer.IsGreater(Container(250).NumItems,0) + [ControlGroup(9000).HasFocus(206) | Control.HasFocus(250)]</visible>
-                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
-            </control>
-            <control type="label">
-                <left>862</left>
-                <top>1025</top>
-                <width>300</width>
-                <height>40</height>
-                <font>font13</font>
-                <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorDisabledVar]</textcolor>
-                <align>right</align>
-                <label>$INFO[Container(350).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(350).CurrentPage]$INFO[Container(350).NumPages,/]</label>
-                <visible>Integer.IsGreater(Container(350).NumItems,0) + [ControlGroup(9000).HasFocus(203) | Control.HasFocus(350)]</visible>
                 <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
             </control>
             <control type="group">

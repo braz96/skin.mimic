@@ -1313,4 +1313,20 @@
 			<info>System.Memory(used)</info>
 		</control>
     </include>
+    <include name="PageTotals">
+    	<control type="label">
+            <left>862</left>
+            <top>$PARAM[Top]</top>
+            <width>300</width>
+            <height>40</height>
+            <font>font13</font>
+            <textoffsetx>15</textoffsetx>
+            <textcolor>$VAR[ColorDisabledVar]</textcolor>
+            <align>right</align>
+            <aligny>top</aligny>
+            <label>$INFO[Container($PARAM[ContainerID]).NumItems,, $LOCALIZE[31025] • ]$INFO[Container($PARAM[ContainerID]).CurrentPage]$INFO[Container($PARAM[ContainerID]).NumPages,/]</label>
+            <visible>Integer.IsGreater(Container($PARAM[ContainerID]).NumItems,0) + [$PARAM[Visibility]]</visible>
+            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="300">Visible</animation>
+        </control>
+    </include>
 </includes>
