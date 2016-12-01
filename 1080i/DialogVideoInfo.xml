@@ -1157,8 +1157,26 @@
 				<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
 				<texture background="true" diffuse="diffuse/videoinfo-poster.png">$VAR[PosterVar]</texture>
 			</control>
+			<control type="group">
+				<visible>$EXP[isMusicvideo]</visible>
+				<top>190</top>
+				<left>72</left>
+				<control type="image">
+					<width>560</width>
+					<height>560</height>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="diffuse/list-square.png">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="image">
+	                <top>560</top>
+	                <width>560</width>
+	                <height>260</height>
+	                <aspectratio>keep</aspectratio>
+	                <texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+	            </control>
+	        </control>
 			<control type="image">
-				<visible>![$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
+				<visible>![$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
 				<top>190</top>
 				<left>72</left>
 				<width>560</width>
