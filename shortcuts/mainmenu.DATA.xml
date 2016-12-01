@@ -35,6 +35,16 @@
 		<action>ActivateWindow(music,library://music/artists.xml/,return)</action>
 	</shortcut>
 	<shortcut>
+		<defaultID>musicvideos</defaultID>
+		<label>20389</label>
+		<label2>Custom item</label2>
+		<icon>DefaultMusicVideos.png</icon>
+		<thumb>DefaultMusicVideos.png</thumb>
+		<!--<action>ActivateWindow(Videos,library://video/musicvideos/titles.xml/,return)</action>-->
+		<action condition="Library.HasContent(musicvideos)">ActivateWindow(Videos,videodb://musicvideos/titles/,return)</action>
+		<action condition="!Library.HasContent(musicvideos)">ActivateWindow(Videos,sources://musicvideos/,return)</action>
+	</shortcut>
+	<shortcut>
 		<defaultID>games</defaultID>
 		<label>15016</label>
 		<label2>Custom item</label2>

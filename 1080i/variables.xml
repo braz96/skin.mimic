@@ -233,7 +233,8 @@
 	</variable>
 	<variable name="VideoInfoPlotVar">
 		<value condition="Skin.HasSetting(VideoInfoPlotToggle) + !String.IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
-		<value>$INFO[ListItem.Plot]</value>
+		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+		<value>$LOCALIZE[15063]</value>
 	</variable>
 	<variable name="VideoPlotVar">
 		<value condition="Container.Content(seasons)">$INFO[Container.ShowPlot]</value>
