@@ -26,12 +26,38 @@
 					<scrolltime tween="sine" easing="inout">500</scrolltime>
 					<itemlayout height="100" width="1300">
 						<control type="label">
-							<top>15</top>
+							<visible>ListItem.IsPlaying + !Player.Paused</visible>
+							<left>275</left>
+							<top>3</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<label>I</label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying + Player.Paused</visible>
+							<left>275</left>
+							<top>3</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<label>K</label>
+						</control>
+						<control type="label">
+							<left>315</left>
+							<width>960</width>
+							<height>70</height>
+							<font>font30</font>
+							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
 							<left>275</left>
 							<width>1000</width>
 							<height>70</height>
 							<font>font30</font>
 							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
+							<visible>!ListItem.IsPlaying</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout height="275" width="1300">
@@ -51,11 +77,38 @@
 							<texture background="true" diffuse="diffuse/songlist.png">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
+							<visible>ListItem.IsPlaying + !Player.Paused</visible>
+							<left>275</left>
+							<top>3</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<label>I</label>
+						</control>
+						<control type="label">
+							<visible>ListItem.IsPlaying + Player.Paused</visible>
+							<left>275</left>
+							<top>3</top>
+							<width>35</width>
+							<height>70</height>
+							<font>IconTiny</font>
+							<label>K</label>
+						</control>
+						<control type="label">
+							<left>315</left>
+							<width>960</width>
+							<height>70</height>
+							<font>font30</font>
+							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
+							<visible>ListItem.IsPlaying</visible>
+						</control>
+						<control type="label">
 							<left>275</left>
 							<width>1000</width>
 							<height>70</height>
 							<font>font30</font>
 							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
+							<visible>!ListItem.IsPlaying</visible>
 						</control>
 						<control type="label">
 							<left>275</left>
