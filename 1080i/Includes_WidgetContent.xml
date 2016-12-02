@@ -118,7 +118,7 @@
         <content limit="$VAR[WidgetLimit]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortdirection]" target="$PARAM[target]">$PARAM[path]</content>
     </include>
     <include name="WeatherWidgetContents">
-        <visible>String.IsEqual(Container(9000).ListItem.Property(widget),weather)</visible>
+        <visible>String.IsEqual(Container(9000).ListItem.Property(widget),weather) + !IsEmpty(Weather.Plugin)</visible>
         <top>390</top>
         <left>$PARAM[left]</left>
         <width>$PARAM[width]</width>

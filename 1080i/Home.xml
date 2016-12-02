@@ -41,5 +41,17 @@
 		<include>Topbar</include>
         <include condition="!Skin.HasSetting(Enable.HorizontalMenu)">HomeVertical</include>
 		<include condition="Skin.HasSetting(Enable.HorizontalMenu)">HomeHorizontal</include>
+        <control type="label">
+            <visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)]</visible>
+            <include>Animation.Common</include>
+            <top>210</top>
+            <left>594</left>
+            <width>1200</width>
+            <height>780</height>
+            <align>center</align>
+            <label>$VAR[HomeEmptyLibrary]</label>
+            <font>font16</font>
+            <wrapmultiline>true</wrapmultiline>
+        </control>
 	</controls>
 </window>

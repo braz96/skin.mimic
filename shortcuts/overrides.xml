@@ -5,6 +5,12 @@
     <shortcut label="$LOCALIZE[24001]" type="$ADDON[script.skinshortcuts 32034]" thumbnail="DefaultAddon.png" icon="DefaultAddon.png">ActivateWindow(1119)</shortcut>
     <shortcut label="$LOCALIZE[31174]" type="$ADDON[script.skinshortcuts 32034]" thumbnail="DefaultIconPower.png" icon="DefaultIconPower.png">ActivateWindow(shutdownmenu)</shortcut>
 
+    <visibleoverride group="mainmenu" condition="Library.HasContent(Movies)">ActivateWindow(Videos,sources://video/,return)</visibleoverride>
+    <visibleoverride group="mainmenu" condition="Library.HasContent(TVShows)">ActivateWindow(Videos,sources://video/,return)</visibleoverride>
+    <visibleoverride group="mainmenu" condition="Library.HasContent(Music)">ActivateWindow(MusicLibrary,sources://music/,return)</visibleoverride>
+    <visibleoverride group="mainmenu" condition="Library.HasContent(MusicVideos)">ActivateWindow(Videos,sources://video/,return)</visibleoverride>
+    <visibleoverride group="mainmenu" condition="!IsEmpty(Weather.Plugin)">ReplaceWindow(servicesettings,weather)</visibleoverride>
+
 	<!-- Menu thumbnails -->
 	<thumbnailBrowseDefault>special://skin/extras/icons/</thumbnailBrowseDefault>
 

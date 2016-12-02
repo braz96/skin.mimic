@@ -5,8 +5,7 @@
 		<label2>Common menu item</label2>
 		<icon>DefaultMovies.png</icon>
 		<thumb>DefaultMovies.png</thumb>
-		<action condition="Library.HasContent(movies)">ActivateWindow(Videos,videodb://movies/titles/,return)</action>
-		<action condition="!Library.HasContent(movies)">ActivateWindow(Videos,sources://video/,return)</action>
+		<action>ActivateWindow(Videos,videodb://movies/titles/,return)</action>
 	</shortcut>
 	<shortcut>
 		<defaultID>tvshows</defaultID>
@@ -14,8 +13,7 @@
 		<label2>Custom item</label2>
 		<icon>DefaultTVShows.png</icon>
 		<thumb>DefaultTVShows.png</thumb>
-		<action condition="Library.HasContent(tvshows)">ActivateWindow(Videos,videodb://tvshows/titles/,return)</action>
-		<action condition="!Library.HasContent(tvshows)">ActivateWindow(Videos,sources://video/,return)</action>
+		<action>ActivateWindow(Videos,videodb://tvshows/titles/,return)</action>
 	</shortcut>
 	<shortcut>
 		<defaultID>livetv</defaultID>
@@ -40,8 +38,7 @@
 		<label2>Custom item</label2>
 		<icon>DefaultMusicVideos.png</icon>
 		<thumb>DefaultMusicVideos.png</thumb>
-		<action condition="Library.HasContent(musicvideos)">ActivateWindow(Videos,videodb://musicvideos/titles/,return)</action>
-		<action condition="!Library.HasContent(musicvideos)">ActivateWindow(Videos,sources://musicvideos/,return)</action>
+		<action>ActivateWindow(Videos,videodb://musicvideos/titles/,return)</action>
 	</shortcut>
 	<shortcut>
 		<defaultID>games</defaultID>
@@ -83,8 +80,8 @@
 		<label2>Program</label2>
 		<icon>DefaultIconSearch.png</icon>
 		<thumb>DefaultIconSearch.png</thumb>
-		<action>RunAddOn(script.globalsearch)</action>
-		<visible>System.HasAddon(script.globalsearch)</visible>
+		<action condition="System.HasAddon(script.globalsearch)">RunAddon(script.globalsearch)</action>
+		<action condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</action>
 	</shortcut>
 	<shortcut>
 		<defaultID>settings</defaultID>

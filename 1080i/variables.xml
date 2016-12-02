@@ -873,4 +873,12 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.DBID]&amp;castaction=extendedinfo&amp;downloadthumbs=true</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.skin.helper.service/?action=getcast&amp;episode=$INFO[ListItem.DBID]&amp;castaction=extendedinfo&amp;downloadthumbs=true</value>
 	</variable>
+	<variable name="HomeEmptyLibrary">
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(defaultID),movies) + !Library.HasContent(Movies)">$LOCALIZE[31273]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(defaultID),tvshows) + !Library.HasContent(TVShows)">$LOCALIZE[31273]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(defaultID),music) + !Library.HasContent(Music)">$LOCALIZE[31273]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(defaultID),musicvideos) + !Library.HasContent(MusicVideos)">$LOCALIZE[31273]</value>
+		<!--<value condition="String.IsEqual(Container(9000).ListItem.Property(defaultID),favorites) + !Integer.IsGreater(Window(favourites).Container(450).NumItems,0)">No favourites found. You can add any item from media views to this list by using the context menu.</value>-->
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(defaultID),weather) + IsEmpty(Weather.Plugin)">$LOCALIZE[31274]</value>
+	</variable>
 </includes>
