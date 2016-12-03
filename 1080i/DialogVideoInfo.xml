@@ -252,7 +252,7 @@
 					<orientation>vertical</orientation>
 				</control>
 				<control type="group">
-					<visible>![Control.IsVisible(150) | Control.IsVisible(250) | Control.IsVisible(350) | Control.HasFocus(206) | Control.HasFocus(208) | ControlGroup(9000).HasFocus(208) | Control.IsVisible(51)]</visible>
+					<visible>![Control.IsVisible(150) | Control.IsVisible(250) | Control.IsVisible(350) | Control.HasFocus(206) | Control.HasFocus(208) | ControlGroup(9000).HasFocus(208) | Control.IsVisible(50) | Control.IsVisible(51)]</visible>
 					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<include content="MediaFlags">
 						<param name="left" value="0" />
@@ -262,7 +262,7 @@
 					</include>
 				</control>
 				<control type="group">
-					<visible>$EXP[isTvshow] + !Control.IsVisible(51) + !Control.IsVisible(150)</visible>
+					<visible>$EXP[isTvshow] + ![Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(150)]</visible>
 					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
 					<top>875</top>
 					<control type="group">
@@ -310,7 +310,7 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>!String.IsEmpty(ListItem.Property(UnWatchedEpisodes)) + !Control.IsVisible(51)</visible>
+						<visible>!String.IsEmpty(ListItem.Property(UnWatchedEpisodes)) + ![Control.IsVisible(50) | Control.IsVisible(51)]</visible>
 						<animation effect="slide" time="0" start="0" end="-200" condition="String.IsEmpty(ListItem.Property(TotalSeasons))">Conditional</animation>
 						<left>400</left>
 						<width>200</width>
@@ -339,7 +339,7 @@
 	                <control type="image">
 	                	<visible>Control.HasFocus(50)</visible>
 	                    <left>-9</left>
-	                    <top>551</top>
+	                    <top>531</top>
 	                    <width>301</width>
 	                    <height>430</height>
 	                    <animation effect="fade" time="320" delay="200">Visible</animation>

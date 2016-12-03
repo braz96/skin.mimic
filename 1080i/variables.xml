@@ -703,7 +703,7 @@
     </variable>
     <variable name="TopbarFadeLabel1">
     	<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !String.IsEmpty(Weather.Plugin) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Weather.Temperature,, • ][LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
-    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo | !String.IsEmpty(Weather.Plugin)] | Window.IsActive(tvchannels)">[LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo | Window.IsVisible(extendedprogressdialog) | !String.IsEmpty(Weather.Plugin)] | Window.IsActive(tvchannels)">[LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
 
     	<value condition="VideoPlayer.Content(episodes) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,X,. ]$INFO[Player.Title]</value>
 
