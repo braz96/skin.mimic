@@ -910,6 +910,7 @@
                 <label>$VAR[OverlayVar]</label>
             </control>
             <control type="label">
+            	<visible>!ListItem.IsResumable</visible>
             	<visible>!Skin.HasSetting(OverlayWatched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
             	<top>1</top>
             	<left>1</left>
@@ -937,6 +938,7 @@
 				<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 			</control>
 			<control type="label">
+				<visible>!ListItem.IsResumable</visible>
 	        	<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)</visible>
 	        	<left>$PARAM[OverlayListLeft]</left>
 				<top>$PARAM[OverlayListTop]</top>
