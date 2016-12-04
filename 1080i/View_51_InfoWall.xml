@@ -7,7 +7,7 @@
 			<include>Animation.Common</include>
 			<top>0</top>
 			<control type="image">
-				<visible>Control.HasFocus(51) + !Skin.HasSetting(InfoWall.Banners)</visible>
+				<visible>Control.HasFocus(51) + !Skin.HasSetting(InfoWall.Banners) + [!Skin.HasSetting(InfoWall.Logo) | Container.Content(seasons)]</visible>
                 <left>62</left>
                 <top>184</top>
                 <width>280</width>
@@ -32,6 +32,20 @@
                 <animation effect="slide" end="0,198" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,1)">Conditional</animation>
                 <animation effect="slide" end="0,198" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,0)">Conditional</animation>
             </control>
+            <control type="image">
+				<visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.Logo) + !Container.Content(seasons)</visible>
+                <left>62</left>
+                <top>184</top>
+                <width>369</width>
+                <height>276</height>
+                <include>FocusedBackgroundFade</include>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                <animation effect="slide" end="0,264" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,1)">Conditional</animation>
+                <animation effect="slide" end="0,264" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,0)">Conditional</animation>
+                <animation effect="slide" end="357,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,2)">Conditional</animation>
+                <animation effect="slide" end="357,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,1)">Conditional</animation>
+                <animation effect="slide" end="357,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,0)">Conditional</animation>
+            </control>
 			<control type="panel" id="51">
 				<left>68</left>
 				<top>190</top>
@@ -47,7 +61,7 @@
 				<viewtype label="31021">icons</viewtype>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="396" width="268" condition="!Skin.HasSetting(InfoWall.Banners)">
+				<itemlayout height="396" width="268" condition="!Skin.HasSetting(InfoWall.Banners) + !Skin.HasSetting(InfoWall.Logo)">
 					<control type="image">
 						<top>6</top>
 						<left>6</left>
@@ -68,7 +82,7 @@
                         <param name="OverlayTop" value="4" />
                     </include>
 				</itemlayout>
-				<focusedlayout height="396" width="268" condition="!Skin.HasSetting(InfoWall.Banners)">
+				<focusedlayout height="396" width="268" condition="!Skin.HasSetting(InfoWall.Banners) + !Skin.HasSetting(InfoWall.Logo)">
 					<control type="group">
 						<include>PanelFocusedItemZoom</include>
 						<control type="image">
@@ -220,6 +234,71 @@
 	                        <param name="OverlayTop" value="4" />
 	                    </include>
                     </control>
+				</focusedlayout>
+				<itemlayout height="264" width="357" condition="Skin.HasSetting(InfoWall.Logo) + !Container.Content(seasons)">
+					<control type="image">
+						<top>6</top>
+						<left>16</left>
+						<width>325</width>
+						<height>252</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<texture background="true">$VAR[LogoVar]</texture>
+					</control>
+					<control type="group">
+						<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
+						<control type="textbox">
+							<left>16</left>
+							<top>6</top>
+							<width>325</width>
+							<height>252</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>font16</font>
+							<label>$VAR[FloorLabelVar]</label>
+						</control>
+					</control>
+					<control type="image">
+						<top>6</top>
+						<left>6</left>
+						<width>345</width>
+						<height>252</height>
+						<texture border="5">overlays/diffuse-overlay.png</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout height="264" width="357" condition="Skin.HasSetting(InfoWall.Logo) + !Container.Content(seasons)">
+					<control type="group">
+						<include>PanelFocusedItemZoom</include>
+						<control type="image">
+							<top>6</top>
+							<left>16</left>
+							<width>325</width>
+							<height>252</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true">$VAR[LogoVar]</texture>
+						</control>
+						<control type="group">
+							<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
+							<control type="textbox">
+								<left>16</left>
+								<top>6</top>
+								<width>325</width>
+								<height>252</height>
+								<align>center</align>
+								<aligny>center</aligny>
+								<font>font16</font>
+								<label>$VAR[FloorLabelVar]</label>
+							</control>
+						</control>
+						<control type="image">
+							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+							<top>6</top>
+							<left>6</left>
+							<width>345</width>
+							<height>252</height>
+							<texture border="5">overlays/diffuse-overlay.png</texture>
+						</control>
+					</control>
 				</focusedlayout>
 			</control>
 			<control type="grouplist">
