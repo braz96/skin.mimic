@@ -26,7 +26,7 @@
     				<font>font14</font>
     				<textcolor>$VAR[ColorHighlightVar]</textcolor>
     				<label>$VAR[FloorSubLabelVar]</label>
-    				<visible>![Container.Content(artists) | Container.Content(images)]</visible>
+    				<visible>![$EXP[isArtist] | Container.Content(images)]</visible>
     			</control>
     			<control type="label">
     				<left>383</left>
@@ -36,7 +36,7 @@
     				<font>font14</font>
     				<textcolor>$VAR[ColorHighlightVar]</textcolor>
     				<label>$INFO[ListItem.Property(Artist_Genre)]</label>
-    				<visible>Container.Content(artists)</visible>
+    				<visible>$EXP[isArtist]</visible>
     			</control>
             </control>
             <!--strip top-->
@@ -167,7 +167,7 @@
 				<height>168</height>
 				<aspectratio>keep</aspectratio>
 				<texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
-				<visible>Container.Content(artists)</visible>
+				<visible>$EXP[isArtist]</visible>
 			</control>
         </control>
         <control type="group">

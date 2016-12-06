@@ -237,17 +237,17 @@
 		<value>$LOCALIZE[15063]</value>
 	</variable>
 	<variable name="VideoPlotVar">
-		<value condition="Container.Content(seasons)">$INFO[Container.ShowPlot]</value>
-		<value condition="Container.Content(sets) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</value>
+		<value condition="Container.Content(seasons) | String.IsEqual(ListItem.DBTYPE,season)">$INFO[Container.ShowPlot]</value>
+		<value condition="[Container.Content(sets) | String.IsEqual(ListItem.DBTYPE,set)] + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</value>
 		<value condition="!String.IsEmpty(ListItem.PlotOutline) + !Skin.HasSetting(VideoInfoPlotToggle)">$INFO[ListItem.PlotOutline]</value>
 		<value condition="System.GetBool(videolibrary.showunwatchedplots)">$INFO[ListItem.Plot]</value>
 		<value>$INFO[ListItem.Plot]</value>
 	</variable>
 	<variable name="OtherPlotVar">
-		<value condition="Container.Content(albums) + !String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
-		<value condition="Container.Content(albums)">$LOCALIZE[414]</value>
-		<value condition="Container.Content(artists) + !String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
-		<value condition="Container.Content(artists)">$LOCALIZE[547]</value>
+		<value condition="[Container.Content(albums) | String.IsEqual(ListItem.DBTYPE,album)] + !String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
+		<value condition="Container.Content(albums) | String.IsEqual(ListItem.DBTYPE,album)">$LOCALIZE[414]</value>
+		<value condition="[Container.Content(artists) | String.IsEqual(ListItem.DBTYPE,artist)] + !String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
+		<value condition="Container.Content(artists) | String.IsEqual(ListItem.DBTYPE,artist)">$LOCALIZE[547]</value>
 	</variable>
 	<variable name="MusicPlotVar">
 		<value condition="!String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
@@ -287,21 +287,21 @@
 		<value condition="!String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(poster)]</value>
 	</variable>
 	<variable name="FloorLabelVar">
-		<value condition="Container.Content(episodes) + String.Contains(Container.FolderPath,/recentlyaddedepisodes)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
+		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode)] + String.Contains(Container.FolderPath,/recentlyaddedepisodes)">$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="FloorSubLabelVar">
-		<value condition="Container.Content(episodes)">$INFO[ListItem.TvShowTitle]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">$INFO[ListItem.TvShowTitle]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.AddonSummary]</value>
-		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]</value>
-		<value condition="Container.Content(sets)">$INFO[ListItem.Label2]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,musicvideo)">$INFO[ListItem.Artist]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,set)">$INFO[ListItem.Label2]</value>
 		<value condition="String.IsEmpty(ListItem.Genre)">$INFO[Window(Home).Property(Set.Movies.Genre)]</value>
 		<value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.Year]$INFO[ListItem.Genre, • ]</value>
 		<value>$INFO[ListItem.Genre]</value>
 	</variable>
 	<variable name="FloorLabel2Var">
-		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Genre)]</value>
-		<value condition="Container.Content(songs)">$INFO[ListItem.Duration,, | ]$INFO[ListItem.Album]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,artist)">$INFO[ListItem.Property(Artist_Genre)]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,song)">$INFO[ListItem.Duration,, | ]$INFO[ListItem.Album]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.AddonSummary]</value>
 		<value condition="Container.Content()">$INFO[ListItem.Comment]</value>
 		<value>$INFO[ListItem.Label2]</value>

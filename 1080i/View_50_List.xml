@@ -991,7 +991,7 @@
 				<top>165</top>
 				<control type="group">
 					<left>1276</left>
-					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors) | $EXP[isMovie]] + !String.Contains(Container.FolderPath,plugin.video) + !String.StartsWith(ListItem.Icon,Default)</visible>
+					<visible>[$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isSet] | Container.Content(actors)] + !String.Contains(Container.FolderPath,plugin.video) + !String.StartsWith(ListItem.Icon,Default)</visible>
 					<control type="image">
 						<width>560</width>
 						<height>840</height>
@@ -1002,7 +1002,7 @@
 				</control>
 				<control type="group">
 					<left>1276</left>
-					<visible>[![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors) | Window.IsActive(videoplaylist) | Container.Content(episodes) | Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos)] | [String.Contains(Container.FolderPath,plugin.video) + !Container.Content(episodes)]] + !String.StartsWith(ListItem.Icon,Default)</visible>
+					<visible>[![$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isSet] | Container.Content(actors) | Window.IsActive(videoplaylist) | $EXP[isEpisode] | Container.Content(addons) | $EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong] | $EXP[isMusicvideo]] | [String.Contains(Container.FolderPath,plugin.video) + !$EXP[isEpisode]]] + !String.StartsWith(ListItem.Icon,Default)</visible>
 					<animation effect="slide" start="0,0" end="0,15" time="0" tween="cubic" easing="inout" condition="$EXP[PluginAdvancedLauncher]">Conditional</animation>
 					<control type="image">
 						<width>560</width>
@@ -1025,7 +1025,7 @@
 				</control>
 				<control type="group">
 					<left>1276</left>
-					<visible>[Container.Content(addons) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(musicvideos) | Container.Content(studios) | $EXP[isSong] | $EXP[isMusicvideo]] | [String.StartsWith(ListItem.Icon,Default) + !Container.Content(countries)]</visible>
+					<visible>[Container.Content(addons) | $EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong] | $EXP[isMusicvideo] | Container.Content(studios)] | [String.StartsWith(ListItem.Icon,Default) + !Container.Content(countries)]</visible>
 					<animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsActive(programs) | Window.IsActive(addonbrowser)">Conditional</animation>
 					<control type="image">
 						<visible>String.StartsWith(ListItem.Icon,Default)</visible>
@@ -1052,7 +1052,7 @@
 							<fadetime>IconCrossfadeTime</fadetime>
 						</control>
 						<control type="label">
-							<visible>Container.Content(songs) + !String.IsEmpty(ListItem.Album)</visible>
+							<visible>$EXP[isSong] + !String.IsEmpty(ListItem.Album)</visible>
 							<width>560</width>
 							<height>30</height>
 							<font>font14</font>
@@ -1060,14 +1060,14 @@
 							<label>$LOCALIZE[558]:</label>
 						</control>
 						<control type="label">
-							<visible>Container.Content(songs) + !String.IsEmpty(ListItem.Album)</visible>
+							<visible>$EXP[isSong] + !String.IsEmpty(ListItem.Album)</visible>
 							<width>560</width>
 							<height>30</height>
 							<font>font14</font>
 							<label>$INFO[ListItem.Album]</label>
 						</control>
 						<control type="label">
-							<visible>Container.Content(songs) + !String.IsEmpty(ListItem.Year)</visible>
+							<visible>$EXP[isSong] + !String.IsEmpty(ListItem.Year)</visible>
 							<width>560</width>
 							<height>30</height>
 							<font>font14</font>
@@ -1075,14 +1075,14 @@
 							<label>$LOCALIZE[562]:</label>
 						</control>
 						<control type="label">
-							<visible>Container.Content(songs) + !String.IsEmpty(ListItem.Year)</visible>
+							<visible>$EXP[isSong] + !String.IsEmpty(ListItem.Year)</visible>
 							<width>560</width>
 							<height>30</height>
 							<font>font14</font>
 							<label>$INFO[ListItem.Year]</label>
 						</control>
 						<control type="label">
-							<visible>Container.Content(songs) + !String.IsEmpty(ListItem.Genre)</visible>
+							<visible>$EXP[isSong] + !String.IsEmpty(ListItem.Genre)</visible>
 							<width>560</width>
 							<height>30</height>
 							<font>font14</font>
@@ -1090,14 +1090,14 @@
 							<label>$LOCALIZE[515]:</label>
 						</control>
 						<control type="label">
-							<visible>Container.Content(songs) + !String.IsEmpty(ListItem.Genre)</visible>
+							<visible>$EXP[isSong] + !String.IsEmpty(ListItem.Genre)</visible>
 							<width>560</width>
 							<height>30</height>
 							<font>font14</font>
 							<label>$INFO[ListItem.Genre]</label>
 						</control>
 						<control type="textbox">
-							<visible>Container.Content(musicvideos)</visible>
+							<visible>$EXP[isMusicvideo]</visible>
 							<description>Description</description>
 							<width>560</width>
 							<height>220</height>
@@ -1106,7 +1106,7 @@
 							<autoscroll time="3000" delay="4000" repeat="5000">!Skin.HasSetting(Disable.AutoScroll)</autoscroll>
 						</control>
 						<control type="textbox">
-							<visible>Container.Content(artists) | Container.Content(albums)</visible>
+							<visible>$EXP[isArtist] | $EXP[isAlbum]</visible>
 							<label>$VAR[MusicPlotVar]</label>
 							<width>560</width>
 							<height>275</height>
@@ -1127,7 +1127,7 @@
 				</control>
 				<control type="group">
 					<left>1276</left>
-					<visible>[Container.Content(episodes) | $EXP[isEpisode]] + !String.StartsWith(ListItem.Icon,Default)</visible>
+					<visible>$EXP[isEpisode] + !String.StartsWith(ListItem.Icon,Default)</visible>
 					<control type="image">
 						<width>560</width>
 						<height>342</height>
