@@ -85,9 +85,9 @@
 		<value>$LOCALIZE[20445]: $LOCALIZE[305]</value>
 	</variable>
 	<variable name="FallbackBackgroundOnClickVar">
-		<value condition="Container.Content(movies)">SetProperty(Mimic.Temp,Movies.Fallback,home)</value>
-		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">SetProperty(Mimic.Temp,TVShows.Fallback,home)</value>
-		<value condition="Container.Content(musicvideos)">SetProperty(Mimic.Temp,MusicVideos.Fallback,home)</value>
+		<value condition="Container.Content(movies) | String.Contains(Container.FolderPath,library://video/movies/) | String.Contains(Container.FolderPath,videodb://movies/)">SetProperty(Mimic.Temp,Movies.Fallback,home)</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | String.Contains(Container.FolderPath,library://video/tvshows/) | String.Contains(Container.FolderPath,videodb://tvshows/)">SetProperty(Mimic.Temp,TVShows.Fallback,home)</value>
+		<value condition="Container.Content(musicvideos) | String.Contains(Container.FolderPath,library://video/musicvideos/) | String.Contains(Container.FolderPath,videodb://musicvideos/)">SetProperty(Mimic.Temp,MusicVideos.Fallback,home)</value>
 		<value condition="Window.IsActive(videos) | Window.IsActive(videoplaylist)">SetProperty(Mimic.Temp,Videos.Fallback,home)</value>
 		<value condition="Window.IsActive(music) | Window.IsActive(musicplaylist)">SetProperty(Mimic.Temp,Music.Fallback,home)</value>
 		<value condition="Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvtimerrules) | Window.IsActive(tvsearch)">SetProperty(Mimic.Temp,LiveTV.Fallback,home)</value>

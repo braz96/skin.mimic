@@ -171,22 +171,22 @@
 		<item>
 			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(Movies.Fallback)]</thumb>
-			<visible>Container.Content(movies)</visible>
+			<visible>Container.Content(movies) | String.Contains(Container.FolderPath,library://video/movies/) | String.Contains(Container.FolderPath,videodb://movies/)</visible>
 		</item>
 		<item>
 			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(TVShows.Fallback)]</thumb>
-			<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | String.Contains(Container.FolderPath,library://video/tvshows/) | String.Contains(Container.FolderPath,videodb://tvshows/)</visible>
 		</item>
 		<item>
 			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(MusicVideos.Fallback)]</thumb>
-			<visible>Container.Content(musicvideos)</visible>
+			<visible>Container.Content(musicvideos) | String.Contains(Container.FolderPath,library://video/musicvideos/) | String.Contains(Container.FolderPath,videodb://musicvideos/)</visible>
 		</item>
 		<item>
 			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(Videos.Fallback)]</thumb>
-			<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
+			<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | String.Contains(Container.FolderPath,library://video/movies/) | String.Contains(Container.FolderPath,library://video/tvshows/) | String.Contains(Container.FolderPath,library://video/musicvideos/) | String.Contains(Container.FolderPath,videodb://movies/) | String.Contains(Container.FolderPath,videodb://tvshows/) | String.Contains(Container.FolderPath,videodb://musicvideos/)]</visible>
 		</item>
 	</include>
 	<include name="GlobalSearchBG">
