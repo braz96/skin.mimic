@@ -6,10 +6,9 @@
 		<left>457</left>
 		<top>198</top>
 	</coordinates>
-	<include>dialogeffect</include>
+	<include>Animation.Dialog</include>
 	<onunload condition="!String.IsEmpty(Skin.String(ItemToEdit.MultiFanart))">Skin.SetString($INFO[Window(Home).Property(Mimic.Temp)],$INFO[Skin.String(ItemToEdit.MultiFanart)])</onunload>
 	<onunload condition="!String.IsEmpty(Skin.String(ItemToEdit.BGType))">Skin.SetString($INFO[Window(Home).Property(Mimic.BGType)],$INFO[Skin.String(ItemToEdit.BGType)])</onunload>
-	<onunload>ClearProperty(No.Cases,Home)</onunload>
 	<controls>
         <include content="DialogBackgroundCommons">
 			<param name="DialogBackgroundWidth" value="1006" />
@@ -249,13 +248,6 @@
 					<onclick>Skin.SetString(ItemToEdit.MultiFanart,23)</onclick>
 					<onclick>Dialog.Close(1122)</onclick>
 					<visible>!String.IsEmpty(Skin.String(weatherfanart.path))</visible>
-				</item>
-				<item>
-					<label>$LOCALIZE[20012]</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,7)</onclick>
-					<onclick>Skin.SetFile(ItemToEdit.MultiFanart,.xsp,special://profile/playlists/video/)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>String.IsEmpty(Window(Home).Property(No.Cases))</visible>
 				</item>
 			</content>
 		</control>

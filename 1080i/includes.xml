@@ -6,7 +6,6 @@
 	<include file="Includes_CommonValues.xml" />
 	<include file="Includes_Home.xml" />
 	<include file="Includes_Menus.xml" />
-	<include file="Includes_Music.xml" />
 	<include file="Includes_WidgetContent.xml" />
 	<include file="View_50_List.xml" />
 	<include file="View_51_InfoWall.xml" />
@@ -183,6 +182,15 @@
 			<onclick>Skin.SetBool(Art2Customizer)</onclick>
 			<onclick>ActivateWindow(1133)</onclick>
 			<visible>Window.IsActive(videos) + Control.IsVisible(51) + !Container.Content(sets) + !Container.Content(seasons) + !Container.Content(addons) + !Container.Content(musicvideos)</visible>
+		</control>
+		<control type="button" id="1897">
+			<description>Fallback</description>
+			<include>ButtonCommonValues</include>
+			<label>31277</label>
+			<onclick>Skin.Reset(ItemToEdit.MultiFanart)</onclick>
+			<onclick>$VAR[FallbackBackgroundOnClickVar]</onclick>
+			<onclick>ActivateWindow(1122)</onclick>
+			<visible>!String.Contains(Container.FolderPath,plugin://)</visible>
 		</control>
 		<control type="radiobutton" id="1805">
 			<label>31140</label>
@@ -473,7 +481,6 @@
 					<label>31039</label>
 					<enable>no</enable>
 					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
-					<visible>Window.IsActive(SettingsCategory.xml) | Player.HasMedia | !Skin.HasSetting(Disable.Quicknav) | !String.IsEqual(Playlist.Length(music),0) | !String.IsEqual(Playlist.Length(video),0)</visible>
 				</control>
 				<control type="button" id="20">
 					<description>Settings level</description>
@@ -492,6 +499,14 @@
 					<onclick>SettingsLevelChange</onclick>
 					<visible>Window.IsActive(SettingsCategory.xml)</visible>
 				</control>
+				<control type="button" id="2216">
+                    <description>Fallback</description>
+                    <include>ButtonCommonValues</include>
+                    <label>31277</label>
+                    <onclick>Skin.Reset(ItemToEdit.MultiFanart)</onclick>
+                    <onclick>$VAR[FallbackBackgroundOnClickVar]</onclick>
+                    <onclick>ActivateWindow(1122)</onclick>
+                </control>
 				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">

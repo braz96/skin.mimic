@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="Window_OpenClose_Animation">
+	<include name="WindowSlideAnimation">
 		<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
 		<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
 	</include>
-	<include name="dialogeffect">
+	<include name="Animation.Dialog">
 		<animation type="WindowOpen" reversible="false">
 			<effect type="zoom" start="80" end="100" center="960,540" delay="160" tween="back" time="240" />
 			<effect type="fade" delay="160" end="100" time="240" />
@@ -14,6 +14,12 @@
 			<effect type="fade" start="100" end="0" time="240" />
 		</animation>
 	</include>
+    <include name="BackgroundFadeAnimation">
+        <animation effect="fade" time="300">WindowOpen</animation>
+        <animation effect="fade" time="300">WindowClose</animation>
+        <animation effect="fade" time="300">Visible</animation>
+        <animation effect="fade" time="300">Hidden</animation>
+    </include>
 	<include name="VisibleFadeEffect">
 		<animation effect="fade" time="300">Visible</animation>
 		<animation effect="fade" time="300">Hidden</animation>

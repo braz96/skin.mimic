@@ -35,9 +35,9 @@
 			<content>
 				<include condition="Window.IsActive(pictures)">PicturesFallback</include>
 				<include condition="Window.IsActive(music) | Window.IsActive(musicplaylist)">MusicFallback</include>
-				<include condition="Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRGuide.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyPVRTimers.xml)">LiveTVFallback</include>
-				<include condition="Window.IsActive(programs)">AppsFallback</include>
-				<include condition="Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(skinsettings) | Window.IsActive(settings) | Window.IsActive(addonbrowser) | Window.IsActive(filemanager) | Window.IsActive(eventlog) | Window.IsActive(ProfileSettings)">SystemFallback</include>
+				<include condition="Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvtimerrules) | Window.IsActive(tvsearch)">LiveTVFallback</include>
+				<include condition="Window.IsActive(programs) | Window.IsActive(addonbrowser) | Window.IsActive(1119)">AppsFallback</include>
+				<include condition="Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(skinsettings) | Window.IsActive(settings) | Window.IsActive(filemanager) | Window.IsActive(eventlog) | Window.IsActive(profiles)">SystemFallback</include>
 				<include condition="Window.IsActive(weather)">WeatherFallback</include>
 				<include condition="Window.IsActive(videos) | Window.IsActive(videoplaylist)">VideoFallback</include>
 				<item>
@@ -50,6 +50,7 @@
 		<control type="multiimage">
 			<description>Normal Default Background Image</description>
 			<include>FullscreenDimensions</include>
+			<include>BackgroundFadeAnimation</include>
 			<imagepath fallback="special://skin/backgrounds/default_bg.jpg" background="true">$VAR[GlobalBackgroundVar]</imagepath>
 		</control>
 	</include>
@@ -127,9 +128,7 @@
 			<imagepath background="true">$INFO[Skin.String(weatherfanart.path)]$INFO[Window.Property(Current.FanartCode)]$VAR[WeatherFanartExtension]</imagepath>
 			<timeperimage>10000</timeperimage>
 			<randomize>true</randomize>
-			<fadetime>1000</fadetime>
-			<include>VisibleFadeEffect</include>
-			<animation effect="fade" time="200">WindowClose</animation>
+			<include>BackgroundFadeAnimation</include>
 		</control>
 	</include>
 	<include name="MusicFallback">
@@ -181,8 +180,13 @@
 		</item>
 		<item>
 			<onclick>noop</onclick>
+			<thumb>$INFO[Skin.String(MusicVideos.Fallback)]</thumb>
+			<visible>Container.Content(musicvideos)</visible>
+		</item>
+		<item>
+			<onclick>noop</onclick>
 			<thumb>$INFO[Skin.String(Videos.Fallback)]</thumb>
-			<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies)]</visible>
+			<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
 		</item>
 	</include>
 	<include name="GlobalSearchBG">

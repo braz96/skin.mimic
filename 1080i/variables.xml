@@ -84,6 +84,18 @@
 		<value condition="Skin.HasSetting(Disable.Fanart)">$LOCALIZE[20445]: $LOCALIZE[24023]</value>
 		<value>$LOCALIZE[20445]: $LOCALIZE[305]</value>
 	</variable>
+	<variable name="FallbackBackgroundOnClickVar">
+		<value condition="Container.Content(movies)">SetProperty(Mimic.Temp,Movies.Fallback,home)</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">SetProperty(Mimic.Temp,TVShows.Fallback,home)</value>
+		<value condition="Container.Content(musicvideos)">SetProperty(Mimic.Temp,MusicVideos.Fallback,home)</value>
+		<value condition="Window.IsActive(videos) | Window.IsActive(videoplaylist)">SetProperty(Mimic.Temp,Videos.Fallback,home)</value>
+		<value condition="Window.IsActive(music) | Window.IsActive(musicplaylist)">SetProperty(Mimic.Temp,Music.Fallback,home)</value>
+		<value condition="Window.IsActive(tvchannels) | Window.IsActive(tvrecordings) | Window.IsActive(tvguide) | Window.IsActive(tvtimers) | Window.IsActive(tvtimerrules) | Window.IsActive(tvsearch)">SetProperty(Mimic.Temp,LiveTV.Fallback,home)</value>
+		<value condition="Window.IsActive(SettingsCategory.xml) | Window.IsActive(systeminfo) | Window.IsActive(skinsettings) | Window.IsActive(settings) | Window.IsActive(filemanager) | Window.IsActive(eventlog) | Window.IsActive(profiles)">SetProperty(Mimic.Temp,System.Fallback,home)</value>
+		<value condition="Window.IsActive(programs) | Window.IsActive(addonbrowser) | Window.IsActive(1119)">SetProperty(Mimic.Temp,Apps.Fallback,home)</value>
+		<value condition="Window.IsActive(pictures)">SetProperty(Mimic.Temp,Pictures.Fallback,home)</value>
+		<value condition="Window.IsActive(games)">SetProperty(Mimic.Temp,Games.Fallback,home)</value>
+	</variable>
 	<variable name="VizBackgroundLabelVar">
 		<value condition="String.IsEqual(Skin.String(musicvis.background),fanart)">$LOCALIZE[20445]</value>
 		<value condition="String.IsEqual(Skin.String(musicvis.background),bluralbum)">$LOCALIZE[31310]</value>
@@ -365,7 +377,6 @@
 		<value condition="Control.HasFocus(506)">$LOCALIZE[31210]</value>
 		<value condition="Control.HasFocus(507)">$LOCALIZE[31220]</value>
 		<value condition="Control.HasFocus(510)">$LOCALIZE[31113]</value>
-		<value condition="Control.HasFocus(600)">$LOCALIZE[31946]</value>
 		<value condition="Control.HasFocus(601)">$LOCALIZE[31116]</value>
 		<value condition="Control.HasFocus(602)">$LOCALIZE[31918]</value>
 		<value condition="Control.HasFocus(603)">$LOCALIZE[31919]</value>
@@ -841,8 +852,8 @@
 		<value>Vertical</value>
 	</variable>
 	<variable name="VolumeIconVar">
-		<value condition="Integer.IsGreater(Control.GetLabel(20),66)">k</value>
-		<value condition="Integer.IsGreater(Control.GetLabel(20),33)">l</value>
+		<value condition="Integer.IsGreater(Control.GetLabel(29999),66)">k</value>
+		<value condition="Integer.IsGreater(Control.GetLabel(29999),33)">l</value>
 		<value condition="player.passthrough">w</value>
 		<value condition="Player.Muted">m</value>
 		<value>v</value>
