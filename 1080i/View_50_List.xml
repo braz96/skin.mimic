@@ -1014,21 +1014,10 @@
 				</control>
 				<control type="group">
 					<left>1276</left>
-					<visible>Container.Content(countries)</visible>
-					<control type="image">
-						<width>560</width>
-						<height>420</height>
-						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-						<texture background="true" diffuse="diffuse/list-countries.png">$VAR[ListIcon]</texture>
-						<fadetime>IconCrossfadeTime</fadetime>
-					</control>
-				</control>
-				<control type="group">
-					<left>1276</left>
-					<visible>[Container.Content(addons) | $EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong] | $EXP[isMusicvideo] | Container.Content(studios)] | [String.StartsWith(ListItem.Icon,Default) + !Container.Content(countries)]</visible>
+					<visible>[Container.Content(addons) | $EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong] | $EXP[isMusicvideo] | Container.Content(studios)] | String.StartsWith(ListItem.Icon,Default)</visible>
 					<animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsActive(programs) | Window.IsActive(addonbrowser)">Conditional</animation>
 					<control type="image">
-						<visible>String.StartsWith(ListItem.Icon,Default)</visible>
+						<visible>String.StartsWith(ListItem.Icon,Default) | Container.Content(countries)</visible>
 						<width>560</width>
 						<height>560</height>
 						<texture colordiffuse="33000000" border="5">listselect_fo.png</texture>

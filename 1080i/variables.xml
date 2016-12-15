@@ -29,7 +29,6 @@
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),20)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground.Wall.BW)]</value>
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),21)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Wall)]</value>
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),22)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Wall.BW)]</value>
-		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),24)">$INFO[Window(Home).Property(SkinHelper.PicturesBackground)]</value>
 
 		<value condition="String.IsEqual(Container(9033).ListItem.Art(thumb),23)">$INFO[Skin.String(weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherFanartExtension]</value>
 		<value condition="!String.IsEmpty(Container(9033).ListItem.Art(thumb))">$INFO[Container(9033).ListItem.Art(thumb)]</value>
@@ -65,7 +64,6 @@
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allSongsWall)">$INFO[Window(Home).Property(SkinHelper.AllMusicSongsBackground.Wall)]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allTVShowsWall)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Wall)]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allTVShowsWallBW)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Wall.BW)]</value>
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allPictures)">$INFO[Window(Home).Property(SkinHelper.PicturesBackground)]</value>
 		<!--<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allTVShowsPosterWall)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Poster.Wall)]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(background),allTVShowsPosterWallBW)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Poster.Wall.BW)]</value>-->
 		
@@ -696,7 +694,7 @@
     	<value condition="Container.Content(years)">DefaultYear.png</value>
     	<value condition="Window.IsActive(music) + Container.Content(genres)">DefaultMusicGenres.png</value>
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
-    	<value condition="Window.IsActive(videos) + Container.Content(countries)">$INFO[ListItem.Label,resource://resource.images.moviecountryicons.flags/,.png]</value>
+    	<value condition="Window.IsActive(videos) + Container.Content(countries) + System.HasAddon(resource.images.moviecountryicons.maps)">$INFO[ListItem.Label,resource://resource.images.moviecountryicons.maps/,.png]</value>
     	<value condition="Skin.HasSetting(Enable.ThumbnailFanart) + !String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]">$INFO[ListItem.Art(fanart)]</value>
     	<value condition="Skin.HasSetting(Enable.ThumbnailLandscape) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
     	<value condition="Skin.HasSetting(Enable.ThumbnailLogo) + !String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(movies) | Container.Content(tvshows)]">$INFO[ListItem.Art(clearlogo)]</value>
@@ -710,7 +708,7 @@
     	<value condition="Container.Content(years)">DefaultYear.png</value>
     	<value condition="Window.IsActive(music) + Container.Content(genres)">DefaultMusicGenres.png</value>
     	<value condition="Window.IsActive(videos) + Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
-    	<value condition="Window.IsActive(videos) + Container.Content(countries)">$INFO[ListItem.Label,resource://resource.images.moviecountryicons.flags/,.png]</value>
+    	<value condition="Window.IsActive(videos) + Container.Content(countries) + System.HasAddon(resource.images.moviecountryicons.maps)">$INFO[ListItem.Label,resource://resource.images.moviecountryicons.maps/,.png]</value>
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="TopbarFadeLabel1">
@@ -909,5 +907,6 @@
 		<value condition="String.IsEqual(Skin.String(musicvis.background),bluralbum) + !Skin.HasSetting(HideVisualizationFanart)">$INFO[Window(home).Property(ImageFilter1)]</value>
 		<value condition="String.IsEqual(Skin.String(musicvis.background),pixelfanart) + !Skin.HasSetting(HideVisualizationFanart)">$INFO[Window(home).Property(ImageFilterfa2)]</value>
 		<value condition="String.IsEqual(Skin.String(musicvis.background),posterizefanart) + !Skin.HasSetting(HideVisualizationFanart)">$INFO[Window(home).Property(ImageFilterfa3)]</value>
+		<value condition="String.IsEqual(Skin.String(musicvis.background),distortfanart) + !Skin.HasSetting(HideVisualizationFanart)">$INFO[Window(home).Property(ImageFilterfa4)]</value>
 	</variable>
 </includes>
