@@ -116,11 +116,12 @@
 			<animation effect="slide" tween="cubic" time="500" end="0,400" start="0,0">Hidden</animation>
 			<include>WindowSlideAnimation</include>
 			<control type="image">
-				<top>-1</top>
-				<width>FullScreenWidth</width>
-				<height>361</height>
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+				<top>-14</top>
+				<left>-16</left>
+				<width>1952</width>
+				<height>392</height>
+				<texture border="16">dialog_context.png</texture>
+				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
 			<control type="image">
 				<left>1590</left>
@@ -135,7 +136,7 @@
 				<top>175</top>
 				<width>198</width>
 				<include>MediaFlagVars</include>
-				<texture colordiffuse="$VAR[ColorBackgroundVar]">$INFO[MusicPlayer.Codec,flags/audio/,.png]</texture>
+				<texture colordiffuse="$VAR[ColorHighlightVar]">$INFO[MusicPlayer.Codec,flags/audio/,.png]</texture>
 			</control>
 			<control type="progress">
 				<left>345</left>
@@ -254,19 +255,21 @@
 		</control>
 		<!-- Artist bio -->
 		<control type="group">
-			<animation effect="slide" end="0,-188" time="240" condition="Window.Next(home)">WindowClose</animation>
-			<animation effect="slide" start="0,-188" end="0,0" time="240">VisibleChange</animation>
-			<animation effect="slide" start="0,-188" end="0,0" time="400" condition="Window.Previous(home)">WindowOpen</animation>
+			<animation effect="slide" end="0,-198" time="240" condition="Window.Next(home)">WindowClose</animation>
+			<animation effect="slide" start="0,-198" end="0,0" time="240">VisibleChange</animation>
+			<animation effect="slide" start="0,-198" end="0,0" time="400" condition="Window.Previous(home)">WindowOpen</animation>
 			<visible>!Window.IsActive(MusicOSD) + !Window.IsActive(1120) + !Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
 			<visible>System.HasAddon(script.artistslideshow) + !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtistBiography))</visible>
 			<visible>[Player.ShowInfo + Skin.HasSetting(Enable.VizInfo)] | Skin.HasSetting(Enable.VizPersistent)</visible>
 			<top>0</top>
 			<control type="group">
 				<control type="image">
-					<width>FullScreenWidth</width>
-					<height>188</height>
-					<texture>background.png</texture>
-					<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+					<top>-16</top>
+					<left>-16</left>
+					<width>1952</width>
+					<height>214</height>
+					<texture border="16">dialog_context.png</texture>
+					<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 				</control>
 				<control type="textbox">
 					<description>Artist bio</description>
