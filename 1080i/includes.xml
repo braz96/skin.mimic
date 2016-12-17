@@ -1006,8 +1006,7 @@
 			<label>31193</label>
 			<onclick>ClearProperty(MediaMenu,Home)</onclick>
 			<onclick>ActivateWindow(musicplaylist)</onclick>
-			<visible>!String.IsEqual(Playlist.Length(music),0)</visible>
-			<enable>!Window.IsActive(musicplaylist)</enable>
+			<visible>!String.IsEqual(Playlist.Length(music),0) + Window.IsActive(music)</visible>
 		</control>
 		<control type="button" id="614">
 			<description>Go to playlist</description>
@@ -1015,8 +1014,7 @@
 			<label>31194</label>
 			<onclick>ClearProperty(MediaMenu,Home)</onclick>
 			<onclick>ActivateWindow(videoplaylist)</onclick>
-			<visible>!String.IsEqual(Playlist.Length(video),0)</visible>
-			<enable>!Window.IsActive(videoplaylist)</enable>
+			<visible>!String.IsEqual(Playlist.Length(video),0) + Window.IsActive(videos)</visible>
 		</control>
     </include>
     <include name="MediaFlags">
