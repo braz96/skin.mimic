@@ -32,43 +32,37 @@
 					<description>Hide foreign</description>
 					<include>ButtonCommonValues</include>
 					<label>25001</label>
+					<visible>Control.IsEnabled(7)</visible>
 				</control>
 				<control type="radiobutton" id="8">
-					<description>Hide foreign</description>
+					<description>Hide incompatible</description>
 					<include>ButtonCommonValues</include>
 					<label>24999</label>
-				</control>
-				<control type="label" id="10">
-					<width>400</width>
-					<height>52</height>
-					<textoffsetx>15</textoffsetx>
-					<font>font13_title</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-					<label>31301</label>
-				</control>
-				<control type="label" id="11">
-					<width>400</width>
-					<height>52</height>
-					<textoffsetx>15</textoffsetx>
-					<label>$INFO[Window.Property(Updated)]</label>
+					<visible>Control.IsEnabled(8)</visible>
 				</control>
 				<control type="label" id="201">
 					<width>400</width>
-					<height>52</height>
+					<height>60</height>
 					<textoffsetx>15</textoffsetx>
 					<font>font13_title</font>
 					<textcolor>$VAR[ColorHighlightVar]</textcolor>
 					<label>31039</label>
 				</control>
-				<control type="button" id="5">
-					<description>Auto update</description>
-					<include>ButtonCommonValues</include>
-					<label>5</label>
-				</control>
 				<control type="button" id="9">
 					<description>Check for updates</description>
 					<include>ButtonCommonValues</include>
 					<label>24034</label>
+				</control>
+				<control type="button" id="208">
+					<include>ButtonCommonValues</include>
+					<label>[LOWERCASE]$INFO[Window.Property(Updated)][/LOWERCASE]</label>
+					<visible>!String.IsEmpty(Window.Property(Updated))</visible>
+					<enable>False</enable>
+				</control>
+				<control type="button" id="5">
+					<description>Settings</description>
+					<include>ButtonCommonValues</include>
+					<label>5</label>
 				</control>
 				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>

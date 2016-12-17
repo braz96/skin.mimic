@@ -2347,43 +2347,6 @@
 					<onclick>Skin.ToggleSetting(Enable.BasicWeatherView)</onclick>
 					<selected>Skin.HasSetting(Enable.BasicWeatherView)</selected>
 				</control>
-				<control type="label" id="203">
-					<width>400</width>
-					<height>60</height>
-					<textoffsetx>15</textoffsetx>
-					<font>font13_title</font>
-					<label>31026</label>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-				<control type="button" id="2">
-					<description>Refresh button</description>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<label>103</label>
-				</control>
-				<control type="button" id="204">
-					<description>Settings button</description>
-					<textwidth>352</textwidth>
-					<include>ButtonCommonValues</include>
-					<label>1390</label>
-					<onclick>ActivateWindow(servicesettings,weather)</onclick>
-				</control>
-				<control type="label" id="207">
-					<width>400</width>
-					<height>60</height>
-					<textoffsetx>15</textoffsetx>
-					<font>font13_title</font>
-					<label>31301</label>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-					<visible>!String.IsEmpty(Window.Property(Updated))</visible>
-				</control>
-				<control type="label" id="208">
-					<height>60</height>
-					<textoffsetx>15</textoffsetx>
-					<include>ButtonCommonValues</include>
-					<label>$INFO[Window.Property(Updated)]</label>
-					<visible>!String.IsEmpty(Window.Property(Updated))</visible>
-				</control>
 				<control type="button" id="212">
 					<description>Actions label</description>
 					<textwidth>352</textwidth>
@@ -2393,6 +2356,25 @@
 					<enable>no</enable>
 					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
 					<visible>!Skin.HasSetting(Disable.Quicknav) | Player.HasMedia | !String.IsEqual(Playlist.Length(music),0) | !String.IsEqual(Playlist.Length(video),0)</visible>
+				</control>
+				<control type="button" id="2">
+					<description>Refresh button</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>103</label>
+				</control>
+				<control type="button" id="208">
+					<include>ButtonCommonValues</include>
+					<label>[LOWERCASE]$INFO[Window.Property(Updated)][/LOWERCASE]</label>
+					<visible>!String.IsEmpty(Window.Property(Updated))</visible>
+					<enable>False</enable>
+				</control>
+				<control type="button" id="204">
+					<description>Settings button</description>
+					<textwidth>352</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>1390</label>
+					<onclick>ActivateWindow(servicesettings,weather)</onclick>
 				</control>
 				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>

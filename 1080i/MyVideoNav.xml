@@ -84,12 +84,6 @@
 					<onclick>right</onclick>
 					<onclick>Filter</onclick>
 				</control>
-				<!--<control type="radiobutton" id="16">
-					<description>PartyMode</description>
-					<label>589</label>
-					<include>ButtonCommonValues</include>
-					<visible>Container.Content(MusicVideos)</visible>
-				</control>-->
 				<control type="radiobutton" id="11">
 					<description>Unlock Shares</description>
 					<textwidth>255</textwidth>
@@ -107,6 +101,12 @@
 					<label>31039</label>
 					<enable>no</enable>
 					<disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
+				</control>
+				<control type="radiobutton" id="16">
+					<description>PartyMode</description>
+					<label>589</label>
+					<include>ButtonCommonValues</include>
+					<visible>Container.Content(MusicVideos)</visible>
 				</control>
 				<control type="button" id="202">
 					<description>Global Search</description>
@@ -126,7 +126,7 @@
 				</control>
 				<control type="button" id="205">
 					<include>ButtonCommonValues</include>
-					<label>$LOCALIZE[10140]</label>
+					<label>10140</label>
 					<onclick>Addon.OpenSettings($INFO[Container.PluginName])</onclick>
 					<visible>!String.IsEmpty(Container.PluginName)</visible>
 				</control>
@@ -142,7 +142,7 @@
 					<label>31013</label>
 					<onclick condition="System.HasAddon(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
 					<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
-					<visible>String.IsEmpty(Container.FolderPath) | String.IsEqual(Container.FolderPath,library://video/tvshows/) | String.IsEqual(Container.FolderPath,library://video/movies/) | String.IsEqual(Container.FolderPath,library://video/musicvideos/)</visible>
+					<visible>Container.Content() + String.IsEmpty(Container.PluginName)</visible>
 				</control>
 				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>

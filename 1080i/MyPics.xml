@@ -72,7 +72,7 @@
 					<label>108</label>
 				</control>
 				<control type="button" id="7">
-					<description>Recersive Slideshow</description>
+					<description>Recursive Slideshow</description>
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
 					<label>361</label>
@@ -96,7 +96,13 @@
 					<include>ButtonCommonValues</include>
 					<label>5</label>
 					<onclick>ActivateWindow(mediasettings,pictures)</onclick>
-					<visible>Container.Content(images)</visible>
+					<visible>String.IsEmpty(Container.PluginName)</visible>
+				</control>
+				<control type="button" id="205">
+					<include>ButtonCommonValues</include>
+					<label>10140</label>
+					<onclick>Addon.OpenSettings($INFO[Container.PluginName])</onclick>
+					<visible>!String.IsEmpty(Container.PluginName)</visible>
 				</control>
 				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
