@@ -27,14 +27,15 @@
 			<include>SideBladeLeft</include>
 			<control type="grouplist" id="9050">
 				<include>MediaMenuTop</include>
-				<control type="label" id="201">
-					<width>375</width>
-					<height>52</height>
-					<textoffsetx>15</textoffsetx>
-					<font>font13_title</font>
-					<label>31026</label>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
+				<control type="button" id="203">
+                    <description>Actions label</description>
+                    <textwidth>352</textwidth>
+                    <font>font13_title</font>
+                    <include>ButtonCommonValues</include>
+                    <label>31039</label>
+                    <enable>no</enable>
+                    <disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
+                </control>
 				<control type="radiobutton" id="20">
 					<description>Shuffle button</description>
 					<include>ButtonCommonValues</include>
@@ -56,20 +57,10 @@
 					<description>Clear button</description>
 					<label>192</label>
 					<onclick condition="Window.IsActive(musicplaylist)">ReplaceWindow(music)</onclick>
- +					<onclick condition="Window.IsActive(videoplaylist)">ReplaceWindow(Videos)</onclick>
+					<onclick condition="Window.IsActive(videoplaylist)">ReplaceWindow(Videos)</onclick>
 					<textwidth>352</textwidth>
 					<include>ButtonCommonValues</include>
 				</control>
-				<control type="button" id="203">
-                    <description>Actions label</description>
-                    <textwidth>352</textwidth>
-                    <font>font13_title</font>
-                    <include>ButtonCommonValues</include>
-                    <label>31039</label>
-                    <enable>no</enable>
-                    <disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
-                    <visible>!Skin.HasSetting(Disable.Quicknav) | Player.HasMedia | !String.IsEqual(Playlist.Length(music),0) | !String.IsEqual(Playlist.Length(video),0)</visible>
-                </control>
 				<include>QuicknavButton</include>
 				<include>PlaylistButtons</include>
 				<include content="MenuPlayerControls">

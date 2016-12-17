@@ -1000,21 +1000,19 @@
         </control>
     </include>
     <include name="PlaylistButtons">
-		<control type="button" id="613">
+    	<control type="button" id="614">
 			<description>Go to playlist</description>
 			<include>ButtonCommonValues</include>
-			<label>31193</label>
+			<label>31234</label>
 			<onclick>ClearProperty(MediaMenu,Home)</onclick>
-			<onclick>ActivateWindow(musicplaylist)</onclick>
-			<visible>!String.IsEqual(Playlist.Length(music),0) + Window.IsActive(music)</visible>
-		</control>
-		<control type="button" id="614">
-			<description>Go to playlist</description>
-			<include>ButtonCommonValues</include>
-			<label>31194</label>
-			<onclick>ClearProperty(MediaMenu,Home)</onclick>
-			<onclick>ActivateWindow(videoplaylist)</onclick>
-			<visible>!String.IsEqual(Playlist.Length(video),0) + Window.IsActive(videos)</visible>
+			<onclick condition="!String.IsEqual(Playlist.Length(music),0) + String.IsEqual(Playlist.Length(video),0)">ActivateWindow(musicplaylist)</onclick>
+			<onclick condition="!String.IsEqual(Playlist.Length(video),0) + String.IsEqual(Playlist.Length(music),0)">ActivateWindow(videoplaylist)</onclick>
+			<onclick condition="!String.IsEqual(Playlist.Length(music),0) + !String.IsEqual(Playlist.Length(video),0)">SetProperty(Dialog.1.Label,$LOCALIZE[31193])</onclick>
+            <onclick condition="!String.IsEqual(Playlist.Length(music),0) + !String.IsEqual(Playlist.Length(video),0)">SetProperty(Dialog.1.BuiltIn,ActivateWindow(musicplaylist))</onclick>
+            <onclick condition="!String.IsEqual(Playlist.Length(music),0) + !String.IsEqual(Playlist.Length(video),0)">SetProperty(Dialog.2.Label,$LOCALIZE[31194])</onclick>
+            <onclick condition="!String.IsEqual(Playlist.Length(music),0) + !String.IsEqual(Playlist.Length(video),0)">SetProperty(Dialog.2.BuiltIn,ActivateWindow(videoplaylist))</onclick>
+            <onclick condition="!String.IsEqual(Playlist.Length(music),0) + !String.IsEqual(Playlist.Length(video),0)">RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[524])</onclick>
+			<visible>!String.IsEqual(Playlist.Length(music),0) | !String.IsEqual(Playlist.Length(video),0) + !Window.Is(videoplaylist)</visible>
 		</control>
     </include>
     <include name="MediaFlags">
