@@ -29,6 +29,7 @@
 	<expression name="PluginAdvancedLauncher">String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/) | String.Contains(Container.FolderPath,plugin://plugin.program.advanced.emulator.launcher/)</expression>
 	<expression name="isVideoAddon">String.Contains(Container.FolderPath,plugin://plugin.video)</expression>
 	<expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
+	<expression name="isVideo">String.IsEqual(ListItem.DBTYPE,video)</expression>
 	<expression name="isTvshow">String.IsEqual(ListItem.DBTYPE,tvshow)</expression>
 	<expression name="isSeason">String.IsEqual(ListItem.DBTYPE,season)</expression>
 	<expression name="isSet">String.IsEqual(ListItem.DBTYPE,set)</expression>
@@ -907,7 +908,7 @@
 	</include>
 	<include name="OverlayIcons">
 		<control type="group">
-			<visible>![$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong]]</visible>
+			<visible>$EXP[isVideo] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isSet] | $EXP[isMusicvideo] | Container.Content(files)</visible>
             <left>$PARAM[OverlayLeft]</left>
             <top>$PARAM[OverlayTop]</top>
             <control type="image">
@@ -941,8 +942,7 @@
     </include>
     <include name="OverlayList">
     	<control type="group">
-    		<visible>![Container.Content(actors) | Container.Content(countries) | Container.Content(directors) | Container.Content(studios)]</visible>
-    		<visible>![$EXP[isArtist] | $EXP[isAlbum] | $EXP[isSong]]</visible>
+    		<visible>$EXP[isVideo] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isSet] | $EXP[isMusicvideo] | Container.Content(files)</visible>
 	    	<control type="label">
 				<left>$PARAM[OverlayListLeft]</left>
 				<top>$PARAM[OverlayListTop]</top>
