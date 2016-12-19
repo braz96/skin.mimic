@@ -105,17 +105,17 @@
 		<value condition="String.IsEqual(Skin.String(musicvis.background),albumwall)">$LOCALIZE[31068]</value>
 		<value>$LOCALIZE[231]</value>
 	</variable>
-	<variable name="OverlayVar">
-		<value condition="!Skin.HasSetting(OverlayResumable) + Container.ListItem.IsResumable">S</value>
-		<value condition="Skin.HasSetting(OverlayUnwatched) + [String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) | Integer.IsEqual(ListItem.PlayCount,0)]">R</value>
-		<value condition="!Skin.HasSetting(OverlayWatched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]">T</value>
-	</variable>
 	<variable name="OverlayBGVar">
-		<value condition="!Skin.HasSetting(OverlayResumable) + Container.ListItem.IsResumable">overlays/overlaybg.png</value>
+		<value condition="!Skin.HasSetting(OverlayResumable) + ListItem.IsResumable">overlays/overlaybg.png</value>
 		<value condition="Skin.HasSetting(OverlayUnwatched) + [String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) | Integer.IsEqual(ListItem.PlayCount,0)]">overlays/overlaybg.png</value>
 		<value condition="!Skin.HasSetting(OverlayWatched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]">overlays/overlaybg.png</value>
 	</variable>
-	<variable name="ListItem.Overlay">
+	<variable name="OverlayIconVar">
+		<value condition="!Skin.HasSetting(OverlayResumable) + ListItem.IsResumable">S</value>
+		<value condition="Skin.HasSetting(OverlayUnwatched) + [String.IsEqual(ListItem.Overlay,OverlayUnwatched.png) | Integer.IsEqual(ListItem.PlayCount,0)]">R</value>
+		<value condition="!Skin.HasSetting(OverlayWatched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]">T</value>
+	</variable>
+	<variable name="OverlayListVar">
 		<value condition="ListItem.IsResumable">S</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayUnwatched.png)">R</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)">T</value>
@@ -581,7 +581,13 @@
         <value condition="Window.IsVisible(DialogFavourites.xml)">DefaultIconFavourite.png</value>
         <value condition="Window.IsVisible(script-Rom_Collection_Browser-main.xml)">DefaultProgram.png</value>
         <value condition="Window.IsVisible(script-script.extendedinfo-VideoList.xml)">DefaultMovies.png</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-YoutubeList.xml)">YouTube.png</value>
+        <value condition="Window.IsVisible(script-script.extendedinfo-YoutubeList.xml) | String.Contains(Container.FolderPath,plugin://plugin.video.youtube/)">addons/youtube.png</value>
+        <value condition="String.Contains(Container.FolderPath,plugin://plugin.video.itunes_trailers/) | String.Contains(Container.FolderPath,plugin://plugin.video.itunes_podcasts/)">addons/apple.png</value>
+        <value condition="String.Contains(Container.FolderPath,plugin://plugin.video.9gagtv/)">addons/9gag.png</value>
+        <value condition="String.Contains(Container.FolderPath,plugin://plugin.video.vimeo/)">addons/vimeo.png</value>
+        <value condition="String.Contains(Container.FolderPath,plugin://plugin.video.pinkbike/)">addons/pinkbike.png</value>
+        <value condition="String.Contains(Container.FolderPath,plugin://plugin.video.cbsnews_com/)">addons/CBS.png</value>
+        <value condition="String.Contains(Container.FolderPath,plugin://plugin.video.npr/)">addons/npr.png</value>
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">DefaultAddonPVRClient.png</value>
         <value condition="Window.IsVisible(script-globalsearch-main.xml)">DefaultIconSearch.png</value>
         <value condition="String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/) | Window.IsActive(programs)">DefaultProgram.png</value>

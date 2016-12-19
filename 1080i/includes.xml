@@ -908,7 +908,7 @@
 	</include>
 	<include name="OverlayIcons">
 		<control type="group">
-			<visible>$EXP[isVideo] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isSet] | $EXP[isMusicvideo] | Container.Content(files)</visible>
+			<visible>$EXP[isVideo] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isSet] | $EXP[isMusicvideo] | Container.Content(files) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content()</visible>
             <left>$PARAM[OverlayLeft]</left>
             <top>$PARAM[OverlayTop]</top>
             <control type="image">
@@ -924,7 +924,7 @@
                 <height>56</height>
                 <align>center</align>
                 <font>IconPlayer</font>
-                <label>$VAR[OverlayVar]</label>
+                <label>$VAR[OverlayIconVar]</label>
             </control>
             <control type="label">
             	<visible>!ListItem.IsResumable</visible>
@@ -942,7 +942,7 @@
     </include>
     <include name="OverlayList">
     	<control type="group">
-    		<visible>$EXP[isVideo] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isSet] | $EXP[isMusicvideo] | Container.Content(files)</visible>
+    		<visible>$EXP[isVideo] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isSet] | $EXP[isMusicvideo] | Container.Content(files) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content()</visible>
 	    	<control type="label">
 				<left>$PARAM[OverlayListLeft]</left>
 				<top>$PARAM[OverlayListTop]</top>
@@ -950,7 +950,7 @@
 				<height>64</height>
 				<font>IconSmall</font>
 				<align>center</align>
-				<label>$VAR[ListItem.Overlay]</label>
+				<label>$VAR[OverlayListVar]</label>
 				<visible>!String.IsEmpty(ListItem.Overlay)</visible>
 			</control>
 			<control type="label">
