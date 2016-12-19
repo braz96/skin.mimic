@@ -489,9 +489,10 @@
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)] + !String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 		<value condition="VideoPlayer.Content(episodes) + !String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 		<value condition="VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
-		<value condition="VideoPlayer.Content(livetv)">$INFO[Player.Art(thumb)]</value>
+		<value condition="VideoPlayer.Content(livetv) + !String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
+		<value condition="VideoPlayer.Content(livetv)">DefaultAddonPVRClient.png</value>
 		<value condition="[Player.Playing | Player.HasVideo | Player.HasAudio] + !String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
-		<value condition="[Player.Playing | Player.HasVideo | Player.HasAudio] + String.IsEmpty(Player.Art(thumb))">DefaultAddonPVRClient.png</value>
+		<value condition="[Player.Playing | Player.HasVideo | Player.HasAudio] + String.IsEmpty(Player.Art(thumb))">DefaultVideo.png</value>
 		<value condition="!String.IsEmpty(Weather.Plugin) + !Weather.IsFetched">DefaultAddonNone.png</value>
 		<value>DefaultIconClock.png</value>
 	</variable>
