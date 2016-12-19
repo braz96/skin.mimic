@@ -898,8 +898,7 @@
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(defaultID),weather) + IsEmpty(Weather.Plugin)">$LOCALIZE[31274]</value>
 	</variable>
 	<variable name="CommonBackgroundOverlay">
-		<value condition="Skin.HasSetting(Overlay.Medium)">background1.png</value>
-		<value condition="Skin.HasSetting(Overlay.Low)">background2.png</value>
+		<value condition="!String.IsEmpty(Skin.String(CustomOverlay))">$INFO[Skin.String(CustomOverlay)]</value>
 		<value>background.png</value>
 	</variable>
 	<variable name="OverlayOpacityVar">
