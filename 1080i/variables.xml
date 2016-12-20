@@ -485,7 +485,7 @@
 		<value>$LOCALIZE[1223]</value>
 	</variable>
 	<variable name="HomeNowPlayingThumbVar">
-		<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !String.IsEmpty(Window(weather).Property(Current.FanartCode))">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</value>
+		<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + !String.IsEmpty(Window(weather).Property(Current.FanartCode))">$VAR[WeatherIconVar]$INFO[Window(weather).Property(Current.FanartCode),,.png]</value>
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)] + !String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 		<value condition="VideoPlayer.Content(episodes) + !String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 		<value condition="VideoPlayer.Content(livetv) + !String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
@@ -717,43 +717,46 @@
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="TopbarFadeLabel1">
-    	<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + !String.IsEmpty(Weather.Plugin) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Weather.Temperature,, • ][LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
-    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo | Window.IsVisible(extendedprogressdialog) | !String.IsEmpty(Weather.Plugin)] | Window.IsActive(tvchannels)">[LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
-
     	<value condition="VideoPlayer.Content(episodes) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,X,. ]$INFO[Player.Title]</value>
 
-    	<value condition="VideoPlayer.Content(episodes) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)] + Window.IsVisible(extendedprogressdialog)">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,X,. ]$INFO[Player.Title]</value>
+    	<value condition="VideoPlayer.Content(episodes) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,X,. ]$INFO[Player.Title]</value>
 
-    	<value condition="[Player.Playing | Player.HasAudio | Player.HasVideo] + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)] + Window.IsVisible(extendedprogressdialog)">$INFO[Player.Title]</value>
+    	<value condition="[Player.Playing | Player.HasAudio | Player.HasVideo] + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[Player.Title]</value>
 
-    	<value condition="[!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Player.Title]</value>
+    	<value condition="[Player.Playing | Player.HasAudio | Player.HasVideo] + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Player.Title]</value>
+
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Weather.Temperature,, • ][LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
+
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + Window.IsVisible(extendedprogressdialog) +  [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[Weather.Temperature,, • ][LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
     </variable>
     <variable name="TopbarFadeLabel2">
-    	<value condition="[![Player.Playing | Player.HasAudio | Player.HasVideo] | Window.IsActive(tvchannels)] + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[System.Date]</value>
-
     	<value condition="VideoPlayer.Content(livetv) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</value>
 
-    	<value condition="VideoPlayer.Content(livetv) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)] + Window.IsVisible(extendedprogressdialog)">$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</value>
+    	<value condition="VideoPlayer.Content(livetv) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</value>
 
     	<value condition="VideoPlayer.Content(episodes) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[VideoPlayer.Premiered,, • ]$INFO[VideoPlayer.TvShowTitle]</value>
 
-    	<value condition="VideoPlayer.Content(episodes) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)] + Window.IsVisible(extendedprogressdialog)">$INFO[VideoPlayer.Premiered,, • ]$INFO[VideoPlayer.TvShowTitle]</value>
+    	<value condition="VideoPlayer.Content(episodes) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[VideoPlayer.Premiered,, • ]$INFO[VideoPlayer.TvShowTitle]</value>
 
     	<value condition="VideoPlayer.Content(movies) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ]</value>
 
-    	<value condition="VideoPlayer.Content(movies) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)] + Window.IsVisible(extendedprogressdialog)">$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ]</value>
+    	<value condition="VideoPlayer.Content(movies) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ]</value>
 
     	<value condition="VideoPlayer.Content(musicvideos) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[VideoPlayer.Artist]</value>
 
-    	<value condition="VideoPlayer.Content(musicvideos) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)] + Window.IsVisible(extendedprogressdialog)">$INFO[VideoPlayer.Artist]</value>
+    	<value condition="VideoPlayer.Content(musicvideos) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[VideoPlayer.Artist]</value>
 
     	<value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]</value>
 
-    	<value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)] + Window.IsVisible(extendedprogressdialog)">$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]</value>
+    	<value condition="Player.HasAudio + !String.IsEmpty(MusicPlayer.Artist) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]</value>
 
     	<value condition="!String.IsEmpty(Player.Title) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Player.Time] / $INFO[Player.Duration]</value>
 
-    	<value condition="!String.IsEmpty(Player.Title) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)] + Window.IsVisible(extendedprogressdialog)">$INFO[Player.Time] / $INFO[Player.Duration]</value>
+    	<value condition="!String.IsEmpty(Player.Title) + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[Player.Time] / $INFO[Player.Duration]</value>
+
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[System.Date]</value>
+
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + Window.IsVisible(extendedprogressdialog) + [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[System.Date]</value>
     </variable>
     <variable name="AddonDisclaimer">
     	<value condition="!String.IsEmpty(ListItem.AddonDisclaimer)">[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[24052]: [/COLOR][CR]$INFO[ListItem.AddonDisclaimer]</value>
