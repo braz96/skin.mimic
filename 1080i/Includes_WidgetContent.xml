@@ -28,7 +28,7 @@
         <scrolltime tween="quadratic" easing="out">300</scrolltime>
         <orientation>$PARAM[orientation]</orientation>
         <visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath)) + !String.IsEqual(Container(9000).ListItem.Property(widget),weather) + !String.IsEqual(Container(9000).ListItem.Property(widget),settings)</visible>
-        <itemlayout height="390" width="350">
+        <itemlayout height="390" width="350" condition="!String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021])">
             <control type="image">
                 <left>10</left>
                 <top>10</top>
@@ -70,8 +70,7 @@
                 <param name="OverlayTop" value="18" />
             </include>
         </itemlayout>
-
-        <focusedlayout height="390" width="350">
+        <focusedlayout height="390" width="350" condition="!String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021])">
             <control type="image">
                 <left>10</left>
                 <top>10</top>
@@ -112,6 +111,212 @@
             </control>
             <include content="OverlayIcons">
                 <param name="OverlayLeft" value="272" />
+                <param name="OverlayTop" value="18" />
+            </include>
+        </focusedlayout>
+        <itemlayout height="390" width="700" condition="!Skin.HasSetting(Enable.HorizontalMenu) + String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021])">
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="55000000" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <label>$VAR[WidgetThumbnailLabel]</label>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <width>208</width>
+                <height>310</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png" diffuse="diffuse/poster-widget.png">$VAR[WidgetArt]</texture>
+            </control>
+            <control type="textbox">
+                <left>250</left>
+                <top>30</top>
+                <width>415</width>
+                <height>290</height>
+                <font>font13_widget</font>
+                <label>$INFO[ListItem.Plot]</label>
+            </control>
+            <control type="image">
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture border="5">overlays/diffuse-overlay.png</texture>
+            </control>
+            <include content="OverlayIcons">
+                <param name="OverlayLeft" value="170" />
+                <param name="OverlayTop" value="18" />
+            </include>
+        </itemlayout>
+        <focusedlayout height="390" width="700" condition="!Skin.HasSetting(Enable.HorizontalMenu) + String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021])">
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="55000000" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <label>$VAR[WidgetThumbnailLabel]</label>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <width>208</width>
+                <height>310</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png" diffuse="diffuse/poster-widget.png">$VAR[WidgetArt]</texture>
+            </control>
+            <control type="textbox">
+                <left>250</left>
+                <top>30</top>
+                <width>415</width>
+                <height>290</height>
+                <font>font13_widget</font>
+                <label>$INFO[ListItem.Plot]</label>
+                <include>AutoscrollDefault</include>
+            </control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture border="5">overlays/diffuse-overlay.png</texture>
+            </control>
+            <include content="OverlayIcons">
+                <param name="OverlayLeft" value="170" />
+                <param name="OverlayTop" value="18" />
+            </include>
+        </focusedlayout>
+        <itemlayout height="390" width="875" condition="Skin.HasSetting(Enable.HorizontalMenu) + String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021])">
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="55000000" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <label>$VAR[WidgetThumbnailLabel]</label>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <width>208</width>
+                <height>310</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png" diffuse="diffuse/poster-widget.png">$VAR[WidgetArt]</texture>
+            </control>
+            <control type="textbox">
+                <left>250</left>
+                <top>30</top>
+                <width>590</width>
+                <height>290</height>
+                <font>font13_widget</font>
+                <label>$INFO[ListItem.Plot]</label>
+            </control>
+            <control type="image">
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture border="5">overlays/diffuse-overlay.png</texture>
+            </control>
+            <include content="OverlayIcons">
+                <param name="OverlayLeft" value="170" />
+                <param name="OverlayTop" value="18" />
+            </include>
+        </itemlayout>
+        <focusedlayout height="390" width="875" condition="Skin.HasSetting(Enable.HorizontalMenu) + String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021])">
+            <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <right>10</right>
+                <bottom>10</bottom>
+                <texture colordiffuse="33787878" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <right>20</right>
+                <height>310</height>
+                <texture colordiffuse="55000000" border="5">listselect_fo.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <right>20</right>
+                <top>327</top>
+                <height>50</height>
+                <label>$VAR[WidgetThumbnailLabel]</label>
+            </control>
+            <control type="image">
+                <left>20</left>
+                <top>20</top>
+                <width>208</width>
+                <height>310</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                <texture background="true" fallback="DefaultFolder.png" diffuse="diffuse/poster-widget.png">$VAR[WidgetArt]</texture>
+            </control>
+            <control type="textbox">
+                <left>250</left>
+                <top>30</top>
+                <width>590</width>
+                <height>290</height>
+                <font>font13_widget</font>
+                <label>$INFO[ListItem.Plot]</label>
+                <include>AutoscrollDefault</include>
+            </control>
+            <control type="image">
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                <animation center="auto" condition="Control.HasFocus($PARAM[id])" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <height>310</height>
+                <texture border="5">overlays/diffuse-overlay.png</texture>
+            </control>
+            <include content="OverlayIcons">
+                <param name="OverlayLeft" value="170" />
                 <param name="OverlayTop" value="18" />
             </include>
         </focusedlayout>
