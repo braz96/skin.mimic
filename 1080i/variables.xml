@@ -852,7 +852,7 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="WidgetThumbnailLabel2">
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows)">$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows) + !String.IsEmpty(ListItem.Property(WatchedEpisodes))">$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),movies)">$INFO[ListItem.Year]</value>
 	</variable>
 	<variable name="AdvancedLauncherPlotVar">
