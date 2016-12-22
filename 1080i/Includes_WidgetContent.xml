@@ -137,6 +137,7 @@
                 <label>$VAR[WidgetThumbnailLabel]</label>
             </control>
             <control type="label">
+                <visible>!String.IsEmpty(ListItem.Property(WatchedEpisodes))</visible>
                 <animation effect="slide" time="0" end="-35" condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows)">Conditional</animation>
                 <left>20</left>
                 <right>20</right>
@@ -146,7 +147,7 @@
                 <label>$VAR[WidgetThumbnailLabel2]</label>
             </control>
             <control type="label">
-                <visible>String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows)</visible>
+                <visible>String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows) + !String.IsEmpty(ListItem.Property(WatchedEpisodes))</visible>
                 <left>20</left>
                 <right>20</right>
                 <top>328</top>
