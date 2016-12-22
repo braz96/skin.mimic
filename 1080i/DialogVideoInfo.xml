@@ -838,19 +838,6 @@
 	        		<include>AutoscrollDefault</include>
 	        	</control>
 	        </control>
-	        <control type="label">
-                <left>862</left>
-                <top>1025</top>
-                <width>300</width>
-                <height>40</height>
-                <font>font13</font>
-                <textoffsetx>15</textoffsetx>
-                <textcolor>$VAR[ColorDisabledVar]</textcolor>
-                <align>right</align>
-                <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025] • ]$INFO[Container(50).CurrentPage]$INFO[Container(50).NumPages,/]</label>
-                <visible>Integer.IsGreater(Container(50).NumItems,0) + [ControlGroup(9000).HasFocus(555) | Control.HasFocus(50)] + !System.HasAddon(script.skin.helper.service)</visible>
-                <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">Visible</animation>
-            </control>
         	<include content="PageTotals">
 	        	<param name="ContainerID" value="50" />
 	        	<param name="Top" value="1025" />
@@ -877,7 +864,7 @@
 				<width>1156</width>
 				<height>440</height>
 				<align>center</align>
-            	<visible>ControlGroup(9000).HasFocus(204) + !Integer.IsGreater(Container(150).NumItems,0)</visible>
+            	<visible>[ControlGroup(9000).HasFocus(204) + !Integer.IsGreater(Container(150).NumItems,0)] | [ControlGroup(9000).HasFocus(203) + !Integer.IsGreater(Container(350).NumItems,0)]</visible>
             	<label>31137</label>
             	<font>font16</font>
             	<animation effect="fade" time="400" tween="inout" easing="sine" start="0" end="100" delay="5000">Visible</animation>
