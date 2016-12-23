@@ -802,7 +802,7 @@
 	<variable name="WidgetArt">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widget),myplaylists)">DefaultPlaylist.png</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20445]) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021]) + String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021]) + [String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes) | String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows)] + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31088]) + !String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -853,7 +853,8 @@
 	</variable>
 	<variable name="WidgetThumbnailLabel2">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows) + !String.IsEmpty(ListItem.Property(WatchedEpisodes))">$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ]</value>
-		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),movies)">$INFO[ListItem.Year]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),movies) | String.IsEqual(Container(9000).ListItem.Property(widgetType),musicvideos)">$INFO[ListItem.Year]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes) + !String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Premiered]</value>
 	</variable>
 	<variable name="AdvancedLauncherPlotVar">
 		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
