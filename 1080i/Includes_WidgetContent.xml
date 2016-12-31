@@ -28,7 +28,7 @@
         <scrolltime tween="quadratic" easing="out">300</scrolltime>
         <orientation>$PARAM[orientation]</orientation>
         <visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath)) + !String.IsEqual(Container(9000).ListItem.Property(widget),weather) + !String.IsEqual(Container(9000).ListItem.Property(widget),settings)</visible>
-        <itemlayout height="390" width="350" condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[21371]) | String.IsEmpty(Container(9000).ListItem.Property(widgetIcon))">
+        <itemlayout height="390" width="350" condition="[String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[21371]) + ![String.Contains(Container(9000).ListItem.Property(widgetPath),recentlyaddedepisodes) | String.Contains(Container(9000).ListItem.Property(widgetType),episodes)]] | String.IsEmpty(Container(9000).ListItem.Property(widgetIcon))">
             <include>ThumbnailItemBackground</include>
             <control type="label">
                 <left>20</left>
@@ -57,7 +57,7 @@
                 <param name="OverlayTop" value="18" />
             </include>
         </itemlayout>
-        <focusedlayout height="390" width="350" condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[21371]) | String.IsEmpty(Container(9000).ListItem.Property(widgetIcon))">
+        <focusedlayout height="390" width="350" condition="[String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[21371]) + ![String.Contains(Container(9000).ListItem.Property(widgetPath),recentlyaddedepisodes) | String.Contains(Container(9000).ListItem.Property(widgetType),episodes)]] | String.IsEmpty(Container(9000).ListItem.Property(widgetIcon))">
             <include>ThumbnailItemBackground</include>
             <control type="label">
                 <left>20</left>
@@ -88,7 +88,7 @@
                 <param name="OverlayTop" value="18" />
             </include>
         </focusedlayout>
-        <itemlayout height="260" width="350" condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20445]) | String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) | String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31088])">
+        <itemlayout height="260" width="350" condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20445]) | String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) | String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31088]) | [String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[21371]) + [String.Contains(Container(9000).ListItem.Property(widgetPath),recentlyaddedepisodes) | String.Contains(Container(9000).ListItem.Property(widgetType),episodes)]]">
             <control type="image">
                 <left>10</left>
                 <top>10</top>
@@ -111,7 +111,7 @@
                 <label>$VAR[WidgetThumbnailLabel]</label>
             </control>
             <control type="image">
-                <visible>[!String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31088]) | String.IsEmpty(ListItem.Art(clearlogo))] + !String.IsEqual(Container(9000).ListItem.Property(widget),myplaylists) + !String.Contains(Container(9000).ListItem.Property(widgetPath),/genres/) + !String.Contains(Container(9000).ListItem.Property(widgetPath),/genres.xml)</visible>
+                <visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
                 <left>20</left>
                 <top>20</top>
                 <right>20</right>
@@ -120,7 +120,7 @@
                 <texture background="true" fallback="DefaultFolder.png" diffuse="diffuse/fanart-widget.png">$VAR[WidgetArt]</texture>
             </control>
             <control type="image">
-                <visible>[String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31088]) + !String.IsEmpty(ListItem.Art(clearlogo))] | String.IsEqual(Container(9000).ListItem.Property(widget),myplaylists) | String.Contains(Container(9000).ListItem.Property(widgetPath),/genres/) | String.Contains(Container(9000).ListItem.Property(widgetPath),/genres.xml)</visible>
+                <visible>String.IsEmpty(ListItem.Art(fanart))</visible>
                 <left>20</left>
                 <top>20</top>
                 <right>20</right>
@@ -140,7 +140,7 @@
                 <param name="OverlayTop" value="18" />
             </include>
         </itemlayout>
-        <focusedlayout height="260" width="350" condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20445]) | String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) | String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31088])">
+        <focusedlayout height="260" width="350" condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20445]) | String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31100]) | String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31088]) | [String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[21371]) + [String.Contains(Container(9000).ListItem.Property(widgetPath),recentlyaddedepisodes) | String.Contains(Container(9000).ListItem.Property(widgetType),episodes)]]">
             <control type="image">
                 <left>10</left>
                 <top>10</top>
@@ -163,7 +163,7 @@
                 <label>$VAR[WidgetThumbnailLabel]</label>
             </control>
             <control type="image">
-                <visible>[!String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31088]) | String.IsEmpty(ListItem.Art(clearlogo))] + !String.IsEqual(Container(9000).ListItem.Property(widget),myplaylists) + !String.Contains(Container(9000).ListItem.Property(widgetPath),/genres/) + !String.Contains(Container(9000).ListItem.Property(widgetPath),/genres.xml)</visible>
+                <visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
                 <left>20</left>
                 <top>20</top>
                 <right>20</right>
@@ -172,7 +172,7 @@
                 <texture background="true" fallback="DefaultFolder.png" diffuse="diffuse/fanart-widget.png">$VAR[WidgetArt]</texture>
             </control>
             <control type="image">
-                <visible>[String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[31088]) + !String.IsEmpty(ListItem.Art(clearlogo))] | String.IsEqual(Container(9000).ListItem.Property(widget),myplaylists) | String.Contains(Container(9000).ListItem.Property(widgetPath),/genres/) | String.Contains(Container(9000).ListItem.Property(widgetPath),/genres.xml)</visible>
+                <visible>String.IsEmpty(ListItem.Art(fanart))</visible>
                 <left>20</left>
                 <top>20</top>
                 <right>20</right>
