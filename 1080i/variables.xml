@@ -801,6 +801,7 @@
 	</variable>
 	<variable name="WidgetArt">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widget),myplaylists)">DefaultPlaylist.png</value>
+		<value condition="String.StartsWith(Container(9000).ListItem.Property(widgetPath),videodb://movies/genres/) | String.StartsWith(Container(9000).ListItem.Property(widgetPath),library://video/movies/genres.xml) | String.StartsWith(Container(9000).ListItem.Property(widgetPath),videodb://tvshows/genres/) | String.StartsWith(Container(9000).ListItem.Property(widgetPath),library://video/tvshows/genres.xml)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[21371]) | String.IsEmpty(Container(9000).ListItem.Property(widgetIcon))">$INFO[ListItem.Icon]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021]) + [String.IsEqual(Container(9000).ListItem.Property(widgetType),episodes) | String.IsEqual(Container(9000).ListItem.Property(widgetType),tvshows)] + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021]) + !String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
