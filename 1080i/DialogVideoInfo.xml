@@ -1002,9 +1002,11 @@
 						<description>Extras</description>
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>22082</label>
+						<onclick>SetProperty(Info.DBID,$INFO[ListItem.DBID],movieinformation)</onclick>
+						<onclick>SetProperty(Info.DBType,$INFO[ListItem.DBType],movieinformation)</onclick>
+						<onclick>SetProperty(Info.Director,$INFO[ListItem.Director],movieinformation)</onclick>
 						<onclick>ActivateWindow(1123)</onclick>
-						<visible>!Skin.HasSetting(KioskMode.Enabled) + !Window.IsVisible(home) + !String.IsEqual(Container.Content,seasons)</visible>
-						<visible>!String.IsEmpty(ListItem.Director) | [System.HasAddon(script.artwork.downloader) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]] | [System.HasAddon(script.simpleplaylists) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode)]] | [System.HasAddon(script.ratingupdate) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]] | [System.HasAddon(script.cinemavision) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)]]</visible>
+						<visible>!Skin.HasSetting(KioskMode.Enabled) + !String.IsEqual(Container.Content,seasons)</visible>
 					</control>
 				</control>
 			</control>

@@ -2,6 +2,9 @@
 <window id="1123" type="dialog">
 	<defaultcontrol always="true">90700</defaultcontrol>
 	<include>Animation.Dialog</include>
+	<onunload>ClearProperty(Info.DBID,movieinformation)</onunload>
+	<onunload>ClearProperty(Info.DBType,movieinformation)</onunload>
+	<onunload>ClearProperty(Info.Director,movieinformation)</onunload>
 	<controls>
 		<control type="group">
 			<left>453</left>
@@ -98,33 +101,33 @@
 				</focusedlayout>
 				<content>
 		            <item id="1">
-		            	<visible>!String.IsEmpty(ListItem.Director)</visible>
+		            	<visible>!String.IsEmpty(Window(movieinformation).Property(Info.Director))</visible>
 						<icon>DefaultIconSearch.png</icon>
 						<label>31178</label>
-	                    <label2>$LOCALIZE[31201] $INFO[ListItem.Director]</label2>
+	                    <label2>$LOCALIZE[31201] $INFO[Window(movieinformation).Property(Info.Director)]</label2>
 	                    <onclick>Dialog.Close(1123)</onclick>
 	                    <onclick>SendClick(13)</onclick>
 		            </item>
 		            <item id="2">
-		            	<visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]</visible>
+		            	<visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
 						<icon>$INFO[System.AddonIcon(script.artwork.downloader)]</icon>
 						<label>31071</label>
 	                    <label2>$INFO[System.AddonTitle(script.artwork.downloader)]$INFO[System.AddonVersion(script.artwork.downloader), (,)]</label2>
 	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick condition="String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.artwork.downloader, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-						<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)">RunScript(script.artwork.downloader, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+	                    <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),movie)">RunScript(script.artwork.downloader, mediatype=movie, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
+						<onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)">RunScript(script.artwork.downloader, mediatype=tvshow, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
 		            </item>
 		            <item id="3">
-		            	<visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]</visible>
+		            	<visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
 						<icon>$INFO[System.AddonIcon(script.artwork.downloader)]</icon>
 						<label>$LOCALIZE[31071] ([LOWERCASE]$LOCALIZE[413][/LOWERCASE])</label>
 	                    <label2>$INFO[System.AddonTitle(script.artwork.downloader)]$INFO[System.AddonVersion(script.artwork.downloader), (,)]</label2>
 	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick condition="String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-						<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)">RunScript(script.artwork.downloader,mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+	                    <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),movie)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
+						<onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)">RunScript(script.artwork.downloader,mode=gui, mediatype=tvshow, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
 		            </item>
 		            <item id="4">
-		            	<visible>System.HasAddon(script.simpleplaylists) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode)]</visible>
+		            	<visible>System.HasAddon(script.simpleplaylists) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),episode)]</visible>
 						<icon>$INFO[System.AddonIcon(script.simpleplaylists)]</icon>
 						<label>31087</label>
 	                    <label2>$INFO[System.AddonTitle(script.simpleplaylists)]$INFO[System.AddonVersion(script.simpleplaylists), (,)]</label2>
@@ -132,7 +135,7 @@
 	                    <onclick>RunPlugin(plugin://script.simpleplaylists/?mode=addCurrentUrl)</onclick>
 		            </item>
 		            <item id="5">
-		            	<visible>System.HasAddon(script.ratingupdate) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]</visible>
+		            	<visible>System.HasAddon(script.ratingupdate) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
 						<icon>$INFO[System.AddonIcon(script.ratingupdate)]</icon>
 						<label>31067</label>
 	                    <label2>$INFO[System.AddonTitle(script.ratingupdate)]$INFO[System.AddonVersion(script.ratingupdate), (,)]</label2>
@@ -140,16 +143,16 @@
 	                    <onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
 		            </item>
 		            <item id="6">
-		            	<visible>System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]</visible>
+		            	<visible>System.HasAddon(script.extendedinfo) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
 						<icon>$INFO[System.AddonIcon(script.extendedinfo)]</icon>
 						<label>31202</label>
 	                    <label2>$INFO[System.AddonTitle(script.extendedinfo)]$INFO[System.AddonVersion(script.extendedinfo), (,)]</label2>
 	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick condition="String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
-						<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.DBID])</onclick>
+	                    <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
+						<onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
 		            </item>
 		            <item id="7">
-		            	<visible>System.HasAddon(script.cinemavision) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)]</visible>
+		            	<visible>System.HasAddon(script.cinemavision) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow) | String.IsEqual(Window(movieinformation).Property(Info.DBType),episode)]</visible>
 						<icon>$INFO[System.AddonIcon(script.cinemavision)]</icon>
 						<label>$INFO[System.AddonTitle(script.cinemavision)]</label>
 	                    <label2>$INFO[System.AddonTitle(script.cinemavision)]$INFO[System.AddonVersion(script.cinemavision), (,)]</label2>
