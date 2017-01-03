@@ -19,7 +19,7 @@
 				<align>center</align>
 				<font>font12</font>
 			</control>
-			<!--control type="spincontrol" id="101">
+			<control type="spincontrol" id="101">
 				<description>Next page button</description>
 				<left>1800</left>
 				<top>470</top>
@@ -30,8 +30,9 @@
 				<onup>101</onup>
 				<textcolor>labelheader</textcolor>
 				<showonepage>true</showonepage>
-				<visible>Control.IsVisible(100)</visible>
-			</control-->
+				<visible>false</visible>
+				<!--<visible>Control.IsVisible(100)</visible>-->
+			</control>
 			<!-- ** Required ** Do not change <id> or <type> (Smooth scrolling list for lyrics) -->
 			<control type="list" id="110">
 				<visible>false</visible>
@@ -65,56 +66,7 @@
 				</focusedlayout>
 			</control>
 			<!-- ** Required ** Do not change <id> or <type> (Song Chooser if it gets it wrong) -->
-			<control type="list" id="120">
-				<left>45</left>
-				<top>45</top>
-				<width>1830</width>
-				<height>480</height>
-				<onleft>121</onleft>
-				<onright>121</onright>
-				<onup>120</onup>
-				<ondown>120</ondown>
-				<pagecontrol>121</pagecontrol>
-				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="60" width="641">
-					<control type="label">
-						<width>630</width>
-						<height>60</height>
-						<font>font14</font>
-						<textoffsetx>15</textoffsetx>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<width>630</width>
-						<height>60</height>
-						<font>font14</font>
-						<textoffsetx>15</textoffsetx>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="60" width="641">
-					<control type="label">
-						<width>630</width>
-						<height>60</height>
-						<font>font14</font>
-						<textoffsetx>15</textoffsetx>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(120)">Conditional</animation>
-					</control>
-					<control type="label">
-						<width>630</width>
-						<height>60</height>
-						<font>font14</font>
-						<textoffsetx>15</textoffsetx>
-						<textcolor>$VAR[ColorHighlightVar]</textcolor>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(120)">Conditional</animation>
-					</control>
-				</focusedlayout>
-			</control>
+			
 			<control type="label">
 				<description>Scraper label</description>
 				<left>870</left>
@@ -599,6 +551,120 @@
 					<param name="top0">1</param>
 				</include>
 			</control>
-		</control>	
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(120) + Integer.IsGreater(Container(120).NumItems,0)</visible>
+			<left>457</left>
+			<top>240</top>
+			<animation type="Visible" reversible="false">
+				<effect type="zoom" start="80" end="100" center="960,540" delay="160" tween="back" time="240" />
+				<effect type="fade" delay="160" end="100" time="240" />
+			</animation>
+			<animation type="Hidden" reversible="false">
+				<effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
+				<effect type="fade" start="100" end="0" time="240" />
+			</animation>
+			<include content="DialogBackgroundCommons">
+				<param name="DialogBackgroundWidth" value="1006" />
+				<param name="DialogBackgroundHeight" value="600" />
+				<param name="DialogHeaderLabel" value="$LOCALIZE[31062]" />
+				<param name="DialogHeaderId" value="1" />
+			</include>
+			<control type="group">
+                <visible>Integer.IsGreater(Container(120).NumItems,0)</visible>
+                <control type="image">
+                	<left>32</left>
+                    <top>88</top>
+                    <width>942</width>
+                    <height>60</height>
+                    <visible>Control.HasFocus(120)</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="50">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(120).Row,6)">Conditional</animation>
+                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(120).Row,5)">Conditional</animation>
+                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(120).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(120).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(120).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(120).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(120).Row,0)">Conditional</animation>
+                </control>
+            </control>
+			<control type="panel" id="120">
+				<left>32</left>
+				<top>88</top>
+				<width>942</width>
+				<height>480</height>
+				<onup>120</onup>
+				<ondown>120</ondown>
+				<onleft>60</onleft>
+				<onright>60</onright>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime tween="quadratic" easing="out">200</scrolltime>
+				<itemlayout height="60" width="942">
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<align>right</align>
+						<font>IconSmall</font>
+						<textoffsetx>15</textoffsetx>
+						<label>A</label>
+						<visible>ListItem.IsSelected</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60" width="942">
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<scroll>true</scroll>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<textoffsetx>15</textoffsetx>
+						<font>font14</font>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+					<control type="label">
+						<width>942</width>
+						<height>60</height>
+						<align>right</align>
+						<font>IconSmall</font>
+						<textoffsetx>15</textoffsetx>
+						<label>A</label>
+						<visible>ListItem.IsSelected</visible>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="60">
+				<left>979</left>
+				<top>88</top>
+				<height>480</height>
+				<width>10</width>
+				<onleft>120</onleft>
+				<onright>120</onright>
+				<ondown>60</ondown>
+				<onup>60</onup>
+			</control>
+		</control>
 	</controls>
 </window>
