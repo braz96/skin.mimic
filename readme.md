@@ -1,5 +1,4 @@
 ![banner] (http://i.imgur.com/VfxG5Nw.jpg)
-
 <h1>mim·ic</h1>
 <code>1. To imitate</code><br />
 <code>Synonyms: resemble, look like, have the appearance of</code>
@@ -25,10 +24,10 @@ Support Kodi by donating @ http://kodi.tv/contribute/donate/
 
 ***
 **5.0.2**
-- Add background overlay options.
-- Add new widget styles based on content type.
-- Reconfigured lyrics, thx manfeed!.
-- Enable "More" menu for video widgets.
+- Added background overlay options.
+- Added new widget styles based on content type.
+- Redesigned lyrics, thx manfeed!.
+- Enabled "More" menu on info dialog for video widgets and seasons.
 - Fixed home backgrounds for submenu items.
 
 ***
