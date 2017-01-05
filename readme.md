@@ -1,3 +1,5 @@
+![banner] (http://i.imgur.com/VfxG5Nw.jpg)
+
 <h1>mim·ic</h1>
 <code>1. To imitate</code><br />
 <code>Synonyms: resemble, look like, have the appearance of</code>
@@ -20,6 +22,14 @@ Support Kodi by donating @ http://kodi.tv/contribute/donate/
 ![Shift View] (https://github.com/braz96/skin.mimic/raw/master/resources/screenshot-06.jpg)
 
 
+
+***
+**5.0.2**
+- Add background overlay options.
+- Add new widget styles based on content type.
+- Reconfigured lyrics, thx manfeed!.
+- Enable "More" menu for video widgets.
+- Fixed home backgrounds for submenu items.
 
 ***
 **5.0.1**
