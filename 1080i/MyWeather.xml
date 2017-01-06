@@ -1892,6 +1892,32 @@
 				<aspectratio align="right" aligny="center">keep</aspectratio>
 				<texture colordiffuse="33ffffff">$INFO[Window.Property(WeatherProviderLogo)]</texture>
 			</control>
+			<control type="group">
+		        <include>VisibleFadeEffect</include>
+		        <visible>Control.HasFocus(301) | Control.HasFocus(304)</visible>
+		        <height>890</height>
+		        <top>-55</top>
+		        <left>1155</left>
+		        <control type="label">
+		            <visible>[Control.HasFocus(301) + Container(301).HasPrevious] | [Control.HasFocus(304) + Container(304).HasPrevious]</visible>
+		            <width>30</width>
+		            <height>30</height>
+		            <align>center</align>
+		            <label>s</label>
+		            <font>IconTiny</font>
+		            <textcolor>disabled</textcolor>
+		        </control>
+		        <control type="label">
+		            <visible>[Control.HasFocus(301) + Container(301).HasNext] | [Control.HasFocus(304) + Container(304).HasNext]</visible>
+		            <top>860</top>
+		            <width>30</width>
+		            <height>30</height>
+		            <align>center</align>
+		            <label>t</label>
+		            <font>IconTiny</font>
+		            <textcolor>disabled</textcolor>
+		        </control>
+		    </control>
 		</control>
 		<control type="scrollbar" id="60">
 			<visible>!Skin.HasSetting(Enable.BasicWeatherView)</visible>
