@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+	<animation effect="slide" start="0,-140" end="0,0" time="240">WindowOpen</animation>
+	<animation effect="slide" start="0,0" end="0,-140" time="180">WindowClose</animation>
 	<coordinates>
 		<system>1</system>
-		<left>1090</left>
-		<top>32</top>
+		<left>510</left>
+		<top>-12</top>
 	</coordinates>
-	<include>Animation.Dialog</include>
 	<controls>
 		<control type="group">
 			<visible>false</visible>
@@ -16,28 +17,11 @@
 				<texture border="16">dialog_context.png</texture>
 				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
 			</control>
-			<control type="progress" id="10">
-				<description>progress control</description>
-				<left>30</left>
-				<top>30</top>
-				<width>740</width>
-				<height>80</height>
-			</control>
-			<control type="image">
-                <description>Busy animation</description>
-                <top>40</top>
-                <left>40</left>
-                <width>60</width>
-                <height>60</height>
-                <texture colordiffuse="$VAR[ColorTextVar]" fallback="special://skin/extras/spinners/Sun.png">$INFO[Skin.String(busyloader)]</texture>
-                <aspectratio>keep</aspectratio>
-                <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
-            </control>
 			<control type="list">
-				<left>150</left>
-				<top>28</top>
+				<left>32</left>
+				<top>32</top>
 				<width>300</width>
-				<height>80</height>
+				<height>35</height>
 				<scrolltime tween="quadratic" easing="out">0</scrolltime>
 				<autoscroll time="1000" repeat="1000">true</autoscroll>
 				<orientation>vertical</orientation>
@@ -47,7 +31,7 @@
 						<width>300</width>
 						<height>80</height>
 						<label>$INFO[ListItem.Label]</label>
-						<font>font15_title</font>
+						<font>font14</font>
 					</control>
 				</itemlayout>
 				<focusedlayout height="80">
@@ -56,7 +40,7 @@
 						<width>300</width>
 						<height>80</height>
 						<label>$INFO[ListItem.Label]</label>
-						<font>font15_title</font>
+						<font>font14</font>
 					</control>
 				</focusedlayout>
 				<content>
@@ -77,6 +61,13 @@
 						<onclick>noop</onclick>
 					</item>
 				</content>
+			</control>
+			<control type="progress" id="10">
+				<description>progress control</description>
+				<left>30</left>
+				<top>70</top>
+				<width>740</width>
+				<height>14</height>
 			</control>
 		</control>
 	</controls>
