@@ -737,9 +737,13 @@
 
     	<value condition="[Player.Playing | Player.HasAudio | Player.HasVideo] + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Player.Title]</value>
 
-    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Weather.Temperature,, • ][LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + !IsEmpty(Weather.Plugin) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[Weather.Temperature,, • ][LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
 
-    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + Window.IsVisible(extendedprogressdialog) +  [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[Weather.Temperature,, • ][LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + IsEmpty(Weather.Plugin) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">[LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
+
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + !IsEmpty(Weather.Plugin) + Window.IsVisible(extendedprogressdialog) +  [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">$INFO[Weather.Temperature,, • ][LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
+
+    	<value condition="![Player.Playing | Player.HasAudio | Player.HasVideo] + IsEmpty(Weather.Plugin) + Window.IsVisible(extendedprogressdialog) +  [Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]">[LOWERCASE]$INFO[System.Time][/LOWERCASE]</value>
     </variable>
     <variable name="TopbarFadeLabel2">
     	<value condition="VideoPlayer.Content(livetv) + [!Window.IsVisible(extendedprogressdialog) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-infodialog.xml) | Window.IsVisible(favourites)]">$INFO[VideoPlayer.ChannelNumber,,: ]$INFO[VideoPlayer.ChannelName]</value>
