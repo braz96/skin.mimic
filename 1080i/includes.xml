@@ -909,7 +909,7 @@
 	</include>
 	<include name="OverlayIcons">
 		<control type="group">
-			<visible>$EXP[isVideo] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isSet] | $EXP[isMusicvideo] | Container.Content(files) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content()</visible>
+			<visible>$EXP[isVideo] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isSet] | $EXP[isMusicvideo] | Container.Content(files) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos)</visible>
             <left>$PARAM[OverlayLeft]</left>
             <top>$PARAM[OverlayTop]</top>
             <control type="image">
@@ -929,7 +929,7 @@
             </control>
             <control type="label">
             	<visible>!ListItem.IsResumable</visible>
-            	<visible>!Skin.HasSetting(OverlayWatched) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
+            	<visible>!Skin.HasSetting(Disable.WatchedOverlay) + [String.IsEqual(ListItem.Overlay,OverlayWatched.png) | Integer.IsGreater(ListItem.PlayCount,0)]</visible>
             	<top>1</top>
             	<left>1</left>
                 <width>56</width>
