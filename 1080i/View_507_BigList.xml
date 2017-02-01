@@ -38,8 +38,8 @@
                     <preloaditems>2</preloaditems>
                     <orientation>vertical</orientation>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
-                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | [[Container.Content(artists) | Container.Content(albums)] + !Window.IsActive(videos)]</visible>
-                    <itemlayout width="1808" height="221" condition="Container.Content(episodes) | ![Skin.HasSetting(Enable.BigListThumb) | Skin.HasSetting(Enable.BigListPoster) | Container.Content(albums)]">
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(videos) | [[Container.Content(artists) | Container.Content(albums)] + !Window.IsActive(videos)]</visible>
+                    <itemlayout width="1808" height="221" condition="Container.Content(episodes) | Container.Content(videos) | ![Skin.HasSetting(Enable.BigListThumb) | Skin.HasSetting(Enable.BigListPoster) | Container.Content(albums)]">
                         <include>view_BigList-LandscapeCommons</include>
                         <control type="group">
                             <left>382</left>
@@ -91,7 +91,7 @@
                             </control>
                         </control>
                     </itemlayout>
-                    <focusedlayout width="1808" height="221" condition="Container.Content(episodes) | ![Skin.HasSetting(Enable.BigListThumb) | Skin.HasSetting(Enable.BigListPoster) | Container.Content(albums)]">
+                    <focusedlayout width="1808" height="221" condition="Container.Content(episodes) | Container.Content(videos) | ![Skin.HasSetting(Enable.BigListThumb) | Skin.HasSetting(Enable.BigListPoster) | Container.Content(albums)]">
                         <include>view_BigList-LandscapeCommons</include>
                         <control type="group">
                             <left>382</left>

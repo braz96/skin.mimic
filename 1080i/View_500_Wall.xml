@@ -52,7 +52,7 @@
                     <animation effect="slide" end="909,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(500).Column,0)">Conditional</animation>
                 </control>
                 <control type="image">
-                	<visible>[Container.Content(files) | Container.Content(episodes)] + Control.HasFocus(500)</visible>
+                	<visible>[Container.Content(files) | Container.Content(episodes) | Container.Content(videos)] + Control.HasFocus(500)</visible>
                     <left>106</left>
                     <top>175</top>
                     <width>436</width>
@@ -92,7 +92,7 @@
 				<pagecontrol>60</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<viewtype label="31086">Icon</viewtype>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | Container.Content(files)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons) | Container.Content(sets) | Container.Content(musicvideos) | Container.Content(files) | Container.Content(videos)</visible>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<itemlayout height="357" width="242" condition="[[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons)] + !Skin.HasSetting(Enable.IconLandscape) + !Skin.HasSetting(Enable.IconBanner) + !Skin.HasSetting(Enable.IconLogo)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLandscape)] | [Container.Content(seasons) + Skin.HasSetting(Enable.IconLogo)]">
 					<control type="group">
@@ -380,7 +380,7 @@
 	                    </include>
 					</control>
 				</focusedlayout>
-				<itemlayout height="357" width="424" condition="Container.Content(files) | Container.Content(episodes)">
+				<itemlayout height="357" width="424" condition="Container.Content(files) | Container.Content(episodes) | Container.Content(videos)">
 					<control type="group">
 						<left>61</left>
 						<control type="image">
@@ -420,7 +420,7 @@
 	                    </include>
 					</control>
 				</itemlayout>
-				<focusedlayout height="357" width="424" condition="Container.Content(files) | Container.Content(episodes)">
+				<focusedlayout height="357" width="424" condition="Container.Content(files) | Container.Content(episodes) | Container.Content(videos)">
 					<control type="group">
 						<left>61</left>
 						<include>PanelFocusedItemZoom</include>
