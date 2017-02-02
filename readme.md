@@ -23,6 +23,12 @@ Support Kodi by donating @ http://kodi.tv/contribute/donate/
 
 
 ***
+**5.0.3**
+- Adjust views for video addons.
+- Fix watched/unwatched indicator settings.
+- Misc bug fixes.
+
+***
 **5.0.2**
 - Added background overlay options.
 - Added new widget styles based on content type.
