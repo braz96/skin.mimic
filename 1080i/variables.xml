@@ -566,6 +566,7 @@
 		<value>$LOCALIZE[21371]</value>
 	</variable>
 	<variable name="WidgetSortByLabel">
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),date)">$LOCALIZE[552]</value>
 		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastplayed)">$LOCALIZE[568]</value>
 		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastused)">$LOCALIZE[12012]</value>
 		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),sorttitle)">$LOCALIZE[551]</value>
@@ -819,6 +820,7 @@
 	<variable name="WidgetArt">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widget),myplaylists)">DefaultPlaylist.png</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021]) + String.Contains(Container(9000).ListItem.Property(widgetPath),advanced.emulator.launcher)">$INFO[ListItem.Thumb]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[20021]) + String.StartsWith(Container(9000).ListItem.Property(widgetPath),pvr)">$INFO[ListItem.ActualIcon]</value>
 		<value condition="String.StartsWith(Container(9000).ListItem.Property(widgetPath),videodb://movies/genres/) | String.StartsWith(Container(9000).ListItem.Property(widgetPath),library://video/movies/genres.xml) | String.StartsWith(Container(9000).ListItem.Property(widgetPath),videodb://tvshows/genres/) | String.StartsWith(Container(9000).ListItem.Property(widgetPath),library://video/tvshows/genres.xml)">$INFO[ListItem.Label,special://skin/extras/videogenre/,.png]</value>
 		<value condition="System.HasAddon(resource.images.moviecountryicons.maps) + [String.StartsWith(Container(9000).ListItem.Property(widgetPath),videodb://movies/country/) | String.StartsWith(Container(9000).ListItem.Property(widgetPath),library://video/movies/country.xml) | String.StartsWith(Container(9000).ListItem.Property(widgetPath),videodb://tvshows/country/) | String.StartsWith(Container(9000).ListItem.Property(widgetPath),library://video/tvshows/country.xml)]">$INFO[ListItem.Label,resource://resource.images.moviecountryicons.maps/,.png]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(widgetIcon),$LOCALIZE[21371]) | String.IsEmpty(Container(9000).ListItem.Property(widgetIcon))">$INFO[ListItem.Icon]</value>
