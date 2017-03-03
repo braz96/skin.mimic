@@ -535,7 +535,8 @@
 					<control type="button" id="502">
 						<include>SkinSettingsButtonDefaults</include>
 						<label>31211</label>
-						<onclick>RunScript(script.skin.helper.service,action=colorthemes)</onclick>
+						<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.service,action=colorthemes)</onclick>
+						<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					</control>
 					<control type="button" id="503">
 						<include>SkinSettingsButtonDefaults</include>
