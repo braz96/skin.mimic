@@ -1,127 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<!-- Video Episode -->
-	<include name="VideoEpisode">
-		<control type="group">
-			<visible>Control.IsVisible(502) + !$EXP[isInfoDialog]</visible>
-			<include>Animation.Common</include>
-			<control type="group">
-				<left>0</left>
-				<top>-15</top>
-				<control type="image">
-					<left>50</left>
-					<top>870</top>
-					<width>390</width>
-					<height>164</height>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Art(tvshow.clearlogo)]</texture>
-				</control>
-				<control type="fixedlist" id="502">
-					<left>60</left>
-					<top>180</top>
-					<width>1820</width>
-					<height>780</height>
-					<orientation>vertical</orientation>
-					<movement>2</movement>
-					<focusposition>3</focusposition>
-					<onleft>SetProperty(MediaMenu,True,home)</onleft>
-					<onleft>SetFocus(9050)</onleft>
-					<onright>60</onright>
-					<onup>502</onup>
-					<ondown>502</ondown>
-					<pagecontrol>60</pagecontrol>
-					<viewtype label="31093">list</viewtype>
-					<visible>Container.Content(episodes) | Container.Content(videos)</visible>
-					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<animation effect="slide" end="0,0" time="160" condition="Container(502).Row(0)">Conditional</animation>
-					<animation effect="slide" end="0,0" time="160" condition="Container(502).Row(1)">Conditional</animation>
-					<animation effect="slide" end="0,0" time="160" condition="Container(502).Row(2)">Conditional</animation>
-					<animation effect="slide" end="0,0" time="160" condition="Container(502).Row(3)">Conditional</animation>
-					<animation effect="slide" end="0,0" time="160" condition="Container(502).Row(4)">Conditional</animation>
-					<animation effect="slide" end="0,0" time="160" condition="Container(502).Row(5)">Conditional</animation>
-					<itemlayout height="100" width="1820" condition="Container.Content(episodes) | Container.Content(videos)">
-						<control type="label">
-							<left>925</left>
-							<width>790</width>
-							<height>70</height>
-							<font>font30</font>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<include content="OverlayList">
-							<param name="OverlayListLeft" value="1750" />
-							<param name="OverlayListTop" value="5" />
-						</include>
-					</itemlayout>
-					<focusedlayout height="275" width="1820" condition="Container.Content(episodes) | Container.Content(videos)">
-						<control type="image">
-							<left>1250</left>
-							<top>-25</top>
-							<width>484</width>
-							<height>290</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/episode.png">$VAR[ThumbVar]</texture>
-							<fadetime>IconCrossfadeTime</fadetime>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<left>1270</left>
-							<top>195</top>
-							<width>444</width>
-							<height>50</height>
-							<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
-							<visible>!String.IsEmpty(ListItem.Label2)</visible>
-						</control>
-						<control type="label">
-							<left>1270</left>
-							<top>200</top>
-							<width>444</width>
-							<height>40</height>
-							<textoffsetx>10</textoffsetx>
-							<label>$INFO[ListItem.Label2]</label>
-							<font>font14</font>
-						</control>
-						<control type="label">
-							<left>1271</left>
-							<top>200</top>
-							<width>444</width>
-							<height>40</height>
-							<align>right</align>
-							<textoffsetx>10</textoffsetx>
-							<label>$VAR[ListSubLabelVar]</label>
-							<font>font14</font>
-						</control>
-						<control type="label">
-							<top>-15</top>
-							<width>1220</width>
-							<height>70</height>
-							<font>font30</font>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="textbox">
-							<label>$VAR[VideoPlotVar]</label>
-							<top>60</top>
-							<left>370</left>
-							<width>850</width>
-							<height>182</height>
-							<align>right</align>
-							<font>font15_textbox</font>
-							<include>AutoscrollDefault</include>
-						</control>
-						<include content="OverlayList">
-							<param name="OverlayListLeft" value="1750" />
-							<param name="OverlayListTop" value="94" />
-						</include>
-					</focusedlayout>
-				</control>
-			</control>
-		</control>
-		<control type="group">
-			<visible>Control.IsVisible(502) + !$EXP[isInfoDialog]</visible>
-			<top>-15</top>
-			<include>Scrollbar_Vertical</include>
-		</control>
-	</include>
+    <!-- Video Episode -->
+    <include name="VideoEpisode">
+        <control type="group">
+            <visible>Control.IsVisible(502) + !$EXP[isInfoDialog]</visible>
+            <include>Animation.Common</include>
+            <control type="group">
+                <left>0</left>
+                <top>-15</top>
+                <control type="image">
+                    <left>50</left>
+                    <top>870</top>
+                    <width>390</width>
+                    <height>164</height>
+                    <aspectratio aligny="bottom">keep</aspectratio>
+                    <texture background="true">$INFO[ListItem.Art(tvshow.clearlogo)]</texture>
+                </control>
+                <control type="fixedlist" id="502">
+                    <left>60</left>
+                    <top>180</top>
+                    <width>1820</width>
+                    <height>780</height>
+                    <orientation>vertical</orientation>
+                    <movement>2</movement>
+                    <focusposition>3</focusposition>
+                    <onleft>SetProperty(MediaMenu,True,home)</onleft>
+                    <onleft>SetFocus(9050)</onleft>
+                    <onright>60</onright>
+                    <onup>502</onup>
+                    <ondown>502</ondown>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="31093">list</viewtype>
+                    <visible>Container.Content(episodes) | Container.Content(videos)</visible>
+                    <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                    <animation effect="slide" end="0,0" time="160" condition="Container(502).Row(0)">Conditional</animation>
+                    <animation effect="slide" end="0,0" time="160" condition="Container(502).Row(1)">Conditional</animation>
+                    <animation effect="slide" end="0,0" time="160" condition="Container(502).Row(2)">Conditional</animation>
+                    <animation effect="slide" end="0,0" time="160" condition="Container(502).Row(3)">Conditional</animation>
+                    <animation effect="slide" end="0,0" time="160" condition="Container(502).Row(4)">Conditional</animation>
+                    <animation effect="slide" end="0,0" time="160" condition="Container(502).Row(5)">Conditional</animation>
+                    <itemlayout height="100" width="1820" condition="Container.Content(episodes) | Container.Content(videos)">
+                        <control type="label">
+                            <left>925</left>
+                            <width>790</width>
+                            <height>70</height>
+                            <font>font30</font>
+                            <align>right</align>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <include content="OverlayList">
+                            <param name="OverlayListLeft" value="1750" />
+                            <param name="OverlayListTop" value="5" />
+                        </include>
+                    </itemlayout>
+                    <focusedlayout height="275" width="1820" condition="Container.Content(episodes) | Container.Content(videos)">
+                        <control type="image">
+                            <left>1250</left>
+                            <top>-25</top>
+                            <width>484</width>
+                            <height>290</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/episode.png">$VAR[ThumbVar]</texture>
+                            <fadetime>IconCrossfadeTime</fadetime>
+                            <bordersize>20</bordersize>
+                        </control>
+                        <control type="image">
+                            <left>1270</left>
+                            <top>195</top>
+                            <width>444</width>
+                            <height>50</height>
+                            <texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
+                            <visible>!String.IsEmpty(ListItem.Label2)</visible>
+                        </control>
+                        <control type="label">
+                            <left>1270</left>
+                            <top>200</top>
+                            <width>444</width>
+                            <height>40</height>
+                            <textoffsetx>10</textoffsetx>
+                            <label>$INFO[ListItem.Label2]</label>
+                            <font>font14</font>
+                        </control>
+                        <control type="label">
+                            <left>1271</left>
+                            <top>200</top>
+                            <width>444</width>
+                            <height>40</height>
+                            <align>right</align>
+                            <textoffsetx>10</textoffsetx>
+                            <label>$VAR[ListSubLabelVar]</label>
+                            <font>font14</font>
+                        </control>
+                        <control type="label">
+                            <top>-15</top>
+                            <width>1220</width>
+                            <height>70</height>
+                            <font>font30</font>
+                            <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                            <align>right</align>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="textbox">
+                            <label>$VAR[VideoPlotVar]</label>
+                            <top>60</top>
+                            <left>370</left>
+                            <width>850</width>
+                            <height>182</height>
+                            <align>right</align>
+                            <font>font15_textbox</font>
+                            <include>AutoscrollDefault</include>
+                        </control>
+                        <include content="OverlayList">
+                            <param name="OverlayListLeft" value="1750" />
+                            <param name="OverlayListTop" value="94" />
+                        </include>
+                    </focusedlayout>
+                </control>
+            </control>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(502) + !$EXP[isInfoDialog]</visible>
+            <top>-15</top>
+            <include>Scrollbar_Vertical</include>
+        </control>
+    </include>
 </includes>

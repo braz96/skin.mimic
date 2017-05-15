@@ -1,105 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<!-- Video LowList -->
-	<include name="VideoLowList">
-		<control type="group">
-			<visible>Control.IsVisible(501) + !$EXP[isInfoDialog]</visible>
-			<include>WindowSlideAnimation</include>
-			<control type="image">
-				<top>600</top>
-				<width>FullScreenWidth</width>
-				<height>651</height>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-				<texture>background.png</texture>
-			</control>
-			<control type="group">
-				<visible>!Container.Content(addons)</visible>
-				<left>30</left>
-				<top>431</top>
-				<control type="image">
-					<width>402</width>
-					<height>603</height>
-					<aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
-					<texture background="true" fallback="DefaultFallback.png" diffuse="diffuse/lowlist-poster.png">$VAR[PosterVar]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-			</control>
-			<control type="group">
-				<visible>Container.Content(addons)</visible>
-				<left>30</left>
-				<top>633</top>
-				<control type="image">
-					<width>402</width>
-					<height>402</height>
-					<aspectratio aligny="center" align="center">scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-			</control>
-			<control type="group">
-				<visible>!Container.Content(addons)</visible>
-				<left>1300</left>
-				<top>640</top>
-				<include>VisibleFadeEffect</include>
-				<control type="textbox">
-					<visible>!Skin.HasSetting(Enable.MediaFlags)</visible>
-					<label>$VAR[VideoPlotVar]</label>
-					<width>585</width>
-					<height>390</height>
-					<font>font14_textbox</font>
-					<include>InfoPanelButtonsValues</include>
-					<include>AutoscrollDefault</include>
-				</control>
-				<control type="textbox">
-					<animation effect="slide" time="0" start="0,0" end="0,-10" condition="true">Conditional</animation>
-					<visible>Skin.HasSetting(Enable.MediaFlags)</visible>
-					<label>$VAR[VideoPlotVar]</label>
-					<width>585</width>
-					<height>325</height>
-					<font>font14_textbox</font>
-					<include>InfoPanelButtonsValues</include>
-					<include>AutoscrollDefault</include>
-				</control>
-				<include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
-					<param name="left" value="10" />
-					<param name="top" value="330" />
-					<param name="align" value="left" />
-				</include>
-			</control>
-			<control type="grouplist">
-				<visible>Container.Content(addons)</visible>
-				<left>1280</left>
-				<top>620</top>
-				<width>610</width>
-				<height>360</height>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.AddonType)</visible>
-				</control>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<visible>Container.Content(addons)</visible>
-				<left>1295</left>
-				<top>814</top>
-				<control type="textbox">
-					<label>$INFO[ListItem.AddonDescription]</label>
-					<width>595</width>
-					<height>220</height>
-					<font>font14_textbox</font>
-					<include>InfoPanelButtonsValues</include>
-					<include>AutoscrollDefault</include>
-				</control>
-			</control>
-			<control type="group">
+    <!-- Video LowList -->
+    <include name="VideoLowList">
+        <control type="group">
+            <visible>Control.IsVisible(501) + !$EXP[isInfoDialog]</visible>
+            <include>WindowSlideAnimation</include>
+            <control type="image">
+                <top>600</top>
+                <width>FullScreenWidth</width>
+                <height>651</height>
+                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+                <texture>background.png</texture>
+            </control>
+            <control type="group">
+                <visible>!Container.Content(addons)</visible>
+                <left>30</left>
+                <top>431</top>
+                <control type="image">
+                    <width>402</width>
+                    <height>603</height>
+                    <aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
+                    <texture background="true" fallback="DefaultFallback.png" diffuse="diffuse/lowlist-poster.png">$VAR[PosterVar]</texture>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                </control>
+            </control>
+            <control type="group">
+                <visible>Container.Content(addons)</visible>
+                <left>30</left>
+                <top>633</top>
+                <control type="image">
+                    <width>402</width>
+                    <height>402</height>
+                    <aspectratio aligny="center" align="center">scale</aspectratio>
+                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                </control>
+            </control>
+            <control type="group">
+                <visible>!Container.Content(addons)</visible>
+                <left>1300</left>
+                <top>640</top>
+                <include>VisibleFadeEffect</include>
+                <control type="textbox">
+                    <visible>!Skin.HasSetting(Enable.MediaFlags)</visible>
+                    <label>$VAR[VideoPlotVar]</label>
+                    <width>585</width>
+                    <height>390</height>
+                    <font>font14_textbox</font>
+                    <include>InfoPanelButtonsValues</include>
+                    <include>AutoscrollDefault</include>
+                </control>
+                <control type="textbox">
+                    <animation effect="slide" time="0" start="0,0" end="0,-10" condition="true">Conditional</animation>
+                    <visible>Skin.HasSetting(Enable.MediaFlags)</visible>
+                    <label>$VAR[VideoPlotVar]</label>
+                    <width>585</width>
+                    <height>325</height>
+                    <font>font14_textbox</font>
+                    <include>InfoPanelButtonsValues</include>
+                    <include>AutoscrollDefault</include>
+                </control>
+                <include condition="Skin.HasSetting(Enable.MediaFlags)" content="MediaFlags">
+                    <param name="left" value="10" />
+                    <param name="top" value="330" />
+                    <param name="align" value="left" />
+                </include>
+            </control>
+            <control type="grouplist">
+                <visible>Container.Content(addons)</visible>
+                <left>1280</left>
+                <top>620</top>
+                <width>610</width>
+                <height>360</height>
+                <usecontrolcoords>true</usecontrolcoords>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.AddonType)</visible>
+                </control>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <visible>Container.Content(addons)</visible>
+                <left>1295</left>
+                <top>814</top>
+                <control type="textbox">
+                    <label>$INFO[ListItem.AddonDescription]</label>
+                    <width>595</width>
+                    <height>220</height>
+                    <font>font14_textbox</font>
+                    <include>InfoPanelButtonsValues</include>
+                    <include>AutoscrollDefault</include>
+                </control>
+            </control>
+            <control type="group">
                 <visible>Integer.IsGreater(Container(501).NumItems,0)</visible>
                 <control type="image">
                     <left>463</left>
@@ -117,313 +117,313 @@
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="panel" id="501">
-				<left>463</left>
-				<top>632</top>
-				<width>976</width>
-				<height>402</height>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<onright>60</onright>
-				<onup>501</onup>
-				<ondown>501</ondown>
-				<pagecontrol>60</pagecontrol>
-				<viewtype label="31003">list</viewtype>
-				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
-				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="67" width="806" condition="Container.Content(movies) | Container.Content(tvshows)">
-					<control type="label">
-						<left>15</left>
-						<width>90</width>
-						<height>67</height>
-						<font>font15</font>
-						<label fallback="• • •">$INFO[ListItem.Year]</label>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.Rating]</label>
-					</control>
-					<include content="OverlayList">
-						<param name="OverlayListLeft" value="742" />
-						<param name="OverlayListTop" value="2" />
-					</include>
-				</itemlayout>
-				<focusedlayout height="67" width="806" condition="Container.Content(movies) | Container.Content(tvshows)">
-					<control type="label">
-						<left>15</left>
-						<width>90</width>
-						<height>67</height>
-						<font>font15</font>
-						<label fallback="• • •">$INFO[ListItem.Year]</label>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.Rating]</label>
-					</control>
-					<include content="OverlayList">
-						<param name="OverlayListLeft" value="742" />
-						<param name="OverlayListTop" value="2" />
-					</include>
-				</focusedlayout>
-				<itemlayout height="67" width="806" condition="Container.Content(seasons)">
-					<control type="label">
-						<left>15</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
-					</control>
-					<include content="OverlayList">
-						<param name="OverlayListLeft" value="742" />
-						<param name="OverlayListTop" value="2" />
-					</include>
-				</itemlayout>
-				<focusedlayout height="67" width="806" condition="Container.Content(seasons)">
-					<control type="label">
-						<left>15</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
-					</control>
-					<include content="OverlayList">
-						<param name="OverlayListLeft" value="742" />
-						<param name="OverlayListTop" value="2" />
-					</include>
-				</focusedlayout>
-				<itemlayout height="67" width="806" condition="Container.Content(episodes)">
-					<control type="label">
-						<left>15</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.Rating]</label>
-					</control>
-					<include content="OverlayList">
-						<param name="OverlayListLeft" value="742" />
-						<param name="OverlayListTop" value="2" />
-					</include>
-				</itemlayout>
-				<focusedlayout height="67" width="806" condition="Container.Content(episodes)">
-					<control type="label">
-						<left>15</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>80</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.Rating]</label>
-					</control>
-					<include content="OverlayList">
-						<param name="OverlayListLeft" value="742" />
-						<param name="OverlayListTop" value="2" />
-					</include>
-				</focusedlayout>
-			</control>
-			<control type="scrollbar" id="60">
-				<visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
-				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-				<left>1910</left>
-				<top>600</top>
-				<width>10</width>
-				<height>465</height>
-				<onup>60</onup>
-				<ondown>60</ondown>
-				<onleft>50</onleft>
-				<onright>50</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-			</control>
-		</control>
-	</include>
-	<!-- Music LowList -->
-	<include name="MusicLowList">
-		<control type="group">
-			<visible>Control.IsVisible(501) + !$EXP[isInfoDialog]</visible>
-			<include>WindowSlideAnimation</include>
-			<animation effect="slide" end="0,15" start="0,0" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
-			<control type="image">
-				<top>602</top>
-				<width>FullScreenWidth</width>
-				<height>485</height>
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="group">
-				<visible>!Container.Content(addons)</visible>
-				<left>30</left>
-				<top>633</top>
-				<control type="image">
-					<width>402</width>
-					<height>402</height>
-					<aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
-					<texture background="true" diffuse="diffuse/lowlist-square.png">$VAR[ThumbVar]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-			</control>
-			<control type="group">
-				<visible>Container.Content(addons)</visible>
-				<left>30</left>
-				<top>633</top>
-				<control type="image">
-					<width>402</width>
-					<height>402</height>
-					<aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
-					<texture background="true" diffuse="diffuse/lowlist-square.png">$INFO[ListItem.Icon]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-			</control>
-			<control type="grouplist">
-				<visible>!Container.Content(addons)</visible>
-				<left>1280</left>
-				<top>620</top>
-				<width>610</width>
-				<height>360</height>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[557]:[/COLOR][CR]$INFO[ListItem.Artist]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.Artist)</visible>
-				</control>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[558]/$LOCALIZE[562]:[/COLOR][CR]$INFO[ListItem.Album]$INFO[ListItem.Year, (,)]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>Container.Content(songs) + !String.IsEmpty(ListItem.Album)</visible>
-				</control>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Genre]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.Genre)</visible>
-				</control>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[180]:[/COLOR][CR]$INFO[ListItem.Duration]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.Duration)</visible>
-				</control>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21894]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Formed)]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Genre))</visible>
-				</control>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21893]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Born)]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Genre))</visible>
-				</control>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Genre)]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.Property(Artist_Genre)) + !Window.IsActive(musicplaylist) + !Container.Content(artists)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<visible>!Container.Content(addons)</visible>
-				<left>1295</left>
-				<top>814</top>
-				<control type="textbox">
-					<label>$VAR[OtherPlotVar]</label>
-					<width>595</width>
-					<height>220</height>
-					<font>font14_textbox</font>
-					<include>InfoPanelButtonsValues</include>
-					<include>AutoscrollDefault</include>
-				</control>
-			</control>
-			<control type="grouplist">
-				<visible>Container.Content(addons)</visible>
-				<left>1280</left>
-				<top>620</top>
-				<width>610</width>
-				<height>360</height>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.AddonType)</visible>
-				</control>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<visible>Container.Content(addons)</visible>
-				<left>1295</left>
-				<top>814</top>
-				<control type="textbox">
-					<label>$INFO[ListItem.AddonDescription]</label>
-					<width>595</width>
-					<height>220</height>
-					<font>font14_textbox</font>
-					<include>InfoPanelButtonsValues</include>
-					<include>AutoscrollDefault</include>
-				</control>
-			</control>
-			<control type="group">
+            <control type="panel" id="501">
+                <left>463</left>
+                <top>632</top>
+                <width>976</width>
+                <height>402</height>
+                <onleft>SetProperty(MediaMenu,True,home)</onleft>
+                <onleft>SetFocus(9050)</onleft>
+                <onright>60</onright>
+                <onup>501</onup>
+                <ondown>501</ondown>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="31003">list</viewtype>
+                <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <itemlayout height="67" width="806" condition="Container.Content(movies) | Container.Content(tvshows)">
+                    <control type="label">
+                        <left>15</left>
+                        <width>90</width>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label fallback="• • •">$INFO[ListItem.Year]</label>
+                        <visible>!String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Rating]</label>
+                    </control>
+                    <include content="OverlayList">
+                        <param name="OverlayListLeft" value="742" />
+                        <param name="OverlayListTop" value="2" />
+                    </include>
+                </itemlayout>
+                <focusedlayout height="67" width="806" condition="Container.Content(movies) | Container.Content(tvshows)">
+                    <control type="label">
+                        <left>15</left>
+                        <width>90</width>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label fallback="• • •">$INFO[ListItem.Year]</label>
+                        <visible>!String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Rating]</label>
+                    </control>
+                    <include content="OverlayList">
+                        <param name="OverlayListLeft" value="742" />
+                        <param name="OverlayListTop" value="2" />
+                    </include>
+                </focusedlayout>
+                <itemlayout height="67" width="806" condition="Container.Content(seasons)">
+                    <control type="label">
+                        <left>15</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
+                    </control>
+                    <include content="OverlayList">
+                        <param name="OverlayListLeft" value="742" />
+                        <param name="OverlayListTop" value="2" />
+                    </include>
+                </itemlayout>
+                <focusedlayout height="67" width="806" condition="Container.Content(seasons)">
+                    <control type="label">
+                        <left>15</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]</label>
+                    </control>
+                    <include content="OverlayList">
+                        <param name="OverlayListLeft" value="742" />
+                        <param name="OverlayListTop" value="2" />
+                    </include>
+                </focusedlayout>
+                <itemlayout height="67" width="806" condition="Container.Content(episodes)">
+                    <control type="label">
+                        <left>15</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Rating]</label>
+                    </control>
+                    <include content="OverlayList">
+                        <param name="OverlayListLeft" value="742" />
+                        <param name="OverlayListTop" value="2" />
+                    </include>
+                </itemlayout>
+                <focusedlayout height="67" width="806" condition="Container.Content(episodes)">
+                    <control type="label">
+                        <left>15</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>80</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Rating]</label>
+                    </control>
+                    <include content="OverlayList">
+                        <param name="OverlayListLeft" value="742" />
+                        <param name="OverlayListTop" value="2" />
+                    </include>
+                </focusedlayout>
+            </control>
+            <control type="scrollbar" id="60">
+                <visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
+                <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+                <left>1910</left>
+                <top>600</top>
+                <width>10</width>
+                <height>465</height>
+                <onup>60</onup>
+                <ondown>60</ondown>
+                <onleft>50</onleft>
+                <onright>50</onright>
+                <showonepage>false</showonepage>
+                <orientation>vertical</orientation>
+            </control>
+        </control>
+    </include>
+    <!-- Music LowList -->
+    <include name="MusicLowList">
+        <control type="group">
+            <visible>Control.IsVisible(501) + !$EXP[isInfoDialog]</visible>
+            <include>WindowSlideAnimation</include>
+            <animation effect="slide" end="0,15" start="0,0" time="0" condition="Window.IsActive(musicplaylist)">Conditional</animation>
+            <control type="image">
+                <top>602</top>
+                <width>FullScreenWidth</width>
+                <height>485</height>
+                <texture>background.png</texture>
+                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+            </control>
+            <control type="group">
+                <visible>!Container.Content(addons)</visible>
+                <left>30</left>
+                <top>633</top>
+                <control type="image">
+                    <width>402</width>
+                    <height>402</height>
+                    <aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="diffuse/lowlist-square.png">$VAR[ThumbVar]</texture>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                </control>
+            </control>
+            <control type="group">
+                <visible>Container.Content(addons)</visible>
+                <left>30</left>
+                <top>633</top>
+                <control type="image">
+                    <width>402</width>
+                    <height>402</height>
+                    <aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="diffuse/lowlist-square.png">$INFO[ListItem.Icon]</texture>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                </control>
+            </control>
+            <control type="grouplist">
+                <visible>!Container.Content(addons)</visible>
+                <left>1280</left>
+                <top>620</top>
+                <width>610</width>
+                <height>360</height>
+                <usecontrolcoords>true</usecontrolcoords>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[557]:[/COLOR][CR]$INFO[ListItem.Artist]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.Artist)</visible>
+                </control>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[558]/$LOCALIZE[562]:[/COLOR][CR]$INFO[ListItem.Album]$INFO[ListItem.Year, (,)]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>Container.Content(songs) + !String.IsEmpty(ListItem.Album)</visible>
+                </control>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Genre]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.Genre)</visible>
+                </control>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[180]:[/COLOR][CR]$INFO[ListItem.Duration]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.Duration)</visible>
+                </control>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21894]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Formed)]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Genre))</visible>
+                </control>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21893]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Born)]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Genre))</visible>
+                </control>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Genre)]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.Property(Artist_Genre)) + !Window.IsActive(musicplaylist) + !Container.Content(artists)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <visible>!Container.Content(addons)</visible>
+                <left>1295</left>
+                <top>814</top>
+                <control type="textbox">
+                    <label>$VAR[OtherPlotVar]</label>
+                    <width>595</width>
+                    <height>220</height>
+                    <font>font14_textbox</font>
+                    <include>InfoPanelButtonsValues</include>
+                    <include>AutoscrollDefault</include>
+                </control>
+            </control>
+            <control type="grouplist">
+                <visible>Container.Content(addons)</visible>
+                <left>1280</left>
+                <top>620</top>
+                <width>610</width>
+                <height>360</height>
+                <usecontrolcoords>true</usecontrolcoords>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.AddonType)</visible>
+                </control>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <visible>Container.Content(addons)</visible>
+                <left>1295</left>
+                <top>814</top>
+                <control type="textbox">
+                    <label>$INFO[ListItem.AddonDescription]</label>
+                    <width>595</width>
+                    <height>220</height>
+                    <font>font14_textbox</font>
+                    <include>InfoPanelButtonsValues</include>
+                    <include>AutoscrollDefault</include>
+                </control>
+            </control>
+            <control type="group">
                 <visible>Integer.IsGreater(Container(501).NumItems,0)</visible>
                 <control type="image">
                     <left>463</left>
@@ -441,303 +441,303 @@
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="panel" id="501">
-				<left>463</left>
-				<top>632</top>
-				<width>976</width>
-				<height>402</height>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<onright>60</onright>
-				<onup>501</onup>
-				<ondown>501</ondown>
-				<pagecontrol>60</pagecontrol>
-				<viewtype label="31003">list</viewtype>
-				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Window.IsActive(musicplaylist)</visible>
-				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="67" width="806" condition="Container.Content(albums)">
-					<control type="label">
-						<left>15</left>
-						<width>90</width>
-						<height>67</height>
-						<font>font15</font>
-						<label fallback="• • •">$INFO[ListItem.Year]</label>
-						<visible>!String.IsEmpty(ListItem.Album)</visible>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>190</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>190</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-						<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[557])</visible>
-					</control>
-					<control type="image">
-						<left>620</left>
-						<top>15</top>
-						<width>180</width>
-						<height>40</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[StarRatingVar]</texture>
-						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
-					</control>
-				</itemlayout>
-				<focusedlayout height="67" width="806" condition="Container.Content(albums)">
-					<control type="label">
-						<left>15</left>
-						<width>90</width>
-						<height>67</height>
-						<font>font15</font>
-						<label fallback="• • •">$INFO[ListItem.Year]</label>
-						<visible>!String.IsEmpty(ListItem.Album)</visible>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>190</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<right>190</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.label2]</label>
-						<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[557])</visible>
-					</control>
-					<control type="image">
-						<left>620</left>
-						<top>15</top>
-						<width>180</width>
-						<height>40</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[StarRatingVar]</texture>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
-					</control>
-				</focusedlayout>
-				<itemlayout height="67" width="806" condition="Container.Content(songs)">
-					<control type="label">
-						<left>0</left>
-						<width>60</width>
-						<height>67</height>
-						<font>font15</font>
-						<align>center</align>
-						<label fallback="• •">$INFO[ListItem.TrackNumber]</label>
-						<visible>!String.IsEmpty(ListItem.Title) + !ListItem.IsPlaying</visible>
-					</control>
-					<control type="label">
-						<visible>ListItem.IsPlaying + !Player.Paused</visible>
-						<left>17</left>
-						<width>60</width>
-						<height>67</height>
-						<font>IconTiny</font>
-						<label>I</label>
-					</control>
-					<control type="label">
-						<visible>ListItem.IsPlaying + Player.Paused</visible>
-						<left>17</left>
-						<width>60</width>
-						<height>67</height>
-						<font>IconTiny</font>
-						<label>K</label>
-					</control>
-					<control type="label">
-						<left>65</left>
-						<right>190</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Title]</label>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="label">
-						<left>65</left>
-						<right>190</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-						<visible>String.IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="image">
-						<left>620</left>
-						<top>15</top>
-						<width>180</width>
-						<height>40</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[StarRatingVar]</texture>
-						<colordiffuse>$VAR[ColorTextVar]</colordiffuse>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
-					</control>
-				</itemlayout>
-				<focusedlayout height="67" width="806" condition="Container.Content(songs)">
-					<control type="label">
-						<left>0</left>
-						<width>60</width>
-						<height>67</height>
-						<font>font15</font>
-						<align>center</align>
-						<label fallback="• •">$INFO[ListItem.TrackNumber]</label>
-						<visible>!String.IsEmpty(ListItem.Title) + !ListItem.IsPlaying</visible>
-					</control>
-					<control type="label">
-						<visible>ListItem.IsPlaying + !Player.Paused</visible>
-						<left>17</left>
-						<width>60</width>
-						<height>67</height>
-						<font>IconTiny</font>
-						<label>I</label>
-					</control>
-					<control type="label">
-						<visible>ListItem.IsPlaying + Player.Paused</visible>
-						<left>17</left>
-						<width>60</width>
-						<height>67</height>
-						<font>IconTiny</font>
-						<label>K</label>
-					</control>
-					<control type="label">
-						<left>65</left>
-						<right>190</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Title]</label>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="label">
-						<left>65</left>
-						<right>190</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-						<visible>String.IsEmpty(ListItem.Title)</visible>
-					</control>
-					<control type="image">
-						<left>620</left>
-						<top>15</top>
-						<width>180</width>
-						<height>40</height>
-						<aspectratio>keep</aspectratio>
-						<texture>$VAR[StarRatingVar]</texture>
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
-					</control>
-				</focusedlayout>
-				<itemlayout height="67" width="806" condition="![Container.Content(albums) | Container.Content(songs)]">
-					<control type="label">
-						<left>15</left>
-						<right>15</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<right>15</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="67" width="806" condition="![Container.Content(albums) | Container.Content(songs)]">
-					<control type="label">
-						<left>15</left>
-						<right>15</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<right>15</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.label2]</label>
-					</control>
-				</focusedlayout>
-			</control>
-			<control type="scrollbar" id="60">
-				<visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
-				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-				<left>1910</left>
-				<top>602</top>
-				<width>10</width>
-				<height>463</height>
-				<onup>60</onup>
-				<ondown>60</ondown>
-				<onleft>50</onleft>
-				<onright>50</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-			</control>
-		</control>
-	</include>
-	<!-- Addon LowList -->
-	<include name="AddonLowList">
-		<control type="group">
-			<visible>Control.IsVisible(501) + !$EXP[isInfoDialog]</visible>
-			<include>WindowSlideAnimation</include>
-			<animation effect="slide" end="0,-15" start="0,0" time="0" condition="Window.IsActive(pictures)">Conditional</animation>
-			<control type="image">
-				<top>617</top>
-				<width>FullScreenWidth</width>
-				<height>485</height>
-				<texture>background.png</texture>
-				<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-			</control>
-			<control type="group">
-				<left>30</left>
-				<top>648</top>
-				<control type="image">
-					<width>402</width>
-					<height>402</height>
-					<aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
-					<texture background="true" diffuse="diffuse/lowlist-square.png">$INFO[ListItem.Icon]</texture>
-					<fadetime>IconCrossfadeTime</fadetime>
-				</control>
-			</control>
-			<control type="grouplist">
-				<left>1280</left>
-				<top>635</top>
-				<width>610</width>
-				<height>360</height>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.AddonType)</visible>
-				</control>
-				<control type="button">
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
-					<width>610</width>
-					<include>InfoPanelButtonsValues</include>
-					<visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<left>1295</left>
-				<top>829</top>
-				<control type="textbox">
-					<label>$INFO[ListItem.AddonDescription]</label>
-					<width>595</width>
-					<height>220</height>
-					<font>font14_textbox</font>
-					<include>InfoPanelButtonsValues</include>
-					<include>AutoscrollDefault</include>
-				</control>
-			</control>
-			<control type="group">
+            <control type="panel" id="501">
+                <left>463</left>
+                <top>632</top>
+                <width>976</width>
+                <height>402</height>
+                <onleft>SetProperty(MediaMenu,True,home)</onleft>
+                <onleft>SetFocus(9050)</onleft>
+                <onright>60</onright>
+                <onup>501</onup>
+                <ondown>501</ondown>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="31003">list</viewtype>
+                <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Window.IsActive(musicplaylist)</visible>
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <itemlayout height="67" width="806" condition="Container.Content(albums)">
+                    <control type="label">
+                        <left>15</left>
+                        <width>90</width>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label fallback="• • •">$INFO[ListItem.Year]</label>
+                        <visible>!String.IsEmpty(ListItem.Album)</visible>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>190</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>190</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Label2]</label>
+                        <visible>String.IsEqual(Container.SortMethod,$LOCALIZE[557])</visible>
+                    </control>
+                    <control type="image">
+                        <left>620</left>
+                        <top>15</top>
+                        <width>180</width>
+                        <height>40</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$VAR[StarRatingVar]</texture>
+                        <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                        <visible>!String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="67" width="806" condition="Container.Content(albums)">
+                    <control type="label">
+                        <left>15</left>
+                        <width>90</width>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label fallback="• • •">$INFO[ListItem.Year]</label>
+                        <visible>!String.IsEmpty(ListItem.Album)</visible>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>190</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <right>190</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.label2]</label>
+                        <visible>String.IsEqual(Container.SortMethod,$LOCALIZE[557])</visible>
+                    </control>
+                    <control type="image">
+                        <left>620</left>
+                        <top>15</top>
+                        <width>180</width>
+                        <height>40</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$VAR[StarRatingVar]</texture>
+                        <visible>!String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                </focusedlayout>
+                <itemlayout height="67" width="806" condition="Container.Content(songs)">
+                    <control type="label">
+                        <left>0</left>
+                        <width>60</width>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>center</align>
+                        <label fallback="• •">$INFO[ListItem.TrackNumber]</label>
+                        <visible>!String.IsEmpty(ListItem.Title) + !ListItem.IsPlaying</visible>
+                    </control>
+                    <control type="label">
+                        <visible>ListItem.IsPlaying + !Player.Paused</visible>
+                        <left>17</left>
+                        <width>60</width>
+                        <height>67</height>
+                        <font>IconTiny</font>
+                        <label>I</label>
+                    </control>
+                    <control type="label">
+                        <visible>ListItem.IsPlaying + Player.Paused</visible>
+                        <left>17</left>
+                        <width>60</width>
+                        <height>67</height>
+                        <font>IconTiny</font>
+                        <label>K</label>
+                    </control>
+                    <control type="label">
+                        <left>65</left>
+                        <right>190</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Title]</label>
+                        <visible>!String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                    <control type="label">
+                        <left>65</left>
+                        <right>190</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                        <visible>String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                    <control type="image">
+                        <left>620</left>
+                        <top>15</top>
+                        <width>180</width>
+                        <height>40</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$VAR[StarRatingVar]</texture>
+                        <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                        <visible>!String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="67" width="806" condition="Container.Content(songs)">
+                    <control type="label">
+                        <left>0</left>
+                        <width>60</width>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>center</align>
+                        <label fallback="• •">$INFO[ListItem.TrackNumber]</label>
+                        <visible>!String.IsEmpty(ListItem.Title) + !ListItem.IsPlaying</visible>
+                    </control>
+                    <control type="label">
+                        <visible>ListItem.IsPlaying + !Player.Paused</visible>
+                        <left>17</left>
+                        <width>60</width>
+                        <height>67</height>
+                        <font>IconTiny</font>
+                        <label>I</label>
+                    </control>
+                    <control type="label">
+                        <visible>ListItem.IsPlaying + Player.Paused</visible>
+                        <left>17</left>
+                        <width>60</width>
+                        <height>67</height>
+                        <font>IconTiny</font>
+                        <label>K</label>
+                    </control>
+                    <control type="label">
+                        <left>65</left>
+                        <right>190</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Title]</label>
+                        <visible>!String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                    <control type="label">
+                        <left>65</left>
+                        <right>190</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                        <visible>String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                    <control type="image">
+                        <left>620</left>
+                        <top>15</top>
+                        <width>180</width>
+                        <height>40</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$VAR[StarRatingVar]</texture>
+                        <visible>!String.IsEmpty(ListItem.Title)</visible>
+                    </control>
+                </focusedlayout>
+                <itemlayout height="67" width="806" condition="![Container.Content(albums) | Container.Content(songs)]">
+                    <control type="label">
+                        <left>15</left>
+                        <right>15</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>15</left>
+                        <right>15</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="67" width="806" condition="![Container.Content(albums) | Container.Content(songs)]">
+                    <control type="label">
+                        <left>15</left>
+                        <right>15</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>15</left>
+                        <right>15</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.label2]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="scrollbar" id="60">
+                <visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
+                <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+                <left>1910</left>
+                <top>602</top>
+                <width>10</width>
+                <height>463</height>
+                <onup>60</onup>
+                <ondown>60</ondown>
+                <onleft>50</onleft>
+                <onright>50</onright>
+                <showonepage>false</showonepage>
+                <orientation>vertical</orientation>
+            </control>
+        </control>
+    </include>
+    <!-- Addon LowList -->
+    <include name="AddonLowList">
+        <control type="group">
+            <visible>Control.IsVisible(501) + !$EXP[isInfoDialog]</visible>
+            <include>WindowSlideAnimation</include>
+            <animation effect="slide" end="0,-15" start="0,0" time="0" condition="Window.IsActive(pictures)">Conditional</animation>
+            <control type="image">
+                <top>617</top>
+                <width>FullScreenWidth</width>
+                <height>485</height>
+                <texture>background.png</texture>
+                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+            </control>
+            <control type="group">
+                <left>30</left>
+                <top>648</top>
+                <control type="image">
+                    <width>402</width>
+                    <height>402</height>
+                    <aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="diffuse/lowlist-square.png">$INFO[ListItem.Icon]</texture>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                </control>
+            </control>
+            <control type="grouplist">
+                <left>1280</left>
+                <top>635</top>
+                <width>610</width>
+                <height>360</height>
+                <usecontrolcoords>true</usecontrolcoords>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.AddonType)</visible>
+                </control>
+                <control type="button">
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
+                    <width>610</width>
+                    <include>InfoPanelButtonsValues</include>
+                    <visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <left>1295</left>
+                <top>829</top>
+                <control type="textbox">
+                    <label>$INFO[ListItem.AddonDescription]</label>
+                    <width>595</width>
+                    <height>220</height>
+                    <font>font14_textbox</font>
+                    <include>InfoPanelButtonsValues</include>
+                    <include>AutoscrollDefault</include>
+                </control>
+            </control>
+            <control type="group">
                 <visible>Integer.IsGreater(Container(501).NumItems,0)</visible>
                 <control type="image">
                     <left>463</left>
@@ -755,69 +755,69 @@
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="panel" id="501">
-				<left>463</left>
-				<top>648</top>
-				<width>976</width>
-				<height>402</height>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<onright>60</onright>
-				<onup>501</onup>
-				<ondown>501</ondown>
-				<pagecontrol>60</pagecontrol>
-				<viewtype label="31003">list</viewtype>
-				<visible>Container.Content(addons)</visible>
-				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="67" width="806">
-					<control type="label">
-						<left>15</left>
-						<right>15</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<right>15</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="67" width="806">
-					<control type="label">
-						<left>15</left>
-						<right>15</right>
-						<height>67</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<right>15</right>
-						<height>67</height>
-						<font>font15</font>
-						<align>right</align>
-						<label>$INFO[ListItem.label2]</label>
-					</control>
-				</focusedlayout>
-			</control>
-			<control type="scrollbar" id="60">
-				<visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
-				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-				<left>1910</left>
-				<top>617</top>
-				<width>10</width>
-				<height>463</height>
-				<onup>60</onup>
-				<ondown>60</ondown>
-				<onleft>50</onleft>
-				<onright>50</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-			</control>
-		</control>
-	</include>
+            <control type="panel" id="501">
+                <left>463</left>
+                <top>648</top>
+                <width>976</width>
+                <height>402</height>
+                <onleft>SetProperty(MediaMenu,True,home)</onleft>
+                <onleft>SetFocus(9050)</onleft>
+                <onright>60</onright>
+                <onup>501</onup>
+                <ondown>501</ondown>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="31003">list</viewtype>
+                <visible>Container.Content(addons)</visible>
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <itemlayout height="67" width="806">
+                    <control type="label">
+                        <left>15</left>
+                        <right>15</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>15</left>
+                        <right>15</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="67" width="806">
+                    <control type="label">
+                        <left>15</left>
+                        <right>15</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>15</left>
+                        <right>15</right>
+                        <height>67</height>
+                        <font>font15</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.label2]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="scrollbar" id="60">
+                <visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
+                <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+                <left>1910</left>
+                <top>617</top>
+                <width>10</width>
+                <height>463</height>
+                <onup>60</onup>
+                <ondown>60</ondown>
+                <onleft>50</onleft>
+                <onright>50</onright>
+                <showonepage>false</showonepage>
+                <orientation>vertical</orientation>
+            </control>
+        </control>
+    </include>
 </includes>

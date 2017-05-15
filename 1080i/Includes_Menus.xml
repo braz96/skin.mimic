@@ -1,242 +1,242 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="MainMenuHorizontal">
-		<control type="group">
-			<top>955</top>
-			<animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-			<animation effect="fade" start="100" end="0" time="300" condition="Control.HasFocus(9010)">Conditional</animation>
-			<animation effect="slide" start="0,130" end="0,0" time="400" tween="quadratic" easing="out" condition="!Control.HasFocus(9010)">Conditional</animation>
-	        <control type="image">
-	        	<left>98</left>
-	            <width>432</width>
-	            <height>90</height>
-	            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-	            <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	            <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Column,2)">Conditional</animation>
-	            <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Column,1)">Conditional</animation>
-	            <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Column,0)">Conditional</animation>
-	        </control>
-			<control type="panel" id="9000">
-				<left>98</left>
-				<top>-3</top>
-				<width>1728</width>
-				<height>90</height>
-				<onup condition="!String.IsEmpty(Container(9000).ListItem.Property(widget))">9003</onup>
-				<ondown>9010</ondown>
-				<pagecontrol />
-				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<orientation>Horizontal</orientation>
-				<itemlayout height="90" width="432">
-					<control type="label">
-						<width>432</width>
-						<height>90</height>
-						<font>font_MainMenu</font>
-						<textcolor>$VAR[ColorMenuVar]</textcolor>
-						<align>center</align>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="90" width="432">
-					<control type="label">
-						<width>432</width>
-						<height>90</height>
-						<font>font_MainMenu</font>
-						<textcolor>$VAR[ColorMenuVar]</textcolor>
-						<selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
-						<align>center</align>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</focusedlayout>
-				<content>
-					<include>skinshortcuts-mainmenu</include>
-				</content>
-			</control>
-			<control type="group">
-	            <include>VisibleFadeEffect</include>
-	            <visible>Control.HasFocus(9000)</visible>
-	            <height>30</height>
-	            <top>30</top>
-	            <left>30</left>
-	            <control type="label">
-	                <visible>Container(9000).HasPrevious</visible>
-	                <width>30</width>
-	                <height>30</height>
-	                <align>center</align>
-	                <label>a</label>
-	                <font>IconTiny</font>
-	                <textcolor>disabled</textcolor>
-	            </control>
-	            <control type="label">
-	                <visible>Container(9000).HasNext</visible>
-	                <left>1830</left>
-	                <width>30</width>
-	                <height>30</height>
-	                <align>center</align>
-	                <label>b</label>
-	                <font>IconTiny</font>
-	                <textcolor>disabled</textcolor>
-	            </control>
-	        </control>
-		</control>
-		<control type="group" id="9001">
-			<top>955</top>
+    <include name="MainMenuHorizontal">
+        <control type="group">
+            <top>955</top>
+            <animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+            <animation effect="fade" start="100" end="0" time="300" condition="Control.HasFocus(9010)">Conditional</animation>
+            <animation effect="slide" start="0,130" end="0,0" time="400" tween="quadratic" easing="out" condition="!Control.HasFocus(9010)">Conditional</animation>
+            <control type="image">
+                <left>98</left>
+                <width>432</width>
+                <height>90</height>
+                <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Column,2)">Conditional</animation>
+                <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Column,1)">Conditional</animation>
+                <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Column,0)">Conditional</animation>
+            </control>
+            <control type="panel" id="9000">
+                <left>98</left>
+                <top>-3</top>
+                <width>1728</width>
+                <height>90</height>
+                <onup condition="!String.IsEmpty(Container(9000).ListItem.Property(widget))">9003</onup>
+                <ondown>9010</ondown>
+                <pagecontrol />
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <orientation>Horizontal</orientation>
+                <itemlayout height="90" width="432">
+                    <control type="label">
+                        <width>432</width>
+                        <height>90</height>
+                        <font>font_MainMenu</font>
+                        <textcolor>$VAR[ColorMenuVar]</textcolor>
+                        <align>center</align>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="90" width="432">
+                    <control type="label">
+                        <width>432</width>
+                        <height>90</height>
+                        <font>font_MainMenu</font>
+                        <textcolor>$VAR[ColorMenuVar]</textcolor>
+                        <selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
+                        <align>center</align>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <include>skinshortcuts-mainmenu</include>
+                </content>
+            </control>
+            <control type="group">
+                <include>VisibleFadeEffect</include>
+                <visible>Control.HasFocus(9000)</visible>
+                <height>30</height>
+                <top>30</top>
+                <left>30</left>
+                <control type="label">
+                    <visible>Container(9000).HasPrevious</visible>
+                    <width>30</width>
+                    <height>30</height>
+                    <align>center</align>
+                    <label>a</label>
+                    <font>IconTiny</font>
+                    <textcolor>disabled</textcolor>
+                </control>
+                <control type="label">
+                    <visible>Container(9000).HasNext</visible>
+                    <left>1830</left>
+                    <width>30</width>
+                    <height>30</height>
+                    <align>center</align>
+                    <label>b</label>
+                    <font>IconTiny</font>
+                    <textcolor>disabled</textcolor>
+                </control>
+            </control>
+        </control>
+        <control type="group" id="9001">
+            <top>955</top>
             <animation effect="fade" end="0" start="100" time="0" condition="!Control.HasFocus(9010)" reversible="false">Conditional</animation>
             <animation effect="fade" start="100" end="50" time="300" condition="!ControlGroup(9001).HasFocus()">conditional</animation>
-			<animation effect="slide" start="0,120" end="0,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9010)">Conditional</animation>
+            <animation effect="slide" start="0,120" end="0,0" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9010)">Conditional</animation>
             <control type="image">
-            	<left>98</left>
-	            <width>432</width>
-	            <height>90</height>
-	            <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9010)">Conditional</animation>
-	            <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	            <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Column,2)">Conditional</animation>
-	            <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Column,1)">Conditional</animation>
-	            <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Column,0)">Conditional</animation>
-	        </control>
-			<control type="panel" id="9010">
-				<include>VisibleFadeEffect</include>
-				<left>98</left>
-				<top>-3</top>
-				<width>1728</width>
-				<height>90</height>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
-				<pagecontrol />
-				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<orientation>Horizontal</orientation>
-				<include content="SubmenuListContent">
-					<param name="SubmenuItemHeight" value="90" />
-					<param name="SubmenuItemWidth" value="432" />
-					<param name="SubmenuAlign" value="center" />
-					<param name="SubmenuTextOffset" value="0" />
-				</include>
-			</control>
-			<control type="group">
-	            <include>VisibleFadeEffect</include>
-	            <visible>Control.HasFocus(9010)</visible>
-	            <height>30</height>
-	            <top>30</top>
-	            <left>30</left>
-	            <control type="label">
-	                <visible>Container(9010).HasPrevious</visible>
-	                <width>30</width>
-	                <height>30</height>
-	                <align>center</align>
-	                <label>a</label>
-	                <font>IconTiny</font>
-	                <textcolor>disabled</textcolor>
-	            </control>
-	            <control type="label">
-	                <visible>Container(9010).HasNext</visible>
-	                <left>1830</left>
-	                <width>30</width>
-	                <height>30</height>
-	                <align>center</align>
-	                <label>b</label>
-	                <font>IconTiny</font>
-	                <textcolor>disabled</textcolor>
-	            </control>
-	        </control>
-		</control>
-	</include>
-	<include name="MainMenuVertical">
+                <left>98</left>
+                <width>432</width>
+                <height>90</height>
+                <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9010)">Conditional</animation>
+                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Column,2)">Conditional</animation>
+                <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Column,1)">Conditional</animation>
+                <animation effect="slide" end="432" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Column,0)">Conditional</animation>
+            </control>
+            <control type="panel" id="9010">
+                <include>VisibleFadeEffect</include>
+                <left>98</left>
+                <top>-3</top>
+                <width>1728</width>
+                <height>90</height>
+                <onup>9000</onup>
+                <ondown>9000</ondown>
+                <pagecontrol />
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <orientation>Horizontal</orientation>
+                <include content="SubmenuListContent">
+                    <param name="SubmenuItemHeight" value="90" />
+                    <param name="SubmenuItemWidth" value="432" />
+                    <param name="SubmenuAlign" value="center" />
+                    <param name="SubmenuTextOffset" value="0" />
+                </include>
+            </control>
+            <control type="group">
+                <include>VisibleFadeEffect</include>
+                <visible>Control.HasFocus(9010)</visible>
+                <height>30</height>
+                <top>30</top>
+                <left>30</left>
+                <control type="label">
+                    <visible>Container(9010).HasPrevious</visible>
+                    <width>30</width>
+                    <height>30</height>
+                    <align>center</align>
+                    <label>a</label>
+                    <font>IconTiny</font>
+                    <textcolor>disabled</textcolor>
+                </control>
+                <control type="label">
+                    <visible>Container(9010).HasNext</visible>
+                    <left>1830</left>
+                    <width>30</width>
+                    <height>30</height>
+                    <align>center</align>
+                    <label>b</label>
+                    <font>IconTiny</font>
+                    <textcolor>disabled</textcolor>
+                </control>
+            </control>
+        </control>
+    </include>
+    <include name="MainMenuVertical">
         <control type="group">
-        	<visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)] + !$EXP[isInfoDialog]</visible>
+            <visible>![Window.IsVisible(favourites) | Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-lazytv-main.xml) | Window.IsVisible(script-lazytv-BigScreenList.xml)] + !$EXP[isInfoDialog]</visible>
             <include>MainMenuSlide</include>
             <control type="group">
-            	<animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="300" condition="Control.HasFocus(9010)">Conditional</animation>
-				<animation effect="slide" start="-470,0" end="0,0" time="400" tween="quadratic" easing="out" condition="!Control.HasFocus(9010)">Conditional</animation>
-            	<control type="image">
-	    			<top>100</top>
-	    			<left>35</left>
-	                <width>430</width>
-	                <height>95</height>
-	                <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
-	                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,6)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,5)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,4)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,3)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,2)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,1)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,0)">Conditional</animation>
-	            </control>
-	    		<control type="panel" id="9000">
-					<left>35</left>
-					<top>98</top>
-					<width>430</width>
-					<height>760</height>
-					<onright condition="!String.IsEmpty(Container(9000).ListItem.Property(widget))">9003</onright>
-					<onleft condition="!Skin.HasSetting(Enable.CombineMenus)">9010</onleft>
-					<ondown>9000</ondown>
-					<onup>9000</onup>
-					<onback condition="Skin.HasSetting(Enable.CombineMenus)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
-					<pagecontrol />
-					<scrolltime tween="quadratic" easing="out">300</scrolltime>
-					<orientation>Vertical</orientation>
-					<itemlayout height="95" width="430">
-						<control type="label">
-							<width>430</width>
-							<height>95</height>
-							<font>font_MainMenu</font>
-							<textoffsetx>20</textoffsetx>
-							<textcolor>$VAR[ColorMenuVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
-						</control>
-						<control type="label">
-							<width>430</width>
-							<height>95</height>
-							<font>font_SubMenu</font>
-							<textoffsetx>20</textoffsetx>
-							<textcolor>$VAR[ColorMenuVar]</textcolor>
-							<label>[I]$INFO[ListItem.Label][/I]</label>
-							<visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
-						</control>
-					</itemlayout>
-					<focusedlayout height="95" width="430">
-						<control type="label">
-							<width>430</width>
-							<height>95</height>
-							<font>font_MainMenu</font>
-							<textoffsetx>20</textoffsetx>
-							<textcolor>$VAR[ColorMenuVar]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
-						</control>
-						<control type="label">
-							<width>430</width>
-							<height>95</height>
-							<font>font_SubMenu</font>
-							<textoffsetx>20</textoffsetx>
-							<textcolor>$VAR[ColorMenuVar]</textcolor>
-							<label>[I]$INFO[ListItem.Label][/I]</label>
-							<visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
-						</control>
-						<control type="group">
-							<animation effect="fade" end="0" start="100" time="200">UnFocus</animation>
-							<animation effect="fade" start="0" end="100" time="400" delay="400">Focus</animation>
-							<control type="label">
-								<left>390</left>
-								<width>30</width>
-								<height>88</height>
-								<label>I</label>
-								<font>IconTiny</font>
-								<align>right</align>
-								<textcolor>ccffffff</textcolor>
-								<visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
-								<visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
-								<animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
-							</control>
-						</control>
-					</focusedlayout>
-					<content>
-						<include condition="Skin.HasSetting(Enable.CombineMenus)">skinshortcuts-allmenus</include>
-						<include condition="!Skin.HasSetting(Enable.CombineMenus)">skinshortcuts-mainmenu</include>
-					</content>
-	    		</control>
-	    		<control type="group">
+                <animation effect="fade" start="100" end="50" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+                <animation effect="fade" start="100" end="0" time="300" condition="Control.HasFocus(9010)">Conditional</animation>
+                <animation effect="slide" start="-470,0" end="0,0" time="400" tween="quadratic" easing="out" condition="!Control.HasFocus(9010)">Conditional</animation>
+                <control type="image">
+                    <top>100</top>
+                    <left>35</left>
+                    <width>430</width>
+                    <height>95</height>
+                    <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(9000)">Conditional</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,6)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,5)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,0)">Conditional</animation>
+                </control>
+                <control type="panel" id="9000">
+                    <left>35</left>
+                    <top>98</top>
+                    <width>430</width>
+                    <height>760</height>
+                    <onright condition="!String.IsEmpty(Container(9000).ListItem.Property(widget))">9003</onright>
+                    <onleft condition="!Skin.HasSetting(Enable.CombineMenus)">9010</onleft>
+                    <ondown>9000</ondown>
+                    <onup>9000</onup>
+                    <onback condition="Skin.HasSetting(Enable.CombineMenus)">RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=9000)</onback>
+                    <pagecontrol />
+                    <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                    <orientation>Vertical</orientation>
+                    <itemlayout height="95" width="430">
+                        <control type="label">
+                            <width>430</width>
+                            <height>95</height>
+                            <font>font_MainMenu</font>
+                            <textoffsetx>20</textoffsetx>
+                            <textcolor>$VAR[ColorMenuVar]</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                            <visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
+                        </control>
+                        <control type="label">
+                            <width>430</width>
+                            <height>95</height>
+                            <font>font_SubMenu</font>
+                            <textoffsetx>20</textoffsetx>
+                            <textcolor>$VAR[ColorMenuVar]</textcolor>
+                            <label>[I]$INFO[ListItem.Label][/I]</label>
+                            <visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="95" width="430">
+                        <control type="label">
+                            <width>430</width>
+                            <height>95</height>
+                            <font>font_MainMenu</font>
+                            <textoffsetx>20</textoffsetx>
+                            <textcolor>$VAR[ColorMenuVar]</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                            <visible>String.IsEmpty(ListItem.Property(isSubmenu))</visible>
+                        </control>
+                        <control type="label">
+                            <width>430</width>
+                            <height>95</height>
+                            <font>font_SubMenu</font>
+                            <textoffsetx>20</textoffsetx>
+                            <textcolor>$VAR[ColorMenuVar]</textcolor>
+                            <label>[I]$INFO[ListItem.Label][/I]</label>
+                            <visible>!String.IsEmpty(ListItem.Property(isSubmenu))</visible>
+                        </control>
+                        <control type="group">
+                            <animation effect="fade" end="0" start="100" time="200">UnFocus</animation>
+                            <animation effect="fade" start="0" end="100" time="400" delay="400">Focus</animation>
+                            <control type="label">
+                                <left>390</left>
+                                <width>30</width>
+                                <height>88</height>
+                                <label>I</label>
+                                <font>IconTiny</font>
+                                <align>right</align>
+                                <textcolor>ccffffff</textcolor>
+                                <visible>String.Contains(ListItem.Property(hasSubmenu),True) + Skin.HasSetting(Enable.CombineMenus)</visible>
+                                <visible>!String.IsEqual(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility"))</visible>
+                                <animation effect="rotate" time="0" start="0" end="-90" condition="true" center="auto">Conditional</animation>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                    <content>
+                        <include condition="Skin.HasSetting(Enable.CombineMenus)">skinshortcuts-allmenus</include>
+                        <include condition="!Skin.HasSetting(Enable.CombineMenus)">skinshortcuts-mainmenu</include>
+                    </content>
+                </control>
+                <control type="group">
                     <include>VisibleFadeEffect</include>
                     <visible>Control.HasFocus(9000)</visible>
                     <height>30</height>
@@ -262,45 +262,45 @@
                         <textcolor>disabled</textcolor>
                     </control>
                 </control>
-	    	</control>
-    		<control type="group" id="9001">
+            </control>
+            <control type="group" id="9001">
                 <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(9010)" reversible="false">Conditional</animation>
                 <animation effect="fade" start="100" end="50" time="300" condition="!ControlGroup(9001).HasFocus()">conditional</animation>
-				<animation effect="slide" start="0" end="465" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9010)">Conditional</animation>
+                <animation effect="slide" start="0" end="465" time="400" tween="quadratic" easing="out" condition="Control.HasFocus(9010)">Conditional</animation>
                 <control type="image">
-                	<top>100</top>
-                	<left>-430</left>
-	                <width>430</width>
-	                <height>95</height>
-	                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,6)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,5)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,4)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,3)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,2)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,1)">Conditional</animation>
-	                <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,0)">Conditional</animation>
-	            </control>
-    			<control type="panel" id="9010">
-					<include>VisibleFadeEffect</include>
-					<left>-430</left>
-					<top>98</top>
-					<width>430</width>
-					<height>760</height>
-					<onleft>9000</onleft>
-					<onright>9000</onright>
-					<onback>9000</onback>
-					<pagecontrol />
-					<scrolltime tween="quadratic" easing="out">300</scrolltime>
-					<orientation>Vertical</orientation>
-					<include content="SubmenuListContent">
-						<param name="SubmenuItemHeight" value="95" />
-						<param name="SubmenuItemWidth" value="430" />
-						<param name="SubmenuAlign" value="left" />
-						<param name="SubmenuTextOffset" value="20" />
-					</include>
-    			</control>
-    			<control type="group">
+                    <top>100</top>
+                    <left>-430</left>
+                    <width>430</width>
+                    <height>95</height>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,6)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,5)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9010).Row,0)">Conditional</animation>
+                </control>
+                <control type="panel" id="9010">
+                    <include>VisibleFadeEffect</include>
+                    <left>-430</left>
+                    <top>98</top>
+                    <width>430</width>
+                    <height>760</height>
+                    <onleft>9000</onleft>
+                    <onright>9000</onright>
+                    <onback>9000</onback>
+                    <pagecontrol />
+                    <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                    <orientation>Vertical</orientation>
+                    <include content="SubmenuListContent">
+                        <param name="SubmenuItemHeight" value="95" />
+                        <param name="SubmenuItemWidth" value="430" />
+                        <param name="SubmenuAlign" value="left" />
+                        <param name="SubmenuTextOffset" value="20" />
+                    </include>
+                </control>
+                <control type="group">
                     <include>VisibleFadeEffect</include>
                     <visible>Control.HasFocus(9010)</visible>
                     <height>30</height>
@@ -326,62 +326,62 @@
                         <textcolor>disabled</textcolor>
                     </control>
                 </control>
-    		</control>
+            </control>
         </control>
-	</include>	
-	<include name="SubmenuListContent">
-		<itemlayout height="$PARAM[SubmenuItemHeight]" width="$PARAM[SubmenuItemWidth]">
-			<control type="image">
-				<width>$PARAM[SubmenuItemWidth]</width>
-				<height>$PARAM[SubmenuItemHeight]</height>
-				<texture>blank.png</texture>
-				<visible>!Skin.HasSetting(Enable.HorizontalMenu)</visible>
-			</control>
-			<control type="label">
-				<width>$PARAM[SubmenuItemWidth]</width>
-				<height>$PARAM[SubmenuItemHeight]</height>
-				<font>font_SubMenu</font>
-				<textcolor>$VAR[ColorMenuVar]</textcolor>
-				<textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
-				<selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
-				<align>$PARAM[SubmenuAlign]</align>
-				<label>$INFO[ListItem.Label]</label>
-			</control>
-		</itemlayout>
-		<focusedlayout height="$PARAM[SubmenuItemHeight]" width="$PARAM[SubmenuItemWidth]">
-			<control type="image">
-				<width>$PARAM[SubmenuItemWidth]</width>
-				<height>$PARAM[SubmenuItemHeight]</height>
-				<texture>blank.png</texture>
-				<visible>!Skin.HasSetting(Enable.HorizontalMenu)</visible>
-			</control>
-			<control type="group">
-				<visible>Control.HasFocus(9010)</visible>
-				<control type="label">
-					<width>$PARAM[SubmenuItemWidth]</width>
-					<height>$PARAM[SubmenuItemHeight]</height>
-					<font>font_SubMenu</font>
-					<textcolor>$VAR[ColorMenuVar]</textcolor>
-					<textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
-					<align>$PARAM[SubmenuAlign]</align>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-			</control>
-			<control type="group">
-				<visible>!Control.HasFocus(9010)</visible>
-				<control type="label">
-					<width>$PARAM[SubmenuItemWidth]</width>
-					<height>$PARAM[SubmenuItemHeight]</height>
-					<font>font_SubMenu</font>
-					<textcolor>$VAR[ColorMenuVar]</textcolor>
-					<textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
-					<align>$PARAM[SubmenuAlign]</align>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-			</control>
-		</focusedlayout>
-		<content>
-			<include>skinshortcuts-submenu</include>
-		</content>
-	</include>
+    </include>  
+    <include name="SubmenuListContent">
+        <itemlayout height="$PARAM[SubmenuItemHeight]" width="$PARAM[SubmenuItemWidth]">
+            <control type="image">
+                <width>$PARAM[SubmenuItemWidth]</width>
+                <height>$PARAM[SubmenuItemHeight]</height>
+                <texture>blank.png</texture>
+                <visible>!Skin.HasSetting(Enable.HorizontalMenu)</visible>
+            </control>
+            <control type="label">
+                <width>$PARAM[SubmenuItemWidth]</width>
+                <height>$PARAM[SubmenuItemHeight]</height>
+                <font>font_SubMenu</font>
+                <textcolor>$VAR[ColorMenuVar]</textcolor>
+                <textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
+                <selectedcolor>$VAR[ColorMenuVar]</selectedcolor>
+                <align>$PARAM[SubmenuAlign]</align>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+        </itemlayout>
+        <focusedlayout height="$PARAM[SubmenuItemHeight]" width="$PARAM[SubmenuItemWidth]">
+            <control type="image">
+                <width>$PARAM[SubmenuItemWidth]</width>
+                <height>$PARAM[SubmenuItemHeight]</height>
+                <texture>blank.png</texture>
+                <visible>!Skin.HasSetting(Enable.HorizontalMenu)</visible>
+            </control>
+            <control type="group">
+                <visible>Control.HasFocus(9010)</visible>
+                <control type="label">
+                    <width>$PARAM[SubmenuItemWidth]</width>
+                    <height>$PARAM[SubmenuItemHeight]</height>
+                    <font>font_SubMenu</font>
+                    <textcolor>$VAR[ColorMenuVar]</textcolor>
+                    <textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
+                    <align>$PARAM[SubmenuAlign]</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </control>
+            <control type="group">
+                <visible>!Control.HasFocus(9010)</visible>
+                <control type="label">
+                    <width>$PARAM[SubmenuItemWidth]</width>
+                    <height>$PARAM[SubmenuItemHeight]</height>
+                    <font>font_SubMenu</font>
+                    <textcolor>$VAR[ColorMenuVar]</textcolor>
+                    <textoffsetx>$PARAM[SubmenuTextOffset]</textoffsetx>
+                    <align>$PARAM[SubmenuAlign]</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </control>
+        </focusedlayout>
+        <content>
+            <include>skinshortcuts-submenu</include>
+        </content>
+    </include>
 </includes>

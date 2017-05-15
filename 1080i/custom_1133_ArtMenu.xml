@@ -8,337 +8,337 @@
         <system>1</system>
     </coordinates>
     <controls>
-		<include content="SideBladeCloseIcon">
+        <include content="SideBladeCloseIcon">
             <param name="CloseIconDialogClose" value="Dialog.Close(1133)" />
             <param name="CloseIconDialogClose2" value="noop" />
             <param name="ClearMediaMenu" value="ClearProperty(MediaMenu,Home)" />
             <param name="CloseIconSetFocus" value="SetFocus(50)" />
             <param name="CloseIconVisibility" value="system.getbool(input.enablemouse) + Window.IsActive(1133)" />
         </include>
-		<control type="group">
-			<left>15</left>
-			<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="-440,0" time="160" tween="quadratic" easing="out">WindowClose</animation>
-			<control type="label">
-				<top>10</top>
-				<width>400</width>
-				<height>52</height>
-				<textoffsetx>15</textoffsetx>
-				<font>font13_title</font>
-				<label>31153</label>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-			</control>
-			<control type="list" id="90500">
-				<!-- viewtype selection-->
-				<top>62</top>
-				<width>400</width>
-				<height>840</height>
-				<orientation>vertical</orientation>
-				<onright>Dialog.Close(1133)</onright>
-				<onright>ClearProperty(MediaMenu,Home)</onright>
-				<onright>Control.SetFocus(50)</onright>
-				<onup>90500</onup>
-				<ondown>90500</ondown>
-				<itemlayout width="400" height="60">
-					<control type="label">
-						<left>15</left>
-						<width>400</width>
-						<height>60</height>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout width="400" height="60">
-					<control type="image">
-						<width>400</width>
-						<height>60</height>
-						<texture border="5">listselect_fo.png</texture>
-						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						<visible>Control.HasFocus(90500)</visible>
-						<include>VisibleFadeEffect</include>
-					</control>
-					<control type="label">
-						<left>15</left>
-						<width>400</width>
-						<height>60</height>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</focusedlayout>
-				<content>
-					<item>
-						<description>Art 2 - Fanart</description>
-						<label>20445</label>
-						<onclick>Skin.Reset(Enable.Extra.Fanart)</onclick>
-						<onclick>Skin.Reset(Enable.Landscape.Art)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)</visible>
-					</item>
-					<item>
-						<description>Art 2 - Extra fanart</description>
-						<label>31118</label>
-						<onclick>Skin.SetBool(Enable.Extra.Fanart)</onclick>
-						<onclick>Skin.Reset(Enable.Landscape.Art)</onclick>
-						<visible>System.HasAddon(script.toolbox)</visible>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)</visible>
-					</item>
-					<item>
-						<description>Art 2 - Landscape</description>
-						<label>31100</label>
-						<onclick>Skin.SetBool(Enable.Landscape.Art)</onclick>
-						<onclick>Skin.Reset(Enable.Extra.Fanart)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)</visible>
-					</item>
-					<item>
-						<description>Wall - Poster</description>
-						<label>31016</label>
-						<onclick>Skin.Reset(Enable.IconLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.IconBanner)</onclick>
-						<onclick>Skin.Reset(Enable.IconLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31086])</visible>
-					</item>
-					<item>
-						<description>Wall - Landscape</description>
-						<label>31100</label>
-						<onclick>Skin.Reset(Enable.IconBanner)</onclick>
-						<onclick>Skin.Reset(Enable.IconLogo)</onclick>
-						<onclick>Skin.SetBool(Enable.IconLandscape)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31086]) + !Container.Content(seasons)</visible>
-					</item>
-					<item>
-						<description>Wall - Banner</description>
-						<label>31085</label>
-						<onclick>Skin.Reset(Enable.IconLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.IconLogo)</onclick>
-						<onclick>Skin.SetBool(Enable.IconBanner)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31086])</visible>
-					</item>
-					<item>
-						<description>Wall - Logo</description>
-						<label>31088</label>
-						<onclick>Skin.Reset(Enable.IconLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.IconBanner)</onclick>
-						<onclick>Skin.SetBool(Enable.IconLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31086]) + !Container.Content(seasons)</visible>
-					</item>
-					<item>
-						<description>Shift - Poster</description>
-						<label>31016</label>
-						<onclick>Skin.Reset(Enable.ShiftVidFanart)</onclick>
-						<onclick>Skin.Reset(Enable.ShiftLandscape)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(videos)</visible>
-					</item>
-					<item>
-						<description>Shift - Fanart</description>
-						<label>20445</label>
-						<onclick>Skin.Reset(Enable.ShiftLandscape)</onclick>
-						<onclick>Skin.SetBool(Enable.ShiftVidFanart)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(videos)</visible>
-					</item>
-					<item>
-						<description>Shift - Landscape</description>
-						<label>31100</label>
-						<onclick>Skin.Reset(Enable.ShiftVidFanart)</onclick>
-						<onclick>Skin.SetBool(Enable.ShiftLandscape)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(videos)</visible>
-					</item>
-					<item>
-						<description>Shift - Thumbnail</description>
-						<label>21371</label>
-						<onclick>Skin.Reset(Enable.ShiftFanart)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(music)</visible>
-					</item>
-					<item>
-						<description>Shift - Fanart</description>
-						<label>20445</label>
-						<onclick>Skin.SetBool(Enable.ShiftFanart)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(music)</visible>
-					</item>
-					<item>
-						<description>InfoWall - Poster</description>
-						<label>31016</label>
-						<onclick>Skin.Reset(InfoWall.Banners)</onclick>
-						<onclick>Skin.Reset(InfoWall.Logo)</onclick>
-						<visible>[String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + !Skin.HasSetting(Art2Customizer)]</visible>
-					</item>
-					<item>
-						<description>InfoWall - Banner</description>
-						<label>31085</label>
-						<onclick>Skin.Reset(InfoWall.Logo)</onclick>
-						<onclick>Skin.SetBool(InfoWall.Banners)</onclick>
-						<visible>[String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + !Skin.HasSetting(Art2Customizer)]</visible>
-					</item>
-					<item>
-						<description>InfoWall - Logo</description>
-						<label>31088</label>
-						<onclick>Skin.Reset(InfoWall.Banners)</onclick>
-						<onclick>Skin.SetBool(InfoWall.Logo)</onclick>
-						<visible>[String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + !Skin.HasSetting(Art2Customizer) + !Container.Content(seasons)]</visible>
-					</item>
-					<item>
-						<description>BigWall - Poster</description>
-						<label>31016</label>
-						<onclick>Skin.Reset(Enable.WallLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.WallBanner)</onclick>
-						<onclick>Skin.Reset(Enable.WallLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31078])</visible>
-					</item>
-					<item>
-						<description>BigWall - Landscape</description>
-						<label>31100</label>
-						<onclick>Skin.Reset(Enable.WallBanner)</onclick>
-						<onclick>Skin.Reset(Enable.WallLogo)</onclick>
-						<onclick>Skin.SetBool(Enable.WallLandscape)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31078]) + !Container.Content(seasons)</visible>
-					</item>
-					<item>
-						<description>BigWall - Banner</description>
-						<label>31085</label>
-						<onclick>Skin.Reset(Enable.WallLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.WallLogo)</onclick>
-						<onclick>Skin.SetBool(Enable.WallBanner)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31078])</visible>
-					</item>
-					<item>
-						<description>BigWall - Logo</description>
-						<label>31088</label>
-						<onclick>Skin.Reset(Enable.WallLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.WallBanner)</onclick>
-						<onclick>Skin.SetBool(Enable.WallLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31078]) + !Container.Content(seasons)</visible>
-					</item>
-					<item>
-						<description>BigList - Poster</description>
-						<label>31016</label>
-						<onclick>Skin.Reset(Enable.BigListFanart)</onclick>
-						<onclick>Skin.Reset(Enable.BigListLogo)</onclick>
-						<onclick>Skin.SetBool(Enable.BigListPoster)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</item>
-					<item>
-						<description>BigList - Fanart</description>
-						<label>20445</label>
-						<onclick>Skin.Reset(Enable.BigListPoster)</onclick>
-						<onclick>Skin.Reset(Enable.BigListLogo)</onclick>
-						<onclick>Skin.SetBool(Enable.BigListFanart)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</item>
-					<item>
-						<description>BigList - Landscape</description>
-						<label>31100</label>
-						<onclick>Skin.Reset(Enable.BigListPoster)</onclick>
-						<onclick>Skin.Reset(Enable.BigListFanart)</onclick>
-						<onclick>Skin.Reset(Enable.BigListLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</item>
-					<item>
-						<description>BigList - Logo</description>
-						<label>31088</label>
-						<onclick>Skin.Reset(Enable.BigListPoster)</onclick>
-						<onclick>Skin.Reset(Enable.BigListFanart)</onclick>
-						<onclick>Skin.SetBool(Enable.BigListLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</item>
-					<item>
-						<description>BigList - Fanart (Music)</description>
-						<label>20445</label>
-						<onclick>Skin.Reset(Enable.BigListThumb)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + Container.Content(artists)</visible>
-					</item>
-					<item>
-						<description>BigList - Thumb (Music)</description>
-						<label>21371</label>
-						<onclick>Skin.SetBool(Enable.BigListThumb)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(artists) | Container.Content(albums)]</visible>
-					</item>
-					<item>
-						<description>Panel - Fanart</description>
-						<label>20445</label>
-						<onclick>Skin.Reset(Enable.PanelLogo)</onclick>
-						<onclick>Skin.SetBool(Enable.PanelFanart)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31059])</visible>
-					</item>
-					<item>
-						<description>Panel - Landscape</description>
-						<label>31100</label>
-						<onclick>Skin.Reset(Enable.PanelFanart)</onclick>
-						<onclick>Skin.Reset(Enable.PanelLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31059])</visible>
-					</item>
-					<item>
-						<description>Panel - Logo</description>
-						<label>31088</label>
-						<onclick>Skin.Reset(Enable.PanelFanart)</onclick>
-						<onclick>Skin.SetBool(Enable.PanelLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31059])</visible>
-					</item>
-					<item>
-						<description>Thumbnail - Poster</description>
-						<label>31016</label>
-						<onclick>Skin.Reset(Enable.ThumbnailFanart)</onclick>
-						<onclick>Skin.Reset(Enable.ThumbnailLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.ThumbnailLogo)</onclick>
-						<onclick>ReloadSkin()</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
-					</item>
-					<item>
-						<description>Thumbnail - Fanart</description>
-						<label>20445</label>
-						<onclick>Skin.SetBool(Enable.ThumbnailFanart)</onclick>
-						<onclick>Skin.Reset(Enable.ThumbnailLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.ThumbnailLogo)</onclick>
-						<onclick>ReloadSkin()</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
-					</item>
-					<item>
-						<description>Thumbnail - Landscape</description>
-						<label>31100</label>
-						<onclick>Skin.Reset(Enable.ThumbnailFanart)</onclick>
-						<onclick>Skin.SetBool(Enable.ThumbnailLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.ThumbnailLogo)</onclick>
-						<onclick>ReloadSkin()</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</item>
-					<item>
-						<description>Thumbnail - Logo</description>
-						<label>31088</label>
-						<onclick>Skin.Reset(Enable.ThumbnailFanart)</onclick>
-						<onclick>Skin.Reset(Enable.ThumbnailLandscape)</onclick>
-						<onclick>Skin.SetBool(Enable.ThumbnailLogo)</onclick>
-						<onclick>ReloadSkin()</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</item>
-					<item>
-						<description>Fanart - Poster</description>
-						<label>31016</label>
-						<onclick>Skin.Reset(Enable.FanartFanart)</onclick>
-						<onclick>Skin.Reset(Enable.FanartLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.FanartLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[20445]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
-					</item>
-					<item>
-						<description>Fanart - Fanart</description>
-						<label>20445</label>
-						<onclick>Skin.SetBool(Enable.FanartFanart)</onclick>
-						<onclick>Skin.Reset(Enable.FanartLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.FanartLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[20445]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
-					</item>
-					<item>
-						<description>Fanart - Landscape</description>
-						<label>31100</label>
-						<onclick>Skin.Reset(Enable.FanartFanart)</onclick>
-						<onclick>Skin.SetBool(Enable.FanartLandscape)</onclick>
-						<onclick>Skin.Reset(Enable.FanartLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[20445]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</item>
-					<item>
-						<description>Fanart - Logo</description>
-						<label>31088</label>
-						<onclick>Skin.Reset(Enable.FanartFanart)</onclick>
-						<onclick>Skin.Reset(Enable.FanartLandscape)</onclick>
-						<onclick>Skin.SetBool(Enable.FanartLogo)</onclick>
-						<visible>String.IsEqual(Container.Viewmode,$LOCALIZE[20445]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</item>
-				</content>
-			</control>
-		</control>
+        <control type="group">
+            <left>15</left>
+            <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+            <animation effect="slide" start="0,0" end="-440,0" time="160" tween="quadratic" easing="out">WindowClose</animation>
+            <control type="label">
+                <top>10</top>
+                <width>400</width>
+                <height>52</height>
+                <textoffsetx>15</textoffsetx>
+                <font>font13_title</font>
+                <label>31153</label>
+                <textcolor>$VAR[ColorHighlightVar]</textcolor>
+            </control>
+            <control type="list" id="90500">
+                <!-- viewtype selection-->
+                <top>62</top>
+                <width>400</width>
+                <height>840</height>
+                <orientation>vertical</orientation>
+                <onright>Dialog.Close(1133)</onright>
+                <onright>ClearProperty(MediaMenu,Home)</onright>
+                <onright>Control.SetFocus(50)</onright>
+                <onup>90500</onup>
+                <ondown>90500</ondown>
+                <itemlayout width="400" height="60">
+                    <control type="label">
+                        <left>15</left>
+                        <width>400</width>
+                        <height>60</height>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="400" height="60">
+                    <control type="image">
+                        <width>400</width>
+                        <height>60</height>
+                        <texture border="5">listselect_fo.png</texture>
+                        <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                        <visible>Control.HasFocus(90500)</visible>
+                        <include>VisibleFadeEffect</include>
+                    </control>
+                    <control type="label">
+                        <left>15</left>
+                        <width>400</width>
+                        <height>60</height>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <item>
+                        <description>Art 2 - Fanart</description>
+                        <label>20445</label>
+                        <onclick>Skin.Reset(Enable.Extra.Fanart)</onclick>
+                        <onclick>Skin.Reset(Enable.Landscape.Art)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)</visible>
+                    </item>
+                    <item>
+                        <description>Art 2 - Extra fanart</description>
+                        <label>31118</label>
+                        <onclick>Skin.SetBool(Enable.Extra.Fanart)</onclick>
+                        <onclick>Skin.Reset(Enable.Landscape.Art)</onclick>
+                        <visible>System.HasAddon(script.toolbox)</visible>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)</visible>
+                    </item>
+                    <item>
+                        <description>Art 2 - Landscape</description>
+                        <label>31100</label>
+                        <onclick>Skin.SetBool(Enable.Landscape.Art)</onclick>
+                        <onclick>Skin.Reset(Enable.Extra.Fanart)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + Skin.HasSetting(Art2Customizer)</visible>
+                    </item>
+                    <item>
+                        <description>Wall - Poster</description>
+                        <label>31016</label>
+                        <onclick>Skin.Reset(Enable.IconLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.IconBanner)</onclick>
+                        <onclick>Skin.Reset(Enable.IconLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31086])</visible>
+                    </item>
+                    <item>
+                        <description>Wall - Landscape</description>
+                        <label>31100</label>
+                        <onclick>Skin.Reset(Enable.IconBanner)</onclick>
+                        <onclick>Skin.Reset(Enable.IconLogo)</onclick>
+                        <onclick>Skin.SetBool(Enable.IconLandscape)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31086]) + !Container.Content(seasons)</visible>
+                    </item>
+                    <item>
+                        <description>Wall - Banner</description>
+                        <label>31085</label>
+                        <onclick>Skin.Reset(Enable.IconLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.IconLogo)</onclick>
+                        <onclick>Skin.SetBool(Enable.IconBanner)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31086])</visible>
+                    </item>
+                    <item>
+                        <description>Wall - Logo</description>
+                        <label>31088</label>
+                        <onclick>Skin.Reset(Enable.IconLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.IconBanner)</onclick>
+                        <onclick>Skin.SetBool(Enable.IconLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31086]) + !Container.Content(seasons)</visible>
+                    </item>
+                    <item>
+                        <description>Shift - Poster</description>
+                        <label>31016</label>
+                        <onclick>Skin.Reset(Enable.ShiftVidFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.ShiftLandscape)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(videos)</visible>
+                    </item>
+                    <item>
+                        <description>Shift - Fanart</description>
+                        <label>20445</label>
+                        <onclick>Skin.Reset(Enable.ShiftLandscape)</onclick>
+                        <onclick>Skin.SetBool(Enable.ShiftVidFanart)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(videos)</visible>
+                    </item>
+                    <item>
+                        <description>Shift - Landscape</description>
+                        <label>31100</label>
+                        <onclick>Skin.Reset(Enable.ShiftVidFanart)</onclick>
+                        <onclick>Skin.SetBool(Enable.ShiftLandscape)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(videos)</visible>
+                    </item>
+                    <item>
+                        <description>Shift - Thumbnail</description>
+                        <label>21371</label>
+                        <onclick>Skin.Reset(Enable.ShiftFanart)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(music)</visible>
+                    </item>
+                    <item>
+                        <description>Shift - Fanart</description>
+                        <label>20445</label>
+                        <onclick>Skin.SetBool(Enable.ShiftFanart)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31079]) + Window.IsActive(music)</visible>
+                    </item>
+                    <item>
+                        <description>InfoWall - Poster</description>
+                        <label>31016</label>
+                        <onclick>Skin.Reset(InfoWall.Banners)</onclick>
+                        <onclick>Skin.Reset(InfoWall.Logo)</onclick>
+                        <visible>[String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + !Skin.HasSetting(Art2Customizer)]</visible>
+                    </item>
+                    <item>
+                        <description>InfoWall - Banner</description>
+                        <label>31085</label>
+                        <onclick>Skin.Reset(InfoWall.Logo)</onclick>
+                        <onclick>Skin.SetBool(InfoWall.Banners)</onclick>
+                        <visible>[String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + !Skin.HasSetting(Art2Customizer)]</visible>
+                    </item>
+                    <item>
+                        <description>InfoWall - Logo</description>
+                        <label>31088</label>
+                        <onclick>Skin.Reset(InfoWall.Banners)</onclick>
+                        <onclick>Skin.SetBool(InfoWall.Logo)</onclick>
+                        <visible>[String.IsEqual(Container.Viewmode,$LOCALIZE[31021]) + !Skin.HasSetting(Art2Customizer) + !Container.Content(seasons)]</visible>
+                    </item>
+                    <item>
+                        <description>BigWall - Poster</description>
+                        <label>31016</label>
+                        <onclick>Skin.Reset(Enable.WallLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.WallBanner)</onclick>
+                        <onclick>Skin.Reset(Enable.WallLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31078])</visible>
+                    </item>
+                    <item>
+                        <description>BigWall - Landscape</description>
+                        <label>31100</label>
+                        <onclick>Skin.Reset(Enable.WallBanner)</onclick>
+                        <onclick>Skin.Reset(Enable.WallLogo)</onclick>
+                        <onclick>Skin.SetBool(Enable.WallLandscape)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31078]) + !Container.Content(seasons)</visible>
+                    </item>
+                    <item>
+                        <description>BigWall - Banner</description>
+                        <label>31085</label>
+                        <onclick>Skin.Reset(Enable.WallLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.WallLogo)</onclick>
+                        <onclick>Skin.SetBool(Enable.WallBanner)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31078])</visible>
+                    </item>
+                    <item>
+                        <description>BigWall - Logo</description>
+                        <label>31088</label>
+                        <onclick>Skin.Reset(Enable.WallLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.WallBanner)</onclick>
+                        <onclick>Skin.SetBool(Enable.WallLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31078]) + !Container.Content(seasons)</visible>
+                    </item>
+                    <item>
+                        <description>BigList - Poster</description>
+                        <label>31016</label>
+                        <onclick>Skin.Reset(Enable.BigListFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.BigListLogo)</onclick>
+                        <onclick>Skin.SetBool(Enable.BigListPoster)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+                    </item>
+                    <item>
+                        <description>BigList - Fanart</description>
+                        <label>20445</label>
+                        <onclick>Skin.Reset(Enable.BigListPoster)</onclick>
+                        <onclick>Skin.Reset(Enable.BigListLogo)</onclick>
+                        <onclick>Skin.SetBool(Enable.BigListFanart)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+                    </item>
+                    <item>
+                        <description>BigList - Landscape</description>
+                        <label>31100</label>
+                        <onclick>Skin.Reset(Enable.BigListPoster)</onclick>
+                        <onclick>Skin.Reset(Enable.BigListFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.BigListLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+                    </item>
+                    <item>
+                        <description>BigList - Logo</description>
+                        <label>31088</label>
+                        <onclick>Skin.Reset(Enable.BigListPoster)</onclick>
+                        <onclick>Skin.Reset(Enable.BigListFanart)</onclick>
+                        <onclick>Skin.SetBool(Enable.BigListLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+                    </item>
+                    <item>
+                        <description>BigList - Fanart (Music)</description>
+                        <label>20445</label>
+                        <onclick>Skin.Reset(Enable.BigListThumb)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + Container.Content(artists)</visible>
+                    </item>
+                    <item>
+                        <description>BigList - Thumb (Music)</description>
+                        <label>21371</label>
+                        <onclick>Skin.SetBool(Enable.BigListThumb)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31052]) + [Container.Content(artists) | Container.Content(albums)]</visible>
+                    </item>
+                    <item>
+                        <description>Panel - Fanart</description>
+                        <label>20445</label>
+                        <onclick>Skin.Reset(Enable.PanelLogo)</onclick>
+                        <onclick>Skin.SetBool(Enable.PanelFanart)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31059])</visible>
+                    </item>
+                    <item>
+                        <description>Panel - Landscape</description>
+                        <label>31100</label>
+                        <onclick>Skin.Reset(Enable.PanelFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.PanelLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31059])</visible>
+                    </item>
+                    <item>
+                        <description>Panel - Logo</description>
+                        <label>31088</label>
+                        <onclick>Skin.Reset(Enable.PanelFanart)</onclick>
+                        <onclick>Skin.SetBool(Enable.PanelLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[31059])</visible>
+                    </item>
+                    <item>
+                        <description>Thumbnail - Poster</description>
+                        <label>31016</label>
+                        <onclick>Skin.Reset(Enable.ThumbnailFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.ThumbnailLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.ThumbnailLogo)</onclick>
+                        <onclick>ReloadSkin()</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
+                    </item>
+                    <item>
+                        <description>Thumbnail - Fanart</description>
+                        <label>20445</label>
+                        <onclick>Skin.SetBool(Enable.ThumbnailFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.ThumbnailLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.ThumbnailLogo)</onclick>
+                        <onclick>ReloadSkin()</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
+                    </item>
+                    <item>
+                        <description>Thumbnail - Landscape</description>
+                        <label>31100</label>
+                        <onclick>Skin.Reset(Enable.ThumbnailFanart)</onclick>
+                        <onclick>Skin.SetBool(Enable.ThumbnailLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.ThumbnailLogo)</onclick>
+                        <onclick>ReloadSkin()</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+                    </item>
+                    <item>
+                        <description>Thumbnail - Logo</description>
+                        <label>31088</label>
+                        <onclick>Skin.Reset(Enable.ThumbnailFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.ThumbnailLandscape)</onclick>
+                        <onclick>Skin.SetBool(Enable.ThumbnailLogo)</onclick>
+                        <onclick>ReloadSkin()</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[21371]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+                    </item>
+                    <item>
+                        <description>Fanart - Poster</description>
+                        <label>31016</label>
+                        <onclick>Skin.Reset(Enable.FanartFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.FanartLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.FanartLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[20445]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
+                    </item>
+                    <item>
+                        <description>Fanart - Fanart</description>
+                        <label>20445</label>
+                        <onclick>Skin.SetBool(Enable.FanartFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.FanartLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.FanartLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[20445]) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
+                    </item>
+                    <item>
+                        <description>Fanart - Landscape</description>
+                        <label>31100</label>
+                        <onclick>Skin.Reset(Enable.FanartFanart)</onclick>
+                        <onclick>Skin.SetBool(Enable.FanartLandscape)</onclick>
+                        <onclick>Skin.Reset(Enable.FanartLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[20445]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+                    </item>
+                    <item>
+                        <description>Fanart - Logo</description>
+                        <label>31088</label>
+                        <onclick>Skin.Reset(Enable.FanartFanart)</onclick>
+                        <onclick>Skin.Reset(Enable.FanartLandscape)</onclick>
+                        <onclick>Skin.SetBool(Enable.FanartLogo)</onclick>
+                        <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[20445]) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+                    </item>
+                </content>
+            </control>
+        </control>
     </controls>
 </window>

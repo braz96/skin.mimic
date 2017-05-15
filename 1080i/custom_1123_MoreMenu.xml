@@ -1,177 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1123" type="dialog">
-	<defaultcontrol always="true">90700</defaultcontrol>
-	<include>Animation.Dialog</include>
-	<onunload>ClearProperty(Info.DBID,movieinformation)</onunload>
-	<onunload>ClearProperty(Info.DBType,movieinformation)</onunload>
-	<onunload>ClearProperty(Info.Director,movieinformation)</onunload>
-	<controls>
-		<control type="group">
-			<left>453</left>
-			<top>180</top>
-			<include content="DialogBackgroundCommons">
-	            <param name="DialogBackgroundWidth" value="1014" />
-	            <param name="DialogBackgroundHeight" value="720" />
-	            <param name="DialogHeaderLabel" value="14230" />
-	            <param name="DialogHeaderId" value="" />
-	        </include>
-	        <control type="group">
-	            <visible>Integer.IsGreater(Container(90700).NumItems,0)</visible>
-	            <control type="image">
-	                <left>33</left>
-	                <top>88</top>
-	                <width>949</width>
-	                <height>120</height>
-	                <visible>Control.HasFocus(90700)</visible>
-	                <animation effect="fade" time="320" delay="200">Visible</animation>
-	                <animation effect="fade" time="50">Hidden</animation>
-	                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,5)">Conditional</animation>
-	                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,4)">Conditional</animation>
-	                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,3)">Conditional</animation>
-	                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,2)">Conditional</animation>
-	                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,1)">Conditional</animation>
-	                <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,0)">Conditional</animation>
-	            </control>
-	        </control>
-			<control type="panel" id="90700">
-				<left>33</left>
-				<top>88</top>
-				<width>949</width>
-				<height>600</height>
-				<onleft>60</onleft>
-				<onright>60</onright>
-				<onup>90700</onup>
-				<ondown>90700</ondown>
-				<viewtype label="535">list</viewtype>
-				<pagecontrol>60</pagecontrol>
-				<preloaditems>2</preloaditems>
-				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="120" width="949">
-					<control type="image">
-						<left>10</left>
-						<top>10</top>
-						<width>100</width>
-						<height>100</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<texture background="true" fallback="DefaultAddon.png" diffuse="diffuse/list-icon.png">$INFO[ListItem.Icon]</texture>
-					</control>
-					<control type="label">
-						<left>135</left>
-						<top>3</top>
-						<width>800</width>
-						<height>70</height>
-						<font>font30</font>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>135</left>
-						<top>52</top>
-						<width>800</width>
-						<height>60</height>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="120" width="949">
-					<control type="image">
-						<left>10</left>
-						<top>10</top>
-						<width>100</width>
-						<height>100</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<texture background="true" fallback="DefaultAddon.png" diffuse="diffuse/list-icon.png">$INFO[ListItem.Icon]</texture>
-					</control>
-					<control type="label">
-						<top>3</top>
-						<left>135</left>
-						<width>800</width>
-						<height>70</height>
-						<font>font30</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>135</left>
-						<top>52</top>
-						<width>800</width>
-						<height>60</height>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</focusedlayout>
-				<content>
-		            <item id="1">
-		            	<visible>!String.IsEmpty(Window(movieinformation).Property(Info.Director))</visible>
-						<icon>DefaultIconSearch.png</icon>
-						<label>31178</label>
-	                    <label2>$LOCALIZE[31201] $INFO[Window(movieinformation).Property(Info.Director)]</label2>
-	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick>SendClick(13)</onclick>
-		            </item>
-		            <item id="2">
-		            	<visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
-						<icon>$INFO[System.AddonIcon(script.artwork.downloader)]</icon>
-						<label>31071</label>
-	                    <label2>$INFO[System.AddonTitle(script.artwork.downloader)]$INFO[System.AddonVersion(script.artwork.downloader), (,)]</label2>
-	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),movie)">RunScript(script.artwork.downloader, mediatype=movie, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
-						<onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)">RunScript(script.artwork.downloader, mediatype=tvshow, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
-		            </item>
-		            <item id="3">
-		            	<visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
-						<icon>$INFO[System.AddonIcon(script.artwork.downloader)]</icon>
-						<label>$LOCALIZE[31071] ([LOWERCASE]$LOCALIZE[413][/LOWERCASE])</label>
-	                    <label2>$INFO[System.AddonTitle(script.artwork.downloader)]$INFO[System.AddonVersion(script.artwork.downloader), (,)]</label2>
-	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),movie)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
-						<onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)">RunScript(script.artwork.downloader,mode=gui, mediatype=tvshow, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
-		            </item>
-		            <item id="4">
-		            	<visible>System.HasAddon(script.simpleplaylists) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),episode)]</visible>
-						<icon>$INFO[System.AddonIcon(script.simpleplaylists)]</icon>
-						<label>31087</label>
-	                    <label2>$INFO[System.AddonTitle(script.simpleplaylists)]$INFO[System.AddonVersion(script.simpleplaylists), (,)]</label2>
-	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick>RunPlugin(plugin://script.simpleplaylists/?mode=addCurrentUrl)</onclick>
-		            </item>
-		            <item id="5">
-		            	<visible>System.HasAddon(script.ratingupdate) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
-						<icon>$INFO[System.AddonIcon(script.ratingupdate)]</icon>
-						<label>31067</label>
-	                    <label2>$INFO[System.AddonTitle(script.ratingupdate)]$INFO[System.AddonVersion(script.ratingupdate), (,)]</label2>
-	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
-		            </item>
-		            <item id="6">
-		            	<visible>System.HasAddon(script.extendedinfo) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
-						<icon>$INFO[System.AddonIcon(script.extendedinfo)]</icon>
-						<label>31202</label>
-	                    <label2>$INFO[System.AddonTitle(script.extendedinfo)]$INFO[System.AddonVersion(script.extendedinfo), (,)]</label2>
-	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
-						<onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
-		            </item>
-		            <item id="7">
-		            	<visible>System.HasAddon(script.cinemavision) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow) | String.IsEqual(Window(movieinformation).Property(Info.DBType),season) | String.IsEqual(Window(movieinformation).Property(Info.DBType),episode)]</visible>
-						<icon>$INFO[System.AddonIcon(script.cinemavision)]</icon>
-						<label>$INFO[System.AddonTitle(script.cinemavision)]</label>
-	                    <label2>$INFO[System.AddonTitle(script.cinemavision)]$INFO[System.AddonVersion(script.cinemavision), (,)]</label2>
-	                    <onclick>Dialog.Close(1123)</onclick>
-	                    <onclick>Dialog.Close(movieinformation)</onclick>
-	                    <onclick>RunScript(script.cinemavision,experience)</onclick>
-		            </item>
-				</content>
-			</control>
-			<control type="scrollbar" id="60">
-				<left>987</left>
-				<top>88</top>
-				<height>600</height>
-				<width>10</width>
-				<onleft>90700</onleft>
-				<onright>90700</onright>
-				<ondown>60</ondown>
-				<onup>60</onup>
-			</control>
-		</control>
-	</controls>
+    <defaultcontrol always="true">90700</defaultcontrol>
+    <include>Animation.Dialog</include>
+    <onunload>ClearProperty(Info.DBID,movieinformation)</onunload>
+    <onunload>ClearProperty(Info.DBType,movieinformation)</onunload>
+    <onunload>ClearProperty(Info.Director,movieinformation)</onunload>
+    <controls>
+        <control type="group">
+            <left>453</left>
+            <top>180</top>
+            <include content="DialogBackgroundCommons">
+                <param name="DialogBackgroundWidth" value="1014" />
+                <param name="DialogBackgroundHeight" value="720" />
+                <param name="DialogHeaderLabel" value="14230" />
+                <param name="DialogHeaderId" value="" />
+            </include>
+            <control type="group">
+                <visible>Integer.IsGreater(Container(90700).NumItems,0)</visible>
+                <control type="image">
+                    <left>33</left>
+                    <top>88</top>
+                    <width>949</width>
+                    <height>120</height>
+                    <visible>Control.HasFocus(90700)</visible>
+                    <animation effect="fade" time="320" delay="200">Visible</animation>
+                    <animation effect="fade" time="50">Hidden</animation>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,5)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,4)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,3)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,2)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,1)">Conditional</animation>
+                    <animation effect="slide" end="0,120" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90700).Row,0)">Conditional</animation>
+                </control>
+            </control>
+            <control type="panel" id="90700">
+                <left>33</left>
+                <top>88</top>
+                <width>949</width>
+                <height>600</height>
+                <onleft>60</onleft>
+                <onright>60</onright>
+                <onup>90700</onup>
+                <ondown>90700</ondown>
+                <viewtype label="535">list</viewtype>
+                <pagecontrol>60</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <itemlayout height="120" width="949">
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <width>100</width>
+                        <height>100</height>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <texture background="true" fallback="DefaultAddon.png" diffuse="diffuse/list-icon.png">$INFO[ListItem.Icon]</texture>
+                    </control>
+                    <control type="label">
+                        <left>135</left>
+                        <top>3</top>
+                        <width>800</width>
+                        <height>70</height>
+                        <font>font30</font>
+                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>135</left>
+                        <top>52</top>
+                        <width>800</width>
+                        <height>60</height>
+                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="120" width="949">
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <width>100</width>
+                        <height>100</height>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <texture background="true" fallback="DefaultAddon.png" diffuse="diffuse/list-icon.png">$INFO[ListItem.Icon]</texture>
+                    </control>
+                    <control type="label">
+                        <top>3</top>
+                        <left>135</left>
+                        <width>800</width>
+                        <height>70</height>
+                        <font>font30</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>135</left>
+                        <top>52</top>
+                        <width>800</width>
+                        <height>60</height>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <item id="1">
+                        <visible>!String.IsEmpty(Window(movieinformation).Property(Info.Director))</visible>
+                        <icon>DefaultIconSearch.png</icon>
+                        <label>31178</label>
+                        <label2>$LOCALIZE[31201] $INFO[Window(movieinformation).Property(Info.Director)]</label2>
+                        <onclick>Dialog.Close(1123)</onclick>
+                        <onclick>SendClick(13)</onclick>
+                    </item>
+                    <item id="2">
+                        <visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
+                        <icon>$INFO[System.AddonIcon(script.artwork.downloader)]</icon>
+                        <label>31071</label>
+                        <label2>$INFO[System.AddonTitle(script.artwork.downloader)]$INFO[System.AddonVersion(script.artwork.downloader), (,)]</label2>
+                        <onclick>Dialog.Close(1123)</onclick>
+                        <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),movie)">RunScript(script.artwork.downloader, mediatype=movie, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
+                        <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)">RunScript(script.artwork.downloader, mediatype=tvshow, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
+                    </item>
+                    <item id="3">
+                        <visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
+                        <icon>$INFO[System.AddonIcon(script.artwork.downloader)]</icon>
+                        <label>$LOCALIZE[31071] ([LOWERCASE]$LOCALIZE[413][/LOWERCASE])</label>
+                        <label2>$INFO[System.AddonTitle(script.artwork.downloader)]$INFO[System.AddonVersion(script.artwork.downloader), (,)]</label2>
+                        <onclick>Dialog.Close(1123)</onclick>
+                        <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),movie)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
+                        <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)">RunScript(script.artwork.downloader,mode=gui, mediatype=tvshow, dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
+                    </item>
+                    <item id="4">
+                        <visible>System.HasAddon(script.simpleplaylists) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),episode)]</visible>
+                        <icon>$INFO[System.AddonIcon(script.simpleplaylists)]</icon>
+                        <label>31087</label>
+                        <label2>$INFO[System.AddonTitle(script.simpleplaylists)]$INFO[System.AddonVersion(script.simpleplaylists), (,)]</label2>
+                        <onclick>Dialog.Close(1123)</onclick>
+                        <onclick>RunPlugin(plugin://script.simpleplaylists/?mode=addCurrentUrl)</onclick>
+                    </item>
+                    <item id="5">
+                        <visible>System.HasAddon(script.ratingupdate) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
+                        <icon>$INFO[System.AddonIcon(script.ratingupdate)]</icon>
+                        <label>31067</label>
+                        <label2>$INFO[System.AddonTitle(script.ratingupdate)]$INFO[System.AddonVersion(script.ratingupdate), (,)]</label2>
+                        <onclick>Dialog.Close(1123)</onclick>
+                        <onclick>RunScript(script.ratingupdate,Single=Movie)</onclick>
+                    </item>
+                    <item id="6">
+                        <visible>System.HasAddon(script.extendedinfo) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)]</visible>
+                        <icon>$INFO[System.AddonIcon(script.extendedinfo)]</icon>
+                        <label>31202</label>
+                        <label2>$INFO[System.AddonTitle(script.extendedinfo)]$INFO[System.AddonVersion(script.extendedinfo), (,)]</label2>
+                        <onclick>Dialog.Close(1123)</onclick>
+                        <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
+                        <onclick condition="String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[Window(movieinformation).Property(Info.DBID)])</onclick>
+                    </item>
+                    <item id="7">
+                        <visible>System.HasAddon(script.cinemavision) + [String.IsEqual(Window(movieinformation).Property(Info.DBType),movie) | String.IsEqual(Window(movieinformation).Property(Info.DBType),tvshow) | String.IsEqual(Window(movieinformation).Property(Info.DBType),season) | String.IsEqual(Window(movieinformation).Property(Info.DBType),episode)]</visible>
+                        <icon>$INFO[System.AddonIcon(script.cinemavision)]</icon>
+                        <label>$INFO[System.AddonTitle(script.cinemavision)]</label>
+                        <label2>$INFO[System.AddonTitle(script.cinemavision)]$INFO[System.AddonVersion(script.cinemavision), (,)]</label2>
+                        <onclick>Dialog.Close(1123)</onclick>
+                        <onclick>Dialog.Close(movieinformation)</onclick>
+                        <onclick>RunScript(script.cinemavision,experience)</onclick>
+                    </item>
+                </content>
+            </control>
+            <control type="scrollbar" id="60">
+                <left>987</left>
+                <top>88</top>
+                <height>600</height>
+                <width>10</width>
+                <onleft>90700</onleft>
+                <onright>90700</onright>
+                <ondown>60</ondown>
+                <onup>60</onup>
+            </control>
+        </control>
+    </controls>
 </window>

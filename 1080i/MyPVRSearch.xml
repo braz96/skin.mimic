@@ -1,189 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol>50</defaultcontrol>
-	<menucontrol>9051</menucontrol>
-	<onload>SetProperty(Window.HasSettings,True,home)</onload>
-	<onload>ClearProperty(MediaMenu,Home)</onload>
-	<onunload>ClearProperty(MediaMenu,Home)</onunload>
-	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<allowoverlay>no</allowoverlay>
-	<views>50</views>
-	<controls>
-		<include>CommonBackground</include>
-		<control type="group">
-			<description>Search group</description>
-			<visible>Control.IsVisible(50)</visible>
-			<include>VisibleFadeEffect</include>
-			<include>Animation.Common</include>
-			<left>0</left>
-			<top>148</top>
-			<control type="list" id="50">
-				<left>82</left>
-				<top>32</top>
-				<width>1756</width>
-				<height>840</height>
-				<onup>50</onup>
-				<ondown>50</ondown>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<onright>60</onright>
-				<pagecontrol>60</pagecontrol>
-				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="90">
-					<control type="label">
-						<left>5</left>
-						<width>100</width>
-						<height>90</height>
-						<font>font15_title</font>
-						<align>center</align>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label>$INFO[ListItem.ChannelNumberLabel]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<width>236</width>
-						<height>90</height>
-						<font>font15</font>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label>$INFO[ListItem.ChannelName]</label>
-					</control>
-					<control type="label">
-						<left>440</left>
-						<width>1000</width>
-						<height>90</height>
-						<font>font15</font>
-						<textoffsetx>15</textoffsetx>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>1356</left>
-						<width>400</width>
-						<height>90</height>
-						<align>right</align>
-						<font>font15</font>
-						<textoffsetx>15</textoffsetx>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<label>$INFO[ListItem.Date]</label>
-						<animation effect="slide" start="0" end="-60" time="100" tween="sine" easing="in" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
-					</control>
-					<control type="group">
-						<visible>[ListItem.HasTimer | ListItem.IsRecording]</visible>
-						<left>1756</left>
-						<control type="label">
-							<top>30</top>
-							<width>120</width>
-							<height>30</height>
-							<font>IconSmall</font>
-							<textoffsetx>15</textoffsetx>
-							<align>right</align>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<label>u</label>
-							<visible>ListItem.HasTimer</visible>
-						</control>
-						<control type="label">
-							<top>30</top>
-							<width>120</width>
-							<height>30</height>
-							<font>IconSmall</font>
-							<textoffsetx>15</textoffsetx>
-							<align>right</align>
-							<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-							<label>j</label>
-							<visible>ListItem.IsRecording</visible>
-						</control>
-					</control>
-				</itemlayout>
-				<focusedlayout height="90">
-					<control type="image">
-						<width>356</width>
-						<height>90</height>
-						<texture border="5">listselect_fo.png</texture>
-						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						<visible>Control.HasFocus(50)</visible>
-						<include>VisibleFadeEffect</include>
-					</control>
-					<control type="image">
-						<left>440</left>
-						<width>1316</width>
-						<height>90</height>
-						<texture border="5">listselect_fo.png</texture>
-						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						<visible>Control.HasFocus(50)</visible>
-						<include>VisibleFadeEffect</include>
-					</control>
-					<control type="label">
-						<left>5</left>
-						<width>100</width>
-						<height>90</height>
-						<font>font15_title</font>
-						<align>center</align>
-						<label>$INFO[ListItem.ChannelNumberLabel]</label>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<width>236</width>
-						<height>90</height>
-						<font>font15</font>
-						<label>$INFO[ListItem.ChannelName]</label>
-					</control>
-					<control type="label">
-						<left>440</left>
-						<width>1000</width>
-						<height>90</height>
-						<font>font15</font>
-						<textoffsetx>15</textoffsetx>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>1356</left>
-						<width>400</width>
-						<height>90</height>
-						<align>right</align>
-						<font>font15</font>
-						<textoffsetx>15</textoffsetx>
-						<label>$INFO[ListItem.Date]</label>
-						<animation effect="slide" start="0" end="-60" time="100" tween="sine" easing="in" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
-					</control>
-					<control type="group">
-						<visible>[ListItem.HasTimer | ListItem.IsRecording]</visible>
-						<left>1756</left>
-						<control type="label">
-							<top>30</top>
-							<width>120</width>
-							<height>30</height>
-							<font>IconSmall</font>
-							<textoffsetx>15</textoffsetx>
-							<align>right</align>
-							<label>u</label>
-							<visible>ListItem.HasTimer</visible>
-						</control>
-						<control type="label">
-							<top>30</top>
-							<width>120</width>
-							<height>30</height>
-							<font>IconSmall</font>
-							<textoffsetx>15</textoffsetx>
-							<align>right</align>
-							<label>j</label>
-							<visible>ListItem.IsRecording</visible>
-						</control>
-					</control>
-				</focusedlayout>
-			</control>
-		</control>
-		<control type="scrollbar" id="60">
-			<visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
-			<left>1910</left>
-			<top>120</top>
-			<width>10</width>
-			<height>960</height>
-			<orientation>vertical</orientation>
-			<onleft>50</onleft>
-			<onright>SetProperty(MediaMenu,True,home)</onright>
-			<onright>SetFocus(9050)</onright>
-		</control>
-		<include>Topbar</include>
-		<include>PVRMediaMenu</include>
-	</controls>
+    <defaultcontrol>50</defaultcontrol>
+    <menucontrol>9051</menucontrol>
+    <onload>SetProperty(Window.HasSettings,True,home)</onload>
+    <onload>ClearProperty(MediaMenu,Home)</onload>
+    <onunload>ClearProperty(MediaMenu,Home)</onunload>
+    <onunload>ClearProperty(Window.HasSettings,Home)</onunload>
+    <allowoverlay>no</allowoverlay>
+    <views>50</views>
+    <controls>
+        <include>CommonBackground</include>
+        <control type="group">
+            <description>Search group</description>
+            <visible>Control.IsVisible(50)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>Animation.Common</include>
+            <left>0</left>
+            <top>148</top>
+            <control type="list" id="50">
+                <left>82</left>
+                <top>32</top>
+                <width>1756</width>
+                <height>840</height>
+                <onup>50</onup>
+                <ondown>50</ondown>
+                <onleft>SetProperty(MediaMenu,True,home)</onleft>
+                <onleft>SetFocus(9050)</onleft>
+                <onright>60</onright>
+                <pagecontrol>60</pagecontrol>
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <itemlayout height="90">
+                    <control type="label">
+                        <left>5</left>
+                        <width>100</width>
+                        <height>90</height>
+                        <font>font15_title</font>
+                        <align>center</align>
+                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                        <label>$INFO[ListItem.ChannelNumberLabel]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <width>236</width>
+                        <height>90</height>
+                        <font>font15</font>
+                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                        <label>$INFO[ListItem.ChannelName]</label>
+                    </control>
+                    <control type="label">
+                        <left>440</left>
+                        <width>1000</width>
+                        <height>90</height>
+                        <font>font15</font>
+                        <textoffsetx>15</textoffsetx>
+                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>1356</left>
+                        <width>400</width>
+                        <height>90</height>
+                        <align>right</align>
+                        <font>font15</font>
+                        <textoffsetx>15</textoffsetx>
+                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                        <label>$INFO[ListItem.Date]</label>
+                        <animation effect="slide" start="0" end="-60" time="100" tween="sine" easing="in" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
+                    </control>
+                    <control type="group">
+                        <visible>[ListItem.HasTimer | ListItem.IsRecording]</visible>
+                        <left>1756</left>
+                        <control type="label">
+                            <top>30</top>
+                            <width>120</width>
+                            <height>30</height>
+                            <font>IconSmall</font>
+                            <textoffsetx>15</textoffsetx>
+                            <align>right</align>
+                            <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                            <label>u</label>
+                            <visible>ListItem.HasTimer</visible>
+                        </control>
+                        <control type="label">
+                            <top>30</top>
+                            <width>120</width>
+                            <height>30</height>
+                            <font>IconSmall</font>
+                            <textoffsetx>15</textoffsetx>
+                            <align>right</align>
+                            <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                            <label>j</label>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="90">
+                    <control type="image">
+                        <width>356</width>
+                        <height>90</height>
+                        <texture border="5">listselect_fo.png</texture>
+                        <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                        <visible>Control.HasFocus(50)</visible>
+                        <include>VisibleFadeEffect</include>
+                    </control>
+                    <control type="image">
+                        <left>440</left>
+                        <width>1316</width>
+                        <height>90</height>
+                        <texture border="5">listselect_fo.png</texture>
+                        <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                        <visible>Control.HasFocus(50)</visible>
+                        <include>VisibleFadeEffect</include>
+                    </control>
+                    <control type="label">
+                        <left>5</left>
+                        <width>100</width>
+                        <height>90</height>
+                        <font>font15_title</font>
+                        <align>center</align>
+                        <label>$INFO[ListItem.ChannelNumberLabel]</label>
+                    </control>
+                    <control type="label">
+                        <left>110</left>
+                        <width>236</width>
+                        <height>90</height>
+                        <font>font15</font>
+                        <label>$INFO[ListItem.ChannelName]</label>
+                    </control>
+                    <control type="label">
+                        <left>440</left>
+                        <width>1000</width>
+                        <height>90</height>
+                        <font>font15</font>
+                        <textoffsetx>15</textoffsetx>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>1356</left>
+                        <width>400</width>
+                        <height>90</height>
+                        <align>right</align>
+                        <font>font15</font>
+                        <textoffsetx>15</textoffsetx>
+                        <label>$INFO[ListItem.Date]</label>
+                        <animation effect="slide" start="0" end="-60" time="100" tween="sine" easing="in" condition="[ListItem.HasTimer | ListItem.IsRecording]">Conditional</animation>
+                    </control>
+                    <control type="group">
+                        <visible>[ListItem.HasTimer | ListItem.IsRecording]</visible>
+                        <left>1756</left>
+                        <control type="label">
+                            <top>30</top>
+                            <width>120</width>
+                            <height>30</height>
+                            <font>IconSmall</font>
+                            <textoffsetx>15</textoffsetx>
+                            <align>right</align>
+                            <label>u</label>
+                            <visible>ListItem.HasTimer</visible>
+                        </control>
+                        <control type="label">
+                            <top>30</top>
+                            <width>120</width>
+                            <height>30</height>
+                            <font>IconSmall</font>
+                            <textoffsetx>15</textoffsetx>
+                            <align>right</align>
+                            <label>j</label>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+        </control>
+        <control type="scrollbar" id="60">
+            <visible allowhiddenfocus="true">Control.HasFocus(60) | Container.Scrolling</visible>
+            <left>1910</left>
+            <top>120</top>
+            <width>10</width>
+            <height>960</height>
+            <orientation>vertical</orientation>
+            <onleft>50</onleft>
+            <onright>SetProperty(MediaMenu,True,home)</onright>
+            <onright>SetFocus(9050)</onright>
+        </control>
+        <include>Topbar</include>
+        <include>PVRMediaMenu</include>
+    </controls>
 </window>

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1122" type="dialog">
-	<defaultcontrol always="true">90100</defaultcontrol>
-	<coordinates>
-		<system>1</system>
-		<left>457</left>
-		<top>198</top>
-	</coordinates>
-	<include>Animation.Dialog</include>
-	<onunload condition="!String.IsEmpty(Skin.String(ItemToEdit.MultiFanart))">Skin.SetString($INFO[Window(Home).Property(Mimic.Temp)],$INFO[Skin.String(ItemToEdit.MultiFanart)])</onunload>
-	<onunload condition="!String.IsEmpty(Skin.String(ItemToEdit.BGType))">Skin.SetString($INFO[Window(Home).Property(Mimic.BGType)],$INFO[Skin.String(ItemToEdit.BGType)])</onunload>
-	<controls>
+    <defaultcontrol always="true">90100</defaultcontrol>
+    <coordinates>
+        <system>1</system>
+        <left>457</left>
+        <top>198</top>
+    </coordinates>
+    <include>Animation.Dialog</include>
+    <onunload condition="!String.IsEmpty(Skin.String(ItemToEdit.MultiFanart))">Skin.SetString($INFO[Window(Home).Property(Mimic.Temp)],$INFO[Skin.String(ItemToEdit.MultiFanart)])</onunload>
+    <onunload condition="!String.IsEmpty(Skin.String(ItemToEdit.BGType))">Skin.SetString($INFO[Window(Home).Property(Mimic.BGType)],$INFO[Skin.String(ItemToEdit.BGType)])</onunload>
+    <controls>
         <include content="DialogBackgroundCommons">
-			<param name="DialogBackgroundWidth" value="1006" />
-			<param name="DialogBackgroundHeight" value="684" />
-			<param name="DialogHeaderLabel" value="$LOCALIZE[31027]" />
-			<param name="DialogHeaderId" value="1" />
-		</include>
-		<control type="group">
+            <param name="DialogBackgroundWidth" value="1006" />
+            <param name="DialogBackgroundHeight" value="684" />
+            <param name="DialogHeaderLabel" value="$LOCALIZE[31027]" />
+            <param name="DialogHeaderId" value="1" />
+        </include>
+        <control type="group">
             <visible>Integer.IsGreater(Container(90100).NumItems,0)</visible>
             <control type="image">
-            	<left>32</left>
+                <left>32</left>
                 <top>88</top>
                 <width>942</width>
                 <height>60</height>
@@ -36,249 +36,249 @@
                 <animation effect="slide" end="0,60" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(90100).Row,0)">Conditional</animation>
             </control>
         </control>
-		<control type="panel" id="90100">
-			<left>32</left>
-			<top>88</top>
-			<width>942</width>
-			<height>480</height>
-			<onup>90100</onup>
-			<ondown>90100</ondown>
-			<onleft>9001</onleft>
-			<onright>60</onright>
-			<pagecontrol>60</pagecontrol>
-			<scrolltime tween="quadratic" easing="out">200</scrolltime>
-			<itemlayout height="60" width="942">
-				<control type="label">
-					<width>942</width>
-					<height>60</height>
-					<textoffsetx>15</textoffsetx>
-					<font>font14</font>
-					<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-			</itemlayout>
-			<focusedlayout height="60" width="942">
-				<control type="label">
-					<width>942</width>
-					<height>60</height>
-					<textoffsetx>15</textoffsetx>
-					<font>font14</font>
-					<scroll>true</scroll>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-			</focusedlayout>
-			<content>
-				<item>
-					<label>$LOCALIZE[10035]</label>
-					<onclick>Skin.Reset(ItemToEdit.MultiFanart)</onclick>
-					<onclick>Skin.Reset(ItemToEdit.BGType)</onclick>
-					<onclick>Skin.SetString($INFO[Window(Home).Property(Mimic.Temp)],$INFO[Skin.String(ItemToEdit.MultiFanart)])</onclick>
-					<onclick>Skin.SetString($INFO[Window(Home).Property(Mimic.BGType)],$INFO[Skin.String(ItemToEdit.BGType)])</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-				</item>
-				<item>
-					<label>$LOCALIZE[31023]</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,1)</onclick>
-					<onclick>Skin.SetImage(ItemToEdit.MultiFanart)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-				</item>
-				<item>
-					<label>$LOCALIZE[31022]</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,2)</onclick>
-					<onclick>Skin.SetPath(ItemToEdit.MultiFanart)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-				</item>
-				<item>
-					<label>(Random Fanart) All media</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,1)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) All movies</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,2)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) All music</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,3)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) All music videos</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,4)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) All pictures</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,5)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) All TV shows</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,6)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) All videos</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,7)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) In progress movies</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,8)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) In progress TV shows</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,9)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) In progress videos</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,10)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) Recent episodes</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,11)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) Recent movies</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,12)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) Recent music</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,13)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) Recent videos</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,14)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Random Fanart) Unwatched movies</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,15)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Image Wall) All albums</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,16)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Image Wall) All movies</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,17)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Image Wall) All movies BW</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,18)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Image Wall) All music</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,19)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Image Wall) All music BW</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,20)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Image Wall) All TV shows</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,21)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>(Image Wall) All TV shows BW</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,22)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
-				</item>
-				<item>
-					<label>$LOCALIZE[31084]</label>
-					<onclick>Skin.SetString(ItemToEdit.BGType,6)</onclick>
-					<onclick>Skin.SetString(ItemToEdit.MultiFanart,23)</onclick>
-					<onclick>Dialog.Close(1122)</onclick>
-					<visible>!String.IsEmpty(Skin.String(weatherfanart.path))</visible>
-				</item>
-			</content>
-		</control>
-		<control type="grouplist" id="9001">
-			<left>32</left>
-			<top>592</top>
-			<height>60</height>
-			<width>942</width>
-			<ondown>90100</ondown>
-			<onup>90100</onup>
-			<align>center</align>
-			<itemgap>0</itemgap>
-			<orientation>horizontal</orientation>
-			<control type="button">
-				<description>Cancel button</description>
-				<font>font15_title</font>
-				<align>center</align>
-				<width>471</width>
-				<label>222</label>
-				<onclick>Dialog.Close(1122)</onclick>
-			</control>
-		</control>
-		<control type="scrollbar" id="60">
-			<left>979</left>
-			<top>88</top>
-			<height>480</height>
-			<width>10</width>
-			<onleft>90100</onleft>
-			<onright>9001</onright>
-			<ondown>60</ondown>
-			<onup>60</onup>
-		</control>
-	</controls>
+        <control type="panel" id="90100">
+            <left>32</left>
+            <top>88</top>
+            <width>942</width>
+            <height>480</height>
+            <onup>90100</onup>
+            <ondown>90100</ondown>
+            <onleft>9001</onleft>
+            <onright>60</onright>
+            <pagecontrol>60</pagecontrol>
+            <scrolltime tween="quadratic" easing="out">200</scrolltime>
+            <itemlayout height="60" width="942">
+                <control type="label">
+                    <width>942</width>
+                    <height>60</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>font14</font>
+                    <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="60" width="942">
+                <control type="label">
+                    <width>942</width>
+                    <height>60</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>font14</font>
+                    <scroll>true</scroll>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <item>
+                    <label>$LOCALIZE[10035]</label>
+                    <onclick>Skin.Reset(ItemToEdit.MultiFanart)</onclick>
+                    <onclick>Skin.Reset(ItemToEdit.BGType)</onclick>
+                    <onclick>Skin.SetString($INFO[Window(Home).Property(Mimic.Temp)],$INFO[Skin.String(ItemToEdit.MultiFanart)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(Home).Property(Mimic.BGType)],$INFO[Skin.String(ItemToEdit.BGType)])</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                </item>
+                <item>
+                    <label>$LOCALIZE[31023]</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,1)</onclick>
+                    <onclick>Skin.SetImage(ItemToEdit.MultiFanart)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                </item>
+                <item>
+                    <label>$LOCALIZE[31022]</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,2)</onclick>
+                    <onclick>Skin.SetPath(ItemToEdit.MultiFanart)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                </item>
+                <item>
+                    <label>(Random Fanart) All media</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,1)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) All movies</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,2)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) All music</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,3)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) All music videos</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,4)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) All pictures</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,5)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) All TV shows</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,6)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) All videos</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,7)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) In progress movies</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,8)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) In progress TV shows</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,9)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) In progress videos</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,10)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) Recent episodes</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,11)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) Recent movies</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,12)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) Recent music</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,13)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) Recent videos</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,14)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Random Fanart) Unwatched movies</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,15)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Image Wall) All albums</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,16)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Image Wall) All movies</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,17)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Image Wall) All movies BW</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,18)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Image Wall) All music</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,19)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Image Wall) All music BW</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,20)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Image Wall) All TV shows</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,21)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>(Image Wall) All TV shows BW</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,3)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,22)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
+                </item>
+                <item>
+                    <label>$LOCALIZE[31084]</label>
+                    <onclick>Skin.SetString(ItemToEdit.BGType,6)</onclick>
+                    <onclick>Skin.SetString(ItemToEdit.MultiFanart,23)</onclick>
+                    <onclick>Dialog.Close(1122)</onclick>
+                    <visible>!String.IsEmpty(Skin.String(weatherfanart.path))</visible>
+                </item>
+            </content>
+        </control>
+        <control type="grouplist" id="9001">
+            <left>32</left>
+            <top>592</top>
+            <height>60</height>
+            <width>942</width>
+            <ondown>90100</ondown>
+            <onup>90100</onup>
+            <align>center</align>
+            <itemgap>0</itemgap>
+            <orientation>horizontal</orientation>
+            <control type="button">
+                <description>Cancel button</description>
+                <font>font15_title</font>
+                <align>center</align>
+                <width>471</width>
+                <label>222</label>
+                <onclick>Dialog.Close(1122)</onclick>
+            </control>
+        </control>
+        <control type="scrollbar" id="60">
+            <left>979</left>
+            <top>88</top>
+            <height>480</height>
+            <width>10</width>
+            <onleft>90100</onleft>
+            <onright>9001</onright>
+            <ondown>60</ondown>
+            <onup>60</onup>
+        </control>
+    </controls>
 </window>

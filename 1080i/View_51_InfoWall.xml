@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<!-- Video InfoWall -->
-	<include name="VideoInfoWall">
-		<control type="group">
-			<visible>Control.IsVisible(51) + !$EXP[isInfoDialog]</visible>
-			<include>Animation.Common</include>
-			<top>0</top>
-			<control type="image">
-				<visible>Control.HasFocus(51) + !Skin.HasSetting(InfoWall.Banners) + [!Skin.HasSetting(InfoWall.Logo) | Container.Content(seasons)]</visible>
+    <!-- Video InfoWall -->
+    <include name="VideoInfoWall">
+        <control type="group">
+            <visible>Control.IsVisible(51) + !$EXP[isInfoDialog]</visible>
+            <include>Animation.Common</include>
+            <top>0</top>
+            <control type="image">
+                <visible>Control.HasFocus(51) + !Skin.HasSetting(InfoWall.Banners) + [!Skin.HasSetting(InfoWall.Logo) | Container.Content(seasons)]</visible>
                 <left>62</left>
                 <top>184</top>
                 <width>280</width>
@@ -20,7 +20,7 @@
                 <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,0)">Conditional</animation>
             </control>
             <control type="image">
-				<visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.Banners)</visible>
+                <visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.Banners)</visible>
                 <left>87</left>
                 <top>184</top>
                 <width>1031</width>
@@ -33,7 +33,7 @@
                 <animation effect="slide" end="0,198" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Row,0)">Conditional</animation>
             </control>
             <control type="image">
-				<visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.Logo) + !Container.Content(seasons)</visible>
+                <visible>Control.HasFocus(51) + Skin.HasSetting(InfoWall.Logo) + !Container.Content(seasons)</visible>
                 <left>62</left>
                 <top>184</top>
                 <width>369</width>
@@ -46,314 +46,314 @@
                 <animation effect="slide" end="357,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,1)">Conditional</animation>
                 <animation effect="slide" end="357,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,0)">Conditional</animation>
             </control>
-			<control type="panel" id="51">
-				<left>68</left>
-				<top>190</top>
-				<width>1072</width>
-				<height>792</height>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<onright>60</onright>
-				<onup>51</onup>
-				<ondown>51</ondown>
-				<pagecontrol>60</pagecontrol>
-				<preloaditems>2</preloaditems>
-				<viewtype label="31021">icons</viewtype>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
-				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="396" width="268" condition="!Skin.HasSetting(InfoWall.Banners) + !Skin.HasSetting(InfoWall.Logo)">
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>256</width>
-						<height>384</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
-					</control>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>256</width>
-						<height>384</height>
-						<texture border="5">overlays/diffuse-overlay.png</texture>
-					</control>
-					<include content="OverlayIcons">
+            <control type="panel" id="51">
+                <left>68</left>
+                <top>190</top>
+                <width>1072</width>
+                <height>792</height>
+                <onleft>SetProperty(MediaMenu,True,home)</onleft>
+                <onleft>SetFocus(9050)</onleft>
+                <onright>60</onright>
+                <onup>51</onup>
+                <ondown>51</ondown>
+                <pagecontrol>60</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <viewtype label="31021">icons</viewtype>
+                <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <itemlayout height="396" width="268" condition="!Skin.HasSetting(InfoWall.Banners) + !Skin.HasSetting(InfoWall.Logo)">
+                    <control type="image">
+                        <top>6</top>
+                        <left>6</left>
+                        <width>256</width>
+                        <height>384</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
+                    </control>
+                    <control type="image">
+                        <top>6</top>
+                        <left>6</left>
+                        <width>256</width>
+                        <height>384</height>
+                        <texture border="5">overlays/diffuse-overlay.png</texture>
+                    </control>
+                    <include content="OverlayIcons">
                         <param name="OverlayLeft" value="202" />
                         <param name="OverlayTop" value="4" />
                     </include>
-				</itemlayout>
-				<focusedlayout height="396" width="268" condition="!Skin.HasSetting(InfoWall.Banners) + !Skin.HasSetting(InfoWall.Logo)">
-					<control type="group">
-						<include>PanelFocusedItemZoom</include>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>256</width>
-							<height>384</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
-						</control>
-						<control type="image">
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<top>6</top>
-							<left>6</left>
-							<width>256</width>
-							<height>384</height>
-							<texture border="5">overlays/diffuse-overlay.png</texture>
-						</control>
-						<include content="OverlayIcons">
-	                        <param name="OverlayLeft" value="202" />
-	                        <param name="OverlayTop" value="4" />
-	                    </include>
-					</control>
-				</focusedlayout>
-				
-				<itemlayout width="1019" height="198" condition="Skin.HasSetting(InfoWall.Banners)">
-					<control type="group">
-						<left>25</left>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>1007</width>
-							<height>186</height>
-							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-							<texture background="true" diffuse="diffuse/infowall-banner.png">$VAR[BannerThumb]</texture>
-							<visible>!String.IsEmpty(ListItem.Art(banner)) | String.IsEmpty(ListItem.Art(fanart))</visible>
-						</control>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>1007</width>
-							<height>186</height>
-							<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
-							<texture background="true" diffuse="diffuse/infowall-banner.png">$INFO[ListItem.Icon]</texture>
-							<visible>String.IsEmpty(ListItem.Art(banner)) + ListItem.IsParentFolder</visible>
-						</control>
-	                    <control type="group">
-							<visible>String.IsEmpty(ListItem.Art(banner))</visible>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>1007</width>
-								<height>186</height>
-								<aspectratio scalediffuse="false">scale</aspectratio>
-								<texture background="true" diffuse="diffuse/infowall-banner.png">$INFO[ListItem.Art(fanart)]</texture>
-								<fadetime>300</fadetime>
-							</control>
-							<control type="image">
-								<top>16</top>
-								<left>15</left>
-								<width>450</width>
-								<height>151</height>
-								<aspectratio>keep</aspectratio>
-								<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-								<fadetime>300</fadetime>
-							</control>
-						</control>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>1007</width>
-							<height>186</height>
-							<texture border="5">overlays/diffuse-overlay.png</texture>
-						</control>
-						<include content="OverlayIcons">
-	                        <param name="OverlayLeft" value="955" />
-	                        <param name="OverlayTop" value="4" />
-	                    </include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="1019" height="198" condition="Skin.HasSetting(InfoWall.Banners)">
+                </itemlayout>
+                <focusedlayout height="396" width="268" condition="!Skin.HasSetting(InfoWall.Banners) + !Skin.HasSetting(InfoWall.Logo)">
                     <control type="group">
-                    	<left>25</left>
-                        <animation type="Focus">
-				            <effect type="zoom" time="150" start="95" end="100" center="490,89" />
-				            <effect type="zoom" time="150" start="105" end="100" delay="150" center="490,89" />
-				        </animation>
-						<control type="group">
-							<visible>!String.IsEmpty(ListItem.Art(banner)) | String.IsEmpty(ListItem.Art(fanart))</visible>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>1007</width>
-								<height>186</height>
-								<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-								<texture background="true" diffuse="diffuse/infowall-banner.png">$VAR[BannerThumb]</texture>
-							</control>
-						</control>
-						<control type="group">
-							<visible>String.IsEmpty(ListItem.Art(banner)) + ListItem.IsParentFolder</visible>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>1007</width>
-								<height>186</height>
-								<texture>background.png</texture>
-								<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-							</control>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>1007</width>
-								<height>186</height>
-								<aspectratio align="center" aligny="center">keep</aspectratio>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
-							</control>
-						</control>
-                        <control type="group">
-							<visible>String.IsEmpty(ListItem.Art(banner))</visible>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>1007</width>
-								<height>186</height>
-								<aspectratio scalediffuse="false">scale</aspectratio>
-								<texture background="true" diffuse="diffuse/infowall-banner.png">$INFO[ListItem.Art(fanart)]</texture>
-							</control>
-							<control type="image">
-								<top>16</top>
-								<left>15</left>
-								<width>450</width>
-								<height>151</height>
-								<aspectratio>keep</aspectratio>
-								<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-							</control>
-						</control>
-						<control type="image">
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<top>6</top>
-							<left>6</left>
-							<width>1007</width>
-							<height>186</height>
-							<texture border="5">overlays/diffuse-overlay.png</texture>
-						</control>
+                        <include>PanelFocusedItemZoom</include>
+                        <control type="image">
+                            <top>6</top>
+                            <left>6</left>
+                            <width>256</width>
+                            <height>384</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
+                        </control>
+                        <control type="image">
+                            <animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                            <animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                            <top>6</top>
+                            <left>6</left>
+                            <width>256</width>
+                            <height>384</height>
+                            <texture border="5">overlays/diffuse-overlay.png</texture>
+                        </control>
                         <include content="OverlayIcons">
-	                        <param name="OverlayLeft" value="955" />
-	                        <param name="OverlayTop" value="4" />
-	                    </include>
+                            <param name="OverlayLeft" value="202" />
+                            <param name="OverlayTop" value="4" />
+                        </include>
                     </control>
-				</focusedlayout>
-				<itemlayout height="264" width="357" condition="Skin.HasSetting(InfoWall.Logo) + !Container.Content(seasons)">
-					<control type="image">
-						<top>6</top>
-						<left>16</left>
-						<width>325</width>
-						<height>252</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<texture background="true">$VAR[LogoVar]</texture>
-					</control>
-					<control type="group">
-						<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
-						<control type="textbox">
-							<left>16</left>
-							<top>6</top>
-							<width>325</width>
-							<height>252</height>
-							<align>center</align>
-							<aligny>center</aligny>
-							<font>font16</font>
-							<label>$VAR[FloorLabelVar]</label>
-						</control>
-					</control>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>345</width>
-						<height>252</height>
-						<texture border="5">overlays/diffuse-overlay.png</texture>
-					</control>
-				</itemlayout>
-				<focusedlayout height="264" width="357" condition="Skin.HasSetting(InfoWall.Logo) + !Container.Content(seasons)">
-					<control type="group">
-						<include>PanelFocusedItemZoom</include>
-						<control type="image">
-							<top>6</top>
-							<left>16</left>
-							<width>325</width>
-							<height>252</height>
-							<aspectratio scalediffuse="false">keep</aspectratio>
-							<texture background="true">$VAR[LogoVar]</texture>
-						</control>
-						<control type="group">
-							<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
-							<control type="textbox">
-								<left>16</left>
-								<top>6</top>
-								<width>325</width>
-								<height>252</height>
-								<align>center</align>
-								<aligny>center</aligny>
-								<font>font16</font>
-								<label>$VAR[FloorLabelVar]</label>
-							</control>
-						</control>
-						<control type="image">
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<top>6</top>
-							<left>6</left>
-							<width>345</width>
-							<height>252</height>
-							<texture border="5">overlays/diffuse-overlay.png</texture>
-						</control>
-					</control>
-				</focusedlayout>
-			</control>
-			<control type="grouplist">
-				<animation effect="slide" time="300" tween="sine" easing="inout" start="0" end="-25" condition="Skin.HasSetting(InfoWall.Banners)">Conditional</animation>
-				<top>196</top>
-				<left>1171</left>
-				<itemgap>15</itemgap>
-				<visible>Control.IsVisible(51)</visible>
-				<control type="multiimage">
-					<width>680</width>
-					<height>384</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<imagepath background="true" diffuse="diffuse/infowall-fanart.png">$VAR[ExtraFanartVar]</imagepath>
-					<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
-				</control>
-				<control type="label">
-					<width>680</width>
-					<height>40</height>
-					<font>font30</font>
-					<scroll>true</scroll>
-					<aligny>bottom</aligny>
-					<label>$VAR[FloorLabelVar]</label>
-				</control>
-				<control type="label">
-					<label>$VAR[InfoWallSubLabelVar]</label>
-					<width>680</width>
-					<height>42</height>
-					<font>font14</font>
-					<aligny>top</aligny>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-				<control type="textbox">
-					<label>$VAR[VideoPlotVar]</label>
-					<width>680</width>
-					<height>270</height>
-					<font>font14_textbox</font>
-					<include>AutoscrollDefault</include>
-					<include>InfoPanelButtonsValues</include>
-				</control>
-			</control>
-		</control>
-		<control type="group">
-			<visible>Control.IsVisible(51) + !$EXP[isInfoDialog]</visible>
-			<top>-15</top>
-			<include>Scrollbar_Vertical</include>
-		</control>
-	</include>
-	<!-- Music InfoWall -->
-	<include name="MusicInfoWall">
-		<control type="group">
-			<visible>Control.IsVisible(51) + !$EXP[isInfoDialog]</visible>
-			<include>Animation.Common</include>
-			<top>0</top>
-			<control type="image">
-				<visible>Control.HasFocus(51)</visible>
+                </focusedlayout>
+                
+                <itemlayout width="1019" height="198" condition="Skin.HasSetting(InfoWall.Banners)">
+                    <control type="group">
+                        <left>25</left>
+                        <control type="image">
+                            <top>6</top>
+                            <left>6</left>
+                            <width>1007</width>
+                            <height>186</height>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <texture background="true" diffuse="diffuse/infowall-banner.png">$VAR[BannerThumb]</texture>
+                            <visible>!String.IsEmpty(ListItem.Art(banner)) | String.IsEmpty(ListItem.Art(fanart))</visible>
+                        </control>
+                        <control type="image">
+                            <top>6</top>
+                            <left>6</left>
+                            <width>1007</width>
+                            <height>186</height>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+                            <texture background="true" diffuse="diffuse/infowall-banner.png">$INFO[ListItem.Icon]</texture>
+                            <visible>String.IsEmpty(ListItem.Art(banner)) + ListItem.IsParentFolder</visible>
+                        </control>
+                        <control type="group">
+                            <visible>String.IsEmpty(ListItem.Art(banner))</visible>
+                            <control type="image">
+                                <top>6</top>
+                                <left>6</left>
+                                <width>1007</width>
+                                <height>186</height>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <texture background="true" diffuse="diffuse/infowall-banner.png">$INFO[ListItem.Art(fanart)]</texture>
+                                <fadetime>300</fadetime>
+                            </control>
+                            <control type="image">
+                                <top>16</top>
+                                <left>15</left>
+                                <width>450</width>
+                                <height>151</height>
+                                <aspectratio>keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                                <fadetime>300</fadetime>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <top>6</top>
+                            <left>6</left>
+                            <width>1007</width>
+                            <height>186</height>
+                            <texture border="5">overlays/diffuse-overlay.png</texture>
+                        </control>
+                        <include content="OverlayIcons">
+                            <param name="OverlayLeft" value="955" />
+                            <param name="OverlayTop" value="4" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="1019" height="198" condition="Skin.HasSetting(InfoWall.Banners)">
+                    <control type="group">
+                        <left>25</left>
+                        <animation type="Focus">
+                            <effect type="zoom" time="150" start="95" end="100" center="490,89" />
+                            <effect type="zoom" time="150" start="105" end="100" delay="150" center="490,89" />
+                        </animation>
+                        <control type="group">
+                            <visible>!String.IsEmpty(ListItem.Art(banner)) | String.IsEmpty(ListItem.Art(fanart))</visible>
+                            <control type="image">
+                                <top>6</top>
+                                <left>6</left>
+                                <width>1007</width>
+                                <height>186</height>
+                                <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                                <texture background="true" diffuse="diffuse/infowall-banner.png">$VAR[BannerThumb]</texture>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>String.IsEmpty(ListItem.Art(banner)) + ListItem.IsParentFolder</visible>
+                            <control type="image">
+                                <top>6</top>
+                                <left>6</left>
+                                <width>1007</width>
+                                <height>186</height>
+                                <texture>background.png</texture>
+                                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+                            </control>
+                            <control type="image">
+                                <top>6</top>
+                                <left>6</left>
+                                <width>1007</width>
+                                <height>186</height>
+                                <aspectratio align="center" aligny="center">keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Icon]</texture>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>String.IsEmpty(ListItem.Art(banner))</visible>
+                            <control type="image">
+                                <top>6</top>
+                                <left>6</left>
+                                <width>1007</width>
+                                <height>186</height>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <texture background="true" diffuse="diffuse/infowall-banner.png">$INFO[ListItem.Art(fanart)]</texture>
+                            </control>
+                            <control type="image">
+                                <top>16</top>
+                                <left>15</left>
+                                <width>450</width>
+                                <height>151</height>
+                                <aspectratio>keep</aspectratio>
+                                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                            <animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                            <top>6</top>
+                            <left>6</left>
+                            <width>1007</width>
+                            <height>186</height>
+                            <texture border="5">overlays/diffuse-overlay.png</texture>
+                        </control>
+                        <include content="OverlayIcons">
+                            <param name="OverlayLeft" value="955" />
+                            <param name="OverlayTop" value="4" />
+                        </include>
+                    </control>
+                </focusedlayout>
+                <itemlayout height="264" width="357" condition="Skin.HasSetting(InfoWall.Logo) + !Container.Content(seasons)">
+                    <control type="image">
+                        <top>6</top>
+                        <left>16</left>
+                        <width>325</width>
+                        <height>252</height>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <texture background="true">$VAR[LogoVar]</texture>
+                    </control>
+                    <control type="group">
+                        <visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
+                        <control type="textbox">
+                            <left>16</left>
+                            <top>6</top>
+                            <width>325</width>
+                            <height>252</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>font16</font>
+                            <label>$VAR[FloorLabelVar]</label>
+                        </control>
+                    </control>
+                    <control type="image">
+                        <top>6</top>
+                        <left>6</left>
+                        <width>345</width>
+                        <height>252</height>
+                        <texture border="5">overlays/diffuse-overlay.png</texture>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="264" width="357" condition="Skin.HasSetting(InfoWall.Logo) + !Container.Content(seasons)">
+                    <control type="group">
+                        <include>PanelFocusedItemZoom</include>
+                        <control type="image">
+                            <top>6</top>
+                            <left>16</left>
+                            <width>325</width>
+                            <height>252</height>
+                            <aspectratio scalediffuse="false">keep</aspectratio>
+                            <texture background="true">$VAR[LogoVar]</texture>
+                        </control>
+                        <control type="group">
+                            <visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
+                            <control type="textbox">
+                                <left>16</left>
+                                <top>6</top>
+                                <width>325</width>
+                                <height>252</height>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <font>font16</font>
+                                <label>$VAR[FloorLabelVar]</label>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                            <animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                            <top>6</top>
+                            <left>6</left>
+                            <width>345</width>
+                            <height>252</height>
+                            <texture border="5">overlays/diffuse-overlay.png</texture>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="grouplist">
+                <animation effect="slide" time="300" tween="sine" easing="inout" start="0" end="-25" condition="Skin.HasSetting(InfoWall.Banners)">Conditional</animation>
+                <top>196</top>
+                <left>1171</left>
+                <itemgap>15</itemgap>
+                <visible>Control.IsVisible(51)</visible>
+                <control type="multiimage">
+                    <width>680</width>
+                    <height>384</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <imagepath background="true" diffuse="diffuse/infowall-fanart.png">$VAR[ExtraFanartVar]</imagepath>
+                    <visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
+                </control>
+                <control type="label">
+                    <width>680</width>
+                    <height>40</height>
+                    <font>font30</font>
+                    <scroll>true</scroll>
+                    <aligny>bottom</aligny>
+                    <label>$VAR[FloorLabelVar]</label>
+                </control>
+                <control type="label">
+                    <label>$VAR[InfoWallSubLabelVar]</label>
+                    <width>680</width>
+                    <height>42</height>
+                    <font>font14</font>
+                    <aligny>top</aligny>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                </control>
+                <control type="textbox">
+                    <label>$VAR[VideoPlotVar]</label>
+                    <width>680</width>
+                    <height>270</height>
+                    <font>font14_textbox</font>
+                    <include>AutoscrollDefault</include>
+                    <include>InfoPanelButtonsValues</include>
+                </control>
+            </control>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(51) + !$EXP[isInfoDialog]</visible>
+            <top>-15</top>
+            <include>Scrollbar_Vertical</include>
+        </control>
+    </include>
+    <!-- Music InfoWall -->
+    <include name="MusicInfoWall">
+        <control type="group">
+            <visible>Control.IsVisible(51) + !$EXP[isInfoDialog]</visible>
+            <include>Animation.Common</include>
+            <top>0</top>
+            <control type="image">
+                <visible>Control.HasFocus(51)</visible>
                 <left>39</left>
                 <top>159</top>
                 <width>292</width>
@@ -366,154 +366,154 @@
                 <animation effect="slide" end="280,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,1)">Conditional</animation>
                 <animation effect="slide" end="280,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(51).Column,0)">Conditional</animation>
             </control>
-			<control type="panel" id="51">
-				<left>45</left>
-				<top>165</top>
-				<width>1120</width>
-				<height>840</height>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<onright>60</onright>
-				<onup>51</onup>
-				<ondown>51</ondown>
-				<pagecontrol>60</pagecontrol>
-				<preloaditems>2</preloaditems>
-				<viewtype label="31021">icons</viewtype>
-				<visible>Container.Content(artists) | Container.Content(albums)</visible>
-				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="280" width="280">
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>268</width>
-						<height>268</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture background="true" fallback="DefaultFallback.png" diffuse="diffuse/wall-square.png">$VAR[ThumbVar]</texture>
-					</control>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>268</width>
-						<height>268</height>
-						<texture border="5">overlays/diffuse-overlay.png</texture>
-					</control>
-					<control type="group">
-						<visible>Container.Content(artists)</visible>
-						<control type="image">
-							<top>224</top>
-							<left>6</left>
-							<width>268</width>
-							<height>50</height>
-							<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
-						</control>
-						<control type="label">
-							<left>6</left>
-							<top>234</top>
-							<width>268</width>
-							<height>28</height>
-							<align>center</align>
-							<textoffsetx>4</textoffsetx>
-							<info>ListItem.Label</info>
-						</control>
-					</control>
-				</itemlayout>
-				<focusedlayout height="280" width="280">
-					<control type="group">
-						<include>PanelFocusedItemZoom</include>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>268</width>
-							<height>268</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/wall-square.png">$VAR[ThumbVar]</texture>
-						</control>
-						<control type="group">
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>268</width>
-								<height>268</height>
-								<texture border="5">overlays/diffuse-overlay.png</texture>
-							</control>
-							<control type="group">
-								<visible>Container.Content(artists)</visible>
-								<control type="image">
-									<top>224</top>
-									<left>6</left>
-									<width>268</width>
-									<height>50</height>
-									<texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
-								</control>
-								<control type="label">
-									<left>6</left>
-									<top>234</top>
-									<width>268</width>
-									<height>28</height>
-									<align>center</align>
-									<textoffsetx>4</textoffsetx>
-									<info>ListItem.Label</info>
-								</control>
-							</control>
-						</control>
-					</control>
-				</focusedlayout>
-			</control>
-			<control type="grouplist">
-				<top>171</top>
-				<left>1195</left>
-				<itemgap>15</itemgap>
-				<visible>Control.IsVisible(51)</visible>
-				<control type="image">
-					<width>680</width>
-					<height>384</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture background="true" diffuse="diffuse/infowall-fanart.png">$INFO[ListItem.Art(fanart)]</texture>
-					<fadetime>400</fadetime>
-					<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
-				</control>
-				<control type="label">
-					<width>680</width>
-					<height>40</height>
-					<font>font30</font>
-					<aligny>bottom</aligny>
-					<scroll>true</scroll>
-					<label>$VAR[FloorLabelVar]</label>
-				</control>
-				<control type="label">
-					<label>$INFO[ListItem.Artist]</label>
-					<width>680</width>
-					<height>42</height>
-					<aligny>top</aligny>
-					<font>font14</font>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-					<visible>Container.Content(albums)</visible>
-				</control>
-				<control type="label">
-					<label>$INFO[ListItem.Property(Artist_Genre)]</label>
-					<width>680</width>
-					<height>42</height>
-					<font>font14</font>
-					<aligny>top</aligny>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-					<visible>Container.Content(artists)</visible>
-				</control>
-				<control type="textbox">
-					<label>$VAR[MusicPlotVar]</label>
-					<width>680</width>
-					<height>270</height>
-					<font>font14_textbox</font>
-					<include>AutoscrollDefault</include>
-					<include>InfoPanelButtonsValues</include>
-				</control>
-			</control>
-		</control>
-		<control type="group">
-			<visible>Control.IsVisible(51) + !$EXP[isInfoDialog]</visible>
-			<top>-15</top>
-			<include>Scrollbar_Vertical</include>
-		</control>
-	</include>
+            <control type="panel" id="51">
+                <left>45</left>
+                <top>165</top>
+                <width>1120</width>
+                <height>840</height>
+                <onleft>SetProperty(MediaMenu,True,home)</onleft>
+                <onleft>SetFocus(9050)</onleft>
+                <onright>60</onright>
+                <onup>51</onup>
+                <ondown>51</ondown>
+                <pagecontrol>60</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <viewtype label="31021">icons</viewtype>
+                <visible>Container.Content(artists) | Container.Content(albums)</visible>
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <itemlayout height="280" width="280">
+                    <control type="image">
+                        <top>6</top>
+                        <left>6</left>
+                        <width>268</width>
+                        <height>268</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture background="true" fallback="DefaultFallback.png" diffuse="diffuse/wall-square.png">$VAR[ThumbVar]</texture>
+                    </control>
+                    <control type="image">
+                        <top>6</top>
+                        <left>6</left>
+                        <width>268</width>
+                        <height>268</height>
+                        <texture border="5">overlays/diffuse-overlay.png</texture>
+                    </control>
+                    <control type="group">
+                        <visible>Container.Content(artists)</visible>
+                        <control type="image">
+                            <top>224</top>
+                            <left>6</left>
+                            <width>268</width>
+                            <height>50</height>
+                            <texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
+                        </control>
+                        <control type="label">
+                            <left>6</left>
+                            <top>234</top>
+                            <width>268</width>
+                            <height>28</height>
+                            <align>center</align>
+                            <textoffsetx>4</textoffsetx>
+                            <info>ListItem.Label</info>
+                        </control>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="280" width="280">
+                    <control type="group">
+                        <include>PanelFocusedItemZoom</include>
+                        <control type="image">
+                            <top>6</top>
+                            <left>6</left>
+                            <width>268</width>
+                            <height>268</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/wall-square.png">$VAR[ThumbVar]</texture>
+                        </control>
+                        <control type="group">
+                            <animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                            <animation center="auto" condition="Control.HasFocus(51)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                            <control type="image">
+                                <top>6</top>
+                                <left>6</left>
+                                <width>268</width>
+                                <height>268</height>
+                                <texture border="5">overlays/diffuse-overlay.png</texture>
+                            </control>
+                            <control type="group">
+                                <visible>Container.Content(artists)</visible>
+                                <control type="image">
+                                    <top>224</top>
+                                    <left>6</left>
+                                    <width>268</width>
+                                    <height>50</height>
+                                    <texture colordiffuse="BB000000" border="5">diffuse/actor-label.png</texture>
+                                </control>
+                                <control type="label">
+                                    <left>6</left>
+                                    <top>234</top>
+                                    <width>268</width>
+                                    <height>28</height>
+                                    <align>center</align>
+                                    <textoffsetx>4</textoffsetx>
+                                    <info>ListItem.Label</info>
+                                </control>
+                            </control>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="grouplist">
+                <top>171</top>
+                <left>1195</left>
+                <itemgap>15</itemgap>
+                <visible>Control.IsVisible(51)</visible>
+                <control type="image">
+                    <width>680</width>
+                    <height>384</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="diffuse/infowall-fanart.png">$INFO[ListItem.Art(fanart)]</texture>
+                    <fadetime>400</fadetime>
+                    <visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
+                </control>
+                <control type="label">
+                    <width>680</width>
+                    <height>40</height>
+                    <font>font30</font>
+                    <aligny>bottom</aligny>
+                    <scroll>true</scroll>
+                    <label>$VAR[FloorLabelVar]</label>
+                </control>
+                <control type="label">
+                    <label>$INFO[ListItem.Artist]</label>
+                    <width>680</width>
+                    <height>42</height>
+                    <aligny>top</aligny>
+                    <font>font14</font>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                    <visible>Container.Content(albums)</visible>
+                </control>
+                <control type="label">
+                    <label>$INFO[ListItem.Property(Artist_Genre)]</label>
+                    <width>680</width>
+                    <height>42</height>
+                    <font>font14</font>
+                    <aligny>top</aligny>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                    <visible>Container.Content(artists)</visible>
+                </control>
+                <control type="textbox">
+                    <label>$VAR[MusicPlotVar]</label>
+                    <width>680</width>
+                    <height>270</height>
+                    <font>font14_textbox</font>
+                    <include>AutoscrollDefault</include>
+                    <include>InfoPanelButtonsValues</include>
+                </control>
+            </control>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(51) + !$EXP[isInfoDialog]</visible>
+            <top>-15</top>
+            <include>Scrollbar_Vertical</include>
+        </control>
+    </include>
 </includes>

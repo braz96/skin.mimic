@@ -1,157 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
-	<defaultcontrol always="true">3110</defaultcontrol>
-	<coordinates>
-		<system>1</system>
-		<left>282</left>
-		<top>140</top>
-	</coordinates>
-	<include>Animation.Dialog</include>
-	<controls>
-    	<include content="DialogBackgroundCommons">
+    <defaultcontrol always="true">3110</defaultcontrol>
+    <coordinates>
+        <system>1</system>
+        <left>282</left>
+        <top>140</top>
+    </coordinates>
+    <include>Animation.Dialog</include>
+    <controls>
+        <include content="DialogBackgroundCommons">
             <param name="DialogBackgroundWidth" value="1356" />
             <param name="DialogBackgroundHeight" value="800" />
             <param name="DialogHeaderLabel" value="" />
             <param name="DialogHeaderId" value="1" />
         </include>
-    	<control type="group">
+        <control type="group">
             <centerleft>50%</centerleft>
             <top>100</top>
             <width>1382</width>
 
-			<control type="panel" id="3110">
-				<viewtype label="536">icons</viewtype>
-				<left>48</left>
-				<top>0</top>
-				<width>1260</width>
-				<height>600</height>
-				<orientation>vertical</orientation>
-				<onleft>3110</onleft>
-				<onright>3110</onright>
-				<onup>3010</onup>
-				<ondown>3010</ondown>
-				<preloaditems>4</preloaditems>
-				<itemlayout height="60" width="90">
-					<control type="image">
-						<left>4</left>
-						<top>4</top>
-						<width>82</width>
-						<height>52</height>
-						<texture diffuse="diffuse/colorpicker.png">$INFO[ListItem.Icon]</texture>
-					</control>
-				</itemlayout>
-				<focusedlayout height="60" width="90">
-					<control type="group">
-						<animation effect="zoom" time="300" tween="sine" easing="inout" start="100" end="164" center="auto">Focus</animation>
-						<control type="image">
-							<left>4</left>
-							<top>4</top>
-							<width>82</width>
-							<height>52</height>
-							<texture diffuse="diffuse/colorpicker.png">$INFO[ListItem.Icon]</texture>
-						</control>
-					</control>
-				</focusedlayout>
-			</control>
-						
-			<control type="grouplist">
-				<orientation>horizontal</orientation>
-				<itemgap>15</itemgap>
-				<left>53</left>
-				<top>580</top>
-				<width>1350</width>
-				<!-- color preview-->
-				<control type="image">
-					<width>68</width>
-					<height>68</height>
-					<texture border="5">white.png</texture>
-					<colordiffuse>$INFO[Window.Property(colorstring)]</colordiffuse>
-				</control>
-				<!-- edit manual -->
-				<control type="button" id="3010">
-					<onup>SetFocus(3110,112)</onup>
-					<ondown>SetFocus(3110,0)</ondown>
-					<onright>3011</onright>
-					<label>$LOCALIZE[737]:</label>
-					<label2>$INFO[Window.Property(colorstring)]</label2>
-					<font>font15_title</font>
-			        <width>340</width>
-			        <height>68</height>
-			        <texturenofocus colordiffuse="33787878" border="5">listselect_fo.png</texturenofocus>
-				</control>
-				
-				<!-- Save button -->
-				<control type="button" id="3012">
-					<onup>3110</onup>
-					<onleft>3010</onleft>
-					<ondown>SetFocus(3110,0)</ondown>
-					<label>190</label>
-					<font>font15_title</font>
-					<align>center</align>
-			        <width>170</width>
-			        <height>68</height>
-			        <texturenofocus colordiffuse="33787878" border="5">listselect_fo.png</texturenofocus>
-				</control>
-				
-				<!-- Cancel -->
-				<control type="button" id="3090">
-					<onup>3110</onup>
-					<onleft>3010</onleft>
-					<ondown>SetFocus(3110,0)</ondown>
-					<onclick>Close</onclick>
-					<label>222</label>
-					<font>font15_title</font>
-					<align>center</align>
-			        <width>200</width>
-			        <height>68</height>
-			        <texturenofocus colordiffuse="33787878" border="5">listselect_fo.png</texturenofocus>
-				</control>
+            <control type="panel" id="3110">
+                <viewtype label="536">icons</viewtype>
+                <left>48</left>
+                <top>0</top>
+                <width>1260</width>
+                <height>600</height>
+                <orientation>vertical</orientation>
+                <onleft>3110</onleft>
+                <onright>3110</onright>
+                <onup>3010</onup>
+                <ondown>3010</ondown>
+                <preloaditems>4</preloaditems>
+                <itemlayout height="60" width="90">
+                    <control type="image">
+                        <left>4</left>
+                        <top>4</top>
+                        <width>82</width>
+                        <height>52</height>
+                        <texture diffuse="diffuse/colorpicker.png">$INFO[ListItem.Icon]</texture>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="60" width="90">
+                    <control type="group">
+                        <animation effect="zoom" time="300" tween="sine" easing="inout" start="100" end="164" center="auto">Focus</animation>
+                        <control type="image">
+                            <left>4</left>
+                            <top>4</top>
+                            <width>82</width>
+                            <height>52</height>
+                            <texture diffuse="diffuse/colorpicker.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+                        
+            <control type="grouplist">
+                <orientation>horizontal</orientation>
+                <itemgap>15</itemgap>
+                <left>53</left>
+                <top>580</top>
+                <width>1350</width>
+                <!-- color preview-->
+                <control type="image">
+                    <width>68</width>
+                    <height>68</height>
+                    <texture border="5">white.png</texture>
+                    <colordiffuse>$INFO[Window.Property(colorstring)]</colordiffuse>
+                </control>
+                <!-- edit manual -->
+                <control type="button" id="3010">
+                    <onup>SetFocus(3110,112)</onup>
+                    <ondown>SetFocus(3110,0)</ondown>
+                    <onright>3011</onright>
+                    <label>$LOCALIZE[737]:</label>
+                    <label2>$INFO[Window.Property(colorstring)]</label2>
+                    <font>font15_title</font>
+                    <width>340</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="33787878" border="5">listselect_fo.png</texturenofocus>
+                </control>
+                
+                <!-- Save button -->
+                <control type="button" id="3012">
+                    <onup>3110</onup>
+                    <onleft>3010</onleft>
+                    <ondown>SetFocus(3110,0)</ondown>
+                    <label>190</label>
+                    <font>font15_title</font>
+                    <align>center</align>
+                    <width>170</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="33787878" border="5">listselect_fo.png</texturenofocus>
+                </control>
+                
+                <!-- Cancel -->
+                <control type="button" id="3090">
+                    <onup>3110</onup>
+                    <onleft>3010</onleft>
+                    <ondown>SetFocus(3110,0)</ondown>
+                    <onclick>Close</onclick>
+                    <label>222</label>
+                    <font>font15_title</font>
+                    <align>center</align>
+                    <width>200</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="33787878" border="5">listselect_fo.png</texturenofocus>
+                </control>
 
-				<!-- None -->
-				<control type="button" id="3011">
-					<visible>False</visible>
-					<onup>3110</onup>
-					<onleft>3010</onleft>
-					<ondown>SetFocus(3110)</ondown>
-					<label>$ADDON[script.skin.helper.service 32013]</label>
-					<font>font15_title</font>
-			        <width>225</width>
-			        <height>68</height>
-				</control>
-				
-				<control type="group" id="3020">
-					<width>410</width>
-					<height>66</height>
-					<control type="label" id="3016">
-						<!-- label opacity-->
-						<width>130</width>
-						<left>10</left>
-						<label>$ADDON[script.skin.helper.colorpicker 32049]:</label>
-					</control>
-					<control type="slider" id="3015">
-						<!-- opacity slider -->
-						<top>15</top>
-						<left>130</left>
-						<onup>3090</onup>
-						<ondown>3090</ondown>
-						<width>200</width>
-						<height>40</height>
-						<controloffsetx>0</controloffsetx>
-						<texturesliderbar>osd/slider_bg_2.png</texturesliderbar>
-				        <textureslidernib>osd/SliderNibNF.png</textureslidernib>
-				        <textureslidernibfocus>osd/SliderNibFO.png</textureslidernibfocus>
-					</control>
-					
-					<control type="label" id="3017">
-						<!-- opacity percentage -->
-						<width>80</width>
-						<left>330</left>
-						<align>right</align>
-						<label>$INFO[Control.Getlabel(3015)]</label>
-					</control>
-				</control>
-			</control>
-		</control>		
+                <!-- None -->
+                <control type="button" id="3011">
+                    <visible>False</visible>
+                    <onup>3110</onup>
+                    <onleft>3010</onleft>
+                    <ondown>SetFocus(3110)</ondown>
+                    <label>$ADDON[script.skin.helper.service 32013]</label>
+                    <font>font15_title</font>
+                    <width>225</width>
+                    <height>68</height>
+                </control>
+                
+                <control type="group" id="3020">
+                    <width>410</width>
+                    <height>66</height>
+                    <control type="label" id="3016">
+                        <!-- label opacity-->
+                        <width>130</width>
+                        <left>10</left>
+                        <label>$ADDON[script.skin.helper.colorpicker 32049]:</label>
+                    </control>
+                    <control type="slider" id="3015">
+                        <!-- opacity slider -->
+                        <top>15</top>
+                        <left>130</left>
+                        <onup>3090</onup>
+                        <ondown>3090</ondown>
+                        <width>200</width>
+                        <height>40</height>
+                        <controloffsetx>0</controloffsetx>
+                        <texturesliderbar>osd/slider_bg_2.png</texturesliderbar>
+                        <textureslidernib>osd/SliderNibNF.png</textureslidernib>
+                        <textureslidernibfocus>osd/SliderNibFO.png</textureslidernibfocus>
+                    </control>
+                    
+                    <control type="label" id="3017">
+                        <!-- opacity percentage -->
+                        <width>80</width>
+                        <left>330</left>
+                        <align>right</align>
+                        <label>$INFO[Control.Getlabel(3015)]</label>
+                    </control>
+                </control>
+            </control>
+        </control>      
 
-	</controls>
+    </controls>
 </window>

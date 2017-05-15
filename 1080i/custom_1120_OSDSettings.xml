@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1120" type="dialog">
-	<defaultcontrol always="true">90200</defaultcontrol>
-	<coordinates>
-		<system>1</system>
-		<left>392</left>
-		<top>210</top>
-	</coordinates>
-	<include>Animation.Dialog</include>
-	<controls>
-		<include content="DialogBackgroundCommons">
+    <defaultcontrol always="true">90200</defaultcontrol>
+    <coordinates>
+        <system>1</system>
+        <left>392</left>
+        <top>210</top>
+    </coordinates>
+    <include>Animation.Dialog</include>
+    <controls>
+        <include content="DialogBackgroundCommons">
             <param name="DialogBackgroundWidth" value="1136" />
             <param name="DialogBackgroundHeight" value="660" />
             <param name="DialogHeaderLabel" value="$LOCALIZE[31048]" />
             <param name="DialogHeaderId" value="2" />
         </include>
-		<control type="grouplist" id="90200">
-			<description>control area</description>
-			<left>32</left>
-			<top>98</top>
-			<width>1074</width>
-			<height>540</height>
-			<itemgap>0</itemgap>
-			<pagecontrol>6</pagecontrol>
-			<onup>90200</onup>
-			<ondown>90200</ondown>
-			<onleft>9001</onleft>
-			<onright>6</onright>
-			<control type="button" id="90201">
-				<description>Background Button</description>
-				<width>1074</width>
-				<label>$LOCALIZE[31102]</label>
-				<label2>$VAR[VizBackgroundLabelVar]</label2>
+        <control type="grouplist" id="90200">
+            <description>control area</description>
+            <left>32</left>
+            <top>98</top>
+            <width>1074</width>
+            <height>540</height>
+            <itemgap>0</itemgap>
+            <pagecontrol>6</pagecontrol>
+            <onup>90200</onup>
+            <ondown>90200</ondown>
+            <onleft>9001</onleft>
+            <onright>6</onright>
+            <control type="button" id="90201">
+                <description>Background Button</description>
+                <width>1074</width>
+                <label>$LOCALIZE[31102]</label>
+                <label2>$VAR[VizBackgroundLabelVar]</label2>
                 <onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
                 <onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(musicvis.background,none))</onclick>
                 <onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20445])</onclick>
@@ -46,40 +46,40 @@
                 <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.7.Label,$LOCALIZE[31169])</onclick>
                 <onclick condition="System.HasAddon(script.colorbox)">SetProperty(Dialog.7.BuiltIn,Skin.SetString(musicvis.background,posterizefanart))</onclick>
                 <onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31167])</onclick>
-			</control>
-			<control type="radiobutton" id="90205">
-				<width>1074</width>
-				<label>31905</label>
-				<onclick>Skin.ToggleSetting(Disable.AnimateFanart)</onclick>
-				<selected>!Skin.HasSetting(Disable.AnimateFanart)</selected>
-				<enable>!String.IsEqual(Skin.String(musicvis.background),albumwall)</enable>
-			</control>
-			<control type="radiobutton" id="90202">
-				<description>Background Button</description>
-				<width>1074</width>
-				<label>$LOCALIZE[31129]</label>
-				<onclick>Skin.ToggleSetting(HideVisualizationFanart)</onclick>
-				<selected>Skin.HasSetting(HideVisualizationFanart)</selected>
-				<enable>Visualisation.Enabled + ![String.IsEqual(Visualisation.Name,waveform) | String.IsEqual(Visualisation.Name,opengl spectrum) | String.IsEqual(Visualisation.Name,directx spectrum)]</enable>
-			</control>
-			<control type="radiobutton" id="90203">
-				<description>Big Ass Label Button</description>
-				<width>1074</width>
-				<label>$LOCALIZE[31042]</label>
-				<onclick>Skin.ToggleSetting(BigAssLabel)</onclick>
-				<selected>Skin.HasSetting(BigAssLabel)</selected>
-			</control>
-			<control type="button" id="90204">
-				<description>Artist Info Button</description>
-				<width>1074</width>
-				<label>$LOCALIZE[31108]</label>
-				<label2>$VAR[VizArtistInfoVar]</label2>
-				<onclick condition="!Skin.HasSetting(Enable.VizInfo) + !Skin.HasSetting(Enable.VizPersistent)">Skin.SetBool(Enable.VizInfo)</onclick>
-				<onclick condition="Skin.HasSetting(Enable.VizInfo)">Skin.SetBool(Enable.VizPersistent)</onclick>
-				<onclick condition="Skin.HasSetting(Enable.VizInfo)">Skin.Reset(Enable.VizInfo)</onclick>
-				<onclick condition="Skin.HasSetting(Enable.VizPersistent)">Skin.Reset(Enable.VizPersistent)</onclick>
-				<visible>System.HasAddon(script.artistslideshow)</visible>
-			</control>
-		</control>
-	</controls>
+            </control>
+            <control type="radiobutton" id="90205">
+                <width>1074</width>
+                <label>31905</label>
+                <onclick>Skin.ToggleSetting(Disable.AnimateFanart)</onclick>
+                <selected>!Skin.HasSetting(Disable.AnimateFanart)</selected>
+                <enable>!String.IsEqual(Skin.String(musicvis.background),albumwall)</enable>
+            </control>
+            <control type="radiobutton" id="90202">
+                <description>Background Button</description>
+                <width>1074</width>
+                <label>$LOCALIZE[31129]</label>
+                <onclick>Skin.ToggleSetting(HideVisualizationFanart)</onclick>
+                <selected>Skin.HasSetting(HideVisualizationFanart)</selected>
+                <enable>Visualisation.Enabled + ![String.IsEqual(Visualisation.Name,waveform) | String.IsEqual(Visualisation.Name,opengl spectrum) | String.IsEqual(Visualisation.Name,directx spectrum)]</enable>
+            </control>
+            <control type="radiobutton" id="90203">
+                <description>Big Ass Label Button</description>
+                <width>1074</width>
+                <label>$LOCALIZE[31042]</label>
+                <onclick>Skin.ToggleSetting(BigAssLabel)</onclick>
+                <selected>Skin.HasSetting(BigAssLabel)</selected>
+            </control>
+            <control type="button" id="90204">
+                <description>Artist Info Button</description>
+                <width>1074</width>
+                <label>$LOCALIZE[31108]</label>
+                <label2>$VAR[VizArtistInfoVar]</label2>
+                <onclick condition="!Skin.HasSetting(Enable.VizInfo) + !Skin.HasSetting(Enable.VizPersistent)">Skin.SetBool(Enable.VizInfo)</onclick>
+                <onclick condition="Skin.HasSetting(Enable.VizInfo)">Skin.SetBool(Enable.VizPersistent)</onclick>
+                <onclick condition="Skin.HasSetting(Enable.VizInfo)">Skin.Reset(Enable.VizInfo)</onclick>
+                <onclick condition="Skin.HasSetting(Enable.VizPersistent)">Skin.Reset(Enable.VizPersistent)</onclick>
+                <visible>System.HasAddon(script.artistslideshow)</visible>
+            </control>
+        </control>
+    </controls>
 </window>

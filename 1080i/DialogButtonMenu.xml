@@ -1,269 +1,269 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol>9000</defaultcontrol>
-	<include>Animation.Dialog</include>
-	<coordinates>
-		<system>1</system>
-		<left>0</left>
-		<top>0</top>
-	</coordinates>
-	<controls>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>$VAR[CommonBackgroundOverlay]</texture>
-			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-		</control>
-		<control type="grouplist" id="90300">
-			<left>705</left>
-			<top>0</top>
-			<width>510</width>
-			<height>1080</height>
-			<onleft>90300</onleft>
-			<onright>90300</onright>
-			<onup>90300</onup>
-			<ondown>90300</ondown>
-			<itemgap>0</itemgap>
-			<align>center</align>
-			<control type="image" id="90301">
-				<description>background image</description>
-				<width>510</width>
-				<height>30</height>
-				<texture border="16,16,16,0">button_border.png</texture>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90302">
-				<description>Exit button</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>System.ShowExitButton</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90303">
-				<description>Shutdown button</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90304">
-				<description>Custom Shutdown Timer</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>!System.HasAlarm(shutdowntimer)</visible>
-				<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90305">
-				<description>Cancel Shutdown Timer</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>System.HasAlarm(shutdowntimer)</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90306">
-				<description>Suspend button</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>System.CanSuspend</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90307">
-				<description>Hibernate button</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>System.CanHibernate</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90308">
-				<description>Reboot button</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>System.CanReboot</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90309">
-				<description>Logoff button</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
-				<visible>System.Loggedon</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90310">
-				<description>Master mode button</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>System.HasLocks</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90312">
-				<description>Inhibit idle shutdown</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>System.HasShutdown +!System.IsInhibit</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90313">
-				<description>Allow idle shutdown</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<visible>System.HasShutdown + System.IsInhibit</visible>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90314">
-				<description>Settings</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90315">
-				<description>Reload Skin</description>
-				<width>510</width>
-				<height>60</height>
-				<align>left</align>
-				<texture border="16">button_bg.png</texture>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-			<control type="image" id="90316">
-				<description>background image</description>
-				<width>510</width>
-				<height>30</height>
-				<texture flipy="true" border="16,0,16,16">button_border.png</texture>
-				<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-			</control>
-		</control>
-		<control type="grouplist" id="9000">
-			<left>735</left>
-			<top>0</top>
-			<width>450</width>
-			<height>1080</height>
-			<onleft>9000</onleft>
-			<onright>9000</onright>
-			<onup>9000</onup>
-			<ondown>9000</ondown>
-			<itemgap>0</itemgap>
-			<align>center</align>
-			<control type="button" id="2">
-				<description>Exit button</description>
-				<texturenofocus />
-				<onclick>Quit()</onclick>
-				<label>13012</label>
-				<visible>System.ShowExitButton</visible>
-			</control>
-			<control type="button" id="3">
-				<description>Shutdown button</description>
-				<texturenofocus />
-				<onclick>Powerdown()</onclick>
-				<visible>System.CanPowerDown</visible>
-				<label>13016</label>
-			</control>
-			<control type="button" id="4">
-				<description>Custom Shutdown Timer</description>
-				<texturenofocus />
-				<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
-				<label>20150</label>
-				<visible>!System.HasAlarm(shutdowntimer)</visible>
-				<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
-			</control>
-			<control type="button" id="5">
-				<description>Cancel Shutdown Timer</description>
-				<texturenofocus />
-				<onclick>CancelAlarm(shutdowntimer)</onclick>
-				<label>$LOCALIZE[20151]$INFO[System.Alarmpos, (,)]</label>
-				<visible>System.HasAlarm(shutdowntimer)</visible>
-			</control>
-			<control type="button" id="6">
-				<description>Suspend button</description>
-				<texturenofocus />
-				<onclick>Suspend()</onclick>
-				<visible>System.CanSuspend</visible>
-				<label>13011</label>
-			</control>
-			<control type="button" id="7">
-				<description>Hibernate button</description>
-				<texturenofocus />
-				<onclick>Hibernate()</onclick>
-				<visible>System.CanHibernate</visible>
-				<label>13010</label>
-			</control>
-			<control type="button" id="8">
-				<description>Reboot button</description>
-				<texturenofocus />
-				<onclick>Reset()</onclick>
-				<visible>System.CanReboot</visible>
-				<label>13013</label>
-			</control>
-			<control type="button" id="9">
-				<description>Logoff button</description>
-				<texturenofocus />
-				<onclick>dialog.close(all,true)</onclick>
-				<onclick>System.LogOff</onclick>
-				<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
-				<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
-				<visible>System.Loggedon</visible>
-			</control>
-			<control type="togglebutton" id="10">
-				<description>Master mode button</description>
-				<texturenofocus />
-				<usealttexture>!System.IsMaster</usealttexture>
-				<alttexturefocus>listselect_fo.png</alttexturefocus>
-				<alttexturenofocus />
-				<onclick>mastermode</onclick>
-				<label>20046</label>
-				<altlabel>20045</altlabel>
-				<visible>System.HasLocks</visible>
-			</control>
-			<control type="button" id="12">
-				<description>Inhibit idle shutdown</description>
-				<texturenofocus />
-				<onclick>InhibitIdleShutdown(true)</onclick>
-				<label>13017</label>
-				<visible>System.HasShutdown +!System.IsInhibit</visible>
-			</control>
-			<control type="button" id="13">
-				<description>Allow idle shutdown</description>
-				<texturenofocus />
-				<onclick>InhibitIdleShutdown(false)</onclick>
-				<label>13018</label>
-				<visible>System.HasShutdown + System.IsInhibit</visible>
-			</control>
-			<control type="button" id="14">
-				<description>Settings</description>
-				<texturenofocus />
-				<onclick>Dialog.Close(all,true)</onclick>
-				<onclick>ActivateWindow(settings)</onclick>
-				<label>$LOCALIZE[5]</label>
-			</control>
-			<control type="button" id="15">
-				<description>Reload Skin</description>
-				<texturenofocus />
-				<onclick>Dialog.Close(all,true)</onclick>
-				<onclick>ReloadSkin()</onclick>
-				<label>20183</label>
-			</control>
-		</control>
-	</controls>
+    <defaultcontrol>9000</defaultcontrol>
+    <include>Animation.Dialog</include>
+    <coordinates>
+        <system>1</system>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>$VAR[CommonBackgroundOverlay]</texture>
+            <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+        </control>
+        <control type="grouplist" id="90300">
+            <left>705</left>
+            <top>0</top>
+            <width>510</width>
+            <height>1080</height>
+            <onleft>90300</onleft>
+            <onright>90300</onright>
+            <onup>90300</onup>
+            <ondown>90300</ondown>
+            <itemgap>0</itemgap>
+            <align>center</align>
+            <control type="image" id="90301">
+                <description>background image</description>
+                <width>510</width>
+                <height>30</height>
+                <texture border="16,16,16,0">button_border.png</texture>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90302">
+                <description>Exit button</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>System.ShowExitButton</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90303">
+                <description>Shutdown button</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90304">
+                <description>Custom Shutdown Timer</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>!System.HasAlarm(shutdowntimer)</visible>
+                <visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90305">
+                <description>Cancel Shutdown Timer</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>System.HasAlarm(shutdowntimer)</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90306">
+                <description>Suspend button</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>System.CanSuspend</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90307">
+                <description>Hibernate button</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>System.CanHibernate</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90308">
+                <description>Reboot button</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>System.CanReboot</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90309">
+                <description>Logoff button</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
+                <visible>System.Loggedon</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90310">
+                <description>Master mode button</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>System.HasLocks</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90312">
+                <description>Inhibit idle shutdown</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>System.HasShutdown +!System.IsInhibit</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90313">
+                <description>Allow idle shutdown</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <visible>System.HasShutdown + System.IsInhibit</visible>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90314">
+                <description>Settings</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90315">
+                <description>Reload Skin</description>
+                <width>510</width>
+                <height>60</height>
+                <align>left</align>
+                <texture border="16">button_bg.png</texture>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+            <control type="image" id="90316">
+                <description>background image</description>
+                <width>510</width>
+                <height>30</height>
+                <texture flipy="true" border="16,0,16,16">button_border.png</texture>
+                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+            </control>
+        </control>
+        <control type="grouplist" id="9000">
+            <left>735</left>
+            <top>0</top>
+            <width>450</width>
+            <height>1080</height>
+            <onleft>9000</onleft>
+            <onright>9000</onright>
+            <onup>9000</onup>
+            <ondown>9000</ondown>
+            <itemgap>0</itemgap>
+            <align>center</align>
+            <control type="button" id="2">
+                <description>Exit button</description>
+                <texturenofocus />
+                <onclick>Quit()</onclick>
+                <label>13012</label>
+                <visible>System.ShowExitButton</visible>
+            </control>
+            <control type="button" id="3">
+                <description>Shutdown button</description>
+                <texturenofocus />
+                <onclick>Powerdown()</onclick>
+                <visible>System.CanPowerDown</visible>
+                <label>13016</label>
+            </control>
+            <control type="button" id="4">
+                <description>Custom Shutdown Timer</description>
+                <texturenofocus />
+                <onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
+                <label>20150</label>
+                <visible>!System.HasAlarm(shutdowntimer)</visible>
+                <visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
+            </control>
+            <control type="button" id="5">
+                <description>Cancel Shutdown Timer</description>
+                <texturenofocus />
+                <onclick>CancelAlarm(shutdowntimer)</onclick>
+                <label>$LOCALIZE[20151]$INFO[System.Alarmpos, (,)]</label>
+                <visible>System.HasAlarm(shutdowntimer)</visible>
+            </control>
+            <control type="button" id="6">
+                <description>Suspend button</description>
+                <texturenofocus />
+                <onclick>Suspend()</onclick>
+                <visible>System.CanSuspend</visible>
+                <label>13011</label>
+            </control>
+            <control type="button" id="7">
+                <description>Hibernate button</description>
+                <texturenofocus />
+                <onclick>Hibernate()</onclick>
+                <visible>System.CanHibernate</visible>
+                <label>13010</label>
+            </control>
+            <control type="button" id="8">
+                <description>Reboot button</description>
+                <texturenofocus />
+                <onclick>Reset()</onclick>
+                <visible>System.CanReboot</visible>
+                <label>13013</label>
+            </control>
+            <control type="button" id="9">
+                <description>Logoff button</description>
+                <texturenofocus />
+                <onclick>dialog.close(all,true)</onclick>
+                <onclick>System.LogOff</onclick>
+                <label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+                <visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
+                <visible>System.Loggedon</visible>
+            </control>
+            <control type="togglebutton" id="10">
+                <description>Master mode button</description>
+                <texturenofocus />
+                <usealttexture>!System.IsMaster</usealttexture>
+                <alttexturefocus>listselect_fo.png</alttexturefocus>
+                <alttexturenofocus />
+                <onclick>mastermode</onclick>
+                <label>20046</label>
+                <altlabel>20045</altlabel>
+                <visible>System.HasLocks</visible>
+            </control>
+            <control type="button" id="12">
+                <description>Inhibit idle shutdown</description>
+                <texturenofocus />
+                <onclick>InhibitIdleShutdown(true)</onclick>
+                <label>13017</label>
+                <visible>System.HasShutdown +!System.IsInhibit</visible>
+            </control>
+            <control type="button" id="13">
+                <description>Allow idle shutdown</description>
+                <texturenofocus />
+                <onclick>InhibitIdleShutdown(false)</onclick>
+                <label>13018</label>
+                <visible>System.HasShutdown + System.IsInhibit</visible>
+            </control>
+            <control type="button" id="14">
+                <description>Settings</description>
+                <texturenofocus />
+                <onclick>Dialog.Close(all,true)</onclick>
+                <onclick>ActivateWindow(settings)</onclick>
+                <label>$LOCALIZE[5]</label>
+            </control>
+            <control type="button" id="15">
+                <description>Reload Skin</description>
+                <texturenofocus />
+                <onclick>Dialog.Close(all,true)</onclick>
+                <onclick>ReloadSkin()</onclick>
+                <label>20183</label>
+            </control>
+        </control>
+    </controls>
 </window>

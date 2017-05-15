@@ -2,7 +2,7 @@
 <includes>
     <!--STRIP LAYOUT-->
     <include name="View_504_Gallery">
-		<top>15</top>
+        <top>15</top>
         <!--content detail-->
         <control type="group">
             <visible>Control.IsVisible(504) + !$EXP[isInfoDialog]</visible>
@@ -10,41 +10,41 @@
             <!--labels-->
             <control type="group">
                 <visible>Control.IsVisible(504)</visible>
-    			<control type="label">
-    				<visible>![Container.Content(images) + Skin.HasSetting(PictureInfo.Disabled)]</visible>
-    				<left>383</left>
+                <control type="label">
+                    <visible>![Container.Content(images) + Skin.HasSetting(PictureInfo.Disabled)]</visible>
+                    <left>383</left>
                     <top>760</top>
-    				<label>$INFO[ListItem.Label]</label>
-    				<width>1225</width>
-    				<font>font30</font>
-    			</control>
-    			<control type="label">
-    				<left>383</left>
-    				<top>945</top>
-    				<width>1225</width>
-    				<height>30</height>
-    				<font>font14</font>
-    				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-    				<label>$VAR[FloorSubLabelVar]</label>
-    				<visible>![$EXP[isArtist] | Container.Content(images)]</visible>
-    			</control>
-    			<control type="label">
-    				<left>383</left>
-    				<top>945</top>
-    				<width>1225</width>
-    				<height>30</height>
-    				<font>font14</font>
-    				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-    				<label>$INFO[ListItem.Property(Artist_Genre)]</label>
-    				<visible>$EXP[isArtist]</visible>
-    			</control>
+                    <label>$INFO[ListItem.Label]</label>
+                    <width>1225</width>
+                    <font>font30</font>
+                </control>
+                <control type="label">
+                    <left>383</left>
+                    <top>945</top>
+                    <width>1225</width>
+                    <height>30</height>
+                    <font>font14</font>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                    <label>$VAR[FloorSubLabelVar]</label>
+                    <visible>![$EXP[isArtist] | Container.Content(images)]</visible>
+                </control>
+                <control type="label">
+                    <left>383</left>
+                    <top>945</top>
+                    <width>1225</width>
+                    <height>30</height>
+                    <font>font14</font>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                    <label>$INFO[ListItem.Property(Artist_Genre)]</label>
+                    <visible>$EXP[isArtist]</visible>
+                </control>
             </control>
             <!--strip top-->
             <control type="image">
-            	<visible>Control.HasFocus(504)</visible>
+                <visible>Control.HasFocus(504)</visible>
                 <include>FocusedBackgroundFade</include>
-            	<top>203</top>
-            	<left>370</left>
+                <top>203</top>
+                <left>370</left>
                 <width>1179</width>
                 <height>674</height>
                 <texture border="5">listselect_fo.png</texture>
@@ -55,41 +55,41 @@
                 <viewtype label="31054">info</viewtype>
                 <left>-791</left>
                 <top>209</top>
-				<width>3464</width>
+                <width>3464</width>
                 <height>1200</height>
                 <onleft>504</onleft>
                 <onright>504</onright>
                 <scrolltime tween="sine" easing="inout">400</scrolltime>
                 <onup>SetProperty(MediaMenu,True,home)</onup>
-				<onup>SetFocus(9050)</onup>
-				<pagecontrol>60</pagecontrol>
+                <onup>SetFocus(9050)</onup>
+                <pagecontrol>60</pagecontrol>
                 <focusposition>1</focusposition>
                 <orientation>horizontal</orientation>
                 <visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(images) | [Container.Content(artists) + !Window.IsActive(videos)]] + !Container.Content(addons)</visible>
                 <itemlayout width="1167" height="650">
                     <control type="group">
-                    	<top>6</top>
-                    	<left>6</left>
+                        <top>6</top>
+                        <left>6</left>
                         <control type="image">
-							<visible>!Container.Content(images)</visible>
+                            <visible>!Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
                             <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(fanart)]</texture>
                             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         </control>
-						<control type="image">
-							<visible>Container.Content(images)</visible>
+                        <control type="image">
+                            <visible>Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
                             <texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.PicturePath]</texture>
-							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         </control>
                         <control type="image">
-							<visible>ListItem.IsFolder + Container.Content(images)</visible>
+                            <visible>ListItem.IsFolder + Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
-							<aspectratio scalediffuse="false">keep</aspectratio>
-							<texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(thumb)]</texture>
+                            <aspectratio scalediffuse="false">keep</aspectratio>
+                            <texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(thumb)]</texture>
                         </control>
                         <control type="image">
                             <visible>![Container.Content(images) | Container.Content(artists)]</visible>
@@ -115,36 +115,36 @@
                     <control type="group">
                         <include>PanelFocusedItemZoom</include>
                         <top>6</top>
-                    	<left>6</left>
-						<control type="image">
-							<visible>ListItem.IsFolder + !Container.Content(artists)</visible>
+                        <left>6</left>
+                        <control type="image">
+                            <visible>ListItem.IsFolder + !Container.Content(artists)</visible>
                             <width>1155</width>
                             <height>650</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(thumb)]</texture>
+                            <aspectratio>keep</aspectratio>
+                            <texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(thumb)]</texture>
                         </control>
                         <control type="image">
-							<visible>!Container.Content(images)</visible>
+                            <visible>!Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
                             <texture fallback="special://skin/backgrounds/default_bg.jpg" background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.Art(fanart)]</texture>
                             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         </control>
                         <control type="image">
-							<visible>![Container.Content(images) | Container.Content(artists)]</visible>
+                            <visible>![Container.Content(images) | Container.Content(artists)]</visible>
                             <left>6</left>
                             <top>420</top>
                             <width>1155</width>
                             <height>168</height>
-							<aspectratio align="center">keep</aspectratio>
+                            <aspectratio align="center">keep</aspectratio>
                             <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
                         </control>
-						<control type="image">
-							<visible>Container.Content(images)</visible>
+                        <control type="image">
+                            <visible>Container.Content(images)</visible>
                             <width>1155</width>
                             <height>650</height>
                             <texture background="true" diffuse="diffuse/gallery.png">$INFO[ListItem.PicturePath]</texture>
-							<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                         </control>
                         <control type="image">
                             <animation center="auto" condition="Control.HasFocus(504)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -160,15 +160,15 @@
                     </control>
                 </focusedlayout>
             </control>
-			<control type="image">
-				<left>388</left>
-				<top>640</top>
-				<width>1155</width>
-				<height>168</height>
-				<aspectratio>keep</aspectratio>
-				<texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
-				<visible>$EXP[isArtist]</visible>
-			</control>
+            <control type="image">
+                <left>388</left>
+                <top>640</top>
+                <width>1155</width>
+                <height>168</height>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+                <visible>$EXP[isArtist]</visible>
+            </control>
         </control>
         <control type="group">
             <visible>Control.IsVisible(504)</visible>

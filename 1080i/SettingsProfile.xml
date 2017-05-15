@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">2</defaultcontrol>
-	<menucontrol>9051</menucontrol>
-	<onload>SetProperty(Window.HasSettings,True,home)</onload>
-	<onload>ClearProperty(MediaMenu,Home)</onload>
-	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<allowoverlay>no</allowoverlay>
-	<controls>
-		<include>CommonBackground</include>
-		<control type="group">
-			<left>0</left>
-			<top>210</top>
-			<include>Animation.Common</include>
-			<control type="group">
+    <defaultcontrol always="true">2</defaultcontrol>
+    <menucontrol>9051</menucontrol>
+    <onload>SetProperty(Window.HasSettings,True,home)</onload>
+    <onload>ClearProperty(MediaMenu,Home)</onload>
+    <onunload>ClearProperty(Window.HasSettings,Home)</onunload>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <include>CommonBackground</include>
+        <control type="group">
+            <left>0</left>
+            <top>210</top>
+            <include>Animation.Common</include>
+            <control type="group">
                 <visible>Integer.IsGreater(Container(2).NumItems,0)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
                 <control type="image">
@@ -26,17 +26,17 @@
                     <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(2).Row,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="panel" id="2">
-				<top>0</top>
+            <control type="panel" id="2">
+                <top>0</top>
                 <left>85</left>
                 <width>350</width>
                 <height>780</height>
                 <onright>9001</onright>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<orientation>vertical</orientation>
-				<itemlayout height="390" width="350">
+                <onleft>SetProperty(MediaMenu,True,home)</onleft>
+                <onleft>SetFocus(9050)</onleft>
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <orientation>vertical</orientation>
+                <itemlayout height="390" width="350">
                     <include>ThumbnailItemBackground</include>
                     <control type="label">
                         <left>20</left>
@@ -89,8 +89,8 @@
                         <texture border="5">overlays/diffuse-overlay.png</texture>
                     </control>
                 </focusedlayout>
-			</control>
-			<control type="group">
+            </control>
+            <control type="group">
                 <include>VisibleFadeEffect</include>
                 <visible>Control.HasFocus(2)</visible>
                 <height>30</height>
@@ -116,60 +116,60 @@
                     <textcolor>disabled</textcolor>
                 </control>
             </control>
-			
-			<control type="grouplist" id="9001">
-				<description>control area</description>
-				<left>522</left>
-				<top>10</top>
-				<width>1316</width>
-				<height>720</height>
-				<itemgap>0</itemgap>
-				<pagecontrol />
-				<onleft>2</onleft>
-				<onright>2</onright>
-				<onup>9001</onup>
-				<ondown>9001</ondown>
-				<control type="radiobutton" id="4">
-					<description>Enable Login screen</description>
-					<label>20096</label>
-					<width>1316</width>
-					<height>90</height>
-					<font>font15</font>
-					<textoffsetx>30</textoffsetx>
-				</control>
-				<control type="button" id="5">
-					<description>Auto Login</description>
-					<label>$LOCALIZE[33084]</label>
-					<label2>$INFO[System.ProfileAutoLogin]</label2>
-					<width>1316</width>
-					<height>90</height>
-					<font>font15</font>
-					<textoffsetx>30</textoffsetx>
-					<enable>!System.HasLoginScreen</enable>
-				</control>
-			</control>
-			<control type="group">
-				<left>740</left>
-				<top>680</top>
-				<control type="image">
-					<left>1000</left>
-					<width>100</width>
-					<height>100</height>
-					<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
-					<texture fallback="DefaultActor.png" diffuse="diffuse/list-icon.png">$INFO[System.ProfileThumb]</texture>
-				</control>
-				<control type="label">
-					<width>980</width>
-					<height>100</height>
-					<align>right</align>
-					<wrapmultiline>true</wrapmultiline>
-					<textoffsetx>15</textoffsetx>
-					<font>font30</font>
-					<label>$LOCALIZE[20125] $INFO[System.ProfileName]</label>
-				</control>
-			</control>
-		</control>
-		<include>Topbar</include>
-		<include>SettingsMediaMenu</include>
-	</controls>
+            
+            <control type="grouplist" id="9001">
+                <description>control area</description>
+                <left>522</left>
+                <top>10</top>
+                <width>1316</width>
+                <height>720</height>
+                <itemgap>0</itemgap>
+                <pagecontrol />
+                <onleft>2</onleft>
+                <onright>2</onright>
+                <onup>9001</onup>
+                <ondown>9001</ondown>
+                <control type="radiobutton" id="4">
+                    <description>Enable Login screen</description>
+                    <label>20096</label>
+                    <width>1316</width>
+                    <height>90</height>
+                    <font>font15</font>
+                    <textoffsetx>30</textoffsetx>
+                </control>
+                <control type="button" id="5">
+                    <description>Auto Login</description>
+                    <label>$LOCALIZE[33084]</label>
+                    <label2>$INFO[System.ProfileAutoLogin]</label2>
+                    <width>1316</width>
+                    <height>90</height>
+                    <font>font15</font>
+                    <textoffsetx>30</textoffsetx>
+                    <enable>!System.HasLoginScreen</enable>
+                </control>
+            </control>
+            <control type="group">
+                <left>740</left>
+                <top>680</top>
+                <control type="image">
+                    <left>1000</left>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+                    <texture fallback="DefaultActor.png" diffuse="diffuse/list-icon.png">$INFO[System.ProfileThumb]</texture>
+                </control>
+                <control type="label">
+                    <width>980</width>
+                    <height>100</height>
+                    <align>right</align>
+                    <wrapmultiline>true</wrapmultiline>
+                    <textoffsetx>15</textoffsetx>
+                    <font>font30</font>
+                    <label>$LOCALIZE[20125] $INFO[System.ProfileName]</label>
+                </control>
+            </control>
+        </control>
+        <include>Topbar</include>
+        <include>SettingsMediaMenu</include>
+    </controls>
 </window>

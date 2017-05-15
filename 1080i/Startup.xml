@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">10</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
-	<onload condition="String.IsEmpty(Skin.String(musicvis.background))">Skin.SetString(musicvis.background,fanart)</onload>
-	<onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,info=firstrun)</onload>
+    <defaultcontrol always="true">10</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <onload condition="String.IsEmpty(Skin.String(musicvis.background))">Skin.SetString(musicvis.background,fanart)</onload>
+    <onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,info=firstrun)</onload>
     <onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,daemon=True,pixels=10,bits=1,radius=30,delta_x=40,delta_y=90,black=#000000,white=#FFFFFF)</onload>
-	<onload condition="!System.HasAddon(script.tv.show.next.aired)">Skin.SetBool(Disable.NextAired)</onload>
-	<onload condition="System.HasAddon(script.skin.helper.service)">Skin.SetString(SkinHelper.RandomFanartDelay, 10)</onload>
-	<onload condition="System.HasAddon(script.skin.helper.service)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
-	<onload condition="String.IsEmpty(Skin.String(highlightcolor.name))">Skin.SetString(highlightcolor.name,FF23729B)</onload>
-	<onload condition="String.IsEmpty(Skin.String(backgroundcolor.name))">Skin.SetString(backgroundcolor.name,FF0A1F2A)</onload>
-	<onload condition="String.IsEmpty(Skin.String(dialogcolor.name))">Skin.SetString(dialogcolor.name,FF57A4CB)</onload>
-	<onload condition="String.IsEmpty(Skin.String(textcolor.name))">Skin.SetString(textcolor.name,FFE8E8E8)</onload>
-	<onload condition="String.IsEmpty(Skin.String(menucolor.name))">Skin.SetString(menucolor.name,FFE8E8E8)</onload>
-	<onload condition="String.IsEmpty(Skin.String(disabledcolor.name))">Skin.SetString(disabledcolor.name,FF606060)</onload>
-	<controls>
-		<control type="button" id="10">
-			<description>trigger</description>
-			<onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
-			<texturenofocus />
-			<texturefocus />
-			<visible>!Skin.HasSetting(Use_Startup_Playlist)</visible>
-		</control>
-		<control type="button" id="10">
-			<description>trigger with startup Playlist</description>
-			<onfocus>PlayMedia($INFO[Skin.String(Startup_Playlist_Path)])</onfocus>
-			<onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
-			<texturenofocus />
-			<texturefocus />
-			<visible>Skin.HasSetting(Use_Startup_Playlist)</visible>
-		</control>
-		<include>CommonBackground</include>
-	</controls>
+    <onload condition="!System.HasAddon(script.tv.show.next.aired)">Skin.SetBool(Disable.NextAired)</onload>
+    <onload condition="System.HasAddon(script.skin.helper.service)">Skin.SetString(SkinHelper.RandomFanartDelay, 10)</onload>
+    <onload condition="System.HasAddon(script.skin.helper.service)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
+    <onload condition="String.IsEmpty(Skin.String(highlightcolor.name))">Skin.SetString(highlightcolor.name,FF23729B)</onload>
+    <onload condition="String.IsEmpty(Skin.String(backgroundcolor.name))">Skin.SetString(backgroundcolor.name,FF0A1F2A)</onload>
+    <onload condition="String.IsEmpty(Skin.String(dialogcolor.name))">Skin.SetString(dialogcolor.name,FF57A4CB)</onload>
+    <onload condition="String.IsEmpty(Skin.String(textcolor.name))">Skin.SetString(textcolor.name,FFE8E8E8)</onload>
+    <onload condition="String.IsEmpty(Skin.String(menucolor.name))">Skin.SetString(menucolor.name,FFE8E8E8)</onload>
+    <onload condition="String.IsEmpty(Skin.String(disabledcolor.name))">Skin.SetString(disabledcolor.name,FF606060)</onload>
+    <controls>
+        <control type="button" id="10">
+            <description>trigger</description>
+            <onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
+            <texturenofocus />
+            <texturefocus />
+            <visible>!Skin.HasSetting(Use_Startup_Playlist)</visible>
+        </control>
+        <control type="button" id="10">
+            <description>trigger with startup Playlist</description>
+            <onfocus>PlayMedia($INFO[Skin.String(Startup_Playlist_Path)])</onfocus>
+            <onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
+            <texturenofocus />
+            <texturefocus />
+            <visible>Skin.HasSetting(Use_Startup_Playlist)</visible>
+        </control>
+        <include>CommonBackground</include>
+    </controls>
 </window>

@@ -1,221 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">9000</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
-	<controls>
-		<include>InfoDialogTopbar</include>
-		<control type="group">
-			<include>Animation.Common</include>
-			<left>703</left>
-			<control type="group">
-				<top>60</top>
-				<width>1150</width>
-				<height>854</height>
-				<control type="panel" id="90050">
-					<left>5</left>
-					<top>118</top>
-					<width>1150</width>
-					<height>300</height>
-					<orientation>horizontal</orientation>
-					<pagecontrol>61</pagecontrol>
-					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="50" width="1150">
-						<control type="label">
-							<width>200</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-						<control type="label">
-							<left>200</left>
-							<width>950</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout height="50" width="1150">
-						<control type="label">
-							<width>200</width>
-							<height>50</height>
-							<font>font15</font>
-							<textcolor>$VAR[ColorHighlightVar]</textcolor>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-						<control type="label">
-							<left>200</left>
-							<width>950</width>
-							<height>50</height>
-							<font>font15</font>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$INFO[ListItem.AddonCreator]</label>
-							<label2>$LOCALIZE[21863]:</label2>
-							<onclick>noop</onclick>
-						</item>
-						<item>
-							<label>$INFO[ListItem.AddonVersion]</label>
-							<label2>$LOCALIZE[24051]</label2>
-							<onclick>noop</onclick>
-						</item>
-						<item>
-							<label>$INFO[ListItem.AddonSize]</label>
-							<label2>$LOCALIZE[289]:</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.AddonSize)</visible>
-						</item>
-						<item>
-							<label>$INFO[ListItem.Property(Addon.ID)]</label>
-							<label2>$LOCALIZE[560]:</label2>
-							<onclick>noop</onclick>
-						</item>
-						<item>
-							<label>$INFO[ListItem.AddonInstallDate]</label>
-							<label2>$LOCALIZE[31165]:</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.AddonInstallDate)</visible>
-						</item>
-						<item>
-							<label>$INFO[ListItem.AddonLastUpdated]</label>
-							<label2>$LOCALIZE[31073]:</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.AddonLastUpdated)</visible>
-						</item>
-						<item>
-							<label>$INFO[ListItem.AddonLastUsed]</label>
-							<label2>$LOCALIZE[12012]:</label2>
-							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.AddonLastUsed)</visible>
-						</item>
-					</content>
-				</control>
-				<control type="scrollbar" id="61">
-					<visible allowhiddenfocus="true">Control.HasFocus(61)</visible>
-					<left>2</left>
-					<top>430</top>
-					<width>1145</width>
-					<height>10</height>
-					<onup>9000</onup>
-					<ondown>9000</ondown>
-					<onleft>61</onleft>
-					<onright>61</onright>
-					<orientation>horizontal</orientation>
-				</control>
-				<control type="textbox" id="400">
-					<animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
-					<left>5</left>
-					<top>535</top>
-					<width>1120</width>
-					<height>405</height>
-					<font>font15_textbox</font>
-					<label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21821]: [/COLOR][CR]$INFO[ListItem.AddonDescription][CR]$VAR[AddonNews]$VAR[AddonDisclaimer]</label>
-					<pagecontrol>60</pagecontrol>
-					<include>AutoscrollDefault</include>
-					<visible>!Control.IsVisible(50)</visible>
-				</control>
-				<control type="scrollbar" id="60">
-					<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
-					<left>1140</left>
-					<top>545</top>
-					<width>10</width>
-					<height>395</height>
-					<onleft>9000</onleft>
-					<onright>9000</onright>
-					<orientation>vertical</orientation>
-				</control>
-				<control type="group">
-	                <visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
-	                <animation effect="fade" time="320" delay="300">Visible</animation>
-	                <control type="image">
-	                	<visible>Control.HasFocus(50)</visible>
-	                    <left>-9</left>
-	                    <top>531</top>
-	                    <width>590</width>
-	                    <height>343</height>
-	                    <animation effect="fade" time="320" delay="200">Visible</animation>
-	                    <animation effect="fade" time="200">Hidden</animation>
-	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	                    <animation effect="slide" end="578,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(1)">Conditional</animation>
-	                </control>
-	            </control>
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <include>InfoDialogTopbar</include>
+        <control type="group">
+            <include>Animation.Common</include>
+            <left>703</left>
+            <control type="group">
+                <top>60</top>
+                <width>1150</width>
+                <height>854</height>
+                <control type="panel" id="90050">
+                    <left>5</left>
+                    <top>118</top>
+                    <width>1150</width>
+                    <height>300</height>
+                    <orientation>horizontal</orientation>
+                    <pagecontrol>61</pagecontrol>
+                    <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                    <itemlayout height="50" width="1150">
+                        <control type="label">
+                            <width>200</width>
+                            <height>50</height>
+                            <font>font15</font>
+                            <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                            <label>$INFO[ListItem.Label2]</label>
+                        </control>
+                        <control type="label">
+                            <left>200</left>
+                            <width>950</width>
+                            <height>50</height>
+                            <font>font15</font>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="50" width="1150">
+                        <control type="label">
+                            <width>200</width>
+                            <height>50</height>
+                            <font>font15</font>
+                            <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                            <label>$INFO[ListItem.Label2]</label>
+                        </control>
+                        <control type="label">
+                            <left>200</left>
+                            <width>950</width>
+                            <height>50</height>
+                            <font>font15</font>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </focusedlayout>
+                    <content>
+                        <item>
+                            <label>$INFO[ListItem.AddonCreator]</label>
+                            <label2>$LOCALIZE[21863]:</label2>
+                        </item>
+                        <item>
+                            <label>$INFO[ListItem.AddonVersion]</label>
+                            <label2>$LOCALIZE[24051]</label2>
+                        </item>
+                        <item>
+                            <label>$INFO[ListItem.AddonSize]</label>
+                            <label2>$LOCALIZE[289]:</label2>
+                            <visible>!String.IsEmpty(ListItem.AddonSize)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[ListItem.Property(Addon.ID)]</label>
+                            <label2>$LOCALIZE[560]:</label2>
+                        </item>
+                        <item>
+                            <label>$INFO[ListItem.AddonInstallDate]</label>
+                            <label2>$LOCALIZE[31165]:</label2>
+                            <visible>!String.IsEmpty(ListItem.AddonInstallDate)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[ListItem.AddonLastUpdated]</label>
+                            <label2>$LOCALIZE[31073]:</label2>
+                            <visible>!String.IsEmpty(ListItem.AddonLastUpdated)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[ListItem.AddonLastUsed]</label>
+                            <label2>$LOCALIZE[12012]:</label2>
+                            <visible>!String.IsEmpty(ListItem.AddonLastUsed)</visible>
+                        </item>
+                    </content>
+                </control>
+                <control type="scrollbar" id="61">
+                    <visible allowhiddenfocus="true">Control.HasFocus(61)</visible>
+                    <left>2</left>
+                    <top>430</top>
+                    <width>1145</width>
+                    <height>10</height>
+                    <onup>9000</onup>
+                    <ondown>9000</ondown>
+                    <onleft>61</onleft>
+                    <onright>61</onright>
+                    <orientation>horizontal</orientation>
+                </control>
+                <control type="textbox" id="400">
+                    <animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
+                    <left>5</left>
+                    <top>535</top>
+                    <width>1120</width>
+                    <height>405</height>
+                    <font>font15_textbox</font>
+                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21821]: [/COLOR][CR]$INFO[ListItem.AddonDescription][CR]$VAR[AddonNews]$VAR[AddonDisclaimer]</label>
+                    <pagecontrol>60</pagecontrol>
+                    <include>AutoscrollDefault</include>
+                    <visible>!Control.IsVisible(50)</visible>
+                </control>
+                <control type="scrollbar" id="60">
+                    <visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+                    <left>1140</left>
+                    <top>545</top>
+                    <width>10</width>
+                    <height>395</height>
+                    <onleft>9000</onleft>
+                    <onright>9000</onright>
+                    <orientation>vertical</orientation>
+                </control>
+                <control type="group">
+                    <visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
+                    <animation effect="fade" time="320" delay="300">Visible</animation>
+                    <control type="image">
+                        <visible>Control.HasFocus(50)</visible>
+                        <left>-9</left>
+                        <top>531</top>
+                        <width>590</width>
+                        <height>343</height>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="578,0" time="300" tween="cubic" easing="inout" condition="Container(50).Column(1)">Conditional</animation>
+                    </control>
+                </control>
                 <control type="panel" id="50">
                     <description>Fanart</description>
                     <left>-3</left>
-					<top>505</top>
-					<width>1156</width>
-					<height>450</height>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<onup>9000</onup>
+                    <top>505</top>
+                    <width>1156</width>
+                    <height>450</height>
+                    <onleft>50</onleft>
+                    <onright>50</onright>
+                    <onup>9000</onup>
                     <ondown>9000</ondown>
-					<orientation>horizontal</orientation>
+                    <orientation>horizontal</orientation>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="quadratic" easing="out">300</scrolltime>
                     <visible>Integer.IsGreater(Container(50).NumItems,0) + [ControlGroup(9000).HasFocus(208) | Control.HasFocus(50)]</visible>
                     <animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
                     <itemlayout height="450" width="578">
-                    	<control type="group">
-							<top>32</top>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>566</width>
-	                            <height>319</height>
-								<aspectratio scalediffuse="false">scale</aspectratio>
-								<texture background="true" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Icon]</texture>
-							</control>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>566</width>
-								<height>319</height>
-								<texture border="5">overlays/diffuse-overlay.png</texture>
-							</control>
-						</control>
-					</itemlayout>
-					<focusedlayout height="450" width="578">
                         <control type="group">
-                        	<top>32</top>
-                        	<include>PanelFocusedItemZoom</include>
-							<control type="image">
-								<top>6</top>
-								<left>6</left>
-								<width>566</width>
-								<height>319</height>
-								<aspectratio scalediffuse="false">scale</aspectratio>
-								<texture background="true" fallback="blank.png" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Icon]</texture>
-							</control>
-							<control type="image">
-								<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-								<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-								<top>6</top>
-								<left>6</left>
-								<width>566</width>
-								<height>319</height>
-								<texture border="5">overlays/diffuse-overlay.png</texture>
-							</control>							
-						</control>
-					</focusedlayout>
+                            <top>32</top>
+                            <control type="image">
+                                <top>6</top>
+                                <left>6</left>
+                                <width>566</width>
+                                <height>319</height>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <texture background="true" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Icon]</texture>
+                            </control>
+                            <control type="image">
+                                <top>6</top>
+                                <left>6</left>
+                                <width>566</width>
+                                <height>319</height>
+                                <texture border="5">overlays/diffuse-overlay.png</texture>
+                            </control>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="450" width="578">
+                        <control type="group">
+                            <top>32</top>
+                            <include>PanelFocusedItemZoom</include>
+                            <control type="image">
+                                <top>6</top>
+                                <left>6</left>
+                                <width>566</width>
+                                <height>319</height>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <texture background="true" fallback="blank.png" diffuse="diffuse/addoninfo-screenshot.png">$INFO[ListItem.Icon]</texture>
+                            </control>
+                            <control type="image">
+                                <animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                <animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                <top>6</top>
+                                <left>6</left>
+                                <width>566</width>
+                                <height>319</height>
+                                <texture border="5">overlays/diffuse-overlay.png</texture>
+                            </control>                          
+                        </control>
+                    </focusedlayout>
                 </control>
-				<control type="label">
-		            <left>862</left>
-		            <top>960</top>
-		            <width>300</width>
-		            <height>40</height>
-		            <font>font13</font>
-		            <textoffsetx>15</textoffsetx>
-		            <textcolor>$VAR[ColorDisabledVar]</textcolor>
-		            <align>right</align>
-		            <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025]  •  ]$INFO[Container(50).CurrentPage]$INFO[Container(50).NumPages,/]</label>
-		            <visible>Control.IsVisible(50) + Integer.IsGreater(Container(50).NumItems,0) + !Control.IsVisible(150)</visible>
-		            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
-		        </control>
-			</control>
-			
+                <control type="label">
+                    <left>862</left>
+                    <top>960</top>
+                    <width>300</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textoffsetx>15</textoffsetx>
+                    <textcolor>$VAR[ColorDisabledVar]</textcolor>
+                    <align>right</align>
+                    <label>$INFO[Container(50).NumItems,, $LOCALIZE[31025]  •  ]$INFO[Container(50).CurrentPage]$INFO[Container(50).NumPages,/]</label>
+                    <visible>Control.IsVisible(50) + Integer.IsGreater(Container(50).NumItems,0) + !Control.IsVisible(150)</visible>
+                    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+                </control>
+            </control>
+            
             <control type="group">
                 <include>VisibleFadeEffect</include>
                 <visible>ControlGroup(9000).HasFocus()</visible>
@@ -242,86 +235,86 @@
                     <textcolor>$VAR[ColorDisabledVar]</textcolor>
                 </control>
             </control>
-			<control type="group">
-				<left>3</left>
-				<top>510</top>
-				<control type="grouplist" id="9000">
-					<width>1144</width>
-					<height>60</height>
-					<itemgap>12</itemgap>
-					<onleft>9000</onleft>
-					<onright>9000</onright>
-					<align>left</align>
-					<onup condition="Container(90050).HasNext | Container(90050).HasPrevious">61</onup>
-					<ondown condition="Control.IsVisible(400) + [Container(400).HasNext | Container(400).HasPrevious]">60</ondown>
-					<ondown condition="Control.IsVisible(50)">50</ondown>
-					<orientation>horizontal</orientation>
-					<control type="button" id="999">
-						<description>Install/UnInstall Addon button</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<label>24038</label>
-						<onclick>SendClick(6)</onclick>
-						<visible>!String.IsEqual(Control.GetLabel(6),$LOCALIZE[24037])</visible>
-					</control>
-					<control type="button" id="9">
-						<description>Configure Addon</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<label>24020</label>
-					</control>
-					<control type="button" id="12">
-						<description>Open Addon button</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-					</control>
-					<control type="button" id="208">
-						<description>Screenshot button</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<ondown>SetFocus(50)</ondown>
-						<label>20008</label>
-						<visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
-					</control>
-					<control type="button" id="8">
-						<description>Update Addon button</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<label>24069</label>
-					</control>
-					<control type="radiobutton" id="13">
-						<description>Auto update button</description>
-						<align>left</align>
-						<include>ButtonInfoDialogsCommonValues</include>
-					</control>
-					<control type="button" id="7">
-						<description>Enable/Disable Addon button</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<onclick condition="Window.IsVisible(MyPrograms.xml)">Dialog.Close(addoninformation)</onclick>
-					</control>
-					<control type="button" id="6">
-						<description>Install/UnInstall Addon button</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<visible>String.IsEqual(Control.GetLabel(6),$LOCALIZE[24037])</visible>
-					</control>
-				</control>
-				<control type="button" id="555">
-					<description>fake button for mouse support</description>
-					<left>231</left>
-					<top>570</top>
-					<height>34</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<include>ButtonInfoDialogsCommonValues</include>
-					<visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
-				</control>
-			</control>
-		</control>
-		<control type="group">
-			<include>Animation.Common</include>
-			<top>190</top>
-			<left>72</left>
-			<control type="image">
-				<width>560</width>
-				<height>560</height>
-				<aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
-				<texture background="true" diffuse="diffuse/list-square.png">$INFO[ListItem.Icon]</texture>
-			</control>
-		</control>
-	</controls>
+            <control type="group">
+                <left>3</left>
+                <top>510</top>
+                <control type="grouplist" id="9000">
+                    <width>1144</width>
+                    <height>60</height>
+                    <itemgap>12</itemgap>
+                    <onleft>9000</onleft>
+                    <onright>9000</onright>
+                    <align>left</align>
+                    <onup condition="Container(90050).HasNext | Container(90050).HasPrevious">61</onup>
+                    <ondown condition="Control.IsVisible(400) + [Container(400).HasNext | Container(400).HasPrevious]">60</ondown>
+                    <ondown condition="Control.IsVisible(50)">50</ondown>
+                    <orientation>horizontal</orientation>
+                    <control type="button" id="999">
+                        <description>Install/UnInstall Addon button</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <label>24038</label>
+                        <onclick>SendClick(6)</onclick>
+                        <visible>!String.IsEqual(Control.GetLabel(6),$LOCALIZE[24037])</visible>
+                    </control>
+                    <control type="button" id="9">
+                        <description>Configure Addon</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <label>24020</label>
+                    </control>
+                    <control type="button" id="12">
+                        <description>Open Addon button</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                    </control>
+                    <control type="button" id="208">
+                        <description>Screenshot button</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <ondown>SetFocus(50)</ondown>
+                        <label>20008</label>
+                        <visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
+                    </control>
+                    <control type="button" id="8">
+                        <description>Update Addon button</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <label>24069</label>
+                    </control>
+                    <control type="radiobutton" id="13">
+                        <description>Auto update button</description>
+                        <align>left</align>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                    </control>
+                    <control type="button" id="7">
+                        <description>Enable/Disable Addon button</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <onclick condition="Window.IsVisible(MyPrograms.xml)">Dialog.Close(addoninformation)</onclick>
+                    </control>
+                    <control type="button" id="6">
+                        <description>Install/UnInstall Addon button</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <visible>String.IsEqual(Control.GetLabel(6),$LOCALIZE[24037])</visible>
+                    </control>
+                </control>
+                <control type="button" id="555">
+                    <description>fake button for mouse support</description>
+                    <left>231</left>
+                    <top>570</top>
+                    <height>34</height>
+                    <texturefocus>blank.png</texturefocus>
+                    <texturenofocus>blank.png</texturenofocus>
+                    <include>ButtonInfoDialogsCommonValues</include>
+                    <visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
+                </control>
+            </control>
+        </control>
+        <control type="group">
+            <include>Animation.Common</include>
+            <top>190</top>
+            <left>72</left>
+            <control type="image">
+                <width>560</width>
+                <height>560</height>
+                <aspectratio scalediffuse="false" align="center" aligny="center">scale</aspectratio>
+                <texture background="true" diffuse="diffuse/list-square.png">$INFO[ListItem.Icon]</texture>
+            </control>
+        </control>
+    </controls>
 </window>

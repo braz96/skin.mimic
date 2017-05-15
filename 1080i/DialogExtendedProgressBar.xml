@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<coordinates>
-		<left>0</left>
-		<top>-1</top>
-	</coordinates>
-	<controls>
-		<control type="group">
-			<visible>!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation) + !Window.IsActive(slideshow)</visible>
-			<left>1801</left>
+    <coordinates>
+        <left>0</left>
+        <top>-1</top>
+    </coordinates>
+    <controls>
+        <control type="group">
+            <visible>!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation) + !Window.IsActive(slideshow)</visible>
+            <left>1801</left>
             <animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
             <animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
-			<control type="group">
-				<visible>!Window.IsActive(volumebar) | Player.Muted</visible>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<control type="image">
-					<width>120</width>
-					<height>120</height>
-					<texture colordiffuse="44ffffff">progress/loading-back.png</texture>
-				</control>
-				<control type="image">
-					<width>120</width>
-					<height>120</height>
-					<texture colordiffuse="$VAR[ColorHighlightVar]">progress/volume/p$INFO[Control.GetLabel(32)].png</texture>
-				</control>
-				<control type="image">
-					<width>120</width>
-					<height>120</height>
-					<texture colordiffuse="55ffffff">progress/loading.png</texture>
-					<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
-				</control>
-				<control type="label">
-					<animation effect="slide" end="-3" time="0" condition="Integer.IsLess(Control.GetLabel(32),10)">Conditonal</animation>
-					<description>Percentage</description>
-					<left>0</left>
-					<top>44</top>
-					<width>120</width>
-					<height>30</height>
-					<align>center</align>
-					<font>font12</font>
-					<label>$INFO[Control.GetLabel(32)]</label>
-				</control>
-			</control>
-			<control type="label" id="30">
-				<description>Header label</description>
-				<left>-800</left>
-				<top>15</top>
-				<width>800</width>
-				<height>45</height>
-				<font>font14</font>
-				<align>right</align>
-			</control>
-			<control type="label" id="31">
-				<description>Title label</description>
-				<left>-800</left>
-				<top>56</top>
-				<width>800</width>
-				<height>45</height>
-				<font>font12</font>
-				<align>right</align>
-			</control>
-			<control type="progress" id="32">
-				<left>3000</left>
-				<description>progress control</description>
-				<height>15</height>
-			</control>
-		</control>
-	</controls>
+            <control type="group">
+                <visible>!Window.IsActive(volumebar) | Player.Muted</visible>
+                <animation effect="fade" time="200">VisibleChange</animation>
+                <control type="image">
+                    <width>120</width>
+                    <height>120</height>
+                    <texture colordiffuse="44ffffff">progress/loading-back.png</texture>
+                </control>
+                <control type="image">
+                    <width>120</width>
+                    <height>120</height>
+                    <texture colordiffuse="$VAR[ColorHighlightVar]">progress/volume/p$INFO[Control.GetLabel(32)].png</texture>
+                </control>
+                <control type="image">
+                    <width>120</width>
+                    <height>120</height>
+                    <texture colordiffuse="55ffffff">progress/loading.png</texture>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                </control>
+                <control type="label">
+                    <animation effect="slide" end="-3" time="0" condition="Integer.IsLess(Control.GetLabel(32),10)">Conditonal</animation>
+                    <description>Percentage</description>
+                    <left>0</left>
+                    <top>44</top>
+                    <width>120</width>
+                    <height>30</height>
+                    <align>center</align>
+                    <font>font12</font>
+                    <label>$INFO[Control.GetLabel(32)]</label>
+                </control>
+            </control>
+            <control type="label" id="30">
+                <description>Header label</description>
+                <left>-800</left>
+                <top>15</top>
+                <width>800</width>
+                <height>45</height>
+                <font>font14</font>
+                <align>right</align>
+            </control>
+            <control type="label" id="31">
+                <description>Title label</description>
+                <left>-800</left>
+                <top>56</top>
+                <width>800</width>
+                <height>45</height>
+                <font>font12</font>
+                <align>right</align>
+            </control>
+            <control type="progress" id="32">
+                <left>3000</left>
+                <description>progress control</description>
+                <height>15</height>
+            </control>
+        </control>
+    </controls>
 </window>

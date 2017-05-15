@@ -3,28 +3,28 @@
     <defaultcontrol>655</defaultcontrol>
     <visible>!System.ScreenSaverActive</visible>
     <controls>
-    	<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>black.png</texture>
-		</control>
-    	<control type="multiimage">
-			<include>FullscreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<imagepath background="true">$INFO[Container(655).ListItem.Property(Fanart_Image)]</imagepath>
-			<fadetime>400</fadetime>
-			<visible>!String.IsEmpty(Container(655).ListItem.Property(Fanart_Image))</visible>
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>background.png</texture>
-			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-		</control>
-		<control type="group">
-			<visible>Control.IsVisible(655)</visible>
-			<include>Animation.Common</include>
-			<top>15</top>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>black.png</texture>
+        </control>
+        <control type="multiimage">
+            <include>FullscreenDimensions</include>
+            <aspectratio>scale</aspectratio>
+            <imagepath background="true">$INFO[Container(655).ListItem.Property(Fanart_Image)]</imagepath>
+            <fadetime>400</fadetime>
+            <visible>!String.IsEmpty(Container(655).ListItem.Property(Fanart_Image))</visible>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>background.png</texture>
+            <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(655)</visible>
+            <include>Animation.Common</include>
+            <top>15</top>
             <control type="image">
-				<visible>Control.HasFocus(655)</visible>
+                <visible>Control.HasFocus(655)</visible>
                 <left>62</left>
                 <top>184</top>
                 <width>280</width>
@@ -37,35 +37,35 @@
                 <animation effect="slide" end="268,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(655).Column,0)">Conditional</animation>
             </control>
             <control type="panel" id="655">
-				<left>68</left>
-				<top>190</top>
-				<width>1072</width>
-				<height>792</height>
-				<onleft>655</onleft>
-				<onright>60</onright>
-				<onup>51</onup>
-				<ondown>51</ondown>
-				<pagecontrol>60</pagecontrol>
-				<preloaditems>2</preloaditems>
-				<viewtype label="31021">icons</viewtype>
-				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="396" width="268">
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>256</width>
-						<height>384</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
-					</control>
-					<control type="image">
-						<top>6</top>
-						<left>6</left>
-						<width>256</width>
-						<height>384</height>
-						<texture border="5">overlays/diffuse-overlay.png</texture>
-					</control>
-					<control type="group">
+                <left>68</left>
+                <top>190</top>
+                <width>1072</width>
+                <height>792</height>
+                <onleft>655</onleft>
+                <onright>60</onright>
+                <onup>51</onup>
+                <ondown>51</ondown>
+                <pagecontrol>60</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <viewtype label="31021">icons</viewtype>
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <itemlayout height="396" width="268">
+                    <control type="image">
+                        <top>6</top>
+                        <left>6</left>
+                        <width>256</width>
+                        <height>384</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
+                    </control>
+                    <control type="image">
+                        <top>6</top>
+                        <left>6</left>
+                        <width>256</width>
+                        <height>384</height>
+                        <texture border="5">overlays/diffuse-overlay.png</texture>
+                    </control>
+                    <control type="group">
                         <visible>ListItem.IsSelected</visible>
                         <left>201</left>
                         <top>5</top>
@@ -96,28 +96,28 @@
                             <label>A</label>
                         </control>
                     </control>
-				</itemlayout>
-				<focusedlayout height="396" width="268">
-					<control type="group">
-						<include>PanelFocusedItemZoom</include>
-						<control type="image">
-							<top>6</top>
-							<left>6</left>
-							<width>256</width>
-							<height>384</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-							<texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
-						</control>
-						<control type="image">
-							<animation center="auto" condition="Control.HasFocus(655)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(655)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-							<top>6</top>
-							<left>6</left>
-							<width>256</width>
-							<height>384</height>
-							<texture border="5">overlays/diffuse-overlay.png</texture>
-						</control>
-						<control type="group">
+                </itemlayout>
+                <focusedlayout height="396" width="268">
+                    <control type="group">
+                        <include>PanelFocusedItemZoom</include>
+                        <control type="image">
+                            <top>6</top>
+                            <left>6</left>
+                            <width>256</width>
+                            <height>384</height>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture fallback="DefaultFallback.png" background="true" diffuse="diffuse/infowall-poster.png">$VAR[PosterVar]</texture>
+                        </control>
+                        <control type="image">
+                            <animation center="auto" condition="Control.HasFocus(655)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                            <animation center="auto" condition="Control.HasFocus(655)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                            <top>6</top>
+                            <left>6</left>
+                            <width>256</width>
+                            <height>384</height>
+                            <texture border="5">overlays/diffuse-overlay.png</texture>
+                        </control>
+                        <control type="group">
                             <visible>ListItem.IsSelected</visible>
                             <left>201</left>
                             <top>5</top>
@@ -148,67 +148,67 @@
                                 <label>A</label>
                             </control>
                         </control>
-					</control>
-				</focusedlayout>
-			</control>
-			<control type="grouplist">
-				<top>196</top>
-				<left>1171</left>
-				<itemgap>15</itemgap>
-				<visible>Control.IsVisible(655)</visible>
-				<control type="multiimage">
-					<width>680</width>
-					<height>384</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<imagepath background="true" diffuse="diffuse/infowall-fanart.png">$INFO[Container(655).ListItem.Property(Fanart_Image)]</imagepath>
-					<visible>!String.IsEmpty(Container(655).ListItem.Property(Fanart_Image))</visible>
-				</control>
-				<control type="label">
-					<width>680</width>
-					<height>40</height>
-					<font>font30</font>
-					<scroll>true</scroll>
-					<aligny>bottom</aligny>
-					<label>$INFO[Container(655).ListItem.Season,,x]$INFO[Container(655).ListItem.Episode,,. ]$INFO[Container(655).ListItem.Label2]</label>
-				</control>
-				<control type="label">
-					<label>$INFO[Container(655).ListItem.Label]</label>
-					<width>680</width>
-					<height>42</height>
-					<font>font14</font>
-					<aligny>top</aligny>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-				<control type="label">
-					<label>$ADDON[script.lazytv 32222]: $INFO[Container(655).ListItem.Property(percentplayed)]</label>
-					<width>680</width>
-					<height>42</height>
-					<font>font14</font>
-					<aligny>center</aligny>
-				</control>
-				<control type="textbox">
-					<visible>String.IsEqual(ListItem.Plot,$LOCALIZE[32250])</visible>
-					<label>$INFO[Container(655).ListItem.Plot]</label>
-					<width>680</width>
-					<height>220</height>
-					<font>font14_textbox</font>
-					<include>AutoscrollDefault</include>
-					<include>InfoPanelButtonsValues</include>
-				</control>
-			</control>
-		</control>
-		<control type="scrollbar" id="60">
-			<visible allowhiddenfocus="true">Control.IsVisible(655) + [Control.HasFocus(60) | Container(655).Scrolling]</visible>
-			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-			<left>1910</left>
-			<top>120</top>
-			<width>10</width>
-			<height>960</height>
-			<onleft>655</onleft>
-			<onright>655</onright>
-			<ondown>60</ondown>
-			<onup>60</onup>
-		</control>
-		<include>Topbar</include>
-	</controls>
+                    </control>
+                </focusedlayout>
+            </control>
+            <control type="grouplist">
+                <top>196</top>
+                <left>1171</left>
+                <itemgap>15</itemgap>
+                <visible>Control.IsVisible(655)</visible>
+                <control type="multiimage">
+                    <width>680</width>
+                    <height>384</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <imagepath background="true" diffuse="diffuse/infowall-fanart.png">$INFO[Container(655).ListItem.Property(Fanart_Image)]</imagepath>
+                    <visible>!String.IsEmpty(Container(655).ListItem.Property(Fanart_Image))</visible>
+                </control>
+                <control type="label">
+                    <width>680</width>
+                    <height>40</height>
+                    <font>font30</font>
+                    <scroll>true</scroll>
+                    <aligny>bottom</aligny>
+                    <label>$INFO[Container(655).ListItem.Season,,x]$INFO[Container(655).ListItem.Episode,,. ]$INFO[Container(655).ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <label>$INFO[Container(655).ListItem.Label]</label>
+                    <width>680</width>
+                    <height>42</height>
+                    <font>font14</font>
+                    <aligny>top</aligny>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                </control>
+                <control type="label">
+                    <label>$ADDON[script.lazytv 32222]: $INFO[Container(655).ListItem.Property(percentplayed)]</label>
+                    <width>680</width>
+                    <height>42</height>
+                    <font>font14</font>
+                    <aligny>center</aligny>
+                </control>
+                <control type="textbox">
+                    <visible>String.IsEqual(ListItem.Plot,$LOCALIZE[32250])</visible>
+                    <label>$INFO[Container(655).ListItem.Plot]</label>
+                    <width>680</width>
+                    <height>220</height>
+                    <font>font14_textbox</font>
+                    <include>AutoscrollDefault</include>
+                    <include>InfoPanelButtonsValues</include>
+                </control>
+            </control>
+        </control>
+        <control type="scrollbar" id="60">
+            <visible allowhiddenfocus="true">Control.IsVisible(655) + [Control.HasFocus(60) | Container(655).Scrolling]</visible>
+            <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+            <left>1910</left>
+            <top>120</top>
+            <width>10</width>
+            <height>960</height>
+            <onleft>655</onleft>
+            <onright>655</onright>
+            <ondown>60</ondown>
+            <onup>60</onup>
+        </control>
+        <include>Topbar</include>
+    </controls>
 </window>

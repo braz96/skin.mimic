@@ -1,121 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">450</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
-	<controls>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture fallback="special://skin/backgrounds/default_bg.jpg">$INFO[Skin.String(CustomBackground)]</texture>
-			<fadetime>400</fadetime>
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>background.png</texture>
-			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-		</control>
-		<control type="group">
-			<control type="group">
-				<include>Animation.Common</include>
-				<control type="group">
-	                <visible>Integer.IsGreater(Container(450).NumItems,0)</visible>
-	                <animation effect="fade" time="320" delay="300">Visible</animation>
-	                <control type="image">
-	                    <visible>Control.HasFocus(450)</visible>
-	                    <left>95</left>
-	                    <top>220</top>
-	                    <width>330</width>
-	                    <height>370</height>
-	                    <include>FocusedBackgroundFade</include>
-	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	                    <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Container(450).Row(1)">Conditional</animation>
-	                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(450).Column,3)">Conditional</animation>
-	                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(450).Column,2)">Conditional</animation>
-	                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(450).Column,1)">Conditional</animation>
-	                    <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(450).Column,0)">Conditional</animation>
-	                </control>
-	            </control>
-				<control type="panel" id="450">
-					<top>210</top>
-	                <left>85</left>
-	                <width>1750</width>
-	                <height>780</height>
-					<onup>450</onup>
-	                <ondown>450</ondown>
-					<onright condition="Container(450).HasNext | Container(450).HasPrevious">60</onright>
-					<preloaditems>2</preloaditems>
-					<pagecontrol>60</pagecontrol>
-					<viewtype label="21371">list</viewtype>
-					<scrolltime tween="quadratic" easing="out">300</scrolltime>
-					<orientation>vertical</orientation>
-					<itemlayout height="390" width="350">
-						<include>ThumbnailItemBackground</include>
-	                    <control type="label">
-	                        <left>20</left>
-	                        <right>20</right>
-	                        <top>327</top>
-	                        <height>50</height>
-	                        <label>$INFO[ListItem.Label]</label>
-	                    </control>
-	                    <control type="image">
-	                        <left>20</left>
-	                        <top>20</top>
-	                        <right>20</right>
-	                        <height>310</height>
-	                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-	                        <texture background="true" fallback="DefaultIconFavourite.png" diffuse="diffuse/thumbnail.png">$INFO[ListItem.Icon]</texture>
-	                    </control>
-	                    <control type="image">
-	                        <top>20</top>
-	                        <left>20</left>
-	                        <right>20</right>
-	                        <height>310</height>
-	                        <texture border="5">overlays/diffuse-overlay.png</texture>
-	                    </control>
-	                </itemlayout>
+    <defaultcontrol always="true">450</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture fallback="special://skin/backgrounds/default_bg.jpg">$INFO[Skin.String(CustomBackground)]</texture>
+            <fadetime>400</fadetime>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>background.png</texture>
+            <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+        </control>
+        <control type="group">
+            <control type="group">
+                <include>Animation.Common</include>
+                <control type="group">
+                    <visible>Integer.IsGreater(Container(450).NumItems,0)</visible>
+                    <animation effect="fade" time="320" delay="300">Visible</animation>
+                    <control type="image">
+                        <visible>Control.HasFocus(450)</visible>
+                        <left>95</left>
+                        <top>220</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Container(450).Row(1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(450).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(450).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(450).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(450).Column,0)">Conditional</animation>
+                    </control>
+                </control>
+                <control type="panel" id="450">
+                    <top>210</top>
+                    <left>85</left>
+                    <width>1750</width>
+                    <height>780</height>
+                    <onup>450</onup>
+                    <ondown>450</ondown>
+                    <onright condition="Container(450).HasNext | Container(450).HasPrevious">60</onright>
+                    <preloaditems>2</preloaditems>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="21371">list</viewtype>
+                    <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                    <orientation>vertical</orientation>
+                    <itemlayout height="390" width="350">
+                        <include>ThumbnailItemBackground</include>
+                        <control type="label">
+                            <left>20</left>
+                            <right>20</right>
+                            <top>327</top>
+                            <height>50</height>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="image">
+                            <left>20</left>
+                            <top>20</top>
+                            <right>20</right>
+                            <height>310</height>
+                            <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                            <texture background="true" fallback="DefaultIconFavourite.png" diffuse="diffuse/thumbnail.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <top>20</top>
+                            <left>20</left>
+                            <right>20</right>
+                            <height>310</height>
+                            <texture border="5">overlays/diffuse-overlay.png</texture>
+                        </control>
+                    </itemlayout>
 
-	                <focusedlayout height="390" width="350">
-	                	<include>ThumbnailItemBackground</include>
-	                    <control type="label">
-	                        <left>20</left>
-	                        <right>20</right>
-	                        <top>327</top>
-	                        <height>50</height>
-	                        <label>$INFO[ListItem.Label]</label>
-	                    </control>
-	                    <control type="image">
-	                        <left>20</left>
-	                        <top>20</top>
-	                        <right>20</right>
-	                        <height>310</height>
-	                        <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-	                        <texture background="true" fallback="DefaultIconFavourite.png" diffuse="diffuse/thumbnail.png">$INFO[ListItem.Icon]</texture>
-	                    </control>
-	                    <control type="image">
-	                        <animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-	                        <animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-	                        <top>20</top>
-	                        <left>20</left>
-	                        <right>20</right>
-	                        <height>310</height>
-	                        <texture border="5">overlays/diffuse-overlay.png</texture>
-	                    </control>
-	                </focusedlayout>
-				</control>
-			</control>
-			<control type="scrollbar" id="60">
-				<visible allowhiddenfocus="true">Control.HasFocus(60) | Container(450).Scrolling</visible>
-				<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-				<left>1910</left>
-				<top>120</top>
-				<width>10</width>
-				<height>960</height>
-				<onup>60</onup>
-				<ondown>60</ondown>
-				<onleft>450</onleft>
-				<onright>450</onright>
-				<orientation>vertical</orientation>
-			</control>
-		</control>
-		<include>Topbar</include>
-	</controls>
+                    <focusedlayout height="390" width="350">
+                        <include>ThumbnailItemBackground</include>
+                        <control type="label">
+                            <left>20</left>
+                            <right>20</right>
+                            <top>327</top>
+                            <height>50</height>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="image">
+                            <left>20</left>
+                            <top>20</top>
+                            <right>20</right>
+                            <height>310</height>
+                            <aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+                            <texture background="true" fallback="DefaultIconFavourite.png" diffuse="diffuse/thumbnail.png">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="image">
+                            <animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                            <animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                            <top>20</top>
+                            <left>20</left>
+                            <right>20</right>
+                            <height>310</height>
+                            <texture border="5">overlays/diffuse-overlay.png</texture>
+                        </control>
+                    </focusedlayout>
+                </control>
+            </control>
+            <control type="scrollbar" id="60">
+                <visible allowhiddenfocus="true">Control.HasFocus(60) | Container(450).Scrolling</visible>
+                <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+                <left>1910</left>
+                <top>120</top>
+                <width>10</width>
+                <height>960</height>
+                <onup>60</onup>
+                <ondown>60</ondown>
+                <onleft>450</onleft>
+                <onright>450</onright>
+                <orientation>vertical</orientation>
+            </control>
+        </control>
+        <include>Topbar</include>
+    </controls>
 </window>

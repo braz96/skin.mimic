@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="View_52_Thumbnail">
-		<control type="group">
-			<visible>Control.IsVisible(52) + !$EXP[isInfoDialog]</visible>
+    <include name="View_52_Thumbnail">
+        <control type="group">
+            <visible>Control.IsVisible(52) + !$EXP[isInfoDialog]</visible>
             <animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsVisible(programs) | Window.IsVisible(addonbrowser)">Conditional</animation>
-			<include>Animation.Common</include>
-			<control type="group">
+            <include>Animation.Common</include>
+            <control type="group">
                 <visible>Integer.IsGreater(Container(52).NumItems,0) + !Container.Content(episodes)</visible>
                 <animation effect="fade" time="320" delay="300">Visible</animation>
                 <control type="image">
@@ -42,24 +42,24 @@
                     <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(52).Column,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="panel" id="52">
-				<top>195</top>
+            <control type="panel" id="52">
+                <top>195</top>
                 <left>85</left>
                 <width>1750</width>
                 <height>780</height>
-				<onup>52</onup>
+                <onup>52</onup>
                 <ondown>52</ondown>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<onright condition="Container(52).HasNext | Container(52).HasPrevious">60</onright>
+                <onleft>SetProperty(MediaMenu,True,home)</onleft>
+                <onleft>SetFocus(9050)</onleft>
+                <onright condition="Container(52).HasNext | Container(52).HasPrevious">60</onright>
                 <oninfo condition="$EXP[PluginAdvancedLauncher] + System.HasAddon(script.toolbox)">RunScript(script.toolbox,info=textviewer,header='"$INFO[ListItem.Label]"',text='"$VAR[AdvancedLauncherPlotVar]"')</oninfo>
                 <oninfo condition="System.HasAddon(script.extendedinfo) + Container.Content(actors)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Label])</oninfo>
-				<preloaditems>2</preloaditems>
-				<pagecontrol>60</pagecontrol>
-				<viewtype label="21371">list</viewtype>
-				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<orientation>vertical</orientation>
-				<itemlayout height="390" width="350" condition="!Container.Content(episodes)">
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <viewtype label="21371">list</viewtype>
+                <scrolltime tween="quadratic" easing="out">300</scrolltime>
+                <orientation>vertical</orientation>
+                <itemlayout height="390" width="350" condition="!Container.Content(episodes)">
                     <include>ThumbnailItemBackground</include>
                     <control type="label">
                         <left>20</left>
@@ -263,13 +263,13 @@
                         <param name="OverlayTop" value="18" />
                     </include>
                 </focusedlayout>
-			</control>
-		</control>
+            </control>
+        </control>
         <control type="group">
             <animation effect="slide" time="0" start="0,0" end="0,15" condition="Window.IsVisible(programs) | Window.IsVisible(addonbrowser)">Conditional</animation>
             <visible>Control.IsVisible(52) + !$EXP[isInfoDialog]</visible>
             <top>-15</top>
             <include>Scrollbar_Vertical</include>
         </control>
-	</include>
+    </include>
 </includes>

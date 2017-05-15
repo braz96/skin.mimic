@@ -1,249 +1,249 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1134">
-	<defaultcontrol always="true">90001</defaultcontrol>
-	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets&amp;mainmenuID=9000&amp;group=mainmenu|quicknav)</onunload>
-	<allowoverlay>no</allowoverlay>
-	<coordinates>
-		<system>1</system>
-	</coordinates>
-	<include condition="!Window.IsVisible(SkinSettings.xml)">Animation.Dialog</include>
-	<animation effect="slide" start="0,0" end="0,30" time="0" condition="!Window.IsVisible(SkinSettings.xml)">Conditional</animation>
-	<controls>
-		<control type="group">
-			<visible>!Window.IsActive(SkinSettings.xml)</visible>
-			<top>90</top>
-			<left>53</left>
-			<include content="DialogBackgroundCommons">
-				<param name="DialogBackgroundWidth" value="1814" />
-				<param name="DialogBackgroundHeight" value="840" />
-				<param name="DialogHeaderLabel" value="31249" />
-				<param name="DialogHeaderId" value="" />
-			</include>
-		</control>
-		<control type="group">
-			<visible>String.IsEmpty(Window.Property(additionalDialog))</visible>
-			<left>0</left>
-			<top>180</top>
-			<animation type="WindowOpen" reversible="false" condition="Window.IsVisible(SkinSettings.xml)">
-	            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-	            <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
-	        </animation>
-			<control type="list" id="211">
-				<left>82</left>
-				<top>0</top>
-				<width>356</width>
-				<height>720</height>
-				<onleft>90001</onleft>
-				<onright>90001</onright>
-				<onup>211</onup>
-				<ondown>211</ondown>
-				<!--<pagecontrol>61</pagecontrol>-->
-				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="90" width="356">
-					<control type="label">
-						<animation effect="fade" time="0" end="30" condition="String.IsEqual(ListItem.Property(skinshortcuts-disabled),True)">Conditional</animation>
-						<width>356</width>
-						<height>90</height>
-						<font>font15</font>
-						<textoffsetx>20</textoffsetx>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<align>right</align>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="90" width="356">
-					<control type="image">
-						<width>356</width>
-						<height>90</height>
-						<texture border="5">listselect_fo.png</texture>
-						<colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
-						<animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(211)">Conditional</animation>
-					</control>
-					<control type="label">
-						<width>356</width>
-						<height>90</height>
-						<font>font15</font>
-						<textoffsetx>20</textoffsetx>
-						<selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
-						<align>right</align>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</focusedlayout>
-			</control>
-			<!--<control type="scrollbar" id="61">
-				<left>0</left>
-				<top>-83</top>
-				<width>12</width>
-				<height>1080</height>
-				<onleft>211</onleft>
-				<onright>211</onright>
-				<ondown>61</ondown>
-				<onup>61</onup>
-			</control>-->
-			<control type="textbox">
-				<description>description area</description>
-				<visible>Window.IsVisible(SkinSettings.xml)</visible>
-				<left>552</left>
-				<top>742</top>
-				<width>1256</width>
-				<height>140</height>
-				<font>font15_textbox</font>
-				<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				<label>$VAR[SkinShortcutsDescriptionVar]</label>
-				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-				<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="0" tween="sine" easing="inout">Hidden</animation>
-			</control>
-			<control type="grouplist" id="90001">
-				<description>control area</description>
-				<left>522</left>
-				<top>0</top>
-				<width>1316</width>
-				<height>720</height>
-				<itemgap>0</itemgap>
-				<pagecontrol>60</pagecontrol>
-				<onleft>211</onleft>
-				<onright>60</onright>
-				<onup>90001</onup>
-				<ondown>90001</ondown>
-				<control type="button" id="401">
-					<description>Choose shortcut</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$ADDON[script.skinshortcuts 32048]</label>
-				</control>
-				<control type="button" id="305">
-					<description>Change action</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$ADDON[script.skinshortcuts 32025]</label>
-					<label2>$INFO[Container(211).ListItem.Label]</label2>
-				</control>
-				<control type="button" id="307">
-					<description>Change action</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$ADDON[script.skinshortcuts 32027]</label>
-					<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
-				</control>
-				<control type="button" id="405">
-					<description>Edit submenu</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$LOCALIZE[31080]</label>
-					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-				</control>
-				<control type="button" id="306">
-					<description>Change thumbnail</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$LOCALIZE[31242]</label>
-					<label2>$INFO[Container(211).ListItem.Property(thumbnail)]</label2>
-				</control>
-				<control type="button" id="310">
-					<description>Change background</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$ADDON[script.skinshortcuts 32045]</label>
-					<label2>$INFO[Container(211).ListItem.Property(backgroundName)]</label2>
-					<visible>Window.IsVisible(SkinSettings.xml)</visible>
-				</control>
-				<control type="button" id="312">
-					<description>Change widget</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$ADDON[script.skinshortcuts 32044]</label>
-					<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
-					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-				</control>
-				<control type="button" id="501">
-					<description>Widget icon</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>- $LOCALIZE[31152]</label>
-					<label2>$VAR[WidgetIconLabel]</label2>
-					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-					<enable>!String.IsEqual(Container(211).ListItem.Property(widgetName),weather) + !String.IsEqual(Container(211).ListItem.Property(widgetName),settings)</enable>
-					<onclick>SetProperty(chooseProperty,widgetIcon)</onclick>
-					<onclick>SendClick(404)</onclick>
-				</control>
-				<control type="button" id="502">
-					<description>Widget sort by</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>- $LOCALIZE[31155]</label>
-					<label2>$VAR[WidgetSortByLabel]</label2>
-					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-					<enable>!String.IsEqual(Container(211).ListItem.Property(widgetName),weather) + !String.IsEqual(Container(211).ListItem.Property(widgetName),settings) + !String.IsEqual(Container(211).ListItem.Property(widgetName),Playlists)</enable>
-					<onclick>SetProperty(chooseProperty,widgetSortBy)</onclick>
-					<onclick>SendClick(404)</onclick>
-				</control>
-				<control type="button" id="503">
-					<description>Widget sort direction</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>- $LOCALIZE[31156]</label>
-					<label2>$VAR[WidgetSortDirectionLabel]</label2>
-					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-					<enable>!String.IsEqual(Container(211).ListItem.Property(widgetName),weather) + !String.IsEqual(Container(211).ListItem.Property(widgetName),settings) + !String.IsEqual(Container(211).ListItem.Property(widgetName),Playlists)</enable>
-					<onclick>SetProperty(chooseProperty,widgetSortDirection)</onclick>
-					<onclick>SendClick(404)</onclick>
-				</control>
-				<control type="button" id="500">
-					<description>Choose infoline</description>
-					<width>1316</width>
-					<height>90</height>
-					<textoffsetx>30</textoffsetx>
-					<font>font15</font>
-					<label>$LOCALIZE[31053]</label>
-					<label2>$INFO[Container(211).ListItem.Property(InfoLine)]</label2>
-					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-					<onclick>SetProperty(chooseProperty,InfoLine)</onclick>
-					<onclick>SendClick(404)</onclick>
-				</control>
-			</control>
-		</control>
-		<control type="scrollbar" id="60">
-			<visible allowhiddenfocus="true">[Control.HasFocus(60) | ControlGroup(90001).HasFocus] + String.IsEmpty(Window.Property(additionalDialog)) + Window.IsVisible(SkinSettings.xml)</visible>
-			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-			<left>1910</left>
-			<top>120</top>
-			<width>10</width>
-			<height>960</height>
-			<onleft>90001</onleft>
-			<onright>211</onright>
-			<ondown>60</ondown>
-			<onup>60</onup>
-		</control>
+    <defaultcontrol always="true">90001</defaultcontrol>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mode=single&amp;options=clonewidgets&amp;mainmenuID=9000&amp;group=mainmenu|quicknav)</onunload>
+    <allowoverlay>no</allowoverlay>
+    <coordinates>
+        <system>1</system>
+    </coordinates>
+    <include condition="!Window.IsVisible(SkinSettings.xml)">Animation.Dialog</include>
+    <animation effect="slide" start="0,0" end="0,30" time="0" condition="!Window.IsVisible(SkinSettings.xml)">Conditional</animation>
+    <controls>
+        <control type="group">
+            <visible>!Window.IsActive(SkinSettings.xml)</visible>
+            <top>90</top>
+            <left>53</left>
+            <include content="DialogBackgroundCommons">
+                <param name="DialogBackgroundWidth" value="1814" />
+                <param name="DialogBackgroundHeight" value="840" />
+                <param name="DialogHeaderLabel" value="31249" />
+                <param name="DialogHeaderId" value="" />
+            </include>
+        </control>
+        <control type="group">
+            <visible>String.IsEmpty(Window.Property(additionalDialog))</visible>
+            <left>0</left>
+            <top>180</top>
+            <animation type="WindowOpen" reversible="false" condition="Window.IsVisible(SkinSettings.xml)">
+                <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+                <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+            </animation>
+            <control type="list" id="211">
+                <left>82</left>
+                <top>0</top>
+                <width>356</width>
+                <height>720</height>
+                <onleft>90001</onleft>
+                <onright>90001</onright>
+                <onup>211</onup>
+                <ondown>211</ondown>
+                <!--<pagecontrol>61</pagecontrol>-->
+                <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                <itemlayout height="90" width="356">
+                    <control type="label">
+                        <animation effect="fade" time="0" end="30" condition="String.IsEqual(ListItem.Property(skinshortcuts-disabled),True)">Conditional</animation>
+                        <width>356</width>
+                        <height>90</height>
+                        <font>font15</font>
+                        <textoffsetx>20</textoffsetx>
+                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="90" width="356">
+                    <control type="image">
+                        <width>356</width>
+                        <height>90</height>
+                        <texture border="5">listselect_fo.png</texture>
+                        <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(211)">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <width>356</width>
+                        <height>90</height>
+                        <font>font15</font>
+                        <textoffsetx>20</textoffsetx>
+                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+            <!--<control type="scrollbar" id="61">
+                <left>0</left>
+                <top>-83</top>
+                <width>12</width>
+                <height>1080</height>
+                <onleft>211</onleft>
+                <onright>211</onright>
+                <ondown>61</ondown>
+                <onup>61</onup>
+            </control>-->
+            <control type="textbox">
+                <description>description area</description>
+                <visible>Window.IsVisible(SkinSettings.xml)</visible>
+                <left>552</left>
+                <top>742</top>
+                <width>1256</width>
+                <height>140</height>
+                <font>font15_textbox</font>
+                <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                <label>$VAR[SkinShortcutsDescriptionVar]</label>
+                <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="0" tween="sine" easing="inout">Hidden</animation>
+            </control>
+            <control type="grouplist" id="90001">
+                <description>control area</description>
+                <left>522</left>
+                <top>0</top>
+                <width>1316</width>
+                <height>720</height>
+                <itemgap>0</itemgap>
+                <pagecontrol>60</pagecontrol>
+                <onleft>211</onleft>
+                <onright>60</onright>
+                <onup>90001</onup>
+                <ondown>90001</ondown>
+                <control type="button" id="401">
+                    <description>Choose shortcut</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>$ADDON[script.skinshortcuts 32048]</label>
+                </control>
+                <control type="button" id="305">
+                    <description>Change action</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>$ADDON[script.skinshortcuts 32025]</label>
+                    <label2>$INFO[Container(211).ListItem.Label]</label2>
+                </control>
+                <control type="button" id="307">
+                    <description>Change action</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>$ADDON[script.skinshortcuts 32027]</label>
+                    <label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+                </control>
+                <control type="button" id="405">
+                    <description>Edit submenu</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>$LOCALIZE[31080]</label>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                </control>
+                <control type="button" id="306">
+                    <description>Change thumbnail</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>$LOCALIZE[31242]</label>
+                    <label2>$INFO[Container(211).ListItem.Property(thumbnail)]</label2>
+                </control>
+                <control type="button" id="310">
+                    <description>Change background</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>$ADDON[script.skinshortcuts 32045]</label>
+                    <label2>$INFO[Container(211).ListItem.Property(backgroundName)]</label2>
+                    <visible>Window.IsVisible(SkinSettings.xml)</visible>
+                </control>
+                <control type="button" id="312">
+                    <description>Change widget</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>$ADDON[script.skinshortcuts 32044]</label>
+                    <label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                </control>
+                <control type="button" id="501">
+                    <description>Widget icon</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>- $LOCALIZE[31152]</label>
+                    <label2>$VAR[WidgetIconLabel]</label2>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <enable>!String.IsEqual(Container(211).ListItem.Property(widgetName),weather) + !String.IsEqual(Container(211).ListItem.Property(widgetName),settings)</enable>
+                    <onclick>SetProperty(chooseProperty,widgetIcon)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                </control>
+                <control type="button" id="502">
+                    <description>Widget sort by</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>- $LOCALIZE[31155]</label>
+                    <label2>$VAR[WidgetSortByLabel]</label2>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <enable>!String.IsEqual(Container(211).ListItem.Property(widgetName),weather) + !String.IsEqual(Container(211).ListItem.Property(widgetName),settings) + !String.IsEqual(Container(211).ListItem.Property(widgetName),Playlists)</enable>
+                    <onclick>SetProperty(chooseProperty,widgetSortBy)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                </control>
+                <control type="button" id="503">
+                    <description>Widget sort direction</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>- $LOCALIZE[31156]</label>
+                    <label2>$VAR[WidgetSortDirectionLabel]</label2>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <enable>!String.IsEqual(Container(211).ListItem.Property(widgetName),weather) + !String.IsEqual(Container(211).ListItem.Property(widgetName),settings) + !String.IsEqual(Container(211).ListItem.Property(widgetName),Playlists)</enable>
+                    <onclick>SetProperty(chooseProperty,widgetSortDirection)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                </control>
+                <control type="button" id="500">
+                    <description>Choose infoline</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>$LOCALIZE[31053]</label>
+                    <label2>$INFO[Container(211).ListItem.Property(InfoLine)]</label2>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <onclick>SetProperty(chooseProperty,InfoLine)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                </control>
+            </control>
+        </control>
+        <control type="scrollbar" id="60">
+            <visible allowhiddenfocus="true">[Control.HasFocus(60) | ControlGroup(90001).HasFocus] + String.IsEmpty(Window.Property(additionalDialog)) + Window.IsVisible(SkinSettings.xml)</visible>
+            <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+            <left>1910</left>
+            <top>120</top>
+            <width>10</width>
+            <height>960</height>
+            <onleft>90001</onleft>
+            <onright>211</onright>
+            <ondown>60</ondown>
+            <onup>60</onup>
+        </control>
 
-		<!-- 404, for setting custom property -->
-		<control type="button" id="404">
-			<visible>False</visible>
-			<left>-100000</left>
-			<top>-100000</top>
-			<width>1</width>
-			<height>1</height>
-			<onclick>noop</onclick>
-		</control>
-	</controls>
+        <!-- 404, for setting custom property -->
+        <control type="button" id="404">
+            <visible>False</visible>
+            <left>-100000</left>
+            <top>-100000</top>
+            <width>1</width>
+            <height>1</height>
+            <onclick>noop</onclick>
+        </control>
+    </controls>
 </window>

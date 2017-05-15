@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<menucontrol>9051</menucontrol>
-	<onload>SetProperty(Window.HasSettings,True,home)</onload>
-	<onload>ClearProperty(MediaMenu,Home)</onload>
-	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
-	<allowoverlay>no</allowoverlay>
-	<controls>
-		<include>CommonBackground</include>
-		<control type="group">
-			<left>0</left>
-			<top>148</top>
-			<include>Animation.Common</include>
-			<control type="group">
+    <menucontrol>9051</menucontrol>
+    <onload>SetProperty(Window.HasSettings,True,home)</onload>
+    <onload>ClearProperty(MediaMenu,Home)</onload>
+    <onunload>ClearProperty(Window.HasSettings,Home)</onunload>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <include>CommonBackground</include>
+        <control type="group">
+            <left>0</left>
+            <top>148</top>
+            <include>Animation.Common</include>
+            <control type="group">
                 <visible>Integer.IsGreater(Container(9000).NumItems,0)</visible>
                 <control type="image">
-                	<left>82</left>
+                    <left>82</left>
                     <top>32</top>
                     <width>356</width>
                     <height>90</height>
@@ -32,379 +32,363 @@
                     <animation effect="slide" end="0,90" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="panel" id="9000">
-				<left>82</left>
-				<top>32</top>
-				<width>356</width>
-				<height>810</height>
-				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
-				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">18</onleft>
-				<onright condition="Container(9000).HasFocus(1)">200</onright>
-				<onright condition="Container(9000).HasFocus(2)">201</onright>
-				<onright condition="Container(9000).HasFocus(3)">202</onright>
-				<onright condition="Container(9000).HasFocus(4)">203</onright>
-				<onright condition="Container(9000).HasFocus(5)">204</onright>
-				<onright condition="Container(9000).HasFocus(6)">205</onright>
-				<onright condition="Container(9000).HasFocus(7)">206</onright>
-				<onright condition="Container(9000).HasFocus(8)">207</onright>
-				<onright condition="Container(9000).HasFocus(9)">208</onright>
-				<onright condition="Container(9000).HasFocus(10)">209</onright>
-				<onright condition="Container(9000).HasFocus(11)">210</onright>
-				<onright condition="Container(9000).HasFocus(12)">211</onright>
-				<onright condition="Container(9000).HasFocus(13)">212</onright>
-				<onright condition="Container(9000).HasFocus(14)">213</onright>
-				<onright condition="Container(9000).HasFocus(15)">214</onright>
-				<onright condition="Container(9000).HasFocus(16)">215</onright>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
-				<scrolltime tween="quadratic">300</scrolltime>
-				<itemlayout height="90" width="356">
-					<control type="group">
-						<control type="label">
-							<width>356</width>
-							<height>90</height>
-							<font>font15</font>
-							<textoffsetx>20</textoffsetx>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>356</width>
-							<height>90</height>
-							<font>font15</font>
-							<textoffsetx>20</textoffsetx>
-							<align>right</align>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</control>
-				</itemlayout>
-				<focusedlayout height="90" width="356">
-					<control type="group">
-						<control type="label">
-							<width>356</width>
-							<height>90</height>
-							<font>font15</font>
-							<textoffsetx>20</textoffsetx>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>356</width>
-							<height>90</height>
-							<font>font15</font>
-							<textoffsetx>20</textoffsetx>
-							<align>right</align>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</control>
-				</focusedlayout>
-				<content>
-					<item id="1">
-						<label>$INFO[Window(home).Property(NextAired.200.Wday)]$INFO[Container(200).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.200.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-						<visible>!String.IsEmpty(Window(home).Property(NextAired.200.Wday))</visible>
-					</item>
-					<item id="2">
-						<label>$INFO[Window(home).Property(NextAired.201.Wday)]$INFO[Container(201).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.201.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="3">
-						<label>$INFO[Window(home).Property(NextAired.202.Wday)]$INFO[Container(202).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.202.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="4">
-						<label>$INFO[Window(home).Property(NextAired.203.Wday)]$INFO[Container(203).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.203.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="5">
-						<label>$INFO[Window(home).Property(NextAired.204.Wday)]$INFO[Container(204).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.204.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="6">
-						<label>$INFO[Window(home).Property(NextAired.205.Wday)]$INFO[Container(205).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.205.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="7">
-						<label>$INFO[Window(home).Property(NextAired.206.Wday)]$INFO[Container(206).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.206.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="8">
-						<label>$INFO[Window(home).Property(NextAired.207.Wday)]$INFO[Container(207).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.207.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="9">
-						<label>$INFO[Window(home).Property(NextAired.208.Wday)]$INFO[Container(208).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.208.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-						<visible>!String.IsEmpty(Window(home).Property(NextAired.208.Date))</visible>
-					</item>
-					<item id="10">
-						<label>$INFO[Window(home).Property(NextAired.209.Wday)]$INFO[Container(209).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.209.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-						<visible>!String.IsEmpty(Window(home).Property(NextAired.209.Date))</visible>
-					</item>
-					<item id="11">
-						<label>$INFO[Window(home).Property(NextAired.210.Wday)]$INFO[Container(210).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.210.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-						<visible>!String.IsEmpty(Window(home).Property(NextAired.210.Date))</visible>
-					</item>
-					<item id="12">
-						<label>$INFO[Window(home).Property(NextAired.211.Wday)]$INFO[Container(211).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.211.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-						<visible>!String.IsEmpty(Window(home).Property(NextAired.211.Date))</visible>
-					</item>
-					<item id="13">
-						<label>$INFO[Window(home).Property(NextAired.212.Wday)]$INFO[Container(212).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.212.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-						<visible>!String.IsEmpty(Window(home).Property(NextAired.212.Date))</visible>
-					</item>
-					<item id="14">
-						<label>$INFO[Window(home).Property(NextAired.213.Wday)]$INFO[Container(213).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.213.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-						<visible>!String.IsEmpty(Window(home).Property(NextAired.213.Date))</visible>
-					</item>
-					<item id="15">
-						<label>$INFO[Window(home).Property(NextAired.214.Wday)]$INFO[Container(214).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.214.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-						<visible>!String.IsEmpty(Window(home).Property(NextAired.214.Date))</visible>
-					</item>
-					<item id="16">
-						<label>$INFO[Window(home).Property(NextAired.215.Wday)]$INFO[Container(215).NumItems, (,)]</label>
-						<label2>$INFO[Window(Home).Property(NextAired.215.Date)]</label2>
-						<onclick>noop</onclick>
-						<icon />
-						<visible>!String.IsEmpty(Window(home).Property(NextAired.215.Date))</visible>
-					</item>
-				</content>
-			</control>
-			<!--<control type="scrollbar" id="61">
-				<left>0</left>
-				<top>-65</top>
-				<width>10</width>
-				<height>1035</height>
-				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
-				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">18</onleft>
-				<onright>9000</onright>
-				<ondown>61</ondown>
-				<onup>61</onup>
-			</control>-->
-			<control type="group" id="9001">
-				<control type="group">
-	                <control type="image">
-	                    <left>522</left>
-	                    <top>32</top>
-	                    <width>435</width>
-	                    <height>825</height>
-	                    <visible>![Control.HasFocus(9000) | Control.HasFocus(18) | Control.HasFocus(60) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]</visible>
-	                    <animation effect="fade" time="320" delay="200">Visible</animation>
-	                    <animation effect="fade" time="200">Hidden</animation>
-	                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-	                    <animation effect="slide" end="435,0" time="300" tween="cubic" easing="inout" condition="Container(200).Column(2) | Container(201).Column(2) | Container(202).Column(2) | Container(203).Column(2) | Container(204).Column(2) | Container(205).Column(2) | Container(206).Column(2) | Container(207).Column(2) | Container(208).Column(2) | Container(209).Column(2) | Container(210).Column(2) | Container(211).Column(2) | Container(212).Column(2) | Container(213).Column(2) | Container(214).Column(2) | Container(215).Column(2)">Conditional</animation>
-	                    <animation effect="slide" end="435,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(200).Column,0) | Integer.IsGreater(Container(201).Column,0) | Integer.IsGreater(Container(202).Column,0) | Integer.IsGreater(Container(203).Column,0) | Integer.IsGreater(Container(204).Column,0) | Integer.IsGreater(Container(205).Column,0) | Integer.IsGreater(Container(206).Column,0) | Integer.IsGreater(Container(207).Column,0) | Integer.IsGreater(Container(208).Column,0) | Integer.IsGreater(Container(209).Column,0) | Integer.IsGreater(Container(210).Column,0) | Integer.IsGreater(Container(211).Column,0) | Integer.IsGreater(Container(212).Column,0) | Integer.IsGreater(Container(213).Column,0) | Integer.IsGreater(Container(214).Column,0) | Integer.IsGreater(Container(215).Column,0)">Conditional</animation>
-	                </control>
-	            </control>
-				<control type="panel" id="200">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(1)] | Control.HasFocus(200) | [Container(9000).HasFocus(1) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(1) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>200</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="201">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(2)] | Control.HasFocus(201) | [Container(9000).HasFocus(2) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(2) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>201</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="202">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(3)] | Control.HasFocus(202) | [Container(9000).HasFocus(3) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(3) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>202</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="203">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(4)] | Control.HasFocus(203) | [Container(9000).HasFocus(4) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(4) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>203</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="204">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(5)] | Control.HasFocus(204) | [Container(9000).HasFocus(5) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(5) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>204</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="205">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(6)] | Control.HasFocus(205) | [Container(9000).HasFocus(6) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(6) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>205</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="206">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(7)] | Control.HasFocus(206) | [Container(9000).HasFocus(7) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(7) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>206</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="207">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(8)] | Control.HasFocus(207) | [Container(9000).HasFocus(8) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(8) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>207</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="208">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(9)] | Control.HasFocus(208) | [Container(9000).HasFocus(9) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(9) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>208</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="209">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(10)] | Control.HasFocus(209) | [Container(9000).HasFocus(10) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(10) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>209</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="210">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(11)] | Control.HasFocus(210) | [Container(9000).HasFocus(11) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(11) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>210</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="211">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(12)] | Control.HasFocus(211) | [Container(9000).HasFocus(12) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(12) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>211</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="212">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(13)] | Control.HasFocus(212) | [Container(9000).HasFocus(13) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(13) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>212</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="213">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(14)] | Control.HasFocus(213) | [Container(9000).HasFocus(14) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(14) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>213</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="214">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(15)] | Control.HasFocus(214) | [Container(9000).HasFocus(15) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(15) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>214</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-				<control type="panel" id="215">
-					<visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(16)] | Control.HasFocus(215) | [Container(9000).HasFocus(16) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(16) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
-					<include>SettingsFadeEffect</include>
-					<onright>215</onright>
-					<include>TVNextAiredListCommonLayout</include>
-				</control>
-			</control>
-		</control>
-		<control type="scrollbar" id="60">
-			<!--<visible>![Control.HasFocus(9000) | ControlGroup(9050).HasFocus()]</visible>-->
-			<visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
-			<animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
-			<left>0</left>
-			<top>1070</top>
-			<width>FullScreenWidth</width>
-			<height>10</height>
-			<onup condition="Container(9000).HasFocus(1)">200</onup>
-			<onup condition="Container(9000).HasFocus(2)">201</onup>
-			<onup condition="Container(9000).HasFocus(3)">202</onup>
-			<onup condition="Container(9000).HasFocus(4)">203</onup>
-			<onup condition="Container(9000).HasFocus(5)">204</onup>
-			<onup condition="Container(9000).HasFocus(6)">205</onup>
-			<onup condition="Container(9000).HasFocus(7)">206</onup>
-			<onup condition="Container(9000).HasFocus(8)">207</onup>
-			<onup condition="Container(9000).HasFocus(9)">208</onup>
-			<onup condition="Container(9000).HasFocus(10)">209</onup>
-			<onup condition="Container(9000).HasFocus(11)">210</onup>
-			<onup condition="Container(9000).HasFocus(12)">211</onup>
-			<onup condition="Container(9000).HasFocus(13)">212</onup>
-			<onup condition="Container(9000).HasFocus(14)">213</onup>
-			<onup condition="Container(9000).HasFocus(15)">214</onup>
-			<onup condition="Container(9000).HasFocus(16)">215</onup>
-			<ondown condition="Container(9000).HasFocus(1)">200</ondown>
-			<ondown condition="Container(9000).HasFocus(2)">201</ondown>
-			<ondown condition="Container(9000).HasFocus(3)">202</ondown>
-			<ondown condition="Container(9000).HasFocus(4)">203</ondown>
-			<ondown condition="Container(9000).HasFocus(5)">204</ondown>
-			<ondown condition="Container(9000).HasFocus(6)">205</ondown>
-			<ondown condition="Container(9000).HasFocus(7)">206</ondown>
-			<ondown condition="Container(9000).HasFocus(8)">207</ondown>
-			<ondown condition="Container(9000).HasFocus(9)">208</ondown>
-			<ondown condition="Container(9000).HasFocus(10)">209</ondown>
-			<ondown condition="Container(9000).HasFocus(11)">210</ondown>
-			<ondown condition="Container(9000).HasFocus(12)">211</ondown>
-			<ondown condition="Container(9000).HasFocus(13)">212</ondown>
-			<ondown condition="Container(9000).HasFocus(14)">213</ondown>
-			<ondown condition="Container(9000).HasFocus(15)">214</ondown>
-			<ondown condition="Container(9000).HasFocus(16)">215</ondown>
-			<onleft>60</onleft>
-			<onright>60</onright>
-			<orientation>horizontal</orientation>
-		</control>
-		<include>Topbar</include>
-		<control type="group">
-			<left>-440</left>
-			<include>SideBladeLeft</include>
-			<control type="grouplist" id="9050">
-				<left>0</left>
-				<top>10</top>
-				<width>400</width>
-				<height>1080</height>
-				<itemgap>0</itemgap>
-				<control type="label" id="20001">
-					<width>400</width>
-					<height>52</height>
-					<textoffsetx>15</textoffsetx>
-					<font>font13_title</font>
-					<label>$INFO[System.AddonTitle(script.tv.show.next.aired)]</label>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-				<control type="button" id="18">
-					<description>Settings</description>
-					<textwidth>352</textwidth>
-					<onright>ClearProperty(MediaMenu,Home)</onright>
-					<onright>9000</onright>
-					<onback>ClearProperty(MediaMenu,Home)</onback>
-					<onclick>Addon.OpenSettings(script.tv.show.next.aired)</onclick>
-					<include>ButtonCommonValues</include>
-					<label>5</label>
-				</control>
-				<control type="button" id="203">
+            <control type="panel" id="9000">
+                <left>82</left>
+                <top>32</top>
+                <width>356</width>
+                <height>810</height>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">18</onleft>
+                <onright condition="Container(9000).HasFocus(1)">200</onright>
+                <onright condition="Container(9000).HasFocus(2)">201</onright>
+                <onright condition="Container(9000).HasFocus(3)">202</onright>
+                <onright condition="Container(9000).HasFocus(4)">203</onright>
+                <onright condition="Container(9000).HasFocus(5)">204</onright>
+                <onright condition="Container(9000).HasFocus(6)">205</onright>
+                <onright condition="Container(9000).HasFocus(7)">206</onright>
+                <onright condition="Container(9000).HasFocus(8)">207</onright>
+                <onright condition="Container(9000).HasFocus(9)">208</onright>
+                <onright condition="Container(9000).HasFocus(10)">209</onright>
+                <onright condition="Container(9000).HasFocus(11)">210</onright>
+                <onright condition="Container(9000).HasFocus(12)">211</onright>
+                <onright condition="Container(9000).HasFocus(13)">212</onright>
+                <onright condition="Container(9000).HasFocus(14)">213</onright>
+                <onright condition="Container(9000).HasFocus(15)">214</onright>
+                <onright condition="Container(9000).HasFocus(16)">215</onright>
+                <onup>9000</onup>
+                <ondown>9000</ondown>
+                <scrolltime tween="quadratic">300</scrolltime>
+                <itemlayout height="90" width="356">
+                    <control type="group">
+                        <control type="label">
+                            <width>356</width>
+                            <height>90</height>
+                            <font>font15</font>
+                            <textoffsetx>20</textoffsetx>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="label">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>356</width>
+                            <height>90</height>
+                            <font>font15</font>
+                            <textoffsetx>20</textoffsetx>
+                            <align>right</align>
+                            <label>$INFO[ListItem.Label2]</label>
+                        </control>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="90" width="356">
+                    <control type="group">
+                        <control type="label">
+                            <width>356</width>
+                            <height>90</height>
+                            <font>font15</font>
+                            <textoffsetx>20</textoffsetx>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="label">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>356</width>
+                            <height>90</height>
+                            <font>font15</font>
+                            <textoffsetx>20</textoffsetx>
+                            <align>right</align>
+                            <label>$INFO[ListItem.Label2]</label>
+                        </control>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <item id="1">
+                        <label>$INFO[Window(home).Property(NextAired.200.Wday)]$INFO[Container(200).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.200.Date)]</label2>
+                        <icon />
+                        <visible>!String.IsEmpty(Window(home).Property(NextAired.200.Wday))</visible>
+                    </item>
+                    <item id="2">
+                        <label>$INFO[Window(home).Property(NextAired.201.Wday)]$INFO[Container(201).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.201.Date)]</label2>
+                        <icon />
+                    </item>
+                    <item id="3">
+                        <label>$INFO[Window(home).Property(NextAired.202.Wday)]$INFO[Container(202).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.202.Date)]</label2>
+                        <icon />
+                    </item>
+                    <item id="4">
+                        <label>$INFO[Window(home).Property(NextAired.203.Wday)]$INFO[Container(203).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.203.Date)]</label2>
+                        <icon />
+                    </item>
+                    <item id="5">
+                        <label>$INFO[Window(home).Property(NextAired.204.Wday)]$INFO[Container(204).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.204.Date)]</label2>
+                        <icon />
+                    </item>
+                    <item id="6">
+                        <label>$INFO[Window(home).Property(NextAired.205.Wday)]$INFO[Container(205).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.205.Date)]</label2>
+                        <icon />
+                    </item>
+                    <item id="7">
+                        <label>$INFO[Window(home).Property(NextAired.206.Wday)]$INFO[Container(206).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.206.Date)]</label2>
+                        <icon />
+                    </item>
+                    <item id="8">
+                        <label>$INFO[Window(home).Property(NextAired.207.Wday)]$INFO[Container(207).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.207.Date)]</label2>
+                        <icon />
+                    </item>
+                    <item id="9">
+                        <label>$INFO[Window(home).Property(NextAired.208.Wday)]$INFO[Container(208).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.208.Date)]</label2>
+                        <icon />
+                        <visible>!String.IsEmpty(Window(home).Property(NextAired.208.Date))</visible>
+                    </item>
+                    <item id="10">
+                        <label>$INFO[Window(home).Property(NextAired.209.Wday)]$INFO[Container(209).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.209.Date)]</label2>
+                        <icon />
+                        <visible>!String.IsEmpty(Window(home).Property(NextAired.209.Date))</visible>
+                    </item>
+                    <item id="11">
+                        <label>$INFO[Window(home).Property(NextAired.210.Wday)]$INFO[Container(210).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.210.Date)]</label2>
+                        <icon />
+                        <visible>!String.IsEmpty(Window(home).Property(NextAired.210.Date))</visible>
+                    </item>
+                    <item id="12">
+                        <label>$INFO[Window(home).Property(NextAired.211.Wday)]$INFO[Container(211).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.211.Date)]</label2>
+                        <icon />
+                        <visible>!String.IsEmpty(Window(home).Property(NextAired.211.Date))</visible>
+                    </item>
+                    <item id="13">
+                        <label>$INFO[Window(home).Property(NextAired.212.Wday)]$INFO[Container(212).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.212.Date)]</label2>
+                        <icon />
+                        <visible>!String.IsEmpty(Window(home).Property(NextAired.212.Date))</visible>
+                    </item>
+                    <item id="14">
+                        <label>$INFO[Window(home).Property(NextAired.213.Wday)]$INFO[Container(213).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.213.Date)]</label2>
+                        <icon />
+                        <visible>!String.IsEmpty(Window(home).Property(NextAired.213.Date))</visible>
+                    </item>
+                    <item id="15">
+                        <label>$INFO[Window(home).Property(NextAired.214.Wday)]$INFO[Container(214).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.214.Date)]</label2>
+                        <icon />
+                        <visible>!String.IsEmpty(Window(home).Property(NextAired.214.Date))</visible>
+                    </item>
+                    <item id="16">
+                        <label>$INFO[Window(home).Property(NextAired.215.Wday)]$INFO[Container(215).NumItems, (,)]</label>
+                        <label2>$INFO[Window(Home).Property(NextAired.215.Date)]</label2>
+                        <icon />
+                        <visible>!String.IsEmpty(Window(home).Property(NextAired.215.Date))</visible>
+                    </item>
+                </content>
+            </control>
+            <!--<control type="scrollbar" id="61">
+                <left>0</left>
+                <top>-65</top>
+                <width>10</width>
+                <height>1035</height>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">18</onleft>
+                <onright>9000</onright>
+                <ondown>61</ondown>
+                <onup>61</onup>
+            </control>-->
+            <control type="group" id="9001">
+                <control type="group">
+                    <control type="image">
+                        <left>522</left>
+                        <top>32</top>
+                        <width>435</width>
+                        <height>825</height>
+                        <visible>![Control.HasFocus(9000) | Control.HasFocus(18) | Control.HasFocus(60) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="435,0" time="300" tween="cubic" easing="inout" condition="Container(200).Column(2) | Container(201).Column(2) | Container(202).Column(2) | Container(203).Column(2) | Container(204).Column(2) | Container(205).Column(2) | Container(206).Column(2) | Container(207).Column(2) | Container(208).Column(2) | Container(209).Column(2) | Container(210).Column(2) | Container(211).Column(2) | Container(212).Column(2) | Container(213).Column(2) | Container(214).Column(2) | Container(215).Column(2)">Conditional</animation>
+                        <animation effect="slide" end="435,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(200).Column,0) | Integer.IsGreater(Container(201).Column,0) | Integer.IsGreater(Container(202).Column,0) | Integer.IsGreater(Container(203).Column,0) | Integer.IsGreater(Container(204).Column,0) | Integer.IsGreater(Container(205).Column,0) | Integer.IsGreater(Container(206).Column,0) | Integer.IsGreater(Container(207).Column,0) | Integer.IsGreater(Container(208).Column,0) | Integer.IsGreater(Container(209).Column,0) | Integer.IsGreater(Container(210).Column,0) | Integer.IsGreater(Container(211).Column,0) | Integer.IsGreater(Container(212).Column,0) | Integer.IsGreater(Container(213).Column,0) | Integer.IsGreater(Container(214).Column,0) | Integer.IsGreater(Container(215).Column,0)">Conditional</animation>
+                    </control>
+                </control>
+                <control type="panel" id="200">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(1)] | Control.HasFocus(200) | [Container(9000).HasFocus(1) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(1) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>200</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="201">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(2)] | Control.HasFocus(201) | [Container(9000).HasFocus(2) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(2) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>201</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="202">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(3)] | Control.HasFocus(202) | [Container(9000).HasFocus(3) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(3) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>202</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="203">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(4)] | Control.HasFocus(203) | [Container(9000).HasFocus(4) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(4) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>203</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="204">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(5)] | Control.HasFocus(204) | [Container(9000).HasFocus(5) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(5) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>204</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="205">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(6)] | Control.HasFocus(205) | [Container(9000).HasFocus(6) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(6) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>205</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="206">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(7)] | Control.HasFocus(206) | [Container(9000).HasFocus(7) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(7) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>206</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="207">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(8)] | Control.HasFocus(207) | [Container(9000).HasFocus(8) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(8) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>207</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="208">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(9)] | Control.HasFocus(208) | [Container(9000).HasFocus(9) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(9) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>208</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="209">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(10)] | Control.HasFocus(209) | [Container(9000).HasFocus(10) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(10) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>209</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="210">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(11)] | Control.HasFocus(210) | [Container(9000).HasFocus(11) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(11) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>210</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="211">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(12)] | Control.HasFocus(211) | [Container(9000).HasFocus(12) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(12) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>211</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="212">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(13)] | Control.HasFocus(212) | [Container(9000).HasFocus(13) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(13) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>212</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="213">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(14)] | Control.HasFocus(213) | [Container(9000).HasFocus(14) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(14) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>213</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="214">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(15)] | Control.HasFocus(214) | [Container(9000).HasFocus(15) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(15) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>214</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+                <control type="panel" id="215">
+                    <visible allowhiddenfocus="true">[Control.HasFocus(9000) + Container(9000).HasFocus(16)] | Control.HasFocus(215) | [Container(9000).HasFocus(16) + [Control.HasFocus(60) | Control.HasFocus(61)]] | [Container(9000).HasFocus(16) + [Control.HasFocus(18) | Control.HasFocus(613) | Control.HasFocus(614) | ControlGroup(6050).HasFocus()]]</visible>
+                    <include>SettingsFadeEffect</include>
+                    <onright>215</onright>
+                    <include>TVNextAiredListCommonLayout</include>
+                </control>
+            </control>
+        </control>
+        <control type="scrollbar" id="60">
+            <!--<visible>![Control.HasFocus(9000) | ControlGroup(9050).HasFocus()]</visible>-->
+            <visible allowhiddenfocus="true">Control.HasFocus(60)</visible>
+            <animation effect="fade" time="300" tween="sine" easing="inout" start="0" end="100">Visible</animation>
+            <left>0</left>
+            <top>1070</top>
+            <width>FullScreenWidth</width>
+            <height>10</height>
+            <onup condition="Container(9000).HasFocus(1)">200</onup>
+            <onup condition="Container(9000).HasFocus(2)">201</onup>
+            <onup condition="Container(9000).HasFocus(3)">202</onup>
+            <onup condition="Container(9000).HasFocus(4)">203</onup>
+            <onup condition="Container(9000).HasFocus(5)">204</onup>
+            <onup condition="Container(9000).HasFocus(6)">205</onup>
+            <onup condition="Container(9000).HasFocus(7)">206</onup>
+            <onup condition="Container(9000).HasFocus(8)">207</onup>
+            <onup condition="Container(9000).HasFocus(9)">208</onup>
+            <onup condition="Container(9000).HasFocus(10)">209</onup>
+            <onup condition="Container(9000).HasFocus(11)">210</onup>
+            <onup condition="Container(9000).HasFocus(12)">211</onup>
+            <onup condition="Container(9000).HasFocus(13)">212</onup>
+            <onup condition="Container(9000).HasFocus(14)">213</onup>
+            <onup condition="Container(9000).HasFocus(15)">214</onup>
+            <onup condition="Container(9000).HasFocus(16)">215</onup>
+            <ondown condition="Container(9000).HasFocus(1)">200</ondown>
+            <ondown condition="Container(9000).HasFocus(2)">201</ondown>
+            <ondown condition="Container(9000).HasFocus(3)">202</ondown>
+            <ondown condition="Container(9000).HasFocus(4)">203</ondown>
+            <ondown condition="Container(9000).HasFocus(5)">204</ondown>
+            <ondown condition="Container(9000).HasFocus(6)">205</ondown>
+            <ondown condition="Container(9000).HasFocus(7)">206</ondown>
+            <ondown condition="Container(9000).HasFocus(8)">207</ondown>
+            <ondown condition="Container(9000).HasFocus(9)">208</ondown>
+            <ondown condition="Container(9000).HasFocus(10)">209</ondown>
+            <ondown condition="Container(9000).HasFocus(11)">210</ondown>
+            <ondown condition="Container(9000).HasFocus(12)">211</ondown>
+            <ondown condition="Container(9000).HasFocus(13)">212</ondown>
+            <ondown condition="Container(9000).HasFocus(14)">213</ondown>
+            <ondown condition="Container(9000).HasFocus(15)">214</ondown>
+            <ondown condition="Container(9000).HasFocus(16)">215</ondown>
+            <onleft>60</onleft>
+            <onright>60</onright>
+            <orientation>horizontal</orientation>
+        </control>
+        <include>Topbar</include>
+        <control type="group">
+            <left>-440</left>
+            <include>SideBladeLeft</include>
+            <control type="grouplist" id="9050">
+                <left>0</left>
+                <top>10</top>
+                <width>400</width>
+                <height>1080</height>
+                <itemgap>0</itemgap>
+                <control type="label" id="20001">
+                    <width>400</width>
+                    <height>52</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>font13_title</font>
+                    <label>$INFO[System.AddonTitle(script.tv.show.next.aired)]</label>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                </control>
+                <control type="button" id="18">
+                    <description>Settings</description>
+                    <textwidth>352</textwidth>
+                    <onright>ClearProperty(MediaMenu,Home)</onright>
+                    <onright>9000</onright>
+                    <onback>ClearProperty(MediaMenu,Home)</onback>
+                    <onclick>Addon.OpenSettings(script.tv.show.next.aired)</onclick>
+                    <include>ButtonCommonValues</include>
+                    <label>5</label>
+                </control>
+                <control type="button" id="203">
                     <description>Actions label</description>
                     <textwidth>352</textwidth>
                     <font>font13_title</font>
@@ -414,32 +398,32 @@
                     <disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
                     <visible>Player.HasMedia | !String.IsEqual(Playlist.Length(music),0) | !String.IsEqual(Playlist.Length(video),0)</visible>
                 </control>
-				<control type="button" id="613">
-					<description>Go to playlist</description>
-					<include>ButtonCommonValues</include>
-					<label>31193</label>
-					<onright>ClearProperty(MediaMenu,Home)</onright>
-					<onright>9000</onright>
-					<onback>ClearProperty(MediaMenu,Home)</onback>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ActivateWindow(musicplaylist)</onclick>
-					<visible>!String.IsEqual(Playlist.Length(music),0)</visible>
-				</control>
-				<control type="button" id="614">
-					<description>Go to playlist</description>
-					<include>ButtonCommonValues</include>
-					<label>31194</label>
-					<onright>ClearProperty(MediaMenu,Home)</onright>
-					<onright>9000</onright>
-					<onback>ClearProperty(MediaMenu,Home)</onback>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<onclick>ActivateWindow(videoplaylist)</onclick>
-					<visible>!String.IsEqual(Playlist.Length(video),0)</visible>
-				</control>
-				<include content="MenuPlayerControls">
-					<param name="PlayerControlsOnDown" value="18" />
-				</include>
-			</control>
-		</control>
-	</controls>
+                <control type="button" id="613">
+                    <description>Go to playlist</description>
+                    <include>ButtonCommonValues</include>
+                    <label>31193</label>
+                    <onright>ClearProperty(MediaMenu,Home)</onright>
+                    <onright>9000</onright>
+                    <onback>ClearProperty(MediaMenu,Home)</onback>
+                    <onclick>ClearProperty(MediaMenu,Home)</onclick>
+                    <onclick>ActivateWindow(musicplaylist)</onclick>
+                    <visible>!String.IsEqual(Playlist.Length(music),0)</visible>
+                </control>
+                <control type="button" id="614">
+                    <description>Go to playlist</description>
+                    <include>ButtonCommonValues</include>
+                    <label>31194</label>
+                    <onright>ClearProperty(MediaMenu,Home)</onright>
+                    <onright>9000</onright>
+                    <onback>ClearProperty(MediaMenu,Home)</onback>
+                    <onclick>ClearProperty(MediaMenu,Home)</onclick>
+                    <onclick>ActivateWindow(videoplaylist)</onclick>
+                    <visible>!String.IsEqual(Playlist.Length(video),0)</visible>
+                </control>
+                <include content="MenuPlayerControls">
+                    <param name="PlayerControlsOnDown" value="18" />
+                </include>
+            </control>
+        </control>
+    </controls>
 </window>

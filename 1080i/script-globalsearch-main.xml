@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">9000</defaultcontrol>
-	<menucontrol>9051</menucontrol>
-	<onload condition="!String.IsEmpty(Window(home).Property(Window.HasSettings))">ClearProperty(Window.HasSettings,Home)</onload>
-	<onunload>SetProperty(Window.HasSettings,True,home)</onunload>
-	<onload>ClearProperty(MediaMenu,Home)</onload>
-	<allowoverlay>no</allowoverlay>
-	<controls>
-		<include>CommonBackground</include>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>background.png</texture>
-			<colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
-		</control>
-		<control type="group">
-			<width>105</width>
-			<height>30</height>
-			<left>1670</left>
-			<top>3</top>
-			<control type="label" id="110">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="120">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="130">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="140">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="210">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="150">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="160">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="170">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="180">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="220">
-				<include>HiddenObject</include>
-			</control>
-			<control type="label" id="230">
-				<include>HiddenObject</include>
-			</control>
-		</control>
-		<control type="group">
-			<visible>Control.IsVisible(100) + !Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
-			<include>Animation.Common</include>
-			<control type="group">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <menucontrol>9051</menucontrol>
+    <onload condition="!String.IsEmpty(Window(home).Property(Window.HasSettings))">ClearProperty(Window.HasSettings,Home)</onload>
+    <onunload>SetProperty(Window.HasSettings,True,home)</onunload>
+    <onload>ClearProperty(MediaMenu,Home)</onload>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <include>CommonBackground</include>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>background.png</texture>
+            <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+        </control>
+        <control type="group">
+            <width>105</width>
+            <height>30</height>
+            <left>1670</left>
+            <top>3</top>
+            <control type="label" id="110">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="120">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="130">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="140">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="210">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="150">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="160">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="170">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="180">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="220">
+                <include>HiddenObject</include>
+            </control>
+            <control type="label" id="230">
+                <include>HiddenObject</include>
+            </control>
+        </control>
+        <control type="group">
+            <visible>Control.IsVisible(100) + !Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
+            <include>Animation.Common</include>
+            <control type="group">
                 <visible>Integer.IsGreater(Container(9000).NumItems,0)</visible>
                 <control type="image">
-                	<left>60</left>
+                    <left>60</left>
                     <top>220</top>
                     <width>356</width>
                     <height>95</height>
@@ -75,859 +75,848 @@
                     <animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,0)">Conditional</animation>
                 </control>
             </control>
-			<control type="panel" id="9000">
-				<left>60</left>
-				<top>220</top>
-				<width>356</width>
-				<height>760</height>
-				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
-				<onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9050</onleft>
-				<onright>101</onright>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
-				<scrolltime tween="quadratic">300</scrolltime>
-				<itemlayout height="95" width="356">
-					<control type="label">
-						<width>356</width>
-						<height>95</height>
-						<font>font15</font>
-						<textoffsetx>20</textoffsetx>
-						<align>right</align>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="95" width="356">
-					<control type="label">
-						<width>356</width>
-						<height>95</height>
-						<font>font15</font>
-						<textoffsetx>20</textoffsetx>
-						<align>right</align>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</focusedlayout>
-				<content>
-					<item id="1">
-						<visible>!String.IsEmpty(Container(221).ListItem.Label)</visible>
-						<label>$LOCALIZE[19069]$INFO[Control.GetLabel(220), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="2">
-						<visible>!String.IsEmpty(Container(111).ListItem.Label)</visible>
-						<label>$LOCALIZE[342]$INFO[Control.GetLabel(110), (,)]</label>
-						<onclick>noop</onclick>
-						<onright>111</onright>
-						<icon />
-					</item>
-					<item id="3">
-						<visible>!String.IsEmpty(Container(121).ListItem.Label)</visible>
-						<label>$LOCALIZE[20343]$INFO[Control.GetLabel(120), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="4">
-						<visible>!String.IsEmpty(Container(131).ListItem.Label)</visible>
-						<label>$LOCALIZE[33054]$INFO[Control.GetLabel(130), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="5">
-						<visible>!String.IsEmpty(Container(141).ListItem.Label)</visible>
-						<label>$LOCALIZE[20360]$INFO[Control.GetLabel(140), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="6">
-						<visible>!String.IsEmpty(Container(211).ListItem.Label)</visible>
-						<label>$LOCALIZE[344]$INFO[Control.GetLabel(210), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="11">
-						<visible>!String.IsEmpty(Container(231).ListItem.Label)</visible>
-						<label>$LOCALIZE[20348]$INFO[Control.GetLabel(230), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="7">
-						<visible>!String.IsEmpty(Container(151).ListItem.Label)</visible>
-						<label>$LOCALIZE[20389]$INFO[Control.GetLabel(150), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="8">
-						<visible>!String.IsEmpty(Container(161).ListItem.Label)</visible>
-						<label>$LOCALIZE[133]$INFO[Control.GetLabel(160), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="9">
-						<visible>!String.IsEmpty(Container(171).ListItem.Label)</visible>
-						<label>$LOCALIZE[132]$INFO[Control.GetLabel(170), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-					<item id="10">
-						<visible>!String.IsEmpty(Container(181).ListItem.Label)</visible>
-						<label>$LOCALIZE[134]$INFO[Control.GetLabel(180), (,)]</label>
-						<onclick>noop</onclick>
-						<icon />
-					</item>
-				</content>
-			</control>
-		</control>
-		<control type="group" id="100">
-			<visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
-			<include>Animation.Common</include>
-			<top>60</top>
-			<control type="group">
-				<control type="label" id="190">
-					<include>HiddenObject</include>
-				</control>
-				<control type="label" id="191">
-					<include>HiddenObject</include>
-				</control>
-				<control type="label" id="199">
-					<visible>false</visible>
-					<left>522</left>
-					<top>120</top>
-					<width>1316</width>
-					<height>839</height>
-					<font>font35_title</font>
-					<align>center</align>
-					<label>$LOCALIZE[284]</label>
-					<include>VisibleFadeEffect</include>
-				</control>
-				<control type="button" id="198">
-					<onfocus>SetFocus(9000,9)</onfocus>
-					<include>HiddenObject</include>
-				</control>
-				<control type="group">
-					<control type="image">
-		                <visible>Control.HasFocus(221)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(111)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(121)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(131)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(141)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(211)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(231)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(151)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(161)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(171)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Column,0)">Conditional</animation>
-		            </control>
-	                <control type="image">
-		                <visible>Control.HasFocus(181)</visible>
-		                <animation effect="fade" time="320" delay="200">Visible</animation>
-		                <animation effect="fade" time="200">Hidden</animation>
-		                <left>480</left>
-		                <top>160</top>
-		                <width>330</width>
-		                <height>370</height>
-		                <include>FocusedBackgroundFade</include>
-		                <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
-		                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Row,0)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Column,3)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Column,2)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Column,1)">Conditional</animation>
-		                <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Column,0)">Conditional</animation>
-		            </control>
-	            </control>
-				<control type="grouplist" id="101">
-					<left>470</left>
-					<top>150</top>
-					<width>1400</width>
-					<height>780</height>
-					<orientation>horizontal</orientation>
-					<!-- EPG -->
-					<control type="group" id="229">
-						<visible>Container(9000).HasFocus(1)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="221">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>60</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(221).HasNext | Container(221).HasPrevious">60</onright>
-							<onup>221</onup>
-							<ondown>221</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(221)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(221)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- Movies -->
-					<control type="group" id="119">
-						<visible>Container(9000).HasFocus(2)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="111">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>61</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(111).HasNext | Container(111).HasPrevious">61</onright>
-							<onup>111</onup>
-							<ondown>111</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(111)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(111)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- TV Shows -->
-					<control type="group" id="129">
-						<visible>Container(9000).HasFocus(3)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="121">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>62</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(121).HasNext | Container(121).HasPrevious">62</onright>
-							<onup>121</onup>
-							<ondown>121</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(121)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(121)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- Seasons -->
-					<control type="group" id="139">
-						<visible>Container(9000).HasFocus(4)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="131">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>63</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(131).HasNext | Container(131).HasPrevious">63</onright>
-							<onup>131</onup>
-							<ondown>131</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(131)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(131)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- Episodes -->
-					<control type="group" id="149">
-						<visible>Container(9000).HasFocus(5)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="141">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>64</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(141).HasNext | Container(141).HasPrevious">64</onright>
-							<onup>141</onup>
-							<ondown>141</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(141)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(141)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- Actors	-->
-					<control type="group" id="219">
-						<visible>Container(9000).HasFocus(6)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="211">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>65</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(211).HasNext | Container(211).HasPrevious">65</onright>
-							<onup>211</onup>
-							<ondown>211</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(211)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(211)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- Directors -->
-					<control type="group" id="239">
-						<visible>Container(9000).HasFocus(11)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="231">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>66</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(231).HasNext | Container(231).HasPrevious">66</onright>
-							<onup>231</onup>
-							<ondown>231</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(231)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(231)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- Music Videos -->
-					<control type="group" id="159">
-						<visible>Container(9000).HasFocus(7)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="151">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>67</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(151).HasNext | Container(151).HasPrevious">67</onright>
-							<onup>151</onup>
-							<ondown>151</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(151)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(151)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- Artists -->
-					<control type="group" id="169">
-						<visible>Container(9000).HasFocus(8)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="161">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>68</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(161).HasNext | Container(161).HasPrevious">68</onright>
-							<onup>161</onup>
-							<ondown>161</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(161)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(161)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- Albums -->
-					<control type="group" id="179">
-						<visible>Container(9000).HasFocus(9)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="171">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>69</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(171).HasNext | Container(171).HasPrevious">69</onright>
-							<onup>171</onup>
-							<ondown>171</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(171)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(171)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-					<!-- Songs -->
-					<control type="group" id="189">
-						<visible>Container(9000).HasFocus(10)</visible>
-						<include>SettingsFadeEffect</include>
-						<control type="panel" id="181">
-							<left>0</left>
-							<top>0</top>
-							<width>1400</width>
-							<height>780</height>
-							<pagecontrol>70</pagecontrol>
-							<onleft>Control.SetFocus(9000)</onleft>
-							<onright condition="Container(181).HasNext | Container(181).HasPrevious">70</onright>
-							<onup>181</onup>
-							<ondown>181</ondown>
-							<orientation>vertical</orientation>
-							<viewtype label="535">list</viewtype>
-							<preloaditems>2</preloaditems>
-							<itemlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</itemlayout>
-							<focusedlayout width="350" height="390">
-								<include>GlobalSearchCommons</include>
-								<control type="image">
-					                <animation center="auto" condition="Control.HasFocus(181)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
-					                <animation center="auto" condition="Control.HasFocus(181)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
-					                <top>20</top>
-					                <left>20</left>
-					                <right>20</right>
-					                <height>310</height>
-					                <texture border="5">overlays/diffuse-overlay.png</texture>
-					            </control>
-							</focusedlayout>
-						</control>
-					</control>
-				</control>
-			</control>
-		</control>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="60" />
-			<param name="container" value="221" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="61" />
-			<param name="container" value="111" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="62" />
-			<param name="container" value="121" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="63" />
-			<param name="container" value="131" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="64" />
-			<param name="container" value="141" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="65" />
-			<param name="container" value="211" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="66" />
-			<param name="container" value="231" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="67" />
-			<param name="container" value="151" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="68" />
-			<param name="container" value="161" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="69" />
-			<param name="container" value="171" />
-		</include>
-		<include content="GlobalSearchScrollbar">
-			<param name="id" value="70" />
-			<param name="container" value="181" />
-		</include>
-		<control type="group">
-			<visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
-			<include>Topbar</include>
-		</control>
-		<control type="group">
-			<left>-440</left>
-			<include>SideBladeLeft</include>
-			<control type="grouplist" id="9050">
-				<left>15</left>
-				<top>10</top>
-				<width>400</width>
-				<height>1080</height>
-				<itemgap>0</itemgap>
-				<control type="label" id="20001">
-					<width>400</width>
-					<height>52</height>
-					<textoffsetx>15</textoffsetx>
-					<font>font13_title</font>
-					<label>$INFO[System.AddonTitle(script.globalsearch)]</label>
-					<textcolor>$VAR[ColorHighlightVar]</textcolor>
-				</control>
-				<control type="button" id="999">
-					<description>Settings</description>
-					<textwidth>352</textwidth>
-					<onright>ClearProperty(MediaMenu,Home)</onright>
-					<onright>9000</onright>
-					<onback>ClearProperty(MediaMenu,Home)</onback>
-					<onclick>SendClick(198)</onclick>
-					<onclick>ClearProperty(MediaMenu,Home)</onclick>
-					<include>ButtonCommonValues</include>
-					<label>31184</label>
-				</control>
-				<control type="button" id="8">
-					<description>Settings</description>
-					<textwidth>352</textwidth>
-					<onright>ClearProperty(MediaMenu,Home)</onright>
-					<onright>9000</onright>
-					<onback>ClearProperty(MediaMenu,Home)</onback>
-					<onclick>Addon.OpenSettings(script.globalsearch)</onclick>
-					<include>ButtonCommonValues</include>
-					<label>5</label>
-				</control>
-				<control type="button" id="203">
+            <control type="panel" id="9000">
+                <left>60</left>
+                <top>220</top>
+                <width>356</width>
+                <height>760</height>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">SetProperty(MediaMenu,True,home)</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode.Enabled)">9050</onleft>
+                <onright>101</onright>
+                <onup>9000</onup>
+                <ondown>9000</ondown>
+                <scrolltime tween="quadratic">300</scrolltime>
+                <itemlayout height="95" width="356">
+                    <control type="label">
+                        <width>356</width>
+                        <height>95</height>
+                        <font>font15</font>
+                        <textoffsetx>20</textoffsetx>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="95" width="356">
+                    <control type="label">
+                        <width>356</width>
+                        <height>95</height>
+                        <font>font15</font>
+                        <textoffsetx>20</textoffsetx>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <item id="1">
+                        <visible>!String.IsEmpty(Container(221).ListItem.Label)</visible>
+                        <label>$LOCALIZE[19069]$INFO[Control.GetLabel(220), (,)]</label>
+                        <icon />
+                    </item>
+                    <item id="2">
+                        <visible>!String.IsEmpty(Container(111).ListItem.Label)</visible>
+                        <label>$LOCALIZE[342]$INFO[Control.GetLabel(110), (,)]</label>
+                        <onright>111</onright>
+                        <icon />
+                    </item>
+                    <item id="3">
+                        <visible>!String.IsEmpty(Container(121).ListItem.Label)</visible>
+                        <label>$LOCALIZE[20343]$INFO[Control.GetLabel(120), (,)]</label>
+                        <icon />
+                    </item>
+                    <item id="4">
+                        <visible>!String.IsEmpty(Container(131).ListItem.Label)</visible>
+                        <label>$LOCALIZE[33054]$INFO[Control.GetLabel(130), (,)]</label>
+                        <icon />
+                    </item>
+                    <item id="5">
+                        <visible>!String.IsEmpty(Container(141).ListItem.Label)</visible>
+                        <label>$LOCALIZE[20360]$INFO[Control.GetLabel(140), (,)]</label>
+                        <icon />
+                    </item>
+                    <item id="6">
+                        <visible>!String.IsEmpty(Container(211).ListItem.Label)</visible>
+                        <label>$LOCALIZE[344]$INFO[Control.GetLabel(210), (,)]</label>
+                        <icon />
+                    </item>
+                    <item id="11">
+                        <visible>!String.IsEmpty(Container(231).ListItem.Label)</visible>
+                        <label>$LOCALIZE[20348]$INFO[Control.GetLabel(230), (,)]</label>
+                        <icon />
+                    </item>
+                    <item id="7">
+                        <visible>!String.IsEmpty(Container(151).ListItem.Label)</visible>
+                        <label>$LOCALIZE[20389]$INFO[Control.GetLabel(150), (,)]</label>
+                        <icon />
+                    </item>
+                    <item id="8">
+                        <visible>!String.IsEmpty(Container(161).ListItem.Label)</visible>
+                        <label>$LOCALIZE[133]$INFO[Control.GetLabel(160), (,)]</label>
+                        <icon />
+                    </item>
+                    <item id="9">
+                        <visible>!String.IsEmpty(Container(171).ListItem.Label)</visible>
+                        <label>$LOCALIZE[132]$INFO[Control.GetLabel(170), (,)]</label>
+                        <icon />
+                    </item>
+                    <item id="10">
+                        <visible>!String.IsEmpty(Container(181).ListItem.Label)</visible>
+                        <label>$LOCALIZE[134]$INFO[Control.GetLabel(180), (,)]</label>
+                        <icon />
+                    </item>
+                </content>
+            </control>
+        </control>
+        <control type="group" id="100">
+            <visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
+            <include>Animation.Common</include>
+            <top>60</top>
+            <control type="group">
+                <control type="label" id="190">
+                    <include>HiddenObject</include>
+                </control>
+                <control type="label" id="191">
+                    <include>HiddenObject</include>
+                </control>
+                <control type="label" id="199">
+                    <visible>false</visible>
+                    <left>522</left>
+                    <top>120</top>
+                    <width>1316</width>
+                    <height>839</height>
+                    <font>font35_title</font>
+                    <align>center</align>
+                    <label>$LOCALIZE[284]</label>
+                    <include>VisibleFadeEffect</include>
+                </control>
+                <control type="button" id="198">
+                    <onfocus>SetFocus(9000,9)</onfocus>
+                    <include>HiddenObject</include>
+                </control>
+                <control type="group">
+                    <control type="image">
+                        <visible>Control.HasFocus(221)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(221).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(111)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(111).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(121)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(121).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(131)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(131).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(141)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(141).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(211)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(211).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(231)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(231).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(151)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(151).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(161)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(161).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(171)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(171).Column,0)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <visible>Control.HasFocus(181)</visible>
+                        <animation effect="fade" time="320" delay="200">Visible</animation>
+                        <animation effect="fade" time="200">Hidden</animation>
+                        <left>480</left>
+                        <top>160</top>
+                        <width>330</width>
+                        <height>370</height>
+                        <include>FocusedBackgroundFade</include>
+                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Row,0)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Column,3)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Column,2)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Column,1)">Conditional</animation>
+                        <animation effect="slide" end="350,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(181).Column,0)">Conditional</animation>
+                    </control>
+                </control>
+                <control type="grouplist" id="101">
+                    <left>470</left>
+                    <top>150</top>
+                    <width>1400</width>
+                    <height>780</height>
+                    <orientation>horizontal</orientation>
+                    <!-- EPG -->
+                    <control type="group" id="229">
+                        <visible>Container(9000).HasFocus(1)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="221">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>60</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(221).HasNext | Container(221).HasPrevious">60</onright>
+                            <onup>221</onup>
+                            <ondown>221</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(221)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(221)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- Movies -->
+                    <control type="group" id="119">
+                        <visible>Container(9000).HasFocus(2)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="111">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>61</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(111).HasNext | Container(111).HasPrevious">61</onright>
+                            <onup>111</onup>
+                            <ondown>111</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(111)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(111)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- TV Shows -->
+                    <control type="group" id="129">
+                        <visible>Container(9000).HasFocus(3)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="121">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>62</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(121).HasNext | Container(121).HasPrevious">62</onright>
+                            <onup>121</onup>
+                            <ondown>121</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(121)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(121)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- Seasons -->
+                    <control type="group" id="139">
+                        <visible>Container(9000).HasFocus(4)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="131">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>63</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(131).HasNext | Container(131).HasPrevious">63</onright>
+                            <onup>131</onup>
+                            <ondown>131</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(131)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(131)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- Episodes -->
+                    <control type="group" id="149">
+                        <visible>Container(9000).HasFocus(5)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="141">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>64</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(141).HasNext | Container(141).HasPrevious">64</onright>
+                            <onup>141</onup>
+                            <ondown>141</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(141)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(141)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- Actors -->
+                    <control type="group" id="219">
+                        <visible>Container(9000).HasFocus(6)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="211">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>65</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(211).HasNext | Container(211).HasPrevious">65</onright>
+                            <onup>211</onup>
+                            <ondown>211</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(211)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(211)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- Directors -->
+                    <control type="group" id="239">
+                        <visible>Container(9000).HasFocus(11)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="231">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>66</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(231).HasNext | Container(231).HasPrevious">66</onright>
+                            <onup>231</onup>
+                            <ondown>231</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(231)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(231)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- Music Videos -->
+                    <control type="group" id="159">
+                        <visible>Container(9000).HasFocus(7)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="151">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>67</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(151).HasNext | Container(151).HasPrevious">67</onright>
+                            <onup>151</onup>
+                            <ondown>151</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(151)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(151)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- Artists -->
+                    <control type="group" id="169">
+                        <visible>Container(9000).HasFocus(8)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="161">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>68</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(161).HasNext | Container(161).HasPrevious">68</onright>
+                            <onup>161</onup>
+                            <ondown>161</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(161)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(161)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- Albums -->
+                    <control type="group" id="179">
+                        <visible>Container(9000).HasFocus(9)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="171">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>69</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(171).HasNext | Container(171).HasPrevious">69</onright>
+                            <onup>171</onup>
+                            <ondown>171</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(171)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(171)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <!-- Songs -->
+                    <control type="group" id="189">
+                        <visible>Container(9000).HasFocus(10)</visible>
+                        <include>SettingsFadeEffect</include>
+                        <control type="panel" id="181">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1400</width>
+                            <height>780</height>
+                            <pagecontrol>70</pagecontrol>
+                            <onleft>Control.SetFocus(9000)</onleft>
+                            <onright condition="Container(181).HasNext | Container(181).HasPrevious">70</onright>
+                            <onup>181</onup>
+                            <ondown>181</ondown>
+                            <orientation>vertical</orientation>
+                            <viewtype label="535">list</viewtype>
+                            <preloaditems>2</preloaditems>
+                            <itemlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="350" height="390">
+                                <include>GlobalSearchCommons</include>
+                                <control type="image">
+                                    <animation center="auto" condition="Control.HasFocus(181)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+                                    <animation center="auto" condition="Control.HasFocus(181)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+                                    <top>20</top>
+                                    <left>20</left>
+                                    <right>20</right>
+                                    <height>310</height>
+                                    <texture border="5">overlays/diffuse-overlay.png</texture>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                </control>
+            </control>
+        </control>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="60" />
+            <param name="container" value="221" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="61" />
+            <param name="container" value="111" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="62" />
+            <param name="container" value="121" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="63" />
+            <param name="container" value="131" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="64" />
+            <param name="container" value="141" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="65" />
+            <param name="container" value="211" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="66" />
+            <param name="container" value="231" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="67" />
+            <param name="container" value="151" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="68" />
+            <param name="container" value="161" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="69" />
+            <param name="container" value="171" />
+        </include>
+        <include content="GlobalSearchScrollbar">
+            <param name="id" value="70" />
+            <param name="container" value="181" />
+        </include>
+        <control type="group">
+            <visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>
+            <include>Topbar</include>
+        </control>
+        <control type="group">
+            <left>-440</left>
+            <include>SideBladeLeft</include>
+            <control type="grouplist" id="9050">
+                <left>15</left>
+                <top>10</top>
+                <width>400</width>
+                <height>1080</height>
+                <itemgap>0</itemgap>
+                <control type="label" id="20001">
+                    <width>400</width>
+                    <height>52</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>font13_title</font>
+                    <label>$INFO[System.AddonTitle(script.globalsearch)]</label>
+                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                </control>
+                <control type="button" id="999">
+                    <description>Settings</description>
+                    <textwidth>352</textwidth>
+                    <onright>ClearProperty(MediaMenu,Home)</onright>
+                    <onright>9000</onright>
+                    <onback>ClearProperty(MediaMenu,Home)</onback>
+                    <onclick>SendClick(198)</onclick>
+                    <onclick>ClearProperty(MediaMenu,Home)</onclick>
+                    <include>ButtonCommonValues</include>
+                    <label>31184</label>
+                </control>
+                <control type="button" id="8">
+                    <description>Settings</description>
+                    <textwidth>352</textwidth>
+                    <onright>ClearProperty(MediaMenu,Home)</onright>
+                    <onright>9000</onright>
+                    <onback>ClearProperty(MediaMenu,Home)</onback>
+                    <onclick>Addon.OpenSettings(script.globalsearch)</onclick>
+                    <include>ButtonCommonValues</include>
+                    <label>5</label>
+                </control>
+                <control type="button" id="203">
                     <description>Actions label</description>
                     <textwidth>352</textwidth>
                     <font>font13_title</font>
@@ -937,32 +926,32 @@
                     <disabledcolor>$VAR[ColorHighlightVar]</disabledcolor>
                     <visible>Player.HasMedia | !String.IsEqual(Playlist.Length(music),0) | !String.IsEqual(Playlist.Length(video),0)</visible>
                 </control>
-				<control type="button" id="613">
-					<textwidth>352</textwidth>
-					<onright>ClearProperty(MediaMenu,Home)</onright>
-					<onright>9000</onright>
-					<onback>ClearProperty(MediaMenu,Home)</onback>
-					<include>ButtonCommonValues</include>
-					<label>31193</label>
-					<onclick>Close</onclick>
-					<onclick>ActivateWindow(musicplaylist)</onclick>
-					<visible>!String.IsEqual(Playlist.Length(music),0)</visible>
-				</control>
-				<control type="button" id="614">
-					<textwidth>352</textwidth>
-					<onright>ClearProperty(MediaMenu,Home)</onright>
-					<onright>9000</onright>
-					<onback>ClearProperty(MediaMenu,Home)</onback>
-					<include>ButtonCommonValues</include>
-					<label>31194</label>
-					<onclick>Close</onclick>
-					<onclick>ActivateWindow(videoplaylist)</onclick>
-					<visible>!String.IsEqual(Playlist.Length(video),0)</visible>
-				</control>
-				<include content="MenuPlayerControls">
-					<param name="PlayerControlsOnDown" value="999" />
-				</include>
-			</control>
-		</control>
-	</controls>
+                <control type="button" id="613">
+                    <textwidth>352</textwidth>
+                    <onright>ClearProperty(MediaMenu,Home)</onright>
+                    <onright>9000</onright>
+                    <onback>ClearProperty(MediaMenu,Home)</onback>
+                    <include>ButtonCommonValues</include>
+                    <label>31193</label>
+                    <onclick>Close</onclick>
+                    <onclick>ActivateWindow(musicplaylist)</onclick>
+                    <visible>!String.IsEqual(Playlist.Length(music),0)</visible>
+                </control>
+                <control type="button" id="614">
+                    <textwidth>352</textwidth>
+                    <onright>ClearProperty(MediaMenu,Home)</onright>
+                    <onright>9000</onright>
+                    <onback>ClearProperty(MediaMenu,Home)</onback>
+                    <include>ButtonCommonValues</include>
+                    <label>31194</label>
+                    <onclick>Close</onclick>
+                    <onclick>ActivateWindow(videoplaylist)</onclick>
+                    <visible>!String.IsEqual(Playlist.Length(video),0)</visible>
+                </control>
+                <include content="MenuPlayerControls">
+                    <param name="PlayerControlsOnDown" value="999" />
+                </include>
+            </control>
+        </control>
+    </controls>
 </window>

@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">996</defaultcontrol>
-	<animation type="WindowOpen" reversible="false">
-		<effect type="zoom" start="80" end="100" center="auto" delay="160" tween="back" time="240" />
-		<effect type="fade" delay="160" end="100" time="240" />
-	</animation>
-	<animation type="WindowClose" reversible="false">
-		<effect type="zoom" start="100" end="80" center="auto" easing="in" tween="back" time="240" />
-		<effect type="fade" start="100" end="0" time="240" />
-	</animation>
-	<animation effect="slide" time="0" start="0" end="705" condition="Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(profiles)">Conditional</animation>
-	<coordinates>
-		<system>1</system>
-		<left>0</left>
-		<top>-5</top>
-	</coordinates>
-	<controls>
-		<control type="image" id="999">
-			<description>background image</description>
-			<top>-31</top>
-			<width>510</width>
-			<height>1142</height>
-			<texture border="16">dialog_context.png</texture>
-			<colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
-		</control>
-		<control type="grouplist" id="996">
-			<description>grouplist for context buttons</description>
-			<left>30</left>
-			<top>0</top>
-			<width>510</width>
-			<height min="60" max="1080">auto</height>
-			<itemgap>0</itemgap>
-			<control type="button" id="994">
-				<label>$LOCALIZE[14098] $LOCALIZE[20410]</label>
-				<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
-				<visible>!String.IsEmpty(ListItem.Trailer)</visible>
-			</control>
-		</control>
-		<control type="button" id="1000">
-			<description>button template</description>
-		</control>
-	</controls>
+    <defaultcontrol always="true">996</defaultcontrol>
+    <animation type="WindowOpen" reversible="false">
+        <effect type="zoom" start="80" end="100" center="auto" delay="160" tween="back" time="240" />
+        <effect type="fade" delay="160" end="100" time="240" />
+    </animation>
+    <animation type="WindowClose" reversible="false">
+        <effect type="zoom" start="100" end="80" center="auto" easing="in" tween="back" time="240" />
+        <effect type="fade" start="100" end="0" time="240" />
+    </animation>
+    <animation effect="slide" time="0" start="0" end="705" condition="Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(profiles)">Conditional</animation>
+    <coordinates>
+        <system>1</system>
+        <left>0</left>
+        <top>-5</top>
+    </coordinates>
+    <controls>
+        <control type="image" id="999">
+            <description>background image</description>
+            <top>-31</top>
+            <width>510</width>
+            <height>1142</height>
+            <texture border="16">dialog_context.png</texture>
+            <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+        </control>
+        <control type="grouplist" id="996">
+            <description>grouplist for context buttons</description>
+            <left>30</left>
+            <top>0</top>
+            <width>510</width>
+            <height min="60" max="1080">auto</height>
+            <itemgap>0</itemgap>
+            <control type="button" id="994">
+                <label>$LOCALIZE[14098] $LOCALIZE[20410]</label>
+                <onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
+                <visible>!String.IsEmpty(ListItem.Trailer)</visible>
+            </control>
+        </control>
+        <control type="button" id="1000">
+            <description>button template</description>
+        </control>
+    </controls>
 </window>
