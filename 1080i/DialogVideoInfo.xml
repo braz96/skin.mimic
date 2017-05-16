@@ -25,7 +25,7 @@
                             <width>180</width>
                             <height>50</height>
                             <font>font15</font>
-                            <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                            <textcolor>highlight</textcolor>
                             <label>$INFO[ListItem.Label2]</label>
                         </control>
                         <control type="label">
@@ -41,7 +41,7 @@
                             <width>180</width>
                             <height>50</height>
                             <font>font15</font>
-                            <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                            <textcolor>highlight</textcolor>
                             <label>$INFO[ListItem.Label2]</label>
                         </control>
                         <control type="label">
@@ -213,7 +213,7 @@
                     <label>$VAR[VideoInfoPlotVar]</label>
                     <pagecontrol>60</pagecontrol>
                     <include>AutoscrollDefault</include>
-                    <visible>![Control.HasFocus(50) | Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(350) | ControlGroup(9000).HasFocus(203) | ControlGroup(9000).HasFocus(204) | ControlGroup(9000).HasFocus(206) | ControlGroup(9000).HasFocus(208) | ControlGroup(9000).HasFocus(555)]</visible>
+                    <visible>![Control.HasFocus(50) | Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(350) | ControlGroup(9000).HasFocus(203) | ControlGroup(9000).HasFocus(204) | ControlGroup(9000).HasFocus(206) | ControlGroup(9000).HasFocus(555)]</visible>
                 </control>
                 <control type="scrollbar" id="60">
                     <visible allowhiddenfocus="true">Control.HasFocus(60) + [Container(400).HasNext | Container(400).HasPrevious]</visible>
@@ -226,7 +226,7 @@
                     <orientation>vertical</orientation>
                 </control>
                 <control type="group">
-                    <visible>![Control.IsVisible(150) | Control.IsVisible(250) | Control.IsVisible(350) | Control.HasFocus(206) | Control.HasFocus(208) | ControlGroup(9000).HasFocus(208) | Control.IsVisible(50)]</visible>
+                    <visible>![Control.IsVisible(150) | Control.IsVisible(250) | Control.IsVisible(350) | Control.HasFocus(206) | Control.IsVisible(50)]</visible>
                     <animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
                     <include content="MediaFlags">
                         <param name="left" value="0" />
@@ -318,7 +318,7 @@
                         <height>430</height>
                         <animation effect="fade" time="320" delay="200">Visible</animation>
                         <animation effect="fade" time="200">Hidden</animation>
-                        <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                        <texture colordiffuse="highlight" border="5">listselect_fo.png</texture>
                         <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Column,2)">Conditional</animation>
                         <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Column,1)">Conditional</animation>
                         <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(50).Column,0)">Conditional</animation>
@@ -424,7 +424,7 @@
                     <height>343</height>
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="200">Hidden</animation>
-                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <texture colordiffuse="highlight" border="5">listselect_fo.png</texture>
                     <animation effect="slide" end="578,0" time="300" tween="cubic" easing="inout" condition="Container(150).Column(1)">Conditional</animation>
                 </control>
             </control>
@@ -532,7 +532,7 @@
                     <height>430</height>
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="200">Hidden</animation>
-                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <texture colordiffuse="highlight" border="5">listselect_fo.png</texture>
                     <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(250).Column,2)">Conditional</animation>
                     <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(250).Column,1)">Conditional</animation>
                     <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(250).Column,0)">Conditional</animation>
@@ -616,7 +616,7 @@
                     <height>430</height>
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="200">Hidden</animation>
-                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <texture colordiffuse="highlight" border="5">listselect_fo.png</texture>
                     <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(350).Column,2)">Conditional</animation>
                     <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(350).Column,1)">Conditional</animation>
                     <animation effect="slide" end="289,0" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(350).Column,0)">Conditional</animation>
@@ -689,123 +689,6 @@
                 </focusedlayout>
                 <content>plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</content>
             </control>
-            <control type="group">
-                <visible>ControlGroup(9000).HasFocus(208)</visible>
-                <animation effect="fade" time="300" start="0" end="100" delay="100">Visible</animation>
-                <control type="group">
-                    <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>
-                    <control type="image">
-                        <top>600</top>
-                        <left>0</left>
-                        <width>100</width>
-                        <height>100</height>
-                        <aspectratio>keep</aspectratio>
-                        <texture>$VAR[RottenTomatoMeter]</texture>
-                    </control>
-                    <control type="label">
-                        <top>600</top>
-                        <left>130</left>
-                        <width>200</width>
-                        <height>100</height>
-                        <font>font_MainMenu</font>
-                        <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter),,%]</label>
-                    </control>
-                    <control type="grouplist">
-                        <top>710</top>
-                        <left>0</left>
-                        <width>300</width>
-                        <height>120</height>
-                        <control type="label">
-                            <width>300</width>
-                            <height>40</height>
-                            <font>font13_title</font>
-                            <label>31272</label>
-                        </control>
-                        <control type="label">
-                            <width>300</width>
-                            <height>40</height>
-                            <font>font13</font>
-                            <label>$LOCALIZE[31269]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),,/10]</label>
-                        </control>
-                        <control type="label">
-                            <width>300</width>
-                            <height>40</height>
-                            <font>font13</font>
-                            <label>$LOCALIZE[31271]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Reviews)]</label>
-                        </control>
-                    </control>
-                </control>
-                <control type="group">
-                    <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
-                    <control type="image">
-                        <top>600</top>
-                        <left>400</left>
-                        <width>100</width>
-                        <height>100</height>
-                        <aspectratio>keep</aspectratio>
-                        <texture>addons/popcorn.png</texture>
-                    </control>
-                    <control type="label">
-                        <top>600</top>
-                        <left>530</left>
-                        <width>200</width>
-                        <height>100</height>
-                        <font>font_MainMenu</font>
-                        <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),,%]</label>
-                    </control>
-                    <control type="grouplist">
-                        <top>710</top>
-                        <left>400</left>
-                        <width>300</width>
-                        <height>120</height>
-                        <control type="label">
-                            <width>300</width>
-                            <height>40</height>
-                            <font>font13_title</font>
-                            <label>31270</label>
-                        </control>
-                        <control type="label">
-                            <width>300</width>
-                            <height>40</height>
-                            <font>font13</font>
-                            <label>$LOCALIZE[31269]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserRating),,/5]</label>
-                        </control>
-                        <control type="label">
-                            <width>300</width>
-                            <height>40</height>
-                            <font>font13</font>
-                            <label>$LOCALIZE[31268]: $INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserReviews)]</label>
-                        </control>
-                    </control>
-                </control>
-                <control type="group">
-                    <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.MC))</visible>
-                    <control type="image">
-                        <top>600</top>
-                        <left>800</left>
-                        <width>100</width>
-                        <height>100</height>
-                        <aspectratio>keep</aspectratio>
-                        <texture>addons/metacritic.png</texture>
-                    </control>
-                    <control type="label">
-                        <top>600</top>
-                        <left>930</left>
-                        <width>200</width>
-                        <height>100</height>
-                        <font>font_MainMenu</font>
-                        <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.MC)]</label>
-                    </control>
-                </control>
-                <control type="textbox">
-                    <top>850</top>
-                    <left>0</left>
-                    <width>1100</width>
-                    <height>180</height>
-                    <label>$VAR[CriticConsensus]</label>
-                    <include>AutoscrollDefault</include>
-                </control>
-            </control>
             <include content="PageTotals">
                 <param name="ContainerID" value="50" />
                 <param name="Top" value="1025" />
@@ -860,7 +743,7 @@
                     <align>center</align>
                     <label>a</label>
                     <font>IconTiny</font>
-                    <textcolor>$VAR[ColorDisabledVar]</textcolor>
+                    <textcolor>disabled</textcolor>
                 </control>
                 <control type="label">
                     <visible>Container(9000).HasNext</visible>
@@ -870,7 +753,7 @@
                     <align>center</align>
                     <label>b</label>
                     <font>IconTiny</font>
-                    <textcolor>$VAR[ColorDisabledVar]</textcolor>
+                    <textcolor>disabled</textcolor>
                 </control>
             </control>
             <control type="group">
@@ -909,12 +792,6 @@
                         <include>ButtonInfoDialogsCommonValues</include>
                         <label>206</label>
                         <visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
-                    </control>
-                    <control type="button" id="208">
-                        <description>Ratings</description>
-                        <include>ButtonInfoDialogsCommonValues</include>
-                        <label>31267</label>
-                        <visible>$EXP[isMovie] + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Meter))</visible>
                     </control>
                     <control type="button" id="206">
                         <description>Sets list</description>

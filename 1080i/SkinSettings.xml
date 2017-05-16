@@ -33,7 +33,7 @@
                         <height>90</height>
                         <font>font15</font>
                         <textoffsetx>20</textoffsetx>
-                        <selectedcolor>$VAR[ColorHighlightVar]</selectedcolor>
+                        <selectedcolor>highlight</selectedcolor>
                         <align>right</align>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
@@ -44,7 +44,7 @@
                         <width>356</width>
                         <height>90</height>
                         <texture border="5">listselect_fo.png</texture>
-                        <colordiffuse>$VAR[ColorHighlightVar]</colordiffuse>
+                        <colordiffuse>highlight</colordiffuse>
                         <include>VisibleFadeEffect</include>
                     </control>
                     <control type="label">
@@ -74,18 +74,14 @@
                         <icon />
                     </item>
                     <item id="5">
-                        <label>31009</label>
-                        <icon />
-                    </item>
-                    <item id="6">
                         <label>31014</label>
                         <icon />
                     </item>
-                    <item id="7">
+                    <item id="6">
                         <label>10038</label>
                         <icon />
                     </item>
-                    <item id="8">
+                    <item id="7">
                         <label>31195</label>
                         <icon />
                     </item>
@@ -98,7 +94,7 @@
                 <width>1256</width>
                 <height>140</height>
                 <font>font15_textbox</font>
-                <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                <textcolor>highlight</textcolor>
                 <label>$VAR[SkinSettingsDescriptionVar]</label>
                 <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
@@ -195,7 +191,7 @@
                         <control type="image">
                             <width>1316</width>
                             <height>90</height>
-                            <texture border="5" colordiffuse="$VAR[ColorHighlightVar]">listselect_fo.png</texture>
+                            <texture border="5" colordiffuse="highlight">listselect_fo.png</texture>
                             <visible>Control.HasFocus(9007)</visible>
                         </control>
                         <control type="image">
@@ -245,13 +241,6 @@
                             <label2>$INFO[System.AddonVersion(plugin.program.autocompletion)]</label2>
                             <onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
                             <onclick condition="!System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
-                        </item>
-                        <item id="4">
-                            <icon>$INFO[System.AddonIcon(script.colorbox)]</icon>
-                            <label>31171</label>
-                            <label2>$INFO[System.AddonVersion(script.colorbox)]</label2>
-                            <onclick condition="System.HasAddon(script.colorbox)">Addon.OpenSettings(script.colorbox)</onclick>
-                            <onclick condition="!System.HasAddon(script.colorbox)">InstallAddon(script.colorbox)</onclick>
                         </item>
                         <item id="22">
                             <icon>$INFO[System.AddonIcon(resource.images.moviecountryicons.maps)]</icon>
@@ -322,41 +311,6 @@
                             <label2>$INFO[System.AddonVersion(script.ratingupdate)]</label2>
                             <onclick condition="System.HasAddon(script.ratingupdate)">Addon.OpenSettings(script.ratingupdate)</onclick>
                             <onclick condition="!System.HasAddon(script.ratingupdate)">InstallAddon(script.ratingupdate)</onclick>
-                        </item>
-                        <item id="12">
-                            <icon>$INFO[System.AddonIcon(script.skin.helper.service)]</icon>
-                            <label>31179</label>
-                            <label2>$INFO[System.AddonVersion(script.skin.helper.service)]</label2>
-                            <onclick condition="System.HasAddon(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
-                            <onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
-                        </item>
-                        <item id="20">
-                            <icon>$INFO[System.AddonIcon(script.skin.helper.backgrounds)]</icon>
-                            <label>31230</label>
-                            <label2>$INFO[System.AddonVersion(script.skin.helper.backgrounds)]</label2>
-                            <onclick condition="System.HasAddon(script.skin.helper.backgrounds)">Addon.OpenSettings(script.skin.helper.backgrounds)</onclick>
-                            <onclick condition="!System.HasAddon(script.skin.helper.backgrounds)">InstallAddon(script.skin.helper.backgrounds)</onclick>
-                        </item>
-                        <item id="16">
-                            <icon>$INFO[System.AddonIcon(script.skin.helper.colorpicker)]</icon>
-                            <label>31074</label>
-                            <label2>$INFO[System.AddonVersion(script.skin.helper.colorpicker)]</label2>
-                            <onclick condition="System.HasAddon(script.skin.helper.colorpicker)">Addon.OpenSettings(script.skin.helper.colorpicker)</onclick>
-                            <onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
-                        </item>
-                        <item id="18">
-                            <icon>$INFO[System.AddonIcon(script.skin.helper.skinbackup)]</icon>
-                            <label>31128</label>
-                            <label2>$INFO[System.AddonVersion(script.skin.helper.skinbackup)]</label2>
-                            <onclick condition="System.HasAddon(script.skin.helper.skinbackup)">Addon.OpenSettings(script.skin.helper.skinbackup)</onclick>
-                            <onclick condition="!System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
-                        </item>
-                        <item id="19">
-                            <icon>$INFO[System.AddonIcon(script.skin.helper.widgets)]</icon>
-                            <label>31203</label>
-                            <label2>$INFO[System.AddonVersion(script.skin.helper.widgets)]</label2>
-                            <onclick condition="System.HasAddon(script.skin.helper.widgets)">Addon.OpenSettings(script.skin.helper.widgets)</onclick>
-                            <onclick condition="!System.HasAddon(script.skin.helper.widgets)">InstallAddon(script.skin.helper.widgets)</onclick>
                         </item>
                         <item id="13">
                             <icon>$INFO[System.AddonIcon(script.skinshortcuts)]</icon>
@@ -512,7 +466,7 @@
                         <onclick>Skin.SetImage(busyloader,special://skin/extras/spinners)</onclick>
                     </control>
                 </control>
-                <control type="grouplist" id="9005">
+                <!--<control type="grouplist" id="9005">
                     <description>Colors control area</description>
                     <left>522</left>
                     <top>0</top>
@@ -613,7 +567,7 @@
                         <texture border="5">white.png</texture>
                         <colordiffuse>$INFO[Skin.String(disabledcolor.name)]</colordiffuse>
                     </control>
-                </control>
+                </control>-->
                 <control type="grouplist" id="9003">
                     <description>Extras control area</description>
                     <left>522</left>
@@ -625,7 +579,7 @@
                     <onright>9000</onright>
                     <onup>9003</onup>
                     <ondown>9003</ondown>
-                    <visible>Container(9000).HasFocus(6)</visible>
+                    <visible>Container(9000).HasFocus(5)</visible>
                     <control type="radiobutton" id="306">
                         <description>Startup Playlist Path</description>
                         <include>SkinSettingsButtonDefaults</include>
@@ -685,7 +639,7 @@
                     <onright>9000</onright>
                     <onup>9004</onup>
                     <ondown>9004</ondown>
-                    <visible>Container(9000).HasFocus(7)</visible>
+                    <visible>Container(9000).HasFocus(6)</visible>
                     <control type="radiobutton" id="402">
                         <include>SkinSettingsButtonDefaults</include>
                         <label>31941</label>
@@ -699,7 +653,7 @@
                         <onclick>Skin.ToggleDebug</onclick>
                         <selected>Skin.HasSetting(Skin.ToggleDebug)</selected>
                     </control>
-                    <control type="button" id="408">
+                    <!--<control type="button" id="408">
                         <include>SkinSettingsButtonDefaults</include>
                         <label>31043</label>
                         <onclick condition="System.HasAddon(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup)</onclick>
@@ -710,7 +664,7 @@
                         <label>31109</label>
                         <onclick condition="System.HasAddon(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup,action=reset)</onclick>
                         <onclick condition="!System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
-                    </control>
+                    </control>-->
                 </control>
                 <control type="grouplist" id="9008">
                     <description>About control area</description>
@@ -720,7 +674,7 @@
                     <height>840</height>
                     <itemgap>0</itemgap>
                     <usecontrolcoords>true</usecontrolcoords>
-                    <visible>Container(9000).HasFocus(8)</visible>
+                    <visible>Container(9000).HasFocus(7)</visible>
                     <control type="label">
                         <width>1316</width>
                         <height>120</height>
@@ -732,7 +686,7 @@
                         <width>1316</width>
                         <height>45</height>
                         <textoffsetx>30</textoffsetx>
-                        <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                        <textcolor>highlight</textcolor>
                         <font>font15</font>
                         <label>31197</label>
                     </control>
@@ -740,7 +694,7 @@
                         <width>1316</width>
                         <height>45</height>
                         <textoffsetx>30</textoffsetx>
-                        <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                        <textcolor>highlight</textcolor>
                         <font>font15</font>
                         <label>31198</label>
                     </control>

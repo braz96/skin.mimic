@@ -13,7 +13,7 @@
                 <width>1952</width>
                 <height>138</height>
                 <texture border="16">dialog_context.png</texture>
-                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                <colordiffuse>dialog</colordiffuse>
             </control>
             <control type="grouplist">
                 <left>0</left>
@@ -24,7 +24,7 @@
                 <itemgap>0</itemgap>
                 <orientation>horizontal</orientation>
                 <control type="image" id="800011">
-                    <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                    <colordiffuse>maintext</colordiffuse>
                     <width>320</width>
                     <include>MediaFlagVars</include>
                     <bordersize>2</bordersize>
@@ -44,39 +44,39 @@
                 </control>
                 <control type="image">
                     <width>320</width>
-                    <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                    <colordiffuse>maintext</colordiffuse>
                     <include>MediaFlagVars</include>
                     <texture fallback="flags/mpaa/NR.png">$VAR[VideoRatingFlagVar]</texture>
                     <visible>!VideoPlayer.Content(livetv)</visible>
                 </control>
                 <control type="image">
                     <width>320</width>
-                    <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                    <colordiffuse>maintext</colordiffuse>
                     <include>MediaFlagVars</include>
                     <texture>$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
                 </control>
                 <control type="image">
                     <width>320</width>
-                    <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                    <colordiffuse>maintext</colordiffuse>
                     <include>MediaFlagVars</include>
                     <texture>$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
                 </control>
                 <control type="image">
                     <width>320</width>
-                    <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                    <colordiffuse>maintext</colordiffuse>
                     <include>MediaFlagVars</include>
                     <texture>$INFO[VideoPlayer.AudioChannels,flags/channels/,.png]</texture>
                     <visible>VideoPlayer.Content(livetv)</visible>
                 </control>
                 <control type="image">
                     <width>320</width>
-                    <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                    <colordiffuse>maintext</colordiffuse>
                     <include>MediaFlagVars</include>
                     <texture>$VAR[VideoSourceFlagVar,flags/video/,.png]</texture>
                 </control>
                 <control type="image">
                     <width>320</width>
-                    <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                    <colordiffuse>maintext</colordiffuse>
                     <include>MediaFlagVars</include>
                     <texture>$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
                 </control>
@@ -95,7 +95,7 @@
                 <width>1952</width>
                 <height>432</height>
                 <texture border="16">dialog_context.png</texture>
-                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                <colordiffuse>dialog</colordiffuse>
             </control>
             <control type="image">
                 <left>30</left>
@@ -130,14 +130,14 @@
                     <width>1600</width>
                     <height>65</height>
                     <font>font16</font>
-                    <label>[COLOR $VAR[ColorHighlightVar]]$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre,  •  ][/COLOR]</label>
+                    <label>[COLOR highlight]$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre,  •  ][/COLOR]</label>
                     <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
                 </control>
                 <control type="label">
                     <width>1600</width>
                     <height>65</height>
                     <font>font16</font>
-                    <label>[COLOR $VAR[ColorHighlightVar]]$INFO[VideoPlayer.TVShowTitle][/COLOR]</label>
+                    <label>[COLOR highlight]$INFO[VideoPlayer.TVShowTitle][/COLOR]</label>
                     <visible>VideoPlayer.Content(episodes)</visible>
                 </control>
                 <control type="textbox">
@@ -146,7 +146,7 @@
                     <font>font14_textbox</font>
                     <aligny>top</aligny>
                     <include>AutoscrollDefault</include>
-                    <label>[COLOR $VAR[ColorHighlightVar]]$INFO[VideoPlayer.Tagline,, ][/COLOR]$INFO[VideoPlayer.Plot]</label>
+                    <label>[COLOR highlight]$INFO[VideoPlayer.Tagline,, ][/COLOR]$INFO[VideoPlayer.Plot]</label>
                 </control>
             </control>
             <control type="progress">
@@ -204,7 +204,7 @@
                 <width>1952</width>
                 <height>332</height>
                 <texture border="16">dialog_context.png</texture>
-                <colordiffuse>$VAR[ColorDialogVar]</colordiffuse>
+                <colordiffuse>dialog</colordiffuse>
             </control>
             <control type="image">
                 <left>30</left>
@@ -231,7 +231,7 @@
                     <width>1585</width>
                     <height>40</height>
                     <font>font13</font>
-                    <textcolor>$VAR[ColorHighlightVar]</textcolor>
+                    <textcolor>highlight</textcolor>
                     <label>$INFO[VideoPlayer.ChannelNumberLabel,, ]$INFO[VideoPlayer.ChannelName]</label>
                 </control>
                 <control type="label">
@@ -249,7 +249,7 @@
                     <width>1585</width>
                     <height>40</height>
                     <font>font14</font>
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[19031]: [/COLOR]$INFO[VideoPlayer.NextTitle] $INFO[VideoPlayer.NextStartTime,(, - ]$INFO[VideoPlayer.NextEndTime,,)]</label>
+                    <label>[COLOR highlight]$LOCALIZE[19031]: [/COLOR]$INFO[VideoPlayer.NextTitle] $INFO[VideoPlayer.NextStartTime,(, - ]$INFO[VideoPlayer.NextEndTime,,)]</label>
                     <scroll>true</scroll>
                 </control>
             </control>

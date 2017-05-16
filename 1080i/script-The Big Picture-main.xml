@@ -10,7 +10,7 @@
         <control type="image">
             <include>FullscreenDimensions</include>
             <texture>background.png</texture>
-            <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+            <colordiffuse>background</colordiffuse>
         </control>
         <control type="label" id="104">
             <description>Arrows visibility-controller</description>
@@ -33,7 +33,7 @@
             <top>510</top>
             <width>60</width>
             <height>60</height>
-            <texture colordiffuse="$VAR[ColorTextVar]" fallback="special://skin/extras/spinners/Sun.png">$INFO[Skin.String(busyloader)]</texture>
+            <texture colordiffuse="maintext" fallback="special://skin/extras/spinners/Sun.png">$INFO[Skin.String(busyloader)]</texture>
             <aspectratio>keep</aspectratio>
             <animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">conditional</animation>
             <animation effect="fade" start="0" end="100" time="400" delay="720">WindowOpen</animation>
@@ -96,7 +96,7 @@
                 <left>60</left>
                 <width>29</width>
                 <height>58</height>
-                <texture flipx="true" colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
+                <texture flipx="true" colordiffuse="highlight">arrowright.png</texture>
                 <visible>Control.IsVisible(104) + Integer.IsGreater(Container(100).NumPages,0) + !String.IsEqual(Container(100).CurrentPage,1)</visible>
             </control>
             <control type="image">
@@ -104,7 +104,7 @@
                 <left>1831</left>
                 <width>29</width>
                 <height>58</height>
-                <texture colordiffuse="$VAR[ColorHighlightVar]">arrowright.png</texture>
+                <texture colordiffuse="highlight">arrowright.png</texture>
                 <visible>Control.IsVisible(104) + Integer.IsGreater(Container(100).NumPages,0) + !String.IsEqual(Container(100).CurrentPage,Container(100).NumPages)</visible>
             </control>
         </control>-->
@@ -121,7 +121,7 @@
                 <width>FullScreenWidth</width>
                 <height>230</height>
                 <texture>background.png</texture>
-                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+                <colordiffuse>background</colordiffuse>
             </control>
             <control type="textbox">
                 <description>Description text</description>

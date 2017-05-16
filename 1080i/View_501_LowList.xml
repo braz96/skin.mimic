@@ -9,7 +9,7 @@
                 <top>600</top>
                 <width>FullScreenWidth</width>
                 <height>651</height>
-                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+                <colordiffuse>background</colordiffuse>
                 <texture>background.png</texture>
             </control>
             <control type="group">
@@ -74,13 +74,13 @@
                 <height>360</height>
                 <usecontrolcoords>true</usecontrolcoords>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
+                    <label>[COLOR highlight]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.AddonType)</visible>
                 </control>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
+                    <label>[COLOR highlight]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
@@ -109,7 +109,7 @@
                     <visible>Control.HasFocus(501)</visible>
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="50">Hidden</animation>
-                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <texture colordiffuse="highlight" border="5">listselect_fo.png</texture>
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,4)">Conditional</animation>
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,3)">Conditional</animation>
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,2)">Conditional</animation>
@@ -301,7 +301,7 @@
                 <width>FullScreenWidth</width>
                 <height>485</height>
                 <texture>background.png</texture>
-                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+                <colordiffuse>background</colordiffuse>
             </control>
             <control type="group">
                 <visible>!Container.Content(addons)</visible>
@@ -335,43 +335,43 @@
                 <height>360</height>
                 <usecontrolcoords>true</usecontrolcoords>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[557]:[/COLOR][CR]$INFO[ListItem.Artist]</label>
+                    <label>[COLOR highlight]$LOCALIZE[557]:[/COLOR][CR]$INFO[ListItem.Artist]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.Artist)</visible>
                 </control>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[558]/$LOCALIZE[562]:[/COLOR][CR]$INFO[ListItem.Album]$INFO[ListItem.Year, (,)]</label>
+                    <label>[COLOR highlight]$LOCALIZE[558]/$LOCALIZE[562]:[/COLOR][CR]$INFO[ListItem.Album]$INFO[ListItem.Year, (,)]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>Container.Content(songs) + !String.IsEmpty(ListItem.Album)</visible>
                 </control>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Genre]</label>
+                    <label>[COLOR highlight]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Genre]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.Genre)</visible>
                 </control>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[180]:[/COLOR][CR]$INFO[ListItem.Duration]</label>
+                    <label>[COLOR highlight]$LOCALIZE[180]:[/COLOR][CR]$INFO[ListItem.Duration]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.Duration)</visible>
                 </control>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21894]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Formed)]</label>
+                    <label>[COLOR highlight]$LOCALIZE[21894]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Formed)]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Genre))</visible>
                 </control>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21893]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Born)]</label>
+                    <label>[COLOR highlight]$LOCALIZE[21893]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Born)]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Genre))</visible>
                 </control>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Genre)]</label>
+                    <label>[COLOR highlight]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Property(Artist_Genre)]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.Property(Artist_Genre)) + !Window.IsActive(musicplaylist) + !Container.Content(artists)</visible>
@@ -398,13 +398,13 @@
                 <height>360</height>
                 <usecontrolcoords>true</usecontrolcoords>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
+                    <label>[COLOR highlight]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.AddonType)</visible>
                 </control>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
+                    <label>[COLOR highlight]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
@@ -433,7 +433,7 @@
                     <visible>Control.HasFocus(501)</visible>
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="50">Hidden</animation>
-                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <texture colordiffuse="highlight" border="5">listselect_fo.png</texture>
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,4)">Conditional</animation>
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,3)">Conditional</animation>
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,2)">Conditional</animation>
@@ -487,7 +487,7 @@
                         <height>40</height>
                         <aspectratio>keep</aspectratio>
                         <texture>$VAR[StarRatingVar]</texture>
-                        <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                        <colordiffuse>maintext</colordiffuse>
                         <visible>!String.IsEmpty(ListItem.Title)</visible>
                     </control>
                 </itemlayout>
@@ -575,7 +575,7 @@
                         <height>40</height>
                         <aspectratio>keep</aspectratio>
                         <texture>$VAR[StarRatingVar]</texture>
-                        <colordiffuse>$VAR[ColorTextVar]</colordiffuse>
+                        <colordiffuse>maintext</colordiffuse>
                         <visible>!String.IsEmpty(ListItem.Title)</visible>
                     </control>
                 </itemlayout>
@@ -693,7 +693,7 @@
                 <width>FullScreenWidth</width>
                 <height>485</height>
                 <texture>background.png</texture>
-                <colordiffuse>$VAR[ColorBackgroundVar]</colordiffuse>
+                <colordiffuse>background</colordiffuse>
             </control>
             <control type="group">
                 <left>30</left>
@@ -713,13 +713,13 @@
                 <height>360</height>
                 <usecontrolcoords>true</usecontrolcoords>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
+                    <label>[COLOR highlight]$LOCALIZE[146][/COLOR][CR]$INFO[ListItem.AddonType]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.AddonType)</visible>
                 </control>
                 <control type="button">
-                    <label>[COLOR $VAR[ColorHighlightVar]]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
+                    <label>[COLOR highlight]$LOCALIZE[21863]:[/COLOR][CR]$INFO[ListItem.AddonCreator]</label>
                     <width>610</width>
                     <include>InfoPanelButtonsValues</include>
                     <visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
@@ -747,7 +747,7 @@
                     <visible>Control.HasFocus(501)</visible>
                     <animation effect="fade" time="320" delay="200">Visible</animation>
                     <animation effect="fade" time="50">Hidden</animation>
-                    <texture colordiffuse="$VAR[ColorHighlightVar]" border="5">listselect_fo.png</texture>
+                    <texture colordiffuse="highlight" border="5">listselect_fo.png</texture>
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,4)">Conditional</animation>
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,3)">Conditional</animation>
                     <animation effect="slide" end="0,67" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(501).Row,2)">Conditional</animation>
