@@ -209,6 +209,19 @@
                     <onclick>SetProperty(chooseProperty,widgetSortDirection)</onclick>
                     <onclick>SendClick(404)</onclick>
                 </control>
+                <control type="button" id="504">
+                    <description>Widget limit items</description>
+                    <width>1316</width>
+                    <height>90</height>
+                    <textoffsetx>30</textoffsetx>
+                    <font>font15</font>
+                    <label>- $LOCALIZE[31061]</label>
+                    <label2>$VAR[WidgetLimitLabel]</label2>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <enable>!String.IsEqual(Container(211).ListItem.Property(widget),weather) + !String.IsEqual(Container(211).ListItem.Property(widget),settings) + !String.IsEqual(Container(211).ListItem.Property(widget),systeminfo)</enable>
+                    <onclick>SetProperty(chooseProperty,widgetLimit)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                </control>
                 <control type="button" id="500">
                     <description>Choose infoline</description>
                     <width>1316</width>
