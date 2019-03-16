@@ -783,6 +783,16 @@
                         <label>206</label>
                         <visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
                     </control>
+                    <control type="button" id="9146">
+                        <description>Special Features button</description>
+                        <include>ButtonInfoDialogsCommonValues</include>
+                        <label>31950</label>
+                        <visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
+                        <visible>System.HasAddon(plugin.video.specialfeatures)</visible>
+                        <visible>String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)</visible>
+                        <onclick>Action(close)</onclick>
+                        <onclick>RunScript(plugin.video.specialfeatures,listitem)</onclick>
+                    </control>
                     <control type="button" id="206">
                         <description>Sets list</description>
                         <include>ButtonInfoDialogsCommonValues</include>
